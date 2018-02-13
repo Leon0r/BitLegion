@@ -2,6 +2,7 @@
 #define GAMEOBJECT_H_
 
 #include "Vector2D.h"
+class Game;
 
 class GameObject
 {
@@ -9,8 +10,20 @@ public:
 	GameObject();
 	virtual ~GameObject();
 
+	Vector2D getPosition() { 
+		return position_; 
+	}
+
+	double getWidth() {
+		return width_;
+	}
+
+	double getHeight() {
+		return height_;
+	}
+
 protected:
-	//SDLGame* game_; // pointer to the game
+	Game* game_; // pointer to the game
 
 	bool active_;   // indicates if the object is active
 
