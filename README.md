@@ -1,6 +1,7 @@
 BitLegion
 
-incluir aqui el proyecto de SDL
+incluir aqui el proyecto de SDL ANTES DE DESCARGAR EL REPO
+
 
 ¡CUIDADO! 
 CERRAR VISUAL ANTES DE HACER CADA COMMIT/PULL/PUSH O ACCION CON GITHUB EN GENERAL 
