@@ -7,7 +7,7 @@
 class GameState
 {
 protected:
-	list <GameObject*> stage; //lista de objetos del estado
+	list <GameObject*> stage; //lista de objetos del estados
 	SDLApp* app; //puntero a SDLApp
 public:
 	virtual void render() { for (GameObject* it : stage) { it->render(); } }; //manda a los objetos del estado render
