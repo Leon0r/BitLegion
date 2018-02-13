@@ -1,14 +1,18 @@
 #ifndef GAMEOBJECT_H_
 #define GAMEOBJECT_H_
-
+#include <SDL.h>
 #include "Vector2D.h"
 class Game;
 
+class SDLApp;
 class GameObject
 {
 public:
 	GameObject();
 	virtual ~GameObject();
+	virtual void render() = 0;
+	virtual void update() = 0;
+	virtual bool handleEvent(SDL_Event& e) = 0;
 
 	Vector2D getPosition() { 
 		return position_; 
@@ -24,6 +28,7 @@ public:
 
 protected:
 	Game* game_; // pointer to the game
+	SDLApp* app;
 
 	bool active_;   // indicates if the object is active
 
