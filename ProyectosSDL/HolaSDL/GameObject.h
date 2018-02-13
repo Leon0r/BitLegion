@@ -2,7 +2,6 @@
 #define GAMEOBJECT_H_
 #include <SDL.h>
 #include "Vector2D.h"
-class Game;
 
 class SDLApp;
 class GameObject
@@ -27,8 +26,7 @@ public:
 	}
 
 protected:
-	Game* game_; // pointer to the game
-	SDLApp* app;
+	SDLApp* app;   // pointer to the game
 
 	bool active_;   // indicates if the object is active
 
