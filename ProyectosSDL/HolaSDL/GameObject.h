@@ -8,6 +8,7 @@ class GameObject
 {
 public:
 	GameObject();
+	GameObject(SDLApp* game) :app(game) {}
 	virtual ~GameObject();
 	virtual void render() = 0;
 	virtual void update() = 0;
