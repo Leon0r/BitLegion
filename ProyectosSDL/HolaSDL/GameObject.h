@@ -10,9 +10,11 @@ public:
 	GameObject();
 	GameObject(SDLApp* game) :app(game) {}
 	virtual ~GameObject();
-	virtual void render() = 0;
-	virtual void update() = 0;
-	virtual bool handleEvent(SDL_Event& e) = 0;
+
+	// abstract methods to be implemented in sub-classes
+	virtual void handleInput(Uint32 time, const SDL_Event& event) = 0;
+	virtual void update(Uint32 time) = 0;
+	virtual void render(Uint32 time) = 0;
 
 	Vector2D getPosition() { 
 		return position_; 

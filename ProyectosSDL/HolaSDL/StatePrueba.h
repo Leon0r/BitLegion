@@ -1,13 +1,13 @@
 #pragma once
 #include "GameState.h"
-#include "GOPrueba.h"
+#include "GameComponent.h"
 
 class StatePrueba: public GameState
 {
 public:
 	StatePrueba();
 	~StatePrueba();
-	StatePrueba(SDLApp* app) : GameState(app) { GOPrueba* prueba = new GOPrueba('a'); stage.push_back(prueba); };
+	StatePrueba(SDLApp* app);
 	virtual void update() { GameState::update(); }
 };
 
