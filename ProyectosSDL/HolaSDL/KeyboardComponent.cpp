@@ -18,10 +18,10 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 
 	if (event.type == SDL_KEYDOWN) {
 		if (event.key.keysym.sym == right) {
-			velocity.setX(-5);
+			velocity.setX(5);
 		}
 		else if (event.key.keysym.sym == left) {
-			velocity.setX(5);
+			velocity.setX(-5);
 		}
 	}
 

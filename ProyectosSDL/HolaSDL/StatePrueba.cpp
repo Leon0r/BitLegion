@@ -15,7 +15,7 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 	texture->loadFromImg(app->getRenderer(), "..//images/detectivesSprites.png");
 	RenderComponent* render = new ImageRenderer(texture);
 	detective->addRenderComponent(render);
-	InputComponent* keyboard = new KeyboardComponent(SDLK_LEFT, SDLK_RIGHT);
+	InputComponent* keyboard = new KeyboardComponent(SDLK_RIGHT, SDLK_LEFT);
 	detective->addInputComponent(keyboard);
 	stage.push_back(detective);
 }
