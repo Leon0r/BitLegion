@@ -18,6 +18,14 @@ public:
 		return position_; 
 	}
 
+	Vector2D getVelocity() {
+		return velocity_;
+	}
+
+	void setVelocity(Vector2D velocity) {
+		velocity_ = velocity;
+	}
+
 	double getWidth() {
 		return width_;
 	}
