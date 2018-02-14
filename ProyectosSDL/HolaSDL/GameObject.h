@@ -36,6 +36,22 @@ public:
 		return height_;
 	}
 
+	void setWidth(double w) {
+		width_ = w;
+	}
+
+	void setHeight(double h) {
+		height_ = h;
+	}
+
+	void setPosition(Vector2D newPos) {
+		position_ = newPos;
+	}
+
+	SDLApp* getGame() {
+		return app;
+	}
+
 protected:
 	SDLApp* app;   // pointer to the game
 
