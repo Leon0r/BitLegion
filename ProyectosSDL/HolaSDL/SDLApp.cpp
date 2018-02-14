@@ -1,6 +1,6 @@
 #include "SDLApp.h"
 #include "GameStateMachine.h"
-#include "StatePrueba.h"
+#include "Inventory.h"
 
 SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 {
@@ -13,7 +13,7 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		window = SDL_CreateWindow("First test with SDL", winX, winY, winWidth, winHeight, SDL_WINDOW_SHOWN);
 		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 		maquinaEstados = new GameStateMachine();
-		maquinaEstados->pushState(new StatePrueba(this));
+		maquinaEstados->pushState(new Inventory(this));
 }
 
 void SDLApp::handleEvent() {

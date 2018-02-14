@@ -2,6 +2,8 @@
 #include "GameObject.h"
 #include "SDLApp.h"
 #include <list>
+#include <string>
+#include "Texture.h"
 
 
 class GameState
@@ -14,7 +16,7 @@ public:
 	virtual void update() { for (GameObject* it : stage) { it->update(0); } }; //manda a los objetos del estado update
 	virtual void handleEvent(SDL_Event &e);
 	GameState();
-	~GameState() { for (GameObject* it : stage) { delete it; } }; //delete de los objetos
+	virtual ~GameState() { for (GameObject* it : stage) { delete it; } }; //delete de los objetos
 	GameState(SDLApp* app) : app(app) {}
 };
 
