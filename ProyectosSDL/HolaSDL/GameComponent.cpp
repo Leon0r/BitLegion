@@ -14,11 +14,9 @@ void GameComponent::handleInput(Uint32 time, const SDL_Event& event) {
 }
 
 void GameComponent::update(Uint32 time) {
-	position_ = position_ + velocity_;
 	for (PhysicsComponent* pc : physicsComp_) {
 		pc->update(this, time);
 	}
-	velocity_.setX(0);
 }
 
 void GameComponent::render(Uint32 time) {

@@ -1,25 +1,22 @@
 #include "StatePrueba.h"
 
-
-
-StatePrueba::StatePrueba()
-{
-}
-
 StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
-	detective = new GameComponent(app);
-	detective->setWidth(400);
-	detective->setHeight(300);
-	detective->setPosition(Vector2D(app->getWindowWidth() / 2 - detective->getWidth(), app->getWindowHeight() / 2 - detective->getHeight()));
+	//creamos al personaje
+	alena = new GameComponent(app);
+	alena->setWidth(39);//ancho, alto, posicion y textura
+	alena->setHeight(143);
+	alena->setPosition(Vector2D(app->getWindowWidth() / 2 - alena->getWidth(), app->getWindowHeight() / 2 - alena->getHeight()));
 	Texture* texture = new Texture;
-	texture->loadFromImg(app->getRenderer(), "..//images/detectivesSprites.png");
-	RenderComponent* render = new ImageRenderer(texture);
-	detective->addRenderComponent(render);
-	InputComponent* keyboard = new KeyboardComponent(SDLK_RIGHT, SDLK_LEFT);
-	detective->addInputComponent(keyboard);
-	stage.push_back(detective);
-}
+	texture->loadFromImg(app->getRenderer(), "..//images/Alena.png");
 
-StatePrueba::~StatePrueba()
-{
+	//componentes
+	RenderComponent* render = new ImageRenderer(texture);
+	alena->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
+	InputComponent* keyboard = new KeyboardComponent(5, SDLK_RIGHT, SDLK_LEFT);
+	alena->addInputComponent(keyboard);//componente de input para manejar su direccion
+	PhysicsComponent* movement = new MovementComponent();
+	alena->addPhysicsComponent(movement);//componente de movimiento para que pueda moverse
+
+	//añadimos el personaje a la lista de personajes
+	stage.push_back(alena);
 }

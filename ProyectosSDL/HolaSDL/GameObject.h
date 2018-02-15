@@ -24,7 +24,15 @@ public:
 		return velocity_;
 	}
 
+	Vector2D getDirection() {
+		return direction_;
+	}
+
 	void setVelocity(Vector2D velocity) {
+		velocity_ = velocity;
+	}
+
+	void setDirection(Vector2D velocity) {
 		velocity_ = velocity;
 	}
 
