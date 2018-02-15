@@ -2,6 +2,7 @@
 #define RENDERCOMPONENT_H_
 
 #include "GameObject.h"
+#include "Texture.h"
 
 /*
  *

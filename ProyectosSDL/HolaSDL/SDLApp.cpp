@@ -1,6 +1,7 @@
 #include "SDLApp.h"
 #include "GameStateMachine.h"
 #include "Inventory.h"
+#include "ObjectList.h"
 
 SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 {
@@ -13,7 +14,10 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		window = SDL_CreateWindow("First test with SDL", winX, winY, winWidth, winHeight, SDL_WINDOW_SHOWN);
 		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 		maquinaEstados = new GameStateMachine();
-		maquinaEstados->pushState(new Inventory(this));
+
+		ObjectList* list = new ObjectList(this); //esto de prueba eh, hay q hacer deletes q no se borra 
+		maquinaEstados->pushState(new Inventory(this, list));
+
 }
 
 void SDLApp::handleEvent() {
@@ -39,7 +43,7 @@ void SDLApp::closeSDL() {
 	maquinaEstados->libera(); 
 	SDL_DestroyRenderer(renderer); 
 	renderer = nullptr; 
-	SDL_DestroyWindow(window); 
+	SDL_DestroyWindow(window);
 	window = nullptr; SDL_Quit();
 }
 //---------------------------Gets-------------------------

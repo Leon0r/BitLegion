@@ -23,3 +23,9 @@ bool ComponenteClickeable::handleEvent(GameObject* o, const SDL_Event& e) {
 	}
 	return eventHandled;
 }
+
+void ComponenteClickeable::handleInput(GameObject* o, Uint32 time, const SDL_Event& event) {
+	if (handleEvent(o, event)) {
+		std::cout << "click";
+	}
+}

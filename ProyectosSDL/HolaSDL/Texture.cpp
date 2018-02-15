@@ -1,4 +1,5 @@
 #include "Texture.h"
+#include <SDL_image.h>
 
 Texture::Texture() :
 		texture_(nullptr), width_(0), height_(0) {
@@ -37,7 +38,7 @@ void Texture::close() {
 }
 
 bool Texture::loadFromImg(SDL_Renderer* renderer, std::string fileName) {
-	SDL_Surface* surface = nullptr/*= IMG_Load(fileName.c_str())*/;
+	SDL_Surface* surface = IMG_Load(fileName.c_str());
 	if (surface != nullptr) {
 		close(); // destroy current texture
 		texture_ = SDL_CreateTextureFromSurface(renderer, surface);

@@ -4,7 +4,7 @@
 #include <list>
 #include <string>
 #include "Texture.h"
-
+#include "ImageRenderer.h"
 
 class GameState
 {
