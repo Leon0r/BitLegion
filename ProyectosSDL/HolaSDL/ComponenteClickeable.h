@@ -1,13 +1,12 @@
 #pragma once
 #include <SDL.h>
+#include "InputComponent.h"
 
-class ComponenteClickeable
+class ComponenteClickeable:
+	public InputComponent
 {
 public:
-	ComponenteClickeable(SDL_Rect _rect);
+	ComponenteClickeable();
 	~ComponenteClickeable();
-	bool handleEvent(SDL_Event e);
-private: 
-	SDL_Rect rect;
+	bool handleEvent(GameObject* o, const SDL_Event& event);
 };
-
