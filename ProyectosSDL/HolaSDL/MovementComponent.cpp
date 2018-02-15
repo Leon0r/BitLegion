@@ -7,7 +7,7 @@ void MovementComponent::update(GameObject* o, Uint32 time)
 	Vector2D position = o->getPosition();
 	Vector2D velocity = o->getVelocity();
 
-	position = position + (velocity/time);//actualizamos posicion en funcion de la velocidad
+	position = position + velocity;//actualizamos posicion en funcion de la velocidad
 	double x = position.getX();
 	double y = position.getY();
 
@@ -18,6 +18,7 @@ void MovementComponent::update(GameObject* o, Uint32 time)
 	position.setY(y);
 
 	o->setPosition(position);
+	o->setVelocity(velocity);
 }
 
 //controla que el personaje no salga de la pantalla

@@ -5,7 +5,8 @@
 class KeyboardComponent : public InputComponent {
 public:
 	//establecemos velocidad y teclas de direccion
-	KeyboardComponent(double v, SDL_Keycode right, SDL_Keycode left) : vel_(v), right(right), left(left) {}
+	KeyboardComponent(double v, SDL_Keycode right, SDL_Keycode left, SDL_Keycode up, SDL_Keycode down) : 
+		vel_(v), right(right), left(left), up(up), down(down) {}
 	~KeyboardComponent() {}
 
 	//miramos eventos de teclado
@@ -15,5 +16,8 @@ private:
 	double vel_;//velocidad y teclas de direccion
 	SDL_Keycode right;
 	SDL_Keycode left;
+	SDL_Keycode up;
+	SDL_Keycode down;//flags para saber si has pulsado las teclas
+	bool r = false, l = false, u = false, d = false;
 };
 
