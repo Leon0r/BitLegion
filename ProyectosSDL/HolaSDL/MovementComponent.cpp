@@ -7,7 +7,7 @@ void MovementComponent::update(GameObject* o, Uint32 time)
 	Vector2D position = o->getPosition();
 	Vector2D velocity = o->getVelocity();
 
-	position = position + velocity;//actualizamos posicion en funcion de la velocidad
+	position = position + (velocity/time);//actualizamos posicion en funcion de la velocidad
 	double x = position.getX();
 	double y = position.getY();
 
@@ -17,7 +17,6 @@ void MovementComponent::update(GameObject* o, Uint32 time)
 	position.setX(x);
 	position.setY(y);
 
-	o->setVelocity({ 0, 0 });
 	o->setPosition(position);
 }
 
