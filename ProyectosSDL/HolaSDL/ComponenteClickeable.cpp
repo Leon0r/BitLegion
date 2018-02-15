@@ -10,7 +10,7 @@ ComponenteClickeable::~ComponenteClickeable()
 {
 }
 
-bool ComponenteClickeable::handleEvent(GameObject* o, const SDL_Event& e) {
+bool ComponenteClickeable::handleInput(GameObject* o, const SDL_Event& e) {
 	
 	bool eventHandled = false;
 
