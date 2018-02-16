@@ -18,7 +18,15 @@ public:
 	ObjectList(SDLApp* app) : app(app) {};
 	void addItem(Texture* txt, string tag, string descripcion); //añadir un objeto
 	//void deleteItem(); podemos hacerlo por tags (?)
-
+	CasillaInventario* getItem(int num) {
+		int i = 0;
+		for (it = objetos.begin(); it != objetos.end(); it++) {
+			if (i == num) 
+				return *it;
+			i++;
+		}
+	}
+	int getLength() { return (int)objetos.size()-1; }
 	void pushObjects(list <GameObject*>& stage) { for (it = objetos.begin(); it != objetos.end(); it++) { stage.push_back(*(it)); } } //recibe la lista de stages del inventario
 	//y pushea esos objetos dentro para que realicen sus funciones básicas
 };
