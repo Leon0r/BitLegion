@@ -11,6 +11,8 @@ private:
 	ObjectList* inventario;
 	Texture* txt;
 	Texture* txt2;
+	RenderComponent* imagen;
+	GameComponent* inventarioHud = new GameComponent(app);
 	const double espaciado = 87;
 	const double numCas = 5;
 	vector<Vector2D> matriz;
