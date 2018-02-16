@@ -18,9 +18,16 @@ public:
 	ObjectList(SDLApp* app) : app(app) {};
 	void addItem(Texture* txt, string tag, string descripcion); //añadir un objeto
 	void deleteItem(string tag) {
-		for (it = objetos.begin(); it != objetos.end(); it++)
-			if ((*it)->getTag() == tag)
-				objetos.erase(it);
+		bool borrado = false;
+		it = objetos.begin();
+		while (it != objetos.end() && !borrado) {
+			if ((*it)->getTag() == tag && !borrado) {
+				borrado = true;
+				delete(*it);
+				it = objetos.erase(it);
+			}
+			it++;
+		}
 	}
 	//void deleteItem(); podemos hacerlo por tags (?)
 	CasillaInventario* getItem(int num) {

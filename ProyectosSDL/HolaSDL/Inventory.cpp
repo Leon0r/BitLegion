@@ -23,6 +23,7 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 		inventario->addItem(txt, "b", "kk");
 		inventario->getItem(i)->setPosition(Vector2D(matriz[i] + inventario->getItem(i)->getPosition()));
 	}
+	inventario->deleteItem("b");
 	stage.push_back(inventarioHud);
 	inventario->pushObjects(stage);
 }
