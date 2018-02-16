@@ -8,7 +8,8 @@ class ComponenteClickeable:
 public:
 	ComponenteClickeable();
 	~ComponenteClickeable();
-	bool handleInput(GameObject* o, const SDL_Event& event);
+	void handleInput(GameObject* o, Uint32 time, const SDL_Event& event) {};
+	bool handleInput(GameObject* o, const SDL_Event& event);//Quitar Void y cambiar por bool
 private: 
 	
 };
