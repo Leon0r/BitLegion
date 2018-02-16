@@ -24,7 +24,15 @@ public:
 		return velocity_;
 	}
 
+	Vector2D getDirection() {
+		return direction_;
+	}
+
 	void setVelocity(Vector2D velocity) {
+		velocity_ = velocity;
+	}
+
+	void setDirection(Vector2D velocity) {
 		velocity_ = velocity;
 	}
 
@@ -34,6 +42,22 @@ public:
 
 	double getHeight() {
 		return height_;
+	}
+
+	void setWidth(double w) {
+		width_ = w;
+	}
+
+	void setHeight(double h) {
+		height_ = h;
+	}
+
+	void setPosition(Vector2D newPos) {
+		position_ = newPos;
+	}
+
+	SDLApp* getGame() {
+		return app;
 	}
 
 protected:
