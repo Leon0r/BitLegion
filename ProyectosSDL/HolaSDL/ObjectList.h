@@ -14,9 +14,17 @@ private:
 	SDLApp* app;
 public:
 	ObjectList();
-	~ObjectList() { for (it = objetos.begin(); it != objetos.end();) { it = objetos.erase(it); } std::cout << "delete"; }; //delete
+	~ObjectList() { for (it = objetos.begin(); it != objetos.end(); it++) { it = objetos.erase(it); } std::cout << "delete"; }; //delete
 	ObjectList(SDLApp* app) : app(app) {};
 	void addItem(Texture* txt, string tag, string descripcion); //añadir un objeto
+	void deleteItem(int num) {
+		int i = 0;
+		for (it = objetos.begin(); it != objetos.end(); it++) {
+			if (i == num)
+				objetos.erase(it);
+			i++;
+		}
+	}
 	//void deleteItem(); podemos hacerlo por tags (?)
 	CasillaInventario* getItem(int num) {
 		int i = 0;
