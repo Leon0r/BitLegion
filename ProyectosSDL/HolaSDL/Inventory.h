@@ -20,5 +20,6 @@ public:
 	Inventory() {};
 	Inventory(SDLApp* app, ObjectList* inventario);
 	virtual ~Inventory() { txt = nullptr; stage.clear(); };
+	virtual void handleEvent(SDL_Event& event);
 };
 
