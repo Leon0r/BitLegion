@@ -12,7 +12,7 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 	//componentes
 	RenderComponent* render = new ImageRenderer(texture);
 	alena->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
-	InputComponent* keyboard = new KeyboardComponent(0.03, SDLK_RIGHT, SDLK_LEFT, SDLK_UP, SDLK_DOWN);
+	InputComponent* keyboard = new KeyboardComponent(5, SDLK_RIGHT, SDLK_LEFT, SDLK_UP, SDLK_DOWN);
 	alena->addInputComponent(keyboard);//componente de input para manejar su direccion
 	PhysicsComponent* movement = new MovementComponent();
 	alena->addPhysicsComponent(movement);//componente de movimiento para que pueda moverse
