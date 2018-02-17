@@ -1,7 +1,7 @@
 #include "Inventory.h"
 
 Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inventario(inventario) {
-	int numElem = 17;
+	int numElem = 18;
 	matriz.resize(numCas*numCas);
 	for (int i = 0; i < numCas; i++) {
 		for (int j = 0; j < numCas; j++) {
@@ -27,8 +27,9 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	marca->setWidth(87);
 
 	for (int i = 0; i < numElem; i++) {
-		if(i % 2) inventario->addItem(txt, "b", "kk");
-		else inventario->addItem(txt3, "c", "kk2");
+		if(i < numElem/3) inventario->addItem(txt, "a", "kk");
+		else if (i < numElem*2/3) inventario->addItem(txt3, "b", "kk2");
+		else inventario->addItem(txt2, "c", "kk3");
 		inventario->getItem(i)->setPosition(Vector2D(matriz[i] + inventario->getItem(i)->getPosition()));
 	}
 	//inventario->deleteItem("b0");
