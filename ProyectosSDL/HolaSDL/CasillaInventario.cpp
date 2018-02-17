@@ -1,5 +1,6 @@
 #include "CasillaInventario.h"
 #include "ComponenteClickeable.h"
+
 CasillaInventario::~CasillaInventario()
 {
 	GameComponent::~GameComponent();

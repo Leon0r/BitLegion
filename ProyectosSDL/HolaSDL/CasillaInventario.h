@@ -7,6 +7,7 @@ private:
 	string tag;
 	string description;
 public:
+	CasillaInventario() {};
 	virtual ~CasillaInventario();
 
 	//Constructora que recibe el tag y su descripcion

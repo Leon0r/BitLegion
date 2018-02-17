@@ -12,6 +12,6 @@ void ObjectList::addItem(Texture* txt, string tag, string descripcion) {
 	newCasilla->addRenderComponent(cmpRender);
 	newCasilla->setWidth(20);
 	newCasilla->setHeight(40); //medidas de prueba
-	newCasilla->setPosition(Vector2D(160 - txt->getWidth()/2 , 175 - txt->getHeight()/2));
+	newCasilla->setPosition(Vector2D(-newCasilla->getWidth()/2 , -newCasilla->getHeight()/2));
 	objetos.push_back(newCasilla); //lo guardamos
 }
