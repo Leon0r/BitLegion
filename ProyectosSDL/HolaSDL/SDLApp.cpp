@@ -15,9 +15,9 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 		maquinaEstados = new GameStateMachine();
 
-		ObjectList* list = new ObjectList(this); //esto de prueba eh, hay q hacer deletes q no se borra 
+		ObjectList* list = new ObjectList(this); //esto de prueba eh, hay q hacer deletes q no se borra
+		TTF_Init();
 		maquinaEstados->pushState(new Inventory(this, list));
-
 }
 
 void SDLApp::handleEvent() {

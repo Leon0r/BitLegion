@@ -4,6 +4,9 @@
 #include "ComponenteClickeable.h"
 #include "ObjectList.h"
 
+const unsigned int tamanyoFuente = 35;
+const SDL_Color colorFuente = { 255, 255, 255, 1 };
+
 class Inventory :
 	public GameState
 {
@@ -13,6 +16,8 @@ private:
 	Texture* txt2;
 	Texture* txt3;
 	Texture* txt4;
+	Texture fuente;
+	Font* f;
 	CasillaInventario* copia = new CasillaInventario();
 	RenderComponent* imagen;
 	GameComponent* inventarioHud = new GameComponent(app);
@@ -26,9 +31,11 @@ private:
 public:
 	Inventory() {};
 	Inventory(SDLApp* app, ObjectList* inventario);
-	virtual ~Inventory() { txt = nullptr; stage.clear(); };
+	virtual ~Inventory() { destroy(); stage.clear(); };
 	virtual void handleEvent(SDL_Event& event);
+	virtual void render();
 	void muestraDescripcion(CasillaInventario* aux);
 	CasillaInventario* getLastClicked() { return copia; };
+	void destroy();
 };
 
