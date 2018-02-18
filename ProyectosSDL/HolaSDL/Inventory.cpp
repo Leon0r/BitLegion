@@ -1,4 +1,5 @@
 #include "Inventory.h"
+#include "Boton.h"
 
 Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inventario(inventario) {
 	int numElem = 18;
@@ -14,6 +15,8 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	txt2->loadFromImg(app->getRenderer(), "..//images/Inventario.png");
 	txt3 = new Texture();
 	txt3->loadFromImg(app->getRenderer(), "..//images/InvMarca.png");
+	txt4 = new Texture();
+	txt4->loadFromImg(app->getRenderer(), "..//images/boton.png");
 	imagen = new ImageRenderer(txt2);
 	inventarioHud->addRenderComponent(imagen);
 	inventarioHud->setHeight(450);
@@ -42,6 +45,17 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 			- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2));
 		muestraDescripcion(inventario->getItem(0));
 	}
+
+	//--------------------Pruebas Botones ----------------------
+	Boton* newButton = new Boton(app, prueba, this); //nuevo Boton
+	ImageRenderer* im = new ImageRenderer(txt4); //se crea su image Renderer
+	newButton->addRenderComponent(im);
+	newButton->setPosition(Vector2D{ 400, 400 }); //posiciones random de prueba
+	newButton->setWidth(50);
+	newButton->setHeight(50);
+	stage.push_back(newButton); //se pushea
+
+	//-------------ConstructoraToGrandeLoko------------------------
 }
 
 void Inventory::handleEvent(SDL_Event& event) {
@@ -59,10 +73,11 @@ void Inventory::handleEvent(SDL_Event& event) {
 	GameState::handleEvent(event); //handleEvent del estado, el cual llama al handleInput de todos los GOs de la lista --> componentes normales
 }
 
+
 void Inventory::muestraDescripcion(CasillaInventario* aux) {
 	*copia = *aux;
 	copia->setHeight(copia->getHeight()*2);
 	copia->setWidth(copia->getWidth()*2);
 	copia->setPosition(Vector2D(618 - copia->getWidth()/2, 149 - copia->getHeight()/2));
-	stage.push_back(copia);
+	stage.push_back(copia); 
 }

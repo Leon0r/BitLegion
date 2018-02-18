@@ -12,6 +12,7 @@ private:
 	Texture* txt;
 	Texture* txt2;
 	Texture* txt3;
+	Texture* txt4;
 	CasillaInventario* copia = new CasillaInventario();
 	RenderComponent* imagen;
 	GameComponent* inventarioHud = new GameComponent(app);
@@ -19,6 +20,7 @@ private:
 	const double espaciado = 87;
 	const int numCas = 5;
 	vector<Vector2D> matriz;
+	static void prueba(GameState* state) { std::cout << "funciona";}; //ya funciona, se puede usar un cast para un metodo del inventario (usar, swap, por ejemplo)
 public:
 	Inventory() {};
 	Inventory(SDLApp* app, ObjectList* inventario);
