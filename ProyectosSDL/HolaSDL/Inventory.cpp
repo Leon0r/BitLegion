@@ -30,9 +30,9 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	marca->setWidth(87);
 
 	for (int i = 0; i < numElem; i++) {
-		if(i < numElem/3) inventario->addItem(txt, "a", "kk");
-		else if (i < numElem*2/3) inventario->addItem(txt3, "b", "kk2");
-		else inventario->addItem(txt2, "c", "kk3");
+		if(i < numElem/3) inventario->addItem(txt, "a", "kk" + to_string(i));
+		else if (i < numElem*2/3) inventario->addItem(txt3, "b", "kk2" + to_string(i));
+		else inventario->addItem(txt2, "c", "kk3" + to_string(i));
 		inventario->getItem(i)->setPosition(Vector2D(matriz[i] + inventario->getItem(i)->getPosition()));
 	}
 	//inventario->deleteItem("b0");
@@ -47,7 +47,7 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	}
 
 	//--------------------Pruebas Botones ----------------------
-	Boton* newButton = new Boton(app, prueba, this); //nuevo Boton
+	Boton* newButton = new Boton(app, usar, this); //nuevo Boton
 	ImageRenderer* im = new ImageRenderer(txt4); //se crea su image Renderer
 	newButton->addRenderComponent(im);
 	newButton->setPosition(Vector2D{ 400, 400 }); //posiciones random de prueba
