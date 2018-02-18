@@ -32,11 +32,15 @@ public:
 	//void deleteItem(); podemos hacerlo por tags (?)
 	CasillaInventario* getItem(int num) {
 		int i = 0;
-		for (it = objetos.begin(); it != objetos.end(); it++) {
-			if (i == num) 
-				return *it;
-			i++;
-		}
+		bool encontrado = false;
+		it = objetos.begin();
+		while (it != objetos.end() && !encontrado) { 
+			if (i == num) encontrado = true;
+			else {
+				i++;
+				it++;
+			}
+		} return *it;
 	}
 	int getLength() { return (int)objetos.size(); }
 	void pushObjects(list <GameObject*>& stage) { for (it = objetos.begin(); it != objetos.end(); it++) { stage.push_back(*(it)); } } //recibe la lista de stages del inventario

@@ -18,6 +18,9 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	txt3->loadFromImg(app->getRenderer(), "..//images/InvMarca.png");
 	txt4 = new Texture();
 	txt4->loadFromImg(app->getRenderer(), "..//images/boton.png");
+	txt5 = new Texture();
+	txt5->loadFromImg(app->getRenderer(), "..//images/InvMarcaS.png");
+
 	f = new Font("..//images/fuente2.ttf", tamanyoFuente);
 	imagen = new ImageRenderer(txt2);
 	inventarioHud->addRenderComponent(imagen);
@@ -49,13 +52,19 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	}
 
 	//--------------------Pruebas Botones ----------------------
-	Boton* newButton = new Boton(app, usar, this); //nuevo Boton
+	Boton* useButton = new Boton(app, usar, this, "use"); //nuevo Boton
 	ImageRenderer* im = new ImageRenderer(txt4); //se crea su image Renderer
-	newButton->addRenderComponent(im);
-	newButton->setPosition(Vector2D{ 400, 400 }); //posiciones random de prueba
-	newButton->setWidth(50);
-	newButton->setHeight(50);
-	stage.push_back(newButton); //se pushea
+	useButton->addRenderComponent(im);
+	useButton->setPosition(Vector2D{ 547, 450 }); //posiciones random de prueba
+	useButton->setWidth(txt4->getWidth());
+	useButton->setHeight(txt4->getHeight());
+	stage.push_back(useButton); //se pushea
+	Boton* swapButton = new Boton(app, usar, this, "swap"); //nuevo Boton
+	swapButton->addRenderComponent(im);
+	swapButton->setPosition(Vector2D{ 547, 480 }); //posiciones random de prueba
+	swapButton->setWidth(txt4->getWidth());
+	swapButton->setHeight(txt4->getHeight());
+	stage.push_back(swapButton); //se pushea
 	//-------------ConstructoraToGrandeLoko------------------------
 }
 
