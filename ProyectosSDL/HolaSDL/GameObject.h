@@ -2,6 +2,8 @@
 #define GAMEOBJECT_H_
 #include <SDL.h>
 #include "Vector2D.h"
+#include <string>
+using namespace std;
 
 class SDLApp;
 class GameObject
