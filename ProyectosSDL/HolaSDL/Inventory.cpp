@@ -1,6 +1,7 @@
 #include "Inventory.h"
 #include "Boton.h"
 #include "Font.h"
+//#include "GameStateMachine.h"
 
 Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inventario(inventario) {
 	matriz.resize(numCas*numCas);
@@ -76,7 +77,14 @@ void Inventory::handleEvent(SDL_Event& event) {
 		}
 	}
 	
-	GameState::handleEvent(event); //handleEvent del estado, el cual llama al handleInput de todos los GOs de la lista --> componentes normales
+	if (event.type == SDL_KEYDOWN) {
+		if (event.key.keysym.sym == SDLK_i) {
+			app->getStateMachine()->popState();
+		}
+	}
+	else {
+		GameState::handleEvent(event); //handleEvent del estado, el cual llama al handleInput de todos los GOs de la lista --> componentes normales
+	}	
 }
 
 void Inventory::render() {

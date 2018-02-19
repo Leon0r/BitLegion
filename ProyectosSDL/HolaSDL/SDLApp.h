@@ -1,9 +1,9 @@
 #pragma once
 #include <vector>
 #include <SDL.h>
+#include "GameStateMachine.h"
 using namespace std;
 
-class GameStateMachine;
 class SDLApp
 {
 private:

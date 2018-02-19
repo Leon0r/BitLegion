@@ -1,5 +1,4 @@
 #include "SDLApp.h"
-#include "GameStateMachine.h"
 #include "StatePrueba.h"
 #include "Inventory.h"
 

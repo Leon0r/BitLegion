@@ -1,6 +1,5 @@
 #include "KeyboardComponent.h"
 #include "Inventory.h"
-#include "GameStateMachine.h"
 
 //miramos eventos de teclado
 void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event& event)

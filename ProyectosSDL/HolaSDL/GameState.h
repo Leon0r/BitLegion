@@ -1,6 +1,5 @@
 #pragma once
 #include "GameObject.h"
-#include "SDLApp.h"
 #include "Font.h"
 #include "Texture.h"
 #include <list>
@@ -19,7 +18,7 @@ public:
 	virtual void update(); //manda a los objetos del estado update
 	virtual void handleEvent(SDL_Event &e);
 	GameState();
-	~GameState() { for (GameObject* it : stage) { delete it; } }; //delete de los objetos
+	virtual ~GameState() { for (GameObject* it : stage) { delete it; } }; //delete de los objetos
 	GameState(SDLApp* app) : app(app) {}
 };
 
