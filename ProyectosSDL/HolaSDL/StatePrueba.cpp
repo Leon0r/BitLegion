@@ -1,7 +1,5 @@
 #include "StatePrueba.h"
 
-
-
 StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 
 	ClickeableGO* test = new ClickeableGO(app, 400, 300, 400, 300, "descripcion", "tag");
@@ -9,7 +7,7 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 
 	
 	//creamos al personaje
-	alena = new GameComponent(app);
+	alena = new Entity(app);
 	alena->setWidth(39);//ancho, alto, posicion y textura
 	alena->setHeight(143);
 	alena->setPosition(Vector2D(app->getWindowWidth() / 2 - alena->getWidth(), app->getWindowHeight() / 2 - alena->getHeight()));

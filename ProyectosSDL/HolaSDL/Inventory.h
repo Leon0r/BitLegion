@@ -20,8 +20,8 @@ private:
 	Font* f;
 	CasillaInventario* copia = new CasillaInventario();
 	RenderComponent* imagen;
-	GameComponent* inventarioHud = new GameComponent(app);
-	GameComponent* marca = new GameComponent(app);
+	Entity* inventarioHud = new Entity(app);
+	Entity* marca = new Entity(app);
 	const double espaciado = 87;
 	const int numCas = 5;
 	vector<Vector2D> matriz;

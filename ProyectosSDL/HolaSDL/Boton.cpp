@@ -14,5 +14,5 @@ void Boton::handleInput(Uint32 time, const SDL_Event& event) {
 			state(actualState);
 		}
 	}
-	GameComponent::handleInput(time, event); //se llama al handleInput --> componentes adicionales que puedan tener
+	Entity::handleInput(time, event); //se llama al handleInput --> componentes adicionales que puedan tener
 }

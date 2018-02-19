@@ -3,7 +3,7 @@
 
 CasillaInventario::~CasillaInventario()
 {
-	GameComponent::~GameComponent();
+	Entity::~Entity();
 }
 
 bool CasillaInventario::pulsacion(const SDL_Event& event){
