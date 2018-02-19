@@ -3,7 +3,7 @@
 StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 
 	//creamos al personaje
-	object = new GameComponent(app);
+	object = new Entity(app);
 	object->setWidth(100);//ancho, alto, posicion y textura
 	object->setHeight(100);
 	object->setPosition(Vector2D(0, app->getWindowHeight() / 2));
@@ -21,7 +21,7 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 
 	//////////////////////////////////////
 	//creamos al personaje
-	alena = new GameComponent(app);
+	alena = new Entity(app);
 	alena->setWidth(39);//ancho, alto, posicion y textura
 	alena->setHeight(143);
 	alena->setPosition(Vector2D(app->getWindowWidth() / 2 - alena->getWidth(), app->getWindowHeight() / 2 - alena->getHeight()));

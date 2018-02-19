@@ -1,6 +1,6 @@
 #pragma once
 #include "GameState.h"
-#include "GameComponent.h"
+#include "Entity.h"
 #include "ImageRenderer.h"
 #include "KeyboardComponent.h"
 #include "MovementComponent.h"
@@ -9,8 +9,8 @@
 class StatePrueba: public GameState
 {
 private:
-	GameComponent* alena;//personaje del juego
-	GameComponent* object;//personaje del juego
+	Entity* alena;//personaje del juego
+	Entity* object;//personaje del juego
 	list<GameObject*> collision;
 public:
 	StatePrueba() {}

@@ -11,10 +11,10 @@ using namespace std;
 /*
  *
  */
-class GameComponent: public GameObject {
+class Entity: public GameObject {
 public:
-	GameComponent(SDLApp* game);
-	virtual ~GameComponent();
+	Entity(SDLApp* game);
+	virtual ~Entity();
 
 	virtual void handleInput(Uint32 time, const SDL_Event& event);
 	virtual void update(Uint32 time);
