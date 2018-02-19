@@ -1,8 +1,10 @@
 #pragma once
 #include "GameComponent.h"
 #include "GameState.h"
+#include "ComponenteClickeable.h"
+
 class Boton :
-	public GameComponent
+	public GameComponent, ComponenteClickeable
 {
 private:
 	Texture* txt;

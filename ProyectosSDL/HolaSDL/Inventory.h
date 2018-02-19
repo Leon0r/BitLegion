@@ -12,7 +12,6 @@ class Inventory :
 {
 private:
 	ObjectList* inventario;
-	Texture* txt;
 	Texture* txt2;
 	Texture* txt3;
 	Texture* txt4;

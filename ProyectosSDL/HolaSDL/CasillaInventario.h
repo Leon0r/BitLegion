@@ -1,7 +1,9 @@
 #pragma once
 #include "GameComponent.h"
+#include "ComponenteClickeable.h"
+
 class CasillaInventario :
-	public GameComponent
+	public GameComponent, ComponenteClickeable
 {
 private:
 	string tag;
