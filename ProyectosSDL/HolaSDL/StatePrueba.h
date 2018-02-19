@@ -10,6 +10,8 @@ class StatePrueba: public GameState
 {
 private:
 	GameComponent* alena;//personaje del juego
+	GameComponent* object;//personaje del juego
+	list<GameObject*> collision;
 public:
 	StatePrueba() {}
 	~StatePrueba() {}
