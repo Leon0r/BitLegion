@@ -1,4 +1,5 @@
 #include "StatePrueba.h"
+<<<<<<< HEAD
 
 StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 	//creamos al personaje
@@ -16,6 +17,21 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 	alena->addInputComponent(keyboard);//componente de input para manejar su direccion
 	PhysicsComponent* movement = new MovementComponent();
 	alena->addPhysicsComponent(movement);//componente de movimiento para que pueda moverse
+=======
+#include "ClickeableGO.h"
+
+
+StatePrueba::StatePrueba()
+{
+}
+
+StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
+
+	ClickeableGO* test = new ClickeableGO(app,400,300,400,300,"descripcion del item","tagEspecial");
+	stage.push_back(test);
+
+}
+>>>>>>> Interacciones
 
 	//añadimos el personaje a la lista de personajes
 	stage.push_back(alena);
