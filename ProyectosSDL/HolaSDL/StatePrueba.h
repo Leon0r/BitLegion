@@ -4,6 +4,7 @@
 #include "ImageRenderer.h"
 #include "KeyboardComponent.h"
 #include "MovementComponent.h"
+#include "ClickeableGO.h"
 
 //estado de prueba, con Alena moviendose por pantalla
 class StatePrueba: public GameState

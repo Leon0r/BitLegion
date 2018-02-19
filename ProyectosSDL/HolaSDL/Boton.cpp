@@ -5,8 +5,8 @@ Boton::~Boton()
 }
 
 void Boton::handleInput(Uint32 time, const SDL_Event& event) {
-
-	if (this->handleEvent(this, event)) { //si es pulsado
+	//Cambio vvvvvvvvvvvvvvv Antes: This->handleEvent
+	if (ComponenteClickeable::handleInput(this, event)) { //si es pulsado
 		if (inApp != nullptr) { //si inApp != nullptr se ejecuta dicha funcion
 			inApp(app);
 		}
