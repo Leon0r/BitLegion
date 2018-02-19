@@ -1,4 +1,6 @@
 #include "KeyboardComponent.h"
+#include "Inventory.h"
+#include "GameStateMachine.h"
 
 //miramos eventos de teclado
 void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event& event)
@@ -22,6 +24,9 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		else if (event.key.keysym.sym == down) {
 			d = true;
 			velocity.setY(vel_);
+		}
+		if (event.key.keysym.sym == inventory) {
+			o->getGame()->getStateMachine()->pushState(new Inventory(o->getGame(), new ObjectList(o->getGame())));
 		}
 	}
 	// Solo cambia la velocidad a (0,0) si se sueltan la dcha y la izq no esta pulsada, etc.

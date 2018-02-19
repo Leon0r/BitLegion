@@ -1,6 +1,8 @@
 #pragma once
 #include "GameObject.h"
 #include "SDLApp.h"
+#include "Font.h"
+#include "Texture.h"
 #include <list>
 
 const int FRAME_RATE = 25; // A menor tiempo de espera entre frames, mayor la velocidad del bucle

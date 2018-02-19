@@ -16,8 +16,8 @@ public:
 	virtual void update(Uint32 time) = 0;
 	virtual void render(Uint32 time) = 0;
 
-	Vector2D getPosition() { 
-		return position_; 
+	Vector2D getPosition() {
+		return position_;
 	}
 
 	Vector2D getVelocity() {

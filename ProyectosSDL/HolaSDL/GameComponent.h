@@ -9,10 +9,11 @@
 
 using namespace std;
 /*
- *
- */
-class GameComponent: public GameObject {
+*
+*/
+class GameComponent : public GameObject {
 public:
+	GameComponent() {};
 	GameComponent(SDLApp* game);
 	virtual ~GameComponent();
 
