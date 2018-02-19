@@ -1,6 +1,5 @@
 #include "StatePrueba.h"
-#include "ComponenteClickeable.h"
-#include "TestGO.h"
+#include "ClickeableGO.h"
 
 
 StatePrueba::StatePrueba()
@@ -8,8 +7,8 @@ StatePrueba::StatePrueba()
 }
 
 StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
-	ComponenteClickeable* prueba = new ComponenteClickeable();
-	TestGO* test = new TestGO(app,400,300,400,300);
+
+	ClickeableGO* test = new ClickeableGO(app,400,300,400,300,"descripcion del item","tagEspecial");
 	stage.push_back(test);
 
 }
