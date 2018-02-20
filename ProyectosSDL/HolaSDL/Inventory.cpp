@@ -11,12 +11,14 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 		}
 	}
 	//inicializacion de texturas (en el futuro se hara una lista)
+	txt1 = new Texture();
+	txt1->loadFromImg(app->getRenderer(), "..//images/botonUsar.png");
 	txt2 = new Texture();
 	txt2->loadFromImg(app->getRenderer(), "..//images/Inventario.png");
 	txt3 = new Texture();
 	txt3->loadFromImg(app->getRenderer(), "..//images/InvMarca.png");
 	txt4 = new Texture();
-	txt4->loadFromImg(app->getRenderer(), "..//images/boton.png");
+	txt4->loadFromImg(app->getRenderer(), "..//images/botonSwap.png");
 	txt5 = new Texture();
 	txt5->loadFromImg(app->getRenderer(), "..//images/InvMarcaS.png");
 
@@ -54,14 +56,15 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 
 	//--------------------Pruebas Botones ----------------------
 	Boton* useButton = new Boton(app, usar, this, "use"); //nuevo Boton
-	ImageRenderer* im = new ImageRenderer(txt4); //se crea su image Renderer
+	ImageRenderer* im = new ImageRenderer(txt1); //se crea su image Renderer
 	useButton->addRenderComponent(im);
 	useButton->setPosition(Vector2D{ 547, 450 }); //posiciones random de prueba
 	useButton->setWidth(txt4->getWidth());
 	useButton->setHeight(txt4->getHeight());
 	stage.push_back(useButton); //se pushea
+	ImageRenderer* im2 = new ImageRenderer(txt4); //se crea su image Renderer
 	Boton* swapButton = new Boton(app, swap, this, "swap"); //nuevo Boton
-	swapButton->addRenderComponent(im);
+	swapButton->addRenderComponent(im2);
 	swapButton->setPosition(Vector2D{ 547, 480 }); //posiciones random de prueba
 	swapButton->setWidth(txt4->getWidth());
 	swapButton->setHeight(txt4->getHeight());

@@ -12,6 +12,7 @@ class Inventory :
 {
 private:
 
+	Texture* txt1;
 	Texture* txt2;
 	Texture* txt3;
 	Texture* txt4;
