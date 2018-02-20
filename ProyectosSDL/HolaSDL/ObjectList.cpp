@@ -33,7 +33,16 @@ void ObjectList::deleteItem(string tag) {
 }
 
 void ObjectList::swap(CasillaInventario* uno, CasillaInventario* dos){
-	std::swap(*uno, *dos);
+	//std::swap(*uno, *dos);
+	string auxDescription = uno->getDescription(); //guardamos en variables auxiliares la descripcion, tag y textura
+	string tagAux = uno->getTag();
+	Texture* textAux = uno->getTexture(0);
+	uno->setDescription(dos->getDescription()); //set de la descripcion, tag y textura de "uno"
+	uno->setTag(dos->getTag());
+	uno->setTexture(0, dos->getTexture(0));
+	dos->setDescription(auxDescription); //usamos las variables auxiliares para hacer el set de "dos"
+	dos->setTag(tagAux);
+	dos->setTexture(0, textAux);
 }
 
 CasillaInventario* ObjectList::getItem(int num) {

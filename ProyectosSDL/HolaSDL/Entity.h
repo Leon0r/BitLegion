@@ -29,7 +29,8 @@ public:
 	virtual void delInputComponent(InputComponent* ic);
 	virtual void delPhysicsComponent(PhysicsComponent* pc);
 	virtual void delRenderComponent(RenderComponent* rc);
-	Texture* getTexture(Uint16 pos);
+	Texture* getTexture(Uint16 pos) const;
+	void setTexture(Uint16 pos, Texture* newText);
 
 private:
 	vector<InputComponent*> inputComp_;

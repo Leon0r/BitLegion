@@ -72,8 +72,9 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 }
 
 void Inventory::handleEvent(SDL_Event& event) {
-	for (GameObject* it : stage) { //recorre la lista de objetos
-		CasillaInventario* aux = dynamic_cast<CasillaInventario*>(it); //si aux == nullptr --> it no es de tipo CasillaInventario
+	list<GameObject*>::iterator it;
+	for (it = stage.begin(); it != stage.end(); it++) { //recorre la lista de objetos
+		CasillaInventario* aux = dynamic_cast<CasillaInventario*>(*it); //si aux == nullptr --> it no es de tipo CasillaInventario
 		if (aux != nullptr) { //si aux != nullptr ---> it es de tipo CasillaInventario
 			if (aux->pulsacion(event)) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
 				selected = aux;
