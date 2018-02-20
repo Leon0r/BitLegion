@@ -11,15 +11,18 @@ class Inventory :
 	public GameState
 {
 private:
-	ObjectList* inventario;
+
 	Texture* txt2;
 	Texture* txt3;
 	Texture* txt4;
 	Texture* txt5;
 	Texture fuente;
 	Font* f;
-	CasillaInventario* copia = new CasillaInventario();
+	CasillaInventario* selected;
+	Entity* copia = new Entity();
 	RenderComponent* imagen;
+	RenderComponent* imagenMarca;
+	RenderComponent* selectedTexture;
 	Entity* inventarioHud = new Entity(app);
 	Entity* marca = new Entity(app);
 	const double espaciado = 87;
@@ -27,8 +30,10 @@ private:
 	vector<Vector2D> matriz;
 	static void usar(GameState* state) { /*static_cast<Inventory*>(state)->punteroStateAnterior->FuncionTag(static_cast<Inventory*>(state)->anteriorClickado->tag):
 										 /*app->popState();
-										 */std::cout << "usandooo" << static_cast<Inventory*>(state)->getLastClicked()->getDescription();}; 
+										 */std::cout << "usandooo" << static_cast<Inventory*>(state)->getLastClicked()->getDescription();
+	}; 
 										 //ya funciona, se puede usar un cast para un metodo del inventario (usar, swap, por ejemplo)
+	static void swap(GameState* state);
 public:
 	Inventory() {};
 	Inventory(SDLApp* app, ObjectList* inventario);
@@ -36,7 +41,8 @@ public:
 	virtual void handleEvent(SDL_Event& event);
 	virtual void render();
 	void muestraDescripcion(CasillaInventario* aux);
-	CasillaInventario* getLastClicked() { return copia; };
+	CasillaInventario* getLastClicked() { return selected; };
 	void destroy();
+	ObjectList* inventario;
 };
 

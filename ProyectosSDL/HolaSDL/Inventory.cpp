@@ -3,7 +3,7 @@
 #include "Font.h"
 //#include "GameStateMachine.h"
 
-Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inventario(inventario) {
+Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inventario(inventario), selected(nullptr) {
 	matriz.resize(numCas*numCas);
 	for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
 		for (int j = 0; j < numCas; j++) {
@@ -23,10 +23,12 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	f = new Font("..//images/fuente2.ttf", tamanyoFuente);
 	imagen = new ImageRenderer(txt2);
 
+	inventario->addItem(txt3, "kasdg", "kasdjkg");
+
 	//imagen del inventario
 	inventarioHud->addRenderComponent(imagen);
-	inventarioHud->setHeight(450);
-	inventarioHud->setWidth(600);
+	inventarioHud->setHeight(app->getWindowHeight()*0.75);
+	inventarioHud->setWidth(app->getWindowWidth()*0.75);
 	inventarioHud->setPosition(Vector2D(Vector2D(app->getWindowWidth() / 2 - inventarioHud->getWidth()/2, 
 		app->getWindowHeight() / 2 - inventarioHud->getHeight()/2)));
 
@@ -35,8 +37,8 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	}
 
 	//marcador de objeto seleccionado
-	imagen = new ImageRenderer(txt3);
-	marca->addRenderComponent(imagen);
+	imagenMarca = new ImageRenderer(txt3);
+	marca->addRenderComponent(imagenMarca);
 	marca->setHeight(87);
 	marca->setWidth(87);
 	//se pushea todo a la lista de objetos
@@ -44,6 +46,7 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	inventario->pushObjects(stage);
 
 	if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
+		selected = inventario->getItem(0);
 		stage.push_back(marca); //se marca el primero de ellos
 		marca->setPosition(inventario->getItem(0)->getPosition() +
 			Vector2D(inventario->getItem(0)->getWidth() / 2, inventario->getItem(0)->getHeight() / 2)
@@ -59,7 +62,7 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	useButton->setWidth(txt4->getWidth());
 	useButton->setHeight(txt4->getHeight());
 	stage.push_back(useButton); //se pushea
-	Boton* swapButton = new Boton(app, usar, this, "swap"); //nuevo Boton
+	Boton* swapButton = new Boton(app, swap, this, "swap"); //nuevo Boton
 	swapButton->addRenderComponent(im);
 	swapButton->setPosition(Vector2D{ 547, 480 }); //posiciones random de prueba
 	swapButton->setWidth(txt4->getWidth());
@@ -73,6 +76,7 @@ void Inventory::handleEvent(SDL_Event& event) {
 		CasillaInventario* aux = dynamic_cast<CasillaInventario*>(it); //si aux == nullptr --> it no es de tipo CasillaInventario
 		if (aux != nullptr) { //si aux != nullptr ---> it es de tipo CasillaInventario
 			if (aux->pulsacion(event)) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
+				selected = aux;
 				marca->setPosition(aux->getPosition() + Vector2D(aux->getWidth() / 2, aux->getHeight() / 2)
 					- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2)); // desde aqui, con aux, se puede acceder a la textura, descripcion, tag... de it y crear además nuevos objetos para que se muestren por
 				//pantalla (una imagen, la descripción, botones...)
@@ -93,16 +97,30 @@ void Inventory::handleEvent(SDL_Event& event) {
 
 void Inventory::render() {
 	GameState::render(); //se llama a los componentes "Render" de todos los objetos de la lista del inventario
-	Texture fuente(app->getRenderer(), copia->getDescription(), *f, colorFuente); //fuente dinámica
-	fuente.render(app->getRenderer(), inventarioHud->getWidth() - inventarioHud->getWidth()/16, inventarioHud->getHeight()/1.5); //se llama al render de la fuente Dinámica
+	if (selected != nullptr){
+		Texture fuente(app->getRenderer(), selected->getDescription(), *f, colorFuente); //fuente dinámica
+		fuente.render(app->getRenderer(), inventarioHud->getWidth() - inventarioHud->getWidth() / 16, inventarioHud->getHeight() / 1.5); //se llama al render de la fuente Dinámica
+	}
 }
 
 void Inventory::muestraDescripcion(CasillaInventario* aux) {
-	*copia = *aux; //crea una copia del objeto a mostrar
-	copia->setHeight(copia->getHeight()*2);//lo agranda
-	copia->setWidth(copia->getWidth()*2);
-	copia->setPosition(Vector2D(618 - copia->getWidth()/2, 149 - copia->getHeight()/2));
-	stage.push_back(copia);	//lo pushea a la lista de objetos
+	if (copia != nullptr){
+		delete copia;
+		copia = nullptr;
+		selectedTexture = new ImageRenderer(selected->getTexture(0));
+		copia = new Entity(app);
+		copia->addRenderComponent(selectedTexture);
+		copia->setHeight(selected->getHeight() * 2);//lo agranda
+		copia->setWidth(selected->getWidth() * 2);
+		copia->setPosition(Vector2D(618 - copia->getWidth() / 2, 149 - copia->getHeight() / 2));
+		stage.push_back(copia);	//lo pushea a la lista de objetos
+	}
+	
+}
+
+void Inventory::swap(GameState* state){
+	static_cast<Inventory*>(state)->inventario->swap(static_cast<Inventory*>(state)->inventario->getItem(0),
+		static_cast<Inventory*>(state)->inventario->getItem(1));
 }
 
 void Inventory::destroy() { //destrucción de la memoria dinámica que se crea en este estado

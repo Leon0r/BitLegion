@@ -32,6 +32,10 @@ void ObjectList::deleteItem(string tag) {
 	}
 }
 
+void ObjectList::swap(CasillaInventario* uno, CasillaInventario* dos){
+	std::swap(*uno, *dos);
+}
+
 CasillaInventario* ObjectList::getItem(int num) {
 	int i = 0;
 	bool encontrado = false;

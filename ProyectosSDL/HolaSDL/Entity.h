@@ -6,6 +6,7 @@
 #include "PhysicsComponent.h"
 #include "RenderComponent.h"
 #include <vector>
+#include "Texture.h"
 
 using namespace std;
 /*
@@ -28,6 +29,7 @@ public:
 	virtual void delInputComponent(InputComponent* ic);
 	virtual void delPhysicsComponent(PhysicsComponent* pc);
 	virtual void delRenderComponent(RenderComponent* rc);
+	Texture* getTexture(Uint16 pos);
 
 private:
 	vector<InputComponent*> inputComp_;

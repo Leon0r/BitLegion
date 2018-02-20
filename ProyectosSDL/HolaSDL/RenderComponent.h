@@ -2,6 +2,7 @@
 #define RENDERCOMPONENT_H_
 
 #include "GameObject.h"
+#include "Texture.h"
 
 /*
  *
@@ -11,6 +12,7 @@ public:
 	RenderComponent();
 	virtual ~RenderComponent();
 	virtual void render(GameObject* o, Uint32 time) = 0;
+	virtual Texture* getTexture() = 0;
 };
 
 #endif /* RENDERCOMPONENT_H_ */
