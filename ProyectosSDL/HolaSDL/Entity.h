@@ -1,5 +1,5 @@
-#ifndef GAMECOMPONENT_H_
-#define GAMECOMPONENT_H_
+#ifndef ENTITIES_H_
+#define ENTITIES_H_
 
 #include "GameObject.h"
 #include "InputComponent.h"
@@ -9,13 +9,13 @@
 
 using namespace std;
 /*
- *
- */
-class GameComponent: public GameObject {
+*
+*/
+class Entity : public GameObject {
 public:
-	GameComponent() {};
-	GameComponent(SDLApp* game);
-	virtual ~GameComponent();
+	Entity() {};
+	Entity(SDLApp* game);
+	virtual ~Entity();
 
 	virtual void handleInput(Uint32 time, const SDL_Event& event);
 	virtual void update(Uint32 time);

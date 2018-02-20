@@ -3,10 +3,11 @@
 
 CasillaInventario::~CasillaInventario()
 {
-	GameComponent::~GameComponent();
+	Entity::~Entity();
 }
 
 bool CasillaInventario::pulsacion(const SDL_Event& event){
-	bool flag = handleEvent(this, event); //handle del raton
+	//Cambio    vvvvvvvvvvvvvvv Antes: This->handleEvent
+	bool flag = ComponenteClickeable::handleInput(this, event); //handle del raton
 	return flag;
 }

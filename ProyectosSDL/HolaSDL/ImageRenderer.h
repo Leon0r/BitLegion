@@ -2,6 +2,7 @@
 #define IMAGERENDERER_H_
 
 #include "RenderComponent.h"
+#include "Texture.h"
 #include "SDLApp.h"
 
 /*
