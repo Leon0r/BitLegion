@@ -30,6 +30,10 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	inventarioHud->setPosition(Vector2D(Vector2D(app->getWindowWidth() / 2 - inventarioHud->getWidth()/2, 
 		app->getWindowHeight() / 2 - inventarioHud->getHeight()/2)));
 
+	for (int i = 0; i < inventario->getLength(); i++) { // se colocan los objetos en sus posiciones correspondientes
+		inventario->getItem(i)->setPosition(Vector2D(matriz[i] + inventario->getItem(i)->getPosition()));
+	}
+
 	//marcador de objeto seleccionado
 	imagen = new ImageRenderer(txt3);
 	marca->addRenderComponent(imagen);
@@ -102,6 +106,9 @@ void Inventory::muestraDescripcion(CasillaInventario* aux) {
 }
 
 void Inventory::destroy() { //destrucción de la memoria dinámica que se crea en este estado
+	for (int i = 0; i < inventario->getLength(); i++) {// se recolocan los objetos en su posicion inicial para que al volver a sercreados se coloquen bien
+		inventario->getItem(i)->setPosition(Vector2D(inventario->getItem(i)->getPosition() - matriz[i]));
+	}
 	delete txt2; txt2 = nullptr;
 	delete txt3; txt3 = nullptr;
 	delete txt4; txt4 = nullptr;
