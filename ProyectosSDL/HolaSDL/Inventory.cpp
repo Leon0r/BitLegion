@@ -23,8 +23,6 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	f = new Font("..//images/fuente2.ttf", tamanyoFuente);
 	imagen = new ImageRenderer(txt2);
 
-	inventario->addItem(txt3, "kasdg", "kasdjkg");
-
 	//imagen del inventario
 	inventarioHud->addRenderComponent(imagen);
 	inventarioHud->setHeight(app->getWindowHeight()*0.75);
@@ -77,6 +75,11 @@ void Inventory::handleEvent(SDL_Event& event) {
 		CasillaInventario* aux = dynamic_cast<CasillaInventario*>(*it); //si aux == nullptr --> it no es de tipo CasillaInventario
 		if (aux != nullptr) { //si aux != nullptr ---> it es de tipo CasillaInventario
 			if (aux->pulsacion(event)) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
+				if (bswap) {
+					bswap = false;
+					marca->setTexture(0, txt3);
+					inventario->swap(aux, selected);
+				}
 				selected = aux;
 				marca->setPosition(aux->getPosition() + Vector2D(aux->getWidth() / 2, aux->getHeight() / 2)
 					- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2)); // desde aqui, con aux, se puede acceder a la textura, descripcion, tag... de it y crear además nuevos objetos para que se muestren por
@@ -120,8 +123,11 @@ void Inventory::muestraDescripcion(CasillaInventario* aux) {
 }
 
 void Inventory::swap(GameState* state){
-	static_cast<Inventory*>(state)->inventario->swap(static_cast<Inventory*>(state)->inventario->getItem(0),
-		static_cast<Inventory*>(state)->inventario->getItem(1));
+	/*static_cast<Inventory*>(state)->inventario->swap(static_cast<Inventory*>(state)->inventario->getItem(0),
+		static_cast<Inventory*>(state)->inventario->getItem(1));*/
+	static_cast<Inventory*>(state)->bswap = true;
+	static_cast<Inventory*>(state)->marca->setTexture(0, static_cast<Inventory*>(state)->txt5);
+
 }
 
 void Inventory::destroy() { //destrucción de la memoria dinámica que se crea en este estado

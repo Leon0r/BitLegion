@@ -18,6 +18,7 @@ private:
 	Texture* txt5;
 	Texture fuente;
 	Font* f;
+	bool bswap = false;
 	CasillaInventario* selected;
 	Entity* copia = new Entity();
 	RenderComponent* imagen;

@@ -29,10 +29,12 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		}
 		if (event.key.keysym.sym == inventory) {
 			o->getGame()->getStateMachine()->pushState(new Inventory(o->getGame(), list));
+
 		}
 		else if (event.key.keysym.sym == SDLK_a) {
 			Texture* txt = new Texture(o->getGame()->getRenderer(), "..//images/Alena.png");
 			list->addItem(txt, "kk", "holis");
+			list->addItem(txt, "adsa", "dfghdfgdsf");
 		}
 	}
 	// Solo cambia la velocidad a (0,0) si se sueltan la dcha y la izq no esta pulsada, etc.
