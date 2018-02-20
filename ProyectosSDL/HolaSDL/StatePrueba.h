@@ -1,10 +1,7 @@
 #pragma once
 #include "GameState.h"
-#include "Entity.h"
-#include "ImageRenderer.h"
-#include "KeyboardComponent.h"
-#include "MovementComponent.h"
-#include "ClickeableGO.h"
+#include "MainCharacter.h"
+
 
 //estado de prueba, con Alena moviendose por pantalla
 class StatePrueba: public GameState
