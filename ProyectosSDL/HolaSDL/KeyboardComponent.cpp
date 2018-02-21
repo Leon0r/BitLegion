@@ -10,20 +10,37 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		if (event.key.keysym.sym == right) {
 			r = true;
 			velocity.setX(vel_);
+			//si a la vez pulsamos arriba o abajo nos movemos en esa direccion tambien
+			if (d)velocity.setY(vel_);
+			else if(u)velocity.setY(-vel_);
+			else velocity.setY(0);
 		}
 	    else if (event.key.keysym.sym == left) {
 			l = true;
 			velocity.setX(-vel_);
+			//si a la vez pulsamos arriba o abajo nos movemos en esa direccion tambien
+			if (d)velocity.setY(vel_);
+			else if (u)velocity.setY(-vel_);
+			else velocity.setY(0);
 		}
 		if (event.key.keysym.sym == up) {
 			u = true;
 			velocity.setY(-vel_);
+			//si a la vez pulsamos izquierda o derecha nos movemos en esa direccion tambien
+			if (r)velocity.setX(vel_);
+			else if(l)velocity.setX(-vel_);
+			else velocity.setX(0);
 		}
 		else if (event.key.keysym.sym == down) {
 			d = true;
 			velocity.setY(vel_);
+			//si a la vez pulsamos izquierda o derecha nos movemos en esa direccion tambien
+			if (r)velocity.setX(vel_);
+			else if (l)velocity.setX(-vel_);
+			else velocity.setX(0);
 		}
 	}
+
 	// Solo cambia la velocidad a (0,0) si se sueltan la dcha y la izq no esta pulsada, etc.
 	else if (event.type == SDL_KEYUP){
 		if (event.key.keysym.sym == right) {
@@ -47,6 +64,5 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 			else velocity.setY(-vel_);
 		}
 	}
-
 	o->setVelocity(velocity);
 }

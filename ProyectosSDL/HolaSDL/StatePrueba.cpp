@@ -6,9 +6,9 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 	object = new Entity(app);
 	object->setWidth(100);//ancho, alto, posicion y textura
 	object->setHeight(100);
-	object->setPosition(Vector2D(0, app->getWindowHeight() / 2));
+	object->setPosition(Vector2D(app->getWindowWidth()/2, app->getWindowHeight() / 2));
 	Texture* texture2 = new Texture;
-	texture2->loadFromImg(app->getRenderer(), "..//images/bit legion_logo.jpg");
+	texture2->loadFromImg(app->getRenderer(), "..//images/alena.png");
 
 	//componentes
 	RenderComponent* render2 = new ImageRenderer(texture2);
@@ -24,9 +24,9 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 	alena = new Entity(app);
 	alena->setWidth(39);//ancho, alto, posicion y textura
 	alena->setHeight(143);
-	alena->setPosition(Vector2D(app->getWindowWidth() / 2 - alena->getWidth(), app->getWindowHeight() / 2 - alena->getHeight()));
+	alena->setPosition(Vector2D(0 - alena->getWidth(), app->getWindowHeight() / 2 - alena->getHeight()));
 	Texture* texture = new Texture;
-	texture->loadFromImg(app->getRenderer(), "..//images/Alena.png");
+	texture->loadFromImg(app->getRenderer(), "..//images/alena.png");
 
 	//componentes
 	RenderComponent* render = new ImageRenderer(texture);

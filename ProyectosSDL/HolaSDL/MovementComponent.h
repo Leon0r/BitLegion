@@ -19,8 +19,8 @@ public:
 	virtual void update(GameObject* o, Uint32 time);
 
 	//controla que el personaje no salga de la pantalla
-	bool windowBounces(GameObject* o, double& x, double& y, Vector2D& velocity);
+	void windowBounces(GameObject* o, double& x, double& y, Vector2D& velocity);
 
-	bool collideObjects(GameObject* o, Vector2D& velocity);
+	void collideObjects(GameObject* o, double& x, double& y, Vector2D& velocity);
 };
 

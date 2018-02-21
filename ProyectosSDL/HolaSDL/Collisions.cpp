@@ -9,11 +9,11 @@ Collisions::~Collisions() {
 	// TODO Auto-generated destructor stub
 }
 
-bool Collisions::collides(GameObject* o1, GameObject* o2) {
+bool Collisions::collides(GameObject* o1, GameObject* o2, Vector2D position) {
 
-	Vector2D o1Pos = o1->getPosition();
+	Vector2D o1Pos = position;
 	double o1Width = o1->getWidth();
-	double o1Height = o1->getHeight();
+	double o1Height = o1->getHeight()/2;
 
 	Vector2D o2Pos = o2->getPosition();
 	double o2Width = o2->getWidth();
