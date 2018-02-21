@@ -21,6 +21,7 @@ public:
 	//void deleteItem(); podemos hacerlo por tags (?)
 	CasillaInventario* getItem(int num);//coge el item de la lista en la casilla 'num'
 	int getLength() { return (int)objetos.size(); }
+	void swap(CasillaInventario* uno, CasillaInventario* dos);
 	void pushObjects(list <GameObject*>& stage) { for (it = objetos.begin(); it != objetos.end(); it++) { stage.push_back(*(it)); } } //recibe la lista de stages del inventario
 	//y pushea esos objetos dentro para que realicen sus funciones básicas
 };

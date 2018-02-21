@@ -16,6 +16,8 @@ public:
 	CasillaInventario(SDLApp* app, string tag, string description) : Entity(app), tag(tag), description(description) {};
 	string getTag() { return this->tag; };
 	string getDescription() { return this->description; };
+	void setDescription(string newDescription) { this->description = newDescription; };
+	void setTag(string newTag) { this->tag = newTag; };
 	bool pulsacion(const SDL_Event& event);
 };
 

@@ -57,3 +57,15 @@ void Entity::delRenderComponent(RenderComponent* rc) {
 	if (position != renderComp_.end())
 		renderComp_.erase(position);
 }
+
+Texture* Entity::getTexture(Uint16 pos) const{
+	if (pos < renderComp_.size()){
+		return renderComp_[pos]->getTexture();
+	}
+}
+
+void Entity::setTexture(Uint16 pos, Texture* newText) {
+	if (pos < renderComp_.size()) {
+		renderComp_[pos]->setTexture(newText);
+	}
+}
