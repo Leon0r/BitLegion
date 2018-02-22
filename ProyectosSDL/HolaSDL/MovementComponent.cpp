@@ -25,17 +25,15 @@ void MovementComponent::windowBounces(GameObject* o, double& x, double& y, Vecto
 		y = 0;
 		velocity.setY(0);
 	}
-	if (y + o->getHeight() >= o->getGame()->getWindowHeight()) {
+	else if (y + o->getHeight() >= o->getGame()->getWindowHeight()) {
 		y = o->getGame()->getWindowHeight() - o->getHeight();
 		velocity.setY(0);
 	}
-
 	if (x <= 0) {
 		x = 0;
 		velocity.setX(0);
 	}
-
-	if (x + o->getWidth() >= o->getGame()->getWindowWidth()) {
+	else if (x + o->getWidth() >= o->getGame()->getWindowWidth()) {
 		x = o->getGame()->getWindowWidth() - o->getWidth();
 		velocity.setX(0);
 	}
@@ -45,8 +43,7 @@ void MovementComponent::windowBounces(GameObject* o, double& x, double& y, Vecto
 void MovementComponent::collideObjects(GameObject* o, double& x, double& y, Vector2D& velocity)
 {
 	it = collisions.begin();
-	Vector2D pos(x, y + o->getHeight()/2);//miramos si hemos colisionado con algun objeto de la escena
-	while (it != collisions.end() && !Collisions::collides(o, *it, pos)) { ++it; }
+	while (it != collisions.end() && !Collisions::collides(o, *it)) { ++it; }
 
 	//si hemos colisionado con algun objeto de la escena
 	if (it != collisions.end()) {

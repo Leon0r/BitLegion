@@ -12,7 +12,7 @@ public:
 	Collisions();
 	virtual ~Collisions();
 
-	static bool collides(GameObject* o1, GameObject* o2, Vector2D position);
+	static bool collides(GameObject* o1, GameObject* o2);
 
 };
 
