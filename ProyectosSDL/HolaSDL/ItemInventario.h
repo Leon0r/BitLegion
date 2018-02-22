@@ -5,7 +5,7 @@ class ItemInventario :
 {
 public:
 	ItemInventario(SDLApp* game, int x, int y, int w, int h, string _desc, string _tag, Texture* texture);
-	~ItemInventario();
+	virtual ~ItemInventario();
 	void act();
 };
 

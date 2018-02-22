@@ -6,12 +6,17 @@
 
 const int FRAME_RATE = 25; // A menor tiempo de espera entre frames, mayor la velocidad del bucle
 
+class Entity;
 class GameState
 {
+private:
+	bool deleted;
+
 protected:
 	uint32_t startTime, frameTime; // Control del tiempo de repeticion del bucle
 
 	list <GameObject*> stage; //lista de objetos del estados
+	list<GameObject*>::iterator it;
 	SDLApp* app; //puntero a SDLApp
 public:
 	virtual void render() { for (GameObject* it : stage) { it->render(0); } }; //manda a los objetos del estado render, el 0 es por el tiempo que no sé porq lo tenemos
@@ -20,5 +25,6 @@ public:
 	GameState();
 	virtual ~GameState() { for (GameObject* it : stage) { delete it; } }; //delete de los objetos
 	GameState(SDLApp* app) : app(app) {}
+	void deleteElement(GameObject* o);
 };
 

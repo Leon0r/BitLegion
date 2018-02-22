@@ -19,7 +19,28 @@ void GameState::update() {
 
 void GameState::handleEvent(SDL_Event &e) { //manda a los objetos del juego que detecten eventos
 	bool handled = false;
-	for (GameObject* it : stage) {
-		it->handleInput(0, e); 
+	it = stage.begin();
+	while (it != stage.end() && !deleted) {
+		(*it)->handleInput(0, e);
+		if (!deleted) { //si borras un elemento, solo puede afectar aquí (se borra a traves de los componentes HandleInput)
+			it++; //si no borras nada se incrementa
+		}
 	}
+	deleted = false;
+}
+
+void GameState::deleteElement(GameObject* o) {
+	it = stage.begin();
+	bool encontrado = false;
+	while (it != stage.end() && !encontrado) {
+		if (*it == o) {
+			encontrado = true;
+			it = stage.erase(it);
+			deleted = true;
+		}
+		else {
+			it++;
+		}
+	}
+	delete o;
 }

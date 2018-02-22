@@ -1,20 +1,26 @@
 #include "ObjectList.h"
-
+#include "ItemInventario.h"
 
 
 ObjectList::ObjectList()
 {
 }
 
-void ObjectList::addItem(Texture* txt, string tag, string descripcion) {
-	if (objetos.size() < 25) {
-		CasillaInventario* newCasilla = new CasillaInventario(app, tag, descripcion); //creamos el objeto con su tag y su descripcion
-		ImageRenderer* cmpRender = new ImageRenderer(txt);
-		newCasilla->addRenderComponent(cmpRender);
-		newCasilla->setWidth(20);
-		newCasilla->setHeight(40); //medidas de prueba
-		newCasilla->setPosition(Vector2D(-newCasilla->getWidth() / 2, -newCasilla->getHeight() / 2));
-		objetos.push_back(newCasilla); //lo guardamos
+void ObjectList::addItem(GameObject* o) {
+	ItemInventario* aux = dynamic_cast<ItemInventario*>(o); //casteo para saber si lo que clickas es o no algo que se pueda añadir
+	if (aux != nullptr) { //si se puede
+		if (objetos.size() < 25) {
+			CasillaInventario* newCasilla = new CasillaInventario(app, aux->getTag(), aux->getDescription()); //creamos el objeto con su tag y su descripcion
+			ImageRenderer* cmpRender = new ImageRenderer(aux->getTexture(0));
+			newCasilla->addRenderComponent(cmpRender);
+			newCasilla->setWidth(20);
+			newCasilla->setHeight(40); //medidas de prueba
+			newCasilla->setPosition(Vector2D(-newCasilla->getWidth() / 2, -newCasilla->getHeight() / 2));
+			objetos.push_back(newCasilla); //lo guardamos
+		}
+	}
+	else { //si no
+		cout << "No es un objeto que se pueda añadir loko";
 	}
 }
 

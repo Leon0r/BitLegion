@@ -16,7 +16,7 @@ public:
 	ObjectList();
 	~ObjectList() { for (it = objetos.begin(); it != objetos.end();) { it = objetos.erase(it); } std::cout << "delete"; }; //delete
 	ObjectList(SDLApp* app) : app(app) {};
-	void addItem(Texture* txt, string tag, string descripcion); //añadir un objeto
+	void addItem(GameObject* o); //añadir un objeto
 	void deleteItem(string tag);//elimina el objeto con el nombre 'tag'
 	//void deleteItem(); podemos hacerlo por tags (?)
 	CasillaInventario* getItem(int num);//coge el item de la lista en la casilla 'num'

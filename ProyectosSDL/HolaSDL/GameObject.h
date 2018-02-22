@@ -6,6 +6,7 @@
 using namespace std;
 
 class SDLApp;
+class Texture;
 class GameObject
 {
 public:
@@ -17,6 +18,7 @@ public:
 	virtual void handleInput(Uint32 time, const SDL_Event& event) = 0;
 	virtual void update(Uint32 time) = 0;
 	virtual void render(Uint32 time) = 0;
+	virtual Texture* getTexture(Uint16 pos) const = 0;
 
 	Vector2D getPosition() {
 		return position_;

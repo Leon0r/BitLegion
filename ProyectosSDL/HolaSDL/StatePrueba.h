@@ -9,6 +9,7 @@ class StatePrueba: public GameState
 {
 private:
 	Entity* alena;//personaje del juego
+	ObjectList* list;
 public:
 	StatePrueba() {}
 	~StatePrueba() {}
@@ -18,6 +19,7 @@ public:
 	//pinta todos los objetos del estado
 	virtual void render() { GameState::render(); }
 	Entity* getMainPj() { return alena; }
+	ObjectList* getList() { return list; };//prueba, no deberia estar aqui
 	
 };
 

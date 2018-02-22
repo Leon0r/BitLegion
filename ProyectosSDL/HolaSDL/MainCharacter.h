@@ -10,13 +10,14 @@ class MainCharacter:
 {
 public:
 	MainCharacter() {};
-	MainCharacter(SDLApp* game, int x, int y, int w, int h, Texture* texture);
+	MainCharacter(SDLApp* game, int x, int y, int w, int h, Texture* texture, ObjectList* list);
 	~MainCharacter();
+	void addInventoryObject(GameObject* o);
 private:
 	Texture * _texture;
 	RenderComponent* render;
 	InputComponent* keyboard;
 	PhysicsComponent* movement;
-
+	ObjectList* list;
 };
 

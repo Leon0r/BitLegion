@@ -10,7 +10,7 @@ class ClickeableGO :
 {
 public:
 	ClickeableGO(SDLApp* game,int x,int y,int w,int h, string _desc, string _tag , Texture* texture);
-	~ClickeableGO();
+	virtual ~ClickeableGO();
 	void handleInput(Uint32 time, const SDL_Event& event);
 	string getTag() { return tag; };
 	string getDescription() { return desc; };

@@ -4,8 +4,9 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 
 	//Siempre 1º para que ocupe la 1º posicion en la lista
 	Texture* texture = new Texture;
+	list = new ObjectList(app);
 	texture->loadFromImg(app->getRenderer(), "..//images/Alena.png");
-	alena = new MainCharacter(app,400, 300, 39, 143, texture);
+	alena = new MainCharacter(app,400, 300, 39, 143, texture, list);
 
 	stage.push_back(alena);
 
@@ -14,6 +15,12 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 
 	ItemInventario* test = new ItemInventario(app, 368, 0, 64,64, "descripcion", "tag", textureTest);
 	stage.push_back(test);
+	ItemInventario* test2 = new ItemInventario(app, 100, 0, 64, 64, "descripcion", "tag", textureTest);
+	stage.push_back(test2);
+	ItemInventario* test3 = new ItemInventario(app, 123, 0, 64, 64, "descripcion", "tag", textureTest);
+	stage.push_back(test3);
+	ItemInventario* test4 = new ItemInventario(app, 500, 0, 64, 64, "descripcion", "tag", textureTest);
+	stage.push_back(test4);
 	
 	//creamos al personaje
 	//alena = new Entity(app);
