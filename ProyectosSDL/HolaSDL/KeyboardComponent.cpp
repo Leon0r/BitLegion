@@ -5,64 +5,54 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 {
 	Vector2D velocity = o->getVelocity();
 
-	//si se ha pulsado una tecla el personaje se mueve en la direccion correspondiente
+	//si se ha pulsado una tecla se añade a la pila de teclas y se marca como pulsada
 	if (event.type == SDL_KEYDOWN) {
 		if (event.key.keysym.sym == right) {
+			if (!r) Xaxis.push(right);
 			r = true;
-			velocity.setX(vel_);
-			//si a la vez pulsamos arriba o abajo nos movemos en esa direccion tambien
-			if (d)velocity.setY(vel_);
-			else if(u)velocity.setY(-vel_);
-			else velocity.setY(0);
 		}
 	    else if (event.key.keysym.sym == left) {
+			if (!l)Xaxis.push(left);
 			l = true;
-			velocity.setX(-vel_);
-			//si a la vez pulsamos arriba o abajo nos movemos en esa direccion tambien
-			if (d)velocity.setY(vel_);
-			else if (u)velocity.setY(-vel_);
-			else velocity.setY(0);
 		}
 		if (event.key.keysym.sym == up) {
+			if (!u)Yaxis.push(up);
 			u = true;
-			velocity.setY(-vel_);
-			//si a la vez pulsamos izquierda o derecha nos movemos en esa direccion tambien
-			if (r)velocity.setX(vel_);
-			else if(l)velocity.setX(-vel_);
-			else velocity.setX(0);
 		}
 		else if (event.key.keysym.sym == down) {
+			if (!d)Yaxis.push(down);
 			d = true;
-			velocity.setY(vel_);
-			//si a la vez pulsamos izquierda o derecha nos movemos en esa direccion tambien
-			if (r)velocity.setX(vel_);
-			else if (l)velocity.setX(-vel_);
-			else velocity.setX(0);
 		}
 	}
-
-	// Solo cambia la velocidad a (0,0) si se sueltan la dcha y la izq no esta pulsada, etc.
+	//si se ha levantado una tecla se quita de la pila de teclas y se marca como no pulsada
 	else if (event.type == SDL_KEYUP){
 		if (event.key.keysym.sym == right) {
 			r = false;
-			if(!l)velocity.setX(0);
-			else velocity.setX(-vel_);
+			Xaxis.pop();
 		}
 		else if (event.key.keysym.sym == left) {
 			l = false;
-			if(!r)velocity.setX(0);
-			else velocity.setX(vel_);
+			Xaxis.pop();
 		}
 		if (event.key.keysym.sym == up) {
 			u = false;
-			if(!d)velocity.setY(0);
-			else velocity.setY(vel_);
+			Yaxis.pop();
 		}
 		else if (event.key.keysym.sym == down) {
 			d = false;
-			if(!u)velocity.setY(0);
-			else velocity.setY(-vel_);
+			Yaxis.pop();
 		}
+	}
+	//si no hay teclas en la pila la velocidad se para
+	if (Xaxis.empty())velocity.setX(0);
+	else {//si hay teclas en la pila se mira cual es y se mueve en esa direccion
+		if (Xaxis.top() == right && r) velocity.setX(vel_);
+		else if (Xaxis.top() == left && l) if (l) velocity.setX(-vel_);
+	}   //lo mismo con las teclas del eje y
+	if (Yaxis.empty())velocity.setY(0);
+	else {
+		if (Yaxis.top() == down && d) velocity.setY(vel_);
+		else if(Yaxis.top() == up && u) velocity.setY(-vel_);
 	}
 	o->setVelocity(velocity);
 }

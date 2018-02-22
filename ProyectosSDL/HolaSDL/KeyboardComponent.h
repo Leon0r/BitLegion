@@ -1,5 +1,8 @@
 #pragma once
 #include "InputComponent.h"
+#include <stack>
+
+using namespace std;
 
 //componente de teclado, es un inputComponent
 class KeyboardComponent : public InputComponent {
@@ -18,6 +21,8 @@ private:
 	SDL_Keycode left;
 	SDL_Keycode up;
 	SDL_Keycode down;//flags para saber si has pulsado las teclas
+	stack<SDL_Keycode> Xaxis;//pila de teclas del eje x
+	stack<SDL_Keycode> Yaxis;//pila de teclas del eje y
 	bool r = false, l = false, u = false, d = false;
 };
 
