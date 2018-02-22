@@ -16,5 +16,7 @@ public:
 	virtual void update() { GameState::update(); }
 	//pinta todos los objetos del estado
 	virtual void render() { GameState::render(); }
+	Entity* getMainPj() { return alena; }
+	
 };
 

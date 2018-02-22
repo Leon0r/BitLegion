@@ -2,11 +2,19 @@
 
 StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 
-	//ClickeableGO* test = new ClickeableGO(app, 400, 300, 400, 300, "descripcion", "tag");
-	//stage.push_back(test);
+	//Siempre 1º para que ocupe la 1º posicion en la lista
 	Texture* texture = new Texture;
 	texture->loadFromImg(app->getRenderer(), "..//images/Alena.png");
 	alena = new MainCharacter(app,400, 300, 39, 143, texture);
+
+
+
+	Texture* textureTest = new Texture;
+	textureTest->loadFromImg(app->getRenderer(), "..//images/ImgTest.png");
+
+	ClickeableGO* test = new ClickeableGO(app, 368, 0, 64,64, "descripcion", "tag", textureTest);
+	stage.push_back(test);
+	
 	//creamos al personaje
 	//alena = new Entity(app);
 	//alena->setWidth(39);//ancho, alto, posicion y textura
