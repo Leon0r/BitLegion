@@ -3,7 +3,7 @@
 #include "ImageRenderer.h"
 #include "KeyboardComponent.h"
 #include "MovementComponent.h"
-#include "ClickeableGO.h"
+//
 
 class MainCharacter:
 	public Entity

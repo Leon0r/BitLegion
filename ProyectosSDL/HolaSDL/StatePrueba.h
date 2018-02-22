@@ -1,6 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "MainCharacter.h"
+#include "ItemInventario.h"
 
 
 //estado de prueba, con Alena moviendose por pantalla

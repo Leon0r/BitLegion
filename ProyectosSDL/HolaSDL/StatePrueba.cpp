@@ -7,12 +7,12 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 	texture->loadFromImg(app->getRenderer(), "..//images/Alena.png");
 	alena = new MainCharacter(app,400, 300, 39, 143, texture);
 
-
+	stage.push_back(alena);
 
 	Texture* textureTest = new Texture;
 	textureTest->loadFromImg(app->getRenderer(), "..//images/ImgTest.png");
 
-	ClickeableGO* test = new ClickeableGO(app, 368, 0, 64,64, "descripcion", "tag", textureTest);
+	ItemInventario* test = new ItemInventario(app, 368, 0, 64,64, "descripcion", "tag", textureTest);
 	stage.push_back(test);
 	
 	//creamos al personaje
@@ -32,5 +32,5 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 	//alena->addPhysicsComponent(movement);//componente de movimiento para que pueda moverse
 
 	//añadimos el personaje a la lista de personajes
-	stage.push_back(alena);
+	
 }

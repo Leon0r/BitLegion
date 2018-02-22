@@ -23,6 +23,7 @@ private:
 	bool inRange(int _x) {//prob not final
 		return (abs(_x - this->getPosition().getX()) < 150);
 	}
+	virtual void act() = 0;
 	
 };
 
