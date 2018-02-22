@@ -4,6 +4,9 @@
 //miramos eventos de teclado
 void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event& event)
 {
+	if (list == nullptr) {
+		list = new ObjectList(o->getGame());
+	}
 	Vector2D velocity = o->getVelocity();
 
 	//si se ha pulsado una tecla el personaje se mueve en la direccion correspondiente
@@ -25,7 +28,13 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 			velocity.setY(vel_);
 		}
 		if (event.key.keysym.sym == inventory) {
-			o->getGame()->getStateMachine()->pushState(new Inventory(o->getGame(), new ObjectList(o->getGame())));
+			o->getGame()->getStateMachine()->pushState(new Inventory(o->getGame(), list));
+
+		}
+		else if (event.key.keysym.sym == SDLK_a) {
+			Texture* txt = new Texture(o->getGame()->getRenderer(), "..//images/Alena.png");
+			list->addItem(txt, "kk", "holis");
+			list->addItem(txt, "adsa", "dfghdfgdsf");
 		}
 	}
 	// Solo cambia la velocidad a (0,0) si se sueltan la dcha y la izq no esta pulsada, etc.

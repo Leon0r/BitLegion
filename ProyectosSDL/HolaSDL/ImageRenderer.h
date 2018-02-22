@@ -13,6 +13,8 @@ public:
 	ImageRenderer(Texture* image);
 	virtual ~ImageRenderer();
 	virtual void render(GameObject* o, Uint32 time);
+	virtual Texture* getTexture() const { return image_; };
+	virtual void setTexture(Texture* newText) { this->image_ = newText; };
 private:
 	Texture* image_;
 };
