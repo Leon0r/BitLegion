@@ -18,6 +18,6 @@ public:
 	string getDescription() { return this->description; };
 	void setDescription(string newDescription) { this->description = newDescription; };
 	void setTag(string newTag) { this->tag = newTag; };
-	bool pulsacion(const SDL_Event& event);
+	bool pulsacion(const SDL_Event& event, int espaciado);
 };
 
