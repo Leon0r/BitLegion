@@ -10,7 +10,7 @@ class MainCharacter:
 {
 public:
 	MainCharacter() {};
-	MainCharacter(SDLApp* game, int x, int y, int w, int h, Texture* texture, ObjectList* list);
+	MainCharacter(SDLApp* game, int x, int y, int w, int h, Texture* texture, ObjectList* list, std::list<GameObject*> coll);
 	~MainCharacter();
 	void addInventoryObject(GameObject* o);
 private:
@@ -19,5 +19,6 @@ private:
 	InputComponent* keyboard;
 	PhysicsComponent* movement;
 	ObjectList* list;
+	std::list<GameObject*> colisionables;
 };
 

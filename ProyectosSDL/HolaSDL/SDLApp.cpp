@@ -13,6 +13,7 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		window = SDL_CreateWindow("Moonace", winX, winY, winWidth, winHeight, SDL_WINDOW_SHOWN);
 		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 		TTF_Init();
+		initResources();
 		maquinaEstados = new GameStateMachine();
 		maquinaEstados->pushState(new StatePrueba(this));
 }

@@ -2,42 +2,24 @@
 
 StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 
-	//Siempre 1º para que ocupe la 1º posicion en la lista
-	Texture* texture = new Texture;
-	list = new ObjectList(app);
-	texture->loadFromImg(app->getRenderer(), "..//images/Alena.png");
-	alena = new MainCharacter(app,400, 300, 39, 143, texture, list);
+	//COLISIONABLES
+	Entity* object = new ColisionableObject(app, 500, 500, 100, 100, resources->getImageTexture(Resources::InvMarca));
+	stage.push_back(object);
+	collision.push_back(object);
 
+	//PERSONAJE
+	//Siempre 1º para que ocupe la 1º posicion en la lista
+	list = new ObjectList(app);
+	alena = new MainCharacter(app, 400, 300, 39, 143, resources->getImageTexture(Resources::Alena), list, collision);
 	stage.push_back(alena);
 
-	Texture* textureTest = new Texture;
-	textureTest->loadFromImg(app->getRenderer(), "..//images/ImgTest.png");
-
-	ItemInventario* test = new ItemInventario(app, 368, 0, 64,64, "descripcion", "tag", textureTest);
+	//ITEMS
+	ItemInventario* test = new ItemInventario(app, 368, 0, 64,64, "descripcion", "tag", resources->getImageTexture(Resources::ImagenTest));
 	stage.push_back(test);
-	ItemInventario* test2 = new ItemInventario(app, 100, 0, 64, 64, "descripcion", "tag", textureTest);
+	ItemInventario* test2 = new ItemInventario(app, 100, 0, 64, 64, "descripcion", "tag", resources->getImageTexture(Resources::ImagenTest));
 	stage.push_back(test2);
-	ItemInventario* test3 = new ItemInventario(app, 123, 0, 64, 64, "descripcion", "tag", textureTest);
+	ItemInventario* test3 = new ItemInventario(app, 123, 0, 64, 64, "descripcion", "tag", resources->getImageTexture(Resources::ImagenTest));
 	stage.push_back(test3);
-	ItemInventario* test4 = new ItemInventario(app, 500, 0, 64, 64, "descripcion", "tag", textureTest);
+	ItemInventario* test4 = new ItemInventario(app, 500, 0, 64, 64, "descripcion", "tag", resources->getImageTexture(Resources::ImagenTest));
 	stage.push_back(test4);
-	
-	//creamos al personaje
-	//alena = new Entity(app);
-	//alena->setWidth(39);//ancho, alto, posicion y textura
-	//alena->setHeight(143);
-	//alena->setPosition(Vector2D(app->getWindowWidth() / 2 - alena->getWidth(), app->getWindowHeight() / 2 - alena->getHeight()));
-	
-	//texture->loadFromImg(app->getRenderer(), "..//images/Alena.png");
-
-	//componentes
-	//RenderComponent* render = new ImageRenderer(texture);
-	//alena->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
-	//InputComponent* keyboard = new KeyboardComponent(5, SDLK_RIGHT, SDLK_LEFT, SDLK_UP, SDLK_DOWN, SDLK_i);
-	//alena->addInputComponent(keyboard);//componente de input para manejar su direccion
-	//PhysicsComponent* movement = new MovementComponent();
-	//alena->addPhysicsComponent(movement);//componente de movimiento para que pueda moverse
-
-	//añadimos el personaje a la lista de personajes
-	
 }

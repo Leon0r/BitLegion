@@ -2,6 +2,8 @@
 #include <vector>
 #include <SDL.h>
 #include "GameStateMachine.h"
+#include "Resources.h"
+
 using namespace std;
 
 class SDLApp
@@ -11,7 +13,8 @@ private:
 	//-------------------------------SDL----------------------------
 
 	SDL_Window* window;
-	
+
+	Resources* resources;
 	SDL_Color color;
 	SDL_Event event; //maneja eventos
 	SDL_Renderer* renderer;
@@ -34,5 +37,8 @@ public:
 	SDL_Renderer* SDLApp::getRenderer() const;
 	int SDLApp::getWindowWidth() const;
 	int SDLApp::getWindowHeight() const;
+	const Resources* getResources() const{ return resources; }
+	void initResources() { resources = new Resources(this); }
+	void closeResources(){ delete resources; }
 };
 

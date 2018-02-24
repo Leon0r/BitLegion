@@ -1,6 +1,9 @@
 #pragma once
 #include "InputComponent.h"
 #include "Inventory.h"
+#include <stack>
+
+using namespace std;
 
 //componente de teclado, es un inputComponent
 class KeyboardComponent : public InputComponent {
@@ -20,6 +23,8 @@ private:
 	SDL_Keycode up;
 	SDL_Keycode down;
 	SDL_Keycode inventory;
+	stack<SDL_Keycode> Xaxis;//pila de teclas del eje x
+	stack<SDL_Keycode> Yaxis;//pila de teclas del eje y
 	//flags para saber si has pulsado las teclas
 	bool r = false, l = false, u = false, d = false;
 	ObjectList* list;

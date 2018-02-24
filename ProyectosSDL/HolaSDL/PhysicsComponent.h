@@ -2,7 +2,7 @@
 #define PHYSICSCOMPONENT_H_
 
 #include "GameObject.h"
-
+#include "Collisions.h"
 /*
  *
  */

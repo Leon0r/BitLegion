@@ -1,7 +1,7 @@
 #include "Entity.h"
 
 Entity::Entity(SDLApp* game) :
-	GameObject(game), inputComp_(), physicsComp_(), renderComp_() {
+		GameObject(game), inputComp_(), physicsComp_(), renderComp_() {
 }
 
 Entity::~Entity() {
@@ -39,27 +39,27 @@ void Entity::addRenderComponent(RenderComponent* rc) {
 
 void Entity::delInputComponent(InputComponent* ic) {
 	std::vector<InputComponent*>::iterator position = std::find(
-		inputComp_.begin(), inputComp_.end(), ic);
+			inputComp_.begin(), inputComp_.end(), ic);
 	if (position != inputComp_.end())
 		inputComp_.erase(position);
 }
 
 void Entity::delPhysicsComponent(PhysicsComponent* pc) {
 	std::vector<PhysicsComponent*>::iterator position = std::find(
-		physicsComp_.begin(), physicsComp_.end(), pc);
+			physicsComp_.begin(), physicsComp_.end(), pc);
 	if (position != physicsComp_.end())
 		physicsComp_.erase(position);
 }
 
 void Entity::delRenderComponent(RenderComponent* rc) {
 	std::vector<RenderComponent*>::iterator position = std::find(
-		renderComp_.begin(), renderComp_.end(), rc);
+			renderComp_.begin(), renderComp_.end(), rc);
 	if (position != renderComp_.end())
 		renderComp_.erase(position);
 }
 
-Texture* Entity::getTexture(Uint16 pos) const{
-	if (pos < renderComp_.size()){
+Texture* Entity::getTexture(Uint16 pos) const {
+	if (pos < renderComp_.size()) {
 		return renderComp_[pos]->getTexture();
 	}
 }

@@ -11,20 +11,9 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 			matriz[i*numCas+j] = Vector2D(espaciado*j + 150, espaciado*i + 125);
 		}
 	}
-	//inicializacion de texturas (en el futuro se hara una lista)
-	txt1 = new Texture();
-	txt1->loadFromImg(app->getRenderer(), "..//images/botonUsar.png");
-	txt2 = new Texture();
-	txt2->loadFromImg(app->getRenderer(), "..//images/Inventario.png");
-	txt3 = new Texture();
-	txt3->loadFromImg(app->getRenderer(), "..//images/InvMarca.png");
-	txt4 = new Texture();
-	txt4->loadFromImg(app->getRenderer(), "..//images/botonSwap.png");
-	txt5 = new Texture();
-	txt5->loadFromImg(app->getRenderer(), "..//images/InvMarcaS.png");
 
 	f = new Font("..//images/fuente2.ttf", tamanyoFuente);
-	imagen = new ImageRenderer(txt2);
+	imagen = new ImageRenderer(app->getResources()->getImageTexture(Resources::Inventario));
 
 	//imagen del inventario
 	inventarioHud->addRenderComponent(imagen);
@@ -38,7 +27,7 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	}
 
 	//marcador de objeto seleccionado
-	imagenMarca = new ImageRenderer(txt3);
+	imagenMarca = new ImageRenderer(app->getResources()->getImageTexture(Resources::InvMarca));
 	marca->addRenderComponent(imagenMarca);
 	marca->setHeight(87);
 	marca->setWidth(87);
@@ -64,18 +53,18 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 
 	//--------------------Pruebas Botones ----------------------
 	Boton* useButton = new Boton(app, usar, this, "use"); //nuevo Boton
-	ImageRenderer* im = new ImageRenderer(txt1); //se crea su image Renderer
+	ImageRenderer* im = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonUsar)); //se crea su image Renderer
 	useButton->addRenderComponent(im);
 	useButton->setPosition(Vector2D{ 547, 450 }); //posiciones random de prueba
-	useButton->setWidth(txt4->getWidth());
-	useButton->setHeight(txt4->getHeight());
+	useButton->setWidth(app->getResources()->getImageTexture(Resources::BotonSwap)->getWidth());
+	useButton->setHeight(app->getResources()->getImageTexture(Resources::BotonSwap)->getHeight());
 	stage.push_back(useButton); //se pushea
-	ImageRenderer* im2 = new ImageRenderer(txt4); //se crea su image Renderer
+	ImageRenderer* im2 = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonSwap)); //se crea su image Renderer
 	Boton* swapButton = new Boton(app, swap, this, "swap"); //nuevo Boton
 	swapButton->addRenderComponent(im2);
 	swapButton->setPosition(Vector2D{ 547, 480 }); //posiciones random de prueba
-	swapButton->setWidth(txt4->getWidth());
-	swapButton->setHeight(txt4->getHeight());
+	swapButton->setWidth(app->getResources()->getImageTexture(Resources::BotonSwap)->getWidth());
+	swapButton->setHeight(app->getResources()->getImageTexture(Resources::BotonSwap)->getHeight());
 	stage.push_back(swapButton); //se pushea
 	//-------------ConstructoraToGrandeLoko(hay q hacerla más pequeñita)------------------------
 }
@@ -88,7 +77,7 @@ void Inventory::handleEvent(SDL_Event& event) {
 			if (aux->pulsacion(event, marca->getHeight())) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
 				if (bswap) {
 					bswap = false;
-					marca->setTexture(0, txt3);
+					marca->setTexture(0, app->getResources()->getImageTexture(Resources::InvMarca));
 					inventario->swap(aux, selected);
 				}
 				selected = aux;
@@ -124,7 +113,7 @@ void Inventory::muestraDescripcion() {
 
 void Inventory::swap(GameState* state){
 	static_cast<Inventory*>(state)->bswap = true;
-	static_cast<Inventory*>(state)->marca->setTexture(0, static_cast<Inventory*>(state)->txt5);
+	static_cast<Inventory*>(state)->marca->setTexture(0, static_cast<Inventory*>(state)->app->getResources()->getImageTexture(Resources::InvMarcaS));
 
 }
 
@@ -132,9 +121,6 @@ void Inventory::destroy() { //destrucción de la memoria dinámica que se crea en 
 	for (int i = 0; i < inventario->getLength(); i++) {// se recolocan los objetos en su posicion inicial para que al volver a sercreados se coloquen bien
 		inventario->getItem(i)->setPosition(Vector2D(inventario->getItem(i)->getPosition() - matriz[i]));
 	}
-	delete txt2; txt2 = nullptr;
-	delete txt3; txt3 = nullptr;
-	delete txt4; txt4 = nullptr;
 	delete f; f = nullptr;
 	delete copia; copia = nullptr;
 	delete imagen; imagen = nullptr;

@@ -9,9 +9,7 @@
 #include "Texture.h"
 
 using namespace std;
-/*
-*
-*/
+
 class Entity : public GameObject {
 public:
 	Entity() {};
