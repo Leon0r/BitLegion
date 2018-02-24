@@ -47,12 +47,19 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	inventario->pushObjects(stage);
 
 	if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
-		selected = inventario->getItem(0);
+		copia = new Entity(app);
+		selected = inventario->getItem(0); //inicializamos el primero como seleccionado
+		selectedTexture = new ImageRenderer(selected->getTexture(0));
+		copia->addRenderComponent(selectedTexture);
+		copia->setHeight(selected->getHeight() * 2);//lo agranda
+		copia->setWidth(selected->getWidth() * 2);
+		copia->setPosition(Vector2D(618 - copia->getWidth() / 2, 149 - copia->getHeight() / 2));
+		stage.push_back(copia);	//lo pushea a la lista de objetos
 		stage.push_back(marca); //se marca el primero de ellos
 		marca->setPosition(inventario->getItem(0)->getPosition() +
 			Vector2D(inventario->getItem(0)->getWidth() / 2, inventario->getItem(0)->getHeight() / 2)
 			- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2));
-		muestraDescripcion(inventario->getItem(0));
+		muestraDescripcion();
 	}
 
 	//--------------------Pruebas Botones ----------------------
@@ -88,7 +95,7 @@ void Inventory::handleEvent(SDL_Event& event) {
 				marca->setPosition(aux->getPosition() + Vector2D(aux->getWidth() / 2, aux->getHeight() / 2)
 					- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2)); // desde aqui, con aux, se puede acceder a la textura, descripcion, tag... de it y crear además nuevos objetos para que se muestren por
 				//pantalla (una imagen, la descripción, botones...)
-				muestraDescripcion(aux); //se muestra 
+				muestraDescripcion(); //se muestra 
 			}
 		}
 	}
@@ -111,19 +118,8 @@ void Inventory::render() {
 	}
 }
 
-void Inventory::muestraDescripcion(CasillaInventario* aux) {
-	if (copia != nullptr){
-		delete copia;
-		copia = nullptr;
-		selectedTexture = new ImageRenderer(selected->getTexture(0));
-		copia = new Entity(app);
-		copia->addRenderComponent(selectedTexture);
-		copia->setHeight(selected->getHeight() * 2);//lo agranda
-		copia->setWidth(selected->getWidth() * 2);
-		copia->setPosition(Vector2D(618 - copia->getWidth() / 2, 149 - copia->getHeight() / 2));
-		stage.push_back(copia);	//lo pushea a la lista de objetos
-	}
-	
+void Inventory::muestraDescripcion() {
+	copia->setTexture(0, selected->getTexture(0));
 }
 
 void Inventory::swap(GameState* state){

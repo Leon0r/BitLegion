@@ -20,7 +20,7 @@ private:
 	Font* f;
 	bool bswap = false;
 	CasillaInventario* selected;
-	Entity* copia = new Entity();
+	Entity* copia;
 	RenderComponent* imagen;
 	RenderComponent* imagenMarca;
 	RenderComponent* selectedTexture;
@@ -41,7 +41,7 @@ public:
 	virtual ~Inventory() { destroy(); stage.clear(); };
 	virtual void handleEvent(SDL_Event& event);
 	virtual void render();
-	void muestraDescripcion(CasillaInventario* aux);
+	void muestraDescripcion();
 	CasillaInventario* getLastClicked() { return selected; };
 	void destroy();
 	ObjectList* inventario;
