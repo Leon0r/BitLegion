@@ -123,8 +123,6 @@ void Inventory::muestraDescripcion() {
 }
 
 void Inventory::swap(GameState* state){
-	/*static_cast<Inventory*>(state)->inventario->swap(static_cast<Inventory*>(state)->inventario->getItem(0),
-		static_cast<Inventory*>(state)->inventario->getItem(1));*/
 	static_cast<Inventory*>(state)->bswap = true;
 	static_cast<Inventory*>(state)->marca->setTexture(0, static_cast<Inventory*>(state)->txt5);
 
