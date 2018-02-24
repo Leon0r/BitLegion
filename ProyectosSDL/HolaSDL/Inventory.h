@@ -27,6 +27,7 @@ private:
 	Entity* inventarioHud = new Entity(app);
 	Entity* marca = new Entity(app);
 	const double espaciado = 87;
+	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const int numCas = 5;
 	vector<Vector2D> matriz;
 	static void usar(GameState* state) { /*static_cast<Inventory*>(state)->punteroStateAnterior->FuncionTag(static_cast<Inventory*>(state)->anteriorClickado->tag):
