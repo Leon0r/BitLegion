@@ -77,7 +77,7 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 	swapButton->setWidth(txt4->getWidth());
 	swapButton->setHeight(txt4->getHeight());
 	stage.push_back(swapButton); //se pushea
-	//-------------ConstructoraToGrandeLoko------------------------
+	//-------------ConstructoraToGrandeLoko(hay q hacerla más pequeñita)------------------------
 }
 
 void Inventory::handleEvent(SDL_Event& event) {
