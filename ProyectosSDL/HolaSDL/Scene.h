@@ -11,12 +11,12 @@ public:
 	Scene(bool kk, SDLApp* app, int SceneNum);
 	void loadScene();
 	void exitScene();
-	//int getSceneNumber();
+	int getSceneNumber() const { return SceneNum; };
 private:
 	SDLApp* app;
 	int SceneNum;
 	list<GameObject*> SceneItems;
-	list<GameObject*>::iterator  it;
+	list<GameObject*>::iterator it;
 	GameState* CurrentState;
 
 };

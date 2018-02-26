@@ -22,6 +22,7 @@ private:
 	
 	vector<Scene*> scenes;
 	int currentScene = 0;
+	virtual void handleEvent(SDL_Event &e);
 
 public:
 	StatePrueba() {}
@@ -33,6 +34,7 @@ public:
 	virtual void render() { GameState::render(); }
 	Entity* getMainPj() { return alena; }
 	ObjectList* getList() { return list; };//prueba, no deberia estar aqui
+	vector<Scene*> getScenes(){ return scenes; };
 	void swapScene(int nextScene);
 };
 

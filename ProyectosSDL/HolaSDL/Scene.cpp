@@ -10,16 +10,15 @@ Scene::Scene()
 	//Idealmente lee de un archivo
 }
 
-Scene::Scene(bool kk, SDLApp* app, int SceneNum) { //pruebas solo, Leo no me mates T_T
-	app = app;
-	SceneNum = SceneNum;
+Scene::Scene(bool kk, SDLApp* app, int SceneNum): app(app) { //pruebas solo, Leo no me mates T_T T_T T_T T_T
+	SceneNum = SceneNum;	
 	if (kk) { 
-		SceneItems.push_back(new ItemInventario(app, 368, 0, 64, 64, "descripcion", "tag", app->getResources()->getImageTexture(Resources::ImagenTest)));
-		SceneItems.push_back(new ItemInventario(app, 100, 0, 64, 64, "dsdwreeion", "teweg", app->getResources()->getImageTexture(Resources::ImagenTest)));
-		SceneItems.push_back(new ItemInventario(app, 668, 0, 64, 64, "dffffn", "ffftag", app->getResources()->getImageTexture(Resources::ImagenTest)));
+		SceneItems.push_back(new ItemInventario(app, 368, 122, 64, 64, "descripcion", "tag", app->getResources()->getImageTexture(Resources::Alena)));
+		SceneItems.push_back(new ItemInventario(app, 100, 544, 64, 64, "dsdwreeion", "teweg", app->getResources()->getImageTexture(Resources::ImagenTest)));
+		SceneItems.push_back(new ItemInventario(app, 668, 0, 64, 64, "dffffn", "ffftag", app->getResources()->getImageTexture(Resources::BotonSwap)));
 	}
 	else {
-		SceneItems.push_back(new ItemInventario(app, 668, 0, 64, 64, "wwwww", "ferrrag", app->getResources()->getImageTexture(Resources::ImagenTest)));
+		SceneItems.push_back(new ItemInventario(app, 666, 66, 66, 66, "wwwww", "ferrrag", app->getResources()->getImageTexture(Resources::Inventario)));
 	}
 }
 
@@ -28,14 +27,14 @@ Scene::~Scene()
 }
 
 void Scene::loadScene() {
+	CurrentState = app->getStateMachine()->currentState();
 	//Iniciamos ite, saltamos primer ite(jugador) borrarmos el resto de items copiamos nuestra lista
 	it = CurrentState->getStage()->begin();
 	it++;
 	while (it != CurrentState->getStage()->end()) {//Mientras no se acaben los items
-		CurrentState->getStage()->erase(it);//borramos el item
-		it++;//Pasamos al siguiente
+		it = CurrentState->getStage()->erase(it);//borramos el item
 	}
-	CurrentState->getStage()->insert(CurrentState->getStage()->begin(), SceneItems.begin(), SceneItems.end());
+	CurrentState->getStage()->insert(CurrentState->getStage()->end(), SceneItems.begin(), SceneItems.end());
 }
 
 void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se vuelcan en la lista de la escena para que se queden guardados (menos el jugador)
