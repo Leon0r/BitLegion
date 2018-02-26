@@ -9,6 +9,8 @@
 #include "MovementComponent.h"
 #include "Resources.h"
 
+#include "Scene.h"
+
 //estado de prueba, con Alena moviendose por pantalla
 class StatePrueba: public GameState
 {
@@ -17,6 +19,10 @@ private:
 	ObjectList* list;
 	std::list<GameObject*> collision;
 	const Resources* resources = app->getResources();//recursos del juego
+	
+	vector<Scene*> scenes;
+	int currentScene = 0;
+
 public:
 	StatePrueba() {}
 	~StatePrueba() {}
@@ -27,5 +33,6 @@ public:
 	virtual void render() { GameState::render(); }
 	Entity* getMainPj() { return alena; }
 	ObjectList* getList() { return list; };//prueba, no deberia estar aqui
+	void swapScene(int nextScene);
 };
 
