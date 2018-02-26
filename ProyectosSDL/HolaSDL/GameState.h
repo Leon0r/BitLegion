@@ -26,5 +26,6 @@ public:
 	virtual ~GameState() { for (GameObject* it : stage) { delete it; } }; //delete de los objetos
 	GameState(SDLApp* app) : app(app) {}
 	void deleteElement(GameObject* o);
+	list <GameObject*>* getStage() {return &stage;}
 };
 

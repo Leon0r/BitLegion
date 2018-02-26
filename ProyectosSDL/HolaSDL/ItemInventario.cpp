@@ -4,7 +4,7 @@
 
 
 
-ItemInventario::ItemInventario(SDLApp* game, int x, int y, int w, int h, string _desc, string _tag, Texture* texture) : ClickeableGO(game,x, y,w,h, _desc,_tag,texture)
+ItemInventario::ItemInventario(SDLApp* game, int x, int y, int w, int h, string _desc, string _tag, Texture* texture) : ClickeableGO(game,x, y,w,h, texture), desc(_desc), tag(_tag)
 {
 }
 

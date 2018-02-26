@@ -3,7 +3,7 @@
 //Clase de Testeo
 
 
-ClickeableGO::ClickeableGO(SDLApp* game, int x, int y, int w, int h, string _desc, string _tag, Texture* texture): Entity(game), desc(_desc), tag(_tag)
+ClickeableGO::ClickeableGO(SDLApp* game, int x, int y, int w, int h, Texture* texture): Entity(game)
 {
 	render = new ImageRenderer(texture);
 	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla

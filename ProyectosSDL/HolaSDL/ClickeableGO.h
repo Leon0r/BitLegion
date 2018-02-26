@@ -9,15 +9,13 @@ class ClickeableGO :
 	public Entity , ComponenteClickeable
 {
 public:
-	ClickeableGO(SDLApp* game,int x,int y,int w,int h, string _desc, string _tag , Texture* texture);
+	ClickeableGO(SDLApp* game,int x,int y,int w,int h,  Texture* texture);
 	virtual ~ClickeableGO();
 	void handleInput(Uint32 time, const SDL_Event& event);
-	string getTag() { return tag; };
-	string getDescription() { return desc; };
+	;
 	//Texture* getTexture(){ return txt; };
 private:
-	string desc;
-	string tag;
+	
 	RenderComponent* render;
 	//Texture txt
 	bool inRange(int _x) {//prob not final
