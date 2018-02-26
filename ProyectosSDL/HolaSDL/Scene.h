@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "GameState.h"
+
 class Scene
 {
 public:
@@ -15,6 +16,8 @@ private:
 	SDLApp* app;
 	int SceneNum;
 	list<GameObject*> SceneItems;
+	list<GameObject*>::iterator  it;
 	GameState* CurrentState;
+
 };
 

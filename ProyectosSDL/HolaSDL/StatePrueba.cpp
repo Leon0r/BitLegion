@@ -23,3 +23,10 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 	ItemInventario* test4 = new ItemInventario(app, 500, 0, 64, 64, "descripcion", "tag", resources->getImageTexture(Resources::ImagenTest));
 	stage.push_back(test4);
 }
+
+void StatePrueba::swapScene(int nextScene)
+{
+	scenes[currentScene]->exitScene();
+	currentScene = nextScene;
+	scenes[nextScene]->loadScene();
+}
