@@ -22,4 +22,8 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 	stage.push_back(test3);
 	ItemInventario* test4 = new ItemInventario(app, 500, 0, 64, 64, "descripcion", "tag", resources->getImageTexture(Resources::ImagenTest));
 	stage.push_back(test4);
+
+	//SHORTCUT
+	ShortCut* shortcut = new ShortCut(app, list, resources);
+	stage.push_back(shortcut);
 }

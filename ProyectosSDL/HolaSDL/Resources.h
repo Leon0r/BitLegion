@@ -23,7 +23,8 @@ public:
 		ImagenTest,
 		Inventario,
 		InvMarca,
-		InvMarcaS
+		InvMarcaS,
+		ShortCut
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

@@ -8,6 +8,7 @@
 #include "KeyboardComponent.h"
 #include "MovementComponent.h"
 #include "Resources.h"
+#include "ShortCut.h"
 
 //estado de prueba, con Alena moviendose por pantalla
 class StatePrueba: public GameState

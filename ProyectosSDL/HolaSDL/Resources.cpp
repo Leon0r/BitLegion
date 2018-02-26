@@ -5,7 +5,7 @@
 std::vector<std::string> Resources::imageFiles_ { "..//images/Alena.png",
 		"..//images/bit legion_logo.png", "..//images/boton.png", "..//images/BotonSwap.png",
 		"..//images/BotonUsar.png", "..//images/ImgTest.png", "..//images/Inventario.png",
-		"..//images/InvMarca.png", "..//images/InvMarcaS.png" };
+		"..//images/InvMarca.png", "..//images/InvMarcaS.png", "..//images/shortcut.png" };
 
 #include <iostream>
 
