@@ -12,7 +12,7 @@
 #include "Scene.h"
 
 //estado de prueba, con Alena moviendose por pantalla
-class StatePrueba: public GameState
+class PlayState: public GameState
 {
 private:
 	Entity* alena;//personaje del juego
@@ -25,9 +25,9 @@ private:
 	virtual void handleEvent(SDL_Event &e);
 
 public:
-	StatePrueba() {}
-	~StatePrueba() {}
-	StatePrueba(SDLApp* app);
+	PlayState() {}
+	~PlayState() {}
+	PlayState(SDLApp* app);
 	//actualiza todos los objetos del estado
 	virtual void update() { GameState::update(); }
 	//pinta todos los objetos del estado

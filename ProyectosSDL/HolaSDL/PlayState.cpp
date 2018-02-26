@@ -1,7 +1,7 @@
-#include "StatePrueba.h"
+#include "PlayState.h"
 
 
-StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
+PlayState::PlayState(SDLApp* app): GameState(app) {
 
 	//COLISIONABLES
 	//Entity* object = new ColisionableObject(app, 500, 500, 100, 100, resources->getImageTexture(Resources::InvMarca));
@@ -28,14 +28,14 @@ StatePrueba::StatePrueba(SDLApp* app): GameState(app) {
 	scenes.push_back(new Scene(false, app, 0));
 }
 
-void StatePrueba::swapScene(int nextScene)
+void PlayState::swapScene(int nextScene)
 {
 	scenes[currentScene]->exitScene();
 	currentScene = nextScene;
 	scenes[nextScene]->loadScene();
 }
 
-void StatePrueba::handleEvent(SDL_Event &e) { //redefino el metodo HandleEvent del estado solo para cambiar de teclas con el teclado para ir probando
+void PlayState::handleEvent(SDL_Event &e) { //redefino el metodo HandleEvent del estado solo para cambiar de teclas con el teclado para ir probando
 	if (e.key.keysym.sym == SDLK_8) {
 		swapScene(1);
 	}
