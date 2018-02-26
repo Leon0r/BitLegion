@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "GameState.h"
+
 class Scene
 {
 public:
@@ -12,6 +13,8 @@ public:
 private:
 	int SceneNum;
 	list<GameObject*> SceneItems;
+	list<GameObject*>::iterator  it;
 	GameState* CurrentState;
+
 };
 
