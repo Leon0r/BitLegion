@@ -27,9 +27,10 @@ private:
 	Entity* inventarioHud = new Entity(app);
 	Entity* marca = new Entity(app);
 	const double espaciado = 87;
+	int coefRed;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const int numCas = 5;
-	vector<Vector2D> matriz;
+	vector<Vector2D> matriz, matrizS;
 	static void usar(GameState* state) { /*static_cast<Inventory*>(state)->punteroStateAnterior->FuncionTag(static_cast<Inventory*>(state)->anteriorClickado->tag):
 										 /*app->popState();
 										 */std::cout << "usandooo" << static_cast<Inventory*>(state)->getLastClicked()->getDescription();
@@ -39,6 +40,9 @@ private:
 public:
 	Inventory() {};
 	Inventory(SDLApp* app, ObjectList* inventario);
+	Inventory(SDLApp* game, ObjectList* inventario, int coefRed, vector<Vector2D> matS) : coefRed(coefRed), matrizS(matS){
+		Inventory(game, inventario);
+	};
 	virtual ~Inventory() { destroy(); stage.clear(); };
 	virtual void handleEvent(SDL_Event& event);
 	virtual void render();

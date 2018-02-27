@@ -13,11 +13,12 @@ private:
 	RenderComponent* render;
 	ObjectList* list;
 	const int numCas = 5;
-	const double espaciado = 87/2;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0, app->getWindowHeight() / 600.0 };
+	const double espaciado = (87/2)*relacion.first;
 public:
 	ShortCut(){};
 	ShortCut(SDLApp* game, ObjectList* list, const Resources* resources);
 	virtual ~ShortCut();
+	vector<Vector2D> getMatriz(){ return matriz; }
 };
 

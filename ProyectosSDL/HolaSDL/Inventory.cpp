@@ -23,7 +23,12 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inve
 		app->getWindowHeight() / 2 - inventarioHud->getHeight()/2)));
 
 	for (int i = 0; i < inventario->getLength(); i++) { // se colocan los objetos en sus posiciones correspondientes
-		inventario->getItem(i)->setPosition(Vector2D(matriz[i] + inventario->getItem(i)->getPosition()));
+		if (i < numCas){
+			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth() * 3);
+			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight() * 3);
+		}
+		inventario->getItem(i)->setPosition(Vector2D(matriz[i].getX() - inventario->getItem(i)->getWidth()/2, 
+			matriz[i].getY() - inventario->getItem(i)->getHeight() / 2));
 	}
 
 	//marcador de objeto seleccionado
@@ -118,9 +123,17 @@ void Inventory::swap(GameState* state){
 }
 
 void Inventory::destroy() { //destrucción de la memoria dinámica que se crea en este estado
-	for (int i = 0; i < inventario->getLength(); i++) {// se recolocan los objetos en su posicion inicial para que al volver a sercreados se coloquen bien
-		inventario->getItem(i)->setPosition(Vector2D(inventario->getItem(i)->getPosition() - matriz[i]));
+	int tam = inventario->getLength();
+	if (tam > numCas) tam = numCas;
+	if (tam != 0){
+		for (int i = 0; i < tam; i++){
+			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth() / 3);
+			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight() / 3);
+			inventario->getItem(i)->setPosition(Vector2D(matrizS[i].getX() - inventario->getItem(i)->getWidth() / 2,
+			matrizS[i].getY() - inventario->getItem(i)->getHeight() / 2));
+		}
 	}
+
 	delete f; f = nullptr;
 	delete copia; copia = nullptr;
 	delete imagen; imagen = nullptr;
