@@ -1,5 +1,6 @@
 #pragma once
 #include "ClickeableGO.h"
+
 class GOTransiciones :
 	public ClickeableGO
 {

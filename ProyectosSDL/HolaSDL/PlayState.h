@@ -22,7 +22,6 @@ private:
 	
 	vector<Scene*> scenes;
 	int currentScene = 0;
-	virtual void handleEvent(SDL_Event &e);
 
 public:
 	PlayState() {}

@@ -29,3 +29,12 @@ MainCharacter::~MainCharacter()
 void MainCharacter::addInventoryObject(GameObject* o) {
 	list->addItem(o); //añade un item al inventario
 }
+
+void MainCharacter::changeRoom() {
+	if((app->getWindowWidth() - this->position_.getX()) < app->getWindowWidth()/2)
+		this->setPosition(Vector2D(10.0, this->position_.getY()));
+	else
+	{
+		this->setPosition(Vector2D(app->getWindowWidth()-(10+ this->width_), this->position_.getY()));
+	}
+}

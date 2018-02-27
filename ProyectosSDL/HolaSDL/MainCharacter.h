@@ -13,6 +13,7 @@ public:
 	MainCharacter(SDLApp* game, int x, int y, int w, int h, Texture* texture, ObjectList* list, std::list<GameObject*> coll);
 	~MainCharacter();
 	void addInventoryObject(GameObject* o);
+	void changeRoom();
 private:
 	Texture * _texture;
 	RenderComponent* render;

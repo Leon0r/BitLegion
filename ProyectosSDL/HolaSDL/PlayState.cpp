@@ -35,12 +35,3 @@ void PlayState::swapScene(int nextScene)
 	scenes[nextScene]->loadScene();
 }
 
-void PlayState::handleEvent(SDL_Event &e) { //redefino el metodo HandleEvent del estado solo para cambiar de teclas con el teclado para ir probando
-	if (e.key.keysym.sym == SDLK_8) {
-		swapScene(1);
-	}
-	else if (e.key.keysym.sym == SDLK_9) {
-		swapScene(0);
-	}
-	GameState::handleEvent(e);
-}
