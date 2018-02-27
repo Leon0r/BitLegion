@@ -30,8 +30,10 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 
 void PlayState::swapScene(int nextScene)
 {
-	scenes[currentScene]->exitScene();
-	currentScene = nextScene;
-	scenes[nextScene]->loadScene();
+	if (nextScene < scenes.size() && nextScene >= 0) { // basicamente se asegura de que la escena a la que quiere cambiar existe
+		scenes[currentScene]->exitScene();
+		currentScene = nextScene;
+		scenes[nextScene]->loadScene();
+	}
 }
 
