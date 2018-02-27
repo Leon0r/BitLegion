@@ -4,7 +4,7 @@
 //#include "GameStateMachine.h"
 
 
-Inventory::Inventory(SDLApp* app, ObjectList* inventario) : GameState(app), inventario(inventario), selected(nullptr) {
+Inventory::Inventory(SDLApp* app, ObjectList* inventario, int coefRed = 0, vector<Vector2D> matS = {}) : GameState(app), inventario(inventario), selected(nullptr), coefRed(coefRed), matrizS(matS) {
 	matriz.resize(numCas*numCas);
 	for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
 		for (int j = 0; j < numCas; j++) {

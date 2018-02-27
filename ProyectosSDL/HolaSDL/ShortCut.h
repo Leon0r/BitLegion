@@ -11,6 +11,8 @@ private:
 	vector<Vector2D> matriz;
 	const Resources* resources;
 	RenderComponent* render;
+	RenderComponent* imagenMarca;
+	CasillaInventario* selected = nullptr;
 	ObjectList* list;
 	const int numCas = 5;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0, app->getWindowHeight() / 600.0 };

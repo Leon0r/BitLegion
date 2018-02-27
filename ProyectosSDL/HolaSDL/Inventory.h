@@ -39,10 +39,7 @@ private:
 	static void swap(GameState* state);
 public:
 	Inventory() {};
-	Inventory(SDLApp* app, ObjectList* inventario);
-	Inventory(SDLApp* game, ObjectList* inventario, int coefRed, vector<Vector2D> matS) : coefRed(coefRed), matrizS(matS){
-		Inventory(game, inventario);
-	};
+	Inventory(SDLApp* game, ObjectList* inventario, int coefRed, vector<Vector2D> matS);
 	virtual ~Inventory() { destroy(); stage.clear(); };
 	virtual void handleEvent(SDL_Event& event);
 	virtual void render();

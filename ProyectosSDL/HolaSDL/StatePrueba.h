@@ -29,9 +29,7 @@ public:
 	virtual void render() { GameState::render(); }
 	Entity* getMainPj() { return alena; }
 	ShortCut* getShortCut(){ return shortcut; }
-	void creaInventario(){
-		app->getStateMachine()->pushState(new Inventory(app, list, 3, shortcut->getMatriz()));
-	}
+	void creaInventario(){app->getStateMachine()->pushState(new Inventory(app, list, ItemInventario::getCoef(), shortcut->getMatriz())); }
 	ObjectList* getList() { return list; };//prueba, no deberia estar aqui
 };
 
