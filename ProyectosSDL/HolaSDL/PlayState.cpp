@@ -35,5 +35,6 @@ void PlayState::swapScene(int nextScene)
 		currentScene = nextScene;
 		scenes[nextScene]->loadScene();
 	}
+	else cout << "Escena no encontrada, número buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
 }
 
