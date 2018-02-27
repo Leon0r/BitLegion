@@ -30,15 +30,12 @@ private:
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const int numCas = 5;
 	vector<Vector2D> matriz;
-	static void usar(GameState* state) { /*static_cast<Inventory*>(state)->punteroStateAnterior->FuncionTag(static_cast<Inventory*>(state)->anteriorClickado->tag):
-										 /*app->popState();
-										 */std::cout << "usandooo" << static_cast<Inventory*>(state)->getLastClicked()->getDescription();
-	}; 
-										 //ya funciona, se puede usar un cast para un metodo del inventario (usar, swap, por ejemplo)
+	GameState* previousState;
+	static void usar(GameState* state);	//ya funciona, se puede usar un cast para un metodo del inventario (usar, swap, por ejemplo)
 	static void swap(GameState* state);
 public:
 	Inventory() {};
-	Inventory(SDLApp* app, ObjectList* inventario);
+	Inventory(SDLApp* app, ObjectList* inventario, GameState* previousState);
 	virtual ~Inventory() { destroy(); stage.clear(); };
 	virtual void handleEvent(SDL_Event& event);
 	virtual void render();
@@ -46,5 +43,6 @@ public:
 	CasillaInventario* getLastClicked() { return selected; };
 	void destroy();
 	ObjectList* inventario;
+	GameState* getPreviousState() { return previousState; };
 };
 

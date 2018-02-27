@@ -9,6 +9,7 @@ class ClickeableGO :
 	public Entity , ComponenteClickeable
 {
 public:
+	ClickeableGO() {};
 	ClickeableGO(SDLApp* game,int x,int y,int w,int h,  Texture* texture);
 	virtual ~ClickeableGO();
 	void handleInput(Uint32 time, const SDL_Event& event);

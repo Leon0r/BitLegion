@@ -34,4 +34,3 @@ void PlayState::swapScene(int nextScene)
 	currentScene = nextScene;
 	scenes[nextScene]->loadScene();
 }
-

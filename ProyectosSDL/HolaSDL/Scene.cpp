@@ -15,7 +15,7 @@ Scene::Scene(bool kk, SDLApp* app, int SceneNum): app(app) { //pruebas solo, Leo
 	SceneNum = SceneNum;	
 	if (kk) { 
 		SceneItems.push_back(new ItemInventario(app, 368, 122, 64, 64, "descripcion", "tag", app->getResources()->getImageTexture(Resources::Alena)));
-		SceneItems.push_back(new ItemInventario(app, 100, 544, 64, 64, "dsdwreeion", "teweg", app->getResources()->getImageTexture(Resources::ImagenTest)));
+		SceneItems.push_back(new ItemInventario(app, 100, 544, 64, 64, "dsdwreeion", "Hanzo", app->getResources()->getImageTexture(Resources::ImagenTest)));
 		SceneItems.push_back(new ItemInventario(app, 668, 0, 64, 64, "dffffn", "ffftag", app->getResources()->getImageTexture(Resources::BotonSwap)));
 		SceneItems.push_back(new GOTransiciones(app, app->getWindowWidth()-70, 500, 100, 100, app->getResources()->getImageTexture(Resources::ImagenTest), 1));
 	}

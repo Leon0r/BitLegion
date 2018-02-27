@@ -14,8 +14,11 @@ public:
 	~MainCharacter();
 	void addInventoryObject(GameObject* o);
 	void changeRoom();
+	string getCurrentTag() { return this->currentTag; };
+	void setCurrenTag(string newTag) { this->currentTag = newTag; };
 private:
 	Texture * _texture;
+	string currentTag;
 	RenderComponent* render;
 	InputComponent* keyboard;
 	PhysicsComponent* movement;
