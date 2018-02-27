@@ -19,7 +19,6 @@ private:
 	ObjectList* list;
 	std::list<GameObject*> collision;
 	const Resources* resources = app->getResources();//recursos del juego
-	
 	vector<Scene*> scenes;
 	int currentScene = 0;
 
