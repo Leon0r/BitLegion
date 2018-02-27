@@ -14,6 +14,7 @@ public:
 	~MainCharacter();
 	void addInventoryObject(GameObject* o);
 	void changeRoom();
+	string getCurrentTag() { return currentTag; }
 private:
 	Texture * _texture;
 	RenderComponent* render;
@@ -21,5 +22,6 @@ private:
 	PhysicsComponent* movement;
 	ObjectList* list;
 	std::list<GameObject*> colisionables;
+	string currentTag;
 };
 
