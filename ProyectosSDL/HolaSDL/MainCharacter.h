@@ -16,6 +16,7 @@ public:
 	void changeRoom();
 	string getCurrentTag() { return this->currentTag; };
 	void setCurrenTag(string newTag) { this->currentTag = newTag; };
+	ObjectList* getList() { return list; };
 private:
 	Texture * _texture;
 	string currentTag;

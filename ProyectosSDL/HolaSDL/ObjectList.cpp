@@ -34,7 +34,9 @@ void ObjectList::deleteItem(string tag) {
 			delete(*it);//lo borra
 			it = objetos.erase(it);
 		}
-		it++;
+		else {
+			it++;
+		}
 	}
 }
 
