@@ -23,7 +23,9 @@ public:
 		ImagenTest,
 		Inventario,
 		InvMarca,
-		InvMarcaS
+		InvMarcaS,
+		PuertaCutre,
+		LlaveCutre
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
