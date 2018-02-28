@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "GameState.h"
+#include "GODoors.h"
 
 class Scene
 {
