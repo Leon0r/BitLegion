@@ -35,19 +35,19 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 	else if (event.type == SDL_KEYUP){
 		if (event.key.keysym.sym == right) {
 			r = false;
-			Xaxis.pop();
+			if(!Xaxis.empty())Xaxis.pop();
 		}
 		else if (event.key.keysym.sym == left) {
 			l = false;
-			Xaxis.pop();
+			if (!Xaxis.empty())Xaxis.pop();
 		}
 		if (event.key.keysym.sym == up) {
 			u = false;
-			Yaxis.pop();
+			if (!Yaxis.empty())Yaxis.pop();
 		}
 		else if (event.key.keysym.sym == down) {
 			d = false;
-			Yaxis.pop();
+			if (!Yaxis.empty())Yaxis.pop();
 		}
 	}
 	//si no hay teclas en la pila la velocidad se para
