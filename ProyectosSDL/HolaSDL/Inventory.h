@@ -32,8 +32,10 @@ private:
 	const int numCas = 5;
 	vector<Vector2D> matriz, matrizS;
 	static void usar(GameState* state) { /*static_cast<Inventory*>(state)->punteroStateAnterior->FuncionTag(static_cast<Inventory*>(state)->anteriorClickado->tag):
-										 /*app->popState();
-										 */std::cout << "usandooo" << static_cast<Inventory*>(state)->getLastClicked()->getDescription();
+										 /*app->popState();*/
+		Inventory* aux = dynamic_cast<Inventory*>(state);
+		if (aux != nullptr && aux->getLastClicked() != nullptr)
+			std::cout << "usandooo" << aux->getLastClicked()->getDescription();
 	}; 
 										 //ya funciona, se puede usar un cast para un metodo del inventario (usar, swap, por ejemplo)
 	static void swap(GameState* state);

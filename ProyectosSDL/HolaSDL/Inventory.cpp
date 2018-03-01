@@ -75,22 +75,19 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, int coefRed = 0, vecto
 }
 
 void Inventory::handleEvent(SDL_Event& event) {
-	list<GameObject*>::iterator it;
-	for (it = stage.begin(); it != stage.end(); it++) { //recorre la lista de objetos
-		CasillaInventario* aux = dynamic_cast<CasillaInventario*>(*it); //si aux == nullptr --> it no es de tipo CasillaInventario
-		if (aux != nullptr) { //si aux != nullptr ---> it es de tipo CasillaInventario
-			if (aux->pulsacion(event, marca->getWidth(), marca->getHeight())) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
-				if (bswap) {
-					bswap = false;
-					marca->setTexture(0, app->getResources()->getImageTexture(Resources::InvMarca));
-					inventario->swap(aux, selected);
-				}
-				selected = aux;
-				marca->setPosition(aux->getPosition() + Vector2D(aux->getWidth() / 2, aux->getHeight() / 2)
-					- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2)); // desde aqui, con aux, se puede acceder a la textura, descripcion, tag... de it y crear además nuevos objetos para que se muestren por
-				//pantalla (una imagen, la descripción, botones...)
-				muestraDescripcion(); //se muestra 
+	list<CasillaInventario*>::iterator it;
+	for (it = inventario->getBegin(); it != inventario->getEnd(); it++) { //recorre la lista de objetos
+		if ((*it)->pulsacion(event, marca->getWidth(), marca->getHeight())) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
+			if (bswap) {
+				bswap = false;
+				marca->setTexture(0, app->getResources()->getImageTexture(Resources::InvMarca));
+				inventario->swap((*it), selected);
 			}
+			selected = (*it);
+			marca->setPosition((*it)->getPosition() + Vector2D((*it)->getWidth() / 2, (*it)->getHeight() / 2)
+				- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2)); // desde aqui, con aux, se puede acceder a la textura, descripcion, tag... de it y crear además nuevos objetos para que se muestren por
+			//pantalla (una imagen, la descripción, botones...)
+			muestraDescripcion(); //se muestra 
 		}
 	}
 	
