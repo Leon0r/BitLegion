@@ -31,8 +31,8 @@ private:
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const int numCas = 5;
 	vector<Vector2D> matriz, matrizS;
-	static void usar(GameState* state) { /*static_cast<Inventory*>(state)->punteroStateAnterior->FuncionTag(static_cast<Inventory*>(state)->anteriorClickado->tag):
-										 /*app->popState();*/
+	static void usar(GameState* state) { //static_cast<Inventory*>(state)->punteroStateAnterior->FuncionTag(static_cast<Inventory*>(state)->anteriorClickado->tag):
+										 //app->popState();
 		Inventory* aux = dynamic_cast<Inventory*>(state);
 		if (aux != nullptr && aux->getLastClicked() != nullptr)
 			std::cout << "usandooo" << aux->getLastClicked()->getDescription();
