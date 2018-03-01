@@ -79,7 +79,7 @@ void Inventory::handleEvent(SDL_Event& event) {
 	for (it = stage.begin(); it != stage.end(); it++) { //recorre la lista de objetos
 		CasillaInventario* aux = dynamic_cast<CasillaInventario*>(*it); //si aux == nullptr --> it no es de tipo CasillaInventario
 		if (aux != nullptr) { //si aux != nullptr ---> it es de tipo CasillaInventario
-			if (aux->pulsacion(event, marca->getHeight())) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
+			if (aux->pulsacion(event, marca->getWidth(), marca->getHeight())) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
 				if (bswap) {
 					bswap = false;
 					marca->setTexture(0, app->getResources()->getImageTexture(Resources::InvMarca));
