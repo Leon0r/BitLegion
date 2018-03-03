@@ -14,7 +14,6 @@ public:
 	Scene(int numEscena, SDLApp* app);
 	~Scene();
 	Scene(SDLApp* app, int SceneNum) : app(app), SceneNum(SceneNum) {};
-	Scene(bool kk, SDLApp* app, int SceneNum);
 	void enterScene();
 	void exitScene();
 	int getSceneNumber() const { return SceneNum; };

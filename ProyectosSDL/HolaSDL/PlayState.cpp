@@ -1,5 +1,14 @@
 #include "PlayState.h"
 
+PlayState::~PlayState() {
+	delete list;
+	vector<Scene*>::iterator aux;
+	scenes[0]->saveSceneToJson();
+	for (aux = scenes.begin(); aux != scenes.end(); aux++) {
+		delete (*aux);
+	}
+}
+
 PlayState::PlayState(SDLApp* app): GameState(app) {
 
 	//COLISIONABLES

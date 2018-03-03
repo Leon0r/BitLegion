@@ -24,7 +24,7 @@ private:
 
 public:
 	PlayState() {}
-	~PlayState() {}
+	~PlayState();
 	PlayState(SDLApp* app);
 	Entity* getMainPj() { return alena; }
 	ObjectList* getList() { return list; };//prueba, no deberia estar aqui

@@ -23,6 +23,7 @@ private:
 		return (abs(_x - this->getPosition().getX()) < 150);
 	}
 	virtual void act() = 0;
+	virtual void saveToJson(json& j) = 0; //se encargarán de guardarse los objetos específicos
 	
 };
 

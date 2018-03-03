@@ -1,1 +1,39 @@
-{"ItemInventario":[{"h":64.0,"w":64.0,"x":368.0,"y":122.0},{"h":64.0,"w":64.0,"x":100.0,"y":544.0},{"h":64.0,"w":64.0,"x":668.0,"y":0.0}]}
+{
+    "GODoors": [
+        {
+            "h": 300.0,
+            "scneNum": 0,
+            "tag": "key",
+            "w": 300.0,
+            "x": 300.0,
+            "y": 300.0
+        }
+    ],
+    "ItemInventario": [
+        {
+            "descripcion": "Esta es mi descripcion",
+            "h": 64.0,
+            "tag": "Este es mi tag",
+            "w": 64.0,
+            "x": 368.0,
+            "y": 122.0
+        },
+        {
+            "descripcion": "adafsfdf",
+            "h": 64.0,
+            "tag": "ffftag",
+            "w": 64.0,
+            "x": 668.0,
+            "y": 0.0
+        }
+    ],
+    "OTransicion": [
+        {
+            "h": 150.0,
+            "sceneNumber": 0,
+            "w": 150.0,
+            "x": 300.0,
+            "y": 300.0
+        }
+    ]
+}
