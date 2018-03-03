@@ -23,9 +23,8 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	stage.push_back(test3);
 	ItemInventario* test4 = new ItemInventario(app, 500, 0, 64, 64, "descripcion", "tag", resources->getImageTexture(Resources::ImagenTest));
 	stage.push_back(test4);*/
-
+	scenes.push_back(new Scene(false, app, 1));
 	scenes.push_back(new Scene(true, app, 0));
-	scenes.push_back(new Scene(false, app, 0));
 }
 
 void PlayState::swapScene(int nextScene)
@@ -33,7 +32,7 @@ void PlayState::swapScene(int nextScene)
 	if (nextScene < scenes.size() && nextScene >= 0) { // basicamente se asegura de que la escena a la que quiere cambiar existe
 		scenes[currentScene]->exitScene();
 		currentScene = nextScene;
-		scenes[nextScene]->loadScene();
+		scenes[nextScene]->enterScene();
 	}
 	else cout << "Escena no encontrada, número buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
 }

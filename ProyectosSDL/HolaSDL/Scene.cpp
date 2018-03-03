@@ -1,9 +1,5 @@
 #include "Scene.h"
-#include "SDLApp.h"
-#include "ItemInventario.h"
-#include "Resources.h"
-#include "GOTransiciones.h"
-
+#include "MainCharacter.h"
 
 Scene::Scene()
 {
@@ -18,19 +14,19 @@ Scene::Scene(bool kk, SDLApp* app, int SceneNum): app(app) { //pruebas solo, Leo
 		SceneItems.push_back(new ItemInventario(app, 100, 544, 64, 64, "dsdwreeion", "Hanzo", app->getResources()->getImageTexture(Resources::LlaveCutre)));
 		SceneItems.push_back(new ItemInventario(app, 668, 0, 64, 64, "dffffn", "ffftag", app->getResources()->getImageTexture(Resources::BotonSwap)));
 		SceneItems.push_back(new GODoors(app, app->getWindowWidth() - 200, 500, 200, 300, app->getResources()->getImageTexture(Resources::PuertaCutre), "Hanzo", 1));
-		//SceneItems.push_back(new GOTransiciones(app, app->getWindowWidth()-70, 500, 100, 100, app->getResources()->getImageTexture(Resources::ImagenTest), 1));
 	}
 	else {
 		SceneItems.push_back(new ItemInventario(app, 666, 66, 66, 66, "wwwww", "ferrrag", app->getResources()->getImageTexture(Resources::Inventario)));
 		SceneItems.push_back(new GOTransiciones(app, 10, 500, 200, 300, app->getResources()->getImageTexture(Resources::ImagenTest), 0));
 	}
+	saveSceneToJson();
 }
 
 Scene::~Scene()
 {
 }
 
-void Scene::loadScene() {
+void Scene::enterScene() {
 	CurrentState = app->getStateMachine()->currentState();
 	//Iniciamos ite, saltamos primer ite(jugador) borrarmos el resto de items copiamos nuestra lista
 	it = CurrentState->getStage()->begin();
@@ -48,4 +44,28 @@ void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se
 	SceneItems.clear();
 	SceneItems = *(app->getStateMachine()->currentState()->getStage()); //la lista stage es igual a todos los objetos de la escena
 	SceneItems.pop_front(); //quitamos al jugador de la escena (es global). Se puede hacer así o con un for que se salte el primero y copie los demás
+}
+
+
+void Scene::saveSceneToJson() {
+	std::ofstream i("..\\Scenes\\Scene4.json");
+	json j;
+	/*j["ItemInventario"][0]["x"] = 300;
+	j["ItemInventario"][0]["Texture"] = Resources::LlaveCutre;
+	j["ItemInventario"][1]["Texture"] = Resources::Alena;*/
+
+	int s = 0;
+	for (GameObject* it : SceneItems) {
+			ItemInventario* aux = dynamic_cast<ItemInventario*>(it);
+			if(aux != nullptr){
+			Vector2D pos = it->getPosition();
+			j["ItemInventario"][s]["x"] = pos.getX();
+			j["ItemInventario"][s]["y"] = pos.getY();
+			j["ItemInventario"][s]["w"] = it->getWidth();
+			j["ItemInventario"][s]["h"] = it->getHeight();
+			s++;
+		}
+	}
+	i << std::setw(4) << j;
+	i.close();
 }
