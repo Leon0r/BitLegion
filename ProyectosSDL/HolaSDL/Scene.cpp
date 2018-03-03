@@ -1,10 +1,31 @@
 #include "Scene.h"
-#include "MainCharacter.h"
+#include <fstream>
 
 Scene::Scene()
 {
 	//Leer num scene
 	//Idealmente lee de un archivo
+}
+
+Scene::Scene(int numEscena, SDLApp* app):app(app) {
+	string name = "..\\Scenes\\Scene" + to_string(numEscena);
+	name += ".json";
+
+	std::ifstream i(name);
+	json j;
+	i >> j;
+	int n;
+	for (int i = 0; i < j["ItemInventario"].size(); i++) {
+
+		n = j["ItemInventario"][i]["Texture"];
+
+		SceneItems.push_back(new ItemInventario(app, j["ItemInventario"][i]["x"], j["ItemInventario"][i]["y"], j["ItemInventario"][i]["w"], j["ItemInventario"][i]["h"], 
+							j["ItemInventario"][i]["descripcion"], j["ItemInventario"][i]["tag"], 
+							app->getResources()->getImageTexture(Resources::ImageId(n))));
+	}
+
+
+	i.close();
 }
 
 Scene::Scene(bool kk, SDLApp* app, int SceneNum): app(app) { //pruebas solo, Leo no me mates T_T T_T T_T T_T
@@ -43,7 +64,7 @@ void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se
 	app->getStateMachine()->currentState()->changeList();
 	SceneItems.clear();
 	SceneItems = *(app->getStateMachine()->currentState()->getStage()); //la lista stage es igual a todos los objetos de la escena
-	SceneItems.pop_front(); //quitamos al jugador de la escena (es global). Se puede hacer así o con un for que se salte el primero y copie los demás
+	SceneItems.pop_front(); //quitamos al jugador de la escena (es global). Se puede hacer asï¿½ o con un for que se salte el primero y copie los demï¿½s
 }
 
 

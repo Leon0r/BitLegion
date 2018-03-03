@@ -1,6 +1,5 @@
 #include "PlayState.h"
 
-
 PlayState::PlayState(SDLApp* app): GameState(app) {
 
 	//COLISIONABLES
@@ -9,22 +8,15 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	//collision.push_back(object);
 
 	//PERSONAJE
-	//Siempre 1º para que ocupe la 1º posicion en la lista
+	//Siempre 1ï¿½ para que ocupe la 1ï¿½ posicion en la lista
 	list = new ObjectList(app);
 	alena = new MainCharacter(app, 400, 300, 39, 143, resources->getImageTexture(Resources::Alena), list, collision);
 	stage.push_back(alena);
 
-	//ITEMS
-	/*ItemInventario* test = new ItemInventario(app, 368, 0, 64,64, "descripcion", "tag", resources->getImageTexture(Resources::ImagenTest));
-	stage.push_back(test);
-	ItemInventario* test2 = new ItemInventario(app, 100, 0, 64, 64, "descripcion", "tag", resources->getImageTexture(Resources::ImagenTest));
-	stage.push_back(test2);
-	ItemInventario* test3 = new ItemInventario(app, 123, 0, 64, 64, "descripcion", "tag", resources->getImageTexture(Resources::ImagenTest));
-	stage.push_back(test3);
-	ItemInventario* test4 = new ItemInventario(app, 500, 0, 64, 64, "descripcion", "tag", resources->getImageTexture(Resources::ImagenTest));
-	stage.push_back(test4);*/
-	scenes.push_back(new Scene(false, app, 1));
-	scenes.push_back(new Scene(true, app, 0));
+
+	scenes.push_back(new Scene(1, app));
+
+	//scenes.push_back(new Scene(false, app, 0));
 }
 
 void PlayState::swapScene(int nextScene)
@@ -34,5 +26,5 @@ void PlayState::swapScene(int nextScene)
 		currentScene = nextScene;
 		scenes[nextScene]->enterScene();
 	}
-	else cout << "Escena no encontrada, número buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
+	else cout << "Escena no encontrada, nï¿½mero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
 }
