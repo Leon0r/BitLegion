@@ -15,6 +15,8 @@ Scene::Scene(int numEscena, SDLApp* app):app(app) {
 	json j;
 	i >> j;
 	int n;
+
+	// Cargado de items de inventario
 	for (int i = 0; i < j["ItemInventario"].size(); i++) {
 
 		n = j["ItemInventario"][i]["Texture"];
@@ -24,7 +26,15 @@ Scene::Scene(int numEscena, SDLApp* app):app(app) {
 							app->getResources()->getImageTexture(Resources::ImageId(n))));
 	}
 
-	SceneItems.push_back(new GODoors(app, 300, 300, 300, 300, app->getResources()->getImageTexture(Resources::PuertaCutre), "key", 0));
+	// Cargado de GODoors
+	for (int i = 0; i < j["GODoors"].size(); i++) {
+
+		n = j["GODoors"][i]["Texture"];
+
+		SceneItems.push_back(new GODoors(app, j["GODoors"][i]["x"], j["GODoors"][i]["y"], j["GODoors"][i]["w"], j["GODoors"][i]["h"], 
+			app->getResources()->getImageTexture(Resources::ImageId(n)), j["GODoors"][i]["tag"], j["GODoors"][i]["scneNum"]));
+	}
+
 	i.close();
 	saveSceneToJson();
 }
