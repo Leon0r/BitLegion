@@ -22,7 +22,7 @@ private:
 	const Resources* resources = app->getResources();//recursos del juego
 	vector<Scene*> scenes;
 	int currentScene = 0;
-	void initializeMainPJ(json& j);
+
 public:
 	PlayState() {}
 	~PlayState();

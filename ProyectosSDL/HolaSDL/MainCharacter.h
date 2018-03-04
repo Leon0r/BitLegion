@@ -3,6 +3,7 @@
 #include "ImageRenderer.h"
 #include "KeyboardComponent.h"
 #include "MovementComponent.h"
+#include "ItemInventario.h" // Para cargar 
 //
 
 class MainCharacter:
@@ -11,6 +12,7 @@ class MainCharacter:
 public:
 	MainCharacter() {};
 	MainCharacter(SDLApp* game, int x, int y, int w, int h, Texture* texture, ObjectList* list, std::list<GameObject*> coll);
+	MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*> coll);
 	~MainCharacter();
 	void addInventoryObject(GameObject* o);
 	void changeRoom();
@@ -18,6 +20,7 @@ public:
 	void setCurrenTag(string newTag) { this->currentTag = newTag; };
 	ObjectList* getList() { return list; };
 	virtual void saveToJson(json& j) { /*json aux = saveBasicsToJson();*/};
+
 private:
 	Texture * _texture;
 	string currentTag;
