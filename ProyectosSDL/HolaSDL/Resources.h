@@ -36,6 +36,8 @@ public:
 
 	Texture* getImageTexture(ImageId i) const;
 
+	int getPosTexture(Texture* text) const;
+
 private:
 	void setImageTextures(std::vector<std::string> textures);
 

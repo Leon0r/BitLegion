@@ -36,7 +36,6 @@ Scene::Scene(int numEscena, SDLApp* app):app(app) {
 	}
 
 	i.close();
-	saveSceneToJson();
 }
 
 Scene::~Scene()
@@ -69,11 +68,11 @@ void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se
 
 
 void Scene::saveSceneToJson() {
-	std::ofstream i("..\\Scenes\\Scene4.json");
+	std::ofstream i("..\\Scenes\\Scene4.json"); //archivo donde se va a guardar
 	json j;
 	for (GameObject* it : SceneItems) {
-		it->saveToJson(j);	
+		it->saveToJson(j);	//manda a todos los objetos guardarse en dichos archivos
 	}
-	i << std::setw(4) << j;
-	i.close();
+	i << std::setw(4) << j; //pretty identación para leer mejor el archivo
+	i.close(); //cierra el flujo
 }

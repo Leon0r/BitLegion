@@ -8,6 +8,7 @@
 #include <vector>
 #include "Texture.h"
 
+
 using namespace std;
 
 class Entity : public GameObject {
@@ -35,6 +36,8 @@ private:
 	vector<InputComponent*> inputComp_;
 	vector<PhysicsComponent*> physicsComp_;
 	vector<RenderComponent*> renderComp_;
+protected:
+	json saveBasicsToJson(); //guarda los atributos básicos de todos los objetos en el json
 };
 
 #endif /* GAMECOMPONENT_H_ */

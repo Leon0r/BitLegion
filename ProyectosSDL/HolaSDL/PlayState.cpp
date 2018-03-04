@@ -1,12 +1,13 @@
 #include "PlayState.h"
 
 PlayState::~PlayState() {
-	delete list;
 	vector<Scene*>::iterator aux;
-	scenes[0]->saveSceneToJson();
+	scenes[currentScene]->exitScene();
 	for (aux = scenes.begin(); aux != scenes.end(); aux++) {
+		(*aux)->saveSceneToJson();
 		delete (*aux);
 	}
+	delete list;
 }
 
 PlayState::PlayState(SDLApp* app): GameState(app) {

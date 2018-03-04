@@ -1,39 +1,34 @@
 {
     "GODoors": [
         {
+            "Texture": 9,
             "h": 300.0,
-            "scneNum": 0,
+            "scneNum": 1,
             "tag": "key",
-            "w": 300.0,
-            "x": 300.0,
-            "y": 300.0
+            "w": 200.0,
+            "x": 200.0,
+            "y": 500.0
         }
     ],
     "ItemInventario": [
         {
+            "Texture": 0,
             "descripcion": "Esta es mi descripcion",
             "h": 64.0,
             "tag": "Este es mi tag",
             "w": 64.0,
             "x": 368.0,
             "y": 122.0
-        },
-        {
-            "descripcion": "adafsfdf",
-            "h": 64.0,
-            "tag": "ffftag",
-            "w": 64.0,
-            "x": 668.0,
-            "y": 0.0
         }
     ],
     "OTransicion": [
         {
+            "Texture": 5,
             "h": 150.0,
-            "sceneNumber": 0,
-            "w": 150.0,
-            "x": 300.0,
-            "y": 300.0
+            "sceneNumber": 1,
+            "w": 100.0,
+            "x": 200.0,
+            "y": 500.0
         }
     ]
 }
