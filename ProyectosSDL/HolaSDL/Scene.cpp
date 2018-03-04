@@ -12,30 +12,47 @@ Scene::Scene(int numEscena, SDLApp* app):app(app) {
 	name += ".json";
 
 	std::ifstream i(name);
-	json j;
-	i >> j;
-	int n;
+	
+	if (i.is_open()) { // Para que no intente abrir archivos que no existen
 
-	// Cargado de items de inventario
-	for (int i = 0; i < j["ItemInventario"].size(); i++) {
+		json j;
+		i >> j;
+		int n;
 
-		n = j["ItemInventario"][i]["Texture"];
+		// Cargado de items de inventario
+		for (int i = 0; i < j["ItemInventario"].size(); i++) {
 
-		SceneItems.push_back(new ItemInventario(app, j["ItemInventario"][i]["x"], j["ItemInventario"][i]["y"], j["ItemInventario"][i]["w"], j["ItemInventario"][i]["h"], 
-							j["ItemInventario"][i]["descripcion"], j["ItemInventario"][i]["tag"], 
-							app->getResources()->getImageTexture(Resources::ImageId(n))));
+			n = j["ItemInventario"][i]["Texture"];
+
+			SceneItems.push_back(new ItemInventario(app, j["ItemInventario"][i]["x"], j["ItemInventario"][i]["y"], j["ItemInventario"][i]["w"], j["ItemInventario"][i]["h"],
+				j["ItemInventario"][i]["descripcion"], j["ItemInventario"][i]["tag"],
+				app->getResources()->getImageTexture(Resources::ImageId(n))));
+		}
+
+		// Cargado de GODoors
+		for (int i = 0; i < j["GODoors"].size(); i++) {
+
+			n = j["GODoors"][i]["Texture"];
+
+			SceneItems.push_back(new GODoors(app, j["GODoors"][i]["x"], j["GODoors"][i]["y"], j["GODoors"][i]["w"], j["GODoors"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GODoors"][i]["tag"], j["GODoors"][i]["scneNum"]));
+		}
+
+		// Cargado de GOTransiciones
+		for (int i = 0; i < j["GOTransiciones"].size(); i++) {
+
+			n = j["GOTransiciones"][i]["Texture"];
+
+			SceneItems.push_back(new GOTransiciones(app, j["GOTransiciones"][i]["x"], j["GOTransiciones"][i]["y"],
+				j["GOTransiciones"][i]["w"], j["GOTransiciones"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOTransiciones"][i]["scneNum"]));
+		}
+
+		i.close();
 	}
-
-	// Cargado de GODoors
-	for (int i = 0; i < j["GODoors"].size(); i++) {
-
-		n = j["GODoors"][i]["Texture"];
-
-		SceneItems.push_back(new GODoors(app, j["GODoors"][i]["x"], j["GODoors"][i]["y"], j["GODoors"][i]["w"], j["GODoors"][i]["h"], 
-			app->getResources()->getImageTexture(Resources::ImageId(n)), j["GODoors"][i]["tag"], j["GODoors"][i]["scneNum"]));
+	else {
+		cout << "No existe el archivo " << name;
 	}
-
-	i.close();
 }
 
 Scene::~Scene()

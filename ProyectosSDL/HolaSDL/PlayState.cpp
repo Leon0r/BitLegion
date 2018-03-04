@@ -12,21 +12,23 @@ PlayState::~PlayState() {
 
 PlayState::PlayState(SDLApp* app): GameState(app) {
 
-	//COLISIONABLES
-	//Entity* object = new ColisionableObject(app, 500, 500, 100, 100, resources->getImageTexture(Resources::InvMarca));
-	//stage.push_back(object);
-	//collision.push_back(object);
-
-	//PERSONAJE
-	//Siempre 1� para que ocupe la 1� posicion en la lista
+	// crea la lista vacia
 	list = new ObjectList(app);
-	alena = new MainCharacter(app, 400, 300, 39, 143, resources->getImageTexture(Resources::Alena), list, collision);
+
+	string name = "..\\Scenes\\Scene1.json";
+
+	// Inicializa el personaje con los datos de archivo de la primera escena
+	std::ifstream i(name);
+	json j;
+	i >> j;
+	int n = j["mainPj"]["Texture"];
+	alena = new MainCharacter(app, j["mainPj"]["x"], j["mainPj"]["y"], j["mainPj"]["w"], j["mainPj"]["h"], resources->getImageTexture(Resources::ImageId(n)), list, collision);
 	stage.push_back(alena);
+	i.close();
 
-
+	// crea las escenas 1 y 2 desde archivo
 	scenes.push_back(new Scene(1, app));
-
-	//scenes.push_back(new Scene(false, app, 0));
+	scenes.push_back(new Scene(2, app));
 }
 
 void PlayState::swapScene(int nextScene)

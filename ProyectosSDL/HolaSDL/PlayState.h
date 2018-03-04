@@ -10,6 +10,7 @@
 #include "Resources.h"
 
 #include "Scene.h"
+#include "json.hpp"
 
 //estado de prueba, con Alena moviendose por pantalla
 class PlayState: public GameState
