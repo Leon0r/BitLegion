@@ -11,7 +11,6 @@ class MainCharacter:
 {
 public:
 	MainCharacter() {};
-	MainCharacter(SDLApp* game, int x, int y, int w, int h, Texture* texture, ObjectList* list, std::list<GameObject*> coll);
 	MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*> coll);
 	~MainCharacter();
 	void addInventoryObject(GameObject* o);

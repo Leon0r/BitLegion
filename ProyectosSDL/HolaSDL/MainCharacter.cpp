@@ -2,7 +2,7 @@
 
 
 
-MainCharacter::MainCharacter(SDLApp* game,int x, int y, int w, int h, Texture* texture, ObjectList* list, std::list<GameObject*> coll):
+/*MainCharacter::MainCharacter(SDLApp* game,int x, int y, int w, int h, Texture* texture, ObjectList* list, std::list<GameObject*> coll):
 	Entity(game), list(list), colisionables(coll)
 {
 	//componentes
@@ -19,7 +19,7 @@ MainCharacter::MainCharacter(SDLApp* game,int x, int y, int w, int h, Texture* t
 	//_texture = texture;
 	//_texture
 
-}
+}*/
 
 MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*> coll):
 	Entity(game), list(list), colisionables(coll) {
