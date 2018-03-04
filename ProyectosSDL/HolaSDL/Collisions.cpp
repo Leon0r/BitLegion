@@ -12,9 +12,9 @@ Collisions::~Collisions() {
 bool Collisions::collides(GameObject* o1, GameObject* o2) {
 
 	Vector2D o1Pos(o1->getPosition().getX() + o1->getVelocity().getX(),
-		o1->getPosition().getY() + o1->getVelocity().getY() + o1->getHeight() / 2);
+		o1->getPosition().getY() + o1->getVelocity().getY());
 	double o1Width = o1->getWidth();
-	double o1Height = o1->getHeight()/2;
+	double o1Height = o1->getHeight();
 
 	Vector2D o2Pos = o2->getPosition();
 	double o2Width = o2->getWidth();
@@ -28,7 +28,7 @@ bool Collisions::collides(GameObject* o1, GameObject* o2) {
 
 	// o1 completely to the top of o2, or vice versa
 	if (o1Pos.getY() + o1Height < o2Pos.getY()
-			|| o2Pos.getY() + o2Height < o1Pos.getY()) {
+			|| o2Pos.getY() + o2Height < o1Pos.getY() + o1Height*3/4) {
 		return false;
 	}
 

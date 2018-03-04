@@ -10,7 +10,7 @@ class MainCharacter:
 {
 public:
 	MainCharacter() {};
-	MainCharacter(SDLApp* game, int x, int y, int w, int h, Texture* texture, ObjectList* list, std::list<GameObject*> coll);
+	MainCharacter(SDLApp* game, int x, int y, int w, int h, Texture* texture, ObjectList* list, std::list<GameObject*> coll, double vel);
 	~MainCharacter();
 	void addInventoryObject(GameObject* o);
 	

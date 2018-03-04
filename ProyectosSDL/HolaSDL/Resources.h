@@ -24,7 +24,11 @@ public:
 		Inventario,
 		InvMarca,
 		InvMarcaS,
-		ShortCut
+		ShortCut,
+		Escena1Caso1,
+		Cama,
+		Mesa,
+		Cocina
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

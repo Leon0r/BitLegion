@@ -2,13 +2,13 @@
 
 
 
-MainCharacter::MainCharacter(SDLApp* game, int x, int y, int w, int h, Texture* texture, ObjectList* list, std::list<GameObject*> coll) :
+MainCharacter::MainCharacter(SDLApp* game, int x, int y, int w, int h, Texture* texture, ObjectList* list, std::list<GameObject*> coll, double vel) :
 	Entity(game), list(list), colisionables(coll)
 {
 	//componentes
 	render = new ImageRenderer(texture);
 	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
-	keyboard = new KeyboardComponent(5, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i, list);
+	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i, list);
 	this->addInputComponent(keyboard);//componente de input para manejar su direccion
 	movement = new MovementComponent(coll);
 	this->addPhysicsComponent(movement);//componente de movimiento para que pueda moverse
