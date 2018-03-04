@@ -22,7 +22,7 @@ private:
 	const Resources* resources = app->getResources();//recursos del juego
 	vector<Scene*> scenes;
 	int currentScene = 0;
-
+	void initializeMainPJ(json& j);
 public:
 	PlayState() {}
 	~PlayState();
@@ -31,5 +31,7 @@ public:
 	ObjectList* getList() { return list; };//prueba, no deberia estar aqui
 	vector<Scene*> getScenes(){ return scenes; };
 	void swapScene(int nextScene);
+
+	
 };
 
