@@ -3,11 +3,18 @@
 PlayState::~PlayState() {
 	vector<Scene*>::iterator aux;
 	scenes[currentScene]->exitScene();
+	std::ofstream i("..\\Scenes\\pj.json"); //archivo donde se va a guardar
+	json j;
+	alena->saveToJson(j);
+	i << std::setw(4) << j; //pretty identación para leer mejor el archivo
+	i.close(); //cierra el flujo
+	stage.clear();
 	for (aux = scenes.begin(); aux != scenes.end(); aux++) {
 		(*aux)->saveSceneToJson();
 		delete (*aux);
-	}
+	}	
 	delete list;
+	delete alena;
 }
 
 PlayState::PlayState(SDLApp* app): GameState(app) {
@@ -15,7 +22,7 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	// crea la lista vacia
 	list = new ObjectList(app);
 
-	string name = "..\\Scenes\\Scene1.json";
+	string name = "..\\Scenes\\pj.json";
 
 	// Inicializa el personaje con los datos de archivo de la primera escena
 	std::ifstream i(name);
@@ -28,8 +35,8 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	i.close();
 
 	// crea las escenas 1 y 2 desde archivo
+	scenes.push_back(new Scene(0, app));
 	scenes.push_back(new Scene(1, app));
-	scenes.push_back(new Scene(2, app));
 }
 
 void PlayState::swapScene(int nextScene)

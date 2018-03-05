@@ -19,5 +19,6 @@ public:
 	void setDescription(string newDescription) { this->description = newDescription; };
 	void setTag(string newTag) { this->tag = newTag; };
 	bool pulsacion(const SDL_Event& event, int espaciado);
+	virtual void saveToJson(json& j) { json aux;  Entity::saveToJson(aux); aux["tag"] = tag; aux["descripcion"] = description; j.push_back(aux); };
 };
 

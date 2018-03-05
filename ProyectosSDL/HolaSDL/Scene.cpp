@@ -7,7 +7,7 @@ Scene::Scene()
 	//Idealmente lee de un archivo
 }
 
-Scene::Scene(int numEscena, SDLApp* app):app(app) {
+Scene::Scene(int numEscena, SDLApp* app):app(app), SceneNum(numEscena) {
 	string name = "..\\Scenes\\Scene" + to_string(numEscena);
 	name += ".json";
 
@@ -57,10 +57,11 @@ Scene::Scene(int numEscena, SDLApp* app):app(app) {
 
 Scene::~Scene()
 {
-	/*list<GameObject*>::iterator aux;
-	for (aux = SceneItems.begin(); aux != SceneItems.end(); aux++) { hay que diferenciar si es la escena activa o no, para no provocar errores de borrar dos veces la misma memoria
-		aux = SceneItems.erase(aux);
-	}*/
+	list<GameObject*>::iterator aux;
+	for (aux = SceneItems.begin(); aux != SceneItems.end();) {
+		delete *aux;
+		aux = SceneItems.erase(aux); //aux = aux++
+	}
 }
 
 void Scene::enterScene() {
@@ -85,11 +86,14 @@ void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se
 
 
 void Scene::saveSceneToJson() {
-	std::ofstream i("..\\Scenes\\Scene4.json"); //archivo donde se va a guardar
+	string name = "..\\Scenes\\saves\\Scene" + to_string(SceneNum);
+	name += ".json";
+
+	std::ofstream i(name); //archivo donde se va a guardar
 	json j;
 	for (GameObject* it : SceneItems) {
 		it->saveToJson(j);	//manda a todos los objetos guardarse en dichos archivos
 	}
-	i << std::setw(4) << j; //pretty identación para leer mejor el archivo
+	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo
 }

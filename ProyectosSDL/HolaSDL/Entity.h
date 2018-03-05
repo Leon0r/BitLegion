@@ -30,14 +30,12 @@ public:
 	virtual void delRenderComponent(RenderComponent* rc);
 	Texture* getTexture(Uint16 pos) const;
 	void setTexture(Uint16 pos, Texture* newText);
-	virtual void saveToJson(json& j) {};
+	virtual void saveToJson(json& j);
 
 private:
 	vector<InputComponent*> inputComp_;
 	vector<PhysicsComponent*> physicsComp_;
 	vector<RenderComponent*> renderComp_;
-protected:
-	json saveBasicsToJson(); //guarda los atributos básicos de todos los objetos en el json
 };
 
 #endif /* GAMECOMPONENT_H_ */

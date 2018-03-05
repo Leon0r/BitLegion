@@ -9,7 +9,7 @@ public:
 	void act();
 	string getTag() { return tag; };
 	string getDescription() { return desc; }
-	virtual void saveToJson(json& j) { json aux = saveBasicsToJson(); aux["tag"] = getTag(); aux["descripcion"] = getDescription();  j["ItemInventario"].push_back(aux); }
+	virtual void saveToJson(json& j) { json aux;  Entity::saveToJson(aux); aux["tag"] = getTag(); aux["descripcion"] = getDescription();  j["ItemInventario"].push_back(aux); }
 private:
 	string desc;
 	string tag;
