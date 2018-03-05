@@ -48,6 +48,17 @@ Scene::Scene(int numEscena, SDLApp* app):app(app), SceneNum(numEscena) {
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOTransiciones"][i]["scneNum"]));
 		}
 
+
+		// Cargado de Colisiones
+		for (int i = 0; i < j["Collisions"].size(); i++) {
+
+			n = j["Collisions"][i]["Texture"];
+
+			SceneItems.push_back(new ColisionableObject(app, j["Collisions"][i]["x"], j["Collisions"][i]["y"],
+				j["Collisions"][i]["w"], j["Collisions"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n))));
+		}
+
 		i.close();
 	}
 	else {
