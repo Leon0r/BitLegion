@@ -1,5 +1,5 @@
 #include "SDLApp.h"
-#include "StatePrueba.h"
+#include "PlayState.h"
 #include "Inventory.h"
 
 SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
@@ -15,7 +15,8 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		TTF_Init();
 		initResources();
 		maquinaEstados = new GameStateMachine();
-		maquinaEstados->pushState(new StatePrueba(this));
+		maquinaEstados->pushState(new PlayState(this));
+		dynamic_cast<PlayState*>(maquinaEstados->currentState())->getScenes()[0]->enterScene();
 }
 
 void SDLApp::handleEvent() {

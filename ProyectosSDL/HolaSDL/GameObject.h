@@ -3,7 +3,11 @@
 #include <SDL.h>
 #include "Vector2D.h"
 #include <string>
+#include "json.hpp"
+
+
 using namespace std;
+using json = nlohmann::json;
 
 
 class SDLApp;
@@ -64,6 +68,8 @@ public:
 	SDLApp* getGame() {
 		return app;
 	}
+
+	virtual void saveToJson(json& j) = 0;
 
 protected:
 	SDLApp* app;   // pointer to the game

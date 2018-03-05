@@ -1,0 +1,42 @@
+{
+ "GODoors": [
+  {
+   "Texture": 9,
+   "h": 300.0,
+   "scneNum": 1,
+   "tag": "key",
+   "w": 200.0,
+   "x": 200.0,
+   "y": 500.0
+  }
+ ],
+ "ItemInventario": [
+  {
+   "Texture": 0,
+   "descripcion": "Esta es mi descripcion",
+   "h": 64.0,
+   "tag": "Este es mi tag",
+   "w": 64.0,
+   "x": 368.0,
+   "y": 122.0
+  },
+  {
+   "Texture": 10,
+   "descripcion": "key",
+   "h": 64.0,
+   "tag": "key",
+   "w": 64.0,
+   "x": 100.0,
+   "y": 544.0
+  },
+  {
+   "Texture": 3,
+   "descripcion": "adafsfdf",
+   "h": 64.0,
+   "tag": "ffftag",
+   "w": 64.0,
+   "x": 668.0,
+   "y": 0.0
+  }
+ ]
+}

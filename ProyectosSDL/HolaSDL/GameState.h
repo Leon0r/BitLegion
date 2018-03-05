@@ -10,7 +10,7 @@ class Entity;
 class GameState
 {
 private:
-	bool deleted;
+	bool listhasChanged = false;
 
 protected:
 	uint32_t startTime, frameTime; // Control del tiempo de repeticion del bucle
@@ -27,5 +27,7 @@ public:
 	virtual ~GameState() { for (GameObject* it : stage) { delete it; } }; //delete de los objetos
 	GameState(SDLApp* app) : app(app) {}
 	void deleteElement(GameObject* o);
+	list <GameObject*>* getStage() {return &stage;}
+	void changeList() { listhasChanged = true; }
 };
 

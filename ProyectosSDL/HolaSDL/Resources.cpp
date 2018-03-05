@@ -46,3 +46,17 @@ Texture* Resources::getImageTexture(ImageId i) const {
 	else
 		return nullptr;
 }
+
+int Resources::getPosTexture(Texture* text) const {
+	int i = 0;
+	bool found = false;
+	while (i < numOfImageTextures_ && !found) { //encuentra el numero de la textura correspondiente (nos vale para guardar y cargar escenas)
+		if (text == imageTextures_[i]) {
+			found = true;
+		}
+		else {
+			i++;
+		}
+	}
+	return i;
+}

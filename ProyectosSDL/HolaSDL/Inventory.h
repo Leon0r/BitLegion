@@ -49,5 +49,6 @@ public:
 	CasillaInventario* getLastClicked() { return selected; };
 	void destroy();
 	ObjectList* inventario;
+	GameState* getPreviousState() { return previousState; };
 };
 
