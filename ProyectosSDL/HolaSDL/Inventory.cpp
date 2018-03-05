@@ -3,8 +3,7 @@
 #include "Font.h"
 #include "MainCharacter.h"
 
-
-Inventory::Inventory(SDLApp* app, ObjectList* inventario, int coefRed = 0, vector<Vector2D> matS = {}) : GameState(app), inventario(inventario), selected(nullptr), coefRed(coefRed), matrizS(matS) {
+Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousState, int coefRed = 0, vector<Vector2D> matS = {}) : GameState(app), inventario(inventario), selected(nullptr), coefRed(coefRed), previousState(previousState), matrizS(matS) {
 	matriz.resize(numCas*numCas);
 	for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
 		for (int j = 0; j < numCas; j++) {

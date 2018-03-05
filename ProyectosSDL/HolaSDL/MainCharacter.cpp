@@ -1,7 +1,7 @@
 #include "MainCharacter.h"
 
 
-MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*> coll):
+MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*> coll, double vel):
 	Entity(game), list(list), colisionables(coll) {
 	// textura
 	int n = j["mainPj"]["Texture"];

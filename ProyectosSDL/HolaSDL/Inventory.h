@@ -11,6 +11,8 @@ class Inventory :
 	public GameState
 {
 private:
+	GameState* previousState;
+
 	Texture* txt1;
 	Texture* txt2;
 	Texture* txt3;
@@ -31,17 +33,12 @@ private:
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const int numCas = 5;
 	vector<Vector2D> matriz, matrizS;
-	static void usar(GameState* state) { //static_cast<Inventory*>(state)->punteroStateAnterior->FuncionTag(static_cast<Inventory*>(state)->anteriorClickado->tag):
-										 //app->popState();
-		Inventory* aux = dynamic_cast<Inventory*>(state);
-		if (aux != nullptr && aux->getLastClicked() != nullptr)
-			std::cout << "usandooo" << aux->getLastClicked()->getDescription();
-	}; 
+	static void usar(GameState* state); 
 										 //ya funciona, se puede usar un cast para un metodo del inventario (usar, swap, por ejemplo)
 	static void swap(GameState* state);
 public:
 	Inventory() {};
-	Inventory(SDLApp* game, ObjectList* inventario, int coefRed, vector<Vector2D> matS);
+	Inventory(SDLApp* game, ObjectList* inventario, GameState* previousState, int coefRed, vector<Vector2D> matS);
 	virtual ~Inventory() { destroy(); stage.clear(); };
 	virtual void handleEvent(SDL_Event& event);
 	virtual void render();

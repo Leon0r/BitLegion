@@ -16,7 +16,7 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		initResources();
 		maquinaEstados = new GameStateMachine();
 		maquinaEstados->pushState(new PlayState(this));
-		dynamic_cast<PlayState*>(maquinaEstados->currentState())->getScenes()[0]->enterScene();
+		//dynamic_cast<PlayState*>(maquinaEstados->currentState())->getScenes()[0]->enterScene();
 }
 
 void SDLApp::handleEvent() {

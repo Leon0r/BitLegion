@@ -28,7 +28,7 @@ public:
 		Escena1Caso1,
 		Cama,
 		Mesa,
-		Cocina
+		Cocina,
 		PuertaCutre,
 		LlaveCutre
 	};

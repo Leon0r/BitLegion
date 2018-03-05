@@ -18,6 +18,28 @@ PlayState::~PlayState() {
 }
 
 PlayState::PlayState(SDLApp* app): GameState(app) {
+	
+	//ESCENARIO
+	Entity* escenario = new Entity(app);
+	escenario->setWidth(app->getWindowWidth());
+	escenario->setHeight(app->getWindowHeight());
+	RenderComponent* renderEscenario = new ImageRenderer(resources->getImageTexture(Resources::Escena1Caso1));
+	escenario->addRenderComponent(renderEscenario);
+	stage.push_back(escenario);
+
+	//COLISIONABLES
+	Entity* cama = new ColisionableObject(app, 0, 290, 393, 170, resources->getImageTexture(Resources::Cama));
+	stage.push_back(cama);
+	collision.push_back(cama);
+	Entity* mesa = new ColisionableObject(app, 580, 432, 220, 230, resources->getImageTexture(Resources::Mesa));
+	stage.push_back(mesa);
+	collision.push_back(mesa);
+	Entity* cocina = new ColisionableObject(app, 915, 125, 365, 280, resources->getImageTexture(Resources::Cocina));
+	stage.push_back(cocina);
+	collision.push_back(cocina);
+
+	Entity* hola = new ItemInventario(app, 200, 200, 25, 25, "jeje", "h", resources->getImageTexture(Resources::LlaveCutre));
+	stage.push_back(hola);
 
 	// crea la lista vacia
 	list = new ObjectList(app);
@@ -29,14 +51,18 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	json j;
 	i >> j;
 
-	alena = new MainCharacter(app, j, list, collision);
+	alena = new MainCharacter(app, j, list, collision, 6.0);
 	stage.push_back(alena);
 
 	i.close();
 
+	//SHORTCUT
+	shortcut = new ShortCut(app, list, resources);
+	stage.push_back(shortcut);
+
 	// crea las escenas 1 y 2 desde archivo
-	scenes.push_back(new Scene(0, app));
-	scenes.push_back(new Scene(1, app));
+	//scenes.push_back(new Scene(0, app));
+	//scenes.push_back(new Scene(1, app));
 }
 
 void PlayState::swapScene(int nextScene)
