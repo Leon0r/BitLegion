@@ -26,8 +26,8 @@ void ItemInventario::act() {
 
 			if (tam < 5){
 				Vector2D mat = aux->getShortCut()->getMatriz()[tam];
-				aux->getList()->getItem(tam)->setWidth(aux->getList()->getItem(tam)->getWidth() / coefRed);
-				aux->getList()->getItem(tam)->setHeight(aux->getList()->getItem(tam)->getHeight() / coefRed);
+				aux->getList()->getItem(tam)->setWidth(aux->getList()->getItem(tam)->getWidth()); // coefRed);
+				aux->getList()->getItem(tam)->setHeight(aux->getList()->getItem(tam)->getHeight()); // coefRed);
 				aux->getList()->getItem(tam)->setPosition(Vector2D(mat.getX() - aux->getList()->getItem(tam)->getWidth() / 2,
 				mat.getY() - aux->getList()->getItem(tam)->getHeight() / 2));
 				aux->addEntity(aux->getList()->getItem(tam));

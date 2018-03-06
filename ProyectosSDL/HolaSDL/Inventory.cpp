@@ -23,8 +23,8 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 
 	for (int i = 0; i < inventario->getLength(); i++) { // se colocan los objetos en sus posiciones correspondientes
 		if (i < numCas){
-			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth() * 3);
-			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight() * 3);
+			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth()); //* 3);
+			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight());// *3);
 		}
 		inventario->getItem(i)->setPosition(Vector2D(matriz[i].getX() - inventario->getItem(i)->getWidth()/2, 
 			matriz[i].getY() - inventario->getItem(i)->getHeight() / 2));
@@ -38,7 +38,7 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 	//se pushea todo a la lista de objetos
 	inventario->pushObjects(stage);
 
-	if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
+if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 		copia = new Entity(app);
 		selected = inventario->getItem(0); //inicializamos el primero como seleccionado
 		selectedTexture = new ImageRenderer(selected->getTexture(0));
@@ -123,8 +123,8 @@ void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea
 	if (tam > numCas) tam = numCas;
 	if (tam != 0){
 		for (int i = 0; i < tam; i++){
-			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth() / 3);
-			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight() / 3);
+			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth()); // 3);
+			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight()); // 3);
 			inventario->getItem(i)->setPosition(Vector2D(matrizS[i].getX() - inventario->getItem(i)->getWidth() / 2,
 			matrizS[i].getY() - inventario->getItem(i)->getHeight() / 2));
 		}

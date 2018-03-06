@@ -26,6 +26,7 @@ ShortCut::ShortCut(SDLApp* game, ObjectList* list, const Resources* resources) :
 void ShortCut::handleInput(Uint32 time, const SDL_Event& event) {
 	Entity::handleInput(time, event);//llamamos a handleInput del padre
 	list<CasillaInventario*>::iterator it;
+
 	for (it = lista->getBegin(); it != lista->getEnd(); it++) { //recorre la lista de objetos
 		if ((*it)->pulsacion(event, marca->getWidth(), marca->getHeight())) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
 			selected = (*it);//lo marcamos como seleccionado y establecemos la marca en ese lugar
