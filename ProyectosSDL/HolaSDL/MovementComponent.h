@@ -8,12 +8,12 @@ using namespace std;
 class MovementComponent : public PhysicsComponent {
 
 protected:
-	list<GameObject*> collisions;
+	list<GameObject*>* collisions;
 	list<GameObject*>::iterator it;
 
 public:
 	MovementComponent() {}
-	MovementComponent(list<GameObject*> colisiones): collisions(colisiones) {}
+	MovementComponent(list<GameObject*>* colisiones): collisions(colisiones) {}
 	~MovementComponent() {}
 
 	//actualizamos la logica del personaje

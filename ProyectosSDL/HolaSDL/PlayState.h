@@ -34,8 +34,6 @@ public:
 	void creaInventario(){app->getStateMachine()->pushState(new Inventory(app, list, this, ItemInventario::getCoef(), shortcut->getMatriz())); }
 	ObjectList* getList() { return list; };//prueba, no deberia estar aqui
 	vector<Scene*> getScenes(){ return scenes; };
-	void swapScene(int nextScene);
-
-	
+	void swapScene(int nextScene);	
 };
 

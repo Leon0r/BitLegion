@@ -19,6 +19,8 @@ public:
 	void setCurrenTag(string newTag) { this->currentTag = newTag; };
 	ObjectList* getList() { return list; };
 	virtual void saveToJson(json& j);
+	void clearCollisions() { colisionables->clear(); };
+	void setNewCollision(GameObject* o) { colisionables->push_back(o); }
 
 private:
 	Texture * _texture;
@@ -27,6 +29,6 @@ private:
 	InputComponent* keyboard;
 	PhysicsComponent* movement;
 	ObjectList* list;
-	std::list<GameObject*> colisionables;
+	std::list<GameObject*>* colisionables;
 };
 

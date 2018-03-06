@@ -2,7 +2,7 @@
 
 
 MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*> coll, double vel):
-	Entity(game), list(list), colisionables(coll) {
+	Entity(game), list(list), colisionables(&coll) {
 	// textura
 	int n = j["mainPj"]["Texture"];
 	_texture = app->getResources()->getImageTexture(Resources::ImageId(n));
@@ -12,7 +12,7 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
 	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i, list);
 	this->addInputComponent(keyboard);//componente de input para manejar su direccion
-	movement = new MovementComponent(coll);
+	movement = new MovementComponent(colisionables);
 	this->addPhysicsComponent(movement);//componente de movimiento para que pueda moverse
 
 	// posicion y dimensiones

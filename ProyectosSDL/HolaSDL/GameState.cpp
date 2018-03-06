@@ -32,6 +32,12 @@ void GameState::handleEvent(SDL_Event &e) { //manda a los objetos del juego que 
 	//listhasChanged = false;
 }
 
+void GameState::render() {
+	list<GameObject*>::const_reverse_iterator aux;
+	for(aux = stage.rbegin(); aux != stage.rend(); aux++)
+		(*aux)->render(0);
+}
+
 void GameState::deleteElement(GameObject* o) {
 	it = stage.begin();
 	bool encontrado = false;

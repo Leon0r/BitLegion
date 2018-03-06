@@ -12,12 +12,6 @@ class Inventory :
 {
 private:
 	GameState* previousState;
-
-	Texture* txt1;
-	Texture* txt2;
-	Texture* txt3;
-	Texture* txt4;
-	Texture* txt5;
 	Texture fuente;
 	Font* f;
 	bool bswap = false;

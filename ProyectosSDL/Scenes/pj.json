@@ -1,10 +1,65 @@
 {
-"mainPj": {
-    "Texture": 0,
-    "h": 145.0,
-    "itemList": [],
-    "w": 40.0,
-    "x": 835.0,
-    "y": 460.0
-}
+    "mainPj": {
+        "Texture": 0,
+        "h": 145.0,
+        "itemList": [
+            {
+                "Texture": 15,
+                "descripcion": "jeje",
+                "h": 48.0,
+                "tag": "h",
+                "w": 32.0,
+                "x": 946.8,
+                "y": 3.0
+            },
+            {
+                "Texture": 15,
+                "descripcion": "jeje",
+                "h": 48.0,
+                "tag": "h",
+                "w": 32.0,
+                "x": 1016.3999999999999,
+                "y": 3.0
+            },
+            {
+                "Texture": 15,
+                "descripcion": "jeje",
+                "h": 48.0,
+                "tag": "h",
+                "w": 32.0,
+                "x": 1086.0,
+                "y": 3.0
+            },
+            {
+                "Texture": 15,
+                "descripcion": "jeje",
+                "h": 48.0,
+                "tag": "h",
+                "w": 32.0,
+                "x": 1155.6,
+                "y": 3.0
+            },
+            {
+                "Texture": 15,
+                "descripcion": "jeje",
+                "h": 48.0,
+                "tag": "h",
+                "w": 32.0,
+                "x": 1225.2,
+                "y": 3.0
+            },
+            {
+                "Texture": 15,
+                "descripcion": "jeje",
+                "h": 48.0,
+                "tag": "h",
+                "w": 32.0,
+                "x": 224.0,
+                "y": 230.39999999999998
+            }
+        ],
+        "w": 40.0,
+        "x": 960.0,
+        "y": 575.0
+    }
 }

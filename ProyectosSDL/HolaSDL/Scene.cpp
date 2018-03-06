@@ -1,5 +1,6 @@
 #include "Scene.h"
 #include <fstream>
+#include "MainCharacter.h"
 
 Scene::Scene()
 {
@@ -79,20 +80,28 @@ void Scene::enterScene() {
 	CurrentState = app->getStateMachine()->currentState();
 	//Iniciamos ite, saltamos primer ite(jugador) borrarmos el resto de items copiamos nuestra lista
 	it = CurrentState->getStage()->begin();
-	it++;
+	it++; it++;
 	app->getStateMachine()->currentState()->changeList();
 	while (it != CurrentState->getStage()->end()) {//Mientras no se acaben los items
 		
 		it = CurrentState->getStage()->erase(it);//borramos el item
 	}
 	CurrentState->getStage()->insert(CurrentState->getStage()->end(), SceneItems.begin(), SceneItems.end());
+	for (GameObject* it : SceneItems) {
+		ColisionableObject* col = dynamic_cast<ColisionableObject*>(it);
+		if (col != nullptr) {
+			dynamic_cast<MainCharacter*>(CurrentState->getStage()->front())->setNewCollision(col);
+		}
+	}
 }
 
 void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se vuelcan en la lista de la escena para que se queden guardados (menos el jugador)
 	app->getStateMachine()->currentState()->changeList();
 	SceneItems.clear();
 	SceneItems = *(app->getStateMachine()->currentState()->getStage()); //la lista stage es igual a todos los objetos de la escena
+	dynamic_cast<MainCharacter*>(SceneItems.front())->clearCollisions(); //fuera colisiones
 	SceneItems.pop_front(); //quitamos al jugador de la escena (es global). Se puede hacer as� o con un for que se salte el primero y copie los dem�s
+	SceneItems.pop_front(); //quitamos al shortcut
 }
 
 

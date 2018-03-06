@@ -36,7 +36,6 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 	marca->setHeight(espaciado*relacion.second);
 	marca->setWidth(espaciado*relacion.first);
 	//se pushea todo a la lista de objetos
-	stage.push_back(inventarioHud);
 	inventario->pushObjects(stage);
 
 	if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
@@ -70,6 +69,7 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 	swapButton->setWidth(app->getResources()->getImageTexture(Resources::BotonSwap)->getWidth()*relacion.first);
 	swapButton->setHeight(app->getResources()->getImageTexture(Resources::BotonSwap)->getHeight()*relacion.second);
 	stage.push_back(swapButton); //se pushea
+	stage.push_back(inventarioHud);
 	//-------------ConstructoraToGrandeLoko(hay q hacerla m�s peque�ita)------------------------
 }
 
