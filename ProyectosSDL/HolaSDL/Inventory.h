@@ -22,7 +22,6 @@ private:
 	RenderComponent* selectedTexture;
 	Entity* inventarioHud = new Entity(app);
 	Entity* marca = new Entity(app);
-	MainCharacter* player_;
 	const double espaciado = 87;
 	int coefRed;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
@@ -33,7 +32,7 @@ private:
 	static void swap(GameState* state);
 public:
 	Inventory() {};
-	Inventory(SDLApp* game, ObjectList* inventario, GameState* previousState, Entity* player, int coefRed, vector<Vector2D> matS);
+	Inventory(SDLApp* game, ObjectList* inventario, GameState* previousState, int coefRed, vector<Vector2D> matS);
 	virtual ~Inventory() { destroy(); stage.clear(); };
 	virtual void handleEvent(SDL_Event& event);
 	virtual void render();

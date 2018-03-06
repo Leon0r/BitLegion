@@ -1,8 +1,8 @@
 #include "ShortCut.h"
 
 ShortCut::ShortCut(SDLApp* game, ObjectList* list, const Resources* resources) : Entity(game), lista(list), resources(resources){
-	renderCmp = new ImageRenderer(resources->getImageTexture(Resources::ShortCut));
-	this->addRenderComponent(renderCmp);//componente de pintado para que aparezca en pantalla
+	render = new ImageRenderer(resources->getImageTexture(Resources::ShortCut));
+	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
 	//tamaño
 	this->setWidth(resources->getImageTexture(Resources::ShortCut)->getWidth()*relacion.first);
 	this->setHeight(resources->getImageTexture(Resources::ShortCut)->getHeight()*relacion.second);
@@ -33,33 +33,10 @@ void ShortCut::handleInput(Uint32 time, const SDL_Event& event) {
 			marca->setPosition((*it)->getPosition() + Vector2D((*it)->getWidth() / 2, (*it)->getHeight() / 2)
 				- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2)); // desde aqui, con aux, se puede acceder a la textura, descripcion, tag... de it 
 													 //y crear además nuevos objetos para que se muestren por pantalla (una imagen, la descripción, botones...)
+			if (!provisional) {
+				provisional = true;//la primera vez que se ha pulsado un item se añade a la lista marca para que sea pintada (provisional)
+				app->getStateMachine()->currentState()->addEntity(marca);
+			}
 		}
-	}
-}
-
-void ShortCut::render(Uint32 time) {
-	Entity::render(time);
-	int tam;
-	int i = 0;
-	while (lista->getLength() > i && i < numCas) {
-		lista->getItem(i)->render(time);
-		i++;
-	}
-}
-
-void ShortCut::ini(int pos)
-{
-	if (pos >= 0 && pos < 5) {
-		lista->getItem(pos)->setWidth(lista->getItem(pos)->getWidth() / coefRed);
-		lista->getItem(pos)->setHeight(lista->getItem(pos)->getHeight() / coefRed);
-		lista->getItem(pos)->setPosition(Vector2D(matriz[pos].getX() - lista->getItem(pos)->getWidth() / 2,
-			matriz[pos].getY() - lista->getItem(pos)->getHeight() / 2));
-	}
-}
-
-void ShortCut::recorreEInicia()
-{
-	for (int i = 0; i < lista->getLength() && i < numCas; i++) {
-		ini(i);
 	}
 }

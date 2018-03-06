@@ -1,8 +1,8 @@
 #include "MainCharacter.h"
 
 
-MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, ShortCut* shorcut_, double vel):
-	Entity(game), list(list), colisionables(coll), shortCut(shorcut_) {
+MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, double vel):
+	Entity(game), list(list), colisionables(coll) {
 	// textura
 	int n = j["mainPj"]["Texture"];
 	_texture = app->getResources()->getImageTexture(Resources::ImageId(n));
@@ -10,11 +10,15 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	//componentes
 	render = new ImageRenderer(_texture);
 	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
-	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i, list);
-	this->addInputComponent(keyboard);//componente de input para manejar su direccion
+	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i);
+	//this->addInputComponent(keyboard);//componente de input para manejar su direccion
+	mouse = new MouseDirection(vel);
+	//this->addInputComponent(mouse);
 	movement = new MovementComponent(colisionables);
 	this->addPhysicsComponent(movement);//componente de movimiento para que pueda moverse
-
+	switcher.addMode({ keyboard, nullptr, nullptr });
+	switcher.addMode({ mouse, nullptr, nullptr });
+	switcher.setMode(0);
 	// posicion y dimensiones
 	this->setWidth(j["mainPj"]["w"]);//ancho, alto, posicion y textura
 	this->setHeight(j["mainPj"]["h"]);
@@ -39,7 +43,6 @@ MainCharacter::~MainCharacter()
 
 void MainCharacter::addInventoryObject(GameObject* o) {
 	list->addItem(o); //a�ade un item al inventario
-	shortCut->ini(list->getLength()-1);
 }
 
 void MainCharacter::changeRoom() {
