@@ -51,7 +51,7 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	shortcut = new ShortCut(app, list, resources);
 	stage.push_front(shortcut);
 
-	alena = new MainCharacter(app, j, list, collision, 6.0);
+	alena = new MainCharacter(app, j, list, &collision, 6.0);
 	stage.push_front(alena);
 
 	//ESCENARIO
