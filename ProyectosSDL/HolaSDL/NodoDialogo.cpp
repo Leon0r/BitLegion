@@ -18,14 +18,20 @@ int NodoDialogo::getSiguiente(int opcion){
 		return respuestas[opcion].nodoApuntado;
 }
 
-string NodoDialogo::getTexto(){
-	if (texto != "")
+
+// Si no hay opciones devuelve un string con el texto a mostrar
+// Las opciones se devuelven cada una en un string
+vector<string> NodoDialogo::getTexto(){
+	
+	if (texto[0] != "")
 		return texto;
 	else{
-		string salida;
+		vector<string> salida;
+		int n = 0;
 		for each (opciones op in respuestas)
 		{
-			salida = salida + "\n" + op.texto;
+			salida[n] = op.texto;
+			n++;
 		}
 		return salida;
 	}

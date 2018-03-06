@@ -7,6 +7,7 @@ enum personajes{ Alena, Ander, Jeffa, Extras };
 enum emociones{ normal, especial, sorpresa, enfado, triste, feliz };
 
 using namespace std;
+
 class NodoDialogo
 {
 public:
@@ -18,17 +19,16 @@ public:
 		string texto;
 	};
 
-	string getTexto();
+	vector<string> getTexto();
 	int getSiguiente(int opcion = -1);
 	int getNumOpciones(){return numOpciones;}
 	emociones getEmo(){return emo;}
 	personajes getPj(){return pj;}
-	
 
 private:
 	int numNodo;
 	int nodoSig;
-	string texto = "";
+	vector<string> texto = { "" };
 	int numOpciones;
 	vector<opciones> respuestas;
 	personajes pj;
