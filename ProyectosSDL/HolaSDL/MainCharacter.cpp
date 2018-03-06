@@ -21,7 +21,7 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	this->setPosition(Vector2D(j["mainPj"]["x"], j["mainPj"]["y"]));
 
 	// items de inventario
-	for (int i = 0; i < j["mainPj"]["ItemInventario"].size(); i++) {
+	for (int i = 0; i < (int)j["mainPj"]["ItemInventario"].size(); i++) {
 		n = j["mainPj"]["ItemInventario"][i]["Texture"];
 
 		
@@ -39,7 +39,7 @@ MainCharacter::~MainCharacter()
 
 void MainCharacter::addInventoryObject(GameObject* o) {
 	list->addItem(o); //a�ade un item al inventario
-	shortCut->ini(list->getLength()-1);
+	shortCut->ini(list->getLength()-1, shortCut->getCoef());
 }
 
 void MainCharacter::changeRoom() {

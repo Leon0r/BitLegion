@@ -57,12 +57,15 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	alena = new MainCharacter(app, j, list, &collision, shortcut, 6.0);
 	stage.push_front(alena);
 
+	ItemInventario* item = new ItemInventario(app, 500, 300, 40, 40, "k", "kk", resources->getImageTexture(Resources::ImagenTest));
+	stage.push_back(item);
+
 	i.close();
 }
 
 void PlayState::swapScene(int nextScene)
 {
-	if (nextScene < scenes.size() && nextScene >= 0) { // basicamente se asegura de que la escena a la que quiere cambiar existe
+	if (nextScene < (int)scenes.size() && nextScene >= 0) { // basicamente se asegura de que la escena a la que quiere cambiar existe
 		scenes[currentScene]->exitScene();
 		currentScene = nextScene;
 		scenes[nextScene]->enterScene();

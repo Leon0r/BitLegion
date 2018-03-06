@@ -9,7 +9,7 @@
 //clase shortcut, con 5 huecos para los 5 primeros items del inventario
 class ShortCut : public Entity {
 private:
-	static const int coefRed = 3;
+	const double coefRed = 1.3;
 	vector<Vector2D> matriz;//lugar donde colocaremos los objetos
 	const Resources* resources;//imagenes etc.
 	CasillaInventario* selected = nullptr;//item seleccionado
@@ -26,10 +26,10 @@ public:
 	virtual void handleInput(Uint32 time, const SDL_Event& event);//redefinicion del metodo del padre
 	virtual ~ShortCut() {}
 	virtual void render(Uint32 time);
-	void ini(int pos);
-	void recorreEInicia();
-	static const int getCoef() { return coefRed; }
-	string usar() { return selected->getTag(); }//devuelve el tag del objeto usado
+	void ini(int pos, double coefred);
+	void recorreEInicia(double coefred = 1.0);
+	const double getCoef() { return coefRed; }
+	void usar();//devuelve el tag del objeto usado
 	vector<Vector2D> getMatriz(){ return matriz; }//devuelve la matriz para que el inventario sepa recolocar los objetos cuando se sale de el
 };
 

@@ -21,7 +21,7 @@ Scene::Scene(int numEscena, SDLApp* app):app(app), SceneNum(numEscena) {
 		int n;
 
 		// Cargado de items de inventario
-		for (int i = 0; i < j["ItemInventario"].size(); i++) {
+		for (int i = 0; i < (int)j["ItemInventario"].size(); i++) {
 
 			n = j["ItemInventario"][i]["Texture"];
 
@@ -31,7 +31,7 @@ Scene::Scene(int numEscena, SDLApp* app):app(app), SceneNum(numEscena) {
 		}
 
 		// Cargado de GODoors
-		for (int i = 0; i < j["GODoors"].size(); i++) {
+		for (int i = 0; i < (int)j["GODoors"].size(); i++) {
 
 			n = j["GODoors"][i]["Texture"];
 
@@ -40,7 +40,7 @@ Scene::Scene(int numEscena, SDLApp* app):app(app), SceneNum(numEscena) {
 		}
 
 		// Cargado de GOTransiciones
-		for (int i = 0; i < j["GOTransiciones"].size(); i++) {
+		for (int i = 0; i < (int)j["GOTransiciones"].size(); i++) {
 
 			n = j["GOTransiciones"][i]["Texture"];
 
@@ -51,7 +51,7 @@ Scene::Scene(int numEscena, SDLApp* app):app(app), SceneNum(numEscena) {
 
 
 		// Cargado de Colisiones
-		for (int i = 0; i < j["Collisions"].size(); i++) {
+		for (int i = 0; i < (int)j["Collisions"].size(); i++) {
 
 			n = j["Collisions"][i]["Texture"];
 

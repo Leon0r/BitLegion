@@ -3,6 +3,7 @@
 #include "CasillaInventario.h"
 #include "ComponenteClickeable.h"
 #include "ObjectList.h"
+#include "ShortCut.h"
 
 const unsigned int tamanyoFuente = 35;
 const SDL_Color colorFuente = { 255, 255, 255, 1 };
@@ -22,18 +23,17 @@ private:
 	RenderComponent* selectedTexture;
 	Entity* inventarioHud = new Entity(app);
 	Entity* marca = new Entity(app);
-	MainCharacter* player_;
+	ShortCut* SC;
 	const double espaciado = 87;
-	int coefRed;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const int numCas = 5;
-	vector<Vector2D> matriz, matrizS;
+	vector<Vector2D> matriz;
 	static void usar(GameState* state); 
 										 //ya funciona, se puede usar un cast para un metodo del inventario (usar, swap, por ejemplo)
 	static void swap(GameState* state);
 public:
 	Inventory() {};
-	Inventory(SDLApp* game, ObjectList* inventario, GameState* previousState, Entity* player, int coefRed, vector<Vector2D> matS);
+	Inventory(SDLApp* game, ObjectList* inventario, GameState* previousState, ShortCut* shortcut);
 	virtual ~Inventory() { destroy(); stage.clear(); };
 	virtual void handleEvent(SDL_Event& event);
 	virtual void render();
