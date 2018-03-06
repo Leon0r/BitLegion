@@ -1,8 +1,8 @@
 #include "MainCharacter.h"
 
 
-MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, double vel):
-	Entity(game), list(list), colisionables(coll) {
+MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, ShortCut* shorcut_, double vel):
+	Entity(game), list(list), colisionables(coll), shortCut(shorcut_) {
 	// textura
 	int n = j["mainPj"]["Texture"];
 	_texture = app->getResources()->getImageTexture(Resources::ImageId(n));
@@ -39,6 +39,7 @@ MainCharacter::~MainCharacter()
 
 void MainCharacter::addInventoryObject(GameObject* o) {
 	list->addItem(o); //a�ade un item al inventario
+	shortCut->ini(list->getLength()-1);
 }
 
 void MainCharacter::changeRoom() {

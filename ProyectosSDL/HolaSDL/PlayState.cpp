@@ -3,7 +3,7 @@
 
 PlayState::~PlayState() {
 	vector<Scene*>::iterator aux;
-	//scenes[0]->exitScene();
+	scenes[currentScene]->exitScene();
 	std::ofstream i("..\\Scenes\\pj.json"); //archivo donde se va a guardar
 	json j;
 	alena->saveToJson(j);
@@ -54,7 +54,7 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	shortcut = new ShortCut(app, list, resources);
 	stage.push_front(shortcut);
 
-	alena = new MainCharacter(app, j, list, &collision, 6.0);
+	alena = new MainCharacter(app, j, list, &collision, shortcut, 6.0);
 	stage.push_front(alena);
 
 	i.close();
