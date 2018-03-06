@@ -16,12 +16,12 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		initResources();
 		maquinaEstados = new GameStateMachine();
 		maquinaEstados->pushState(new PlayState(this));
-		//dynamic_cast<PlayState*>(maquinaEstados->currentState())->getScenes()[0]->enterScene();
+		dynamic_cast<PlayState*>(maquinaEstados->currentState())->getScenes()[0]->enterScene();
 }
 
 void SDLApp::handleEvent() {
 	while (SDL_PollEvent(&event) && !exit) {
-		if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE)
+		if (event.type == SDL_QUIT)
 			exit = true;
 		else
 			maquinaEstados->currentState()->handleEvent(event); //invoca el handleEvent del currentState

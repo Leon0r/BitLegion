@@ -60,6 +60,17 @@ Scene::Scene(int numEscena, SDLApp* app):app(app), SceneNum(numEscena) {
 				app->getResources()->getImageTexture(Resources::ImageId(n))));
 		}
 
+		//ESCENARIO
+
+		n = j["Fondo"];
+
+		Entity* escenario = new Entity(app);
+		escenario->setWidth(app->getWindowWidth());
+		escenario->setHeight(app->getWindowHeight());
+		RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
+		escenario->addRenderComponent(renderEscenario);
+		SceneItems.push_back(escenario);
+
 		i.close();
 	}
 	else {
@@ -82,6 +93,7 @@ void Scene::enterScene() {
 	it = CurrentState->getStage()->begin();
 	it++; it++;
 	app->getStateMachine()->currentState()->changeList();
+
 	while (it != CurrentState->getStage()->end()) {//Mientras no se acaben los items
 		
 		it = CurrentState->getStage()->erase(it);//borramos el item
