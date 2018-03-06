@@ -1,7 +1,7 @@
 #pragma once
 #include "InputComponent.h"
 #include "Inventory.h"
-#include "PlayState.h"
+#include "StatePrueba.h"
 #include <stack>
 
 using namespace std;

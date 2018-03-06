@@ -6,8 +6,7 @@ std::vector<std::string> Resources::imageFiles_ { "..//images/Alena.png",
 		"..//images/bit legion_logo.png", "..//images/boton.png", "..//images/BotonSwap.png",
 		"..//images/BotonUsar.png", "..//images/ImgTest.png", "..//images/Inventario.png",
 		"..//images/InvMarca.png", "..//images/InvMarcaS.png", "..//images/shortcut.png",
-	"..//images/escena1caso1.png", "..//images/cama.png", "..//images/mesa.png", "..//images/cocina.png", 
-	"..//images/puertaCutre.png", "..//images/llaveCutre.png" };
+	"..//images/escena1caso1.png", "..//images/cama.png", "..//images/mesa.png", "..//images/cocina.png" };
 
 #include <iostream>
 
@@ -46,18 +45,4 @@ Texture* Resources::getImageTexture(ImageId i) const {
 		return imageTextures_[i];
 	else
 		return nullptr;
-}
-
-int Resources::getPosTexture(Texture* text) const {
-	int i = 0;
-	bool found = false;
-	while (i < numOfImageTextures_ && !found) { //encuentra el numero de la textura correspondiente (nos vale para guardar y cargar escenas)
-		if (text == imageTextures_[i]) {
-			found = true;
-		}
-		else {
-			i++;
-		}
-	}
-	return i;
 }

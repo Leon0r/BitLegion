@@ -6,7 +6,7 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 {
 	Vector2D velocity = o->getVelocity();
 
-	//si se ha pulsado una tecla se aï¿½ade a la pila de teclas y se marca como pulsada
+	//si se ha pulsado una tecla se añade a la pila de teclas y se marca como pulsada
 	if (event.type == SDL_KEYDOWN) {
 		if (event.key.keysym.sym == right) {
 			if (!r) Xaxis.push(right);
@@ -28,7 +28,7 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 			r = l = u = d = false;
 			while (!Xaxis.empty())Xaxis.pop();
 			while (!Yaxis.empty())Yaxis.pop();
-			dynamic_cast<PlayState*>(o->getGame()->getStateMachine()->currentState())->creaInventario();
+			dynamic_cast<StatePrueba*>(o->getGame()->getStateMachine()->currentState())->creaInventario();
 		}
 	}
 	//si se ha levantado una tecla se quita de la pila de teclas y se marca como no pulsada

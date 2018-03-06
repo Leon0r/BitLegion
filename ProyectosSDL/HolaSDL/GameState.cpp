@@ -17,19 +17,16 @@ void GameState::update() {
 	if (frameTime<FRAME_RATE) SDL_Delay(FRAME_RATE - frameTime);
 }
 
-void GameState::handleEvent(SDL_Event &e) { //manda a los objetos del juego que detecten 
+void GameState::handleEvent(SDL_Event &e) { //manda a los objetos del juego que detecten eventos
 	bool handled = false;
 	it = stage.begin();
-	//list<GameObject*>::iterator shit;//Aux a cambiar?????
-	//shit = stage.end();
-	listhasChanged = false;
-	while (!listhasChanged && it != stage.end()) {
+	while (it != stage.end() && !deleted) {
 		(*it)->handleInput(0, e);
-		if (!listhasChanged) { //si borras un elemento, solo puede afectar aquí (se borra a traves de los componentes HandleInput)
+		if (!deleted) { //si borras un elemento, solo puede afectar aquí (se borra a traves de los componentes HandleInput)
 			it++; //si no borras nada se incrementa
 		}
 	}
-	//listhasChanged = false;
+	deleted = false;
 }
 
 void GameState::deleteElement(GameObject* o) {
@@ -39,7 +36,7 @@ void GameState::deleteElement(GameObject* o) {
 		if (*it == o) {
 			encontrado = true;
 			it = stage.erase(it);
-			listhasChanged = true;
+			deleted = true;
 		}
 		else {
 			it++;

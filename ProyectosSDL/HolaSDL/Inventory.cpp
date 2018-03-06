@@ -1,9 +1,10 @@
 #include "Inventory.h"
 #include "Boton.h"
 #include "Font.h"
-#include "MainCharacter.h"
+//#include "GameStateMachine.h"
 
-Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousState, int coefRed = 0, vector<Vector2D> matS = {}) : GameState(app), inventario(inventario), selected(nullptr), coefRed(coefRed), previousState(previousState), matrizS(matS) {
+
+Inventory::Inventory(SDLApp* app, ObjectList* inventario, int coefRed = 0, vector<Vector2D> matS = {}) : GameState(app), inventario(inventario), selected(nullptr), coefRed(coefRed), matrizS(matS) {
 	matriz.resize(numCas*numCas);
 	for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
 		for (int j = 0; j < numCas; j++) {
@@ -70,7 +71,7 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 	swapButton->setWidth(app->getResources()->getImageTexture(Resources::BotonSwap)->getWidth()*relacion.first);
 	swapButton->setHeight(app->getResources()->getImageTexture(Resources::BotonSwap)->getHeight()*relacion.second);
 	stage.push_back(swapButton); //se pushea
-	//-------------ConstructoraToGrandeLoko(hay q hacerla mï¿½s pequeï¿½ita)------------------------
+	//-------------ConstructoraToGrandeLoko(hay q hacerla más pequeñita)------------------------
 }
 
 void Inventory::handleEvent(SDL_Event& event) {
@@ -84,8 +85,8 @@ void Inventory::handleEvent(SDL_Event& event) {
 			}
 			selected = (*it);
 			marca->setPosition((*it)->getPosition() + Vector2D((*it)->getWidth() / 2, (*it)->getHeight() / 2)
-				- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2)); // desde aqui, con aux, se puede acceder a la textura, descripcion, tag... de it y crear ademï¿½s nuevos objetos para que se muestren por
-			//pantalla (una imagen, la descripciï¿½n, botones...)
+				- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2)); // desde aqui, con aux, se puede acceder a la textura, descripcion, tag... de it y crear además nuevos objetos para que se muestren por
+			//pantalla (una imagen, la descripción, botones...)
 			muestraDescripcion(); //se muestra 
 		}
 	}
@@ -103,8 +104,8 @@ void Inventory::handleEvent(SDL_Event& event) {
 void Inventory::render() {
 	GameState::render(); //se llama a los componentes "Render" de todos los objetos de la lista del inventario
 	if (selected != nullptr){
-		Texture fuente(app->getRenderer(), selected->getDescription(), *f, colorFuente); //fuente dinï¿½mica
-		fuente.render(app->getRenderer(), inventarioHud->getWidth() - inventarioHud->getWidth() / 16, inventarioHud->getHeight() / 1.5); //se llama al render de la fuente Dinï¿½mica
+		Texture fuente(app->getRenderer(), selected->getDescription(), *f, colorFuente); //fuente dinámica
+		fuente.render(app->getRenderer(), inventarioHud->getWidth() - inventarioHud->getWidth() / 16, inventarioHud->getHeight() / 1.5); //se llama al render de la fuente Dinámica
 	}
 }
 
@@ -118,7 +119,7 @@ void Inventory::swap(GameState* state){
 
 }
 
-void Inventory::destroy() { //destrucciï¿½n de la memoria dinï¿½mica que se crea en este estado
+void Inventory::destroy() { //destrucción de la memoria dinámica que se crea en este estado
 	int tam = inventario->getLength();
 	if (tam > numCas) tam = numCas;
 	if (tam != 0){
@@ -135,17 +136,5 @@ void Inventory::destroy() { //destrucciï¿½n de la memoria dinï¿½mica que se crea
 	delete imagen; imagen = nullptr;
 	delete inventarioHud; inventarioHud = nullptr;
 	delete marca; marca = nullptr;
-	//GameState::~GameState(); destruirï¿½a tambien la lista de objectList --> da problemas, todo lo demï¿½s se destruye
-}
-
-void Inventory::usar(GameState* state) {
-	Inventory* inv = dynamic_cast<Inventory*>(state);
-	if (inv != nullptr) { //comprobamos que sea el inventario por si acaso
-		MainCharacter* aux = dynamic_cast<MainCharacter*>(inv->getPreviousState()->getStage()->front()); //si lo es, se obtiene el primer elemento de stage (el personaje)
-		if (aux != nullptr) {
-			aux->setCurrenTag(inv->getLastClicked()->getTag()); //se cambia la current tag
-			inv->app->getStateMachine()->popState(); //se popea el estado
-		}
-	}
-
+	//GameState::~GameState(); destruiría tambien la lista de objectList --> da problemas, todo lo demás se destruye
 }

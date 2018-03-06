@@ -1,4 +1,4 @@
-	#ifndef ENTITIES_H_
+#ifndef ENTITIES_H_
 #define ENTITIES_H_
 
 #include "GameObject.h"
@@ -7,7 +7,6 @@
 #include "RenderComponent.h"
 #include <vector>
 #include "Texture.h"
-
 
 using namespace std;
 
@@ -30,7 +29,6 @@ public:
 	virtual void delRenderComponent(RenderComponent* rc);
 	Texture* getTexture(Uint16 pos) const;
 	void setTexture(Uint16 pos, Texture* newText);
-	virtual void saveToJson(json& j);
 
 private:
 	vector<InputComponent*> inputComp_;
