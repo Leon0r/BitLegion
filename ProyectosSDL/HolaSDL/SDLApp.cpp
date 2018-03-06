@@ -21,7 +21,7 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 
 void SDLApp::handleEvent() {
 	while (SDL_PollEvent(&event) && !exit) {
-		if (event.type == SDL_QUIT)
+		if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE)
 			exit = true;
 		else
 			maquinaEstados->currentState()->handleEvent(event); //invoca el handleEvent del currentState

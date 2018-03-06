@@ -1,4 +1,7 @@
-Formato de los archivos de cargado/guardado
+Formato de los archivos de cargado/guardadoç
+
+[] denota array
+{}denota objeto
 
 pj.json
 
