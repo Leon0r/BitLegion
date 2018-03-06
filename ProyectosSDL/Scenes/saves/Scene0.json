@@ -1,7 +1,23 @@
 {
+   "ColisionableObject": [
+      {
+         "Texture": 11,
+         "h": 170.0,
+         "w": 393.0,
+         "x": 0.0,
+         "y": 290.0
+      },
+      {
+         "Texture": 12,
+         "h": 230.0,
+         "w": 220.0,
+         "x": 580.0,
+         "y": 432.0
+      }
+   ],
    "GODoors": [
       {
-         "Texture": 9,
+         "Texture": 14,
          "h": 300.0,
          "scneNum": 1,
          "tag": "key",
@@ -12,7 +28,7 @@
    ],
    "ItemInventario": [
       {
-         "Texture": 0,
+         "Texture": 15,
          "descripcion": "Esta es mi descripcion",
          "h": 64.0,
          "tag": "Este es mi tag",
@@ -38,5 +54,10 @@
          "x": 668.0,
          "y": 0.0
       }
-   ]
+   ],
+   "Texture": 10,
+   "h": 720.0,
+   "w": 1280.0,
+   "x": 0.0,
+   "y": 0.0
 }
