@@ -1,0 +1,8 @@
+{
+    "Fondo": 10,
+
+    "GOTransiciones":[
+        {"x":10,"y":500,"w":200,"h":300,"Texture":5,"scneNum":2},
+        {"x":600,"y":500,"w":200,"h":300,"Texture":5,"scneNum":4}
+    ]
+}
