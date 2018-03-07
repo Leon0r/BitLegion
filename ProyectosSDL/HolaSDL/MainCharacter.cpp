@@ -10,13 +10,16 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	//componentes
 	rendere = new ImageRenderer(_texture);
 	this->addRenderComponent(rendere);//componente de pintado para que aparezca en pantalla
-	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i);
-	mouseMovement = new MouseMovement(colisionables);
-	mouse = new MouseDirection(vel, mouseMovement);
-	movement = new MovementComponent(colisionables);
-	switcher.addMode({ keyboard, movement, nullptr });
-	switcher.addMode({ mouse, mouseMovement, nullptr });
+	movement = new MovementComponent(colisionables);//mueve al jugador cuando se usa el teclado
+	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i);//decide la direccion del jugador cuando se usa el teclado
+	mouseMovement = new MouseMovement(colisionables);//mueve al jugador cuando se usa el raton
+	mouse = new MouseDirection(vel, mouseMovement);//decide la direccion del jugador cuando se usa el raton
+
+	switcher.addMode({ keyboard, movement, nullptr });//si se pulsa alguna tecla se activaran los componentes de teclado
+	switcher.addMode({ mouse, mouseMovement, nullptr });//si se pulsa el raton se activaran los componentes de raton
 	switcher.setMode(0);
+
+
 	// posicion y dimensiones
 	this->setWidth(j["mainPj"]["w"]);//ancho, alto, posicion y textura
 	this->setHeight(j["mainPj"]["h"]);
