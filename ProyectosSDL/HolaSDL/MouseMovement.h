@@ -1,12 +1,13 @@
 #pragma once
 #include "MovementComponent.h"
+#include "InputComponent.h"
 
 //se encarga de mover al jugador cuando esta con el raton
-class MouseMovement : public MovementComponent
+class MouseMovement : public InputComponent, public MovementComponent
 {
 public:
 	MouseMovement() {}
-	MouseMovement(list<GameObject*>* colisiones) : MovementComponent(colisiones) {
+	MouseMovement(list<GameObject*>* colisiones, double vel) : MovementComponent(colisiones), vel(vel) {
 		destiny.setX(0);
 		destiny.setY(0);
 	}
@@ -21,7 +22,11 @@ public:
 		destiny.setX(x);
 		destiny.setY(y);
 	}
+	virtual void handleInput(GameObject* o, Uint32 time, const SDL_Event& event);
+	void setDirection(GameObject* o, Vector2D destiny);
 private:
 	Vector2D destiny;
+	double vel;
+	SDL_Point p;
 };
 
