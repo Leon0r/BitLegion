@@ -15,6 +15,13 @@
          "y": 432.0
       }
    ],
+   "Fondo": {
+      "Texture": 10,
+      "h": 720.0,
+      "w": 1280.0,
+      "x": 0.0,
+      "y": 0.0
+   },
    "GODoors": [
       {
          "Texture": 14,
@@ -28,15 +35,6 @@
    ],
    "ItemInventario": [
       {
-         "Texture": 15,
-         "descripcion": "Esta es mi descripcion",
-         "h": 64.0,
-         "tag": "Este es mi tag",
-         "w": 64.0,
-         "x": 368.0,
-         "y": 122.0
-      },
-      {
          "Texture": 14,
          "descripcion": "adafsfdf",
          "h": 64.0,
@@ -46,9 +44,14 @@
          "y": 0.0
       }
    ],
-   "Texture": 10,
-   "h": 720.0,
-   "w": 1280.0,
-   "x": 0.0,
-   "y": 0.0
+   "OTransicion": [
+      {
+         "Texture": 5,
+         "h": 150.0,
+         "sceneNumber": 1,
+         "w": 100.0,
+         "x": 200.0,
+         "y": 500.0
+      }
+   ]
 }

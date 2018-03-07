@@ -62,7 +62,7 @@ Scene::Scene(int numEscena, SDLApp* app):app(app), SceneNum(numEscena) {
 
 		//ESCENARIO
 
-		n = j["Fondo"];
+		n = j["Fondo"]["Texture"];
 
 		Entity* escenario = new Entity(app);
 		escenario->setWidth(app->getWindowWidth());
@@ -102,7 +102,7 @@ void Scene::enterScene() {
 	for (GameObject* it : SceneItems) {
 		ColisionableObject* col = dynamic_cast<ColisionableObject*>(it);
 		if (col != nullptr) {
-			dynamic_cast<MainCharacter*>(CurrentState->getStage()->front())->setNewCollision(col);
+			dynamic_cast<MainCharacter*>(CurrentState->getStage()->front())->setNewCollision(col); //setea las nuevas colisiones de la escena
 		}
 	}
 }
@@ -123,9 +123,18 @@ void Scene::saveSceneToJson() {
 
 	std::ofstream i(name); //archivo donde se va a guardar
 	json j;
-	for (GameObject* it : SceneItems) {
-		it->saveToJson(j);	//manda a todos los objetos guardarse en dichos archivos
+	list<GameObject*>::iterator it;
+	for (it = SceneItems.begin(); it != SceneItems.end(); it++) {
+		if (std::next(it) == SceneItems.end()) {
+			(*it)->saveToJson(j["Fondo"]);
+		}
+		else {
+			(*it)->saveToJson(j);
+		}
 	}
+	/*for (GameObject* it : SceneItems) {
+		it->saveToJson(j);	//manda a todos los objetos guardarse en dichos archivos
+	}*/
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo
 }
