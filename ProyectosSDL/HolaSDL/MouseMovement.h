@@ -24,6 +24,7 @@ public:
 	}
 	virtual void handleInput(GameObject* o, Uint32 time, const SDL_Event& event);
 	void setDirection(GameObject* o, Vector2D destiny);
+	bool playerInDestiny(GameObject* o, Vector2D destiny);
 private:
 	Vector2D destiny;
 	double vel;

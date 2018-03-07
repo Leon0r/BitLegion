@@ -34,7 +34,6 @@ private:
 	string currentTag;
 	RenderComponent* rendere;
 	InputComponent* keyboard;
-	InputComponent* mouse;
 	PhysicsComponent* movement;
 	PhysicsComponent* mouseMovement;
 	ObjectList* list;

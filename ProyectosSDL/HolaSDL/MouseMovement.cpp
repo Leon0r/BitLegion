@@ -9,10 +9,8 @@ void MouseMovement::update(GameObject* o, Uint32 time) {
 
 //miramos si ha llegado a la posicion destino
 void MouseMovement::stopMovement(GameObject* o, Vector2D destiny) {
-	SDL_Rect rectDestino = { destiny.getX() - o->getWidth() / 4, destiny.getY() - o->getWidth() /6, o->getWidth() / 2 , o->getWidth() / 2 };
-	SDL_Point q = { o->getPosition().getX() + o->getWidth() / 4, o->getPosition().getY() + o->getHeight() };
-	RenderComponent* r = new ImageRenderer(static_cast<MainCharacter*>(o)->getGame()->getResources()->getImageTexture(Resources::PuertaCutre));
-	/*static_cast<MainCharacter*>(o)->kk->setPosition(Vector2D(rectDestino.x, rectDestino.y));
+	/*RenderComponent* r = new ImageRenderer(static_cast<MainCharacter*>(o)->getGame()->getResources()->getImageTexture(Resources::PuertaCutre));
+	static_cast<MainCharacter*>(o)->kk->setPosition(Vector2D(rectDestino.x, rectDestino.y));
 	static_cast<MainCharacter*>(o)->kk->setHeight(rectDestino.h);
 	static_cast<MainCharacter*>(o)->kk->setWidth(rectDestino.w);
 	static_cast<MainCharacter*>(o)->kk->addRenderComponent(r);
@@ -21,7 +19,7 @@ void MouseMovement::stopMovement(GameObject* o, Vector2D destiny) {
 	static_cast<MainCharacter*>(o)->kk2->setHeight(20);
 	static_cast<MainCharacter*>(o)->kk2->setWidth(20);
 	static_cast<MainCharacter*>(o)->kk2->addRenderComponent(y);*/
-	if (SDL_PointInRect(&q, &rectDestino)) {
+	if (playerInDestiny(o, destiny)) {
 		o->setVelocity(Vector2D(0, 0));
 	}
 }
@@ -47,7 +45,13 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 	}
 	//si se suelta elegimos la direccion del jugador para llegar a esa posicion y actualizamos la posicion destino del componente mouseMov
 	else if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_RIGHT) {
-		setDirection(o, Vector2D(p.x, p.y));
 		setDestiny(p.x, p.y);
+		if (!playerInDestiny(o, destiny)) setDirection(o, Vector2D(p.x, p.y));
 	}
+}
+
+bool MouseMovement::playerInDestiny(GameObject* o, Vector2D destiny) {
+	SDL_Rect rectDestino = { destiny.getX() - o->getWidth() / 4, destiny.getY() - o->getWidth() / 6, o->getWidth() / 2 , o->getWidth() / 2 };
+	SDL_Point q = { o->getPosition().getX() + o->getWidth() / 4, o->getPosition().getY() + o->getHeight() };
+	return (SDL_PointInRect(&q, &rectDestino));
 }
