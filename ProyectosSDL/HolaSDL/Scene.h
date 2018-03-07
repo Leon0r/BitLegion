@@ -25,7 +25,5 @@ private:
 	list<GameObject*> SceneItems;
 	list<GameObject*>::iterator it;
 	GameState* CurrentState;
-
-
 };
 

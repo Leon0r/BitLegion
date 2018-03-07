@@ -9,7 +9,7 @@ Scene::Scene()
 }
 
 Scene::Scene(int numEscena, SDLApp* app) :app(app), SceneNum(numEscena) {
-	string name = "..\\Scenes\\Scene" + to_string(numEscena);
+	string name = "..\\Scenes\\Saves\\Scene" + to_string(numEscena);
 	name += ".json";
 
 	std::ifstream i(name);
@@ -65,7 +65,7 @@ Scene::Scene(int numEscena, SDLApp* app) :app(app), SceneNum(numEscena) {
 
 		//ESCENARIO
 
-		n = j["Fondo"]["Texture"];
+		n = j["Texture"];
 
 		Entity* escenario = new Entity(app);
 		escenario->setWidth(app->getWindowWidth());
@@ -128,12 +128,7 @@ void Scene::saveSceneToJson() {
 	json j;
 	list<GameObject*>::iterator it;
 	for (it = SceneItems.begin(); it != SceneItems.end(); it++) {
-		if (std::next(it) == SceneItems.end()) {
-			(*it)->saveToJson(j["Fondo"]);
-		}
-		else {
-			(*it)->saveToJson(j);
-		}
+		(*it)->saveToJson(j);
 	}
 	/*for (GameObject* it : SceneItems) {
 		it->saveToJson(j);	//manda a todos los objetos guardarse en dichos archivos
