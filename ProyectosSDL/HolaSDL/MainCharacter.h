@@ -6,6 +6,7 @@
 #include "MouseDirection.h"
 #include "ComponentSwitcher.h"
 #include "ItemInventario.h" // Para cargar 
+#include "MouseMovement.h"
 //
 
 class MainCharacter:
@@ -35,6 +36,7 @@ private:
 	InputComponent* keyboard;
 	InputComponent* mouse;
 	PhysicsComponent* movement;
+	PhysicsComponent* mouseMovement;
 	ObjectList* list;
 	std::list<GameObject*>* colisionables;
 	ComponentSwitcher switcher = ComponentSwitcher(app, this);

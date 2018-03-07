@@ -11,13 +11,11 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	rendere = new ImageRenderer(_texture);
 	this->addRenderComponent(rendere);//componente de pintado para que aparezca en pantalla
 	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i);
-	//this->addInputComponent(keyboard);//componente de input para manejar su direccion
-	mouse = new MouseDirection(vel);
-	//this->addInputComponent(mouse);
+	mouseMovement = new MouseMovement(colisionables);
+	mouse = new MouseDirection(vel, mouseMovement);
 	movement = new MovementComponent(colisionables);
-	this->addPhysicsComponent(movement);//componente de movimiento para que pueda moverse
-	switcher.addMode({ keyboard, nullptr, nullptr });
-	switcher.addMode({ mouse, nullptr, nullptr });
+	switcher.addMode({ keyboard, movement, nullptr });
+	switcher.addMode({ mouse, mouseMovement, nullptr });
 	switcher.setMode(0);
 	// posicion y dimensiones
 	this->setWidth(j["mainPj"]["w"]);//ancho, alto, posicion y textura
