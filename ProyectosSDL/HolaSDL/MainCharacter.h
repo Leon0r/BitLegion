@@ -3,7 +3,6 @@
 #include "ImageRenderer.h"
 #include "KeyboardComponent.h"
 #include "MovementComponent.h"
-#include "MouseDirection.h"
 #include "ComponentSwitcher.h"
 #include "ItemInventario.h" // Para cargar 
 #include "MouseMovement.h"
