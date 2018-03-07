@@ -24,11 +24,14 @@ public:
 	void clearCollisions() { colisionables->clear(); };
 	void setNewCollision(GameObject* o) { colisionables->push_back(o); }
 	virtual void handleInput(Uint32 time, const SDL_Event& event) { switcher.handleInput(time, event); Entity::handleInput(time, event); }
+	Entity* kk;
+	Entity* kk2;
+	virtual void render(Uint32 time) { Entity::render(time); kk->render(time); kk2->render(time); }
 
 private:
 	Texture * _texture;
 	string currentTag;
-	RenderComponent* render;
+	RenderComponent* rendere;
 	InputComponent* keyboard;
 	InputComponent* mouse;
 	PhysicsComponent* movement;

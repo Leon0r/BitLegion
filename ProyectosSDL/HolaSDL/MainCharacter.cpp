@@ -8,8 +8,8 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	_texture = app->getResources()->getImageTexture(Resources::ImageId(n));
 
 	//componentes
-	render = new ImageRenderer(_texture);
-	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
+	rendere = new ImageRenderer(_texture);
+	this->addRenderComponent(rendere);//componente de pintado para que aparezca en pantalla
 	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i);
 	//this->addInputComponent(keyboard);//componente de input para manejar su direccion
 	mouse = new MouseDirection(vel);
@@ -23,7 +23,8 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	this->setWidth(j["mainPj"]["w"]);//ancho, alto, posicion y textura
 	this->setHeight(j["mainPj"]["h"]);
 	this->setPosition(Vector2D(j["mainPj"]["x"], j["mainPj"]["y"]));
-
+	kk = new Entity(app);
+	kk2 = new Entity(app);
 	// items de inventario
 	for (int i = 0; i < j["mainPj"]["ItemInventario"].size(); i++) {
 		n = j["mainPj"]["ItemInventario"][i]["Texture"];

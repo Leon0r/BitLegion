@@ -1,5 +1,6 @@
 #pragma once
 #include "InputComponent.h"
+#include "Entity.h"
 class MouseDirection :
 	public InputComponent
 {
