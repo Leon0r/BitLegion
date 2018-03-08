@@ -2,11 +2,12 @@
 #define INPUTCOMPONENT_H_
 
 #include "GameObject.h"
+#include "Observable.h"
 
 /*
  *
  */
-class InputComponent {
+class InputComponent : public Observable {
 public:
 	InputComponent();
 	virtual ~InputComponent();

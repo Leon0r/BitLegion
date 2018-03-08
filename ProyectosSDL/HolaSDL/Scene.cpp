@@ -9,7 +9,7 @@ Scene::Scene()
 }
 
 Scene::Scene(int numEscena, SDLApp* app) :app(app), SceneNum(numEscena) {
-	string name = "..\\Scenes\\Saves\\Scene" + to_string(numEscena);
+	string name = "..\\Scenes\\Scene" + to_string(numEscena);
 	name += ".json";
 
 	std::ifstream i(name);

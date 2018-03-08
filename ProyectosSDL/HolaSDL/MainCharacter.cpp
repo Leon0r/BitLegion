@@ -8,9 +8,11 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	_texture = app->getResources()->getImageTexture(Resources::ImageId(n));
 
 	//componentes
-	render = new ImageRenderer(_texture);
+	//render = new ImageRenderer(_texture);
+	render = new AnimationRenderer(_texture, 4, 4, 60, 144);
 	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
 	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i, list);
+	//keyboard->addObserver(dynamic_cast<Observer*> (render));
 	this->addInputComponent(keyboard);//componente de input para manejar su direccion
 	movement = new MovementComponent(colisionables);
 	this->addPhysicsComponent(movement);//componente de movimiento para que pueda moverse

@@ -11,10 +11,12 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		if (event.key.keysym.sym == right) {
 			if (!r) Xaxis.push(right);
 			r = true;
+			send(Observer::Ch_Right);
 		}
 	    else if (event.key.keysym.sym == left) {
 			if (!l)Xaxis.push(left);
 			l = true;
+			send(Observer::Ch_Left);
 		}
 		if (event.key.keysym.sym == up) {
 			if (!u)Yaxis.push(up);
