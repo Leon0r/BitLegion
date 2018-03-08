@@ -29,7 +29,7 @@ pj.json
 SceneX.json // X = numero de la escena
 
 	{
-		"Fondo":0;
+		"Texture":0; //textura del fondo
 		// Array con los datos de los objetos "cogibles" por el jugador existentes en la escena
     	"ItemInventario":[
         	{"descripcion":"Esta es mi descripcion","tag":"Este es mi tag","Texture":0},
@@ -48,7 +48,7 @@ SceneX.json // X = numero de la escena
     	],
 
     	// Array con los datos de los objetos colisionables existentes en la escena
-    	"Collisions":[
+    	"CollisionableObject":[
     		{"x":0, "y": 0, "w": 0, "h": 0, "Texture": 0},
             {...},
             {...}

@@ -9,7 +9,7 @@ Scene::Scene()
 }
 
 Scene::Scene(int numEscena, SDLApp* app) :app(app), SceneNum(numEscena) {
-	string name = "..\\Scenes\\Saves\\Scene" + to_string(numEscena);
+	string name = "..\\Scenes\\Scene" + to_string(numEscena);
 	name += ".json";
 
 	std::ifstream i(name);
@@ -52,27 +52,29 @@ Scene::Scene(int numEscena, SDLApp* app) :app(app), SceneNum(numEscena) {
 					app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOTransiciones"][i]["scneNum"]));
 			}
 
-		if (j["Collisions"].is_array())
+		if (j["CollisionableObject"].is_array())
 			// Cargado de Colisiones
-			for (int i = 0; i < (int)j["Collisions"].size(); i++) {
+			for (int i = 0; i < (int)j["CollisionableObject"].size(); i++) {
 
-				n = j["Collisions"][i]["Texture"];
+				n = j["CollisionableObject"][i]["Texture"];
 
-				SceneItems.push_back(new ColisionableObject(app, j["Collisions"][i]["x"], j["Collisions"][i]["y"],
-					j["Collisions"][i]["w"], j["Collisions"][i]["h"],
+				SceneItems.push_back(new ColisionableObject(app, j["CollisionableObject"][i]["x"], j["CollisionableObject"][i]["y"],
+					j["CollisionableObject"][i]["w"], j["CollisionableObject"][i]["h"],
 					app->getResources()->getImageTexture(Resources::ImageId(n))));
 			}
 
 		//ESCENARIO
 
-		n = j["Texture"];
+		if (!j["Texture"].is_null()) {
+			n = j["Texture"];
 
-		Entity* escenario = new Entity(app);
-		escenario->setWidth(app->getWindowWidth());
-		escenario->setHeight(app->getWindowHeight());
-		RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
-		escenario->addRenderComponent(renderEscenario);
-		SceneItems.push_back(escenario);
+			Entity* escenario = new Entity(app);
+			escenario->setWidth(app->getWindowWidth());
+			escenario->setHeight(app->getWindowHeight());
+			RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
+			escenario->addRenderComponent(renderEscenario);
+			SceneItems.push_back(escenario);
+		}
 
 		i.close();
 	}
