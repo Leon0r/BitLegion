@@ -27,7 +27,7 @@ public:
 	virtual void addAnim(string label, vector<int> framesAnim) { animData newAnim(label, framesAnim); animations_.push_back(newAnim); }
 	// inicia la animacion de entrada o pone la 0 en caso de no encontrarla
 	virtual void playAnim(string label);
-	virtual void playAnim(int anim) { (anim < animations_.size()&& anim >= 0) ? (nextAnim_ = anim) : (nextAnim_ = currentAnim_); } // operador ternario (if)?(true):(false)
+	virtual void playAnim(int anim) { (anim < animations_.size()&& anim >= 0) ? (currentAnim_ = anim) : (nextAnim_ = currentAnim_); } // operador ternario (if)?(true):(false)
 	virtual void changeAnim() { if (currentFrame_ == animations_[currentAnim_].framesAnim_.size() && nextAnim_ != currentAnim_) currentAnim_ = nextAnim_; }
 	virtual int nextFrame();
 	virtual void receive(Messages msg);
