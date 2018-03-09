@@ -4,6 +4,8 @@
 
 //actualizamos la logica del personaje
 void MouseMovement::update(GameObject* o, Uint32 time) {
+	if (!stackerino.empty()) { if (playerInDestiny(o, destiny)) { 
+		setDestiny(stackerino.top().first, stackerino.top().second); setDirection(o, destiny); stackerino.pop(); } }
 	MovementComponent::update(o, time);//update del movimniento normal
 	stopMovement(o, destiny);//pero ademas si llega a la posicion destino se para
 }
@@ -60,9 +62,15 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 	}
 	//si se suelta elegimos la direccion del jugador para llegar a esa posicion y actualizamos la posicion destino del componente mouseMov
 	else if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_RIGHT) {
-		setDestiny(p.x, p.y);
+		//setDestiny(p.x, p.y);
+		while (!stackerino.empty()) { stackerino.pop(); }
 		if (!playerInDestiny(o, destiny)) { 
-			nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX, o->getPosition().getY() / auxY), pair<double, double>(p.x / auxX, p.y / auxY)); 
+			nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX, o->getPosition().getY() / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
+			Vector2D desAux(stackerino.top().first, stackerino.top().second);
+			stackerino.pop();
+			setDestiny(desAux.getX(), desAux.getY());
+			setDirection(o, destiny);
+			
 			/*while (!stackerino.empty()) {
 				Vector2D desAux (stackerino.top().first, stackerino.top().second);
 				stackerino.pop();
