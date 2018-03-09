@@ -1,5 +1,6 @@
 #include "MouseMovement.h"
 #include "MainCharacter.h"
+#include "AStar.h"
 
 //actualizamos la logica del personaje
 void MouseMovement::update(GameObject* o, Uint32 time) {
@@ -38,6 +39,20 @@ void MouseMovement::setDirection(GameObject* o, Vector2D destiny) {
 
 //eventos de mouse
 void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& event) {
+	int grid2[9][10] =
+	{
+		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
+	};
+	AStar* nek = new AStar(this);
+	nek->defineCosas(o);
 	//si se pulsa el raton registramos su posicion
 	if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_RIGHT) {
 		p.x = event.button.x;
@@ -46,7 +61,8 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 	//si se suelta elegimos la direccion del jugador para llegar a esa posicion y actualizamos la posicion destino del componente mouseMov
 	else if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_RIGHT) {
 		setDestiny(p.x, p.y);
-		if (!playerInDestiny(o, destiny)) setDirection(o, Vector2D(p.x, p.y));
+		if (!playerInDestiny(o, destiny)) { nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX, o->getPosition().getY() / auxY), pair<double, double>(p.x / auxX, p.y / auxY)); } //setDirection(o, Vector2D(p.x, p.y));
+		//while(pilanovacia) { while(!playerInDestiny) {setDirection()} stack.pop; setdestiny(stack.top);}
 	}
 }
 
