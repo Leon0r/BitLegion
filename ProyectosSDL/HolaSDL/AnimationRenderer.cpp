@@ -32,6 +32,9 @@ void AnimationRenderer::render(GameObject* o, Uint32 time)
 		int y = (animations_[currentAnim_].framesAnim_[currentFrame_]) / numFrFils_;
 		int x = (animations_[currentAnim_].framesAnim_[currentFrame_]) % numFrFils_;
 
+		y *= frHeigth_;
+		x *= frWidth_;
+
 		SDL_Rect sourceRect{ x, y, frWidth_, frHeigth_ };
 
 		SDL_Rect rect{ o->getPosition().getX(), o->getPosition().getY(),

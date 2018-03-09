@@ -12,7 +12,7 @@ public:
 
 	Observable();
 	~Observable();
-	void addObserver(Observer* o) { observers_[numOfObservers_] = o; numOfObservers_++; }
+	void addObserver(Observer* o) { observers_.push_back(o); numOfObservers_++; }
 	void removeObserver(Observer* o);
 	void send(Observer::Messages msg);
 };

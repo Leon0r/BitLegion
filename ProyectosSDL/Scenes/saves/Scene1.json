@@ -9,6 +9,17 @@
          "y": 500.0
       }
    ],
+   "ItemInventario": [
+      {
+         "Texture": 6,
+         "descripcion": "Esta es mi descripcion",
+         "h": 64.0,
+         "tag": "Este es mi tag",
+         "w": 64.0,
+         "x": 666.0,
+         "y": 66.0
+      }
+   ],
    "Texture": 10,
    "h": 720.0,
    "w": 1280.0,

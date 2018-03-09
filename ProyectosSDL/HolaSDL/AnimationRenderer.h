@@ -3,10 +3,10 @@
 #include "Observer.h"
 #include "SDLApp.h"
 
-const double ANIM_RATE = 40;
+const double ANIM_RATE = 100;
 
 class AnimationRenderer :
-	public RenderComponent, Observer
+	public RenderComponent, public Observer
 {
 	struct animData {
 		string label_; // nombre/etiqueta de la animacion
