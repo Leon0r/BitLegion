@@ -1,11 +1,13 @@
 #pragma once
 #include "MovementComponent.h"
 #include "InputComponent.h"
+#include <stack>
 
 //se encarga de mover al jugador cuando esta con el raton
 class MouseMovement : public InputComponent, public MovementComponent
 {
 public:
+	stack<pair<int, int>> stackerino;
 	MouseMovement() {}
 	MouseMovement(list<GameObject*>* colisiones, double vel) : MovementComponent(colisiones), vel(vel) {
 		destiny.setX(0);

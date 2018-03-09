@@ -61,7 +61,18 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 	//si se suelta elegimos la direccion del jugador para llegar a esa posicion y actualizamos la posicion destino del componente mouseMov
 	else if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_RIGHT) {
 		setDestiny(p.x, p.y);
-		if (!playerInDestiny(o, destiny)) { nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX, o->getPosition().getY() / auxY), pair<double, double>(p.x / auxX, p.y / auxY)); } //setDirection(o, Vector2D(p.x, p.y));
+		if (!playerInDestiny(o, destiny)) { 
+			nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX, o->getPosition().getY() / auxY), pair<double, double>(p.x / auxX, p.y / auxY)); 
+			/*while (!stackerino.empty()) {
+				Vector2D desAux (stackerino.top().first, stackerino.top().second);
+				stackerino.pop();
+				setDestiny(desAux.getX(), desAux.getY());
+				setDirection(o, destiny);
+				while (!playerInDestiny(o, destiny)) {
+					update(o, 0);
+				}
+			}*/ //da mala espina el bucle si
+		} //setDirection(o, Vector2D(p.x, p.y));
 		//while(pilanovacia) { while(!playerInDestiny) {setDirection()} stack.pop; setdestiny(stack.top);}
 	}
 }
