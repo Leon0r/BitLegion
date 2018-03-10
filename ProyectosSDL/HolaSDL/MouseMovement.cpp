@@ -88,5 +88,15 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 bool MouseMovement::playerInDestiny(GameObject* o, Vector2D destiny) {
 	SDL_Rect rectDestino = { destiny.getX() - o->getWidth() / 4, destiny.getY() - o->getWidth() / 6, o->getWidth() / 2 , o->getWidth() / 2 };
 	SDL_Point q = { o->getPosition().getX() + o->getWidth() / 4, o->getPosition().getY() + o->getHeight() };
+	/*RenderComponent* r = new ImageRenderer(static_cast<MainCharacter*>(o)->getGame()->getResources()->getImageTexture(Resources::PuertaCutre));
+	static_cast<MainCharacter*>(o)->kk->setPosition(Vector2D(rectDestino.x, rectDestino.y));
+	static_cast<MainCharacter*>(o)->kk->setHeight(rectDestino.h);
+	static_cast<MainCharacter*>(o)->kk->setWidth(rectDestino.w);
+	static_cast<MainCharacter*>(o)->kk->addRenderComponent(r);
+	RenderComponent* y = new ImageRenderer(static_cast<MainCharacter*>(o)->getGame()->getResources()->getImageTexture(Resources::Cama));
+	static_cast<MainCharacter*>(o)->kk2->setPosition(Vector2D(q.x, q.y));
+	static_cast<MainCharacter*>(o)->kk2->setHeight(20);
+	static_cast<MainCharacter*>(o)->kk2->setWidth(20);
+	static_cast<MainCharacter*>(o)->kk2->addRenderComponent(y);*/
 	return (SDL_PointInRect(&q, &rectDestino));
 }
