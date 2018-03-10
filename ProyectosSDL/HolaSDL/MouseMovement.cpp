@@ -4,24 +4,21 @@
 
 //actualizamos la logica del personaje
 void MouseMovement::update(GameObject* o, Uint32 time) {
-	if (!stackerino.empty()) { if (playerInDestiny(o, destiny)) { 
-		setDestiny(stackerino.top().first, stackerino.top().second); setDirection(o, destiny); stackerino.pop(); } }
-	MovementComponent::update(o, time);//update del movimniento normal
-	stopMovement(o, destiny);//pero ademas si llega a la posicion destino se para
+	if (!stackerino.empty()) {//si hay destinos pendientes
+		if (playerInDestiny(o, destiny)) {//si el jugador ha llegado al destino actual
+			stackerino.pop();
+			if (!stackerino.empty()) {//establecemos el siguiente destino de la cola
+				setDestiny(stackerino.front().first, stackerino.front().second);
+				setDirection(o, destiny);//le mandamos hacia el
+			}
+		}
+		else MovementComponent::update(o, time);//si esta viajando a un destino, update del movimiento normal
+	}
+	stopMovement(o, destiny);//si llega a la posicion destino se para
 }
 
 //miramos si ha llegado a la posicion destino
 void MouseMovement::stopMovement(GameObject* o, Vector2D destiny) {
-	/*RenderComponent* r = new ImageRenderer(static_cast<MainCharacter*>(o)->getGame()->getResources()->getImageTexture(Resources::PuertaCutre));
-	static_cast<MainCharacter*>(o)->kk->setPosition(Vector2D(rectDestino.x, rectDestino.y));
-	static_cast<MainCharacter*>(o)->kk->setHeight(rectDestino.h);
-	static_cast<MainCharacter*>(o)->kk->setWidth(rectDestino.w);
-	static_cast<MainCharacter*>(o)->kk->addRenderComponent(r);
-	RenderComponent* y = new ImageRenderer(static_cast<MainCharacter*>(o)->getGame()->getResources()->getImageTexture(Resources::Cama));
-	static_cast<MainCharacter*>(o)->kk2->setPosition(Vector2D(q.x, q.y));
-	static_cast<MainCharacter*>(o)->kk2->setHeight(20);
-	static_cast<MainCharacter*>(o)->kk2->setWidth(20);
-	static_cast<MainCharacter*>(o)->kk2->addRenderComponent(y);*/
 	if (playerInDestiny(o, destiny)) {
 		o->setVelocity(Vector2D(0, 0));
 	}
@@ -43,9 +40,9 @@ void MouseMovement::setDirection(GameObject* o, Vector2D destiny) {
 void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& event) {
 	int grid2[9][10] =
 	{
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
 		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
 		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
 		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
@@ -55,30 +52,26 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 	};
 	AStar* nek = new AStar(this);
 	nek->defineCosas(o);
+
 	//si se pulsa el raton registramos su posicion
 	if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_RIGHT) {
 		p.x = event.button.x;
 		p.y = event.button.y;
 	}
+
 	//si se suelta elegimos la direccion del jugador para llegar a esa posicion y actualizamos la posicion destino del componente mouseMov
 	else if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_RIGHT) {
-		//setDestiny(p.x, p.y);
-		while (!stackerino.empty()) { stackerino.pop(); }
-		if (!playerInDestiny(o, destiny)) { 
-			nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX, o->getPosition().getY() / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
-			if (!stackerino.empty()) { stackerino.pop(); Vector2D desAux (stackerino.top().first, stackerino.top().second ); 
-				setDestiny(desAux.getX(), desAux.getY()); setDirection(o, destiny); }	
-			/*while (!stackerino.empty()) {
-				Vector2D desAux (stackerino.top().first, stackerino.top().second);
-				stackerino.pop();
-				setDestiny(desAux.getX(), desAux.getY());
-				setDirection(o, destiny);
-				while (!playerInDestiny(o, destiny)) {
-					update(o, 0);
-				}
-			}*/ //da mala espina el bucle si
-		} //setDirection(o, Vector2D(p.x, p.y));
-		//while(pilanovacia) { while(!playerInDestiny) {setDirection()} stack.pop; setdestiny(stack.top);}
+
+		while (!stackerino.empty()) { stackerino.pop(); }//eliminamos el path anterior
+
+		//aestrella rellena una cola de destinos para llegar al final
+		nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX, o->getPosition().getY() / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
+
+		//si ha encontrado destinos
+		if (!stackerino.empty()) {
+			setDestiny(stackerino.front().first, stackerino.front().second); //establecemos el primero
+			setDirection(o, destiny);//le mandamos hacia el
+		}
 	}
 }
 

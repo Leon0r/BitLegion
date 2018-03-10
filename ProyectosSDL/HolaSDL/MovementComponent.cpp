@@ -21,8 +21,8 @@ void MovementComponent::update(GameObject* o, Uint32 time) {
 
 //controla que el personaje no salga de la pantalla
 void MovementComponent::windowBounces(GameObject* o, double& x, double& y, Vector2D& velocity) {
-	if (y + o->getHeight()*2 / 3 <= o->getGame()->getWindowHeight() / 2) {
-		y = o->getGame()->getWindowHeight() / 2 - o->getHeight()*2 / 3;
+	if (y + o->getHeight()*2 / 3 <= /*o->getGame()->getWindowHeight() / 2*/ 0) {
+		y = /*o->getGame()->getWindowHeight() / 2 - o->getHeight()*2 / 3*/ 0;
 		velocity.setY(0);
 	}
 	else if (y + o->getHeight() >= o->getGame()->getWindowHeight()) {
