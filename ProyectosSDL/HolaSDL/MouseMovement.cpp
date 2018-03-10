@@ -66,11 +66,8 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 		while (!stackerino.empty()) { stackerino.pop(); }
 		if (!playerInDestiny(o, destiny)) { 
 			nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX, o->getPosition().getY() / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
-			Vector2D desAux(stackerino.top().first, stackerino.top().second);
-			stackerino.pop();
-			setDestiny(desAux.getX(), desAux.getY());
-			setDirection(o, destiny);
-			
+			if (!stackerino.empty()) { stackerino.pop(); Vector2D desAux (stackerino.top().first, stackerino.top().second ); 
+				setDestiny(desAux.getX(), desAux.getY()); setDirection(o, destiny); }	
 			/*while (!stackerino.empty()) {
 				Vector2D desAux (stackerino.top().first, stackerino.top().second);
 				stackerino.pop();
@@ -88,7 +85,7 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 bool MouseMovement::playerInDestiny(GameObject* o, Vector2D destiny) {
 	SDL_Rect rectDestino = { destiny.getX() - o->getWidth() / 4, destiny.getY() - o->getWidth() / 6, o->getWidth() / 2 , o->getWidth() / 2 };
 	SDL_Point q = { o->getPosition().getX() + o->getWidth() / 4, o->getPosition().getY() + o->getHeight() };
-	/*RenderComponent* r = new ImageRenderer(static_cast<MainCharacter*>(o)->getGame()->getResources()->getImageTexture(Resources::PuertaCutre));
+	RenderComponent* r = new ImageRenderer(static_cast<MainCharacter*>(o)->getGame()->getResources()->getImageTexture(Resources::PuertaCutre));
 	static_cast<MainCharacter*>(o)->kk->setPosition(Vector2D(rectDestino.x, rectDestino.y));
 	static_cast<MainCharacter*>(o)->kk->setHeight(rectDestino.h);
 	static_cast<MainCharacter*>(o)->kk->setWidth(rectDestino.w);
@@ -97,6 +94,6 @@ bool MouseMovement::playerInDestiny(GameObject* o, Vector2D destiny) {
 	static_cast<MainCharacter*>(o)->kk2->setPosition(Vector2D(q.x, q.y));
 	static_cast<MainCharacter*>(o)->kk2->setHeight(20);
 	static_cast<MainCharacter*>(o)->kk2->setWidth(20);
-	static_cast<MainCharacter*>(o)->kk2->addRenderComponent(y);*/
+	static_cast<MainCharacter*>(o)->kk2->addRenderComponent(y);
 	return (SDL_PointInRect(&q, &rectDestino));
 }
