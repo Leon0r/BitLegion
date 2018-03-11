@@ -40,7 +40,9 @@ public:
 		LlavePiso,
 		MovilMuerto,
 		TicketCompra,
-		Vater
+		Vater,
+		LavaboDucha,
+		Baño
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
