@@ -6,6 +6,25 @@
 //se encarga de mover al jugador cuando esta con el raton
 class MouseMovement : public InputComponent, public MovementComponent
 {
+private:
+	int grid2[10][10] =
+	{
+		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
+	};
+	Vector2D destiny;
+	double vel;
+	SDL_Point p;
+	int auxX = 128;
+	int auxY = 72;
 public:
 	queue<pair<int, int>> stackerino;
 	MouseMovement() {}
@@ -27,23 +46,6 @@ public:
 	virtual void handleInput(GameObject* o, Uint32 time, const SDL_Event& event);
 	void setDirection(GameObject* o, Vector2D destiny);
 	bool playerInDestiny(GameObject* o, Vector2D destiny);
-private:
-	Vector2D destiny;
-	double vel;
-	SDL_Point p;
-	int grid[9][10] =
-	{
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 0, 0, 0, 1, 1, 1 },
-		{ 1, 1, 1, 1, 0, 0, 0, 1, 1, 1 },
-		{ 1, 1, 1, 1, 0, 0, 0, 1, 1, 1 },
-		{ 1, 1, 1, 1, 0, 0, 0, 1, 1, 1 }
-	};
-	int auxX = 142;
-	int auxY = 90;
+	void generaMatriz(GameObject* o);
 };
 
