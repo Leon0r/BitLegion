@@ -59,19 +59,23 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 
 	//--------------------Pruebas Botones ----------------------
 	Boton* useButton = new Boton(app, usar, this, "use"); //nuevo Boton
-	ImageRenderer* im = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonUsar)); //se crea su image Renderer
+	useButton->addAnim("Start", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,23,23,23 }, false, 90);
+	RenderComponent* im = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonUsar), useButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	useButton->addRenderComponent(im);
-	useButton->setPosition(Vector2D{ 547*relacion.first, 450*relacion.second }); //posiciones random de prueba
-	useButton->setWidth(app->getResources()->getImageTexture(Resources::BotonSwap)->getWidth()*relacion.first);
-	useButton->setHeight(app->getResources()->getImageTexture(Resources::BotonSwap)->getHeight()*relacion.second);
+	useButton->setPosition(Vector2D{ 548*relacion.first, 449*relacion.second }); //posiciones random de prueba
+	useButton->setWidth(140*relacion.first);
+	useButton->setHeight(31*relacion.second);
 	stage.push_back(useButton); //se pushea
-	ImageRenderer* im2 = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonSwap)); //se crea su image Renderer
+
 	Boton* swapButton = new Boton(app, swap, this, "swap"); //nuevo Boton
+	swapButton->addAnim("Start", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,23,23,23 }, false, 90);
+	RenderComponent* im2 = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSwap), swapButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	swapButton->addRenderComponent(im2);
-	swapButton->setPosition(Vector2D{ 547*relacion.first, 480*relacion.second }); //posiciones random de prueba
-	swapButton->setWidth(app->getResources()->getImageTexture(Resources::BotonSwap)->getWidth()*relacion.first);
-	swapButton->setHeight(app->getResources()->getImageTexture(Resources::BotonSwap)->getHeight()*relacion.second);
+	swapButton->setPosition(Vector2D{ 548*relacion.first, 480*relacion.second }); //posiciones random de prueba
+	swapButton->setWidth(140*relacion.first);
+	swapButton->setHeight(31*relacion.second);
 	stage.push_back(swapButton); //se pushea
+
 	stage.push_back(inventarioHud);
 	//-------------ConstructoraToGrandeLoko(hay q hacerla m�s peque�ita)------------------------
 }
