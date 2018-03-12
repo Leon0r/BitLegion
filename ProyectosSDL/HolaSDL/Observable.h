@@ -14,6 +14,6 @@ public:
 	~Observable();
 	void addObserver(Observer* o) { observers_.push_back(o); numOfObservers_++; }
 	void removeObserver(Observer* o);
-	void send(Observer::Messages msg);
+	void send(Messages msg);
 };
 

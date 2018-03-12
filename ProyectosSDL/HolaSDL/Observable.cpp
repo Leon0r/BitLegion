@@ -20,7 +20,7 @@ void Observable::removeObserver(Observer * o)
 		observers_.erase(it);
 }
 
-void Observable::send(Observer::Messages msg)
+void Observable::send(Messages msg)
 {
 	for (Observer* o : observers_) {
 		o->receive(msg);

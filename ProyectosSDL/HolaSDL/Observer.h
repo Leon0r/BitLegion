@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "Messages.h"
 using namespace std;
 
 
@@ -9,13 +10,6 @@ protected:
 	vector<string> possibleEvents;
 
 public:
-	enum Messages {
-		Ch_Left,
-		Ch_Right,
-		Ch_TakeObj, 
-		Stop
-	};
-
 	Observer();
 	virtual~Observer();
 	virtual void receive(Messages msg) = 0;
