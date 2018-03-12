@@ -2,25 +2,17 @@
 #include "RenderComponent.h"
 #include "Observer.h"
 #include "SDLApp.h"
+#include "AnimationData.h"
+
 
 const double ANIM_RATE = 100;
 
 class AnimationRenderer :
 	public RenderComponent, public Observer
 {
-	struct animData {
-		string label_; // nombre/etiqueta de la animacion
-		vector<int> framesAnim_; // frames que forman la animacion
-		bool loop_; // si es loopeada o no (por defecto true)
-		double rate_; // velocidad de frames (por defecto ANIM_RATE)
-		// constructora de animData
-		animData(string label, vector<int> framesAnim, bool loop, double rate) : 
-			label_(label), framesAnim_(framesAnim), loop_(loop), rate_(rate) {};
-	};
-
 public:
 
-	AnimationRenderer(Texture* texture, int numFilsFrames, int numColsFrames, int frWidth, int frHeigth);
+	AnimationRenderer(Texture* texture, vector<animData*> animations, int numFilsFrames, int numColsFrames, int frWidth, int frHeigth);
 
 	virtual ~AnimationRenderer();
 	virtual void render(GameObject* o, Uint32 time);
@@ -29,7 +21,9 @@ public:
 
 	// añade una animacion al vector
 	virtual void addAnim(string label, vector<int> framesAnim, bool loop = true, double rate = ANIM_RATE) 
-	{ animData newAnim(label, framesAnim, loop, rate); animations_.push_back(newAnim); }
+	{
+		animData* newAnim = new animData(label, framesAnim, loop, rate); animations_.push_back(newAnim);
+	}
 
 	// inicia la animacion de entrada o pone la 0 en caso de no encontrarla
 	virtual void playAnim(string label);
@@ -47,7 +41,7 @@ protected:
 
 	int frWidth_, frHeigth_, numFrFils_, numFrCols_; // datos frames
 	
-	vector <animData> animations_; // animaciones existentes
+	vector <animData*> animations_; // animaciones existentes
 	int currentAnim_, currentFrame_, nextAnim_; // posicion en el vector de la animacion activa
 	int numFrames;
 

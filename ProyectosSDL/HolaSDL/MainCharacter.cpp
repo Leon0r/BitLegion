@@ -7,13 +7,25 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	int n = j["mainPj"]["Texture"];
 	_texture = app->getResources()->getImageTexture(Resources::ImageId(n));
 
+	animData* auxAnim;
+	auxAnim = new animData("Idle", { 13 });
+	animations.push_back(auxAnim);
+
+	auxAnim = new animData("Left", { 0,1,2,3,4,5,6,7 });
+	animations.push_back(auxAnim);
+
+	auxAnim = new animData("Right", { 8,9,10,11,12,13,14,15 });
+	animations.push_back(auxAnim);
+
 	//componentes
 	//render = new ImageRenderer(_texture);
-	render = new AnimationRenderer(_texture, 4, 4, 60, 144);
+	render = new AnimationRenderer(_texture, animations, 4, 4, 60, 144);
 	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
 	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i, list);
 	keyboard->addObserver(dynamic_cast<AnimationRenderer*> (render));
+
 	this->addInputComponent(keyboard);//componente de input para manejar su direccion
+
 	movement = new MovementComponent(colisionables);
 	this->addPhysicsComponent(movement);//componente de movimiento para que pueda moverse
 

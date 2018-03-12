@@ -2,6 +2,7 @@
 #include "Boton.h"
 #include "Font.h"
 #include "MainCharacter.h"
+#include "AnimationRenderer.h"
 
 Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousState, ShortCut* shortcut) : GameState(app), inventario(inventario), selected(nullptr), previousState(previousState), SC(shortcut) {
 	matriz.resize(numCas*numCas);
@@ -12,14 +13,16 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 	}
 
 	f = new Font("..//images/fuente2.ttf", tamanyoFuente);
-	imagen = new ImageRenderer(app->getResources()->getImageTexture(Resources::Inventario));
-
+	//imagen = new ImageRenderer(app->getResources()->getImageTexture(Resources::Inventario));
+	
 	//imagen del inventario
-	inventarioHud->addRenderComponent(imagen);
 	inventarioHud->setHeight(app->getWindowHeight()*0.75);
 	inventarioHud->setWidth(app->getWindowWidth()*0.75);
 	inventarioHud->setPosition(Vector2D(Vector2D(app->getWindowWidth() / 2 - inventarioHud->getWidth()/2, 
 		app->getWindowHeight() / 2 - inventarioHud->getHeight()/2)));
+	inventarioHud->addAnim("Start", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,23,23,23 }, true, 800);
+	imagen = new AnimationRenderer(app->getResources()->getImageTexture(Resources::Inventario), inventarioHud->getAnimations(), 6, 4, 600, 2700/6);
+	inventarioHud->addRenderComponent(imagen);
 
 	for (int i = 0; i < inventario->getLength(); i++) { // se colocan los objetos en sus posiciones correspondientes
 		if (i < numCas){

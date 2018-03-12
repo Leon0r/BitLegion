@@ -2,7 +2,7 @@
 
 
 
-AnimationRenderer::AnimationRenderer(Texture* texture, int numFilsFrames, int numColsFrames, 
+AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animations, int numFilsFrames, int numColsFrames,
 	int frWidth, int frHeigth):
 	texture_(texture), numFrCols_(numColsFrames), numFrFils_(numFilsFrames), frWidth_(frWidth), frHeigth_(frHeigth)
 {
@@ -10,11 +10,8 @@ AnimationRenderer::AnimationRenderer(Texture* texture, int numFilsFrames, int nu
 	timeNext = SDL_GetTicks();
 	timeLastFrame = timeNext;
 	nextAnim_ = currentAnim_;
-
-	addAnim("Left", { 0,1,2,3,4,5,6,7 }, false);
-	addAnim("Right", { 8,9,10,11,12,13,14,15 });
-	addAnim("Stop", { 6 });
-	playAnim(2);
+	animations_ = animations;
+	playAnim(0);
 
 	calculateNextSourceRect();
 }
@@ -27,11 +24,13 @@ void AnimationRenderer::render(GameObject* o, Uint32 time)
 {
 	timeNext = SDL_GetTicks();
 
-	if (timeNext - timeLastFrame >= animations_[currentAnim_].rate_) {
+	if (timeNext - timeLastFrame >= animations_[currentAnim_]->rate_) {
 
 		calculateNextSourceRect();
-		
-		currentFrame_ = nextFrame();
+
+		if(animations_[currentAnim_]->framesAnim_.size() > 1)
+			currentFrame_ = nextFrame();
+
 		changeAnim();
 
 		timeLastFrame = SDL_GetTicks();
@@ -46,7 +45,7 @@ void AnimationRenderer::render(GameObject* o, Uint32 time)
 void AnimationRenderer::playAnim(string label)
 {
 	int i = 0;
-	while (i < animations_.size() && animations_[i].label_ != label) i++;
+	while (i < animations_.size() && animations_[i]->label_ != label) i++;
 	
 	if (i < animations_.size()) nextAnim_ = i;
 }
@@ -62,12 +61,9 @@ void AnimationRenderer::changeAnim()
 int AnimationRenderer::nextFrame()
 {
 	int aux = currentFrame_ + 1;
-	if (aux >= animations_[currentAnim_].framesAnim_.size())
-		if(animations_[currentAnim_].loop_)
+	if (aux >= animations_[currentAnim_]->framesAnim_.size())
+		if(animations_[currentAnim_]->loop_)
 			aux = 0;
-		else {
-			playAnim(2);
-		}
 	return aux;
 }
 
@@ -75,23 +71,24 @@ void AnimationRenderer::receive(Messages msg)
 {
 	switch (msg){
 	case Ch_Left:
-		playAnim(0);
+		playAnim("Left");
 		break;
 	case Ch_Right:
-		playAnim(1);
+		playAnim("Right");
 		break;
 	case Stop:
-		playAnim(2);
+		playAnim("Idle");
 		break;
 	default:
+		playAnim("Idle");
 		break;
 	}
 }
 
 void AnimationRenderer::calculateNextSourceRect()
 {
-	int y = (animations_[currentAnim_].framesAnim_[currentFrame_]) / numFrFils_;
-	int x = (animations_[currentAnim_].framesAnim_[currentFrame_]) % numFrFils_;
+	int y = (animations_[currentAnim_]->framesAnim_[currentFrame_]) / numFrFils_;
+	int x = (animations_[currentAnim_]->framesAnim_[currentFrame_]) % numFrFils_;
 
 	y *= frHeigth_;
 	x *= frWidth_;

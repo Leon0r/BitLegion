@@ -4,5 +4,5 @@ enum Messages {
 	Ch_Left,
 	Ch_Right,
 	Ch_TakeObj,
-	Stop
+	Stop,
 };
