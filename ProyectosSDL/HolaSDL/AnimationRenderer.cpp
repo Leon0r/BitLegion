@@ -60,10 +60,13 @@ void AnimationRenderer::changeAnim()
 
 int AnimationRenderer::nextFrame()
 {
+
 	int aux = currentFrame_ + 1;
 	if (aux >= animations_[currentAnim_]->framesAnim_.size())
-		if(animations_[currentAnim_]->loop_)
+		if (animations_[currentAnim_]->loop_)
 			aux = 0;
+		else
+			aux = currentFrame_;
 	return aux;
 }
 

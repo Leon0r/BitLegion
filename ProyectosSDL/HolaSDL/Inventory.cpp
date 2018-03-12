@@ -20,8 +20,8 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 	inventarioHud->setWidth(app->getWindowWidth()*0.75);
 	inventarioHud->setPosition(Vector2D(Vector2D(app->getWindowWidth() / 2 - inventarioHud->getWidth()/2, 
 		app->getWindowHeight() / 2 - inventarioHud->getHeight()/2)));
-	inventarioHud->addAnim("Start", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,23,23,23 }, true, 800);
-	imagen = new AnimationRenderer(app->getResources()->getImageTexture(Resources::Inventario), inventarioHud->getAnimations(), 6, 4, 600, 2700/6);
+	inventarioHud->addAnim("Start", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,23,23,23 }, false, 90);
+	imagen = new AnimationRenderer(app->getResources()->getImageTexture(Resources::Inventario), inventarioHud->getAnimations(), 4, 6, 600, 2700/6);
 	inventarioHud->addRenderComponent(imagen);
 
 	for (int i = 0; i < inventario->getLength(); i++) { // se colocan los objetos en sus posiciones correspondientes
