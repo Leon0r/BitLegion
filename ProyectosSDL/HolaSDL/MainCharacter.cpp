@@ -12,7 +12,7 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	this->addRenderComponent(rendere);//componente de pintado para que aparezca en pantalla
 	movement = new MovementComponent(colisionables);//mueve al jugador cuando se usa el teclado
 	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i);//decide la direccion del jugador cuando se usa el teclado
-	mouseMovement = new MouseMovement(colisionables, vel);
+	mouseMovement = new MouseMovement(colisionables, vel, this);
 	switcher.addMode({ keyboard, movement, nullptr });//si se pulsa alguna tecla se activaran los componentes de teclado
 	switcher.addMode({dynamic_cast<InputComponent*>(mouseMovement), mouseMovement, nullptr });//si se pulsa el raton se activaran los componentes de raton
 	switcher.setMode(0);

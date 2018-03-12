@@ -25,7 +25,7 @@ Scene::Scene(int numEscena, SDLApp* app):app(app), SceneNum(numEscena) {
 
 			n = j["ItemInventario"][i]["Texture"];
 
-			SceneItems.push_back(new ItemInventario(app, j["ItemInventario"][i]["x"], j["ItemInventario"][i]["y"], j["ItemInventario"][i]["w"], j["ItemInventario"][i]["h"],
+			SceneItems.push_front(new ItemInventario(app, j["ItemInventario"][i]["x"], j["ItemInventario"][i]["y"], j["ItemInventario"][i]["w"], j["ItemInventario"][i]["h"],
 				j["ItemInventario"][i]["descripcion"], j["ItemInventario"][i]["tag"],
 				app->getResources()->getImageTexture(Resources::ImageId(n))));
 		}

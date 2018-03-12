@@ -4,35 +4,24 @@
 #include <queue>
 
 //se encarga de mover al jugador cuando esta con el raton
+class AStar;
+class MainCharacter;
 class MouseMovement : public InputComponent, public MovementComponent
 {
 private:
-	int grid2[10][10] =
-	{
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
-	};
+	int grid2[40][40] = {0};
 	Vector2D destiny;
 	double vel;
 	SDL_Point p;
-	int auxX = 128;
-	int auxY = 72;
+	int auxX = 32;
+	int auxY = 18;
+	AStar* nek;
+	MainCharacter* o;
 public:
 	queue<pair<int, int>> stackerino;
 	MouseMovement() {}
-	MouseMovement(list<GameObject*>* colisiones, double vel) : MovementComponent(colisiones), vel(vel) {
-		destiny.setX(0);
-		destiny.setY(0);
-	}
-	~MouseMovement() {}
+	MouseMovement(list<GameObject*>* colisiones, double vel, MainCharacter* o);
+	~MouseMovement() { delete nek; }
 
 	//actualizamos la logica del personaje
 	virtual void update(GameObject* o, Uint32 time);

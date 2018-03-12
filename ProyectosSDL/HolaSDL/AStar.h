@@ -16,8 +16,8 @@ public:
 	void defineCosas(GameObject* o_) { kk = o_; }
 	AStar(MouseMovement* m) : m(m) {}
 
-#define ROW 9
-#define COL 10
+#define ROW 40
+#define COL 40
 
 	// Creating a shortcut for int, int pair type
 	typedef pair<int, int> Pair;
@@ -102,7 +102,7 @@ public:
 			printf("-> (%d,%d) ", p.first, p.second);
 			//m->setDirection(kk, Vector2D(p.first * 142, p.second * 90));
 			//seria almacenar en la pila de "m" los destinos del jugador. m->stack.push(p, p);
-			m->stackerino.push(pair<int,int>(p.first * 142, p.second * 90));
+			m->stackerino.push(pair<int,int>(p.first * 32, p.second * 18));
 		}
 
 		return;

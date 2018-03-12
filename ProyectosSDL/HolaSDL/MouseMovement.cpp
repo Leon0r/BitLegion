@@ -2,6 +2,16 @@
 #include "MainCharacter.h"
 #include "AStar.h"
 
+
+
+
+MouseMovement::MouseMovement(list<GameObject*>* colisiones, double vel, MainCharacter* o) : MovementComponent(colisiones), vel(vel), o(o) {
+	destiny.setX(0);
+	destiny.setY(0);
+	nek = new AStar(this);
+	nek->defineCosas(o);
+}
+
 //actualizamos la logica del personaje
 void MouseMovement::update(GameObject* o, Uint32 time) {
 	if (!stackerino.empty()) {//si hay destinos pendientes
@@ -48,9 +58,7 @@ void MouseMovement::setDirection(GameObject* o, Vector2D destiny) {
 //eventos de mouse
 void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& event) {
 
-	generaMatriz(o);
-	AStar* nek = new AStar(this);
-	nek->defineCosas(o);
+	generaMatriz(o); //problem here
 
 	//si se pulsa el raton registramos su posicion
 	if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_RIGHT) {
@@ -64,7 +72,8 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 		while (!stackerino.empty()) { stackerino.pop(); }//eliminamos el path anterior
 
 		//aestrella rellena una cola de destinos para llegar al final
-		nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX, o->getPosition().getY() / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
+		nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX, (
+			o->getPosition().getY() + o->getHeight()) / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
 
 		//si ha encontrado destinos
 		if (!stackerino.empty()) {
@@ -82,26 +91,22 @@ bool MouseMovement::playerInDestiny(GameObject* o, Vector2D destiny) {
 
 void MouseMovement::generaMatriz(GameObject* o) {
 	int x, y;
-	x = y = 0;
-	for (int i = 128/2; i < 1280; i+=128) {
+	x = 20;
+	y = 0;
+	for (int i = 720/2 + 18/2; i < 720; i+=18) {
 		y = 0;
-		for (int j = 72/2; j < 720; j += 72) {
+		for (int j = 32 / 2; j < 1280; j += 32) {
 			list<GameObject*>::iterator it = collisions->begin();
 			bool colisionado = false;
 			while (it != collisions->end() && !colisionado) {
-				SDL_Rect rect = { (*it)->getPosition().getX(), (*it)->getPosition().getY(), (*it)->getWidth(), (*it)->getHeight()};
-				/*RenderComponent* r = new ImageRenderer(static_cast<MainCharacter*>(o)->getGame()->getResources()->getImageTexture(Resources::PuertaCutre));
-				static_cast<MainCharacter*>(o)->kk->setPosition(Vector2D(rect.x, rect.y));
-				static_cast<MainCharacter*>(o)->kk->setHeight(rect.h);
-				static_cast<MainCharacter*>(o)->kk->setWidth(rect.w);
-				static_cast<MainCharacter*>(o)->kk->addRenderComponent(r);*/
-				SDL_Point pMedio = { i, j };
+				SDL_Rect rect = { (*it)->getPosition().getX(), (*it)->getPosition().getY(), (*it)->getWidth(), (*it)->getHeight() };
+				SDL_Point pMedio = { j, i };
 
 				if (SDL_PointInRect(&pMedio, &rect)) {
 					colisionado = true;
-					grid2[x][y] = 0;
+					grid2[y][x] = 0;
 				}
-				else grid2[x][y] = 1;
+				else grid2[y][x] = 1;
 				it++;
 			}
 			y++;
