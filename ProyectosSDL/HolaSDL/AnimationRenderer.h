@@ -34,13 +34,17 @@ public:
 
 protected:
 
-	uint32_t startTime; // Control del tiempo de repeticion del bucle
-	uint32_t timeAcum = 0;
+	uint32_t timeNext; // Control del tiempo de repeticion del bucle
+	uint32_t timeLastFrame = 0;
+	SDL_Rect sourceRect;
+
 
 	Texture * texture_;// textura
 	int frWidth_, frHeigth_, numFrFils_, numFrCols_; // datos frames
 	vector <animData> animations_; // animaciones existentes
 	int currentAnim_, currentFrame_, nextAnim_; // posicion en el vector de la animacion activa
 	int numFrames;
+
+	virtual void calculateNextSourceRect();
 };
 

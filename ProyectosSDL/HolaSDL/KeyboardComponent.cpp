@@ -53,7 +53,10 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		}
 	}
 	//si no hay teclas en la pila la velocidad se para
-	if (Xaxis.empty())velocity.setX(0);
+	if (Xaxis.empty()) { 
+		//send(Observer::Stop);
+		velocity.setX(0); 
+	}
 	else {//si hay teclas en la pila se mira cual es y se mueve en esa direccion
 		if (Xaxis.top() == right && r) velocity.setX(vel_);
 		else if (Xaxis.top() == left && l) if (l) velocity.setX(-vel_);
