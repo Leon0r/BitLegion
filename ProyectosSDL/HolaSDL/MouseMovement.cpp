@@ -69,7 +69,6 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 
 	//si se suelta elegimos la direccion del jugador para llegar a esa posicion y actualizamos la posicion destino del componente mouseMov
 	else if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_RIGHT) {
-		send(Messages(MouseMoving));//informamos de que empezamos a movernos
 		while (!stackerino.empty()) { stackerino.pop(); }//eliminamos el path anterior
 
 		//aestrella rellena la cola de destinos para llegar al final
@@ -78,6 +77,7 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 
 		//si ha encontrado destinos
 		if (!stackerino.empty()) {
+			send(Messages(MouseMoving));//informamos de que empezamos a movernos
 			setDestiny(stackerino.front().first, stackerino.front().second); //establecemos el primero
 			setDirection(o, destiny);//le mandamos hacia el
 		}
