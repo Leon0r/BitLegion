@@ -11,6 +11,16 @@ AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animati
 	timeLastFrame = timeNext;
 	nextAnim_ = currentAnim_;
 	animations_ = animations;
+
+	// si no hay animaciones, crea una con todos los frames de la textura
+	if (animations_.size() == 0) {
+		animData* aux = new animData();
+		for (int i = 0; i < numFrames; i++) {
+			aux->framesAnim_.push_back(i);
+		}
+		animations_.push_back(aux);
+	}
+
 	playAnim(0);
 
 	calculateNextSourceRect();
@@ -23,6 +33,7 @@ AnimationRenderer::~AnimationRenderer()
 void AnimationRenderer::render(GameObject* o, Uint32 time)
 {
 	timeNext = SDL_GetTicks();
+	changeAnim();
 
 	if (timeNext - timeLastFrame >= animations_[currentAnim_]->rate_) {
 
@@ -30,8 +41,6 @@ void AnimationRenderer::render(GameObject* o, Uint32 time)
 
 		if(animations_[currentAnim_]->framesAnim_.size() > 1)
 			currentFrame_ = nextFrame();
-
-		changeAnim();
 
 		timeLastFrame = SDL_GetTicks();
 	}
