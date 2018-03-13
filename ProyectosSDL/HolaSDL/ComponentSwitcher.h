@@ -12,7 +12,7 @@
 /*
  *
  */
-class ComponentSwitcher: public GameObject {
+class ComponentSwitcher: public GameObject, public Observer {
 public:
 
 	struct ModeInfo {
@@ -32,12 +32,16 @@ public:
 	void switchToNextMode();
 	void setMode(int i);
 
+	virtual void receive(Messages msg);
+
 private:
 	Entity* o_;
 	std::vector<ModeInfo> modes_;
 	int currMode_;
 	virtual Texture* getTexture(Uint16 pos) const { return nullptr; }
 	virtual void saveToJson(json& j) {}
+	bool keyBoard = false;
+	bool mouse = false;
 };
 
 #endif /* COMPONENTSWITCHER_H_ */

@@ -5,4 +5,7 @@ enum Messages {
 	Ch_Right,
 	Ch_TakeObj,
 	Stop,
+	Moving,
+	MouseStop,
+	MouseMoving,
 };

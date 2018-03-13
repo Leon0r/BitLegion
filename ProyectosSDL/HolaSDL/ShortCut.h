@@ -13,10 +13,9 @@ private:
 	vector<Vector2D> matriz;//lugar donde colocaremos los objetos
 	const Resources* resources;//imagenes etc.
 	CasillaInventario* selected = nullptr;//item seleccionado
-	RenderComponent* render;
+	RenderComponent* renderCmp;
 	RenderComponent* imagenMarca;
 	Entity* marca = new Entity(app);//marca del item seleccionado
-	bool provisional = false;
 	ObjectList* lista;//lista de objetos del inventario
 	const int numCas = 5;//numero de casillas (huecos) y relacion de aspecto
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0, app->getWindowHeight() / 600.0 };

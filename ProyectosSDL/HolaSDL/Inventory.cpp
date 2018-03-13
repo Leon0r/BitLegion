@@ -4,7 +4,7 @@
 #include "MainCharacter.h"
 #include "AnimationRenderer.h"
 
-Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousState, int coefRed = 0, vector<Vector2D> matS = {}) : GameState(app), inventario(inventario), selected(nullptr), coefRed(coefRed), previousState(previousState), matrizS(matS) {
+Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousState, ShortCut* shortcut) : GameState(app), inventario(inventario), selected(nullptr), previousState(previousState), SC(shortcut) {
 	matriz.resize(numCas*numCas);
 	for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
 		for (int j = 0; j < numCas; j++) {
@@ -25,8 +25,8 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 
 	for (int i = 0; i < inventario->getLength(); i++) { // se colocan los objetos en sus posiciones correspondientes
 		if (i < numCas){
-			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth()); //* 3);
-			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight());// *3);
+			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth()* SC->getCoef());
+			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight() * SC->getCoef());
 		}
 		inventario->getItem(i)->setPosition(Vector2D(matriz[i].getX() - inventario->getItem(i)->getWidth()/2, 
 			matriz[i].getY() - inventario->getItem(i)->getHeight() / 2));
@@ -126,10 +126,10 @@ void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea
 	if (tam > numCas) tam = numCas;
 	if (tam != 0){
 		for (int i = 0; i < tam; i++){
-			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth()); // 3);
-			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight()); // 3);
-			inventario->getItem(i)->setPosition(Vector2D(matrizS[i].getX() - inventario->getItem(i)->getWidth() / 2,
-			matrizS[i].getY() - inventario->getItem(i)->getHeight() / 2));
+			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth() / SC->getCoef());
+			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight() / SC->getCoef());
+			inventario->getItem(i)->setPosition(Vector2D(SC->getMatriz()[i].getX() - inventario->getItem(i)->getWidth() / 2,
+			SC->getMatriz()[i].getY() - inventario->getItem(i)->getHeight() / 2));
 		}
 	}
 
@@ -145,10 +145,10 @@ void Inventory::usar(GameState* state) {
 	Inventory* inv = dynamic_cast<Inventory*>(state);
 	if (inv != nullptr) { //comprobamos que sea el inventario por si acaso
 		MainCharacter* aux = dynamic_cast<MainCharacter*>(inv->getPreviousState()->getStage()->front()); //si lo es, se obtiene el primer elemento de stage (el personaje)
-		if (aux != nullptr) {
+		if (aux != nullptr && inv->selected != nullptr) {
 			aux->setCurrenTag(inv->getLastClicked()->getTag()); //se cambia la current tag
 			inv->app->getStateMachine()->popState(); //se popea el estado
+			aux->getShortcut()->recorreEInicia(aux->getShortcut()->getCoef());
 		}
 	}
-
 }

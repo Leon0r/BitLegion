@@ -6,11 +6,12 @@
 //se encarga de mover al jugador cuando esta con el raton
 class AStar;
 class MainCharacter;
+const int tamMatriz = 40;//numero de casillas que tendra la matriz en ancho y alto
+
 class MouseMovement : public InputComponent, public MovementComponent
 {
 private:
-	const int tamMatriz = 40;//numero de casillas que tendra la matriz en ancho y alto
-	int grid2[40][40] = {0};//matriz de la escena, inicialmente con todo ceros
+	int grid2[tamMatriz][tamMatriz] = {0};//matriz de la escena, inicialmente con todo ceros
 	Vector2D destiny;
 	double vel;
 	SDL_Point p;

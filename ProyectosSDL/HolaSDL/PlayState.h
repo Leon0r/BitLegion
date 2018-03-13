@@ -34,7 +34,6 @@ public:
 	void creaInventario() { app->getStateMachine()->pushState(new Inventory(app, list, this, shortcut)); }
 	ObjectList* getList() { return list; };//prueba, no deberia estar aqui
 	vector<Scene*> getScenes(){ return scenes; };
-	void swapScene(int nextScene);
-	//virtual void handleEvent(SDL_Event &e);
+	void swapScene(int nextScene);	
 };
 

@@ -8,6 +8,7 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 
 	//si se ha pulsado una tecla se a�ade a la pila de teclas y se marca como pulsada
 	if (event.type == SDL_KEYDOWN) {
+		send(Messages(Moving));
 		if (event.key.keysym.sym == right) {
 			if (!r) Xaxis.push(right);
 			r = true;

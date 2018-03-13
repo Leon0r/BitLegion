@@ -2,9 +2,9 @@
 #include "MainCharacter.h"
 
 ShortCut::ShortCut(SDLApp* game, ObjectList* list, const Resources* resources) : Entity(game), lista(list), resources(resources){
-	render = new ImageRenderer(resources->getImageTexture(Resources::ShortCut));
-	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
-	//tamaï¿½o
+	renderCmp = new ImageRenderer(resources->getImageTexture(Resources::ShortCut));
+	this->addRenderComponent(renderCmp);//componente de pintado para que aparezca en pantalla
+	//tamaño
 	this->setWidth(resources->getImageTexture(Resources::ShortCut)->getWidth()*relacion.first);
 	this->setHeight(resources->getImageTexture(Resources::ShortCut)->getHeight()*relacion.second);
 	//posicion
@@ -34,7 +34,7 @@ void ShortCut::handleInput(Uint32 time, const SDL_Event& event) {
 			selected = (*it);//lo marcamos como seleccionado y establecemos la marca en ese lugar
 			marca->setPosition((*it)->getPosition() + Vector2D((*it)->getWidth() / 2, (*it)->getHeight() / 2)
 				- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2)); // desde aqui, con aux, se puede acceder a la textura, descripcion, tag... de it 
-													 //y crear ademï¿½s nuevos objetos para que se muestren por pantalla (una imagen, la descripciï¿½n, botones...)
+													 //y crear además nuevos objetos para que se muestren por pantalla (una imagen, la descripción, botones...)
 			usar();
 		}
 	}

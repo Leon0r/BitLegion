@@ -3,7 +3,7 @@
 
 PlayState::~PlayState() {
 	vector<Scene*>::iterator aux;
-	//scenes[0]->exitScene();
+	scenes[currentScene]->exitScene();
 	std::ofstream i("..\\Scenes\\pj.json"); //archivo donde se va a guardar
 	json j;
 	alena->saveToJson(j);
@@ -22,7 +22,6 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	
 	// crea la lista vacia
 	list = new ObjectList(app);
-
 	string name = "..\\Scenes\\pj.json";
 	// Inicializa el personaje con los datos de archivo de la primera escena
 	std::ifstream i(name);
@@ -33,7 +32,7 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	shortcut = new ShortCut(app, list, resources);
 	stage.push_front(shortcut);
 
-	alena = new MainCharacter(app, j, list, &collision, 6.0);
+	alena = new MainCharacter(app, j, list, &collision, shortcut, 6.0);
 	stage.push_front(alena);
 
 	ItemInventario* item = new ItemInventario(app, 500, 300, 40, 40, "k", "kk", resources->getImageTexture(Resources::ImagenTest));
@@ -44,6 +43,10 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	// crea las escenas 1 y 2 desde archivo
 	scenes.push_back(new Scene(0, app, alena));
 	scenes.push_back(new Scene(1, app, alena));
+
+	
+
+	
 }
 
 void PlayState::swapScene(int nextScene)
@@ -55,13 +58,3 @@ void PlayState::swapScene(int nextScene)
 	}
 	else cout << "Escena no encontrada, n�mero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
 }
-
-
-/*void PlayState::handleEvent(SDL_Event &e) { debug de prueba
-	if (e.type == SDL_KEYDOWN) {
-		if (e.key.keysym.sym == SDLK_0) {
-			swapScene(1);
-		}
-	}
-	GameState::handleEvent(e);
-}*/

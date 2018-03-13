@@ -1,8 +1,8 @@
 #include "MainCharacter.h"
 
 
-MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, double vel):
-	Entity(game), list(list), colisionables(coll) {
+MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, ShortCut* shorcut_, double vel):
+	Entity(game), list(list), colisionables(coll), shortCut(shorcut_) {
 	// textura
 	int n = j["mainPj"]["Texture"];
 	_texture = app->getResources()->getImageTexture(Resources::ImageId(n));
@@ -25,17 +25,22 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i);//decide la direccion del jugador cuando se usa el teclado
 	mouseMovement = new MouseMovement(colisionables, vel, this);
 	switcher.addMode({ keyboard, movement, nullptr });//si se pulsa alguna tecla se activaran los componentes de teclado
-	switcher.addMode({mouseMovement, mouseMovement, nullptr });//si se pulsa el raton se activaran los componentes de raton
+	switcher.addMode({ mouseMovement, mouseMovement, nullptr });//si se pulsa el raton se activaran los componentes de raton
 	switcher.setMode(0);
-	keyboard->addObserver(dynamic_cast<AnimationRenderer*> (render));
-
+	keyboard->addObserver(dynamic_cast<AnimationRenderer*>(render));
+	keyboard->addObserver(dynamic_cast<ComponentSwitcher*>(&switcher));
+	mouseMovement->addObserver(dynamic_cast<ComponentSwitcher*>(&switcher));
 
 	// posicion y dimensiones
 	this->setWidth(j["mainPj"]["w"]);//ancho, alto, posicion y textura
 	this->setHeight(j["mainPj"]["h"]);
 	this->setPosition(Vector2D(j["mainPj"]["x"], j["mainPj"]["y"]));
-	kk = new Entity(app);
-	kk2 = new Entity(app);
+
+	// posicion y dimensiones
+	this->setWidth(j["mainPj"]["w"]);//ancho, alto, posicion y textura
+	this->setHeight(j["mainPj"]["h"]);
+	this->setPosition(Vector2D(j["mainPj"]["x"], j["mainPj"]["y"]));
+
 	// items de inventario
 	for (int i = 0; i < (int)j["mainPj"]["ItemInventario"].size(); i++) {
 		n = j["mainPj"]["ItemInventario"][i]["Texture"];
@@ -51,7 +56,6 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 
 MainCharacter::~MainCharacter()
 {
-	Entity::~Entity();
 }
 
 void MainCharacter::addInventoryObject(GameObject* o) {
