@@ -20,22 +20,6 @@ PlayState::~PlayState() {
 
 PlayState::PlayState(SDLApp* app): GameState(app) {
 	
-	/*//COLISIONABLES
-	Entity* cama = new ColisionableObject(app, 0, 290, 393, 170, resources->getImageTexture(Resources::Cama));
-	stage.push_back(cama);
-	collision.push_back(cama);
-	Entity* mesa = new ColisionableObject(app, 580, 432, 220, 230, resources->getImageTexture(Resources::Mesa));
-	stage.push_back(mesa);
-	collision.push_back(mesa);
-	Entity* cocina = new ColisionableObject(app, 915, 125, 365, 280, resources->getImageTexture(Resources::Cocina));
-	stage.push_back(cocina);
-	collision.push_back(cocina);
-
-	Entity* hola = new ItemInventario(app, 200, 200, 25, 25, "jeje", "key", resources->getImageTexture(Resources::LlaveCutre));
-	stage.push_back(hola);
-	Entity* kk = new GODoors(app, 400, 400, 300, 400, app->getResources()->getImageTexture(Resources::PuertaCutre), "key", 1);
-	stage.push_back(kk);*/
-
 	// crea la lista vacia
 	list = new ObjectList(app);
 
