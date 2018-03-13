@@ -7,15 +7,27 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	int n = j["mainPj"]["Texture"];
 	_texture = app->getResources()->getImageTexture(Resources::ImageId(n));
 
+	animData* auxAnim;
+	auxAnim = new animData("Idle", { 13 });
+	animations.push_back(auxAnim);
+
+	auxAnim = new animData("Left", { 0,1,2,3,4,5,6,7 });
+	animations.push_back(auxAnim);
+
+	auxAnim = new animData("Right", { 8,9,10,11,12,13,14,15 });
+	animations.push_back(auxAnim);
+
 	//componentes
-	rendere = new ImageRenderer(_texture);
-	this->addRenderComponent(rendere);//componente de pintado para que aparezca en pantalla
+	//render = new ImageRenderer(_texture);
+	render = new AnimationRenderer(_texture, animations, 4, 4, 60, 144);
+	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
 	movement = new MovementComponent(colisionables);//mueve al jugador cuando se usa el teclado
 	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i);//decide la direccion del jugador cuando se usa el teclado
 	mouseMovement = new MouseMovement(colisionables, vel, this);
 	switcher.addMode({ keyboard, movement, nullptr });//si se pulsa alguna tecla se activaran los componentes de teclado
 	switcher.addMode({mouseMovement, mouseMovement, nullptr });//si se pulsa el raton se activaran los componentes de raton
 	switcher.setMode(0);
+	keyboard->addObserver(dynamic_cast<AnimationRenderer*> (render));
 
 
 	// posicion y dimensiones
@@ -25,7 +37,7 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	kk = new Entity(app);
 	kk2 = new Entity(app);
 	// items de inventario
-	for (int i = 0; i < j["mainPj"]["ItemInventario"].size(); i++) {
+	for (int i = 0; i < (int)j["mainPj"]["ItemInventario"].size(); i++) {
 		n = j["mainPj"]["ItemInventario"][i]["Texture"];
 
 		
@@ -44,6 +56,7 @@ MainCharacter::~MainCharacter()
 
 void MainCharacter::addInventoryObject(GameObject* o) {
 	list->addItem(o); //a�ade un item al inventario
+	shortCut->ini(list->getLength()-1, shortCut->getCoef());
 }
 
 void MainCharacter::changeRoom() {

@@ -11,10 +11,12 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		if (event.key.keysym.sym == right) {
 			if (!r) Xaxis.push(right);
 			r = true;
+			send(Ch_Right);
 		}
 	    else if (event.key.keysym.sym == left) {
 			if (!l)Xaxis.push(left);
 			l = true;
+			send(Ch_Left);
 		}
 		if (event.key.keysym.sym == up) {
 			if (!u)Yaxis.push(up);
@@ -51,7 +53,9 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		}
 	}
 	//si no hay teclas en la pila la velocidad se para
-	if (Xaxis.empty())velocity.setX(0);
+	if (Xaxis.empty()) { 
+		velocity.setX(0); 
+	}
 	else {//si hay teclas en la pila se mira cual es y se mueve en esa direccion
 		if (Xaxis.top() == right && r) velocity.setX(vel_);
 		else if (Xaxis.top() == left && l) if (l) velocity.setX(-vel_);
@@ -62,4 +66,6 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		else if(Yaxis.top() == up && u) velocity.setY(-vel_);
 	}
 	o->setVelocity(velocity);
+
+	if (velocity.getX() == 0 && velocity.getY() == 0) send(Stop);
 }

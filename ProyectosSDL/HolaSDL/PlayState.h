@@ -9,9 +9,9 @@
 #include "MovementComponent.h"
 #include "Resources.h"
 #include "ShortCut.h"
-
 #include "Scene.h"
 #include "json.hpp"
+#include "MainCharacter.h"
 
 //estado de prueba, con Alena moviendose por pantalla
 class PlayState: public GameState
@@ -31,7 +31,7 @@ public:
 	PlayState(SDLApp* app);
 	MainCharacter* getMainPj() { return alena; }
 	ShortCut* getShortCut(){ return shortcut; }
-	void creaInventario(){app->getStateMachine()->pushState(new Inventory(app, list, this, ItemInventario::getCoef(), shortcut->getMatriz())); }
+	void creaInventario() { app->getStateMachine()->pushState(new Inventory(app, list, this, shortcut)); }
 	ObjectList* getList() { return list; };//prueba, no deberia estar aqui
 	vector<Scene*> getScenes(){ return scenes; };
 	void swapScene(int nextScene);

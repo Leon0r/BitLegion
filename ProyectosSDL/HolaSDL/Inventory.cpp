@@ -2,6 +2,7 @@
 #include "Boton.h"
 #include "Font.h"
 #include "MainCharacter.h"
+#include "AnimationRenderer.h"
 
 Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousState, int coefRed = 0, vector<Vector2D> matS = {}) : GameState(app), inventario(inventario), selected(nullptr), coefRed(coefRed), previousState(previousState), matrizS(matS) {
 	matriz.resize(numCas*numCas);
@@ -12,14 +13,15 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 	}
 
 	f = new Font("..//images/fuente2.ttf", tamanyoFuente);
-	imagen = new ImageRenderer(app->getResources()->getImageTexture(Resources::Inventario));
-
+	//imagen = new ImageRenderer(app->getResources()->getImageTexture(Resources::Inventario));
+	
 	//imagen del inventario
-	inventarioHud->addRenderComponent(imagen);
 	inventarioHud->setHeight(app->getWindowHeight()*0.75);
 	inventarioHud->setWidth(app->getWindowWidth()*0.75);
 	inventarioHud->setPosition(Vector2D(Vector2D(app->getWindowWidth() / 2 - inventarioHud->getWidth()/2, 
 		app->getWindowHeight() / 2 - inventarioHud->getHeight()/2)));
+	imagen = new AnimationRenderer(app->getResources()->getImageTexture(Resources::Inventario), inventarioHud->getAnimations(), 4, 6, 600, 2700/6);
+	inventarioHud->addRenderComponent(imagen);
 
 	for (int i = 0; i < inventario->getLength(); i++) { // se colocan los objetos en sus posiciones correspondientes
 		if (i < numCas){
@@ -56,19 +58,21 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 
 	//--------------------Pruebas Botones ----------------------
 	Boton* useButton = new Boton(app, usar, this, "use"); //nuevo Boton
-	ImageRenderer* im = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonUsar)); //se crea su image Renderer
+	RenderComponent* im = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonUsar), useButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	useButton->addRenderComponent(im);
-	useButton->setPosition(Vector2D{ 547*relacion.first, 450*relacion.second }); //posiciones random de prueba
-	useButton->setWidth(app->getResources()->getImageTexture(Resources::BotonSwap)->getWidth()*relacion.first);
-	useButton->setHeight(app->getResources()->getImageTexture(Resources::BotonSwap)->getHeight()*relacion.second);
+	useButton->setPosition(Vector2D{ 548*relacion.first, 449*relacion.second }); //posiciones random de prueba
+	useButton->setWidth(140*relacion.first);
+	useButton->setHeight(31*relacion.second);
 	stage.push_back(useButton); //se pushea
-	ImageRenderer* im2 = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonSwap)); //se crea su image Renderer
+
 	Boton* swapButton = new Boton(app, swap, this, "swap"); //nuevo Boton
+	RenderComponent* im2 = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSwap), swapButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	swapButton->addRenderComponent(im2);
-	swapButton->setPosition(Vector2D{ 547*relacion.first, 480*relacion.second }); //posiciones random de prueba
-	swapButton->setWidth(app->getResources()->getImageTexture(Resources::BotonSwap)->getWidth()*relacion.first);
-	swapButton->setHeight(app->getResources()->getImageTexture(Resources::BotonSwap)->getHeight()*relacion.second);
+	swapButton->setPosition(Vector2D{ 548*relacion.first, 480*relacion.second }); //posiciones random de prueba
+	swapButton->setWidth(140*relacion.first);
+	swapButton->setHeight(31*relacion.second);
 	stage.push_back(swapButton); //se pushea
+
 	stage.push_back(inventarioHud);
 	//-------------ConstructoraToGrandeLoko(hay q hacerla m�s peque�ita)------------------------
 }
@@ -76,7 +80,7 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 void Inventory::handleEvent(SDL_Event& event) {
 	list<CasillaInventario*>::iterator it;
 	for (it = inventario->getBegin(); it != inventario->getEnd(); it++) { //recorre la lista de objetos
-		if ((*it)->pulsacion(event, marca->getWidth(), marca->getHeight())) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
+		if ((*it)->pulsacion(event, (int)marca->getWidth(), (int)marca->getHeight())) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
 			if (bswap) {
 				bswap = false;
 				marca->setTexture(0, app->getResources()->getImageTexture(Resources::InvMarca));
@@ -104,7 +108,7 @@ void Inventory::render() {
 	GameState::render(); //se llama a los componentes "Render" de todos los objetos de la lista del inventario
 	if (selected != nullptr){
 		Texture fuente(app->getRenderer(), selected->getDescription(), *f, colorFuente); //fuente din�mica
-		fuente.render(app->getRenderer(), inventarioHud->getWidth() - inventarioHud->getWidth() / 16, inventarioHud->getHeight() / 1.5); //se llama al render de la fuente Din�mica
+		fuente.render(app->getRenderer(), (int)(inventarioHud->getWidth() - inventarioHud->getWidth() / 16), (int)(inventarioHud->getHeight() / 1.5)); //se llama al render de la fuente Din�mica
 	}
 }
 
@@ -115,7 +119,6 @@ void Inventory::muestraDescripcion() {
 void Inventory::swap(GameState* state){
 	static_cast<Inventory*>(state)->bswap = true;
 	static_cast<Inventory*>(state)->marca->setTexture(0, static_cast<Inventory*>(state)->app->getResources()->getImageTexture(Resources::InvMarcaS));
-
 }
 
 void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea en este estado

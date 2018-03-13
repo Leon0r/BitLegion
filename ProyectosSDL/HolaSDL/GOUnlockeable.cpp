@@ -10,6 +10,7 @@ void GOUnlockeable::act() {
 				MainCharacter* pj = dynamic_cast<MainCharacter*>(aux->getMainPj());
 				if (pj != nullptr) {
 					pj->getList()->deleteItem(key);
+					pj->getShortcut()->recorreEInicia();
 				}
 			}
 			secondAct();

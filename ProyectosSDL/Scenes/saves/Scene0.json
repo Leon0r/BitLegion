@@ -1,5 +1,5 @@
 {
-   "ColisionableObject": [
+   "CollisionableObject": [
       {
          "Texture": 11,
          "h": 170.0,

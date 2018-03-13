@@ -30,7 +30,19 @@ public:
 		Mesa,
 		Cocina,
 		PuertaCutre,
-		LlaveCutre
+		LlaveCutre,
+		BolsaCoca,
+		BolsaVacia,
+		BotellaVodka,
+		Cuaderno,
+		FotoNoviaMuerto,
+		LlaveHotel,
+		LlavePiso,
+		MovilMuerto,
+		TicketCompra,
+		Vater,
+		LavaboDucha,
+		Baño
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
