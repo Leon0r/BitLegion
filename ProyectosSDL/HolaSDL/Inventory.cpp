@@ -2,6 +2,7 @@
 #include "Boton.h"
 #include "Font.h"
 #include "MainCharacter.h"
+#include "AnimationRenderer.h"
 
 Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousState, ShortCut* shortcut) : GameState(app), inventario(inventario), selected(nullptr), previousState(previousState), SC(shortcut) {
 	matriz.resize(numCas*numCas);
@@ -12,14 +13,15 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 	}
 
 	f = new Font("..//images/fuente2.ttf", tamanyoFuente);
-	imagen = new ImageRenderer(app->getResources()->getImageTexture(Resources::Inventario));
-
+	//imagen = new ImageRenderer(app->getResources()->getImageTexture(Resources::Inventario));
+	
 	//imagen del inventario
-	inventarioHud->addRenderComponent(imagen);
 	inventarioHud->setHeight(app->getWindowHeight()*0.75);
 	inventarioHud->setWidth(app->getWindowWidth()*0.75);
 	inventarioHud->setPosition(Vector2D(Vector2D(app->getWindowWidth() / 2 - inventarioHud->getWidth()/2, 
 		app->getWindowHeight() / 2 - inventarioHud->getHeight()/2)));
+	imagen = new AnimationRenderer(app->getResources()->getImageTexture(Resources::Inventario), inventarioHud->getAnimations(), 4, 6, 600, 2700/6);
+	inventarioHud->addRenderComponent(imagen);
 
 	for (int i = 0; i < inventario->getLength(); i++) { // se colocan los objetos en sus posiciones correspondientes
 		if (i < numCas){
@@ -56,19 +58,21 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 
 	//--------------------Pruebas Botones ----------------------
 	Boton* useButton = new Boton(app, usar, this, "use"); //nuevo Boton
-	ImageRenderer* im = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonUsar)); //se crea su image Renderer
+	RenderComponent* im = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonUsar), useButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	useButton->addRenderComponent(im);
-	useButton->setPosition(Vector2D{ 547*relacion.first, 450*relacion.second }); //posiciones random de prueba
-	useButton->setWidth(app->getResources()->getImageTexture(Resources::BotonSwap)->getWidth()*relacion.first);
-	useButton->setHeight(app->getResources()->getImageTexture(Resources::BotonSwap)->getHeight()*relacion.second);
+	useButton->setPosition(Vector2D{ 548*relacion.first, 449*relacion.second }); //posiciones random de prueba
+	useButton->setWidth(140*relacion.first);
+	useButton->setHeight(31*relacion.second);
 	stage.push_back(useButton); //se pushea
-	ImageRenderer* im2 = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonSwap)); //se crea su image Renderer
+
 	Boton* swapButton = new Boton(app, swap, this, "swap"); //nuevo Boton
+	RenderComponent* im2 = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSwap), swapButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	swapButton->addRenderComponent(im2);
-	swapButton->setPosition(Vector2D{ 547*relacion.first, 480*relacion.second }); //posiciones random de prueba
-	swapButton->setWidth(app->getResources()->getImageTexture(Resources::BotonSwap)->getWidth()*relacion.first);
-	swapButton->setHeight(app->getResources()->getImageTexture(Resources::BotonSwap)->getHeight()*relacion.second);
+	swapButton->setPosition(Vector2D{ 548*relacion.first, 480*relacion.second }); //posiciones random de prueba
+	swapButton->setWidth(140*relacion.first);
+	swapButton->setHeight(31*relacion.second);
 	stage.push_back(swapButton); //se pushea
+
 	stage.push_back(inventarioHud);
 	//-------------ConstructoraToGrandeLoko(hay q hacerla m�s peque�ita)------------------------
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "ImageRenderer.h"
+#include "AnimationRenderer.h"
 #include "KeyboardComponent.h"
 #include "MovementComponent.h"
 #include "ItemInventario.h" // Para cargar 
