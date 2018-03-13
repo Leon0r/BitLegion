@@ -145,7 +145,7 @@ void Inventory::usar(GameState* state) {
 	Inventory* inv = dynamic_cast<Inventory*>(state);
 	if (inv != nullptr) { //comprobamos que sea el inventario por si acaso
 		MainCharacter* aux = dynamic_cast<MainCharacter*>(inv->getPreviousState()->getStage()->front()); //si lo es, se obtiene el primer elemento de stage (el personaje)
-		if (aux != nullptr) {
+		if (aux != nullptr && inv->selected != nullptr) {
 			aux->setCurrenTag(inv->getLastClicked()->getTag()); //se cambia la current tag
 			inv->app->getStateMachine()->popState(); //se popea el estado
 			aux->getShortcut()->recorreEInicia(aux->getShortcut()->getCoef());
