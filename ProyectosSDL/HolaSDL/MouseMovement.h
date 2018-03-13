@@ -9,16 +9,17 @@ class MainCharacter;
 class MouseMovement : public InputComponent, public MovementComponent
 {
 private:
-	int grid2[40][40] = {0};
+	const int tamMatriz = 40;//numero de casillas que tendra la matriz en ancho y alto
+	int grid2[40][40] = {0};//matriz de la escena, inicialmente con todo ceros
 	Vector2D destiny;
 	double vel;
 	SDL_Point p;
-	int auxX = 32;
-	int auxY = 18;
+	int sceneWidth, sceneHeight;
+	int auxX, auxY;//reescalado de la matriz
 	AStar* nek;
 	MainCharacter* o;
 public:
-	queue<pair<int, int>> stackerino;
+	queue<pair<int, int>> stackerino;//cola de destinos intermedios para llegar al final
 	MouseMovement() {}
 	MouseMovement(list<GameObject*>* colisiones, double vel, MainCharacter* o);
 	~MouseMovement() { delete nek; }
@@ -35,6 +36,6 @@ public:
 	virtual void handleInput(GameObject* o, Uint32 time, const SDL_Event& event);
 	void setDirection(GameObject* o, Vector2D destiny);
 	bool playerInDestiny(GameObject* o, Vector2D destiny);
-	void generaMatriz(GameObject* o);
+	void generaMatriz(GameObject* o);//inicializa a la matriz con los valores adecuados (0 colisionable, 1 vacio)
 };
 

@@ -11,8 +11,8 @@ class AStar
 public:
 	GameObject* kk;
 	MouseMovement* m;
-	AStar();
-	~AStar();
+	AStar() {}
+	~AStar() {}
 	void defineCosas(GameObject* o_) { kk = o_; }
 	AStar(MouseMovement* m) : m(m) {}
 
