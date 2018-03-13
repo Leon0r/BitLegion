@@ -58,8 +58,6 @@ void MouseMovement::setDirection(GameObject* o, Vector2D destiny) {
 //eventos de mouse
 void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& event) {
 
-	generaMatriz(o); //problem here
-
 	//si se pulsa el raton registramos su posicion
 	if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_RIGHT) {
 		p.x = event.button.x;
@@ -108,6 +106,10 @@ void MouseMovement::generaMatriz(GameObject* o) {
 				}
 				else grid2[y][x] = 1;
 				it++;
+			}
+
+			if (collisions->empty()) {
+				grid2[y][x] = 1; //por si acaso no hay colisiones en la escena, se setearian todos a unos (menos la pared) se podria hacer mejor, q esto lo comprueba todas las vueltas
 			}
 			y++;
 		}

@@ -17,7 +17,7 @@
 class PlayState: public GameState
 {
 private:
-	Entity* alena;//personaje del juego
+	MainCharacter* alena;//personaje del juego
 	ObjectList* list;
 	ShortCut* shortcut;
 	std::list<GameObject*> collision;
@@ -29,11 +29,12 @@ public:
 	PlayState() {}
 	~PlayState();
 	PlayState(SDLApp* app);
-	Entity* getMainPj() { return alena; }
+	MainCharacter* getMainPj() { return alena; }
 	ShortCut* getShortCut(){ return shortcut; }
 	void creaInventario(){app->getStateMachine()->pushState(new Inventory(app, list, this, ItemInventario::getCoef(), shortcut->getMatriz())); }
 	ObjectList* getList() { return list; };//prueba, no deberia estar aqui
 	vector<Scene*> getScenes(){ return scenes; };
-	void swapScene(int nextScene);	
+	void swapScene(int nextScene);
+	//virtual void handleEvent(SDL_Event &e);
 };
 

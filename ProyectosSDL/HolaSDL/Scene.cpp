@@ -8,7 +8,7 @@ Scene::Scene()
 	//Idealmente lee de un archivo
 }
 
-Scene::Scene(int numEscena, SDLApp* app):app(app), SceneNum(numEscena) {
+Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(numEscena), pj(pj) {
 	string name = "..\\Scenes\\Scene" + to_string(numEscena);
 	name += ".json";
 
@@ -102,16 +102,17 @@ void Scene::enterScene() {
 	for (GameObject* it : SceneItems) {
 		ColisionableObject* col = dynamic_cast<ColisionableObject*>(it);
 		if (col != nullptr) {
-			dynamic_cast<MainCharacter*>(CurrentState->getStage()->front())->setNewCollision(col);
+			pj->setNewCollision(col);
 		}
 	}
+	pj->collisionListWasModified();
 }
 
 void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se vuelcan en la lista de la escena para que se queden guardados (menos el jugador)
 	app->getStateMachine()->currentState()->changeList();
 	SceneItems.clear();
 	SceneItems = *(app->getStateMachine()->currentState()->getStage()); //la lista stage es igual a todos los objetos de la escena
-	dynamic_cast<MainCharacter*>(SceneItems.front())->clearCollisions(); //fuera colisiones
+	pj->clearCollisions(); //fuera colisiones
 	SceneItems.pop_front(); //quitamos al jugador de la escena (es global). Se puede hacer as� o con un for que se salte el primero y copie los dem�s
 	SceneItems.pop_front(); //quitamos al shortcut
 }

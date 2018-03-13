@@ -39,12 +39,7 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	// crea la lista vacia
 	list = new ObjectList(app);
 
-	// crea las escenas 1 y 2 desde archivo
-	scenes.push_back(new Scene(0, app));
-	scenes.push_back(new Scene(1, app));
-
 	string name = "..\\Scenes\\pj.json";
-
 	// Inicializa el personaje con los datos de archivo de la primera escena
 	std::ifstream i(name);
 	json j;
@@ -58,6 +53,10 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	stage.push_front(alena);
 
 	i.close();
+
+	// crea las escenas 1 y 2 desde archivo
+	scenes.push_back(new Scene(0, app, alena));
+	scenes.push_back(new Scene(1, app, alena));
 }
 
 void PlayState::swapScene(int nextScene)
@@ -69,3 +68,13 @@ void PlayState::swapScene(int nextScene)
 	}
 	else cout << "Escena no encontrada, n�mero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
 }
+
+
+/*void PlayState::handleEvent(SDL_Event &e) { debug de prueba
+	if (e.type == SDL_KEYDOWN) {
+		if (e.key.keysym.sym == SDLK_0) {
+			swapScene(1);
+		}
+	}
+	GameState::handleEvent(e);
+}*/

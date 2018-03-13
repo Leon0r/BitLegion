@@ -14,7 +14,7 @@ class MainCharacter:
 public:
 	MainCharacter() {};
 	MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, double vel);
-	~MainCharacter();
+	virtual ~MainCharacter();
 	void addInventoryObject(GameObject* o);
 	void changeRoom();
 	string getCurrentTag() { return this->currentTag; };
@@ -27,6 +27,7 @@ public:
 	Entity* kk;
 	Entity* kk2;
 	virtual void render(Uint32 time) { Entity::render(time); kk->render(time); kk2->render(time); }
+	void collisionListWasModified() { mouseMovement->generaMatriz(this); } //método auxiliar, es llamado cuando sales de una escena, para generar de nuevo la matriz de colisionables
 
 private:
 	Texture * _texture;
@@ -34,7 +35,7 @@ private:
 	RenderComponent* rendere;
 	InputComponent* keyboard;
 	PhysicsComponent* movement;
-	PhysicsComponent* mouseMovement;
+	MouseMovement* mouseMovement;
 	ObjectList* list;
 	std::list<GameObject*>* colisionables;
 	ComponentSwitcher switcher = ComponentSwitcher(app, this);

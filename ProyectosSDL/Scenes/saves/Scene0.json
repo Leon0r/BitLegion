@@ -13,6 +13,13 @@
          "w": 220.0,
          "x": 580.0,
          "y": 432.0
+      },
+      {
+         "Texture": 13,
+         "h": 280.0,
+         "w": 365.0,
+         "x": 915.0,
+         "y": 125.0
       }
    ],
    "GODoors": [
@@ -28,13 +35,13 @@
    ],
    "ItemInventario": [
       {
-         "Texture": 15,
-         "descripcion": "Esta es mi descripcion",
+         "Texture": 14,
+         "descripcion": "adafsfdf",
          "h": 64.0,
-         "tag": "Este es mi tag",
+         "tag": "ffftag",
          "w": 64.0,
-         "x": 368.0,
-         "y": 122.0
+         "x": 668.0,
+         "y": 0.0
       },
       {
          "Texture": 15,
@@ -46,13 +53,13 @@
          "y": 544.0
       },
       {
-         "Texture": 14,
-         "descripcion": "adafsfdf",
+         "Texture": 15,
+         "descripcion": "Esta es mi descripcion",
          "h": 64.0,
-         "tag": "ffftag",
+         "tag": "Este es mi tag",
          "w": 64.0,
-         "x": 668.0,
-         "y": 0.0
+         "x": 368.0,
+         "y": 122.0
       }
    ],
    "Texture": 10,

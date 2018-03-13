@@ -14,7 +14,7 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i);//decide la direccion del jugador cuando se usa el teclado
 	mouseMovement = new MouseMovement(colisionables, vel, this);
 	switcher.addMode({ keyboard, movement, nullptr });//si se pulsa alguna tecla se activaran los componentes de teclado
-	switcher.addMode({dynamic_cast<InputComponent*>(mouseMovement), mouseMovement, nullptr });//si se pulsa el raton se activaran los componentes de raton
+	switcher.addMode({mouseMovement, mouseMovement, nullptr });//si se pulsa el raton se activaran los componentes de raton
 	switcher.setMode(0);
 
 
@@ -39,6 +39,7 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 
 MainCharacter::~MainCharacter()
 {
+	Entity::~Entity();
 }
 
 void MainCharacter::addInventoryObject(GameObject* o) {
