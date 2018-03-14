@@ -69,8 +69,15 @@ Scene::Scene(int numEscena, SDLApp* app) :app(app), SceneNum(numEscena) {
 			n = j["Texture"];
 
 			Entity* escenario = new Entity(app);
-			escenario->setWidth(app->getWindowWidth());
-			escenario->setHeight(app->getWindowHeight());
+
+			if (j["w"].is_null())
+				escenario->setWidth(app->getWindowWidth());
+			else escenario->setWidth(j["w"]);
+
+			if (j["h"].is_null())
+				escenario->setHeight(app->getWindowHeight());
+			else escenario->setHeight(j["h"]);
+
 			RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
 			escenario->addRenderComponent(renderEscenario);
 			SceneItems.push_back(escenario);
