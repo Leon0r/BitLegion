@@ -86,8 +86,8 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 
 //indica si el jugador ha llegado a un destino
 bool MouseMovement::playerInDestiny(GameObject* o, Vector2D destiny) {
-	SDL_Rect rectDestino = { destiny.getX() - o->getWidth() / 4, destiny.getY() - o->getWidth() / 6, o->getWidth() , o->getWidth() };
-	SDL_Point q = { o->getPosition().getX() + o->getWidth() / 4, o->getPosition().getY() + o->getHeight() };
+	SDL_Rect rectDestino = { destiny.getX() - o->getWidth() / 4, destiny.getY() - o->getWidth() / 10, o->getWidth() , o->getWidth()/5 };
+	SDL_Point q = { o->getPosition().getX() + o->getWidth() / 2, o->getPosition().getY() + o->getHeight() };
 	return (SDL_PointInRect(&q, &rectDestino));
 }
 
