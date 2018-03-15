@@ -104,8 +104,6 @@ public:
 			//seria almacenar en la pila de "m" los destinos del jugador. m->stack.push(p, p);
 			m->stackerino.push(pair<int,int>(p.first * (1280/ROW), p.second * (720/COL)));
 		}
-
-		return;
 	}
 
 	// A Function to find the shortest path between

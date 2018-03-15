@@ -70,7 +70,7 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 	//si se suelta elegimos la direccion del jugador para llegar a esa posicion y actualizamos la posicion destino del componente mouseMov
 	else if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_RIGHT) {
 		while (!stackerino.empty()) { stackerino.pop(); }//eliminamos el path anterior
-
+		//solucionadorBugs();
 		//aestrella rellena la cola de destinos para llegar al final
 		nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX, 
 			(o->getPosition().getY() + o->getHeight() - 1) / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
@@ -125,5 +125,37 @@ void MouseMovement::generaMatriz(GameObject* o) {
 			y++;
 		}
 		x++;
+	}
+}
+
+void MouseMovement::solucionadorBugs() {
+	bool found = false;
+	list<GameObject*>::iterator it;
+	list<GameObject*>::iterator aux;
+	double hipoMin = 100000; //T_T
+	for (it = collisions->begin(); it != collisions->end(); it++) { //for que busca el mas cercano
+		double modX = ((*it)->getPosition().getX() - p.x);
+		double modY = ((*it)->getPosition().getY() - p.y);
+		double hipo = sqrt(pow(modX, 2) + pow(modY, 2)); //pitagoras
+		if (hipo < hipoMin) { hipoMin = hipo; aux = it; }
+	}
+
+	// aux = objeto mas cercano
+	if ((*aux)->getPosition().getX() <= p.x + o->getWidth() && (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x 
+			&& (*aux)->getPosition().getY() + (*aux)->getHeight() > p.y && (*aux)->getPosition().getY() < p.y) { //por la izquierda
+		p.x -= o->getWidth();
+	}
+	else if ((*aux)->getPosition().getX() + (*aux)->getWidth() >= p.x - o->getWidth() && (*aux)->getPosition().getX() > p.x
+			&& (*aux)->getPosition().getY() + (*aux)->getHeight() > p.y && (*aux)->getPosition().getY() < p.y) { //por la derecha
+		p.x += o->getWidth();
+	}
+
+	if ((*aux)->getPosition().getY() <= p.y + o->getHeight() && (*aux)->getPosition().getY() + (*aux)->getHeight() > p.y
+		&& (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x && (*aux)->getPosition().getX() < p.x) {  //por arriba
+		p.y -= o->getHeight();
+	}
+	else if ((*aux)->getPosition().getY() + (*aux)->getHeight() >= p.y - o->getHeight() && (*aux)->getPosition().getY() > p.y
+		&& (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x && (*aux)->getPosition().getX() < p.x) { //por abajo
+		p.y += o->getHeight();
 	}
 }

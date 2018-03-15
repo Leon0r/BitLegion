@@ -27,6 +27,7 @@ public:
 	void clearCollisions() { colisionables->clear(); };
 	void setNewCollision(GameObject* o) { colisionables->push_back(o); }
 	void collisionListWasModified() { mouseMovement->generaMatriz(this); } //m�todo auxiliar, es llamado cuando sales de una escena, para generar de nuevo la matriz de colisionables
+	MouseMovement* getMouseComponent() const { return mouseMovement; }
 
 private:
 	Texture * _texture;
