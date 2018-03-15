@@ -70,16 +70,17 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 	//si se suelta elegimos la direccion del jugador para llegar a esa posicion y actualizamos la posicion destino del componente mouseMov
 	else if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_RIGHT) {
 		while (!stackerino.empty()) { stackerino.pop(); }//eliminamos el path anterior
-		//solucionadorBugs();
-		//aestrella rellena la cola de destinos para llegar al final
-		nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX, 
-			(o->getPosition().getY() + o->getHeight() - 1) / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
+		if (!solucionadorBugs()) {
+			//aestrella rellena la cola de destinos para llegar al final
+			nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX,
+				(o->getPosition().getY() + o->getHeight() - 1) / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
 
-		//si ha encontrado destinos
-		if (!stackerino.empty()) {
-			send(Messages(MouseMoving));//informamos de que empezamos a movernos
-			setDestiny(stackerino.front().first, stackerino.front().second); //establecemos el primero
-			setDirection(o, destiny);//le mandamos hacia el
+			//si ha encontrado destinos
+			if (!stackerino.empty()) {
+				send(Messages(MouseMoving));//informamos de que empezamos a movernos
+				setDestiny(stackerino.front().first, stackerino.front().second); //establecemos el primero
+				setDirection(o, destiny);//le mandamos hacia el
+			}
 		}
 	}
 }
@@ -128,7 +129,7 @@ void MouseMovement::generaMatriz(GameObject* o) {
 	}
 }
 
-void MouseMovement::solucionadorBugs() {
+bool MouseMovement::solucionadorBugs() {
 	bool found = false;
 	list<GameObject*>::iterator it;
 	list<GameObject*>::iterator aux;
@@ -140,8 +141,12 @@ void MouseMovement::solucionadorBugs() {
 		if (hipo < hipoMin) { hipoMin = hipo; aux = it; }
 	}
 
+	SDL_Rect charRect = { p.x - o->getWidth()/2, p.y - o->getHeight()/4, o->getWidth(), o->getHeight()/4};
+	SDL_Rect colRect = { (*aux)->getPosition().getX(), (*aux)->getPosition().getY(), (*aux)->getWidth(),(*aux)->getHeight() };
+	SDL_Rect result;
+	return (SDL_IntersectRect(&charRect, &colRect, &result));
 	// aux = objeto mas cercano
-	if ((*aux)->getPosition().getX() <= p.x + o->getWidth() && (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x 
+	/*if ((*aux)->getPosition().getX() <= p.x + o->getWidth() && (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x 
 			&& (*aux)->getPosition().getY() + (*aux)->getHeight() > p.y && (*aux)->getPosition().getY() < p.y) { //por la izquierda
 		p.x -= o->getWidth();
 	}
@@ -156,6 +161,6 @@ void MouseMovement::solucionadorBugs() {
 	}
 	else if ((*aux)->getPosition().getY() + (*aux)->getHeight() >= p.y - o->getHeight() && (*aux)->getPosition().getY() > p.y
 		&& (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x && (*aux)->getPosition().getX() < p.x) { //por abajo
-		p.y += o->getHeight();
-	}
+		p.y += o->getHeight()/2;
+	}*/
 }

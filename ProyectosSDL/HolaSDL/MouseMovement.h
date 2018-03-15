@@ -19,7 +19,7 @@ private:
 	int auxX, auxY;//reescalado de la matriz
 	AStar* nek;
 	MainCharacter* o;
-	void solucionadorBugs();
+	bool solucionadorBugs();
 public:
 	queue<pair<int, int>> stackerino;//cola de destinos intermedios para llegar al final
 	MouseMovement() {}
