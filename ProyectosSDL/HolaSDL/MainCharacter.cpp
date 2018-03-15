@@ -35,12 +35,12 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	this->setPosition(Vector2D(j["mainPj"]["x"], j["mainPj"]["y"]));
 
 	// items de inventario
-	for (int i = 0; i < (int)j["mainPj"]["ItemInventario"].size(); i++) {
-		n = j["mainPj"]["ItemInventario"][i]["Texture"];
+	for (int i = 0; i < (int)j["mainPj"]["itemList"].size(); i++) {
+		n = j["mainPj"]["itemList"][i]["Texture"];
 
 		
 		GameObject* item = new ItemInventario(app, 0, 0, 0, 0,
-			j["mainPj"]["ItemInventario"][i]["descripcion"], j["mainPj"]["ItemInventario"][i]["tag"], 
+			j["mainPj"]["itemList"][i]["descripcion"], j["mainPj"]["itemList"][i]["tag"], 
 			app->getResources()->getImageTexture(Resources::ImageId(n)));
 
 		addInventoryObject(item);
