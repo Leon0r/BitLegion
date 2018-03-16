@@ -14,12 +14,12 @@ private:
 	int grid2[tamMatriz][tamMatriz] = {0};//matriz de la escena, inicialmente con todo ceros
 	Vector2D destiny;
 	double vel;
-	SDL_Point p;
+	SDL_Point p, q;//punto destino (p) y destino anterior (q)
 	int sceneWidth, sceneHeight;
 	int auxX, auxY;//reescalado de la matriz
 	AStar* nek;
 	MainCharacter* o;
-	bool solucionadorBugs();
+	bool solucionadorBugs();//soluciona bugs, de omento no esta activo
 public:
 	queue<pair<int, int>> stackerino;//cola de destinos intermedios para llegar al final
 	MouseMovement() {}

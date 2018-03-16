@@ -69,9 +69,11 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 
 	//si se suelta elegimos la direccion del jugador para llegar a esa posicion y actualizamos la posicion destino del componente mouseMov
 	else if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_RIGHT) {
-		while (!stackerino.empty()) { stackerino.pop(); }//eliminamos el path anterior
-		if (!solucionadorBugs()) {
-			//aestrella rellena la cola de destinos para llegar al final
+		//si el destino no es el mismo que el anterior buscamos el camino (do u know the wae)
+		if (p.x != q.x && p.y != q.y) {
+			q = p;//actualizamos destino anterior
+			while (!stackerino.empty()) { stackerino.pop(); }//eliminamos el path anterior
+				//aestrella rellena la cola de destinos para llegar al final
 			nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX,
 				(o->getPosition().getY() + o->getHeight() - 1) / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
 
@@ -129,6 +131,8 @@ void MouseMovement::generaMatriz(GameObject* o) {
 	}
 }
 
+//identifica el colisionable mas cercano al destino, y mira si el jugador chocaria con el al llegar
+//si es asi no te deja clicar ahi
 bool MouseMovement::solucionadorBugs() {
 	bool found = false;
 	list<GameObject*>::iterator it;
@@ -141,10 +145,13 @@ bool MouseMovement::solucionadorBugs() {
 		if (hipo < hipoMin) { hipoMin = hipo; aux = it; }
 	}
 
-	SDL_Rect charRect = { p.x - o->getWidth()/2, p.y - o->getHeight()/4, o->getWidth(), o->getHeight()/4};
-	SDL_Rect colRect = { (*aux)->getPosition().getX(), (*aux)->getPosition().getY(), (*aux)->getWidth(),(*aux)->getHeight() };
-	SDL_Rect result;
-	return (SDL_IntersectRect(&charRect, &colRect, &result));
+	if (aux._Ptr != nullptr) {
+		SDL_Rect charRect = { p.x - o->getWidth() / 2, p.y - o->getHeight() / 4, o->getWidth(), o->getHeight() / 4 };
+		SDL_Rect colRect = { (*aux)->getPosition().getX(), (*aux)->getPosition().getY(), (*aux)->getWidth(),(*aux)->getHeight() };
+		SDL_Rect result;
+		return (SDL_IntersectRect(&charRect, &colRect, &result));
+	}
+	else return false;
 	// aux = objeto mas cercano
 	/*if ((*aux)->getPosition().getX() <= p.x + o->getWidth() && (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x 
 			&& (*aux)->getPosition().getY() + (*aux)->getHeight() > p.y && (*aux)->getPosition().getY() < p.y) { //por la izquierda
