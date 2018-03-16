@@ -2,8 +2,8 @@
    "CollisionableObject": [
       {
          "Texture": 11,
-         "h": 170.0,
-         "w": 393.0,
+         "h": 200.0,
+         "w": 370.0,
          "x": 0.0,
          "y": 290.0
       },
@@ -16,7 +16,7 @@
       },
       {
          "Texture": 13,
-         "h": 280.0,
+         "h": 300.0,
          "w": 365.0,
          "x": 915.0,
          "y": 125.0
@@ -54,8 +54,8 @@
          "y": 0.0
       },
       {
-         "Texture": 14,
-         "descripcion": "adafsfdf",
+         "Texture": 15,
+         "descripcion": "Esta es mi descripcion",
          "h": 64.0,
          "tag": "Este es mi tag",
          "w": 64.0,

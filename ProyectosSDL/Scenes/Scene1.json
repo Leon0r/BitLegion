@@ -8,7 +8,7 @@
     ],
 
     "CollisionableObject":[
-        {"x":0, "y": 100, "w": 350, "h": 400, "Texture": 26}
+        {"x":0, "y": 180, "w": 330, "h": 260, "Texture": 26}
     ],
 
     "Texture": 27,

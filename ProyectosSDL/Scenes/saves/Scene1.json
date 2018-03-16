@@ -2,10 +2,10 @@
    "CollisionableObject": [
       {
          "Texture": 26,
-         "h": 400.0,
-         "w": 350.0,
+         "h": 260.0,
+         "w": 330.0,
          "x": 0.0,
-         "y": 100.0
+         "y": 180.0
       }
    ],
    "GOTransiciones": [
