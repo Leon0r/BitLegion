@@ -32,6 +32,10 @@ public:
 	virtual ~Puzzle1State() { destroy(); stage.clear(); };
 	virtual void handleEvent(SDL_Event& event);
 	virtual void render();
+	virtual void update();
+	
+	bool gameSolved();//Comprueba si se ha resuelto el puzzle
+
 	CasillaPuzzle1* getLastClicked() {};
 	void destroy();
 	GameState* getPreviousState() { return previousState; };
