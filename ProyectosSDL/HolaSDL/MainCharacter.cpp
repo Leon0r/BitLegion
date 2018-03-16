@@ -21,13 +21,20 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	//render = new ImageRenderer(_texture);
 	render = new AnimationRenderer(_texture, animations, 4, 4, 60, 144);
 	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
-	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i, list);
-	keyboard->addObserver(dynamic_cast<AnimationRenderer*> (render));
+	movement = new MovementComponent(colisionables);//mueve al jugador cuando se usa el teclado
+	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i);//decide la direccion del jugador cuando se usa el teclado
+	mouseMovement = new MouseMovement(colisionables, vel, this);
+	switcher.addMode({ keyboard, movement, nullptr });//si se pulsa alguna tecla se activaran los componentes de teclado
+	switcher.addMode({ mouseMovement, mouseMovement, nullptr });//si se pulsa el raton se activaran los componentes de raton
+	switcher.setMode(0);
+	keyboard->addObserver(dynamic_cast<AnimationRenderer*>(render));
+	keyboard->addObserver(dynamic_cast<ComponentSwitcher*>(&switcher));
+	mouseMovement->addObserver(dynamic_cast<ComponentSwitcher*>(&switcher));
 
-	this->addInputComponent(keyboard);//componente de input para manejar su direccion
-
-	movement = new MovementComponent(colisionables);
-	this->addPhysicsComponent(movement);//componente de movimiento para que pueda moverse
+	// posicion y dimensiones
+	this->setWidth(j["mainPj"]["w"]);//ancho, alto, posicion y textura
+	this->setHeight(j["mainPj"]["h"]);
+	this->setPosition(Vector2D(j["mainPj"]["x"], j["mainPj"]["y"]));
 
 	// posicion y dimensiones
 	this->setWidth(j["mainPj"]["w"]);//ancho, alto, posicion y textura

@@ -22,13 +22,7 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	
 	// crea la lista vacia
 	list = new ObjectList(app);
-
-	// crea las escenas 1 y 2 desde archivo
-	scenes.push_back(new Scene(0, app));
-	scenes.push_back(new Scene(1, app));
-
 	string name = "..\\Scenes\\pj.json";
-
 	// Inicializa el personaje con los datos de archivo de la primera escena
 	std::ifstream i(name);
 	json j;
@@ -45,6 +39,14 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	stage.push_back(item);
 
 	i.close();
+
+	// crea las escenas 1 y 2 desde archivo
+	scenes.push_back(new Scene(0, app, alena));
+	scenes.push_back(new Scene(1, app, alena));
+
+	
+
+	
 }
 
 void PlayState::swapScene(int nextScene)

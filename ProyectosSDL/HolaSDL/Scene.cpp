@@ -8,81 +8,75 @@ Scene::Scene()
 	//Idealmente lee de un archivo
 }
 
-Scene::Scene(int numEscena, SDLApp* app) :app(app), SceneNum(numEscena) {
+Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(numEscena), pj(pj) {
 	string name = "..\\Scenes\\Scene" + to_string(numEscena);
 	name += ".json";
 
 	std::ifstream i(name);
-
+	
 	if (i.is_open()) { // Para que no intente abrir archivos que no existen
 
 		json j;
 		i >> j;
 		int n;
 
-		if (j["ItemInventario"].is_array())
-			// Cargado de items de inventario
-			for (int i = 0; i < (int)j["ItemInventario"].size(); i++) {
+		// Cargado de items de inventario
+		for (int i = 0; i < j["ItemInventario"].size(); i++) {
 
-				n = j["ItemInventario"][i]["Texture"];
+			n = j["ItemInventario"][i]["Texture"];
 
-				SceneItems.push_back(new ItemInventario(app, j["ItemInventario"][i]["x"], j["ItemInventario"][i]["y"], j["ItemInventario"][i]["w"], j["ItemInventario"][i]["h"],
-					j["ItemInventario"][i]["descripcion"], j["ItemInventario"][i]["tag"],
-					app->getResources()->getImageTexture(Resources::ImageId(n))));
-			}
+			SceneItems.push_front(new ItemInventario(app, j["ItemInventario"][i]["x"], j["ItemInventario"][i]["y"], j["ItemInventario"][i]["w"], j["ItemInventario"][i]["h"],
+				j["ItemInventario"][i]["descripcion"], j["ItemInventario"][i]["tag"],
+				app->getResources()->getImageTexture(Resources::ImageId(n))));
+		}
 
-		if (j["GODoors"].is_array())
-			// Cargado de GODoors
-			for (int i = 0; i < (int)j["GODoors"].size(); i++) {
+		// Cargado de GODoors
+		for (int i = 0; i < j["GODoors"].size(); i++) {
 
-				n = j["GODoors"][i]["Texture"];
+			n = j["GODoors"][i]["Texture"];
 
-				SceneItems.push_back(new GODoors(app, j["GODoors"][i]["x"], j["GODoors"][i]["y"], j["GODoors"][i]["w"], j["GODoors"][i]["h"],
-					app->getResources()->getImageTexture(Resources::ImageId(n)), j["GODoors"][i]["tag"], j["GODoors"][i]["scneNum"]));
-			}
+			SceneItems.push_back(new GODoors(app, j["GODoors"][i]["x"], j["GODoors"][i]["y"], j["GODoors"][i]["w"], j["GODoors"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GODoors"][i]["tag"], j["GODoors"][i]["scneNum"]));
+		}
 
-		if (j["GOTransiciones"].is_array())
-			// Cargado de GOTransiciones
-			for (int i = 0; i < (int)j["GOTransiciones"].size(); i++) {
+		// Cargado de GOTransiciones
+		for (int i = 0; i < j["GOTransiciones"].size(); i++) {
 
-				n = j["GOTransiciones"][i]["Texture"];
+			n = j["GOTransiciones"][i]["Texture"];
 
-				SceneItems.push_back(new GOTransiciones(app, j["GOTransiciones"][i]["x"], j["GOTransiciones"][i]["y"],
-					j["GOTransiciones"][i]["w"], j["GOTransiciones"][i]["h"],
-					app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOTransiciones"][i]["scneNum"]));
-			}
+			SceneItems.push_back(new GOTransiciones(app, j["GOTransiciones"][i]["x"], j["GOTransiciones"][i]["y"],
+				j["GOTransiciones"][i]["w"], j["GOTransiciones"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOTransiciones"][i]["scneNum"]));
+		}
 
-		if (j["CollisionableObject"].is_array())
-			// Cargado de Colisiones
-			for (int i = 0; i < (int)j["CollisionableObject"].size(); i++) {
 
-				n = j["CollisionableObject"][i]["Texture"];
+		// Cargado de Colisiones
+		for (int i = 0; i < j["CollisionableObject"].size(); i++) {
 
-				SceneItems.push_back(new ColisionableObject(app, j["CollisionableObject"][i]["x"], j["CollisionableObject"][i]["y"],
-					j["CollisionableObject"][i]["w"], j["CollisionableObject"][i]["h"],
-					app->getResources()->getImageTexture(Resources::ImageId(n))));
-			}
+			n = j["CollisionableObject"][i]["Texture"];
+
+			SceneItems.push_back(new ColisionableObject(app, j["CollisionableObject"][i]["x"], j["CollisionableObject"][i]["y"],
+				j["CollisionableObject"][i]["w"], j["CollisionableObject"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n))));
+		}
 
 		//ESCENARIO
 
-		if (!j["Texture"].is_null()) {
-			n = j["Texture"];
+		n = j["Texture"];
 
-			Entity* escenario = new Entity(app);
+		Entity* escenario = new Entity(app);
 
-			if (j["w"].is_null())
-				escenario->setWidth(app->getWindowWidth());
-			else escenario->setWidth(j["w"]);
+		if (j["w"].is_null())
+			escenario->setWidth(app->getWindowWidth());
+		else escenario->setWidth(j["w"]);
 
-			if (j["h"].is_null())
-				escenario->setHeight(app->getWindowHeight());
-			else escenario->setHeight(j["h"]);
+		if (j["h"].is_null())
+			escenario->setHeight(app->getWindowHeight());
+		else escenario->setHeight(j["h"]);
 
-			RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
-			escenario->addRenderComponent(renderEscenario);
-			SceneItems.push_back(escenario);
-		}
-
+		RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
+		escenario->addRenderComponent(renderEscenario);
+		SceneItems.push_back(escenario);
 		i.close();
 	}
 	else {
@@ -114,18 +108,21 @@ void Scene::enterScene() {
 	for (GameObject* it : SceneItems) {
 		ColisionableObject* col = dynamic_cast<ColisionableObject*>(it);
 		if (col != nullptr) {
-			dynamic_cast<MainCharacter*>(CurrentState->getStage()->front())->setNewCollision(col); //setea las nuevas colisiones de la escena
+			pj->setNewCollision(col);
 		}
 	}
+	pj->collisionListWasModified();
 }
 
 void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se vuelcan en la lista de la escena para que se queden guardados (menos el jugador)
 	app->getStateMachine()->currentState()->changeList();
 	SceneItems.clear();
 	SceneItems = *(app->getStateMachine()->currentState()->getStage()); //la lista stage es igual a todos los objetos de la escena
-	dynamic_cast<MainCharacter*>(SceneItems.front())->clearCollisions(); //fuera colisiones
+	pj->clearCollisions(); //fuera colisiones
 	SceneItems.pop_front(); //quitamos al jugador de la escena (es global). Se puede hacer as� o con un for que se salte el primero y copie los dem�s
 	SceneItems.pop_front(); //quitamos al shortcut
+	pj->setVelocity(Vector2D(0.0, 0.0));
+	pj->getMouseComponent()->send(Messages(MouseStop));
 }
 
 
@@ -135,13 +132,9 @@ void Scene::saveSceneToJson() {
 
 	std::ofstream i(name); //archivo donde se va a guardar
 	json j;
-	list<GameObject*>::iterator it;
-	for (it = SceneItems.begin(); it != SceneItems.end(); it++) {
-		(*it)->saveToJson(j);
-	}
-	/*for (GameObject* it : SceneItems) {
+	for (GameObject* it : SceneItems) {
 		it->saveToJson(j);	//manda a todos los objetos guardarse en dichos archivos
-	}*/
+	}
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo
 }

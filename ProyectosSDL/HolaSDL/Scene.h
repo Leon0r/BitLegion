@@ -8,13 +8,14 @@
 
 using json = nlohmann::json;
 
+class MainCharacter;
 class Scene
 {
 public:
 	Scene();
-	Scene(int numEscena, SDLApp* app);
+	Scene(int numEscena, SDLApp* app, MainCharacter* pj);
 	~Scene();
-	Scene(SDLApp* app, int SceneNum) : app(app), SceneNum(SceneNum) {};
+	//Scene(SDLApp* app, int SceneNum, MainCharacter* pj) : app(app), SceneNum(SceneNum), pj(pj) {};
 	void enterScene();
 	void exitScene();
 	int getSceneNumber() const { return SceneNum; };
@@ -25,5 +26,6 @@ private:
 	list<GameObject*> SceneItems;
 	list<GameObject*>::iterator it;
 	GameState* CurrentState;
+	MainCharacter* pj;
 };
 
