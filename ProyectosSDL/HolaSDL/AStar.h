@@ -126,7 +126,7 @@ public:
 		}
 
 		// Either the source or the destination is blocked
-		if (isUnBlocked(grid, src.first, src.second) == false ||
+		if (/*isUnBlocked(grid, src.first, src.second) == false ||*/
 			isUnBlocked(grid, dest.first, dest.second) == false)
 		{
 			printf("Source or the destination is blocked\n");

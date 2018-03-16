@@ -33,16 +33,6 @@
          "y": 500.0
       }
    ],
-   "GOTransiciones": [
-      {
-         "Texture": 5,
-         "h": 150.0,
-         "scneNum": 1,
-         "w": 100.0,
-         "x": 200.0,
-         "y": 500.0
-      }
-   ],
    "ItemInventario": [
       {
          "Texture": 14,
@@ -52,6 +42,15 @@
          "w": 64.0,
          "x": 668.0,
          "y": 0.0
+      },
+      {
+         "Texture": 15,
+         "descripcion": "key",
+         "h": 64.0,
+         "tag": "key",
+         "w": 64.0,
+         "x": 100.0,
+         "y": 544.0
       },
       {
          "Texture": 15,
