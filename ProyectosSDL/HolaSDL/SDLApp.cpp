@@ -21,10 +21,14 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 
 void SDLApp::handleEvent() {
 	while (SDL_PollEvent(&event) && !exit) {
-		if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE)
+		if (event.type == SDL_QUIT)
 			exit = true;
-		else
-			maquinaEstados->currentState()->handleEvent(event); //invoca el handleEvent del currentState
+		else if (event.type == SDL_KEYDOWN) {
+			if (event.key.keysym.sym == SDLK_ESCAPE) {
+				exit = true;
+			}
+		}
+		maquinaEstados->currentState()->handleEvent(event); //invoca el handleEvent del currentState
 	}
 }
 
