@@ -7,8 +7,11 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	int n = j["mainPj"]["Texture"];
 	_texture = app->getResources()->getImageTexture(Resources::ImageId(n));
 
-	animData* auxAnim;
-	auxAnim = new animData("Idle", { 13 });
+	animData* auxAnim;//animacion de parada a la derecha
+	auxAnim = new animData("IdleRight", { 13 });
+	animations.push_back(auxAnim);
+
+	auxAnim = new animData("IdleLeft", { 5 });//animacion de parada a la izquierda
 	animations.push_back(auxAnim);
 
 	auxAnim = new animData("Left", { 0,1,2,3,4,5,6,7 });
@@ -27,9 +30,12 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	switcher.addMode({ keyboard, movement, nullptr });//si se pulsa alguna tecla se activaran los componentes de teclado
 	switcher.addMode({ mouseMovement, mouseMovement, nullptr });//si se pulsa el raton se activaran los componentes de raton
 	switcher.setMode(0);
-	keyboard->addObserver(dynamic_cast<AnimationRenderer*>(render));
-	keyboard->addObserver(dynamic_cast<ComponentSwitcher*>(&switcher));
-	mouseMovement->addObserver(dynamic_cast<ComponentSwitcher*>(&switcher));
+
+	//mensajes
+	keyboard->addObserver(dynamic_cast<AnimationRenderer*>(render));//teclado a animaciones
+	keyboard->addObserver(dynamic_cast<ComponentSwitcher*>(&switcher));//teclado a switcher para no pisarse con mouse
+	mouseMovement->addObserver(dynamic_cast<AnimationRenderer*>(render));//mouse a animaciones
+	mouseMovement->addObserver(dynamic_cast<ComponentSwitcher*>(&switcher));//mouse a switcher para no pisarse con teclado
 
 	// posicion y dimensiones
 	this->setWidth(j["mainPj"]["w"]);//ancho, alto, posicion y textura

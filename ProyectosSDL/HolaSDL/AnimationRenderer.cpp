@@ -88,8 +88,11 @@ void AnimationRenderer::receive(Messages msg)
 	case Ch_Right:
 		playAnim("Right");
 		break;
-	case Stop:
-		playAnim("Idle");
+	case StopRight:
+		playAnim("IdleRight");
+		break;
+	case StopLeft:
+		playAnim("IdleLeft");
 		break;
 	default:
 		playAnim("Idle");

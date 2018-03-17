@@ -40,9 +40,11 @@ void MouseMovement::update(GameObject* o, Uint32 time) {
 
 //miramos si ha llegado a la posicion destino
 void MouseMovement::stopMovement(GameObject* o, Vector2D destiny) {
-	if (playerInDestiny(o, destiny)) {
-		if (stackerino.empty())send(Messages(MouseStop));//si era el ultimo destino informamos de que estamos parados
-		o->setVelocity(Vector2D(0, 0));
+	if (playerInDestiny(o, destiny) && stackerino.empty()) {
+		send(Messages(MouseStop));//si era el ultimo destino informamos de que estamos parados
+		if (idleRight)send(StopRight);//paramos en la direccion que estemos mirando (animaciones)
+		else send(StopLeft);
+		o->setVelocity(Vector2D(0, 0));//paramos
 	}
 }
 
@@ -72,6 +74,8 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 		//si el destino no es el mismo que el anterior buscamos el camino (do u know the wae)
 		if (p.x != q.x && p.y != q.y) {
 			q = p;//actualizamos destino anterior
+			if (p.x >= o->getPosition().getX())send(Ch_Right);//si el destino esta por la derecha ponemos la animacion correspondiente
+			else send(Ch_Left);//lo mismo si esta por la derecha
 			while (!stackerino.empty()) { stackerino.pop(); }//eliminamos el path anterior
 				//aestrella rellena la cola de destinos para llegar al final
 			nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX,

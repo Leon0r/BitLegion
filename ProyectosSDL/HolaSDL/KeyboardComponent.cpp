@@ -12,12 +12,10 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		if (event.key.keysym.sym == right) {
 			if (!r) Xaxis.push(right);
 			r = true;
-			send(Ch_Right);
 		}
 	    else if (event.key.keysym.sym == left) {
 			if (!l)Xaxis.push(left);
 			l = true;
-			send(Ch_Left);
 		}
 		if (event.key.keysym.sym == up) {
 			if (!u)Yaxis.push(up);
@@ -39,10 +37,12 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		if (event.key.keysym.sym == right) {
 			r = false;
 			if(!Xaxis.empty())Xaxis.pop();
+			iddleRight = true;//has parado mirando hacia la derecha
 		}
 		else if (event.key.keysym.sym == left) {
 			l = false;
 			if (!Xaxis.empty())Xaxis.pop();
+			iddleRight = false;//has parado mirando hacia la izquierda
 		}
 		if (event.key.keysym.sym == up) {
 			u = false;
@@ -58,15 +58,29 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		velocity.setX(0); 
 	}
 	else {//si hay teclas en la pila se mira cual es y se mueve en esa direccion
-		if (Xaxis.top() == right && r) velocity.setX(vel_);
-		else if (Xaxis.top() == left && l) if (l) velocity.setX(-vel_);
+		if (Xaxis.top() == right && r) {
+			velocity.setX(vel_);
+			send(Ch_Right);//anim derecha
+		}
+		else if (Xaxis.top() == left && l) {
+			velocity.setX(-vel_);
+			send(Ch_Left);//anim izquierda
+		}
 	}   //lo mismo con las teclas del eje y
 	if (Yaxis.empty())velocity.setY(0);
 	else {
 		if (Yaxis.top() == down && d) velocity.setY(vel_);
 		else if(Yaxis.top() == up && u) velocity.setY(-vel_);
+		if (!r && !l) {//si solo estan pulsadas las de arriba o abajo
+			if (iddleRight)send(Ch_Right);
+			else send(Ch_Left);//se activa la animacion correspondiente al lado hacia el que estuviera parado
+		}
 	}
 	o->setVelocity(velocity);
 
-	if (velocity.getX() == 0 && velocity.getY() == 0) send(Stop);
+	//si esta parado se establece la animacion correspondiente al lado hacia el que mira
+	if (Xaxis.empty() && Yaxis.empty()) {
+		if(iddleRight)send(StopRight);
+		else send(StopLeft);
+	}
 }

@@ -59,7 +59,7 @@ void ComponentSwitcher::setMode(int i) {
 //para independizar los dos tipos de movimiento
 void ComponentSwitcher::receive(Messages msg) {
 	if (msg == Moving)keyBoard = true;
-	else if (msg == Stop)keyBoard = false;
+	else if (msg == StopRight || msg == StopLeft)keyBoard = false;
 	else if (msg == MouseMoving)mouse = true;
 	else if (msg == MouseStop)mouse = false;
 }

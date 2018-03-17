@@ -20,6 +20,7 @@ private:
 	AStar* nek;
 	MainCharacter* o;
 	bool solucionadorBugs();//soluciona bugs, de omento no esta activo
+	bool idleRight = true;//determina hacia que lado estamos mirando cuando estamos parados
 public:
 	queue<pair<int, int>> stackerino;//cola de destinos intermedios para llegar al final
 	MouseMovement() {}
