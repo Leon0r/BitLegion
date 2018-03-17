@@ -7,18 +7,11 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	int n = j["mainPj"]["Texture"];
 	_texture = app->getResources()->getImageTexture(Resources::ImageId(n));
 
-	animData* auxAnim;//animacion de parada a la derecha
-	auxAnim = new animData("IdleRight", { 13 });
-	animations.push_back(auxAnim);
-
-	auxAnim = new animData("IdleLeft", { 5 });//animacion de parada a la izquierda
-	animations.push_back(auxAnim);
-
-	auxAnim = new animData("Left", { 0,1,2,3,4,5,6,7 });
-	animations.push_back(auxAnim);
-
-	auxAnim = new animData("Right", { 8,9,10,11,12,13,14,15 });
-	animations.push_back(auxAnim);
+	//animaciones
+	addAnim("IdleRight", { 13 }, false);//parada a la derecha
+	addAnim("IdleLeft", { 5 }, false);//parada a la izquierda
+	addAnim("Left", { 0,1,2,3,4,5,6,7 });//caminar a la izquierda 
+	addAnim("Right", { 8,9,10,11,12,13,14,15 });//caminar a la derecha
 
 	//componentes
 	//render = new ImageRenderer(_texture);
