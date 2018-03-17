@@ -28,7 +28,7 @@ bool Collisions::collides(GameObject* o1, GameObject* o2) {
 
 	// o1 completely to the top of o2, or vice versa
 	if (o1Pos.getY() + o1Height < o2Pos.getY()
-			|| o2Pos.getY() + o2Height < o1Pos.getY() + (o1Height*9)/10) {
+			|| o2Pos.getY() + o2Height < o1Pos.getY() + o1Height) {
 		return false;
 	}
 
