@@ -74,7 +74,7 @@ int AnimationRenderer::nextFrame()
 	if (aux >= animations_[currentAnim_]->framesAnim_.size())
 		if (animations_[currentAnim_]->loop_)
 			aux = 0;
-		else if (animations_[currentAnim_]->onEnded_ >= 0) {
+		else if (animations_[currentAnim_]->onEnded_ >= 0 && animations_[currentAnim_]->onEnded_ < animations_.size()) {
 			currentAnim_ = animations_[currentAnim_]->onEnded_;
 			nextAnim_ = currentAnim_;
 		}

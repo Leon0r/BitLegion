@@ -3,6 +3,7 @@
 #include <vector>
 using namespace std;
 
+const double ANIM_RATE = 100;
 struct animData {
 	string label_; // nombre/etiqueta de la animacion
 	vector<int> framesAnim_; // frames que forman la animacion
@@ -12,6 +13,6 @@ struct animData {
 
 	// constructora de animData
 	animData() { label_ = "Default"; loop_ = false; rate_ = 100; onEnded_ = -1; };
-	animData(string label, vector<int> framesAnim, bool loop = true, int onEnded = -1, double rate = 100.0) :
+	animData(string label, vector<int> framesAnim, bool loop = true, int onEnded = -1, double rate = ANIM_RATE) :
 		label_(label), framesAnim_(framesAnim), loop_(loop), rate_(rate), onEnded_(onEnded) {};
 };

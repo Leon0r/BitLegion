@@ -4,9 +4,6 @@
 #include "SDLApp.h"
 #include "AnimationData.h"
 
-
-const double ANIM_RATE = 100;
-
 class AnimationRenderer :
 	public RenderComponent, public Observer
 {
