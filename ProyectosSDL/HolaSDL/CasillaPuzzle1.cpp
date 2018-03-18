@@ -7,6 +7,5 @@ CasillaPuzzle1::CasillaPuzzle1(SDLApp* app, string tag, Texture* textura) : Enti
 		addRenderComponent(imagen);
 		setWidth(40);
 		setHeight(40);
-		setVelocity(Vector2D(1, 0));
 	}
 }
