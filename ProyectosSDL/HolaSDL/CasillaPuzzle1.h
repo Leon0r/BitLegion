@@ -1,21 +1,24 @@
 #pragma once
 #include "Entity.h"
 #include "ComponenteClickeable.h"
+#include "Texture.h"
+#include "ImageRenderer.h"
 
 class CasillaPuzzle1 :
-	public Entity, ComponenteClickeable
+	public Entity
 {
 private:
 	string tag;
+	Texture* text;
+	RenderComponent* imagen;
 public:
 	CasillaPuzzle1() {};
-	virtual ~CasillaPuzzle1();
+	virtual ~CasillaPuzzle1() {};
 
 	//Constructora que recibe el tag y su descripcion
-	CasillaPuzzle1(SDLApp* app, string tag) : Entity(app), tag(tag) {};
+	CasillaPuzzle1(SDLApp* app, string tag, Texture* textura = nullptr);
 	string getTag() { return this->tag; };
 	void setTag(string newTag) { this->tag = newTag; };
-	bool pulsacion(const SDL_Event& event, int espaciadoX, int espaciadoY);
 	virtual void saveToJson(json& j) { json aux;  Entity::saveToJson(aux); aux["tag"] = tag; };
 };
 
