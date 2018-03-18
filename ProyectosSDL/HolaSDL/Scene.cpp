@@ -73,6 +73,17 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 		if (j["h"].is_null())
 			escenario->setHeight(app->getWindowHeight());
 		else escenario->setHeight(j["h"]);
+		Vector2D pos;
+		if (j["x"].is_null())
+			pos.setX(0);
+		else
+			pos.setX(j["x"]);
+
+		if (j["y"].is_null())
+			pos.setY(0);
+		else
+			pos.setY(j["y"]);
+		escenario->setPosition(pos);
 
 		RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
 		escenario->addRenderComponent(renderEscenario);
