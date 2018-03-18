@@ -42,7 +42,10 @@ public:
 		TicketCompra,
 		Vater,
 		LavaboDucha,
-		Baño
+		Baño,
+		Escena2Caso1,
+		MesillaPasillo,
+		RelojPasillo
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

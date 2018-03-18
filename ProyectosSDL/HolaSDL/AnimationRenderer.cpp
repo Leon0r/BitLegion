@@ -39,7 +39,7 @@ void AnimationRenderer::render(GameObject* o, Uint32 time)
 
 		calculateNextSourceRect();
 
-		if(animations_[currentAnim_]->framesAnim_.size() > 1)
+		if(animations_[currentAnim_]->framesAnim_.size() > 0)
 			currentFrame_ = nextFrame();
 
 		timeLastFrame = SDL_GetTicks();
@@ -74,6 +74,10 @@ int AnimationRenderer::nextFrame()
 	if (aux >= animations_[currentAnim_]->framesAnim_.size())
 		if (animations_[currentAnim_]->loop_)
 			aux = 0;
+		else if (animations_[currentAnim_]->onEnded_ >= 0) {
+			currentAnim_ = animations_[currentAnim_]->onEnded_;
+			nextAnim_ = currentAnim_;
+		}
 		else
 			aux = currentFrame_;
 	return aux;

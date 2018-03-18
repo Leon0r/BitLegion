@@ -33,9 +33,9 @@ public:
 	void setTexture(Uint16 pos, Texture* newText);
 	virtual void saveToJson(json& j);
 
-	virtual void addAnim(string label, vector<int> framesAnim, bool loop = true, double rate = 100)
+	virtual void addAnim(string label, vector<int> framesAnim, bool loop = true, int onEnded = -1, double rate = 100)
 	{
-		animData* newAnim = new animData(label, framesAnim, loop, rate); animations.push_back(newAnim);
+		animData* newAnim = new animData(label, framesAnim, loop, onEnded, rate); animations.push_back(newAnim);
 	}
 	virtual vector<animData*> getAnimations() { return animations; }
 
