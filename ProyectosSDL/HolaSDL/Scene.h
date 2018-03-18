@@ -20,6 +20,8 @@ public:
 	void exitScene();
 	int getSceneNumber() const { return SceneNum; };
 	void saveSceneToJson();
+	double getWidth() const { return width; }
+	double getHeight() const { return height; }
 private:
 	SDLApp* app;
 	int SceneNum;
@@ -27,5 +29,6 @@ private:
 	list<GameObject*>::iterator it;
 	GameState* CurrentState;
 	MainCharacter* pj;
+	double width, height;
 };
 

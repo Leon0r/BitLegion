@@ -8,8 +8,8 @@ MouseMovement::MouseMovement(list<GameObject*>* colisiones, double vel, MainChar
 	destiny.setY(0);
 	nek = new AStar(this);
 	nek->defineCosas(o);
-	sceneWidth = o->getGame()->getWindowWidth();
-	sceneHeight = o->getGame()->getWindowHeight();
+	sceneWidth = o->getSceneWidth();
+	sceneHeight = o->getSceneHeight();
 	auxX = sceneWidth / tamMatriz;
 	auxY = sceneHeight / tamMatriz;
 }
@@ -74,8 +74,6 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 		//si el destino no es el mismo que el anterior buscamos el camino (do u know the wae)
 		if (p.x != q.x && p.y != q.y) {
 			q = p;//actualizamos destino anterior
-			if (p.x >= o->getPosition().getX())send(Ch_Right);//si el destino esta por la derecha ponemos la animacion correspondiente
-			else send(Ch_Left);//lo mismo si esta por la derecha
 			while (!stackerino.empty()) { stackerino.pop(); }//eliminamos el path anterior
 				//aestrella rellena la cola de destinos para llegar al final
 			nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX,
@@ -83,6 +81,14 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 
 			//si ha encontrado destinos
 			if (!stackerino.empty()) {
+				if (p.x >= o->getPosition().getX()) {
+					send(Ch_Right);//si el destino esta por la derecha ponemos la animacion correspondiente
+					idleRight = true;
+				}
+				else {
+					send(Ch_Left);//lo mismo si esta por la derecha
+					idleRight = false;
+				}
 				send(Messages(MouseMoving));//informamos de que empezamos a movernos
 				setDestiny(stackerino.front().first, stackerino.front().second); //establecemos el primero
 				setDirection(o, destiny);//le mandamos hacia el

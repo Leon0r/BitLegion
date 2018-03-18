@@ -24,7 +24,6 @@ private:
 	const Resources* resources = app->getResources();//recursos del juego
 	vector<Scene*> scenes;
 	int currentScene = 0;
-
 public:
 	PlayState() {}
 	~PlayState();

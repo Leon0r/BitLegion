@@ -45,7 +45,11 @@ public:
 		Baño,
 		Escena2Caso1,
 		MesillaPasillo,
-		RelojPasillo
+		RelojPasillo,
+		PuertaCasaAlena,
+		FlechaTransicionSpriteSheet,
+		FlechaTransicionDer,
+		FlechaTransicionIzq
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
