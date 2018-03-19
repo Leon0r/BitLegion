@@ -86,7 +86,9 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 			pos.setY(0);
 		else
 			pos.setY(j["y"]);
-			escenario->setPosition(pos);
+		escenario->setPosition(pos);
+		x = escenario->getPosition().getX();
+		y = escenario->getPosition().getY();
 
 		RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
 		escenario->addRenderComponent(renderEscenario);
@@ -126,6 +128,9 @@ void Scene::enterScene() {
 		}
 	}
 	pj->collisionListWasModified();
+
+	//establecemos el tamaño de la nueva escena en el jugador (para las colisiones y el mouse)
+	pj->setSceneTam(width, height, x, y);
 }
 
 void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se vuelcan en la lista de la escena para que se queden guardados (menos el jugador)

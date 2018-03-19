@@ -21,20 +21,20 @@ void MovementComponent::update(GameObject* o, Uint32 time) {
 
 //controla que el personaje no salga de la pantalla
 void MovementComponent::windowBounces(GameObject* o, double& x, double& y, Vector2D& velocity) {
-	if (y + o->getHeight()*2 / 3 <= o->getGame()->getWindowHeight() / 2) {
-		y = o->getGame()->getWindowHeight() / 2 - o->getHeight()*2 / 3;
+	if (y + o->getHeight() * 2 / 3 <= scenePosY + sceneHeight / 2) {
+		y = scenePosY + sceneHeight / 2 - o->getHeight() * 2 / 3;
 		velocity.setY(0);
 	}
-	else if (y + o->getHeight() >= o->getGame()->getWindowHeight()) {
-		y = o->getGame()->getWindowHeight() - o->getHeight();
+	else if (y + o->getHeight() >= scenePosY + sceneHeight) {
+		y = scenePosY + sceneHeight - o->getHeight();
 		velocity.setY(0);
 	}
 	if (x <= 0) {
 		x = 0;
 		velocity.setX(0);
 	}
-	else if (x + o->getWidth() >= o->getGame()->getWindowWidth()) {
-		x = o->getGame()->getWindowWidth() - o->getWidth();
+	else if (x + o->getWidth() >= scenePosX + sceneWidth) {
+		x = scenePosX + sceneWidth - o->getWidth();
 		velocity.setX(0);
 	}
 }
@@ -42,22 +42,22 @@ void MovementComponent::windowBounces(GameObject* o, double& x, double& y, Vecto
 //controla que el personaje no colisione con ningun objeto
 void MovementComponent::collideObjects(GameObject* o, double& x, double& y, Vector2D& velocity)
 {
-	it = collisions->begin();
-	while (it != collisions->end() && !Collisions::collides(o, *it)) { ++it; }
+		it = collisions->begin();
+		while (it != collisions->end() && !Collisions::collides(o, *it)) { ++it; }
 
-	//si hemos colisionado con algun objeto de la escena
-	if (it != collisions->end()) {
-		//si hemos colisionado por los lados
-		if (o->getPosition().getX()<=(*it)->getPosition().getX()-o->getWidth() ||
-			o->getPosition().getX() >= (*it)->getPosition().getX() + (*it)->getWidth()){
-			x -= velocity.getX();//establecemos la posicion anterior
-			velocity.setX(0);//paramos en x
+		//si hemos colisionado con algun objeto de la escena
+		if (it != collisions->end()) {
+			//si hemos colisionado por los lados
+			if (o->getPosition().getX() <= (*it)->getPosition().getX() - o->getWidth() ||
+				o->getPosition().getX() >= (*it)->getPosition().getX() + (*it)->getWidth()) {
+				x -= velocity.getX();//establecemos la posicion anterior
+				velocity.setX(0);//paramos en x
+			}
+			//si hemos colisionado por arriba o abajo
+			else if (o->getPosition().getY() <= (*it)->getPosition().getY() - o->getHeight() / 4 ||
+				o->getPosition().getY() + o->getHeight() >= (*it)->getPosition().getY()) {
+				y -= velocity.getY();//establecemos la posicion anterior
+				velocity.setY(0);//paramos en y
+			}
 		}
-		//si hemos colisionado por arriba o abajo
-		else if (o->getPosition().getY() <= (*it)->getPosition().getY() - o->getHeight()/4 ||
-			o->getPosition().getY() + o->getHeight() >= (*it)->getPosition().getY()) {
-			y -= velocity.getY();//establecemos la posicion anterior
-			velocity.setY(0);//paramos en y
-		}
-	}
 }

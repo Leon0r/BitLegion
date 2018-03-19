@@ -43,9 +43,6 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	// crea las escenas 1 y 2 desde archivo
 	scenes.push_back(new Scene(0, app, alena));
 	scenes.push_back(new Scene(1, app, alena));
-
-	alena->setSceneWidth(scenes[currentScene]->getWidth());
-	alena->setSceneHeight(scenes[currentScene]->getHeight());
 }
 
 void PlayState::swapScene(int nextScene)

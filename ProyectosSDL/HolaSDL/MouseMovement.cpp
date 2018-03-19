@@ -8,10 +8,6 @@ MouseMovement::MouseMovement(list<GameObject*>* colisiones, double vel, MainChar
 	destiny.setY(0);
 	nek = new AStar(this);
 	nek->defineCosas(o);
-	sceneWidth = o->getSceneWidth();
-	sceneHeight = o->getSceneHeight();
-	auxX = sceneWidth / tamMatriz;
-	auxY = sceneHeight / tamMatriz;
 }
 
 //actualizamos la logica del personaje
@@ -62,7 +58,6 @@ void MouseMovement::setDirection(GameObject* o, Vector2D destiny) {
 
 //eventos de mouse
 void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& event) {
-
 	//si se pulsa el raton registramos su posicion
 	if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_RIGHT) {
 		p.x = event.button.x;
@@ -110,10 +105,10 @@ void MouseMovement::generaMatriz(GameObject* o) {
 	x = tamMatriz / 2;
 	y = 0;
 	//recorremos la matriz de la mitad hacia abajo (la mitad de arriba es la pared, asi que se queda todo a 0)
-	for (int i = sceneHeight / 2 + (sceneHeight / tamMatriz) / 2; i < sceneHeight; i += sceneHeight / tamMatriz) {
+	for (int i = scenePosY + sceneHeight / 2 + (sceneHeight / tamMatriz) / 2; i < scenePosY + sceneHeight; i += sceneHeight / tamMatriz) {
 		y = 0;
 
-		for (int j = (sceneWidth / tamMatriz) / 2; j < sceneWidth; j += sceneWidth / tamMatriz) {
+		for (int j = scenePosX + (sceneWidth / tamMatriz) / 2; j < scenePosX + sceneWidth; j += sceneWidth / tamMatriz) {
 			list<GameObject*>::iterator it = collisions->begin();
 			bool colisionado = false;
 

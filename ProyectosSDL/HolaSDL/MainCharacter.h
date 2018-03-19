@@ -28,10 +28,11 @@ public:
 	void setNewCollision(GameObject* o) { colisionables->push_back(o); }
 	void collisionListWasModified() { mouseMovement->generaMatriz(this); } //m�todo auxiliar, es llamado cuando sales de una escena, para generar de nuevo la matriz de colisionables
 	MouseMovement* getMouseComponent() const { return mouseMovement; }
-	void setSceneWidth(double w) { sceneWidth = w; }
-	void setSceneHeight(double h) { sceneHeight = h; }
-	double getSceneWidth() { return sceneWidth; }
-	double getSceneHeight() { return sceneHeight; }
+	//establece el tamaño de la escena para el mouse y las colisiones del movimiento
+	void setSceneTam(double w, double h, double x, double y) {
+		mouseMovement->setSceneTam(w, h, x, y);
+		static_cast<MovementComponent*>(movement)->setSceneTam(w, h, x, y);
+	}
 private:
 	Texture * _texture;
 	ShortCut * shortCut;
@@ -43,6 +44,5 @@ private:
 	ObjectList* list;
 	std::list<GameObject*>* colisionables;
 	ComponentSwitcher switcher = ComponentSwitcher(app, this);
-	double sceneWidth = 0, sceneHeight = 0;
 };
 

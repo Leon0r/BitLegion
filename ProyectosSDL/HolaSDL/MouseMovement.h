@@ -15,8 +15,8 @@ private:
 	Vector2D destiny;
 	double vel;
 	SDL_Point p, q;//punto destino (p) y destino anterior (q)
-	int sceneWidth, sceneHeight;
-	int auxX, auxY;//reescalado de la matriz
+	int sceneWidth = 0, sceneHeight = 0, scenePosX = 0, scenePosY = 0;//tamaño de la escena
+	int auxX = 0, auxY = 0;//reescalado de la matriz
 	AStar* nek;
 	MainCharacter* o;
 	bool solucionadorBugs();//soluciona bugs, de omento no esta activo
@@ -40,5 +40,14 @@ public:
 	void setDirection(GameObject* o, Vector2D destiny);
 	bool playerInDestiny(GameObject* o, Vector2D destiny);
 	void generaMatriz(GameObject* o);//inicializa a la matriz con los valores adecuados (0 colisionable, 1 vacio)
+	//maincharacter le da el tamaño de la nueva escena cada vez que esta cambia
+	void setSceneTam(double w, double h, double x, double y) {
+		sceneWidth = w;
+		sceneHeight = h;
+		scenePosX = x;
+		scenePosY = y;
+		auxX = sceneWidth / tamMatriz;
+		auxY = sceneHeight / tamMatriz;
+	}
 };
 
