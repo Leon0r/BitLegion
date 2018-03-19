@@ -54,35 +54,80 @@ void Puzzle1State::tresUnidos()
 {
 	vector<int> casSp;
 	int cont = 0;
+	Texture* aux = nullptr;
 	if(currentFil >= 0){
-		for (int i = 0; i < numCas-1; i++){
+		for (int i = 0; i < numCas; i++){
 			//Si la casilla es especial
 			if (matriz[currentFil][i]->active()) {
 				casSp.push_back(i);//marcamos como especial para luego comprobar otra dir
-				if( matriz[currentFil][i]->getTexture(0) == matriz[currentFil][i+1]->getTexture(0)) {
-				cont++;//Aumentamos contador
+				if (aux == nullptr) aux = matriz[currentFil][i]->getTexture(0);//Textura aux a comprobar
+				if( matriz[currentFil][i]->getTexture(0) == aux) {//Si tiene la textura correcta
+					cont++;//Aumentamos contador
 				}
-				else if (cont > 3){
-					for (int j = cont; j = 0; j--) {
+				else {
+					aux = matriz[currentFil][i]->getTexture(0);//Le damos el valor de la nueva casilla activap
+					if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
+						for (int j = cont; j > 0; j--) {
+							matriz[currentFil][i - j]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+						}
+					}
+					cont = 1;//La que acabamos de recibir
+				}
+			}
+			else {
+				if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
+					for (int j = cont; j > 0; j--) {
 						matriz[currentFil][i - j]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
 					}
-					cont = 0;
 				}
-				else cont = 0;
+				cont = 0; aux = nullptr;
+			}//Reseteo vars
+		}
+		if (cont >= 3) {
+			for (int j = cont; j > 0; j--) {
+				matriz[currentFil][numCas - j]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
 			}
+			cont = 0;
+			aux = nullptr;
 		}
-	if (cont >= 3) {
-		for (int j = cont; j > 0; j--) {
-			matriz[currentFil][numCas-1 - j]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+		else { cont = 0; aux = nullptr;}
+	}
+	if(currentCol>-1){
+		for (int i = 0; i < numCas; i++) {
+			//Si la casilla es especial
+			if (matriz[i][currentCol]->active()) {
+				casSp.push_back(i);//marcamos como especial para luego comprobar otra dir
+				if (aux == nullptr) aux = matriz[i][currentCol]->getTexture(0);//Textura aux a comprobar
+				if (matriz[i][currentCol]->getTexture(0) == aux) {//Si tiene la textura correcta
+					cont++;//Aumentamos contador
+				}
+				else {
+					aux = matriz[i][currentCol]->getTexture(0);//Le damos el valor de la nueva casilla activap
+					if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
+						for (int j = cont; j > 0; j--) {
+							matriz[i - j][currentCol]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+						}
+					}
+					cont = 1;//La que acabamos de recibir
+				}
+			}
+			else {
+				if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
+					for (int j = cont; j > 0; j--) {
+						matriz[i - j][currentCol]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+					}
+				}
+				cont = 0; aux = nullptr; 
+			}//Reseteo vars
 		}
-		cont = 0;
-	}
-	else cont = 0;
-
-
-		
-	}
-	else {
+		if (cont >= 3) {
+			for (int j = cont; j > 0; j--) {
+				matriz[numCas - j][currentCol]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+			}
+			cont = 0;
+			aux = nullptr;
+		}
+		else { cont = 0; aux = nullptr; }
 
 	}
 }
@@ -121,6 +166,7 @@ void Puzzle1State::mueveMatriz()
 			mover = false;
 			auxAB = matriz[numCas - 1][numCas - 1]->getPosition().getY();
 			auxA = auxAB - relacion.second*espaciado;
+			tresUnidos();
 		}
 	}
 }
