@@ -21,5 +21,6 @@ public:
 	string getTag() { return this->tag; };
 	void setTag(string newTag) { this->tag = newTag; };
 	virtual void saveToJson(json& j) { json aux;  Entity::saveToJson(aux); aux["tag"] = tag; };
+	void deActivate() { special = false; };
 };
 

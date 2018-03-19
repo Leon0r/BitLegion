@@ -27,6 +27,9 @@ private:
 	vector<vector<CasillaPuzzle1*>> matriz;
 	static void usar(GameState* state, int fil, int col);
 	vector<Boton*> botones;
+
+
+	void checkLine(int line, bool Vert);
 public:
 	Puzzle1State() {};
 	Puzzle1State(SDLApp* game,  GameState* previousState);
