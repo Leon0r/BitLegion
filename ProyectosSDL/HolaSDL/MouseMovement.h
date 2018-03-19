@@ -15,11 +15,10 @@ private:
 	Vector2D destiny;
 	double vel;
 	SDL_Point p, q;//punto destino (p) y destino anterior (q)
-	int sceneWidth = 0, sceneHeight = 0, scenePosX = 0, scenePosY = 0;//tamaño de la escena
-	int auxX = 0, auxY = 0;//reescalado de la matriz
+	int sceneWidth = 1280, sceneHeight = 720, scenePosX = 0, scenePosY = 0;//tamaño de la escena
+	int auxX = 1280/40, auxY = 720/40;//reescalado de la matriz
 	AStar* nek;
-	MainCharacter* o;
-	bool solucionadorBugs();//soluciona bugs, de omento no esta activo
+	//bool solucionadorBugs();//soluciona bugs, de omento no esta activo
 	bool idleRight = true;//determina hacia que lado estamos mirando cuando estamos parados
 public:
 	queue<pair<int, int>> stackerino;//cola de destinos intermedios para llegar al final

@@ -127,10 +127,12 @@ void Scene::enterScene() {
 			pj->setNewCollision(col);
 		}
 	}
-	pj->collisionListWasModified();
 
 	//establecemos el tamaño de la nueva escena en el jugador (para las colisiones y el mouse)
 	pj->setSceneTam(width, height, x, y);
+
+	//genera la matriz para el mouse
+	pj->collisionListWasModified();
 }
 
 void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se vuelcan en la lista de la escena para que se queden guardados (menos el jugador)

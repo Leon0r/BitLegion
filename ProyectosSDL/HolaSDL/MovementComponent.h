@@ -10,7 +10,7 @@ class MovementComponent : public PhysicsComponent {
 protected:
 	list<GameObject*>* collisions;
 	list<GameObject*>::iterator it;
-	int sceneWidth = 0, sceneHeight = 0, scenePosX = 0, scenePosY = 0;
+	int sceneWidth = 1280, sceneHeight = 720, scenePosX = 0, scenePosY = 0;
 public:
 	MovementComponent() {}
 	MovementComponent(list<GameObject*>* colisiones): collisions(colisiones) {}

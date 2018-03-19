@@ -29,8 +29,8 @@ void MovementComponent::windowBounces(GameObject* o, double& x, double& y, Vecto
 		y = scenePosY + sceneHeight - o->getHeight();
 		velocity.setY(0);
 	}
-	if (x <= 0) {
-		x = 0;
+	if (x <= scenePosX) {
+		x = scenePosX;
 		velocity.setX(0);
 	}
 	else if (x + o->getWidth() >= scenePosX + sceneWidth) {

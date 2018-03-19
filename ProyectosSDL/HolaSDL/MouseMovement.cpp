@@ -3,7 +3,7 @@
 #include "AStar.h"
 
 
-MouseMovement::MouseMovement(list<GameObject*>* colisiones, double vel, MainCharacter* o) : MovementComponent(colisiones), vel(vel), o(o) {
+MouseMovement::MouseMovement(list<GameObject*>* colisiones, double vel, MainCharacter* o) : MovementComponent(colisiones), vel(vel) {
 	destiny.setX(0);
 	destiny.setY(0);
 	nek = new AStar(this);
@@ -138,7 +138,7 @@ void MouseMovement::generaMatriz(GameObject* o) {
 
 //identifica el colisionable mas cercano al destino, y mira si el jugador chocaria con el al llegar
 //si es asi no te deja clicar ahi
-bool MouseMovement::solucionadorBugs() {
+/*bool MouseMovement::solucionadorBugs() {
 	bool found = false;
 	list<GameObject*>::iterator it;
 	list<GameObject*>::iterator aux;
@@ -174,5 +174,5 @@ bool MouseMovement::solucionadorBugs() {
 	else if ((*aux)->getPosition().getY() + (*aux)->getHeight() >= p.y - o->getHeight() && (*aux)->getPosition().getY() > p.y
 		&& (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x && (*aux)->getPosition().getX() < p.x) { //por abajo
 		p.y += o->getHeight()/2;
-	}*/
-}
+	}
+}*/
