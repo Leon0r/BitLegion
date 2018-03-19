@@ -42,14 +42,17 @@ public:
 		TicketCompra,
 		Vater,
 		LavaboDucha,
-		Baño,
+		Banio,
 		Escena2Caso1,
 		MesillaPasillo,
 		RelojPasillo,
 		PuertaCasaAlena,
 		FlechaTransicionSpriteSheet,
 		FlechaTransicionDer,
-		FlechaTransicionIzq
+		FlechaTransicionIzq,
+		llavePisoPuzzle,
+		CasillaPuzzleV,
+		BotonPuzzle,  
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

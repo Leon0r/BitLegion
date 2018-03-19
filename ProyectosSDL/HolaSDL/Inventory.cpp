@@ -105,6 +105,7 @@ void Inventory::handleEvent(SDL_Event& event) {
 }
 
 void Inventory::render() {
+	if (previousState != nullptr) previousState->render();
 	GameState::render(); //se llama a los componentes "Render" de todos los objetos de la lista del inventario
 	if (selected != nullptr){
 		Texture fuente(app->getRenderer(), selected->getDescription(), *f, colorFuente); //fuente din�mica

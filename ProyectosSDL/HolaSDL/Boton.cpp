@@ -13,6 +13,9 @@ void Boton::handleInput(Uint32 time, const SDL_Event& event) {
 		else if (state != nullptr) { //si state != nullptr se ejecuta
 			state(actualState);
 		}
+		else if (stateFC != nullptr) { //si state != nullptr se ejecuta
+			stateFC(actualState, f, c);
+		}
 	}
 	Entity::handleInput(time, event); //se llama al handleInput --> componentes adicionales que puedan tener
 }

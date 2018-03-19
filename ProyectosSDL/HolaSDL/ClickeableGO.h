@@ -13,7 +13,6 @@ public:
 	ClickeableGO(SDLApp* game,int x,int y,int w,int h,  Texture* texture);
 	virtual ~ClickeableGO();
 	void handleInput(Uint32 time, const SDL_Event& event);
-	;
 	//Texture* getTexture(){ return txt; };
 private:
 	

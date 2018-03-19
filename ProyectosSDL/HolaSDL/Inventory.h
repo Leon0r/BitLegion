@@ -1,7 +1,6 @@
 #pragma once
 #include "GameState.h"
 #include "CasillaInventario.h"
-#include "ComponenteClickeable.h"
 #include "ObjectList.h"
 #include "ShortCut.h"
 
