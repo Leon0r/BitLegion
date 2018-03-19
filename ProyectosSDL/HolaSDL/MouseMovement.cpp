@@ -3,11 +3,10 @@
 #include "AStar.h"
 
 
-MouseMovement::MouseMovement(list<GameObject*>* colisiones, double vel, MainCharacter* o) : MovementComponent(colisiones), vel(vel) {
+MouseMovement::MouseMovement(list<GameObject*>* colisiones, double vel) : MovementComponent(colisiones), vel(vel) {
 	destiny.setX(0);
 	destiny.setY(0);
 	nek = new AStar(this);
-	nek->defineCosas(o);
 }
 
 //actualizamos la logica del personaje
@@ -60,8 +59,8 @@ void MouseMovement::setDirection(GameObject* o, Vector2D destiny) {
 void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& event) {
 	//si se pulsa el raton registramos su posicion
 	if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_RIGHT) {
-		p.x = event.button.x;
-		p.y = event.button.y;
+		p.x = event.button.x - scenePosX;
+		p.y = event.button.y - scenePosY;
 	}
 
 	//si se suelta elegimos la direccion del jugador para llegar a esa posicion y actualizamos la posicion destino del componente mouseMov
@@ -71,12 +70,12 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 			q = p;//actualizamos destino anterior
 			while (!stackerino.empty()) { stackerino.pop(); }//eliminamos el path anterior
 				//aestrella rellena la cola de destinos para llegar al final
-			nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX,
-				(o->getPosition().getY() + o->getHeight() - 1) / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
+			nek->aStarSearch(grid2, pair<double, double>((o->getPosition().getX() - scenePosX) / auxX,
+				((o->getPosition().getY() - scenePosY) + o->getHeight() - 1) / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
 
 			//si ha encontrado destinos
 			if (!stackerino.empty()) {
-				if (p.x >= o->getPosition().getX()) {
+				if (p.x + scenePosX >= o->getPosition().getX()) {
 					send(Ch_Right);//si el destino esta por la derecha ponemos la animacion correspondiente
 					idleRight = true;
 				}

@@ -146,6 +146,7 @@ void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se
 	SceneItems.pop_front(); //quitamos al shortcut
 	pj->setVelocity(Vector2D(0.0, 0.0));
 	pj->getMouseComponent()->send(Messages(MouseStop));
+	pj->getMouseComponent()->send(Messages(CambioEscena));
 }
 
 

@@ -23,7 +23,7 @@ private:
 public:
 	queue<pair<int, int>> stackerino;//cola de destinos intermedios para llegar al final
 	MouseMovement() {}
-	MouseMovement(list<GameObject*>* colisiones, double vel, MainCharacter* o);
+	MouseMovement(list<GameObject*>* colisiones, double vel);
 	~MouseMovement() { delete nek; }
 
 	//actualizamos la logica del personaje
@@ -32,8 +32,8 @@ public:
 	void stopMovement(GameObject* o, Vector2D destiny);
 	//actualizamos la posicion destino a la que quiere ir
 	void setDestiny(double x, double y) {
-		destiny.setX(x);
-		destiny.setY(y);
+		destiny.setX(x + scenePosX);
+		destiny.setY(y + scenePosY);
 	}
 	virtual void handleInput(GameObject* o, Uint32 time, const SDL_Event& event);
 	void setDirection(GameObject* o, Vector2D destiny);
