@@ -17,7 +17,7 @@ private:
 	Entity* copia;
 	RenderComponent* imagenMarca;
 	RenderComponent* selectedTexture;
-	const double espaciado = 87.0;
+	const int espaciado = 85.0;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const double topD = relacion.first*(espaciado*4 + 137 + espaciado/2), topI = relacion.first*(137-espaciado/2), topA = relacion.second*(112 - espaciado / 2), topAB = relacion.second*(espaciado*4 + 112 + espaciado / 2);
 	double auxI, auxD, auxA, auxAB;
@@ -34,7 +34,7 @@ public:
 	virtual void handleEvent(SDL_Event& event) { GameState::handleEvent(event); }
 	virtual void render() { GameState::render();}
 	virtual void update();
-	void tresUnidos() {};
+	void tresUnidos();
 	void mueveMatriz();
 	void reestableFC(int f, int c){ //by gonzalo
 		if (f != -1) {

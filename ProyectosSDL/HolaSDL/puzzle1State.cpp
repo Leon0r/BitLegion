@@ -7,7 +7,8 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState
 	for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
 		matriz[i].resize(numCas);
 		for (int j = 0; j < numCas; j++) {
-			matriz[i][j] = new CasillaPuzzle1(game, std::to_string(i*numCas + j), game->getResources()->getImageTexture(Resources::CasillaPuzzleV));
+			if (j % 2 == 0 && i % 2 == 0)matriz[i][j] = new CasillaPuzzle1(game, std::to_string(i*numCas + j), game->getResources()->getImageTexture(Resources::llavePisoPuzzle), true);
+			else matriz[i][j] = new CasillaPuzzle1(game, std::to_string(i*numCas + j), game->getResources()->getImageTexture(Resources::CasillaPuzzleV));
 			matriz[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + 137), relacion.second*(espaciado*i + 112)));
 			stage.push_back(matriz[i][j]);
 		}
@@ -49,12 +50,49 @@ void Puzzle1State::update()
 	if (mover) mueveMatriz();
 }
 
+void Puzzle1State::tresUnidos()
+{
+	vector<int> casSp;
+	int cont = 0;
+	if(currentFil >= 0){
+		for (int i = 0; i < numCas-1; i++){
+			//Si la casilla es especial
+			if (matriz[currentFil][i]->active()) {
+				casSp.push_back(i);//marcamos como especial para luego comprobar otra dir
+				if( matriz[currentFil][i]->getTexture(0) == matriz[currentFil][i+1]->getTexture(0)) {
+				cont++;//Aumentamos contador
+				}
+				else if (cont > 3){
+					for (int j = cont; j = 0; j--) {
+						matriz[currentFil][i - j]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+					}
+					cont = 0;
+				}
+				else cont = 0;
+			}
+		}
+	if (cont >= 3) {
+		for (int j = cont; j > 0; j--) {
+			matriz[currentFil][numCas-1 - j]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+		}
+		cont = 0;
+	}
+	else cont = 0;
+
+
+		
+	}
+	else {
+
+	}
+}
+
 void Puzzle1State::mueveMatriz()
 {
 	if (currentFil >= 0) {
 		if (auxD > auxI) {
 			for (int i = 0; i < numCas; i++) {
-				matriz[currentFil][i]->setVelocity(Vector2D(4*relacion.first, 0));
+				matriz[currentFil][i]->setVelocity(Vector2D(5, 0));
 				matriz[currentFil][i]->setPosition(matriz[currentFil][i]->getPosition() + matriz[currentFil][i]->getVelocity());
 				if (matriz[currentFil][i]->getPosition().getX() > topD) 
 					matriz[currentFil][i]->setPosition(Vector2D(topI, matriz[currentFil][i]->getPosition().getY()));
@@ -66,12 +104,13 @@ void Puzzle1State::mueveMatriz()
 			mover = false;
 			auxI = matriz[0][0]->getPosition().getX();
 			auxD = auxI + relacion.first*espaciado;
+			tresUnidos();
 		}
 	}
 	else {
 		if (auxA < auxAB) {
 			for (int i = 0; i < numCas; i++) {
-				matriz[i][currentCol]->setVelocity(Vector2D(0, -4*relacion.second));
+				matriz[i][currentCol]->setVelocity(Vector2D(0, -5));
 				matriz[i][currentCol]->setPosition(matriz[i][currentCol]->getPosition() + matriz[i][currentCol]->getVelocity());
 				if (matriz[i][currentCol]->getPosition().getY() < topA) matriz[i][currentCol]->setPosition(Vector2D(matriz[i][currentCol]->getPosition().getX(), topAB));
 			}

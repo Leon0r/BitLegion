@@ -46,6 +46,8 @@ public:
 		BotonPuzzle,
 		BotonPuzzleP,
 		CasillaPuzzleV,
+		llavePisoPuzzle,
+
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
