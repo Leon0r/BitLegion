@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "SDLApp.h"
 
 Entity::Entity(SDLApp* game) :
 		GameObject(game), inputComp_(), physicsComp_(), renderComp_() {
@@ -68,4 +69,9 @@ void Entity::setTexture(Uint16 pos, Texture* newText) {
 	if (pos < renderComp_.size()) {
 		renderComp_[pos]->setTexture(newText);
 	}
+}
+
+void Entity::saveToJson(json& j) {
+	Vector2D pos = this->getPosition(); j["x"] = pos.getX(); j["y"] = pos.getY();  j["w"] = this->getWidth();
+	j["h"] = this->getHeight(); j["Texture"] = app->getResources()->getPosTexture(this->getTexture(0));
 }

@@ -6,29 +6,40 @@
 enum personajes{ Alena, Ander, Jeffa, Extras };
 enum emociones{ normal, especial, sorpresa, enfado, triste, feliz };
 
+
 using namespace std;
+
+struct opciones{
+	int nodoApuntado;
+	string texto;
+};
 
 class NodoDialogo
 {
 public:
+	
+
+
 	NodoDialogo();
 	virtual ~NodoDialogo();
 
-	struct opciones{
-		int nodoApuntado;
-		string texto;
-	};
+
+	NodoDialogo(int numnodo, int nodosig, vector<string> text, int numopciones, vector<opciones> resp, personajes Pj, emociones Emo);
+
+	
 
 	vector<string> getTexto();
-	int getSiguiente(int opcion = -1);
+	int getSiguiente(int opcion = -1);		//por defecto, no tiene opciones y apunta a nodoSig
 	int getNumOpciones(){return numOpciones;}
 	emociones getEmo(){return emo;}
 	personajes getPj(){return pj;}
+	int getNumNodo(){ return numNodo; }
+	vector<opciones> getOpciones(){ return respuestas; }
 
 private:
 	int numNodo;
 	int nodoSig;
-	vector<string> texto = { "" };
+	vector<string> texto;
 	int numOpciones;
 	vector<opciones> respuestas;
 	personajes pj;

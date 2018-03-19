@@ -3,6 +3,7 @@
 
 NodoDialogo::NodoDialogo()
 {
+	texto = { "" };
 }
 
 
@@ -23,10 +24,11 @@ int NodoDialogo::getSiguiente(int opcion){
 // Las opciones se devuelven cada una en un string
 vector<string> NodoDialogo::getTexto(){
 	
-	if (texto[0] != "")
+	if (numOpciones <= 0)
 		return texto;
 	else{
 		vector<string> salida;
+		salida.resize(numOpciones);
 		int n = 0;
 		for each (opciones op in respuestas)
 		{
@@ -35,4 +37,15 @@ vector<string> NodoDialogo::getTexto(){
 		}
 		return salida;
 	}
+}
+
+NodoDialogo::NodoDialogo(int numnodo, int nodosig, vector<string> text, 
+	int numopciones, vector<opciones> resp, personajes Pj, emociones Emo){
+	numNodo = numnodo;
+	nodoSig = nodosig;
+	texto = text;
+	numOpciones = numopciones;
+	respuestas = resp;
+	pj = Pj;
+	emo = Emo;
 }

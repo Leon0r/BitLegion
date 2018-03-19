@@ -1,7 +1,7 @@
 #pragma once
 #include "InputComponent.h"
 #include "Inventory.h"
-#include "StatePrueba.h"
+#include "PlayState.h"
 #include <stack>
 
 using namespace std;
@@ -10,8 +10,8 @@ using namespace std;
 class KeyboardComponent : public InputComponent {
 public:
 	//establecemos velocidad y teclas de direccion
-	KeyboardComponent(double v, SDL_Keycode right, SDL_Keycode left, SDL_Keycode up, SDL_Keycode down, SDL_Keycode inv, ObjectList* list) :
-		vel_(v), right(right), left(left), up(up), down(down), inventory(inv), list(list) {}
+	KeyboardComponent(double v, SDL_Keycode right, SDL_Keycode left, SDL_Keycode up, SDL_Keycode down, SDL_Keycode inv) :
+		vel_(v), right(right), left(left), up(up), down(down), inventory(inv) {}
 	~KeyboardComponent() {}
 
 	//miramos eventos de teclado
@@ -26,8 +26,7 @@ private:
 	SDL_Keycode inventory;
 	stack<SDL_Keycode> Xaxis;//pila de teclas del eje x
 	stack<SDL_Keycode> Yaxis;//pila de teclas del eje y
-	//flags para saber si has pulsado las teclas
-	bool r = false, l = false, u = false, d = false;
-	ObjectList* list;
+	//flags para saber si has pulsado las teclas. El ultimo sirev para saber si has parado hacia la derecha o no
+	bool r = false, l = false, u = false, d = false, iddleRight = true;
 };
 

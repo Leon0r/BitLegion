@@ -28,7 +28,24 @@ public:
 		Escena1Caso1,
 		Cama,
 		Mesa,
-		Cocina
+		Cocina,
+		PuertaCutre,
+		LlaveCutre,
+		BolsaCoca,
+		BolsaVacia,
+		BotellaVodka,
+		Cuaderno,
+		FotoNoviaMuerto,
+		LlaveHotel,
+		LlavePiso,
+		MovilMuerto,
+		TicketCompra,
+		Vater,
+		LavaboDucha,
+		Baño,
+		Escena2Caso1,
+		MesillaPasillo,
+		RelojPasillo
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
@@ -38,6 +55,8 @@ public:
 	virtual ~Resources();
 
 	Texture* getImageTexture(ImageId i) const;
+
+	int getPosTexture(Texture* text) const;
 
 private:
 	void setImageTextures(std::vector<std::string> textures);

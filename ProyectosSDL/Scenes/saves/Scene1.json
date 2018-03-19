@@ -1,23 +1,37 @@
 {
- "ItemInventario": [
-  {
-   "Texture": 6,
-   "descripcion": "Esta es mi descripcion",
-   "h": 64.0,
-   "tag": "Este es mi tag",
-   "w": 64.0,
-   "x": 666.0,
-   "y": 66.0
-  }
- ],
- "OTransicion": [
-  {
-   "Texture": 5,
-   "h": 300.0,
-   "sceneNumber": 0,
-   "w": 200.0,
-   "x": 10.0,
-   "y": 500.0
-  }
- ]
+   "CollisionableObject": [
+      {
+         "Texture": 26,
+         "h": 260.0,
+         "w": 330.0,
+         "x": 0.0,
+         "y": 180.0
+      }
+   ],
+   "GOTransiciones": [
+      {
+         "Texture": 5,
+         "h": 50.0,
+         "scneNum": 0,
+         "w": 50.0,
+         "x": 10.0,
+         "y": 500.0
+      }
+   ],
+   "ItemInventario": [
+      {
+         "Texture": 6,
+         "descripcion": "Esta es mi descripcion",
+         "h": 64.0,
+         "tag": "Este es mi tag",
+         "w": 64.0,
+         "x": 666.0,
+         "y": 66.0
+      }
+   ],
+   "Texture": 27,
+   "h": 720.0,
+   "w": 640.0,
+   "x": 320.0,
+   "y": 0.0
 }

@@ -13,7 +13,7 @@ void ObjectList::addItem(GameObject* o) {
 			CasillaInventario* newCasilla = new CasillaInventario(app, aux->getTag(), aux->getDescription()); //creamos el objeto con su tag y su descripcion
 			ImageRenderer* cmpRender = new ImageRenderer(aux->getTexture(0));
 			newCasilla->addRenderComponent(cmpRender);
-			newCasilla->setWidth(20*app->getWindowWidth()/800);
+			newCasilla->setWidth(40*app->getWindowWidth()/800);
 			newCasilla->setHeight(40*app->getWindowHeight()/600); //medidas de prueba
 			newCasilla->setPosition(Vector2D(-newCasilla->getWidth() / 2, -newCasilla->getHeight() / 2));
 			objetos.push_back(newCasilla); //lo guardamos
@@ -34,7 +34,9 @@ void ObjectList::deleteItem(string tag) {
 			delete(*it);//lo borra
 			it = objetos.erase(it);
 		}
-		it++;
+		else {
+			it++;
+		}
 	}
 }
 

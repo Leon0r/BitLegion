@@ -1,10 +1,10 @@
 #include "Inventory.h"
 #include "Boton.h"
 #include "Font.h"
-//#include "GameStateMachine.h"
+#include "MainCharacter.h"
+#include "AnimationRenderer.h"
 
-
-Inventory::Inventory(SDLApp* app, ObjectList* inventario, int coefRed = 0, vector<Vector2D> matS = {}) : GameState(app), inventario(inventario), selected(nullptr), coefRed(coefRed), matrizS(matS) {
+Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousState, ShortCut* shortcut) : GameState(app), inventario(inventario), selected(nullptr), previousState(previousState), SC(shortcut) {
 	matriz.resize(numCas*numCas);
 	for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
 		for (int j = 0; j < numCas; j++) {
@@ -13,19 +13,20 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, int coefRed = 0, vecto
 	}
 
 	f = new Font("..//images/fuente2.ttf", tamanyoFuente);
-	imagen = new ImageRenderer(app->getResources()->getImageTexture(Resources::Inventario));
-
+	//imagen = new ImageRenderer(app->getResources()->getImageTexture(Resources::Inventario));
+	
 	//imagen del inventario
-	inventarioHud->addRenderComponent(imagen);
 	inventarioHud->setHeight(app->getWindowHeight()*0.75);
 	inventarioHud->setWidth(app->getWindowWidth()*0.75);
 	inventarioHud->setPosition(Vector2D(Vector2D(app->getWindowWidth() / 2 - inventarioHud->getWidth()/2, 
 		app->getWindowHeight() / 2 - inventarioHud->getHeight()/2)));
+	imagen = new AnimationRenderer(app->getResources()->getImageTexture(Resources::Inventario), inventarioHud->getAnimations(), 4, 6, 600, 2700/6);
+	inventarioHud->addRenderComponent(imagen);
 
 	for (int i = 0; i < inventario->getLength(); i++) { // se colocan los objetos en sus posiciones correspondientes
 		if (i < numCas){
-			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth() * 3);
-			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight() * 3);
+			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth()* SC->getCoef());
+			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight() * SC->getCoef());
 		}
 		inventario->getItem(i)->setPosition(Vector2D(matriz[i].getX() - inventario->getItem(i)->getWidth()/2, 
 			matriz[i].getY() - inventario->getItem(i)->getHeight() / 2));
@@ -37,10 +38,9 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, int coefRed = 0, vecto
 	marca->setHeight(espaciado*relacion.second);
 	marca->setWidth(espaciado*relacion.first);
 	//se pushea todo a la lista de objetos
-	stage.push_back(inventarioHud);
 	inventario->pushObjects(stage);
 
-	if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
+if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 		copia = new Entity(app);
 		selected = inventario->getItem(0); //inicializamos el primero como seleccionado
 		selectedTexture = new ImageRenderer(selected->getTexture(0));
@@ -58,26 +58,29 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, int coefRed = 0, vecto
 
 	//--------------------Pruebas Botones ----------------------
 	Boton* useButton = new Boton(app, usar, this, "use"); //nuevo Boton
-	ImageRenderer* im = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonUsar)); //se crea su image Renderer
+	RenderComponent* im = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonUsar), useButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	useButton->addRenderComponent(im);
-	useButton->setPosition(Vector2D{ 547*relacion.first, 450*relacion.second }); //posiciones random de prueba
-	useButton->setWidth(app->getResources()->getImageTexture(Resources::BotonSwap)->getWidth()*relacion.first);
-	useButton->setHeight(app->getResources()->getImageTexture(Resources::BotonSwap)->getHeight()*relacion.second);
+	useButton->setPosition(Vector2D{ 548*relacion.first, 449*relacion.second }); //posiciones random de prueba
+	useButton->setWidth(140*relacion.first);
+	useButton->setHeight(31*relacion.second);
 	stage.push_back(useButton); //se pushea
-	ImageRenderer* im2 = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonSwap)); //se crea su image Renderer
+
 	Boton* swapButton = new Boton(app, swap, this, "swap"); //nuevo Boton
+	RenderComponent* im2 = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSwap), swapButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	swapButton->addRenderComponent(im2);
-	swapButton->setPosition(Vector2D{ 547*relacion.first, 480*relacion.second }); //posiciones random de prueba
-	swapButton->setWidth(app->getResources()->getImageTexture(Resources::BotonSwap)->getWidth()*relacion.first);
-	swapButton->setHeight(app->getResources()->getImageTexture(Resources::BotonSwap)->getHeight()*relacion.second);
+	swapButton->setPosition(Vector2D{ 548*relacion.first, 480*relacion.second }); //posiciones random de prueba
+	swapButton->setWidth(140*relacion.first);
+	swapButton->setHeight(31*relacion.second);
 	stage.push_back(swapButton); //se pushea
-	//-------------ConstructoraToGrandeLoko(hay q hacerla más pequeñita)------------------------
+
+	stage.push_back(inventarioHud);
+	//-------------ConstructoraToGrandeLoko(hay q hacerla mï¿½s pequeï¿½ita)------------------------
 }
 
 void Inventory::handleEvent(SDL_Event& event) {
 	list<CasillaInventario*>::iterator it;
 	for (it = inventario->getBegin(); it != inventario->getEnd(); it++) { //recorre la lista de objetos
-		if ((*it)->pulsacion(event, marca->getWidth(), marca->getHeight())) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
+		if ((*it)->pulsacion(event, (int)marca->getWidth(), (int)marca->getHeight())) { //se puede ejecutar el metodo que comprueba si ha sido clickado o no
 			if (bswap) {
 				bswap = false;
 				marca->setTexture(0, app->getResources()->getImageTexture(Resources::InvMarca));
@@ -85,8 +88,8 @@ void Inventory::handleEvent(SDL_Event& event) {
 			}
 			selected = (*it);
 			marca->setPosition((*it)->getPosition() + Vector2D((*it)->getWidth() / 2, (*it)->getHeight() / 2)
-				- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2)); // desde aqui, con aux, se puede acceder a la textura, descripcion, tag... de it y crear además nuevos objetos para que se muestren por
-			//pantalla (una imagen, la descripción, botones...)
+				- Vector2D(marca->getWidth() / 2, marca->getHeight() / 2)); // desde aqui, con aux, se puede acceder a la textura, descripcion, tag... de it y crear ademï¿½s nuevos objetos para que se muestren por
+			//pantalla (una imagen, la descripciï¿½n, botones...)
 			muestraDescripcion(); //se muestra 
 		}
 	}
@@ -104,8 +107,8 @@ void Inventory::handleEvent(SDL_Event& event) {
 void Inventory::render() {
 	GameState::render(); //se llama a los componentes "Render" de todos los objetos de la lista del inventario
 	if (selected != nullptr){
-		Texture fuente(app->getRenderer(), selected->getDescription(), *f, colorFuente); //fuente dinámica
-		fuente.render(app->getRenderer(), inventarioHud->getWidth() - inventarioHud->getWidth() / 16, inventarioHud->getHeight() / 1.5); //se llama al render de la fuente Dinámica
+		Texture fuente(app->getRenderer(), selected->getDescription(), *f, colorFuente); //fuente dinï¿½mica
+		fuente.render(app->getRenderer(), (int)(inventarioHud->getWidth() - inventarioHud->getWidth() / 16), (int)(inventarioHud->getHeight() / 1.5)); //se llama al render de la fuente Dinï¿½mica
 	}
 }
 
@@ -116,18 +119,17 @@ void Inventory::muestraDescripcion() {
 void Inventory::swap(GameState* state){
 	static_cast<Inventory*>(state)->bswap = true;
 	static_cast<Inventory*>(state)->marca->setTexture(0, static_cast<Inventory*>(state)->app->getResources()->getImageTexture(Resources::InvMarcaS));
-
 }
 
-void Inventory::destroy() { //destrucción de la memoria dinámica que se crea en este estado
+void Inventory::destroy() { //destrucciï¿½n de la memoria dinï¿½mica que se crea en este estado
 	int tam = inventario->getLength();
 	if (tam > numCas) tam = numCas;
 	if (tam != 0){
 		for (int i = 0; i < tam; i++){
-			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth() / 3);
-			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight() / 3);
-			inventario->getItem(i)->setPosition(Vector2D(matrizS[i].getX() - inventario->getItem(i)->getWidth() / 2,
-			matrizS[i].getY() - inventario->getItem(i)->getHeight() / 2));
+			inventario->getItem(i)->setWidth(inventario->getItem(i)->getWidth() / SC->getCoef());
+			inventario->getItem(i)->setHeight(inventario->getItem(i)->getHeight() / SC->getCoef());
+			inventario->getItem(i)->setPosition(Vector2D(SC->getMatriz()[i].getX() - inventario->getItem(i)->getWidth() / 2,
+			SC->getMatriz()[i].getY() - inventario->getItem(i)->getHeight() / 2));
 		}
 	}
 
@@ -136,5 +138,17 @@ void Inventory::destroy() { //destrucción de la memoria dinámica que se crea en 
 	delete imagen; imagen = nullptr;
 	delete inventarioHud; inventarioHud = nullptr;
 	delete marca; marca = nullptr;
-	//GameState::~GameState(); destruiría tambien la lista de objectList --> da problemas, todo lo demás se destruye
+	//GameState::~GameState(); destruirï¿½a tambien la lista de objectList --> da problemas, todo lo demï¿½s se destruye
+}
+
+void Inventory::usar(GameState* state) {
+	Inventory* inv = dynamic_cast<Inventory*>(state);
+	if (inv != nullptr) { //comprobamos que sea el inventario por si acaso
+		MainCharacter* aux = dynamic_cast<MainCharacter*>(inv->getPreviousState()->getStage()->front()); //si lo es, se obtiene el primer elemento de stage (el personaje)
+		if (aux != nullptr && inv->selected != nullptr) {
+			aux->setCurrenTag(inv->getLastClicked()->getTag()); //se cambia la current tag
+			inv->app->getStateMachine()->popState(); //se popea el estado
+			aux->getShortcut()->recorreEInicia(aux->getShortcut()->getCoef());
+		}
+	}
 }

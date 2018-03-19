@@ -9,27 +9,31 @@
 #include "MovementComponent.h"
 #include "Resources.h"
 #include "ShortCut.h"
+#include "Scene.h"
+#include "json.hpp"
+#include "MainCharacter.h"
 
 //estado de prueba, con Alena moviendose por pantalla
-class StatePrueba: public GameState
+class PlayState: public GameState
 {
 private:
-	Entity* alena;//personaje del juego
+	MainCharacter* alena;//personaje del juego
 	ObjectList* list;
 	ShortCut* shortcut;
 	std::list<GameObject*> collision;
 	const Resources* resources = app->getResources();//recursos del juego
+	vector<Scene*> scenes;
+	int currentScene = 0;
+
 public:
-	StatePrueba() {}
-	~StatePrueba() {}
-	StatePrueba(SDLApp* app);
-	//actualiza todos los objetos del estado
-	virtual void update() { GameState::update(); }
-	//pinta todos los objetos del estado
-	virtual void render() { GameState::render(); }
-	Entity* getMainPj() { return alena; }
+	PlayState() {}
+	~PlayState();
+	PlayState(SDLApp* app);
+	MainCharacter* getMainPj() { return alena; }
 	ShortCut* getShortCut(){ return shortcut; }
-	void creaInventario(){app->getStateMachine()->pushState(new Inventory(app, list, ItemInventario::getCoef(), shortcut->getMatriz())); }
+	void creaInventario() { app->getStateMachine()->pushState(new Inventory(app, list, this, shortcut)); }
 	ObjectList* getList() { return list; };//prueba, no deberia estar aqui
+	vector<Scene*> getScenes(){ return scenes; };
+	void swapScene(int nextScene);	
 };
 

@@ -5,8 +5,8 @@
 #include "Texture.h"
 
 
-const unsigned int tamanyoFuente = 35;
-const SDL_Color colorFuente = { 255, 255, 255, 1 };
+const unsigned int tamanyoFuenteConv = 100;
+const SDL_Color colorFuenteConv = { 255, 255, 255, 1 };
 
 class Conversacion : public GameObject
 {
@@ -17,15 +17,23 @@ public:
 	virtual void handleInput(Uint32 time, const SDL_Event& event);
 	virtual void update(Uint32 time);
 	virtual void render(Uint32 time);
+	virtual Texture* getTexture(Uint16 pos) const{
+		return nullptr;
+	}
+
+	void ConversacionDePrueba();
+
 private:
 	vector<NodoDialogo*> dialogo;
 	int nodoActual;
 	const int x = 40;
 	const int y = 540;			//MIRAR DONDE QUEDA BIEN
 	const int w = 1200;
-	const int h = 480;			//MIRAR DONDE QUEDA BIEN, HACERLO EN FUNCION DE TAMAÑO DE PANTALLA EN VEZ DE A LO BRUTO
+	const int h = 168;			//MIRAR DONDE QUEDA BIEN, HACERLO EN FUNCION DE TAMAÑO DE PANTALLA EN VEZ DE A LO BRUTO
 
 	int grupoOps = 0;
+
+	bool enconversacion = true;
 
 	Font* f;
 };

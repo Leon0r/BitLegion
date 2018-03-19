@@ -2,11 +2,16 @@
 #include "Resources.h"
 #include "SDLApp.h"
 
-std::vector<std::string> Resources::imageFiles_ { "..//images/Alena.png",
-		"..//images/bit legion_logo.png", "..//images/boton.png", "..//images/BotonSwap.png",
-		"..//images/BotonUsar.png", "..//images/ImgTest.png", "..//images/Inventario.png",
+std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.png",  //"..//images/Alena.png",
+		"..//images/bit legion_logo.png", "..//images/boton.png", "..//images/BotonSwapSheet.png",
+		"..//images/BotonUsarSheet.png", "..//images/ImgTest.png", "..//images/InventarioAnimSheet.png",
 		"..//images/InvMarca.png", "..//images/InvMarcaS.png", "..//images/shortcut.png",
-	"..//images/escena1caso1.png", "..//images/cama.png", "..//images/mesa.png", "..//images/cocina.png" };
+	"..//images/escena1caso1.png", "..//images/cama.png", "..//images/mesa.png", "..//images/cocina.png", 
+	"..//images/puertaCutre.png", "..//images/llaveCutre.png", "..//images/bolsaCoca.png", "..//images/bolsaVacia.png",
+	"..//images/botellaVodka.png", "..//images/cuaderno.png", "..//images/fotoNoviaMuerto.png",
+	"..//images/llaveHotel.png", "..//images/llavePiso.png", "..//images/movilMuerto.png", "..//images/ticketCompra.png",
+	"..//images/vater.png", "..//images/lavaboDucha.png", "..//images/bano.png", "..//images/escena2caso1.png", 
+	"..//images/mesillapasillo.png","..//images/relojpasillo.png" };
 
 #include <iostream>
 
@@ -45,4 +50,18 @@ Texture* Resources::getImageTexture(ImageId i) const {
 		return imageTextures_[i];
 	else
 		return nullptr;
+}
+
+int Resources::getPosTexture(Texture* text) const {
+	int i = 0;
+	bool found = false;
+	while (i < numOfImageTextures_ && !found) { //encuentra el numero de la textura correspondiente (nos vale para guardar y cargar escenas)
+		if (text == imageTextures_[i]) {
+			found = true;
+		}
+		else {
+			i++;
+		}
+	}
+	return i;
 }

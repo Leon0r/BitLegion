@@ -6,8 +6,9 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 {
 	Vector2D velocity = o->getVelocity();
 
-	//si se ha pulsado una tecla se añade a la pila de teclas y se marca como pulsada
+	//si se ha pulsado una tecla se aï¿½ade a la pila de teclas y se marca como pulsada
 	if (event.type == SDL_KEYDOWN) {
+		send(Messages(Moving));
 		if (event.key.keysym.sym == right) {
 			if (!r) Xaxis.push(right);
 			r = true;
@@ -28,7 +29,7 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 			r = l = u = d = false;
 			while (!Xaxis.empty())Xaxis.pop();
 			while (!Yaxis.empty())Yaxis.pop();
-			dynamic_cast<StatePrueba*>(o->getGame()->getStateMachine()->currentState())->creaInventario();
+			dynamic_cast<PlayState*>(o->getGame()->getStateMachine()->currentState())->creaInventario();
 		}
 	}
 	//si se ha levantado una tecla se quita de la pila de teclas y se marca como no pulsada
@@ -36,10 +37,12 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		if (event.key.keysym.sym == right) {
 			r = false;
 			if(!Xaxis.empty())Xaxis.pop();
+			iddleRight = true;//has parado mirando hacia la derecha
 		}
 		else if (event.key.keysym.sym == left) {
 			l = false;
 			if (!Xaxis.empty())Xaxis.pop();
+			iddleRight = false;//has parado mirando hacia la izquierda
 		}
 		if (event.key.keysym.sym == up) {
 			u = false;
@@ -51,15 +54,33 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 		}
 	}
 	//si no hay teclas en la pila la velocidad se para
-	if (Xaxis.empty())velocity.setX(0);
+	if (Xaxis.empty()) { 
+		velocity.setX(0); 
+	}
 	else {//si hay teclas en la pila se mira cual es y se mueve en esa direccion
-		if (Xaxis.top() == right && r) velocity.setX(vel_);
-		else if (Xaxis.top() == left && l) if (l) velocity.setX(-vel_);
+		if (Xaxis.top() == right && r) {
+			velocity.setX(vel_);
+			send(Ch_Right);//anim derecha
+		}
+		else if (Xaxis.top() == left && l) {
+			velocity.setX(-vel_);
+			send(Ch_Left);//anim izquierda
+		}
 	}   //lo mismo con las teclas del eje y
 	if (Yaxis.empty())velocity.setY(0);
 	else {
 		if (Yaxis.top() == down && d) velocity.setY(vel_);
 		else if(Yaxis.top() == up && u) velocity.setY(-vel_);
+		if (!r && !l) {//si solo estan pulsadas las de arriba o abajo
+			if (iddleRight)send(Ch_Right);
+			else send(Ch_Left);//se activa la animacion correspondiente al lado hacia el que estuviera parado
+		}
 	}
 	o->setVelocity(velocity);
+
+	//si esta parado se establece la animacion correspondiente al lado hacia el que mira
+	if (Xaxis.empty() && Yaxis.empty()) {
+		if(iddleRight)send(StopRight);
+		else send(StopLeft);
+	}
 }

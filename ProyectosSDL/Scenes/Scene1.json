@@ -2,7 +2,19 @@
     "ItemInventario":[
         {"x":666,"y":66,"w":64,"h":64,"descripcion":"Esta es mi descripcion","tag":"Este es mi tag","Texture": 6}
     ],
+
     "GOTransiciones":[
-        {"x":10,"y":500,"w":200,"h":300,"Texture":5,"scneNum":0}
-    ]
+        {"x":10,"y":500,"w":50,"h":50,"Texture":5,"scneNum":0}
+    ],
+
+    "CollisionableObject":[
+        {"x":0, "y": 180, "w": 330, "h": 260, "Texture": 26}
+    ],
+
+    "Texture": 27,
+    "h": 720.0,
+    "w": 640.0,
+    "x": 320.0,
+    "y": 0.0
+	
 }

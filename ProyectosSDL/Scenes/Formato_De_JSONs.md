@@ -1,4 +1,7 @@
-Formato de los archivos de cargado/guardado
+Formato de los archivos de cargado/guardado�
+
+[] denota array
+{}denota objeto
 
 pj.json
 
@@ -26,11 +29,12 @@ pj.json
 SceneX.json // X = numero de la escena
 
 	{
+		"Texture":0; //textura del fondo
 		// Array con los datos de los objetos "cogibles" por el jugador existentes en la escena
     	"ItemInventario":[
-        	{"x":368,"y":122,"w":64,"h":64,"descripcion":"Esta es mi descripcion","tag":"Este es mi tag","Texture":0},
-        	{"x":100,"y":544,"w":64,"h":64,"descripcion":"key","tag":"key","Texture":15},
-        	{"x":668,"y":0,"w":64,"h":64,"descripcion":"adafsfdf","tag":"ffftag","Texture":14},
+        	{"descripcion":"Esta es mi descripcion","tag":"Este es mi tag","Texture":0},
+        	{"descripcion":"key","tag":"key","Texture":15},
+        	{"descripcion":"adafsfdf","tag":"ffftag","Texture":14},
             {...},
             {...}
 
@@ -44,8 +48,8 @@ SceneX.json // X = numero de la escena
     	],
 
     	// Array con los datos de los objetos colisionables existentes en la escena
-    	"Collisions":[
-    		{"x":0, "y": 0, "h": 0, "w": 0, "Texture": 0},
+    	"CollisionableObject":[
+    		{"x":0, "y": 0, "w": 0, "h": 0, "Texture": 0},
             {...},
             {...}
     	],
