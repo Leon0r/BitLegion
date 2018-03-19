@@ -4,6 +4,7 @@
 #include "ItemInventario.h"
 #include "GOTransiciones.h"
 #include "ColisionableObject.h"
+#include "GOConversational.h"
 #include <fstream>
 
 using json = nlohmann::json;

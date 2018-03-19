@@ -12,6 +12,7 @@
 #include "Scene.h"
 #include "json.hpp"
 #include "MainCharacter.h"
+#include "GOConversational.h"
 
 //estado de prueba, con Alena moviendose por pantalla
 class PlayState: public GameState

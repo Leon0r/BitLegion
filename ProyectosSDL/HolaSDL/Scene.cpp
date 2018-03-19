@@ -60,6 +60,16 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 				app->getResources()->getImageTexture(Resources::ImageId(n))));
 		}
 
+		// Cargado de Conversacionables
+		for (int i = 0; i < j["GOConversational"].size(); i++) {
+
+			n = j["GOConversational"][i]["Texture"];
+
+			SceneItems.push_back(new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"],
+				j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n))));
+		}
+
 		//ESCENARIO
 
 		n = j["Texture"];

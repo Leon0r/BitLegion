@@ -23,6 +23,8 @@ public:
 
 	void ConversacionDePrueba();
 
+	virtual void saveToJson(json& j) {};
+
 private:
 	vector<NodoDialogo*> dialogo;
 	int nodoActual;
