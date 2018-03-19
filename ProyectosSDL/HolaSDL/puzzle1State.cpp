@@ -7,8 +7,7 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState
 	for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
 		matriz[i].resize(numCas);
 		for (int j = 0; j < numCas; j++) {
-			if(j % 2 == 0 && i % 2 == 0) matriz[i][j] = new CasillaPuzzle1(game, std::to_string(i*numCas + j), game->getResources()->getImageTexture(Resources::LlavePiso));
-			else matriz[i][j] = new CasillaPuzzle1(game, std::to_string(i*numCas + j), nullptr);
+			matriz[i][j] = new CasillaPuzzle1(game, std::to_string(i*numCas + j), game->getResources()->getImageTexture(Resources::CasillaPuzzleV));
 			matriz[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + 137), relacion.second*(espaciado*i + 112)));
 			stage.push_back(matriz[i][j]);
 		}
@@ -19,20 +18,20 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState
 	auxAB = matriz[numCas-1][numCas-1]->getPosition().getY();
 	auxA = auxAB - relacion.second*espaciado;
 
-	imagenMarca = new ImageRenderer(app->getResources()->getImageTexture(Resources::InvMarca));
+	imagenMarca = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonPuzzle));
 	for (int i = 0; i < numCas*2; i++) {
 		Boton* b;
 		if (i < numCas) {
 			b = new Boton(game, usar, this, "boton1", i, -1);
-			b->setWidth(espaciado*relacion.first);
-			b->setHeight(espaciado*relacion.second);
-			b->setPosition(Vector2D(0, relacion.second*(espaciado*i + 80)));
+			b->setWidth((espaciado/2)*relacion.first);
+			b->setHeight((espaciado/2)*relacion.second);
+			b->setPosition(Vector2D(espaciado/2, relacion.second*(espaciado*i + espaciado + 25)));
 		}
 		else {
 			b = new Boton(game, usar, this, "boton1", -1, i - numCas);
-			b->setWidth(espaciado*relacion.first);
-			b->setHeight(espaciado*relacion.second);
-			b->setPosition(Vector2D(relacion.first*(espaciado*(i-numCas) + 107), game->getWindowHeight()-b->getHeight()));
+			b->setWidth((espaciado / 2)*relacion.first);
+			b->setHeight((espaciado / 2)*relacion.second);
+			b->setPosition(Vector2D(relacion.first*(espaciado*(i-numCas) + 107) + espaciado/3, game->getWindowHeight()-b->getHeight() - espaciado/3));
 		}
 		b->addRenderComponent(imagenMarca);
 		botones.push_back(b);
@@ -40,14 +39,7 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState
 	}
 
 	//------------------------------------HUD-------------------------------------------------------------
-	puzzleHud->setHeight(app->getWindowHeight()*0.75);
-	puzzleHud->setWidth(app->getWindowWidth()*0.75);
-	puzzleHud->setPosition(Vector2D(Vector2D(app->getWindowWidth() / 2 - puzzleHud->getWidth() / 2,
-		app->getWindowHeight() / 2 - puzzleHud->getHeight() / 2)));
-	puzzleHud->addAnim("Idle", { 23 }, false, 0);
-	imagen = new AnimationRenderer(app->getResources()->getImageTexture(Resources::Inventario), puzzleHud->getAnimations(), 4, 6, 600, 2700 / 6);
-	puzzleHud->addRenderComponent(imagen);
-	stage.push_back(puzzleHud);
+
 	//---------------------------------------------------------------------------------------------------
 }
 

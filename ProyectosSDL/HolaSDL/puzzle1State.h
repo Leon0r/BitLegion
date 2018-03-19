@@ -15,10 +15,8 @@ private:
 	Texture fuente;
 	Font* f;
 	Entity* copia;
-	RenderComponent* imagen;
 	RenderComponent* imagenMarca;
 	RenderComponent* selectedTexture;
-	Entity* puzzleHud = new Entity(app);
 	const double espaciado = 87.0;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const double topD = relacion.first*(espaciado*4 + 137 + espaciado/2), topI = relacion.first*(137-espaciado/2), topA = relacion.second*(112 - espaciado / 2), topAB = relacion.second*(espaciado*4 + 112 + espaciado / 2);

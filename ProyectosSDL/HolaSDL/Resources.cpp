@@ -10,7 +10,8 @@ std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.p
 	"..//images/puertaCutre.png", "..//images/llaveCutre.png", "..//images/bolsaCoca.png", "..//images/bolsaVacia.png",
 	"..//images/botellaVodka.png", "..//images/cuaderno.png", "..//images/fotoNoviaMuerto.png",
 	"..//images/llaveHotel.png", "..//images/llavePiso.png", "..//images/movilMuerto.png", "..//images/ticketCompra.png",
-	"..//images/vater.png", "..//images/lavaboDucha.png", "..//images/bano.png" };
+	"..//images/vater.png", "..//images/lavaboDucha.png", "..//images/bano.png" , "..//images/botonPuzzle.png" , "..//images/botonPuzzleP.png" , 
+	"..//images/casillaPuzzleV.png" };
 
 #include <iostream>
 
