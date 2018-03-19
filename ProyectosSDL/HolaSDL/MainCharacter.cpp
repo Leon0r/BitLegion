@@ -8,8 +8,8 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	_texture = app->getResources()->getImageTexture(Resources::ImageId(n));
 
 	//animaciones
-	addAnim("IdleRight", { 13 }, false);//parada a la derecha
-	addAnim("IdleLeft", { 5 }, false);//parada a la izquierda
+	addAnim("IdleRight", { 20,21,22,23 }, true, -1, 200);//parada a la derecha
+	addAnim("IdleLeft", { 16, 17,18,19 }, true, -1, 200);//parada a la izquierda
 	addAnim("Left", { 0,1,2,3,4,5,6,7 });//caminar a la izquierda 
 	addAnim("Right", { 8,9,10,11,12,13,14,15 });//caminar a la derecha
 
