@@ -50,6 +50,9 @@ void Puzzle1State::update()
 {
 	GameState::update();
 	if (mover) mueveMatriz();
+	if (numRestantes == 0) {
+		app->getStateMachine()->popState();
+	}
 }
 
 void Puzzle1State::tresUnidos()
@@ -70,7 +73,7 @@ void Puzzle1State::tresUnidos()
 					aux = matriz[currentFil][i]->getTexture(0);//Le damos el valor de la nueva casilla activap
 					if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
 						for (int j = cont; j > 0; j--) {
-							matriz[currentFil][i - j]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+							matriz[currentFil][i - j]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
 							matriz[currentFil][i - j]->setActive(false); numRestantes--;
 						}
 					}
@@ -80,7 +83,7 @@ void Puzzle1State::tresUnidos()
 			else {
 				if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
 					for (int j = cont; j > 0; j--) {
-						matriz[currentFil][i - j]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+						matriz[currentFil][i - j]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
 						matriz[currentFil][i - j]->setActive(false); numRestantes--;
 					}
 				}
@@ -89,7 +92,7 @@ void Puzzle1State::tresUnidos()
 		}
 		if (cont >= 3) {
 			for (int j = cont; j > 0; j--) {
-				matriz[currentFil][numCas - j]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+				matriz[currentFil][numCas - j]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
 				matriz[currentFil][numCas - j]->setActive(false); numRestantes--;
 			}
 			cont = 0;
@@ -112,7 +115,7 @@ void Puzzle1State::tresUnidos()
 					aux = matriz[i][currentCol]->getTexture(0);//Le damos el valor de la nueva casilla activap
 					if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
 						for (int j = cont; j > 0; j--) {
-							matriz[i - j][currentCol]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+							matriz[i - j][currentCol]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
 							matriz[i - j][currentCol]->setActive(false); numRestantes--;
 						}
 					}
@@ -122,7 +125,7 @@ void Puzzle1State::tresUnidos()
 			else {
 				if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
 					for (int j = cont; j > 0; j--) {
-						matriz[i - j][currentCol]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+						matriz[i - j][currentCol]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
 						matriz[i - j][currentCol]->setActive(false); numRestantes--;
 					}
 				}
@@ -131,7 +134,7 @@ void Puzzle1State::tresUnidos()
 		}
 		if (cont >= 3) {
 			for (int j = cont; j > 0; j--) {
-				matriz[numCas - j][currentCol]->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca));
+				matriz[numCas - j][currentCol]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
 				matriz[numCas - j][currentCol]->setActive(false); numRestantes--;
 			}
 			cont = 0;
