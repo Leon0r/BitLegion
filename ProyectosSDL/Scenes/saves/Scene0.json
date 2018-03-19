@@ -24,42 +24,34 @@
    ],
    "GODoors": [
       {
-         "Texture": 14,
-         "h": 300.0,
+         "Texture": 31,
+         "h": 242.0,
          "scneNum": 1,
          "tag": "key",
-         "w": 200.0,
-         "x": 200.0,
-         "y": 500.0
+         "w": 119.0,
+         "x": 612.0,
+         "y": 116.0
+      }
+   ],
+   "GOTransiciones": [
+      {
+         "Texture": 33,
+         "h": 58.0,
+         "scneNum": 1,
+         "w": 120.0,
+         "x": 1150.0,
+         "y": 625.0
       }
    ],
    "ItemInventario": [
       {
-         "Texture": 14,
-         "descripcion": "adafsfdf",
-         "h": 64.0,
-         "tag": "ffftag",
-         "w": 64.0,
-         "x": 668.0,
-         "y": 0.0
-      },
-      {
-         "Texture": 15,
+         "Texture": 22,
          "descripcion": "key",
-         "h": 64.0,
+         "h": 40.0,
          "tag": "key",
-         "w": 64.0,
-         "x": 100.0,
-         "y": 544.0
-      },
-      {
-         "Texture": 15,
-         "descripcion": "Esta es mi descripcion",
-         "h": 64.0,
-         "tag": "Este es mi tag",
-         "w": 64.0,
-         "x": 368.0,
-         "y": 122.0
+         "w": 40.0,
+         "x": 710.0,
+         "y": 490.0
       }
    ],
    "Texture": 10,

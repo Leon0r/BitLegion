@@ -11,7 +11,8 @@ std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.p
 	"..//images/botellaVodka.png", "..//images/cuaderno.png", "..//images/fotoNoviaMuerto.png",
 	"..//images/llaveHotel.png", "..//images/llavePiso.png", "..//images/movilMuerto.png", "..//images/ticketCompra.png",
 	"..//images/vater.png", "..//images/lavaboDucha.png", "..//images/bano.png", "..//images/escena2caso1.png", 
-	"..//images/mesillapasillo.png","..//images/relojpasillo.png" };
+	"..//images/mesillapasillo.png","..//images/relojpasillo.png", "..//images/puertaCasaAlena.png", "..//images/flechaTransicion.png",
+	"..//images/flechaTransicionDer.png", "..//images/flechaTransicionIzq.png" };
 
 #include <iostream>
 

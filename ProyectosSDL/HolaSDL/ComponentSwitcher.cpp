@@ -8,7 +8,8 @@ ComponentSwitcher::~ComponentSwitcher() {
 }
 
 void ComponentSwitcher::handleInput(Uint32 time, const SDL_Event& event) {
-	if (!mouse && event.type == SDL_KEYDOWN && currMode_ != 0) {
+	if (cambioEscena || (!mouse && event.type == SDL_KEYDOWN && currMode_ != 0)) {
+		cambioEscena = false;
 		switchToNextMode();
 	}
 	else if(!keyBoard && event.type == SDL_MOUSEBUTTONDOWN && currMode_ != 1 && event.button.button == SDL_BUTTON_RIGHT){
@@ -62,4 +63,5 @@ void ComponentSwitcher::receive(Messages msg) {
 	else if (msg == StopRight || msg == StopLeft)keyBoard = false;
 	else if (msg == MouseMoving)mouse = true;
 	else if (msg == MouseStop)mouse = false;
+	else if (msg == CambioEscena)cambioEscena = true;
 }

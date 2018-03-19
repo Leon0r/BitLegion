@@ -35,18 +35,11 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	alena = new MainCharacter(app, j, list, &collision, shortcut, 6.0);
 	stage.push_front(alena);
 
-	ItemInventario* item = new ItemInventario(app, 500, 300, 40, 40, "k", "kk", resources->getImageTexture(Resources::ImagenTest));
-	stage.push_back(item);
-
 	i.close();
 
 	// crea las escenas 1 y 2 desde archivo
 	scenes.push_back(new Scene(0, app, alena));
 	scenes.push_back(new Scene(1, app, alena));
-
-	
-
-	
 }
 
 void PlayState::swapScene(int nextScene)

@@ -42,6 +42,7 @@ private:
 	virtual void saveToJson(json& j) {}
 	bool keyBoard = false;
 	bool mouse = false;
+	bool cambioEscena = false;
 };
 
 #endif /* COMPONENTSWITCHER_H_ */

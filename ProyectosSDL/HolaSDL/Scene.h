@@ -27,5 +27,6 @@ private:
 	list<GameObject*>::iterator it;
 	GameState* CurrentState;
 	MainCharacter* pj;
+	double width = 0, height = 0, x = 0, y = 0;
 };
 

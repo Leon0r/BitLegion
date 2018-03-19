@@ -3,15 +3,10 @@
 #include "AStar.h"
 
 
-MouseMovement::MouseMovement(list<GameObject*>* colisiones, double vel, MainCharacter* o) : MovementComponent(colisiones), vel(vel), o(o) {
+MouseMovement::MouseMovement(list<GameObject*>* colisiones, double vel) : MovementComponent(colisiones), vel(vel) {
 	destiny.setX(0);
 	destiny.setY(0);
 	nek = new AStar(this);
-	nek->defineCosas(o);
-	sceneWidth = o->getGame()->getWindowWidth();
-	sceneHeight = o->getGame()->getWindowHeight();
-	auxX = sceneWidth / tamMatriz;
-	auxY = sceneHeight / tamMatriz;
 }
 
 //actualizamos la logica del personaje
@@ -62,11 +57,10 @@ void MouseMovement::setDirection(GameObject* o, Vector2D destiny) {
 
 //eventos de mouse
 void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& event) {
-
 	//si se pulsa el raton registramos su posicion
 	if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_RIGHT) {
-		p.x = event.button.x;
-		p.y = event.button.y;
+		p.x = event.button.x - scenePosX;
+		p.y = event.button.y - scenePosY;
 	}
 
 	//si se suelta elegimos la direccion del jugador para llegar a esa posicion y actualizamos la posicion destino del componente mouseMov
@@ -74,15 +68,21 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 		//si el destino no es el mismo que el anterior buscamos el camino (do u know the wae)
 		if (p.x != q.x && p.y != q.y) {
 			q = p;//actualizamos destino anterior
-			if (p.x >= o->getPosition().getX())send(Ch_Right);//si el destino esta por la derecha ponemos la animacion correspondiente
-			else send(Ch_Left);//lo mismo si esta por la derecha
 			while (!stackerino.empty()) { stackerino.pop(); }//eliminamos el path anterior
 				//aestrella rellena la cola de destinos para llegar al final
-			nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX,
-				(o->getPosition().getY() + o->getHeight() - 1) / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
+			nek->aStarSearch(grid2, pair<double, double>((o->getPosition().getX() - scenePosX) / auxX,
+				((o->getPosition().getY() - scenePosY) + o->getHeight() - 1) / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
 
 			//si ha encontrado destinos
 			if (!stackerino.empty()) {
+				if (p.x + scenePosX >= o->getPosition().getX()) {
+					send(Ch_Right);//si el destino esta por la derecha ponemos la animacion correspondiente
+					idleRight = true;
+				}
+				else {
+					send(Ch_Left);//lo mismo si esta por la derecha
+					idleRight = false;
+				}
 				send(Messages(MouseMoving));//informamos de que empezamos a movernos
 				setDestiny(stackerino.front().first, stackerino.front().second); //establecemos el primero
 				setDirection(o, destiny);//le mandamos hacia el
@@ -104,10 +104,10 @@ void MouseMovement::generaMatriz(GameObject* o) {
 	x = tamMatriz / 2;
 	y = 0;
 	//recorremos la matriz de la mitad hacia abajo (la mitad de arriba es la pared, asi que se queda todo a 0)
-	for (int i = sceneHeight / 2 + (sceneHeight / tamMatriz) / 2; i < sceneHeight; i += sceneHeight / tamMatriz) {
+	for (int i = scenePosY + sceneHeight / 2 + (sceneHeight / tamMatriz) / 2; i < scenePosY + sceneHeight; i += sceneHeight / tamMatriz) {
 		y = 0;
 
-		for (int j = (sceneWidth / tamMatriz) / 2; j < sceneWidth; j += sceneWidth / tamMatriz) {
+		for (int j = scenePosX + (sceneWidth / tamMatriz) / 2; j < scenePosX + sceneWidth; j += sceneWidth / tamMatriz) {
 			list<GameObject*>::iterator it = collisions->begin();
 			bool colisionado = false;
 
@@ -137,7 +137,7 @@ void MouseMovement::generaMatriz(GameObject* o) {
 
 //identifica el colisionable mas cercano al destino, y mira si el jugador chocaria con el al llegar
 //si es asi no te deja clicar ahi
-bool MouseMovement::solucionadorBugs() {
+/*bool MouseMovement::solucionadorBugs() {
 	bool found = false;
 	list<GameObject*>::iterator it;
 	list<GameObject*>::iterator aux;
@@ -173,5 +173,5 @@ bool MouseMovement::solucionadorBugs() {
 	else if ((*aux)->getPosition().getY() + (*aux)->getHeight() >= p.y - o->getHeight() && (*aux)->getPosition().getY() > p.y
 		&& (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x && (*aux)->getPosition().getX() < p.x) { //por abajo
 		p.y += o->getHeight()/2;
-	}*/
-}
+	}
+}*/

@@ -9,4 +9,5 @@ enum Messages {
 	Moving,
 	MouseStop,
 	MouseMoving,
+	CambioEscena
 };

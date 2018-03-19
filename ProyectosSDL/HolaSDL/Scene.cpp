@@ -73,17 +73,24 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 		if (j["h"].is_null())
 			escenario->setHeight(app->getWindowHeight());
 		else escenario->setHeight(j["h"]);
+
+		width = escenario->getWidth();
+		height = escenario->getHeight();
+
 		Vector2D pos;
 		if (j["x"].is_null())
 			pos.setX(0);
 		else
 			pos.setX(j["x"]);
-
+		
 		if (j["y"].is_null())
 			pos.setY(0);
 		else
 			pos.setY(j["y"]);
+
 		escenario->setPosition(pos);
+		x = escenario->getPosition().getX();
+		y = escenario->getPosition().getY();
 
 		RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
 		escenario->addRenderComponent(renderEscenario);
@@ -122,6 +129,11 @@ void Scene::enterScene() {
 			pj->setNewCollision(col);
 		}
 	}
+
+	//establecemos el tamaño de la nueva escena en el jugador (para las colisiones y el mouse)
+	pj->setSceneTam(width, height, x, y);
+
+	//genera la matriz para el mouse
 	pj->collisionListWasModified();
 }
 
@@ -134,6 +146,7 @@ void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se
 	SceneItems.pop_front(); //quitamos al shortcut
 	pj->setVelocity(Vector2D(0.0, 0.0));
 	pj->getMouseComponent()->send(Messages(MouseStop));
+	pj->getMouseComponent()->send(Messages(CambioEscena));
 }
 
 
