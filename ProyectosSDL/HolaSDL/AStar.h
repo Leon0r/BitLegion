@@ -1,5 +1,5 @@
 #pragma once
-// A C++ Program to implement A* Search Algorithm
+/// A C++ Program to implement A* Search Algorithm
 #include<iostream>
 #include <stack>
 #include <set>
