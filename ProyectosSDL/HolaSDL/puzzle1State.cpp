@@ -24,15 +24,15 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState
 		Boton* b;
 		if (i < numCas) {
 			b = new Boton(game, usar, this, "boton1", i, -1);
-			b->setWidth((espaciado/2)*relacion.first);
-			b->setHeight((espaciado/2)*relacion.second);
-			b->setPosition(Vector2D(espaciado/2, relacion.second*(espaciado*i + espaciado + 25)));
+			b->setWidth(80);
+			b->setHeight(60);
+			b->setPosition(Vector2D(b->getWidth(), relacion.second*(espaciado*i + espaciado + 25)));
 		}
 		else {
 			b = new Boton(game, usar, this, "boton1", -1, i - numCas);
-			b->setWidth((espaciado / 2)*relacion.first);
-			b->setHeight((espaciado / 2)*relacion.second);
-			b->setPosition(Vector2D(relacion.first*(espaciado*(i-numCas) + 107) + espaciado/3, game->getWindowHeight()-b->getHeight() - espaciado/3));
+			b->setWidth(80);
+			b->setHeight(60);
+			b->setPosition(Vector2D(relacion.first*(espaciado*(i-numCas) + 111) + espaciado/3, game->getWindowHeight()-b->getHeight() - b->getHeight()/2));
 		}
 		b->addRenderComponent(imagenMarca);
 		botones.push_back(b);

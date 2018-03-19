@@ -38,11 +38,16 @@ public:
 	void mueveMatriz();
 	void reestableFC(int f, int c){ //by gonzalo
 		if (f != -1) {
-			for (int i = 0; i < numCas-1; i++)
-				swap(matriz[f][0], matriz[f][i+1]);
+			for (int i = 0; i < numCas - 1; i++) swap(matriz[f][0], matriz[f][i + 1]);
+			for (int i = 0; i < numCas; i++) matriz[f][i]->setPosition(Vector2D((int)topI + ((int)(relacion.first*espaciado) / 2) + (int)(i*espaciado*relacion.first), matriz[f][i]->getPosition().getY()));
 		}
-		else for (int i = numCas-1; i > 0; i--)
-			swap(matriz[4][c], matriz[i - 1][c]);
+		else {
+			for (int i = numCas - 1; i > 0; i--) swap(matriz[4][c], matriz[i - 1][c]);
+			for (int i = 0; i < numCas; i++) {
+				int j = (int)topAB - ((int)(relacion.second*espaciado) / 2) - (int)(i*espaciado*relacion.second);
+				matriz[numCas-1-i][c]->setPosition(Vector2D(matriz[numCas-1-i][c]->getPosition().getX(), j));
+			}
+		}
 	}
 	void destroy();
 	GameState* getPreviousState() { return previousState; };
