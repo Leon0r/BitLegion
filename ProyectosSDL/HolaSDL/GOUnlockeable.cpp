@@ -10,6 +10,10 @@ void GOUnlockeable::act() {
 				MainCharacter* pj = dynamic_cast<MainCharacter*>(aux->getMainPj());
 				if (pj != nullptr) {
 					pj->getList()->deleteItem(key);
+					if (pj->getList()->getLength() > 4) {
+						pj->getList()->getItem(4)->setWidth(pj->getList()->getItem(4)->getWidth() / pj->getShortcut()->getCoef());
+						pj->getList()->getItem(4)->setHeight(pj->getList()->getItem(4)->getHeight() / pj->getShortcut()->getCoef());
+					}
 					pj->getShortcut()->recorreEInicia();
 				}
 			}
