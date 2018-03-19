@@ -69,11 +69,12 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 		if (j["w"].is_null())
 			escenario->setWidth(app->getWindowWidth());
 		else escenario->setWidth(j["w"]);
-		width = escenario->getWidth();
 
 		if (j["h"].is_null())
 			escenario->setHeight(app->getWindowHeight());
 		else escenario->setHeight(j["h"]);
+
+		width = escenario->getWidth();
 		height = escenario->getHeight();
 
 		Vector2D pos;
@@ -86,6 +87,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 			pos.setY(0);
 		else
 			pos.setY(j["y"]);
+
 		escenario->setPosition(pos);
 		x = escenario->getPosition().getX();
 		y = escenario->getPosition().getY();

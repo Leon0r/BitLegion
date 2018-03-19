@@ -41,12 +41,14 @@ public:
 	void generaMatriz(GameObject* o);//inicializa a la matriz con los valores adecuados (0 colisionable, 1 vacio)
 	//maincharacter le da el tamaño de la nueva escena cada vez que esta cambia
 	void setSceneTam(double w, double h, double x, double y) {
-		sceneWidth = w;
+		//sceneWidth = w;
 		sceneHeight = h;
 		scenePosX = x;
 		scenePosY = y;
 		auxX = sceneWidth / tamMatriz;
 		auxY = sceneHeight / tamMatriz;
 	}
+	double getSceneWidth() { return sceneWidth; }
+	double getSceneHeight() { return sceneHeight; }
 };
 
