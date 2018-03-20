@@ -51,4 +51,5 @@ public:
 	}
 	void destroy();
 	GameState* getPreviousState() { return previousState; };
+	void readFromJson(int numeroPuzzle, SDLApp* game);
 };
