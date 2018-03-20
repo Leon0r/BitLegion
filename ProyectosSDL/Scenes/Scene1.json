@@ -7,7 +7,7 @@
 
     "CollisionableObject": [
         { "x": 560, "y": 180, "w": 330, "h": 260, "Texture": 26 },
-        { "x": 804, "y": 470, "w": 86, "h": 111, "Texture": 25 }
+        { "x": 804, "y": 470, "w": 86, "h": 150, "Texture": 25 }
     ],
 
     "Texture": 27,
