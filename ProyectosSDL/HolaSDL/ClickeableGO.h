@@ -14,7 +14,7 @@ public:
 	virtual ~ClickeableGO();
 	void handleInput(Uint32 time, const SDL_Event& event);
 	//Texture* getTexture(){ return txt; };
-private:
+protected:
 	
 	RenderComponent* render;
 	//Texture txt
