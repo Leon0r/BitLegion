@@ -35,6 +35,10 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	alena = new MainCharacter(app, j, list, &collision, shortcut, 6.0);
 	stage.push_front(alena);
 
+	Conversacion* convo = new Conversacion(app);
+	convo->ConversacionDePrueba();
+	stage.push_front(convo);
+
 	ItemInventario* item = new ItemInventario(app, 500, 300, 40, 40, "k", "kk", resources->getImageTexture(Resources::ImagenTest));
 	stage.push_back(item);
 
