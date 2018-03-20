@@ -16,7 +16,8 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		TTF_Init();
 		initResources();
 		maquinaEstados = new GameStateMachine();
-		maquinaEstados->pushState(new Puzzle1State(this, NULL));
+		GameState* aux = new Puzzle1State(this, nullptr);
+		maquinaEstados->pushState(aux);
 		//dynamic_cast<PlayState*>(maquinaEstados->currentState())->getScenes()[0]->enterScene();
 }
 
@@ -35,7 +36,7 @@ void SDLApp::update() {
 
 void SDLApp::render() {
 	SDL_RenderClear(renderer); 
-	maquinaEstados->currentState()->render(); 
+	maquinaEstados->currentState()->render();
 	SDL_RenderPresent(renderer);
 }
 

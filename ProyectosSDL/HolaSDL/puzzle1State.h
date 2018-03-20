@@ -1,7 +1,6 @@
 #pragma once
 #include "GameState.h"
 #include "CasillaPuzzle1.h"
-#include "SDLApp.h"
 #include "MovementComponent.h"
 #include "ImageRenderer.h"
 #include "AnimationRenderer.h"
@@ -45,7 +44,7 @@ public:
 	virtual void update();
 	void tresUnidos();
 	void mueveMatriz();
-	void reestableFC(int f, int c){ //by gonzalo
+	void reestableFC(int f, int c){
 		if (f != -1) {
 			for (int i = 0; i < numCas - 1; i++) swap(matriz[f][0], matriz[f][i + 1]);
 			for (int i = 0; i < numCas; i++) matriz[f][i]->setPosition(Vector2D((int)topI + ((int)(relacion.first*espaciado) / 2) + (int)(i*espaciado*relacion.first), matriz[f][i]->getPosition().getY()));
@@ -60,5 +59,6 @@ public:
 	}
 	void destroy();
 	GameState* getPreviousState() { return previousState; };
-	void readFromJson(int numeroPuzzle, SDLApp* game);
+	void readFromJson(int numeroPuzzle);
+	void tuTioNoTieneSentido();
 };

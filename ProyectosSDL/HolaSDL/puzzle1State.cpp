@@ -1,10 +1,11 @@
 #include "puzzle1State.h"
 #include <fstream>
+#include "json.hpp"
 
 Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState::GameState(game), previousState(previousState)
 {
-	matriz.resize(numCas);
-	//readFromJson(1, game);
+	readFromJson(1);
+	/*matriz.resize(numCas);
 	for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
 		matriz[i].resize(numCas);
 		for (int j = 0; j < numCas; j++) {
@@ -16,7 +17,7 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState
 			matriz[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + 137), relacion.second*(espaciado*i + 112)));
 			stage.push_back(matriz[i][j]);
 		}
-	} 
+	}*/
 
 	auxI = matriz[0][0]->getPosition().getX();
 	auxD = auxI + relacion.first*espaciado;
@@ -219,31 +220,35 @@ void Puzzle1State::usar(GameState* state, int fil, int col)
 }
 
 //Aún no funciona
-void Puzzle1State::readFromJson(int numeroPuzzle, SDLApp* game)
-{
+void Puzzle1State::readFromJson(int numeroPuzzle){
 	string name = "..\\Puzzles\\Puzzle" + to_string(numeroPuzzle);
 	name += ".json";
-	std::ifstream i(name);
+	std::ifstream file(name);
 
-	if (i.is_open()) { // Para que no pete si abre un archivo que no existe
+	if (file.is_open()) { // Para que no pete si abre un archivo que no existe
+		
+		json json;
+		file >> json;
 		int index = 0;
-		json j;
-		i >> j;
-		int n = j["Casillas"][index]["Tipo"]; //wuuuuuuuuuuuuut
-											  //numCas = j["numCas"]; es const asi que supondré que siempre es el mismo tamaño de matriz
-		matriz.resize(numCas);
-		for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
-			matriz[i].resize(numCas);
-			for (int j = 0; j < numCas; j++) {
-				if (j["Casillas"]["Tipo"] == 1) { //suponiendo que solo hay dos tipos por ahora
-					matriz[i][j] = new CasillaPuzzle1(game, std::to_string(i*numCas + j), game->getResources()->getImageTexture(Resources::llavePisoPuzzle), true);
+		if (json["Casillas"].is_array()) {
+			matriz.resize(numCas);  //numCas = j["numCas"]; es const asi que supondré que siempre es el mismo tamaño de matriz
+			for (unsigned int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
+				matriz[i].resize(numCas);
+				for (unsigned int j = 0; j < numCas; j++) {
+					if (json["Casillas"][index]["Tipo"] == 1) { //por ahora hay dos tipos...
+						numRestantes++;
+						matriz[i][j] = new CasillaPuzzle1(app, std::to_string(i*numCas + j), app->getResources()->getImageTexture(Resources::llavePisoPuzzle), true);
+					}
+					else {
+						matriz[i][j] = new CasillaPuzzle1(app, std::to_string(i*numCas + j), app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
+					}
+					matriz[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + 137), relacion.second*(espaciado*i + 112)));
+					stage.push_back(matriz[i][j]);
+					index++;
 				}
-				else {
-					new CasillaPuzzle1(game, std::to_string(i*numCas + j), game->getResources()->getImageTexture(Resources::CasillaPuzzleV));
-				}
-				index++;
 			}
 		}
+		file.close();
 	}
 	else {
 		cout << "No existe el archivo indicado" << name;

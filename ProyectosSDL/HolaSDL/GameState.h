@@ -29,5 +29,6 @@ public:
 	void deleteElement(GameObject* o);
 	list <GameObject*>* getStage() {return &stage;}
 	void changeList() { listhasChanged = true; }
+	SDLApp* getApp() { return app; }
 };
 
