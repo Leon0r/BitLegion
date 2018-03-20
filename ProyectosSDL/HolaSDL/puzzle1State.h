@@ -12,11 +12,9 @@ class Puzzle1State :
 {
 private:
 	GameState* previousState;
-	Texture fuente;
-	Font* f;
-	Entity* copia;
+	vector<vector<CasillaPuzzle1*>> matriz;
+	vector<Boton*> botones;
 	RenderComponent* imagenMarca;
-	RenderComponent* selectedTexture;
 	const int espaciado = 85.0;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const double topD = relacion.first*(espaciado*4 + 137 + espaciado/2), topI = relacion.first*(137-espaciado/2), topA = relacion.second*(112 - espaciado / 2), topAB = relacion.second*(espaciado*4 + 112 + espaciado / 2);
@@ -24,15 +22,26 @@ private:
 	bool mover = false;
 	int currentFil, currentCol;
 	const int numCas = 5;
-	vector<vector<CasillaPuzzle1*>> matriz;
+	int numRestantes = 0;
+
 	static void usar(GameState* state, int fil, int col);
-	vector<Boton*> botones;
+	void checkLine(int line, bool Vert);
 public:
 	Puzzle1State() {};
 	Puzzle1State(SDLApp* game,  GameState* previousState);
 	virtual ~Puzzle1State() { destroy(); stage.clear(); };
-	virtual void handleEvent(SDL_Event& event) { GameState::handleEvent(event); }
-	virtual void render() { GameState::render();}
+	virtual void handleEvent(SDL_Event& event) { 
+		if (event.type == SDL_KEYDOWN) {
+			if (event.key.keysym.sym == SDLK_p) {
+				app->getStateMachine()->popState();
+			}
+		}
+		else GameState::handleEvent(event);
+	}
+	virtual void render() { 
+		if (previousState != nullptr) previousState->render();
+		GameState::render(); 
+	}
 	virtual void update();
 	void tresUnidos();
 	void mueveMatriz();
