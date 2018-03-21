@@ -1,6 +1,7 @@
 	#ifndef ENTITIES_H_
 #define ENTITIES_H_
 
+#include "checkML.h"
 #include "GameObject.h"
 #include "InputComponent.h"
 #include "PhysicsComponent.h"

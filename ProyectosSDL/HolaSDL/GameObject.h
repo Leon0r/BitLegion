@@ -1,5 +1,6 @@
 #ifndef GAMEOBJECT_H_
 #define GAMEOBJECT_H_
+#include "checkML.h"
 #include <SDL.h>
 #include "Vector2D.h"
 #include <string>

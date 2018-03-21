@@ -4,6 +4,8 @@
 #include <SDL.h>
 #include <string>
 #include "Font.h"
+#include "checkML.h"
+
 class Texture {
 public:
 	Texture();

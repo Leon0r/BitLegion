@@ -22,8 +22,6 @@ AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animati
 	}
 
 	playAnim(0);
-
-	calculateNextSourceRect();
 }
 
 AnimationRenderer::~AnimationRenderer()

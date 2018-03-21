@@ -1,6 +1,6 @@
 #ifndef COMPONENTSWITCHER_H_
 #define COMPONENTSWITCHER_H_
-
+#include "checkML.h"
 #include "GameObject.h"
 #include "InputComponent.h"
 #include "PhysicsComponent.h"

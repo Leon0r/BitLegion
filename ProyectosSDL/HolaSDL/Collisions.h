@@ -1,6 +1,7 @@
 #ifndef SRC_SIMPLEENGINE_BASE_COLLISIONS_H_
 #define SRC_SIMPLEENGINE_BASE_COLLISIONS_H_
 
+#include "checkML.h"
 #include "Vector2D.h"
 #include "GameObject.h"
 

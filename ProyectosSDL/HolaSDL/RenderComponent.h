@@ -1,6 +1,7 @@
 #ifndef RENDERCOMPONENT_H_
 #define RENDERCOMPONENT_H_
 
+#include "checkML.h"
 #include "GameObject.h"
 #include "Texture.h"
 
