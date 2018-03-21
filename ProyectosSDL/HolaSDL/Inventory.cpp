@@ -136,7 +136,6 @@ void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea
 
 	delete f; f = nullptr;
 	delete copia; copia = nullptr;
-	delete imagen; imagen = nullptr;
 	delete inventarioHud; inventarioHud = nullptr;
 	delete marca; marca = nullptr;
 	//GameState::~GameState(); destruir�a tambien la lista de objectList --> da problemas, todo lo dem�s se destruye

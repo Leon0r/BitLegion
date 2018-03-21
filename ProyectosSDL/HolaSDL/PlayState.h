@@ -27,7 +27,7 @@ private:
 	int currentScene = 0;
 public:
 	PlayState() {}
-	~PlayState();
+	virtual ~PlayState();
 	PlayState(SDLApp* app);
 	MainCharacter* getMainPj() { return alena; }
 	ShortCut* getShortCut(){ return shortcut; }

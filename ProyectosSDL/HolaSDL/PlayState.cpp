@@ -10,6 +10,7 @@ PlayState::~PlayState() {
 	i << std::setw(4) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo
 	delete alena;
+	delete shortcut;
 	stage.clear();
 	for (aux = scenes.begin(); aux != scenes.end(); aux++) {
 		(*aux)->saveSceneToJson();
