@@ -45,7 +45,12 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState
 	}
 
 	//------------------------------------HUD-------------------------------------------------------------
-
+	resetButton = new Boton(app, reset, this, "reset");
+	resetButton->setPosition(Vector2D(800, 400)); //numeros majos
+	resetButton->setHeight(78);
+	resetButton->setWidth(100);
+	resetButton->addRenderComponent(imagenMarca);
+	stage.push_back(resetButton);
 	//---------------------------------------------------------------------------------------------------
 }
 
@@ -186,21 +191,27 @@ void Puzzle1State::mueveMatriz()
 		}
 	}
 }
-
+void Puzzle1State::deleteMatrix() {
+	for (int i = 0; i < numCas; i++) {
+		for (int j = 0; j < numCas; j++) {
+			if (matriz[i][j] != nullptr) { delete matriz[i][j]; matriz[i][j] = nullptr; }
+		}
+	}
+}
 void Puzzle1State::destroy()
 {
 	for (int i = 0; i < botones.size(); i++) {
-		delete botones[i]; botones[i] = nullptr;
-	}
-	for (int i = 0; i < numCas; i++) {
-		for (int j = 0; j < numCas; j++) {
-			delete matriz[i][j]; matriz[i][j] = nullptr;
-		}
+		if (botones[i] != nullptr) { delete botones[i]; botones[i] = nullptr; }
 	}
 
-	delete imagenMarca; imagenMarca = nullptr;
+	deleteMatrix();
 
-	//GameState::~GameState(); da problemas
+	if (imagenMarca != nullptr) { delete imagenMarca; imagenMarca = nullptr; }
+
+	if (resetButton != nullptr) { delete resetButton; resetButton = nullptr; }
+	//GameState::~GameState(); da problemas ------>> Da problemas porque en LA DEstructora del GameState se recorre el stage borrando cada elemento
+	// que creo que es lo mismo que haces arriba, maybe con solo llamar a la destructora de gameState nos vale (?) pero luego
+	//habria que pensar otra manera de hacer el reset sin invocar a esto----> maybe invocando a la destructora del state perooooo puede dar problemas
 }
 
 void Puzzle1State::usar(GameState* state, int fil, int col)

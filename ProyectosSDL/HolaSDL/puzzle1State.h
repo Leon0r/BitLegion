@@ -13,6 +13,7 @@ private:
 	GameState* previousState;
 	vector<vector<CasillaPuzzle1*>> matriz;
 	vector<Boton*> botones;
+	Boton* resetButton;
 	RenderComponent* imagenMarca;
 	const int espaciado = 85.0;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
@@ -22,9 +23,26 @@ private:
 	int currentFil, currentCol;
 	const int numCas = 5;
 	int numRestantes = 0;
-
 	static void usar(GameState* state, int fil, int col);
+	static void reset(GameState* state) { Puzzle1State* aux = dynamic_cast<Puzzle1State*>(state); if (aux != nullptr) { aux->deleteMatrix(); aux->changeList(); aux->readFromJson(1); } } //estaria guay que el estado tuviese acceso al numero de puzzle que toca
 	void checkLine(int line, bool Vert);
+	void deleteMatrix();
+	void tresUnidos();
+	void mueveMatriz();
+	void reestableFC(int f, int c) {
+		if (f != -1) {
+			for (int i = 0; i < numCas - 1; i++) swap(matriz[f][0], matriz[f][i + 1]);
+			for (int i = 0; i < numCas; i++) matriz[f][i]->setPosition(Vector2D((int)topI + ((int)(relacion.first*espaciado) / 2) + (int)(i*espaciado*relacion.first), matriz[f][i]->getPosition().getY()));
+		}
+		else {
+			for (int i = numCas - 1; i > 0; i--) swap(matriz[4][c], matriz[i - 1][c]);
+			for (int i = 0; i < numCas; i++) {
+				int j = (int)topAB - ((int)(relacion.second*espaciado) / 2) - (int)(i*espaciado*relacion.second);
+				matriz[numCas - 1 - i][c]->setPosition(Vector2D(matriz[numCas - 1 - i][c]->getPosition().getX(), j));
+			}
+		}
+	}
+	void destroy();
 public:
 	Puzzle1State() {};
 	Puzzle1State(SDLApp* game,  GameState* previousState);
@@ -42,23 +60,6 @@ public:
 		GameState::render(); 
 	}
 	virtual void update();
-	void tresUnidos();
-	void mueveMatriz();
-	void reestableFC(int f, int c){
-		if (f != -1) {
-			for (int i = 0; i < numCas - 1; i++) swap(matriz[f][0], matriz[f][i + 1]);
-			for (int i = 0; i < numCas; i++) matriz[f][i]->setPosition(Vector2D((int)topI + ((int)(relacion.first*espaciado) / 2) + (int)(i*espaciado*relacion.first), matriz[f][i]->getPosition().getY()));
-		}
-		else {
-			for (int i = numCas - 1; i > 0; i--) swap(matriz[4][c], matriz[i - 1][c]);
-			for (int i = 0; i < numCas; i++) {
-				int j = (int)topAB - ((int)(relacion.second*espaciado) / 2) - (int)(i*espaciado*relacion.second);
-				matriz[numCas-1-i][c]->setPosition(Vector2D(matriz[numCas-1-i][c]->getPosition().getX(), j));
-			}
-		}
-	}
-	void destroy();
 	GameState* getPreviousState() { return previousState; };
 	void readFromJson(int numeroPuzzle);
-	void tuTioNoTieneSentido();
 };
