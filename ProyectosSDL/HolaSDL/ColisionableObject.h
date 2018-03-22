@@ -9,7 +9,9 @@ class ColisionableObject :
 public:
 	ColisionableObject() {}
 	ColisionableObject(SDLApp* game, int x, int y, int w, int h, Texture* texture);
-	~ColisionableObject() {}
+	virtual ~ColisionableObject() {
+		render = nullptr;
+	}
 	virtual void saveToJson(json& j) { json aux; Entity::saveToJson(aux); j["CollisionableObject"].push_back(aux); };
 private:
 	RenderComponent* render;

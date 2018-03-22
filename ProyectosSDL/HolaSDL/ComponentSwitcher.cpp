@@ -5,6 +5,7 @@ ComponentSwitcher::ComponentSwitcher(SDLApp* game, Entity* o) :
 }
 
 ComponentSwitcher::~ComponentSwitcher() {
+	o_ = nullptr;
 }
 
 void ComponentSwitcher::handleInput(Uint32 time, const SDL_Event& event) {

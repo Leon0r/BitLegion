@@ -2,6 +2,8 @@
 
 Boton::~Boton()
 {
+	txt = nullptr;
+	actualState = nullptr;
 }
 
 void Boton::handleInput(Uint32 time, const SDL_Event& event) {

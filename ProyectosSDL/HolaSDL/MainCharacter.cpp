@@ -14,7 +14,6 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	addAnim("Right", { 8,9,10,11,12,13,14,15 });//caminar a la derecha
 
 	//componentes
-	//render = new ImageRenderer(_texture);
 	render = new AnimationRenderer(_texture, animations, 4, 4, 60, 144);
 	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
 	movement = new MovementComponent(colisionables);//mueve al jugador cuando se usa el teclado
@@ -50,11 +49,20 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 			app->getResources()->getImageTexture(Resources::ImageId(n)));
 
 		addInventoryObject(item);
+		delete item;
 	}
 }
 
 MainCharacter::~MainCharacter()
 {
+	_texture = nullptr;
+	shortCut = nullptr;
+	/*render = nullptr;
+	keyboard = nullptr;
+	movement = nullptr;
+	mouseMovement = nullptr;*/
+	list = nullptr;
+	colisionables = nullptr;
 }
 
 void MainCharacter::addInventoryObject(GameObject* o) {

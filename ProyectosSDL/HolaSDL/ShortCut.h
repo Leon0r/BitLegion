@@ -25,7 +25,10 @@ public:
 	ShortCut(){};
 	ShortCut(SDLApp* game, ObjectList* list, const Resources* resources);
 	virtual void handleInput(Uint32 time, const SDL_Event& event);//redefinicion del metodo del padre
-	virtual ~ShortCut() {}
+	virtual ~ShortCut() {
+		renderCmp = nullptr; imagenMarca = nullptr;
+		delete marca; marca = nullptr; lista = nullptr; resources = nullptr; selected = nullptr;
+	}
 	virtual void render(Uint32 time);
 	void ini(int pos, double coefred);
 	void recorreEInicia(double coefred = 1.0);

@@ -1,11 +1,5 @@
 #include "CasillaInventario.h"
 
-
-CasillaInventario::~CasillaInventario()
-{
-	Entity::~Entity();
-}
-
 bool CasillaInventario::pulsacion(const SDL_Event& event, int espaciadoX, int espaciadoY){
 	//Cambio    vvvvvvvvvvvvvvv Antes: This->handleEvent
 	SDL_Rect rect;

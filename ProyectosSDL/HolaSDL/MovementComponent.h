@@ -15,7 +15,7 @@ protected:
 public:
 	MovementComponent() {}
 	MovementComponent(list<GameObject*>* colisiones): collisions(colisiones) {}
-	~MovementComponent() {}
+	virtual ~MovementComponent() { collisions = nullptr; }
 
 	//actualizamos la logica del personaje
 	virtual void update(GameObject* o, Uint32 time);

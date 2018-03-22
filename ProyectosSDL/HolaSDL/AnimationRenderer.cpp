@@ -19,6 +19,7 @@ AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animati
 			aux->framesAnim_.push_back(i);
 		}
 		animations_.push_back(aux);
+		delete aux;
 	}
 
 	playAnim(0);
@@ -26,6 +27,7 @@ AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animati
 
 AnimationRenderer::~AnimationRenderer()
 {
+	texture_ = nullptr;
 }
 
 void AnimationRenderer::render(GameObject* o, Uint32 time)

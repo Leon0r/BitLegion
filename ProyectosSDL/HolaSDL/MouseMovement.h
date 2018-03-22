@@ -17,7 +17,7 @@ private:
 	double vel;
 	SDL_Point p, q;//punto destino (p) y destino anterior (q)
 	int sceneWidth = 1280, sceneHeight = 720, scenePosX = 0, scenePosY = 0;//tamaño de la escena
-	int auxX = 1280/40, auxY = 720/40;//reescalado de la matriz
+	int auxX = 1280/tamMatriz, auxY = 720/tamMatriz;//reescalado de la matriz
 	AStar* nek;
 	//bool solucionadorBugs();//soluciona bugs, de omento no esta activo
 	bool idleRight = true;//determina hacia que lado estamos mirando cuando estamos parados

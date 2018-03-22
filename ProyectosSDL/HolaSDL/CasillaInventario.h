@@ -11,7 +11,7 @@ private:
 	string description;
 public:
 	CasillaInventario() {};
-	virtual ~CasillaInventario();
+	virtual ~CasillaInventario() {}
 
 	//Constructora que recibe el tag y su descripcion
 	CasillaInventario(SDLApp* app, string tag, string description) : Entity(app), tag(tag), description(description) {};

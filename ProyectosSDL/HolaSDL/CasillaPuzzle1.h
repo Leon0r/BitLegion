@@ -18,7 +18,6 @@ public:
 	virtual ~CasillaPuzzle1() { 
 		text = nullptr;
 		delete imagen; imagen = nullptr;
-		Entity::~Entity();
 	};
 	bool active() { return special; };
 	void setActive(bool b) { special = b; }
