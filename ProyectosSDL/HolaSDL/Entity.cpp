@@ -15,9 +15,6 @@ Entity::~Entity() {
 	for (RenderComponent* rc : renderComp_) {
 		if (rc != nullptr) { delete rc; rc = nullptr; }
 	}
-	for (animData* an : animations) {
-		if (an != nullptr) { delete an; an = nullptr; }
-	}
 }
 
 void Entity::handleInput(Uint32 time, const SDL_Event& event) {
