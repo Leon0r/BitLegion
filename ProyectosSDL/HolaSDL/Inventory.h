@@ -17,7 +17,7 @@ private:
 	Font* f;
 	bool bswap = false;
 	CasillaInventario* selected;
-	Entity* copia;
+	Entity* copia = nullptr;
 	RenderComponent* imagen;
 	RenderComponent* imagenMarca;
 	RenderComponent* selectedTexture;
