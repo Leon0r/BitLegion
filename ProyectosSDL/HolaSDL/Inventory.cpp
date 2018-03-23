@@ -13,7 +13,6 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 	}
 
 	f = new Font("..//images/fuente2.ttf", tamanyoFuente);
-	//imagen = new ImageRenderer(app->getResources()->getImageTexture(Resources::Inventario));
 	
 	//imagen del inventario
 	inventarioHud->setHeight(app->getWindowHeight()*0.75);
@@ -138,7 +137,6 @@ void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea
 	delete copia; copia = nullptr;
 	delete inventarioHud; inventarioHud = nullptr;
 	delete marca; marca = nullptr;
-	//GameState::~GameState(); destruir�a tambien la lista de objectList --> da problemas, todo lo dem�s se destruye
 }
 
 void Inventory::usar(GameState* state) {

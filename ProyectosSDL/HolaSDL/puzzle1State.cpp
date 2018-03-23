@@ -187,6 +187,7 @@ void Puzzle1State::mueveMatriz()
 void Puzzle1State::destroy()
 {
 	for (int i = 0; i < botones.size(); i++) {
+		botones[i]->delRenderComponent(imagenMarca);
 		delete botones[i]; botones[i] = nullptr;
 	}
 	for (int i = 0; i < numCas; i++) {
@@ -194,10 +195,7 @@ void Puzzle1State::destroy()
 			delete matriz[i][j]; matriz[i][j] = nullptr;
 		}
 	}
-
 	delete imagenMarca; imagenMarca = nullptr;
-
-	//GameState::~GameState(); da problemas
 }
 
 void Puzzle1State::usar(GameState* state, int fil, int col)

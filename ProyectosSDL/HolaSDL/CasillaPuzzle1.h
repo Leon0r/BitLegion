@@ -15,10 +15,7 @@ private:
 	bool special;
 public:
 	CasillaPuzzle1() {};
-	virtual ~CasillaPuzzle1() { 
-		text = nullptr;
-		delete imagen; imagen = nullptr;
-	};
+	virtual ~CasillaPuzzle1() { text = nullptr; };
 	bool active() { return special; };
 	void setActive(bool b) { special = b; }
 	//Constructora que recibe el tag y su descripcion

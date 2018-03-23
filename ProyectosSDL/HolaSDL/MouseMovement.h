@@ -25,7 +25,7 @@ public:
 	queue<pair<int, int>> stackerino;//cola de destinos intermedios para llegar al final
 	MouseMovement() {}
 	MouseMovement(list<GameObject*>* colisiones, double vel);
-	~MouseMovement() { delete nek; }
+	virtual ~MouseMovement() { delete nek; }
 
 	//actualizamos la logica del personaje
 	virtual void update(GameObject* o, Uint32 time);

@@ -33,6 +33,7 @@ public:
 	void setMode(int i);
 
 	virtual void receive(Messages msg);
+	bool isKeyBoardComponent() { return keyComp; }
 
 private:
 	Entity* o_;
@@ -40,9 +41,10 @@ private:
 	int currMode_;
 	virtual Texture* getTexture(Uint16 pos) const { return nullptr; }
 	virtual void saveToJson(json& j) {}
-	bool keyBoard = false;
+	bool keyBoard = false;//flags para saber si se pueden switchear los componentes
 	bool mouse = false;
 	bool cambioEscena = false;
+	bool keyComp = true;//indica si el componente keyboard esta activo
 };
 
 #endif /* COMPONENTSWITCHER_H_ */

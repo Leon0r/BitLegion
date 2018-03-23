@@ -10,6 +10,10 @@ GOTransiciones::GOTransiciones(SDLApp* game, int x, int y, int w, int h, Texture
 	addAnim("LeftArrow", { 4,5,6,7 });
 	addAnim("DownArrow", { 8,9,10,11 });
 	addAnim("UpArrow", { 12,13,14,15 });
+	if (render != nullptr) {
+		delete render;
+		render = nullptr;
+	}
 	render = new AnimationRenderer(texture,animations,4,4,60,60);
 	static_cast<AnimationRenderer*>(render)->playAnim(rotation_);
 	this->addRenderComponent(render);

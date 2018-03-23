@@ -43,7 +43,8 @@ void SDLApp::render() {
 }
 
 void SDLApp::closeSDL() {
-	maquinaEstados->libera(); 
+	delete maquinaEstados; maquinaEstados = nullptr;
+	delete resources; resources = nullptr;
 	SDL_DestroyRenderer(renderer); 
 	renderer = nullptr; 
 	SDL_DestroyWindow(window); 

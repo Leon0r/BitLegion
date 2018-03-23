@@ -9,6 +9,7 @@ GameStateMachine::GameStateMachine()
 
 GameStateMachine::~GameStateMachine()
 {
+	libera();
 }
 
 void GameStateMachine::popState() {

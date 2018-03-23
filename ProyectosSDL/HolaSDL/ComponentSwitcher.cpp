@@ -12,9 +12,11 @@ void ComponentSwitcher::handleInput(Uint32 time, const SDL_Event& event) {
 	if (cambioEscena || (!mouse && event.type == SDL_KEYDOWN && currMode_ != 0)) {
 		cambioEscena = false;
 		switchToNextMode();
+		keyComp = true;//keyboard activado
 	}
 	else if(!keyBoard && event.type == SDL_MOUSEBUTTONDOWN && currMode_ != 1 && event.button.button == SDL_BUTTON_RIGHT){
 		switchToNextMode();
+		keyComp = false;//keyboard desactivado
 	}
 }
 

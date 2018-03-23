@@ -55,12 +55,18 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 
 MainCharacter::~MainCharacter()
 {
+	if (switcher.isKeyBoardComponent()) {
+		delete mouseMovement;
+		mouseMovement = nullptr;
+	}
+	else {
+		delete movement;
+		movement = nullptr;
+		delete keyboard;
+		keyboard = nullptr;
+	}
 	_texture = nullptr;
 	shortCut = nullptr;
-	/*render = nullptr;
-	keyboard = nullptr;
-	movement = nullptr;
-	mouseMovement = nullptr;*/
 	list = nullptr;
 	colisionables = nullptr;
 }
