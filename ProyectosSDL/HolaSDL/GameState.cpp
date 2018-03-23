@@ -51,5 +51,8 @@ void GameState::deleteElement(GameObject* o) {
 			it++;
 		}
 	}
-	delete o;
+	if (o != nullptr) {
+		delete o;
+		o = nullptr;
+	}
 }
