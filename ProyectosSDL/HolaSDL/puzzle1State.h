@@ -17,16 +17,21 @@ private:
 	//----------------------VECTORES DE OBJETOS, OBJETOS Y VECTOR AUXILIAR-------------------------
 	vector<vector<CasillaPuzzle1*>> matriz;
 	vector<Boton*> botones;
+	vector<RenderComponent*> botonesAnim;
 	vector<vector<int>> matrizOriginal;
 	Boton* resetButton;
-	RenderComponent* imagenMarca;
+	RenderComponent* HUD;
+	RenderComponent* reiniciar;
+	RenderComponent* imagenCopia;
+	Entity* copia = new Entity(app);
+	Entity* puzzleHud = new Entity(app);
 
 	//--------------------------VARIABLES AUXILIARES-----------------------------------------
 	const int numCas = 5;
 	int numRestantes = 0;
-	const int espaciado = 85.0;
+	const int espaciado = 117.0;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
-	const double topD = relacion.first*(espaciado*4 + 137 + espaciado/2), topI = relacion.first*(137-espaciado/2), topA = relacion.second*(112 - espaciado / 2), topAB = relacion.second*(espaciado*4 + 112 + espaciado / 2);
+	const double topD = relacion.first*(espaciado*4 + 240 + espaciado/2), topI = relacion.first*(240-espaciado/2), topA = relacion.second*(53 - (espaciado-10) / 2), topAB = relacion.second*((espaciado-5)*4 + 53 + espaciado / 2);
 	double auxI, auxD, auxA, auxAB;
 	bool mover = false;
 	int currentFil, currentCol;
@@ -51,7 +56,7 @@ private:
 		else {
 			for (int i = numCas - 1; i > 0; i--) swap(matriz[4][c], matriz[i - 1][c]);
 			for (int i = 0; i < numCas; i++) {
-				int j = (int)topAB - ((int)(relacion.second*espaciado) / 2) - (int)(i*espaciado*relacion.second);
+				int j = (int)topAB - ((int)(relacion.second*(espaciado)) / 2) - (int)(i*(espaciado-5)*relacion.second);
 				matriz[numCas - 1 - i][c]->setPosition(Vector2D(matriz[numCas - 1 - i][c]->getPosition().getX(), j));
 			}
 		}
@@ -71,10 +76,7 @@ public:
 		}
 		else GameState::handleEvent(event);
 	}
-	virtual void render() { 
-		if (previousState != nullptr) previousState->render();
-		GameState::render(); 
-	}
+	virtual void render() { GameState::render(); }
 	virtual void update();
 
 	GameState* getPreviousState() { return previousState; };

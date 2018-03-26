@@ -47,6 +47,8 @@ public:
 		BotonPuzzleP,
 		CasillaPuzzleV,
 		llavePisoPuzzle,
+		PuzzleHud,
+		BotonReiniciar,
 
 	};
 private:

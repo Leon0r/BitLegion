@@ -5,39 +5,66 @@
 Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState::GameState(game), previousState(previousState)
 {
 	loadFromJson(1); //el 1 ese habrá que sacarlo de algún lado
-	
+
+	imagenCopia = new ImageRenderer(app->getResources()->getImageTexture(Resources::llavePisoPuzzle));
+	copia->addRenderComponent(imagenCopia);
+	copia->setWidth(imagenCopia->getTexture()->getHeight()*1.5*relacion.first);
+	copia->setHeight(imagenCopia->getTexture()->getHeight()*1.7*relacion.second);
+	copia->setPosition(Vector2D((103 * relacion.first) - copia->getWidth() / 2, (230 * relacion.second) - copia->getHeight() / 2));
+	stage.push_back(copia);
+
 	auxI = matriz[0][0]->getPosition().getX();
 	auxD = auxI + relacion.first*espaciado;
 	auxAB = matriz[numCas-1][numCas-1]->getPosition().getY();
 	auxA = auxAB - relacion.second*espaciado;
 
-	imagenMarca = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonPuzzle));
 	for (int i = 0; i < numCas*2; i++) {
 		Boton* b;
+		RenderComponent* bAnim = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonPuzzle));
 		if (i < numCas) {
 			b = new Boton(game, usar, this, "boton1", i, -1);
-			b->setWidth(80);
+			b->setWidth(40);
 			b->setHeight(60);
-			b->setPosition(Vector2D(b->getWidth(), relacion.second*(espaciado*i + espaciado + 25)));
+			b->setPosition(Vector2D(b->getWidth() + 223, relacion.second*((espaciado-4)*i + 51)));
 		}
 		else {
 			b = new Boton(game, usar, this, "boton1", -1, i - numCas);
-			b->setWidth(80);
+			b->setWidth(40);
 			b->setHeight(60);
-			b->setPosition(Vector2D(relacion.first*(espaciado*(i-numCas) + 111) + espaciado/3, game->getWindowHeight()-b->getHeight() - b->getHeight()/2));
+			b->setPosition(Vector2D(relacion.first*(espaciado*(i-numCas) + 100) + espaciado*2, game->getWindowHeight()-b->getHeight() - b->getHeight()/2));
 		}
-		b->addRenderComponent(imagenMarca);
+		//b->addAnim("pulsado", { 1 }, false, 1);
+		//b->addAnim("Idle", { 0 }, false, 1);
+		//RenderComponent* bAnim = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar), resetButton->getAnimations(), 2, 1, 140, 140);
+		botonesAnim.push_back(bAnim);
+		b->addRenderComponent(botonesAnim[i]);
 		botones.push_back(b);
 		stage.push_back(b);
 	}
 
 	//------------------------------------HUD-------------------------------------------------------------
 	resetButton = new Boton(app, resetFunction, this, "reset");
-	resetButton->setPosition(Vector2D(800, 400)); //numeros majos
-	resetButton->setHeight(78);
-	resetButton->setWidth(100);
-	resetButton->addRenderComponent(imagenMarca);
+	//resetButton->addAnim("pulsado", { 1 }, false, 1);
+	//resetButton->addAnim("Idle", { 0 }, false, 1);
+	//reiniciar = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar), resetButton->getAnimations(), 2, 1, 140, 140);
+	reiniciar = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar));
+	resetButton->setPosition(Vector2D(43.5*relacion.first, 380*relacion.second)); //numeros majos
+	resetButton->setHeight(reiniciar->getTexture()->getHeight() * 4 / 3);
+	resetButton->setWidth(reiniciar->getTexture()->getWidth() * 4 / 3);
+	resetButton->addRenderComponent(reiniciar);
 	stage.push_back(resetButton);
+
+	vector<int> j;
+	j.resize(66);
+	for (int i = 0; i < 66; i++)j[i] = 0;
+	puzzleHud->addAnim("Idle", j, true, 50);
+	puzzleHud->setHeight(app->getWindowHeight());
+	puzzleHud->setWidth(app->getWindowWidth());
+	puzzleHud->setPosition(Vector2D(Vector2D(app->getWindowWidth() / 2 - puzzleHud->getWidth() / 2,
+		app->getWindowHeight() / 2 - puzzleHud->getHeight() / 2)));
+	HUD = new AnimationRenderer(app->getResources()->getImageTexture(Resources::PuzzleHud), puzzleHud->getAnimations(), 9, 8, puzzleHud->getWidth()*0.75, puzzleHud->getHeight()*0.75);
+	puzzleHud->addRenderComponent(HUD);
+	stage.push_back(puzzleHud);
 	//---------------------------------------------------------------------------------------------------
 }
 
@@ -204,13 +231,16 @@ void Puzzle1State::destroy()
 {
 	for (int i = 0; i < botones.size(); i++) {
 		if (botones[i] != nullptr) { delete botones[i]; botones[i] = nullptr; }
+		if (botonesAnim[i] != nullptr) { delete botonesAnim[i]; botonesAnim[i] = nullptr; }
 	}
 
 	deleteMatrix();
 
-	if (imagenMarca != nullptr) { delete imagenMarca; imagenMarca = nullptr; }
-
 	if (resetButton != nullptr) { delete resetButton; resetButton = nullptr; }
+
+	if (puzzleHud != nullptr) { delete puzzleHud; puzzleHud = nullptr; }
+
+	if (copia != nullptr) { delete copia; copia = nullptr; }
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -269,7 +299,7 @@ void Puzzle1State::loadFromJson(int numeroPuzzle){
 				for (unsigned int j = 0; j < numCas; j++) {
 					matrizOriginal[i][j] = json["Casillas"][index]["Tipo"]; //se rellena la matriz original con su numero correspondiente
 					eligeTipoCasilla(json["Casillas"][index]["Tipo"], std::to_string(i*numCas + j), matriz[i][j]);
-					matriz[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + 137), relacion.second*(espaciado*i + 112)));
+					matriz[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + 240), relacion.second*((espaciado-5)*i + 53)));
 					stage.push_back(matriz[i][j]);
 					index++;
 				}
@@ -380,8 +410,8 @@ void Puzzle1State::restart()
 		matriz[i].resize(numCas);
 		for (unsigned int j = 0; j < matrizOriginal[i].size(); j++) {
 			eligeTipoCasilla(matrizOriginal[i][j], std::to_string(i*numCas + j), matriz[i][j]); //depende del tipo anteriormente guardado, se crea una casilla u otra
-			matriz[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + 137), relacion.second*(espaciado*i + 112))); //la coloca
-			stage.push_back(matriz[i][j]); //la pushea
+			matriz[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + 240), relacion.second*((espaciado - 5)*i + 53))); //la coloca
+			stage.push_front(matriz[i][j]); //la pushea
 		}
 	}
 }
