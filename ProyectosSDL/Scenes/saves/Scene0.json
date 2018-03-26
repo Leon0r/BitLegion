@@ -45,6 +45,17 @@
          "y": 600.0
       }
    ],
+   "ItemInventario": [
+      {
+         "Texture": 22,
+         "descripcion": "key",
+         "h": 40.0,
+         "tag": "key",
+         "w": 40.0,
+         "x": 710.0,
+         "y": 490.0
+      }
+   ],
    "Texture": 10,
    "h": 720.0,
    "w": 1280.0,

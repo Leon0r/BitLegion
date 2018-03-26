@@ -27,7 +27,7 @@ public:
 	virtual void playAnim(string label);
 	virtual void playAnim(int anim) { (anim < animations_.size() && anim >= 0) ? (nextAnim_ = anim) : (nextAnim_ = currentAnim_); }// operador ternario (if)?(true):(false);
 	
-	virtual void receive(Messages msg);
+	virtual void receive(Mensaje* msg);
 
 protected:
 

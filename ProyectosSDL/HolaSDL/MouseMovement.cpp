@@ -36,9 +36,9 @@ void MouseMovement::update(GameObject* o, Uint32 time) {
 //miramos si ha llegado a la posicion destino
 void MouseMovement::stopMovement(GameObject* o, Vector2D destiny) {
 	if (playerInDestiny(o, destiny) && stackerino.empty()) {
-		send(Messages(MouseStop));//si era el ultimo destino informamos de que estamos parados
-		if (idleRight)send(StopRight);//paramos en la direccion que estemos mirando (animaciones)
-		else send(StopLeft);
+		send(&Mensaje(MouseStop));//si era el ultimo destino informamos de que estamos parados
+		if (idleRight)send(&Mensaje(StopRight));//paramos en la direccion que estemos mirando (animaciones)
+		else send(&Mensaje(StopLeft));
 		o->setVelocity(Vector2D(0, 0));//paramos
 	}
 }
@@ -76,14 +76,14 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 			//si ha encontrado destinos
 			if (!stackerino.empty()) {
 				if (p.x + scenePosX >= o->getPosition().getX()) {
-					send(Ch_Right);//si el destino esta por la derecha ponemos la animacion correspondiente
+					send(&Mensaje(Ch_Right));//si el destino esta por la derecha ponemos la animacion correspondiente
 					idleRight = true;
 				}
 				else {
-					send(Ch_Left);//lo mismo si esta por la derecha
+					send(&Mensaje(Ch_Left));//lo mismo si esta por la derecha
 					idleRight = false;
 				}
-				send(Messages(MouseMoving));//informamos de que empezamos a movernos
+				send(&Mensaje(MouseMoving));//informamos de que empezamos a movernos
 				setDestiny(stackerino.front().first, stackerino.front().second); //establecemos el primero
 				setDirection(o, destiny);//le mandamos hacia el
 			}

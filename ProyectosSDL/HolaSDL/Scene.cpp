@@ -145,8 +145,8 @@ void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se
 	SceneItems.pop_front(); //quitamos al jugador de la escena (es global). Se puede hacer as� o con un for que se salte el primero y copie los dem�s
 	SceneItems.pop_front(); //quitamos al shortcut
 	pj->setVelocity(Vector2D(0.0, 0.0));
-	pj->getMouseComponent()->send(Messages(MouseStop));
-	pj->getMouseComponent()->send(Messages(CambioEscena));
+	pj->getMouseComponent()->send(&Mensaje(MouseStop));
+	pj->getMouseComponent()->send(&Mensaje(CambioEscena));
 }
 
 

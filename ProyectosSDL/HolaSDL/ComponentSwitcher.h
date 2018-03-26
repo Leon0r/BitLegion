@@ -32,7 +32,7 @@ public:
 	void switchToNextMode();
 	void setMode(int i);
 
-	virtual void receive(Messages msg);
+	virtual void receive(Mensaje* msg);
 	bool isKeyBoardComponent() { return keyComp; }
 
 private:
