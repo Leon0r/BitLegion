@@ -7,6 +7,7 @@ private:
 	bool encendido;
 	pair<const int, const int> pos_;
 	ImageRenderer render;
+	void updateText();
 public:
 	CasillaLight();
 	virtual ~CasillaLight();
@@ -15,7 +16,7 @@ public:
 	virtual void act();
 	void invertir();
 	virtual void saveToJson(json& j) {};
-	bool getEncendido() const { return encendido; };
-
+	bool isOn() const { return encendido; };
+	void setOn(bool on) { this->encendido = on; this->updateText(); };
 };
 

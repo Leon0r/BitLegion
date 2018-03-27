@@ -6,7 +6,7 @@ CasillaLight::CasillaLight()
 {
 }
 
-CasillaLight::CasillaLight(SDLApp * game, int x, int y, int w, int h, Texture * texture, Observer* obs) : Entity(game), pos_(x, y), render(texture) {
+CasillaLight::CasillaLight(SDLApp * game, int x, int y, int w, int h, Texture * texture, Observer* obs) : Entity(game), pos_(x, y), render(texture), encendido(false) {
 	this->setWidth(w);
 	this->setHeight(h);
 	this->addRenderComponent(&render);
@@ -35,6 +35,10 @@ void CasillaLight::act()
 void CasillaLight::invertir()
 {
 	encendido = !encendido; //cambio de bool
+	updateText();
+}
+
+void CasillaLight::updateText(){
 	if (encendido) {
 		this->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca)); //cambio de textura 
 	}

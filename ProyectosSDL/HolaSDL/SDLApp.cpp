@@ -5,6 +5,7 @@
 
 SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 {
+		srand(time(NULL)); //inicia la seed del random para que genere distintos numeros siempre que compilemos
 		window = nullptr;
 		renderer = nullptr;
 		int winX, winY;
