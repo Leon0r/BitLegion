@@ -17,7 +17,7 @@ LightsOut::LightsOut(SDLApp* app) : GameState::GameState(app), puzzleHasStarted(
 			stage.push_back(lights[i][j]);
 		}
 	}
-	this->apagaLuces(3);
+	this->apagaLuces(1);
 
 	//--------Botones-----
 	botonReset = new Boton(app, resetPuzzle, this, "reset");

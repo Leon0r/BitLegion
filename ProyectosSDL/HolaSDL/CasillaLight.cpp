@@ -40,10 +40,10 @@ void CasillaLight::invertir()
 
 void CasillaLight::updateText(){
 	if (encendido) {
-		this->setTexture(0, app->getResources()->getImageTexture(Resources::BolsaCoca)); //cambio de textura 
+		this->setTexture(0, app->getResources()->getImageTexture(Resources::LuzEncendida)); //cambio de textura 
 	}
 	else {
-		this->setTexture(0, app->getResources()->getImageTexture(Resources::FotoNoviaMuerto));
+		this->setTexture(0, app->getResources()->getImageTexture(Resources::LuzApagada));
 	}
 }
 

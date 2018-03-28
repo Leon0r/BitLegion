@@ -53,7 +53,9 @@ public:
 		FlechaTransicionIzq,
 		llavePisoPuzzle,
 		CasillaPuzzleV,
-		BotonPuzzle,  
+		BotonPuzzle,
+		LuzApagada,
+		LuzEncendida
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
