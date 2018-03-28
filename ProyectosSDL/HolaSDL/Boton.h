@@ -19,13 +19,13 @@ private:
 	CallBackOnClickStateFC* stateFC;
 	GameState* actualState;
 public:
-	Boton() : state(nullptr), inApp(nullptr), actualState(nullptr), Entity(nullptr), nombre("") {}; //constructora vacia
+	Boton() : state(nullptr), inApp(nullptr), stateFC(nullptr), actualState(nullptr), Entity(nullptr), nombre("") {}; //constructora vacia
 	virtual ~Boton();
-	Boton(SDLApp* app, CallBackOnClickApp* inApp, string nombre) : Entity(app), inApp(inApp), nombre(nombre), state(nullptr), actualState(nullptr) {}; //constructora con puntero a la app
+	Boton(SDLApp* app, CallBackOnClickApp* inApp, string nombre) : Entity(app), inApp(inApp), nombre(nombre), state(nullptr), actualState(nullptr), stateFC(nullptr) {}; //constructora con puntero a la app
 	//útil para botones que hacen algo con los estados (start, exit...)
-	Boton(SDLApp* app, CallBackOnClickState* state, GameState* actualState, string nombre) : Entity(app), state(state), actualState(actualState), nombre(nombre), inApp(nullptr) {};//constructora
+	Boton(SDLApp* app, CallBackOnClickState* state, GameState* actualState, string nombre) : Entity(app), state(state), actualState(actualState), nombre(nombre), inApp(nullptr), stateFC(nullptr) {};//constructora
 	//con puntero al estado actual, útil para "botones" que hacen cosas en el estado (usar y swap del inventario, maybe objetos interactuables...)
-	Boton(SDLApp* app, CallBackOnClickStateFC* stateFC, GameState* actualState, string nombre, int fil, int col) : Entity(app), stateFC(stateFC), actualState(actualState), nombre(nombre), f(fil), c(col) {};//constructora2
+	Boton(SDLApp* app, CallBackOnClickStateFC* stateFC, GameState* actualState, string nombre, int fil, int col) : Entity(app), stateFC(stateFC), actualState(actualState), nombre(nombre), f(fil), c(col), inApp(nullptr), state(nullptr) {};//constructora2
 	virtual void handleInput(Uint32 time, const SDL_Event& event);
 	
 };

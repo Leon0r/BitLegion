@@ -134,7 +134,7 @@ void Scene::enterScene() {
 	pj->setSceneTam(width, height, x, y);
 
 	//limpiamos las pilas de teclas para evitar errores entre cambios de escena
-	pj->cleanKeys();
+	//pj->cleanKeys();
 
 	//genera la matriz para el mouse
 	pj->collisionListWasModified();

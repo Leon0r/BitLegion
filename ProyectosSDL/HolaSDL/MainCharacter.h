@@ -34,7 +34,7 @@ public:
 		mouseMovement->setSceneTam(w, h, x, y);
 		static_cast<MovementComponent*>(movement)->setSceneTam(w, h, x, y);
 	}
-	void cleanKeys() { static_cast<KeyboardComponent*>(keyboard)->cleanStacks(); }//llamado al entrar en una escena, limpia las pilas de teclas para evitar errores
+	//void cleanKeys() { static_cast<KeyboardComponent*>(keyboard)->cleanStacks(); }//llamado al entrar en una escena, limpia las pilas de teclas para evitar errores
 private:
 	Texture * _texture;
 	ShortCut * shortCut;

@@ -1,51 +1,74 @@
 #include "puzzle1State.h"
+#include <fstream>
+#include "json.hpp"
 
 Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState::GameState(game), previousState(previousState)
 {
-	matriz.resize(numCas);
-	for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
-		matriz[i].resize(numCas);
-		for (int j = 0; j < numCas; j++) {
-			if (j % 2 == 0 && i % 2 == 0 && i < 4) {
-				numRestantes++;
-				matriz[i][j] = new CasillaPuzzle1(game, std::to_string(i*numCas + j), game->getResources()->getImageTexture(Resources::llavePisoPuzzle), true);
-			}
-			else matriz[i][j] = new CasillaPuzzle1(game, std::to_string(i*numCas + j), game->getResources()->getImageTexture(Resources::CasillaPuzzleV));
-			matriz[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + 137), relacion.second*(espaciado*i + 112)));
-			stage.push_back(matriz[i][j]);
-		}
-	} 
+	loadFromJson(1); //el 1 ese habr� que sacarlo de alg�n lado
+
+	imagenCopia = new ImageRenderer(app->getResources()->getImageTexture(Resources::llavePisoPuzzle));
+	copia->addRenderComponent(imagenCopia);
+	copia->setWidth(imagenCopia->getTexture()->getHeight()*1.5*relacion.first);
+	copia->setHeight(imagenCopia->getTexture()->getHeight()*1.7*relacion.second);
+	copia->setPosition(Vector2D((103 * relacion.first) - copia->getWidth() / 2, (230 * relacion.second) - copia->getHeight() / 2));
+	stage.push_back(copia);
 
 	auxI = matriz[0][0]->getPosition().getX();
 	auxD = auxI + relacion.first*espaciado;
 	auxAB = matriz[numCas-1][numCas-1]->getPosition().getY();
 	auxA = auxAB - relacion.second*espaciado;
 
-	imagenMarca = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonPuzzle));
 	for (int i = 0; i < numCas*2; i++) {
 		Boton* b;
+		//RenderComponent* bAnim = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonPuzzle));
 		if (i < numCas) {
 			b = new Boton(game, usar, this, "boton1", i, -1);
-			b->setWidth(80);
-			b->setHeight(60);
-			b->setPosition(Vector2D(b->getWidth(), relacion.second*(espaciado*i + espaciado + 25)));
+			b->setWidth(40);
+			b->setHeight(30);
+			b->setPosition(Vector2D(b->getWidth() + 280, relacion.second*((espaciado-4)*i + 63)));
 		}
 		else {
 			b = new Boton(game, usar, this, "boton1", -1, i - numCas);
-			b->setWidth(80);
-			b->setHeight(60);
-			b->setPosition(Vector2D(relacion.first*(espaciado*(i-numCas) + 111) + espaciado/3, game->getWindowHeight()-b->getHeight() - b->getHeight()/2));
+			b->setWidth(40);
+			b->setHeight(30);
+			b->setPosition(Vector2D(relacion.first*(espaciado*(i-numCas) + 100) + espaciado*2, game->getWindowHeight()-b->getHeight() - b->getHeight()/2 + 10));
 		}
-		b->addRenderComponent(imagenMarca);
+		//b->addAnim("pulsado", { 1 }, false, 1);
+		//b->addAnim("Idle", { 0 }, false, 1);
+		RenderComponent* bAnim = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonPuzzle), b->getAnimations(), 1, 2, 49, 51);
+		botonesAnim.push_back(bAnim);
+		b->addRenderComponent(botonesAnim[i]);
 		botones.push_back(b);
 		stage.push_back(b);
 	}
 
 	//------------------------------------HUD-------------------------------------------------------------
+	resetButton = new Boton(app, resetFunction, this, "reset");
+	//resetButton->addAnim("pulsado", { 1 }, false, 1);
+	//resetButton->addAnim("Idle", { 0 }, false, 1);
+	reiniciar = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar), resetButton->getAnimations(), 1, 2, 140, 140);
+	//reiniciar = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar));
+	resetButton->setPosition(Vector2D(43.5*relacion.first, 378*relacion.second)); //numeros majos
+	resetButton->setHeight(reiniciar->getTexture()->getHeight() * 2.1 / 3);
+	resetButton->setWidth(reiniciar->getTexture()->getWidth() * 4 / 3);
+	resetButton->addRenderComponent(reiniciar);
+	stage.push_back(resetButton);
 
+	vector<int> j;
+	j.resize(66);
+	for (int i = 0; i < 66; i++)j[i] = 0;
+	puzzleHud->addAnim("Idle", j, true, 50);
+	puzzleHud->setHeight(app->getWindowHeight());
+	puzzleHud->setWidth(app->getWindowWidth());
+	puzzleHud->setPosition(Vector2D(Vector2D(app->getWindowWidth() / 2 - puzzleHud->getWidth() / 2,
+		app->getWindowHeight() / 2 - puzzleHud->getHeight() / 2)));
+	HUD = new AnimationRenderer(app->getResources()->getImageTexture(Resources::PuzzleHud), puzzleHud->getAnimations(), 9, 8, puzzleHud->getWidth()*0.75, puzzleHud->getHeight()*0.75);
+	puzzleHud->addRenderComponent(HUD);
+	stage.push_back(puzzleHud);
 	//---------------------------------------------------------------------------------------------------
 }
 
+//---------------------------------------------------------------------------------------------------
 void Puzzle1State::update()
 {
 	GameState::update();
@@ -54,6 +77,8 @@ void Puzzle1State::update()
 		app->getStateMachine()->popState();
 	}
 }
+
+//---------------------------------------------------------------------------------------------------
 
 void Puzzle1State::tresUnidos()
 {
@@ -145,6 +170,8 @@ void Puzzle1State::tresUnidos()
 	}
 }
 
+//---------------------------------------------------------------------------------------------------
+
 void Puzzle1State::mueveMatriz()
 {
 	if (currentFil >= 0) {
@@ -184,19 +211,39 @@ void Puzzle1State::mueveMatriz()
 	}
 }
 
+//---------------------------------------------------------------------------------------------------
+
+void Puzzle1State::deleteMatrix() {
+	vector<vector<CasillaPuzzle1*>>::iterator it;
+	for (it = matriz.begin(); it != matriz.end();) {
+		vector<CasillaPuzzle1*>::iterator anotherIt;
+		for (anotherIt = (*it).begin(); anotherIt != (*it).end();) {
+			this->deleteElement(*anotherIt);
+			anotherIt = (*it).erase(anotherIt); //si no hacemos esto, la lista "stage" acaba con 10k objetos, todos nullptr
+		}
+		it = matriz.erase(it);
+	}
+}
+
+//---------------------------------------------------------------------------------------------------
+
 void Puzzle1State::destroy()
 {
 	for (int i = 0; i < botones.size(); i++) {
-		botones[i]->delRenderComponent(imagenMarca);
-		delete botones[i]; botones[i] = nullptr;
+		if (botones[i] != nullptr) { delete botones[i]; botones[i] = nullptr; }
+		if (botonesAnim[i] != nullptr) { botonesAnim[i] = nullptr; }
 	}
-	for (int i = 0; i < numCas; i++) {
-		for (int j = 0; j < numCas; j++) {
-			delete matriz[i][j]; matriz[i][j] = nullptr;
-		}
-	}
-	delete imagenMarca; imagenMarca = nullptr;
+
+	deleteMatrix();
+
+	if (resetButton != nullptr) { delete resetButton; resetButton = nullptr; }
+
+	if (puzzleHud != nullptr) { delete puzzleHud; puzzleHud = nullptr; }
+
+	if (copia != nullptr) { delete copia; copia = nullptr; }
 }
+
+//---------------------------------------------------------------------------------------------------
 
 void Puzzle1State::usar(GameState* state, int fil, int col)
 {
@@ -213,6 +260,59 @@ void Puzzle1State::usar(GameState* state, int fil, int col)
 		puzz->mover = true;
 	}
 }
+
+//---------------------------------------------------------------------------------------------------
+
+void Puzzle1State::eligeTipoCasilla(int tipoCas, string name, CasillaPuzzle1*& cas) { //A partir del enum y el numero asociado a la casilla
+	switch (tipoCas) {
+		case CasillaVacia:
+			cas = new CasillaPuzzle1(app, name, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
+			break;
+		case CasillaLlena:
+			numRestantes++;
+			cas = new CasillaPuzzle1(app, name, app->getResources()->getImageTexture(Resources::llavePisoPuzzle), true);
+			break;
+		default:
+			cas = new CasillaPuzzle1(app, name, app->getResources()->getImageTexture(Resources::CasillaPuzzleV)); //por defecto es vac�a
+			break;
+	}
+}
+
+//---------------------------------------------------------------------------------------------------
+
+void Puzzle1State::loadFromJson(int numeroPuzzle){
+	string name = "..\\Puzzles\\Puzzle" + to_string(numeroPuzzle);
+	name += ".json";
+	std::ifstream file(name);
+
+	if (file.is_open()) { // Para que no pete si abre un archivo que no existe
+		
+		json json;
+		file >> json;
+		int index = 0;
+		if (json["Casillas"].is_array()) {
+			matriz.resize(numCas);  //numCas = j["numCas"]; es const asi que supondr� que siempre es el mismo tama�o de matriz
+			matrizOriginal.resize(numCas);
+			for (unsigned int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
+				matrizOriginal[i].resize(numCas);
+				matriz[i].resize(numCas);
+				for (unsigned int j = 0; j < numCas; j++) {
+					matrizOriginal[i][j] = json["Casillas"][index]["Tipo"]; //se rellena la matriz original con su numero correspondiente
+					eligeTipoCasilla(json["Casillas"][index]["Tipo"], std::to_string(i*numCas + j), matriz[i][j]);
+					matriz[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + 240), relacion.second*((espaciado-5)*i + 53)));
+					stage.push_back(matriz[i][j]);
+					index++;
+				}
+			}
+		}
+		file.close();
+	}
+	else {
+		cout << "No existe el archivo indicado" << name;
+	}
+}
+
+//---------------------------------------------------------------------------------------------------
 
 void Puzzle1State::checkLine(int line, bool Vert)
 {
@@ -297,3 +397,23 @@ void Puzzle1State::checkLine(int line, bool Vert)
 		else { cont = 0; aux = nullptr; }
 	}
 }
+
+//---------------------------------------------------------------------------------------------------
+
+void Puzzle1State::restart()
+{
+	this->deleteMatrix(); //primero borra todos los elementos de la matriz actual
+	this->changeList(); //evita problemas de nullptr en el handle del state
+	numRestantes = 0; //para que sea posible resolverlo. Si reinicia se setea a 0 y se suma en su lugar adecuado
+	matriz.resize(numCas);
+	for (unsigned int i = 0; i < matrizOriginal.size(); i++) {
+		matriz[i].resize(numCas);
+		for (unsigned int j = 0; j < matrizOriginal[i].size(); j++) {
+			eligeTipoCasilla(matrizOriginal[i][j], std::to_string(i*numCas + j), matriz[i][j]); //depende del tipo anteriormente guardado, se crea una casilla u otra
+			matriz[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + 240), relacion.second*((espaciado - 5)*i + 53))); //la coloca
+			stage.push_front(matriz[i][j]); //la pushea
+		}
+	}
+}
+
+//---------------------------------------------------------------------------------------------------
