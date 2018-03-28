@@ -31,12 +31,6 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 			while (!Yaxis.empty())Yaxis.pop();
 			dynamic_cast<PlayState*>(o->getGame()->getStateMachine()->currentState())->creaInventario();
 		}
-		if (event.key.keysym.sym == puzzle) {
-			r = l = u = d = false;
-			while (!Xaxis.empty())Xaxis.pop();
-			while (!Yaxis.empty())Yaxis.pop();
-			dynamic_cast<PlayState*>(o->getGame()->getStateMachine()->currentState())->creaPuzzle();
-		}
 	}
 	//si se ha levantado una tecla se quita de la pila de teclas y se marca como no pulsada
 	else if (event.type == SDL_KEYUP){

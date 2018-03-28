@@ -4,20 +4,26 @@
 #include "ComponenteClickeable.h"
 #include "Texture.h"
 #include "ImageRenderer.h"
+#include "AnimationRenderer.h"
 
 class CasillaPuzzle1 :
 	public Entity
 {
 private:
 	string tag;
-	Texture* text;
 	RenderComponent* imagen;
+	RenderComponent* render_ = nullptr;
 	bool special;
 public:
 	CasillaPuzzle1() {};
-	virtual ~CasillaPuzzle1() { text = nullptr; };
+	virtual ~CasillaPuzzle1() {}
 	bool active() { return special; };
 	void setActive(bool b) { special = b; }
+	void setRender(RenderComponent* r) {
+		delRenderComponent(imagen);
+		addRenderComponent(r);
+		render_ = r;
+	}
 	//Constructora que recibe el tag y su descripcion
 	CasillaPuzzle1(SDLApp* app, string tag, Texture* textura = nullptr,bool _special = false);
 	string getTag() { return this->tag; };

@@ -63,6 +63,8 @@ private:
 		}
 	}
 	void destroy();
+
+	void destCasilla(CasillaPuzzle1* aux);
 public:
 	Puzzle1State() {};
 	Puzzle1State(SDLApp* game,  GameState* previousState);
@@ -71,8 +73,9 @@ public:
 	//----------------------------HE, RENDER, UPDATE--------------------------
 	virtual void handleEvent(SDL_Event& event) { 
 		if (event.type == SDL_KEYDOWN) {
-			if (event.key.keysym.sym == SDLK_p) {
-				app->getStateMachine()->popState();
+			if (event.key.keysym.sym == SDLK_p && !mover) {
+				restart();
+				app->getStateMachine()->popState(false);
 			}
 		}
 		else GameState::handleEvent(event);

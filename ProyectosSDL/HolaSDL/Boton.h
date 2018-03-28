@@ -8,7 +8,6 @@ class Boton :
 	public Entity, ComponenteClickeable
 {
 private:
-	Texture* txt;
 	string nombre;
 	int f = -1, c = -1;
 	typedef void CallBackOnClickApp(SDLApp* app);
@@ -18,7 +17,9 @@ private:
 	typedef void CallBackOnClickStateFC(GameState* actualState, int f, int c);
 	CallBackOnClickStateFC* stateFC;
 	GameState* actualState;
+	RenderComponent* render_ = nullptr;
 public:
+	void setRender(RenderComponent* r) { if (render_ != nullptr) delete render_; render_ = nullptr; render_ = r; }
 	Boton() : state(nullptr), inApp(nullptr), stateFC(nullptr), actualState(nullptr), Entity(nullptr), nombre("") {}; //constructora vacia
 	virtual ~Boton();
 	Boton(SDLApp* app, CallBackOnClickApp* inApp, string nombre) : Entity(app), inApp(inApp), nombre(nombre), state(nullptr), actualState(nullptr), stateFC(nullptr) {}; //constructora con puntero a la app

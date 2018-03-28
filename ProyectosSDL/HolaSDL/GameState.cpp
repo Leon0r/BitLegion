@@ -22,7 +22,7 @@ void GameState::handleEvent(SDL_Event &e) { //manda a los objetos del juego que 
 	it = stage.begin();
 	listhasChanged = false;
 
-	while (!listhasChanged && it != stage.end()) {
+	while (!listhasChanged && it != stage.end() && *it != nullptr) {
 		(*it)->handleInput(0, e);
 		if (!listhasChanged) { //si borras un elemento, solo puede afectar aquí (se borra a traves de los componentes HandleInput)
 			it++; //si no borras nada se incrementa

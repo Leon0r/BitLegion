@@ -10,7 +10,7 @@ private:
 public:
 	GameStateMachine();
 	~GameStateMachine();
-	void popState();
+	void popState(bool b = true);
 	void pushState(GameState* newState);
 	GameState* currentState();
 	void libera();

@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include <fstream>
 #include "MainCharacter.h"
+#include "GOstates.h"
 
 Scene::Scene()
 {
@@ -48,6 +49,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 				j["GOTransiciones"][i]["w"], j["GOTransiciones"][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOTransiciones"][i]["scneNum"], j["GOTransiciones"][i]["rotat"]));
 		}
+
 
 
 		// Cargado de Colisiones

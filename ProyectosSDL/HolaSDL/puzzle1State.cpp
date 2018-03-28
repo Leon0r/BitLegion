@@ -23,30 +23,32 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState
 		//RenderComponent* bAnim = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonPuzzle));
 		if (i < numCas) {
 			b = new Boton(game, usar, this, "boton1", i, -1);
-			b->setWidth(40);
-			b->setHeight(30);
-			b->setPosition(Vector2D(b->getWidth() + 280, relacion.second*((espaciado-4)*i + 63)));
+			b->setWidth(50);
+			b->setHeight(40);
+			b->setPosition(Vector2D(b->getWidth() + 280, relacion.second*((espaciado-4)*i + 60)));
 		}
 		else {
 			b = new Boton(game, usar, this, "boton1", -1, i - numCas);
-			b->setWidth(40);
-			b->setHeight(30);
-			b->setPosition(Vector2D(relacion.first*(espaciado*(i-numCas) + 100) + espaciado*2, game->getWindowHeight()-b->getHeight() - b->getHeight()/2 + 10));
+			b->setWidth(50);
+			b->setHeight(40);
+			b->setPosition(Vector2D(relacion.first*(espaciado*(i-numCas) + 97) + espaciado*2, game->getWindowHeight()-b->getHeight() - b->getHeight()/2 + 10));
 		}
-		//b->addAnim("pulsado", { 1 }, false, 1);
-		//b->addAnim("Idle", { 0 }, false, 1);
+		b->addAnim("normal", { 0 }, false);
+		b->addAnim("pulsado", { 1 }, false, -1, 50);
 		RenderComponent* bAnim = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonPuzzle), b->getAnimations(), 1, 2, 49, 51);
+		b->setRender(bAnim);
 		botonesAnim.push_back(bAnim);
 		b->addRenderComponent(botonesAnim[i]);
 		botones.push_back(b);
-		stage.push_back(b);
+		stage.push_front(b);
 	}
 
 	//------------------------------------HUD-------------------------------------------------------------
 	resetButton = new Boton(app, resetFunction, this, "reset");
-	//resetButton->addAnim("pulsado", { 1 }, false, 1);
-	//resetButton->addAnim("Idle", { 0 }, false, 1);
+	resetButton->addAnim("normal", { 0 }, false);
+	resetButton->addAnim("pulsado", { 1 }, false, -1, 50);
 	reiniciar = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar), resetButton->getAnimations(), 1, 2, 140, 140);
+	static_cast<Boton*>(resetButton)->setRender(reiniciar);
 	//reiniciar = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar));
 	resetButton->setPosition(Vector2D(43.5*relacion.first, 378*relacion.second)); //numeros majos
 	resetButton->setHeight(reiniciar->getTexture()->getHeight() * 2.1 / 3);
@@ -56,14 +58,15 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState
 
 	vector<int> j;
 	j.resize(66);
-	for (int i = 0; i < 66; i++)j[i] = 0;
-	puzzleHud->addAnim("Idle", j, true, 50);
+	for (int i = 0; i < 66; i++)j[i] = i;
+	puzzleHud->addAnim("Normal", j, true, -1, 50);
 	puzzleHud->setHeight(app->getWindowHeight());
 	puzzleHud->setWidth(app->getWindowWidth());
 	puzzleHud->setPosition(Vector2D(Vector2D(app->getWindowWidth() / 2 - puzzleHud->getWidth() / 2,
 		app->getWindowHeight() / 2 - puzzleHud->getHeight() / 2)));
-	HUD = new AnimationRenderer(app->getResources()->getImageTexture(Resources::PuzzleHud), puzzleHud->getAnimations(), 9, 8, puzzleHud->getWidth()*0.75, puzzleHud->getHeight()*0.75);
+	HUD = new AnimationRenderer(app->getResources()->getImageTexture(Resources::PuzzleHud), puzzleHud->getAnimations(), 8, 8, puzzleHud->getWidth()*0.75, puzzleHud->getHeight()*0.75);
 	puzzleHud->addRenderComponent(HUD);
+	static_cast<AnimationRenderer*>(HUD)->playAnim(0);
 	stage.push_back(puzzleHud);
 	//---------------------------------------------------------------------------------------------------
 }
@@ -73,9 +76,10 @@ void Puzzle1State::update()
 {
 	GameState::update();
 	if (mover) mueveMatriz();
-	if (numRestantes == 0) {
-		app->getStateMachine()->popState();
-	}
+	/*if (numRestantes == 0) {
+		restart();
+		app->getStateMachine()->popState(false);
+	}*/
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -98,8 +102,7 @@ void Puzzle1State::tresUnidos()
 					aux = matriz[currentFil][i]->getTexture(0);//Le damos el valor de la nueva casilla activap
 					if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
 						for (int j = cont; j > 0; j--) {
-							matriz[currentFil][i - j]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
-							matriz[currentFil][i - j]->setActive(false); numRestantes--;
+							destCasilla(matriz[currentFil][i - j]);
 						}
 					}
 					cont = 1;//La que acabamos de recibir
@@ -108,8 +111,7 @@ void Puzzle1State::tresUnidos()
 			else {
 				if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
 					for (int j = cont; j > 0; j--) {
-						matriz[currentFil][i - j]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
-						matriz[currentFil][i - j]->setActive(false); numRestantes--;
+						destCasilla(matriz[currentFil][i - j]);
 					}
 				}
 				cont = 0; aux = nullptr;
@@ -117,8 +119,7 @@ void Puzzle1State::tresUnidos()
 		}
 		if (cont >= 3) {
 			for (int j = cont; j > 0; j--) {
-				matriz[currentFil][numCas - j]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
-				matriz[currentFil][numCas - j]->setActive(false); numRestantes--;
+				destCasilla(matriz[currentFil][numCas - j]);
 			}
 			cont = 0;
 			aux = nullptr;
@@ -140,8 +141,7 @@ void Puzzle1State::tresUnidos()
 					aux = matriz[i][currentCol]->getTexture(0);//Le damos el valor de la nueva casilla activap
 					if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
 						for (int j = cont; j > 0; j--) {
-							matriz[i - j][currentCol]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
-							matriz[i - j][currentCol]->setActive(false); numRestantes--;
+							destCasilla(matriz[i - j][currentCol]);
 						}
 					}
 					cont = 1;//La que acabamos de recibir
@@ -150,8 +150,7 @@ void Puzzle1State::tresUnidos()
 			else {
 				if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
 					for (int j = cont; j > 0; j--) {
-						matriz[i - j][currentCol]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
-						matriz[i - j][currentCol]->setActive(false); numRestantes--;
+						destCasilla(matriz[i - j][currentCol]);
 					}
 				}
 				cont = 0; aux = nullptr; 
@@ -159,8 +158,7 @@ void Puzzle1State::tresUnidos()
 		}
 		if (cont >= 3) {
 			for (int j = cont; j > 0; j--) {
-				matriz[numCas - j][currentCol]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
-				matriz[numCas - j][currentCol]->setActive(false); numRestantes--;
+				destCasilla(matriz[numCas - j][currentCol]);
 			}
 			cont = 0;
 			aux = nullptr;
@@ -327,11 +325,10 @@ void Puzzle1State::checkLine(int line, bool Vert)
 					cont++;//Aumentamos contador
 				}
 				else {
-					aux = matriz[line][i]->getTexture(0);//Le damos el valor de la nueva casilla activap
+					aux = matriz[line][i]->getTexture(0);//Le damos el valor de la nueva casilla activa
 					if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
 						for (int j = cont; j > 0; j--) {
-							matriz[line][i - j]->setActive(false); numRestantes--;
-							matriz[line][i - j]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
+							destCasilla(matriz[line][i - j]);
 						}
 					}
 					cont = 1;//La que acabamos de recibir
@@ -340,8 +337,7 @@ void Puzzle1State::checkLine(int line, bool Vert)
 			else {
 				if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
 					for (int j = cont; j > 0; j--) {
-						matriz[line][i - j]->setActive(false); numRestantes--;
-						matriz[line][i - j]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
+						destCasilla(matriz[line][i - j]);
 					}
 				}
 				cont = 0; aux = nullptr;
@@ -349,8 +345,7 @@ void Puzzle1State::checkLine(int line, bool Vert)
 		}
 		if (cont >= 3) {
 			for (int j = cont; j > 0; j--) {
-				matriz[line][numCas - j]->setActive(false); numRestantes--;
-				matriz[line][numCas - j]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
+				destCasilla(matriz[line][numCas - j]);
 			}
 			cont = 0;
 			aux = nullptr;
@@ -369,8 +364,7 @@ void Puzzle1State::checkLine(int line, bool Vert)
 					aux = matriz[i][line]->getTexture(0);//Le damos el valor de la nueva casilla activap
 					if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
 						for (int j = cont; j > 0; j--) {
-							matriz[line][i - j]->setActive(false); numRestantes--;
-							matriz[i - j][line]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
+							destCasilla(matriz[line][i - j]);
 						}
 					}
 					cont = 1;//La que acabamos de recibir
@@ -379,8 +373,7 @@ void Puzzle1State::checkLine(int line, bool Vert)
 			else {
 				if (cont >= 3) {//Vemos si habia mas de 3 acumuladas
 					for (int j = cont; j > 0; j--) {
-						matriz[line][i - j]->setActive(false); numRestantes--;
-						matriz[i - j][line]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
+						destCasilla(matriz[i - j][line]);
 					}
 				}
 				cont = 0; aux = nullptr;
@@ -388,14 +381,22 @@ void Puzzle1State::checkLine(int line, bool Vert)
 		}
 		if (cont >= 3) {
 			for (int j = cont; j > 0; j--) {
-				matriz[line][numCas - j]->setActive(false); numRestantes--;
-				matriz[numCas - j][line]->setTexture(0, app->getResources()->getImageTexture(Resources::CasillaPuzzleV));
+				destCasilla(matriz[numCas-j][line]);
 			}
 			cont = 0;
 			aux = nullptr;
 		}
 		else { cont = 0; aux = nullptr; }
 	}
+}
+
+void Puzzle1State::destCasilla(CasillaPuzzle1* auxi) {
+	auxi->setActive(false); numRestantes--;
+	auxi->addAnim("destroy", { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, false, -1, 100);
+	RenderComponent* aux = new AnimationRenderer(app->getResources()->getImageTexture(Resources::casillaPuzzleDest), auxi->getAnimations(), 3, 3, 64, 58);
+	auxi->setRender(aux);
+	static_cast<AnimationRenderer*>(aux)->playAnim(0);
+	aux = nullptr;
 }
 
 //---------------------------------------------------------------------------------------------------
