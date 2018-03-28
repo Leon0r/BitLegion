@@ -87,6 +87,11 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 				setDestiny(stackerino.front().first, stackerino.front().second); //establecemos el primero
 				setDirection(o, destiny);//le mandamos hacia el
 			}
+			else {
+				send(Messages(MouseStop));//si era el ultimo destino informamos de que estamos parados
+				if (idleRight)send(StopRight);//paramos en la direccion que estemos mirando (animaciones)
+				else send(StopLeft);
+			}
 		}
 	}
 }

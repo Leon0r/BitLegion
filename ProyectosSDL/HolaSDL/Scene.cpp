@@ -133,6 +133,9 @@ void Scene::enterScene() {
 	//establecemos el tamaño de la nueva escena en el jugador (para las colisiones y el mouse)
 	pj->setSceneTam(width, height, x, y);
 
+	//limpiamos las pilas de teclas para evitar errores entre cambios de escena
+	pj->cleanKeys();
+
 	//genera la matriz para el mouse
 	pj->collisionListWasModified();
 }

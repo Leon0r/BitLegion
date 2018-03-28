@@ -17,7 +17,13 @@ public:
 
 	//miramos eventos de teclado
 	virtual void handleInput(GameObject* o, Uint32 time, const SDL_Event& event);
-
+	//limpia las colas de teclas
+	void cleanStacks() {
+		if (iddleRight)send(StopRight);
+		else send(StopLeft);
+		while (!Xaxis.empty())Xaxis.pop();
+		while (!Yaxis.empty())Yaxis.pop();
+	}
 private:
 	double vel_;//velocidad y teclas de direccion
 	SDL_Keycode right;
