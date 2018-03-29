@@ -58,7 +58,8 @@ public:
 		BotonReiniciar,
 		casillaPuzzleBloq,
 		casillaPuzzleDest,
-
+		Escena4Caso1,
+		MotoAlena
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
