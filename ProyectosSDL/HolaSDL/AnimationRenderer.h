@@ -9,7 +9,7 @@ class AnimationRenderer :
 	public RenderComponent, public Observer
 {
 public:
-
+	AnimationRenderer() {};
 	AnimationRenderer(Texture* texture, vector<animData*> animations, int numFilsFrames, int numColsFrames, int frWidth, int frHeigth);
 
 	virtual ~AnimationRenderer();

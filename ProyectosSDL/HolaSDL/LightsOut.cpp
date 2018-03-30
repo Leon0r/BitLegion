@@ -5,6 +5,8 @@
 LightsOut::LightsOut(SDLApp* app) : GameState::GameState(app), puzzleHasStarted(false)
 {
 	botonRender = (app->getResources()->getImageTexture(Resources::BotonPuzzle));//render del boton
+	
+	this->creaDecoracion(); //crea los objetos del HUD
 
 	lights.resize(numCas);
 	aux.resize(numCas);
@@ -12,9 +14,9 @@ LightsOut::LightsOut(SDLApp* app) : GameState::GameState(app), puzzleHasStarted(
 		lights[i].resize(numCas);
 		aux[i].resize(numCas);
 		for (int j = 0; j < numCas; j++) {
-			lights[i][j] = new CasillaLight(app, i, j, 50, 50, nullptr, this);
-			lights[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + 137), relacion.second*(espaciado*i + 112)));
-			stage.push_back(lights[i][j]);
+			lights[i][j] = new CasillaLight(app, i, j, tamCas/numCas, tamCas/numCas, nullptr, this);
+			lights[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + posX), relacion.second*(espaciado*i + 182)));
+			stage.push_front(lights[i][j]);
 		}
 	}
 	this->apagaLuces(1);
@@ -23,19 +25,20 @@ LightsOut::LightsOut(SDLApp* app) : GameState::GameState(app), puzzleHasStarted(
 	botonReset = new Boton(app, resetPuzzle, this, "reset");
 	botonReset->setWidth(80);
 	botonReset->setHeight(60);
-	botonReset->setPosition(Vector2D(botonReset->getWidth(), relacion.second*(espaciado + espaciado + 25)));
+	botonReset->setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight()/2 + botonReset->getHeight()*1.8));
 	botonReset->addRenderComponent(&botonRender);
-	stage.push_back(botonReset);
+	stage.push_front(botonReset);
 }
 
 
 LightsOut::~LightsOut() //destructora
 {
-	for (int i = 0; i < numCas; i++) {
-		for (int j = 0; j < numCas; j++) {
+	for (unsigned int i = 0; i < numCas; i++) {
+		for (unsigned int j = 0; j < numCas; j++) {
 			delete lights[i][j]; lights[i][j] = nullptr;
 		}
 	}
+	hud.delRenderComponent(&hudRend);
 	stage.clear();
 }
 
@@ -119,4 +122,41 @@ void LightsOut::restartMatrix(){
 
 void LightsOut::resetPuzzle(GameState * state){
 	static_cast<LightsOut*>(state)->restartMatrix();
+}
+
+void LightsOut::creaDecoracion(){ //hay que hacer el vector de entitieeees
+	hudRend = (app->getResources()->getImageTexture(Resources::HudLuces)); //hud del inventario
+
+	barras = Entity(app); //barras y su animacion
+	barras.addAnim("IdleRight", { 0, 1, 2, 3, 4, 5, 6, 7 }, true, -1, 200);
+	barras.setHeight(150); barras.setWidth(200); barras.setPosition(Vector2D(0 + barras.getWidth()/2 + 10, 270)); //numeros majos
+	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Barras), barras.getAnimations(), 2, 4, 226, 164));
+	barras.addRenderComponent(anim[0]);
+	stage.push_back(&barras);
+
+	carga = Entity(app); //barra de carga y su animacion
+	carga.addAnim("IdleRight", { 0, 1, 2, 3, 4, 5, 6, 7 , 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }, true, -1, 150);
+	carga.setHeight(480); carga.setWidth(480); carga.setPosition(Vector2D(app->getWindowWidth()/1.5 - carga.getWidth()/60, 130));
+	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Carga), carga.getAnimations(), 4, 5, 480, 480));
+	carga.addRenderComponent(anim[1]);
+	stage.push_back(&carga);
+
+	onda = Entity(app); //onda y su animacion
+	onda.addAnim("IdleRight", { 0, 1, 2, 3, 4, 5, 6, 7 , 8, 9, 10, 11, 12 }, true, -1, 100);
+	onda.setHeight(300); onda.setWidth(280); onda.setPosition(Vector2D(0 + onda.getWidth()/4, app->getWindowHeight()/1.8));
+	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Onda), onda.getAnimations(), 4, 4, 272, 272));
+	onda.addRenderComponent(anim[2]);
+	stage.push_back(&onda);
+
+	text = Entity(app); //texto y su animacion
+	text.addAnim("IdleRight", { 0, 1}, true, -1, 750);
+	text.setHeight(300); text.setWidth(280); text.setPosition(Vector2D(0 + text.getWidth() / 4, 0));
+	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::TextoPixel), text.getAnimations(), 1, 2, 240, 240));
+	text.addRenderComponent(anim[3]);
+	stage.push_back(&text);
+
+	hud = Entity(app); //hud
+	hud.setWidth(app->getWindowWidth()); hud.setHeight(app->getWindowHeight()); hud.setPosition(Vector2D(0, 0));
+	hud.addRenderComponent(&hudRend);
+	stage.push_back(&hud);
 }

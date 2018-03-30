@@ -9,9 +9,18 @@ class LightsOut :
 {
 private:
 	ImageRenderer botonRender;
-	const int numCas = 3; //leerlo de alguna parte (json)
+	ImageRenderer hudRend;
+	Entity barras;
+	Entity onda;
+	Entity carga;
+	Entity hud;
+	Entity text; //esto juro que lo haré vector, donut worry
+	vector<AnimationRenderer*> anim; //se deletea cada uno en su destructora del gameObject
+	const int numCas = 3;
+	const double tamCas = 150;
 	vector<vector<CasillaLight*>> lights;
-	const int espaciado = 85.0;
+	const double espaciado = 120.5 - 20*(numCas - 1);
+	const int posX = 320 - 5 * (numCas - 1);
 	const pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	vector<vector<bool>> aux; //guarda la configuracion inicial para el reset
 	bool puzzleHasStarted;
@@ -20,6 +29,7 @@ private:
 	Boton* botonReset;
 	void restartMatrix();
 	static void resetPuzzle(GameState* state);
+	void creaDecoracion();
 public:
 	LightsOut() {};
 	virtual ~LightsOut();
