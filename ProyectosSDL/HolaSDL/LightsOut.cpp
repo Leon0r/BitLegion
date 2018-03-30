@@ -33,12 +33,12 @@ LightsOut::LightsOut(SDLApp* app) : GameState::GameState(app), puzzleHasStarted(
 
 LightsOut::~LightsOut() //destructora
 {
+	hudAux->delRenderComponent(&hudRend);
 	for (unsigned int i = 0; i < numCas; i++) {
 		for (unsigned int j = 0; j < numCas; j++) {
 			delete lights[i][j]; lights[i][j] = nullptr;
 		}
-	}
-	hud.delRenderComponent(&hudRend);
+	}	
 	stage.clear();
 }
 
@@ -79,6 +79,15 @@ void LightsOut::receive(Mensaje* msg){
 			cout << "Disgüised Toast";
 		}
 	}
+}
+
+void LightsOut::render(){
+	fadeOut();
+	GameState::render();
+}
+
+void LightsOut::handleEvent(SDL_Event & e){
+	if (faded) GameState::handleEvent(e); //podria hacerlo activando los gameObjects, pero como el active no lo usamos para nada, no quiero tocar la estructura por un efecto "fancy"
 }
 
 void LightsOut::apagaLuces(const unsigned int n){
@@ -125,38 +134,51 @@ void LightsOut::resetPuzzle(GameState * state){
 }
 
 void LightsOut::creaDecoracion(){ //hay que hacer el vector de entitieeees
+	decorado.resize(5);
+
 	hudRend = (app->getResources()->getImageTexture(Resources::HudLuces)); //hud del inventario
 
-	barras = Entity(app); //barras y su animacion
-	barras.addAnim("IdleRight", { 0, 1, 2, 3, 4, 5, 6, 7 }, true, -1, 200);
-	barras.setHeight(150); barras.setWidth(200); barras.setPosition(Vector2D(0 + barras.getWidth()/2 + 10, 270)); //numeros majos
-	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Barras), barras.getAnimations(), 2, 4, 226, 164));
-	barras.addRenderComponent(anim[0]);
-	stage.push_back(&barras);
+	decorado[0] = Entity(app); //barras y su animacion
+	decorado[0].addAnim("IdleRight", { 0, 1, 2, 3, 4, 5, 6, 7 }, true, -1, 175);
+	decorado[0].setHeight(150); decorado[0].setWidth(200); decorado[0].setPosition(Vector2D(0 + decorado[0].getWidth()/2 + 10, 270)); //numeros majos
+	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Barras), decorado[0].getAnimations(), 2, 4, 226, 164));
+	decorado[0].addRenderComponent(anim[0]);
+	stage.push_back(&decorado[0]);
 
-	carga = Entity(app); //barra de carga y su animacion
-	carga.addAnim("IdleRight", { 0, 1, 2, 3, 4, 5, 6, 7 , 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }, true, -1, 150);
-	carga.setHeight(480); carga.setWidth(480); carga.setPosition(Vector2D(app->getWindowWidth()/1.5 - carga.getWidth()/60, 130));
-	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Carga), carga.getAnimations(), 4, 5, 480, 480));
-	carga.addRenderComponent(anim[1]);
-	stage.push_back(&carga);
+	decorado[1] = Entity(app); //barra de carga y su animacion
+	decorado[1].addAnim("IdleRight", { 0, 1, 2, 3, 4, 5, 6, 7 , 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }, true, -1, 150);
+	decorado[1].setHeight(480); decorado[1].setWidth(480); decorado[1].setPosition(Vector2D(app->getWindowWidth()/1.5 - decorado[1].getWidth()/60, 130));
+	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Carga), decorado[1].getAnimations(), 4, 5, 480, 480));
+	decorado[1].addRenderComponent(anim[1]);
+	stage.push_back(&decorado[1]);
 
-	onda = Entity(app); //onda y su animacion
-	onda.addAnim("IdleRight", { 0, 1, 2, 3, 4, 5, 6, 7 , 8, 9, 10, 11, 12 }, true, -1, 100);
-	onda.setHeight(300); onda.setWidth(280); onda.setPosition(Vector2D(0 + onda.getWidth()/4, app->getWindowHeight()/1.8));
-	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Onda), onda.getAnimations(), 4, 4, 272, 272));
-	onda.addRenderComponent(anim[2]);
-	stage.push_back(&onda);
+	decorado[2] = Entity(app); //ondas y su animacion
+	decorado[2].addAnim("IdleRight", { 0, 1, 2, 3, 4, 5, 6, 7 , 8, 9, 10, 11, 12, 13, 14, 15, 16 }, true, -1, 75);
+	decorado[2].setHeight(300); decorado[2].setWidth(280); decorado[2].setPosition(Vector2D(0 + decorado[2].getWidth()/4, app->getWindowHeight()/1.8));
+	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Onda), decorado[2].getAnimations(), 4, 5, 272, 272));
+	decorado[2].addRenderComponent(anim[2]);
+	stage.push_back(&decorado[2]);
 
-	text = Entity(app); //texto y su animacion
-	text.addAnim("IdleRight", { 0, 1}, true, -1, 750);
-	text.setHeight(300); text.setWidth(280); text.setPosition(Vector2D(0 + text.getWidth() / 4, 0));
-	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::TextoPixel), text.getAnimations(), 1, 2, 240, 240));
-	text.addRenderComponent(anim[3]);
-	stage.push_back(&text);
+	decorado[3] = Entity(app); //texto y su animacion
+	decorado[3].addAnim("IdleRight", { 0, 1}, true, -1, 750);
+	decorado[3].setHeight(300); decorado[3].setWidth(280); decorado[3].setPosition(Vector2D(0 + decorado[3].getWidth() / 4, 0));
+	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::TextoPixel), decorado[3].getAnimations(), 1, 2, 240, 240));
+	decorado[3].addRenderComponent(anim[3]);
+	stage.push_back(&decorado[3]);
 
-	hud = Entity(app); //hud
-	hud.setWidth(app->getWindowWidth()); hud.setHeight(app->getWindowHeight()); hud.setPosition(Vector2D(0, 0));
-	hud.addRenderComponent(&hudRend);
-	stage.push_back(&hud);
+	decorado[4] = Entity(app); //hud
+	decorado[4].setWidth(app->getWindowWidth()); decorado[4].setHeight(app->getWindowHeight()); decorado[4].setPosition(Vector2D(0, 0));
+	decorado[4].addRenderComponent(&hudRend);
+	hudAux = &decorado[4];
+	stage.push_back(&decorado[4]);
+}
+
+void LightsOut::fadeOut(){ 
+	if (alpha > alphaMin) {
+		alpha -= 2;
+		for (int i = 0; i < decorado.size(); i++) {
+			decorado[i].getTexture()->changeAlpha(alpha);
+		}
+		if (alpha <= alphaMin) faded = true;
+	}
 }
