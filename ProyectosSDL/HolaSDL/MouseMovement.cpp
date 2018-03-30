@@ -116,67 +116,27 @@ void MouseMovement::generaMatriz(GameObject* o) {
 			list<GameObject*>::iterator it = collisions->begin();
 			bool colisionado = false;
 
-			//por cada casilla mirramos si hay algun colisionable en su punto medio
-			while (it != collisions->end() && !colisionado) {
-				SDL_Rect rect = { (*it)->getPosition().getX(), (*it)->getPosition().getY(), (*it)->getWidth(), (*it)->getHeight() };
-				SDL_Point pMedio = { j, i };
+			if (y < tamMatriz) {//si no peta :)
+				//por cada casilla mirramos si hay algun colisionable en su punto medio
+				while (it != collisions->end() && !colisionado) {
+					SDL_Rect rect = { (*it)->getPosition().getX(), (*it)->getPosition().getY(), (*it)->getWidth(), (*it)->getHeight() };
+					SDL_Point pMedio = { j, i };
 
-				//si lo hay, escribimos 0 (no puede pasar)
-				if (SDL_PointInRect(&pMedio, &rect)) {
-					colisionado = true;
-					grid2[y][x] = 0;
+					//si lo hay, escribimos 0 (no puede pasar)
+					if (SDL_PointInRect(&pMedio, &rect)) {
+						colisionado = true;
+						grid2[y][x] = 0;
+					}
+					//si no, escribimos 1 (puede pasar)
+					else grid2[y][x] = 1;
+					it++;
 				}
-				//si no, escribimos 1 (puede pasar)
-				else grid2[y][x] = 1;
-				it++;
+				//por si acaso no hay colisiones en la escena, se setearian todos a unos (menos la pared)
+				//se podria hacer mejor, q esto lo comprueba todas las vueltas
+				if (collisions->empty()) grid2[y][x] = 1;
+				y++;
 			}
-
-			//por si acaso no hay colisiones en la escena, se setearian todos a unos (menos la pared)
-			//se podria hacer mejor, q esto lo comprueba todas las vueltas
-			if (collisions->empty()) grid2[y][x] = 1; 
-			y++;
 		}
 		x++;
 	}
 }
-
-//identifica el colisionable mas cercano al destino, y mira si el jugador chocaria con el al llegar
-//si es asi no te deja clicar ahi
-/*bool MouseMovement::solucionadorBugs() {
-	bool found = false;
-	list<GameObject*>::iterator it;
-	list<GameObject*>::iterator aux;
-	double hipoMin = 100000; //T_T
-	for (it = collisions->begin(); it != collisions->end(); it++) { //for que busca el mas cercano
-		double modX = ((*it)->getPosition().getX() - p.x);
-		double modY = ((*it)->getPosition().getY() - p.y);
-		double hipo = sqrt(pow(modX, 2) + pow(modY, 2)); //pitagoras
-		if (hipo < hipoMin) { hipoMin = hipo; aux = it; }
-	}
-
-	if (aux._Ptr != nullptr) {
-		SDL_Rect charRect = { p.x - o->getWidth() / 2, p.y - o->getHeight() / 4, o->getWidth(), o->getHeight() / 4 };
-		SDL_Rect colRect = { (*aux)->getPosition().getX(), (*aux)->getPosition().getY(), (*aux)->getWidth(),(*aux)->getHeight() };
-		SDL_Rect result;
-		return (SDL_IntersectRect(&charRect, &colRect, &result));
-	}
-	else return false;
-	// aux = objeto mas cercano
-	/*if ((*aux)->getPosition().getX() <= p.x + o->getWidth() && (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x 
-			&& (*aux)->getPosition().getY() + (*aux)->getHeight() > p.y && (*aux)->getPosition().getY() < p.y) { //por la izquierda
-		p.x -= o->getWidth();
-	}
-	else if ((*aux)->getPosition().getX() + (*aux)->getWidth() >= p.x - o->getWidth() && (*aux)->getPosition().getX() > p.x
-			&& (*aux)->getPosition().getY() + (*aux)->getHeight() > p.y && (*aux)->getPosition().getY() < p.y) { //por la derecha
-		p.x += o->getWidth();
-	}
-
-	if ((*aux)->getPosition().getY() <= p.y + o->getHeight() && (*aux)->getPosition().getY() + (*aux)->getHeight() > p.y
-		&& (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x && (*aux)->getPosition().getX() < p.x) {  //por arriba
-		p.y -= o->getHeight();
-	}
-	else if ((*aux)->getPosition().getY() + (*aux)->getHeight() >= p.y - o->getHeight() && (*aux)->getPosition().getY() > p.y
-		&& (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x && (*aux)->getPosition().getX() < p.x) { //por abajo
-		p.y += o->getHeight()/2;
-	}
-}*/

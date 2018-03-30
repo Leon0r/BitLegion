@@ -34,7 +34,7 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	stage.push_front(shortcut);
 
 	/*PROVISIONAL*/
-	stage.push_front(new GOstates(app, 705, 265, 30, 30, app->getResources()->getImageTexture(Resources::FlechaTransicionSpriteSheet), new Puzzle1State(app, this), 1)); //MUY PROVISIONAL
+	//stage.push_front(new GOstates(app, 705, 265, 30, 30, app->getResources()->getImageTexture(Resources::FlechaTransicionSpriteSheet), new Puzzle1State(app, this), 1)); //MUY PROVISIONAL
 	/*SUPERPROVISIONAL*/
 
 	alena = new MainCharacter(app, j, list, &collision, shortcut, 6.0);

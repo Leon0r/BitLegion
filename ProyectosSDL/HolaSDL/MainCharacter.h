@@ -18,7 +18,6 @@ public:
 	MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, ShortCut* shortcut_, double vel);
 	virtual ~MainCharacter();
 	void addInventoryObject(GameObject* o);
-	void changeRoom();
 	string getCurrentTag() { return this->currentTag; };
 	ShortCut* getShortcut() { return shortCut; }
 	void setCurrenTag(string newTag) { this->currentTag = newTag; };
@@ -34,7 +33,8 @@ public:
 		mouseMovement->setSceneTam(w, h, x, y);
 		static_cast<MovementComponent*>(movement)->setSceneTam(w, h, x, y);
 	}
-	//void cleanKeys() { static_cast<KeyboardComponent*>(keyboard)->cleanStacks(); }//llamado al entrar en una escena, limpia las pilas de teclas para evitar errores
+	void setPosIni();
+	void cleanKeys();
 private:
 	Texture * _texture;
 	ShortCut * shortCut;

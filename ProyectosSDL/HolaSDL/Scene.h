@@ -21,6 +21,8 @@ public:
 	void exitScene();
 	int getSceneNumber() const { return SceneNum; };
 	void saveSceneToJson();
+	Vector2D getPosIni() { return posIni; }
+	void setPosIni(Vector2D newPos) { posIni = newPos; }
 private:
 	SDLApp* app;
 	int SceneNum;
@@ -29,5 +31,6 @@ private:
 	GameState* CurrentState;
 	MainCharacter* pj;
 	double width = 0, height = 0, x = 0, y = 0;
+	Vector2D posIni;
 };
 

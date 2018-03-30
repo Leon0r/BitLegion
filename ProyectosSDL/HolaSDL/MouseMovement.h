@@ -19,7 +19,6 @@ private:
 	int sceneWidth = 1280, sceneHeight = 720, scenePosX = 0, scenePosY = 0;//tamaño de la escena
 	int auxX = 1280/tamMatriz, auxY = 720/tamMatriz;//reescalado de la matriz
 	AStar* nek;
-	//bool solucionadorBugs();//soluciona bugs, de omento no esta activo
 	bool idleRight = true;//determina hacia que lado estamos mirando cuando estamos parados
 public:
 	queue<pair<int, int>> stackerino;//cola de destinos intermedios para llegar al final
@@ -42,7 +41,7 @@ public:
 	void generaMatriz(GameObject* o);//inicializa a la matriz con los valores adecuados (0 colisionable, 1 vacio)
 	//maincharacter le da el tamaño de la nueva escena cada vez que esta cambia
 	void setSceneTam(double w, double h, double x, double y) {
-		//sceneWidth = w;
+		sceneWidth = w;
 		sceneHeight = h;
 		scenePosX = x;
 		scenePosY = y;

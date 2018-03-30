@@ -76,15 +76,6 @@ void MainCharacter::addInventoryObject(GameObject* o) {
 	shortCut->ini(list->getLength()-1, shortCut->getCoef());
 }
 
-void MainCharacter::changeRoom() {
-	if((app->getWindowWidth() - this->position_.getX()) < app->getWindowWidth()/2)
-		this->setPosition(Vector2D(10.0, this->position_.getY()));
-	else
-	{
-		this->setPosition(Vector2D(app->getWindowWidth()-(10+ this->width_), this->position_.getY()));
-	}
-}
-
 void MainCharacter::saveToJson(json& j) {
 	json aux;
 	Entity::saveToJson(aux);
@@ -95,3 +86,6 @@ void MainCharacter::saveToJson(json& j) {
 
 	j["mainPj"].update(aux);
 }
+
+void MainCharacter::setPosIni() { setPosition(static_cast<PlayState*>(app->getStateMachine()->currentState())->getCurrentScene()->getPosIni()); }
+void MainCharacter::cleanKeys() { static_cast<KeyboardComponent*>(keyboard)->cleanStacks(); }//llamado al entrar en una escena, limpia las pilas de teclas para evitar errores

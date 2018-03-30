@@ -27,10 +27,9 @@ GOTransiciones::~GOTransiciones()
 void GOTransiciones::act() {
 
 	//Cambio de escena(ScneNumber)
-	//dynamic_cast<PlayState*>(app->getStateMachine()->currentState())->swapScene(SceneNumber);
 	PlayState* aux = dynamic_cast<PlayState*>(app->getStateMachine()->currentState());
 	if (aux != nullptr) {
-		dynamic_cast<MainCharacter*>(dynamic_cast<PlayState*>(this->getGame()->getStateMachine()->currentState())->getMainPj())->changeRoom();
+		aux->getCurrentScene()->setPosIni(getPosition());
 		aux->swapScene(SceneNumber);
 	}
 }

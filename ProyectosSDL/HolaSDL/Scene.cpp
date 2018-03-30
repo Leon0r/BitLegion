@@ -94,6 +94,11 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 		x = escenario->getPosition().getX();
 		y = escenario->getPosition().getY();
 
+		if (j["PlayerPos"].is_object()) {
+			posIni.setX(j["PlayerPos"]["x"]);
+			posIni.setY(j["PlayerPos"]["y"]);
+		}
+
 		RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
 		escenario->addRenderComponent(renderEscenario);
 		SceneItems.push_back(escenario);
@@ -136,7 +141,10 @@ void Scene::enterScene() {
 	pj->setSceneTam(width, height, x, y);
 
 	//limpiamos las pilas de teclas para evitar errores entre cambios de escena
-	//pj->cleanKeys();
+	pj->cleanKeys();
+
+	//establecemos su posicion inicial
+	pj->setPosIni();
 
 	//genera la matriz para el mouse
 	pj->collisionListWasModified();
@@ -164,6 +172,10 @@ void Scene::saveSceneToJson() {
 	for (GameObject* it : SceneItems) {
 		it->saveToJson(j);	//manda a todos los objetos guardarse en dichos archivos
 	}
+
+	j["PlayerPos"]["x"] = posIni.getX();
+	j["PlayerPos"]["y"] = posIni.getY();
+
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo
 }

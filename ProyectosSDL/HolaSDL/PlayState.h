@@ -36,6 +36,7 @@ public:
 	void creaPuzzle() { app->getStateMachine()->pushState(new Puzzle1State(app, this)); }
 	ObjectList* getList() { return list; };//prueba, no deberia estar aqui
 	vector<Scene*> getScenes(){ return scenes; };
-	void swapScene(int nextScene);	
+	void swapScene(int nextScene);
+	Scene* getCurrentScene() { return scenes[currentScene]; }
 };
 
