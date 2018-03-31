@@ -60,7 +60,8 @@ public:
 		Carga,
 		Onda,
 		HudLuces,
-		TextoPixel
+		TextoPixel,
+		BotellaAnimada
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

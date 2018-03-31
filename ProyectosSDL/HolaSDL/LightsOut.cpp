@@ -133,44 +133,51 @@ void LightsOut::resetPuzzle(GameState * state){
 	static_cast<LightsOut*>(state)->restartMatrix();
 }
 
-void LightsOut::creaDecoracion(){ //hay que hacer el vector de entitieeees
-	decorado.resize(5);
+void LightsOut::creaDecoracion(){ //como ensuciar el código 2.0
+	decorado.resize(6);
 
 	hudRend = (app->getResources()->getImageTexture(Resources::HudLuces)); //hud del inventario
 
 	decorado[0] = Entity(app); //barras y su animacion
-	decorado[0].addAnim("IdleRight", { 0, 1, 2, 3, 4, 5, 6, 7 }, true, -1, 175);
-	decorado[0].setHeight(150); decorado[0].setWidth(200); decorado[0].setPosition(Vector2D(0 + decorado[0].getWidth()/2 + 10, 270)); //numeros majos
+	decorado[0].addAnim("IdleRight", {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,6,7}, true, -1, 100); //...
+	decorado[0].setHeight(150); decorado[0].setWidth(200); decorado[0].setPosition(Vector2D(0 + decorado[0].getWidth() / 2 + 10, decorado[0].getHeight()/0.55)); //numeros majos
 	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Barras), decorado[0].getAnimations(), 2, 4, 226, 164));
 	decorado[0].addRenderComponent(anim[0]);
 	stage.push_back(&decorado[0]);
 
 	decorado[1] = Entity(app); //barra de carga y su animacion
-	decorado[1].addAnim("IdleRight", { 0, 1, 2, 3, 4, 5, 6, 7 , 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }, true, -1, 150);
-	decorado[1].setHeight(480); decorado[1].setWidth(480); decorado[1].setPosition(Vector2D(app->getWindowWidth()/1.5 - decorado[1].getWidth()/60, 130));
-	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Carga), decorado[1].getAnimations(), 4, 5, 480, 480));
+	decorado[1].addAnim("IdleRight", {0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,25,26,26,25,25,25,26,26,25,25,26,26,25,25}, true, -1, 75); //...
+	decorado[1].setHeight(480); decorado[1].setWidth(480); decorado[1].setPosition(Vector2D(app->getWindowWidth()/1.5 - decorado[1].getWidth()/60, decorado[1].getHeight()/3.6));
+	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Carga), decorado[1].getAnimations(), 5, 6, 480, 480));
 	decorado[1].addRenderComponent(anim[1]);
 	stage.push_back(&decorado[1]);
 
 	decorado[2] = Entity(app); //ondas y su animacion
 	decorado[2].addAnim("IdleRight", { 0, 1, 2, 3, 4, 5, 6, 7 , 8, 9, 10, 11, 12, 13, 14, 15, 16 }, true, -1, 75);
-	decorado[2].setHeight(300); decorado[2].setWidth(280); decorado[2].setPosition(Vector2D(0 + decorado[2].getWidth()/4, app->getWindowHeight()/1.8));
+	decorado[2].setHeight(300); decorado[2].setWidth(280); decorado[2].setPosition(Vector2D(decorado[2].getWidth()/4, app->getWindowHeight()/1.8));
 	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::Onda), decorado[2].getAnimations(), 4, 5, 272, 272));
 	decorado[2].addRenderComponent(anim[2]);
 	stage.push_back(&decorado[2]);
 
 	decorado[3] = Entity(app); //texto y su animacion
-	decorado[3].addAnim("IdleRight", { 0, 1}, true, -1, 750);
-	decorado[3].setHeight(300); decorado[3].setWidth(280); decorado[3].setPosition(Vector2D(0 + decorado[3].getWidth() / 4, 0));
+	decorado[3].addAnim("IdleRight", { 0,0,0,0,0,0,0,0,0,0, 1,1,1,1,1,1,1,1,1,1}, true, -1, 175); //...
+	decorado[3].setHeight(300); decorado[3].setWidth(280); decorado[3].setPosition(Vector2D(decorado[3].getWidth() / 4, 0));
 	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::TextoPixel), decorado[3].getAnimations(), 1, 2, 240, 240));
 	decorado[3].addRenderComponent(anim[3]);
 	stage.push_back(&decorado[3]);
 
-	decorado[4] = Entity(app); //hud
-	decorado[4].setWidth(app->getWindowWidth()); decorado[4].setHeight(app->getWindowHeight()); decorado[4].setPosition(Vector2D(0, 0));
-	decorado[4].addRenderComponent(&hudRend);
-	hudAux = &decorado[4];
+	decorado[4] = Entity(app); //botella y su animacion
+	decorado[4].addAnim("IdleRight", {0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,5,6,7,8,9,9,9,9,9,9,9,9,9,9,9,9,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29}, true, -1, 150); //...
+	decorado[4].setHeight(200); decorado[4].setWidth(200); decorado[4].setPosition(Vector2D(app->getWindowWidth() - decorado[4].getWidth()*1.54,decorado[4].getHeight()/2.5));
+	anim.push_back(new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotellaAnimada), decorado[4].getAnimations(), 5, 6, 200, 200));
+	decorado[4].addRenderComponent(anim[4]);
 	stage.push_back(&decorado[4]);
+
+	decorado[5] = Entity(app); //hud
+	decorado[5].setWidth(app->getWindowWidth()); decorado[5].setHeight(app->getWindowHeight()); decorado[5].setPosition(Vector2D(0, 0));
+	decorado[5].addRenderComponent(&hudRend);
+	hudAux = &decorado[5];
+	stage.push_back(&decorado[5]);
 }
 
 void LightsOut::fadeOut(){ 
