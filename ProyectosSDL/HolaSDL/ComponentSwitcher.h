@@ -43,7 +43,6 @@ private:
 	virtual void saveToJson(json& j) {}
 	bool keyBoard = false;//flags para saber si se pueden switchear los componentes
 	bool mouse = false;
-	bool cambioEscena = false;
 	bool keyComp = true;//indica si el componente keyboard esta activo
 };
 
