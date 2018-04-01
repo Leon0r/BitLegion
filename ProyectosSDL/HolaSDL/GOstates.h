@@ -10,9 +10,6 @@ public:
 	virtual ~GOstates();
 	void act();
 	virtual void saveToJson(json& j) { };
-	/*virtual void render(Uint32 time) { 
-		Entity::render(time);
-	}*/
 private:
 	GameState* state_;
 	int rotation_;

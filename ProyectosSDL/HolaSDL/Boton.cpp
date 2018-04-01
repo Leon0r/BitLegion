@@ -9,8 +9,8 @@ Boton::~Boton()
 void Boton::handleInput(Uint32 time, const SDL_Event& event) {
 	//Cambio vvvvvvvvvvvvvvv Antes: This->handleEvent
 	if (ComponenteClickeable::handleInput(this, event)) { //si es pulsado
-		if(this->animations.size() > 0 && render_ != nullptr) static_cast<AnimationRenderer*>(render_)->playAnim(1);
-		else static_cast<AnimationRenderer*>(render_)->playAnim(0);
+		if(this->animations.size() > 1 && render_ != nullptr) static_cast<AnimationRenderer*>(render_)->playAnim(1);
+		else if (this->animations.size() > 0)static_cast<AnimationRenderer*>(render_)->playAnim(0);
 		if (inApp != nullptr) { //si inApp != nullptr se ejecuta dicha funcion
 			inApp(app);
 		}

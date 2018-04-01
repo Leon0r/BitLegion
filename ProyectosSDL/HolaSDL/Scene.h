@@ -16,12 +16,12 @@ public:
 	Scene();
 	Scene(int numEscena, SDLApp* app, MainCharacter* pj);
 	~Scene();
-	//Scene(SDLApp* app, int SceneNum, MainCharacter* pj) : app(app), SceneNum(SceneNum), pj(pj) {};
 	void enterScene();
 	void exitScene();
 	int getSceneNumber() const { return SceneNum; };
 	void saveSceneToJson();
 	Vector2D getPosIni() { return posIni; }
+	Vector2D getPlayerTam() { return playerTam; }
 	void setPosIni(Vector2D newPos) { posIni = newPos; }
 private:
 	SDLApp* app;
@@ -31,6 +31,6 @@ private:
 	GameState* CurrentState;
 	MainCharacter* pj;
 	double width = 0, height = 0, x = 0, y = 0;
-	Vector2D posIni;
+	Vector2D posIni, playerTam;
 };
 

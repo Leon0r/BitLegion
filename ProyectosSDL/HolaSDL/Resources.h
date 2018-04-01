@@ -59,7 +59,12 @@ public:
 		casillaPuzzleBloq,
 		casillaPuzzleDest,
 		Escena4Caso1,
-		MotoAlena
+		MotoAlena,
+		Escena3Caso1,//44
+		MesaRecepcion,
+		PlantaRecepcion,
+		PuertaPortal,
+		ColisionableAux
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

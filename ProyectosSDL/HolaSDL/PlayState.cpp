@@ -33,19 +33,17 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	shortcut = new ShortCut(app, list, resources);
 	stage.push_front(shortcut);
 
-	/*PROVISIONAL*/
-	//stage.push_front(new GOstates(app, 705, 265, 30, 30, app->getResources()->getImageTexture(Resources::FlechaTransicionSpriteSheet), new Puzzle1State(app, this), 1)); //MUY PROVISIONAL
-	/*SUPERPROVISIONAL*/
-
 	alena = new MainCharacter(app, j, list, &collision, shortcut, 6.0);
 	stage.push_front(alena);
 
 	i.close();
 
-	// crea las escenas 1 y 2 desde archivo
+	// crea las escenas desde archivo
 	scenes.push_back(new Scene(0, app, alena));
 	scenes.push_back(new Scene(1, app, alena));
 	scenes.push_back(new Scene(2, app, alena));
+	scenes.push_back(new Scene(3, app, alena));
+	scenes.push_back(new Scene(4, app, alena));
 }
 
 void PlayState::swapScene(int nextScene)

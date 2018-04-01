@@ -88,4 +88,8 @@ void MainCharacter::saveToJson(json& j) {
 }
 
 void MainCharacter::setPosIni() { setPosition(static_cast<PlayState*>(app->getStateMachine()->currentState())->getCurrentScene()->getPosIni()); }
+void MainCharacter::setTam() {
+	Vector2D tam = static_cast<PlayState*>(app->getStateMachine()->currentState())->getCurrentScene()->getPlayerTam();
+	setWidth(tam.getX()); setHeight(tam.getY());
+}
 void MainCharacter::cleanKeys() { static_cast<KeyboardComponent*>(keyboard)->cleanStacks(); }//llamado al entrar en una escena, limpia las pilas de teclas para evitar errores

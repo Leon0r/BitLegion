@@ -31,6 +31,16 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 				app->getResources()->getImageTexture(Resources::ImageId(n))));
 		}
 
+		//Cargado de Puzles
+		for (int i = 0; i < j["GOState"].size(); i++) {
+
+			n = j["GOState"][i]["Texture"];
+
+			SceneItems.push_back(new GOstates(app, j["GOState"][i]["x"], j["GOState"][i]["y"],
+				j["GOState"][i]["w"], j["GOState"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), new Puzzle1State(app, app->getStateMachine()->currentState()), j["GOState"][i]["rotat"]));
+		}
+
 		// Cargado de GODoors
 		for (int i = 0; i < j["GODoors"].size(); i++) {
 
@@ -99,6 +109,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 			posIni.setY(j["PlayerPos"]["y"]);
 		}
 
+		//guardamos su tamaño dependiendo de lo que ponga en el json
+		if (j["PlayerTam"].is_object()) {
+			playerTam.setX(j["PlayerTam"]["w"]);
+			playerTam.setY(j["PlayerTam"]["h"]);
+		}//si en el json no se especificaba nada, se queda con un tamaño por defecto
+		else playerTam.set({ pj->defaultW, pj->defaultH });
+
 		RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
 		escenario->addRenderComponent(renderEscenario);
 		SceneItems.push_back(escenario);
@@ -145,6 +162,9 @@ void Scene::enterScene() {
 
 	//establecemos su posicion inicial
 	pj->setPosIni();
+
+	//establecemos su tamaño
+	pj->setTam();
 
 	//genera la matriz para el mouse
 	pj->collisionListWasModified();

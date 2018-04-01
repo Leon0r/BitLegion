@@ -34,7 +34,11 @@ public:
 		static_cast<MovementComponent*>(movement)->setSceneTam(w, h, x, y);
 	}
 	void setPosIni();
+	void setTam();
 	void cleanKeys();
+	//tamaño por defecto de alena (se establece al entrar en cada escena si esta no tiene un tamaño especifico)
+	const double defaultW = 84;
+	const double defaultH = 201.6;
 private:
 	Texture * _texture;
 	ShortCut * shortCut;
