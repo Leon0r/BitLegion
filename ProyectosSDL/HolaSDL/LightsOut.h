@@ -3,6 +3,7 @@
 #include "CasillaLight.h"
 #include "Boton.h"
 #include "PlayState.h"
+#include "checkML.h"
 
 class LightsOut :
 	public GameState, public Observer
@@ -13,7 +14,7 @@ private:
 	Entity* hudAux; //puntero auxiliar al hud
 	vector<Entity> decorado;
 	vector<AnimationRenderer*> anim; //se deletea cada uno en su destructora del gameObject
-	Boton* botonReset;
+	Boton botonReset;
 	bool faded = false;
 	const int numCas = 3;
 	const double tamCas = 150;

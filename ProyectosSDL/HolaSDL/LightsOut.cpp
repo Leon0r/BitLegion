@@ -22,12 +22,12 @@ LightsOut::LightsOut(SDLApp* app) : GameState::GameState(app), puzzleHasStarted(
 	this->apagaLuces(1);
 
 	//--------Botones-----
-	botonReset = new Boton(app, resetPuzzle, this, "reset");
-	botonReset->setWidth(80);
-	botonReset->setHeight(60);
-	botonReset->setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight()/2 + botonReset->getHeight()*1.8));
-	botonReset->addRenderComponent(&botonRender);
-	stage.push_front(botonReset);
+	botonReset = Boton(app, resetPuzzle, this, "reset");
+	botonReset.setWidth(80);
+	botonReset.setHeight(60);
+	botonReset.setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight()/2 + botonReset.getHeight()*1.8));
+	botonReset.addRenderComponent(&botonRender);
+	stage.push_front(&botonReset);
 }
 
 
@@ -38,7 +38,8 @@ LightsOut::~LightsOut() //destructora
 		for (unsigned int j = 0; j < numCas; j++) {
 			delete lights[i][j]; lights[i][j] = nullptr;
 		}
-	}	
+	}
+	botonReset.delRenderComponent(&botonRender);
 	stage.clear();
 }
 
