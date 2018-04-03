@@ -24,46 +24,6 @@
    ],
    "GODoors": [
       {
-<<<<<<< HEAD
-         "Texture": 14,
-         "h": 300.0,
-         "scneNum": 1,
-         "tag": "key",
-         "w": 200.0,
-         "x": 200.0,
-         "y": 500.0
-      }
-   ],
-   "ItemInventario": [
-      {
-         "Texture": 14,
-         "descripcion": "adafsfdf",
-         "h": 64.0,
-         "tag": "ffftag",
-         "w": 64.0,
-         "x": 668.0,
-         "y": 0.0
-      },
-      {
-         "Texture": 15,
-         "descripcion": "key",
-         "h": 64.0,
-         "tag": "key",
-         "w": 64.0,
-         "x": 100.0,
-         "y": 544.0
-      },
-      {
-         "Texture": 15,
-         "descripcion": "Esta es mi descripcion",
-         "h": 64.0,
-         "tag": "Este es mi tag",
-         "w": 64.0,
-         "x": 368.0,
-         "y": 122.0
-      }
-   ],
-=======
          "Texture": 31,
          "h": 242.0,
          "rotat": 3,
@@ -100,7 +60,6 @@
       "x": 100.0,
       "y": 500.0
    },
->>>>>>> master
    "Texture": 10,
    "h": 720.0,
    "w": 1280.0,

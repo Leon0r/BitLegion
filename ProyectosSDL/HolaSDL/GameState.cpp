@@ -37,12 +37,6 @@ void GameState::render() {
 		(*aux)->render(0);
 }
 
-void GameState::render() {
-	list<GameObject*>::const_reverse_iterator aux;
-	for(aux = stage.rbegin(); aux != stage.rend(); aux++)
-		(*aux)->render(0);
-}
-
 void GameState::deleteElement(GameObject* o) {
 	it = stage.begin();
 	bool encontrado = false;
