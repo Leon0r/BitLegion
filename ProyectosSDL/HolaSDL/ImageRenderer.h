@@ -1,6 +1,7 @@
 #ifndef IMAGERENDERER_H_
 #define IMAGERENDERER_H_
 
+#include "checkML.h"
 #include "RenderComponent.h"
 #include "Texture.h"
 #include "SDLApp.h"

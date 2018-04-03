@@ -1,5 +1,6 @@
 #pragma once
-// A C++ Program to implement A* Search Algorithm
+/// A C++ Program to implement A* Search Algorithm
+#include "checkML.h"
 #include<iostream>
 #include <stack>
 #include <set>
@@ -9,11 +10,9 @@ using namespace std;
 class AStar
 {
 public:
-	GameObject* kk;
 	MouseMovement* m;
 	AStar() {}
 	~AStar() {}
-	void defineCosas(GameObject* o_) { kk = o_; }
 	AStar(MouseMovement* m) : m(m) {}
 
 #define ROW 40
@@ -100,9 +99,8 @@ public:
 			pair<int, int> p = Path.top();
 			Path.pop();
 			printf("-> (%d,%d) ", p.first, p.second);
-			//m->setDirection(kk, Vector2D(p.first * 142, p.second * 90));
 			//seria almacenar en la pila de "m" los destinos del jugador. m->stack.push(p, p);
-			m->stackerino.push(pair<int,int>(p.first * (1280/ROW), p.second * (720/COL)));
+			m->stackerino.push(pair<int,int>(p.first * (m->getSceneWidth()/ROW), p.second * (m->getSceneHeight()/COL)));
 		}
 	}
 

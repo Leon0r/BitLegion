@@ -24,6 +24,7 @@
    ],
    "GODoors": [
       {
+<<<<<<< HEAD
          "Texture": 14,
          "h": 300.0,
          "scneNum": 1,
@@ -62,6 +63,44 @@
          "y": 122.0
       }
    ],
+=======
+         "Texture": 31,
+         "h": 242.0,
+         "rotat": 3,
+         "scneNum": 2,
+         "tag": "key",
+         "w": 119.0,
+         "x": 612.0,
+         "y": 116.0
+      }
+   ],
+   "GOTransiciones": [
+      {
+         "Texture": 32,
+         "h": 60.0,
+         "rotat": 0,
+         "scneNum": 1,
+         "w": 60.0,
+         "x": 1200.0,
+         "y": 600.0
+      }
+   ],
+   "ItemInventario": [
+      {
+         "Texture": 22,
+         "descripcion": "key",
+         "h": 40.0,
+         "tag": "key",
+         "w": 40.0,
+         "x": 710.0,
+         "y": 490.0
+      }
+   ],
+   "PlayerPos": {
+      "x": 100.0,
+      "y": 500.0
+   },
+>>>>>>> master
    "Texture": 10,
    "h": 720.0,
    "w": 1280.0,

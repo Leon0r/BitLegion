@@ -1,4 +1,5 @@
 #pragma once
+#include "checkML.h"
 #include "MovementComponent.h"
 #include "InputComponent.h"
 #include <queue>
@@ -15,17 +16,15 @@ private:
 	Vector2D destiny;
 	double vel;
 	SDL_Point p, q;//punto destino (p) y destino anterior (q)
-	int sceneWidth, sceneHeight;
-	int auxX, auxY;//reescalado de la matriz
+	int sceneWidth = 1280, sceneHeight = 720, scenePosX = 0, scenePosY = 0;//tamaño de la escena
+	int auxX = 1280/tamMatriz, auxY = 720/tamMatriz;//reescalado de la matriz
 	AStar* nek;
-	MainCharacter* o;
-	bool solucionadorBugs();//soluciona bugs, de omento no esta activo
 	bool idleRight = true;//determina hacia que lado estamos mirando cuando estamos parados
 public:
 	queue<pair<int, int>> stackerino;//cola de destinos intermedios para llegar al final
 	MouseMovement() {}
-	MouseMovement(list<GameObject*>* colisiones, double vel, MainCharacter* o);
-	~MouseMovement() { delete nek; }
+	MouseMovement(list<GameObject*>* colisiones, double vel);
+	virtual ~MouseMovement() { delete nek; }
 
 	//actualizamos la logica del personaje
 	virtual void update(GameObject* o, Uint32 time);
@@ -33,12 +32,23 @@ public:
 	void stopMovement(GameObject* o, Vector2D destiny);
 	//actualizamos la posicion destino a la que quiere ir
 	void setDestiny(double x, double y) {
-		destiny.setX(x);
-		destiny.setY(y);
+		destiny.setX(x + scenePosX);
+		destiny.setY(y + scenePosY);
 	}
 	virtual void handleInput(GameObject* o, Uint32 time, const SDL_Event& event);
 	void setDirection(GameObject* o, Vector2D destiny);
 	bool playerInDestiny(GameObject* o, Vector2D destiny);
 	void generaMatriz(GameObject* o);//inicializa a la matriz con los valores adecuados (0 colisionable, 1 vacio)
+	//maincharacter le da el tamaño de la nueva escena cada vez que esta cambia
+	void setSceneTam(double w, double h, double x, double y) {
+		sceneWidth = w;
+		sceneHeight = h;
+		scenePosX = x;
+		scenePosY = y;
+		auxX = sceneWidth / tamMatriz;
+		auxY = sceneHeight / tamMatriz;
+	}
+	double getSceneWidth() { return sceneWidth; }
+	double getSceneHeight() { return sceneHeight; }
 };
 

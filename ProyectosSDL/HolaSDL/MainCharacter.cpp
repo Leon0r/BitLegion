@@ -14,12 +14,11 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	addAnim("Right", { 8,9,10,11,12,13,14,15 });//caminar a la derecha
 
 	//componentes
-	//render = new ImageRenderer(_texture);
 	render = new AnimationRenderer(_texture, animations, 4, 4, 60, 144);
 	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
 	movement = new MovementComponent(colisionables);//mueve al jugador cuando se usa el teclado
 	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i);//decide la direccion del jugador cuando se usa el teclado
-	mouseMovement = new MouseMovement(colisionables, vel, this);
+	mouseMovement = new MouseMovement(colisionables, vel);
 	switcher.addMode({ keyboard, movement, nullptr });//si se pulsa alguna tecla se activaran los componentes de teclado
 	switcher.addMode({ mouseMovement, mouseMovement, nullptr });//si se pulsa el raton se activaran los componentes de raton
 	switcher.setMode(0);
@@ -50,25 +49,31 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 			app->getResources()->getImageTexture(Resources::ImageId(n)));
 
 		addInventoryObject(item);
+		delete item;
 	}
 }
 
 MainCharacter::~MainCharacter()
 {
+	if (switcher.isKeyBoardComponent()) {
+		delete mouseMovement;
+		mouseMovement = nullptr;
+	}
+	else {
+		delete movement;
+		movement = nullptr;
+		delete keyboard;
+		keyboard = nullptr;
+	}
+	_texture = nullptr;
+	shortCut = nullptr;
+	list = nullptr;
+	colisionables = nullptr;
 }
 
 void MainCharacter::addInventoryObject(GameObject* o) {
 	list->addItem(o); //a�ade un item al inventario
 	shortCut->ini(list->getLength()-1, shortCut->getCoef());
-}
-
-void MainCharacter::changeRoom() {
-	if((app->getWindowWidth() - this->position_.getX()) < app->getWindowWidth()/2)
-		this->setPosition(Vector2D(10.0, this->position_.getY()));
-	else
-	{
-		this->setPosition(Vector2D(app->getWindowWidth()-(10+ this->width_), this->position_.getY()));
-	}
 }
 
 void MainCharacter::saveToJson(json& j) {
@@ -81,3 +86,10 @@ void MainCharacter::saveToJson(json& j) {
 
 	j["mainPj"].update(aux);
 }
+
+void MainCharacter::setPosIni() { setPosition(static_cast<PlayState*>(app->getStateMachine()->currentState())->getCurrentScene()->getPosIni()); }
+void MainCharacter::setTam() {
+	Vector2D tam = static_cast<PlayState*>(app->getStateMachine()->currentState())->getCurrentScene()->getPlayerTam();
+	setWidth(tam.getX()); setHeight(tam.getY());
+}
+void MainCharacter::cleanKeys() { static_cast<KeyboardComponent*>(keyboard)->cleanStacks(); }//llamado al entrar en una escena, limpia las pilas de teclas para evitar errores

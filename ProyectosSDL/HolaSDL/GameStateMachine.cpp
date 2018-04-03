@@ -9,11 +9,12 @@ GameStateMachine::GameStateMachine()
 
 GameStateMachine::~GameStateMachine()
 {
+	libera();
 }
 
-void GameStateMachine::popState() {
+void GameStateMachine::popState(bool b) {
 	if (!states.empty()) { //si la pila de estados no está vacia
-		delete states.top(); //delete y pop
+		if(b) delete states.top(); //delete y pop
 		states.pop();
 	}
 }

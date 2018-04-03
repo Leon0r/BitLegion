@@ -6,6 +6,15 @@ Entity::Entity(SDLApp* game) :
 }
 
 Entity::~Entity() {
+	for (InputComponent* ic : inputComp_) { //problemas al hacer todo esto, hay destructoras perdidas que deben estar mal (o no están..)
+		if (ic != nullptr && dynamic_cast<PhysicsComponent*>(ic) == nullptr) { delete ic; ic = nullptr; }
+	}
+	for (PhysicsComponent* pc : physicsComp_) {
+		if (pc != nullptr) { delete pc; pc = nullptr; }
+	}
+	for (RenderComponent* rc : renderComp_) {
+		if (rc != nullptr) { delete rc; rc = nullptr; }
+	}
 }
 
 void Entity::handleInput(Uint32 time, const SDL_Event& event) {

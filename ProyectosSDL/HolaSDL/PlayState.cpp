@@ -1,4 +1,5 @@
 #include "PlayState.h"
+#include "GOstates.h"
 #include <list>
 
 PlayState::~PlayState() {
@@ -10,6 +11,7 @@ PlayState::~PlayState() {
 	i << std::setw(4) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo
 	delete alena;
+	delete shortcut;
 	stage.clear();
 	for (aux = scenes.begin(); aux != scenes.end(); aux++) {
 		(*aux)->saveSceneToJson();
@@ -27,7 +29,6 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	std::ifstream i(name);
 	json j;
 	i >> j;
-
 	//SHORTCUT
 	shortcut = new ShortCut(app, list, resources);
 	stage.push_front(shortcut);
@@ -35,22 +36,14 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	alena = new MainCharacter(app, j, list, &collision, shortcut, 6.0);
 	stage.push_front(alena);
 
-	Conversacion* convo = new Conversacion(app);
-	convo->ConversacionDePrueba();
-	stage.push_front(convo);
-
-	ItemInventario* item = new ItemInventario(app, 500, 300, 40, 40, "k", "kk", resources->getImageTexture(Resources::ImagenTest));
-	stage.push_back(item);
-
 	i.close();
 
-	// crea las escenas 1 y 2 desde archivo
+	// crea las escenas desde archivo
 	scenes.push_back(new Scene(0, app, alena));
 	scenes.push_back(new Scene(1, app, alena));
-
-	
-
-	
+	scenes.push_back(new Scene(2, app, alena));
+	scenes.push_back(new Scene(3, app, alena));
+	scenes.push_back(new Scene(4, app, alena));
 }
 
 void PlayState::swapScene(int nextScene)

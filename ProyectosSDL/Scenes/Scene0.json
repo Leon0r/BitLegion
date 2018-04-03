@@ -7,6 +7,7 @@
     "y": 0.0,
 
     "ItemInventario": [
+<<<<<<< HEAD
         { "x": 368, "y": 122, "w": 64, "h": 64, "descripcion": "Esta es mi descripcion", "tag": "Este es mi tag", "Texture": 15 },
         { "x": 100, "y": 544, "w": 64, "h": 64, "descripcion": "key", "tag": "key", "Texture": 15 },
         { "x": 668, "y": 0, "w": 64, "h": 64, "descripcion": "adafsfdf", "tag": "ffftag", "Texture": 14 }
@@ -24,5 +25,31 @@
 
     "GOConversational": [ 
         { "x": 580, "y": 125, "w": 64, "h": 64, "Texture": 15 }
+=======
+        { "x": 710, "y": 490, "w": 40, "h": 40, "descripcion": "key", "tag": "key", "Texture": 22 }
+    ],
+
+    "GODoors": [
+        { "x": 612, "y": 116, "w": 119, "h": 242, "Texture": 31, "tag": "key", "scneNum": 2, "rotat": 3 }
+    ],
+
+    "GOTransiciones": [
+        { "x": 1200, "y": 600, "w": 60, "h": 60, "Texture": 32, "scneNum": 1, "rotat": 0 }
+    ],
+
+    "CollisionableObject": [
+        { "x": 0, "y": 290, "w": 370, "h": 200, "Texture": 11 },
+        { "x": 580, "y": 432, "w": 220, "h": 230, "Texture": 12 },
+        { "x": 915, "y": 125, "w": 365, "h": 300, "Texture": 13 }
+    ],
+
+    "PlayerPos": {
+        "x": 100,
+        "y": 500
+    },
+
+    "GOState": [
+        { "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotat": 1 }
+>>>>>>> master
     ]
 }

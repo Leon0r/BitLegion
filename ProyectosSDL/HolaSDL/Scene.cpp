@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include <fstream>
 #include "MainCharacter.h"
+#include "GOstates.h"
 
 Scene::Scene()
 {
@@ -30,13 +31,23 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 				app->getResources()->getImageTexture(Resources::ImageId(n))));
 		}
 
+		//Cargado de Puzles
+		for (int i = 0; i < j["GOState"].size(); i++) {
+
+			n = j["GOState"][i]["Texture"];
+
+			SceneItems.push_back(new GOstates(app, j["GOState"][i]["x"], j["GOState"][i]["y"],
+				j["GOState"][i]["w"], j["GOState"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), new Puzzle1State(app, app->getStateMachine()->currentState()), j["GOState"][i]["rotat"]));
+		}
+
 		// Cargado de GODoors
 		for (int i = 0; i < j["GODoors"].size(); i++) {
 
 			n = j["GODoors"][i]["Texture"];
 
 			SceneItems.push_back(new GODoors(app, j["GODoors"][i]["x"], j["GODoors"][i]["y"], j["GODoors"][i]["w"], j["GODoors"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GODoors"][i]["tag"], j["GODoors"][i]["scneNum"]));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GODoors"][i]["tag"], j["GODoors"][i]["scneNum"], j["GODoors"][i]["rotat"]));
 		}
 
 		// Cargado de GOTransiciones
@@ -46,8 +57,9 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 
 			SceneItems.push_back(new GOTransiciones(app, j["GOTransiciones"][i]["x"], j["GOTransiciones"][i]["y"],
 				j["GOTransiciones"][i]["w"], j["GOTransiciones"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOTransiciones"][i]["scneNum"]));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOTransiciones"][i]["scneNum"], j["GOTransiciones"][i]["rotat"]));
 		}
+
 
 
 		// Cargado de Colisiones
@@ -57,16 +69,6 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 
 			SceneItems.push_back(new ColisionableObject(app, j["CollisionableObject"][i]["x"], j["CollisionableObject"][i]["y"],
 				j["CollisionableObject"][i]["w"], j["CollisionableObject"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n))));
-		}
-
-		// Cargado de Conversacionables
-		for (int i = 0; i < j["GOConversational"].size(); i++) {
-
-			n = j["GOConversational"][i]["Texture"];
-
-			SceneItems.push_back(new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"],
-				j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n))));
 		}
 
@@ -83,17 +85,36 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 		if (j["h"].is_null())
 			escenario->setHeight(app->getWindowHeight());
 		else escenario->setHeight(j["h"]);
+
+		width = escenario->getWidth();
+		height = escenario->getHeight();
+
 		Vector2D pos;
 		if (j["x"].is_null())
 			pos.setX(0);
 		else
 			pos.setX(j["x"]);
-
+		
 		if (j["y"].is_null())
 			pos.setY(0);
 		else
 			pos.setY(j["y"]);
+
 		escenario->setPosition(pos);
+		x = escenario->getPosition().getX();
+		y = escenario->getPosition().getY();
+
+		if (j["PlayerPos"].is_object()) {
+			posIni.setX(j["PlayerPos"]["x"]);
+			posIni.setY(j["PlayerPos"]["y"]);
+		}
+
+		//guardamos su tamaño dependiendo de lo que ponga en el json
+		if (j["PlayerTam"].is_object()) {
+			playerTam.setX(j["PlayerTam"]["w"]);
+			playerTam.setY(j["PlayerTam"]["h"]);
+		}//si en el json no se especificaba nada, se queda con un tamaño por defecto
+		else playerTam.set({ pj->defaultW, pj->defaultH });
 
 		RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
 		escenario->addRenderComponent(renderEscenario);
@@ -132,6 +153,20 @@ void Scene::enterScene() {
 			pj->setNewCollision(col);
 		}
 	}
+
+	//establecemos el tamaño de la nueva escena en el jugador (para las colisiones y el mouse)
+	pj->setSceneTam(width, height, x, y);
+
+	//limpiamos las pilas de teclas para evitar errores entre cambios de escena
+	pj->cleanKeys();
+
+	//establecemos su posicion inicial
+	pj->setPosIni();
+
+	//establecemos su tamaño
+	pj->setTam();
+
+	//genera la matriz para el mouse
 	pj->collisionListWasModified();
 }
 
@@ -144,6 +179,7 @@ void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se
 	SceneItems.pop_front(); //quitamos al shortcut
 	pj->setVelocity(Vector2D(0.0, 0.0));
 	pj->getMouseComponent()->send(Messages(MouseStop));
+	pj->getMouseComponent()->send(Messages(CambioEscena));
 }
 
 
@@ -156,6 +192,10 @@ void Scene::saveSceneToJson() {
 	for (GameObject* it : SceneItems) {
 		it->saveToJson(j);	//manda a todos los objetos guardarse en dichos archivos
 	}
+
+	j["PlayerPos"]["x"] = posIni.getX();
+	j["PlayerPos"]["y"] = posIni.getY();
+
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo
 }

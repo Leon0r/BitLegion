@@ -1,4 +1,5 @@
 #pragma once
+#include "checkML.h"
 #include <SDL.h>
 #include "CasillaInventario.h"
 #include "Texture.h"
@@ -14,7 +15,7 @@ private:
 	SDLApp* app;
 public:
 	ObjectList();
-	~ObjectList() { for (it = objetos.begin(); it != objetos.end();) { it = objetos.erase(it); } }; //delete
+	~ObjectList() { for (it = objetos.begin(); it != objetos.end();) { delete *it; it = objetos.erase(it); } }; //delete
 	ObjectList(SDLApp* app) : app(app) {};
 	void addItem(GameObject* o); //añadir un objeto
 	void deleteItem(string tag);//elimina el objeto con el nombre 'tag'

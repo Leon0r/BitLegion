@@ -1,6 +1,7 @@
 #ifndef INPUTCOMPONENT_H_
 #define INPUTCOMPONENT_H_
 
+#include "checkML.h"
 #include "GameObject.h"
 #include "Observable.h"
 

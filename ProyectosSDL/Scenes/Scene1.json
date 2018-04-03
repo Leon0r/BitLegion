@@ -1,8 +1,11 @@
 {
-    "ItemInventario":[
-        {"x":666,"y":66,"w":64,"h":64,"descripcion":"Esta es mi descripcion","tag":"Este es mi tag","Texture": 6}
+    "ItemInventario": [ ],
+
+    "GOTransiciones": [
+        { "x": 400, "y": 380, "w": 60, "h": 60, "Texture": 32, "scneNum": 0, "rotat": 1 }
     ],
 
+<<<<<<< HEAD
     "GOTransiciones":[
         {"x":10,"y":500,"w":50,"h":50,"Texture":5,"scneNum":0}
     ],
@@ -17,4 +20,21 @@
     "x": 320.0,
     "y": 0.0
 	
+=======
+    "CollisionableObject": [
+        { "x": 560, "y": 180, "w": 330, "h": 260, "Texture": 26 },
+        { "x": 804, "y": 470, "w": 86, "h": 150, "Texture": 25 }
+    ],
+
+    "Texture": 27,
+    "h": 500.0,
+    "w": 500.0,
+    "x": 390.0,
+    "y": 110.0,
+
+    "PlayerPos": {
+        "x": 400,
+        "y": 380
+    }
+>>>>>>> master
 }

@@ -1,6 +1,7 @@
 #ifndef RESOURCES_H_
 #define RESOURCES_H_
 
+#include "checkML.h"
 #include "Texture.h"
 #include <vector>
 #include <tuple>
@@ -42,10 +43,28 @@ public:
 		TicketCompra,
 		Vater,
 		LavaboDucha,
-		Baño,
+		Banio,
 		Escena2Caso1,
 		MesillaPasillo,
-		RelojPasillo
+		RelojPasillo,
+		PuertaCasaAlena,
+		FlechaTransicionSpriteSheet,
+		FlechaTransicionDer,
+		FlechaTransicionIzq,
+		llavePisoPuzzle,
+		CasillaPuzzleV,
+		BotonPuzzle,  
+		PuzzleHud,
+		BotonReiniciar,
+		casillaPuzzleBloq,
+		casillaPuzzleDest,
+		Escena4Caso1,
+		MotoAlena,
+		Escena3Caso1,//44
+		MesaRecepcion,
+		PlantaRecepcion,
+		PuertaPortal,
+		ColisionableAux
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

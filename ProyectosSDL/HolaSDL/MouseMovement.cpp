@@ -3,15 +3,10 @@
 #include "AStar.h"
 
 
-MouseMovement::MouseMovement(list<GameObject*>* colisiones, double vel, MainCharacter* o) : MovementComponent(colisiones), vel(vel), o(o) {
+MouseMovement::MouseMovement(list<GameObject*>* colisiones, double vel) : MovementComponent(colisiones), vel(vel) {
 	destiny.setX(0);
 	destiny.setY(0);
 	nek = new AStar(this);
-	nek->defineCosas(o);
-	sceneWidth = o->getGame()->getWindowWidth();
-	sceneHeight = o->getGame()->getWindowHeight();
-	auxX = sceneWidth / tamMatriz;
-	auxY = sceneHeight / tamMatriz;
 }
 
 //actualizamos la logica del personaje
@@ -62,11 +57,10 @@ void MouseMovement::setDirection(GameObject* o, Vector2D destiny) {
 
 //eventos de mouse
 void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& event) {
-
 	//si se pulsa el raton registramos su posicion
 	if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_RIGHT) {
-		p.x = event.button.x;
-		p.y = event.button.y;
+		p.x = event.button.x - scenePosX;
+		p.y = event.button.y - scenePosY;
 	}
 
 	//si se suelta elegimos la direccion del jugador para llegar a esa posicion y actualizamos la posicion destino del componente mouseMov
@@ -74,18 +68,29 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 		//si el destino no es el mismo que el anterior buscamos el camino (do u know the wae)
 		if (p.x != q.x && p.y != q.y) {
 			q = p;//actualizamos destino anterior
-			if (p.x >= o->getPosition().getX())send(Ch_Right);//si el destino esta por la derecha ponemos la animacion correspondiente
-			else send(Ch_Left);//lo mismo si esta por la derecha
 			while (!stackerino.empty()) { stackerino.pop(); }//eliminamos el path anterior
 				//aestrella rellena la cola de destinos para llegar al final
-			nek->aStarSearch(grid2, pair<double, double>(o->getPosition().getX() / auxX,
-				(o->getPosition().getY() + o->getHeight() - 1) / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
+			nek->aStarSearch(grid2, pair<double, double>((o->getPosition().getX() - scenePosX) / auxX,
+				((o->getPosition().getY() - scenePosY) + o->getHeight() - 1) / auxY), pair<double, double>(p.x / auxX, p.y / auxY));
 
 			//si ha encontrado destinos
 			if (!stackerino.empty()) {
+				if (p.x + scenePosX >= o->getPosition().getX()) {
+					send(Ch_Right);//si el destino esta por la derecha ponemos la animacion correspondiente
+					idleRight = true;
+				}
+				else {
+					send(Ch_Left);//lo mismo si esta por la derecha
+					idleRight = false;
+				}
 				send(Messages(MouseMoving));//informamos de que empezamos a movernos
 				setDestiny(stackerino.front().first, stackerino.front().second); //establecemos el primero
 				setDirection(o, destiny);//le mandamos hacia el
+			}
+			else {
+				send(Messages(MouseStop));//si era el ultimo destino informamos de que estamos parados
+				if (idleRight)send(StopRight);//paramos en la direccion que estemos mirando (animaciones)
+				else send(StopLeft);
 			}
 		}
 	}
@@ -104,74 +109,34 @@ void MouseMovement::generaMatriz(GameObject* o) {
 	x = tamMatriz / 2;
 	y = 0;
 	//recorremos la matriz de la mitad hacia abajo (la mitad de arriba es la pared, asi que se queda todo a 0)
-	for (int i = sceneHeight / 2 + (sceneHeight / tamMatriz) / 2; i < sceneHeight; i += sceneHeight / tamMatriz) {
+	for (int i = scenePosY + sceneHeight / 2 + (sceneHeight / tamMatriz) / 2; i < scenePosY + sceneHeight; i += sceneHeight / tamMatriz) {
 		y = 0;
 
-		for (int j = (sceneWidth / tamMatriz) / 2; j < sceneWidth; j += sceneWidth / tamMatriz) {
+		for (int j = scenePosX + (sceneWidth / tamMatriz) / 2; j < scenePosX + sceneWidth; j += sceneWidth / tamMatriz) {
 			list<GameObject*>::iterator it = collisions->begin();
 			bool colisionado = false;
 
-			//por cada casilla mirramos si hay algun colisionable en su punto medio
-			while (it != collisions->end() && !colisionado) {
-				SDL_Rect rect = { (*it)->getPosition().getX(), (*it)->getPosition().getY(), (*it)->getWidth(), (*it)->getHeight() };
-				SDL_Point pMedio = { j, i };
+			if (y < tamMatriz) {//si no peta :)
+				//por cada casilla mirramos si hay algun colisionable en su punto medio
+				while (it != collisions->end() && !colisionado) {
+					SDL_Rect rect = { (*it)->getPosition().getX(), (*it)->getPosition().getY(), (*it)->getWidth(), (*it)->getHeight() };
+					SDL_Point pMedio = { j, i };
 
-				//si lo hay, escribimos 0 (no puede pasar)
-				if (SDL_PointInRect(&pMedio, &rect)) {
-					colisionado = true;
-					grid2[y][x] = 0;
+					//si lo hay, escribimos 0 (no puede pasar)
+					if (SDL_PointInRect(&pMedio, &rect)) {
+						colisionado = true;
+						grid2[y][x] = 0;
+					}
+					//si no, escribimos 1 (puede pasar)
+					else grid2[y][x] = 1;
+					it++;
 				}
-				//si no, escribimos 1 (puede pasar)
-				else grid2[y][x] = 1;
-				it++;
+				//por si acaso no hay colisiones en la escena, se setearian todos a unos (menos la pared)
+				//se podria hacer mejor, q esto lo comprueba todas las vueltas
+				if (collisions->empty()) grid2[y][x] = 1;
+				y++;
 			}
-
-			//por si acaso no hay colisiones en la escena, se setearian todos a unos (menos la pared)
-			//se podria hacer mejor, q esto lo comprueba todas las vueltas
-			if (collisions->empty()) grid2[y][x] = 1; 
-			y++;
 		}
 		x++;
 	}
-}
-
-//identifica el colisionable mas cercano al destino, y mira si el jugador chocaria con el al llegar
-//si es asi no te deja clicar ahi
-bool MouseMovement::solucionadorBugs() {
-	bool found = false;
-	list<GameObject*>::iterator it;
-	list<GameObject*>::iterator aux;
-	double hipoMin = 100000; //T_T
-	for (it = collisions->begin(); it != collisions->end(); it++) { //for que busca el mas cercano
-		double modX = ((*it)->getPosition().getX() - p.x);
-		double modY = ((*it)->getPosition().getY() - p.y);
-		double hipo = sqrt(pow(modX, 2) + pow(modY, 2)); //pitagoras
-		if (hipo < hipoMin) { hipoMin = hipo; aux = it; }
-	}
-
-	if (aux._Ptr != nullptr) {
-		SDL_Rect charRect = { p.x - o->getWidth() / 2, p.y - o->getHeight() / 4, o->getWidth(), o->getHeight() / 4 };
-		SDL_Rect colRect = { (*aux)->getPosition().getX(), (*aux)->getPosition().getY(), (*aux)->getWidth(),(*aux)->getHeight() };
-		SDL_Rect result;
-		return (SDL_IntersectRect(&charRect, &colRect, &result));
-	}
-	else return false;
-	// aux = objeto mas cercano
-	/*if ((*aux)->getPosition().getX() <= p.x + o->getWidth() && (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x 
-			&& (*aux)->getPosition().getY() + (*aux)->getHeight() > p.y && (*aux)->getPosition().getY() < p.y) { //por la izquierda
-		p.x -= o->getWidth();
-	}
-	else if ((*aux)->getPosition().getX() + (*aux)->getWidth() >= p.x - o->getWidth() && (*aux)->getPosition().getX() > p.x
-			&& (*aux)->getPosition().getY() + (*aux)->getHeight() > p.y && (*aux)->getPosition().getY() < p.y) { //por la derecha
-		p.x += o->getWidth();
-	}
-
-	if ((*aux)->getPosition().getY() <= p.y + o->getHeight() && (*aux)->getPosition().getY() + (*aux)->getHeight() > p.y
-		&& (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x && (*aux)->getPosition().getX() < p.x) {  //por arriba
-		p.y -= o->getHeight();
-	}
-	else if ((*aux)->getPosition().getY() + (*aux)->getHeight() >= p.y - o->getHeight() && (*aux)->getPosition().getY() > p.y
-		&& (*aux)->getPosition().getX() + (*aux)->getWidth() > p.x && (*aux)->getPosition().getX() < p.x) { //por abajo
-		p.y += o->getHeight()/2;
-	}*/
 }

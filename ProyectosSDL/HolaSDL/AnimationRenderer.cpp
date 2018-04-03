@@ -19,15 +19,18 @@ AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animati
 			aux->framesAnim_.push_back(i);
 		}
 		animations_.push_back(aux);
+		aux = nullptr;
+		delete aux;
 	}
 
 	playAnim(0);
-
-	calculateNextSourceRect();
 }
 
 AnimationRenderer::~AnimationRenderer()
 {
+	for (int i = 0; i < animations_.size(); i++)
+		delete animations_[i];
+	texture_ = nullptr;
 }
 
 void AnimationRenderer::render(GameObject* o, Uint32 time)

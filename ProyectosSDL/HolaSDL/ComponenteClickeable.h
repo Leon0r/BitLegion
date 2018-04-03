@@ -1,4 +1,5 @@
 #pragma once
+#include "checkML.h"
 #include <SDL.h>
 #include "GameObject.h"
 
@@ -7,11 +8,8 @@ class ComponenteClickeable
 {
 public:
 	ComponenteClickeable();
-	~ComponenteClickeable();
+	virtual ~ComponenteClickeable();
 
-	//bool handleEvent(GameObject* o, const SDL_Event& event);
-
-	//void handleInput(GameObject* o, Uint32 time, const SDL_Event& event) {};
 	bool handleInput(GameObject* o, const SDL_Event& event);//Obtiene el rect del GO
 	bool handleInput(SDL_Rect* rect, const SDL_Event& event);//recive un rectangulo destino
 

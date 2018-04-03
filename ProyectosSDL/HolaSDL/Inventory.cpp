@@ -13,7 +13,6 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 	}
 
 	f = new Font("..//images/fuente2.ttf", tamanyoFuente);
-	//imagen = new ImageRenderer(app->getResources()->getImageTexture(Resources::Inventario));
 	
 	//imagen del inventario
 	inventarioHud->setHeight(app->getWindowHeight()*0.75);
@@ -105,6 +104,12 @@ void Inventory::handleEvent(SDL_Event& event) {
 }
 
 void Inventory::render() {
+	if (previousState != nullptr) previousState->render();
+
+	SDL_SetRenderDrawBlendMode(app->getRenderer(), SDL_BLENDMODE_MOD);
+	SDL_SetRenderDrawColor(app->getRenderer(), 70, 70, 70, 1);
+	SDL_RenderFillRect(app->getRenderer(), &rectF);
+
 	GameState::render(); //se llama a los componentes "Render" de todos los objetos de la lista del inventario
 	if (selected != nullptr){
 		Texture fuente(app->getRenderer(), selected->getDescription(), *f, colorFuente); //fuente din�mica
@@ -134,11 +139,10 @@ void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea
 	}
 
 	delete f; f = nullptr;
-	delete copia; copia = nullptr;
-	delete imagen; imagen = nullptr;
+	if (inventario->getLength() != 0)	delete copia;
+	copia = nullptr;
 	delete inventarioHud; inventarioHud = nullptr;
 	delete marca; marca = nullptr;
-	//GameState::~GameState(); destruir�a tambien la lista de objectList --> da problemas, todo lo dem�s se destruye
 }
 
 void Inventory::usar(GameState* state) {
