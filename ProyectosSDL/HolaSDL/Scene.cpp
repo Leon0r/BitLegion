@@ -38,7 +38,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 
 			SceneItems.push_back(new GOstates(app, j["GOState"][i]["x"], j["GOState"][i]["y"],
 				j["GOState"][i]["w"], j["GOState"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), new Puzzle1State(app, app->getStateMachine()->currentState()), j["GOState"][i]["rotat"]));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), new Puzzle1State(app, app->getStateMachine()->currentState(), 
+					j["GOState"][i]["numberPuzzle"]), j["GOState"][i]["rotat"]));
 		}
 
 		// Cargado de GODoors

@@ -22,12 +22,9 @@ GOstates::GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, G
 
 GOstates::~GOstates()
 {
-	if (state_ != nullptr) delete state_;
-	state_ = nullptr;
 }
 
 void GOstates::act() {
 	app->getStateMachine()->currentState()->changeList();
-	//Cambio de escena(ScneNumber)
 	this->getGame()->getStateMachine()->pushState(state_);
 }

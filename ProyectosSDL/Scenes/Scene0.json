@@ -30,6 +30,6 @@
     },
 
     "GOState": [
-        { "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotat": 1 }
+        { "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotat": 1, "numberPuzzle": 0 }
     ]
 }

@@ -67,7 +67,7 @@ private:
 	void destCasilla(CasillaPuzzle1* aux);
 public:
 	Puzzle1State() {};
-	Puzzle1State(SDLApp* game,  GameState* previousState);
+	Puzzle1State(SDLApp* game,  GameState* previousState, Uint8 numberPuzzle);
 	virtual ~Puzzle1State() { destroy(); stage.clear(); };
 
 	//----------------------------HE, RENDER, UPDATE--------------------------

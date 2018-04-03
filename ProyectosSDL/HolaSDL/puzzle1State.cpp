@@ -2,9 +2,9 @@
 #include <fstream>
 #include "json.hpp"
 
-Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState::GameState(game), previousState(previousState)
+Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numberPuzzle) : GameState::GameState(game), previousState(previousState)
 {
-	loadFromJson(1); //el 1 ese habr� que sacarlo de alg�n lado
+	loadFromJson(numberPuzzle); //el 1 ese habr� que sacarlo de alg�n lado
 
 	imagenCopia = new ImageRenderer(app->getResources()->getImageTexture(Resources::llavePisoPuzzle));
 	copia->addRenderComponent(imagenCopia);
@@ -76,10 +76,6 @@ void Puzzle1State::update()
 {
 	GameState::update();
 	if (mover) mueveMatriz();
-	/*if (numRestantes == 0) {
-		restart();
-		app->getStateMachine()->popState(false);
-	}*/
 }
 
 //---------------------------------------------------------------------------------------------------
