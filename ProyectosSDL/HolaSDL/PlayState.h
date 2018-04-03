@@ -26,6 +26,8 @@ private:
 	const Resources* resources = app->getResources();//recursos del juego
 	vector<Scene*> scenes;
 	int currentScene = 0;
+
+	bool enConversacion = false;
 public:
 	PlayState() {}
 	virtual ~PlayState();
@@ -38,5 +40,8 @@ public:
 	vector<Scene*> getScenes(){ return scenes; };
 	void swapScene(int nextScene);
 	Scene* getCurrentScene() { return scenes[currentScene]; }
+
+	virtual void handleEvent(SDL_Event &e);
+	void setEnConversacion(bool conv) { enConversacion = conv; }
 };
 
