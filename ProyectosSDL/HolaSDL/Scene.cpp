@@ -35,11 +35,12 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 		for (int i = 0; i < j["GOState"].size(); i++) {
 
 			n = j["GOState"][i]["Texture"];
+			SceneStates.push_back(new Puzzle1State(app, app->getStateMachine()->currentState(),
+				j["GOState"][i]["numberPuzzle"]));
 
 			SceneItems.push_back(new GOstates(app, j["GOState"][i]["x"], j["GOState"][i]["y"],
 				j["GOState"][i]["w"], j["GOState"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), new Puzzle1State(app, app->getStateMachine()->currentState(), 
-					j["GOState"][i]["numberPuzzle"]), j["GOState"][i]["rotat"]));
+				app->getResources()->getImageTexture(Resources::ImageId(n)),SceneStates.back(), j["GOState"][i]["rotat"]));
 		}
 
 		// Cargado de GODoors
@@ -133,6 +134,12 @@ Scene::~Scene()
 	for (aux = SceneItems.begin(); aux != SceneItems.end();) {
 		delete *aux;
 		aux = SceneItems.erase(aux); //aux = aux++
+	}
+
+	list<GameState*>::iterator stateIt;
+	for (stateIt = SceneStates.begin(); stateIt != SceneStates.end();) {
+		if(!app->getStateMachine()->checkElement(*stateIt)) delete *stateIt; //si no está dentro de la pila en el momento de borrar todo, se borra. Si está, no se borra ya que ya ha sido borrado
+		stateIt = SceneStates.erase(stateIt); //aux = aux++
 	}
 }
 

@@ -27,6 +27,7 @@ private:
 	SDLApp* app;
 	int SceneNum;
 	list<GameObject*> SceneItems;
+	list<GameState*> SceneStates;
 	list<GameObject*>::iterator it;
 	GameState* CurrentState;
 	MainCharacter* pj;
