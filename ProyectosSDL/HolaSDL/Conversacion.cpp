@@ -108,7 +108,6 @@ void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 							else
 								grupoOps = 0;
 						}
-
 					}
 
 

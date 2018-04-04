@@ -12,8 +12,6 @@ public:
 		convo->ConversacionDePrueba();
 	};
 private:
-	virtual void render(Uint32 time);
-	virtual void handleInput(Uint32 time, const SDL_Event& event);
 	virtual void act();
 	virtual void secondAct() {};
 	virtual void saveToJson(json& j) {};

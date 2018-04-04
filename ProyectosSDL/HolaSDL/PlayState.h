@@ -42,6 +42,6 @@ public:
 	Scene* getCurrentScene() { return scenes[currentScene]; }
 
 	virtual void handleEvent(SDL_Event &e);
-	void setEnConversacion(bool conv) { enConversacion = conv; }
+	void setEnConversacion(bool conv);
 };
 

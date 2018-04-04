@@ -20,14 +20,3 @@ void GOConversational::act() {
 	}
 
 }
-
-void GOConversational::render(Uint32 time){
-	Entity::render(time);
-}
-void GOConversational::handleInput(Uint32 time, const SDL_Event& event) {
-	ClickeableGO::handleInput(time, event);
-	/*
-	if(inconversation)
-		convo->handleInput(time, event);
-		*/
-}

@@ -65,3 +65,11 @@ void PlayState::handleEvent(SDL_Event &e) { //manda a los objetos del juego que 
 	}
 
 }
+
+void PlayState::setEnConversacion(bool conv) { 
+	enConversacion = conv; 
+	if (!conv) {
+		delete stage.front();
+		stage.pop_front();
+	}
+}
