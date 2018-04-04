@@ -53,12 +53,15 @@ void PlayState::swapScene(int nextScene)
 		currentScene = nextScene;
 		scenes[nextScene]->enterScene();
 	}
-	else cout << "Escena no encontrada, n�mero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
+	else cout << "Escena no encontrada, numero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
 }
 
 void PlayState::handleEvent(SDL_Event &e) { //manda a los objetos del juego que detecten 
-	if(!enConversacion)
+	if (!enConversacion) {
 		GameState::handleEvent(e);
-	else
+	}
+	else {
+		stage.front()->handleInput(0, e);
+	}
 
 }
