@@ -41,8 +41,12 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 		for (int i = 0; i < j[obj].size(); i++) {
 
 			n = j[obj][i]["Texture"];
-			SceneStates.push_back(new Puzzle1State(app, app->getStateMachine()->currentState(),
-				j[obj][i]["numberPuzzle"]));
+
+			int numberPuzzle; //numero que representa el json
+			if (j[obj][i]["numberPuzzle"].is_null()) numberPuzzle = -1; //como no todos se van a leer de json, establezco la posibilidad de que no haya ningun numero
+			else numberPuzzle = j[obj][i]["numberPuzzle"];
+
+			SceneStates.push_back(PuzzleCreator(j[obj][i]["type"], numberPuzzle));
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -236,4 +240,21 @@ void Scene::saveSceneToJson() {
 
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo
+}
+
+GameState * Scene::PuzzleCreator(PuzzleTypes type, const int& id){
+	GameState* nPuzzle = nullptr;
+
+	switch (type)
+	{
+	case (Match3):
+		nPuzzle = new Puzzle1State(app, app->getStateMachine()->currentState(), id);
+		break;
+	case (LightsOut):
+		//nPuzzle = availableWithMerge();
+		break;
+	default:
+		break;
+	}
+	return nPuzzle;
 }

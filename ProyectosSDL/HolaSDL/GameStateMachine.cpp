@@ -31,9 +31,9 @@ GameState* GameStateMachine::currentState() {
 }
 
 bool GameStateMachine::checkElement(GameState * state){
-	list<GameState*>::iterator it = actualStates.begin();
+	list<GameState*>::reverse_iterator it = actualStates.rbegin();
 	bool found = false;
-	while (it != actualStates.end() && !found) { //comprueba si el estado está dentro de la lista
+	while (it != actualStates.rend() && !found) { //comprueba si el estado está dentro de la lista
 		if (*it == state) {
 			found = true;
 		}
