@@ -3,6 +3,13 @@
 #include <list>
 
 PlayState::~PlayState() {
+
+	//Se destruye la conversacion si la hay, para que no de problemas
+	if (enConversacion) {
+		delete stage.front();
+		stage.pop_front();
+	}
+
 	vector<Scene*>::iterator aux;
 	scenes[currentScene]->exitScene();
 	std::ofstream i("..\\Scenes\\pj.json"); //archivo donde se va a guardar
@@ -12,6 +19,7 @@ PlayState::~PlayState() {
 	i.close(); //cierra el flujo
 	delete alena;
 	delete shortcut;
+
 	stage.clear();
 	for (aux = scenes.begin(); aux != scenes.end(); aux++) {
 		(*aux)->saveSceneToJson();

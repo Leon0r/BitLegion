@@ -11,10 +11,10 @@ public:
 		convo = new Conversacion(app);
 		convo->ConversacionDePrueba();
 	};
+	virtual void saveToJson(json& j) {};
 private:
 	virtual void act();
 	virtual void secondAct() {};
-	virtual void saveToJson(json& j) {};
 	bool inconversation = false;
 	Conversacion* convo = nullptr;
 };
