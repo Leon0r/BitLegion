@@ -5,7 +5,7 @@
 #include "Texture.h"
 
 
-const unsigned int tamanyoFuenteConv = 100;
+const unsigned int tamanyoFuenteConv = 30;
 const SDL_Color colorFuenteConv = { 255, 255, 255, 1 };
 
 class Conversacion : public GameObject

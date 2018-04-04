@@ -24,6 +24,10 @@
         { "x": 915, "y": 125, "w": 365, "h": 300, "Texture": 13 }
     ],
 
+    "GOConversational": [
+         { "x": 300, "y": 400, "w": 50, "h": 50, "descripcion": "key", "tag": "key", "Texture": 22 }
+    ],
+
     "PlayerPos": {
         "x": 100,
         "y": 500

@@ -2,6 +2,7 @@
 #include <fstream>
 #include "MainCharacter.h"
 #include "GOstates.h"
+#include "GOConversational.h"
 
 Scene::Scene()
 {
@@ -69,6 +70,16 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 
 			SceneItems.push_back(new ColisionableObject(app, j["CollisionableObject"][i]["x"], j["CollisionableObject"][i]["y"],
 				j["CollisionableObject"][i]["w"], j["CollisionableObject"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n))));
+		}
+
+
+		//Cargado objetos conversaciones
+		for (int i = 0; i < j["GOConversational"].size(); i++) {
+
+			n = j["GOConversational"][i]["Texture"];
+
+			SceneItems.push_front(new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"], j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n))));
 		}
 

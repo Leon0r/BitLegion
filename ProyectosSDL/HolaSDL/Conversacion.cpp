@@ -1,5 +1,6 @@
 #include "Conversacion.h"
 #include "SDLApp.h"
+#include "PlayState.h"
 
 Conversacion::Conversacion(SDLApp* game) :GameObject(game)
 {
@@ -22,12 +23,12 @@ void Conversacion::escribir(){
 		for (int i = grupoOps * 3; i < grupoOps * 3 + 3; i++){
 			if (i < dialogo[nodoActual]->getNumOpciones()){
 				Texture fuente(app->getRenderer(), escribir[i], *f, colorFuenteConv); //fuente dinámica
-				fuente.render(app->getRenderer(), { x, y + i%3 * h / 4 + 2, w, h / 4 });
+				fuente.render(app->getRenderer(), x, y + i%3 * h / 4 + 2);
 			}
 		}
 
-		Texture fuente(app->getRenderer(), "Mas opciones                                         ", *f, colorFuenteConv); //fuente dinámica
-		fuente.render(app->getRenderer(), { x, y + 3 * h / 4 + 2, w, h / 4 });
+		Texture fuente(app->getRenderer(), "Mas opciones", *f, colorFuenteConv); //fuente dinámica
+		fuente.render(app->getRenderer(), x, y + 3 * h / 4 + 2);
 
 
 	}
@@ -38,7 +39,7 @@ void Conversacion::escribir(){
 		grupoOps = 0;
 		for (int i = 0; i < numLineas; i++){
 			Texture fuente(app->getRenderer(), escribir[i], *f, colorFuenteConv); //fuente dinámica
-			fuente.render(app->getRenderer(), { x, y + i * h / 4 + 2, w, h / 4 });
+			fuente.render(app->getRenderer(), x, y + i * h / 4 + 2);
 		}
 	}
 	
@@ -94,8 +95,10 @@ void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 					}
 				}
 
-				if (nodoActual == -1)
+				if (nodoActual == -1) {
 					enconversacion = false;
+					static_cast<PlayState*>(app->getStateMachine()->currentState())->setEnConversacion(false);
+				}
 				else if (dialogo[nodoActual]->getNumOpciones() > 3){
 						r.y = y + 3 * h / 4 + 2;
 						if (SDL_PointInRect(&p, &r)){
@@ -124,15 +127,15 @@ void Conversacion::render(Uint32 time){
 void Conversacion::ConversacionDePrueba(){
 
 
-	vector<string> text = { "Prueba de dialogo                                              ", "Dialogo normal, se puede clickar en    ", "cualquiera de las frases para avanzar  " };
+	vector<string> text = { "Prueba de dialogo", "Dialogo normal, se puede clickar en", "cualquiera de las frases para avanzar" };
 	vector<opciones> ops;
 	NodoDialogo* nodo1 = new NodoDialogo(0, 1, text, -1, ops, Alena, feliz);
-	text = { "Otro nodo para probar saltos.                                  " };
+	text = { "Otro nodo para probar saltos." };
 	NodoDialogo* nodo2 = new NodoDialogo(1, 2, text, -1, ops, Alena, triste);
 	text = { "" };
-	ops = { { 0, "Repite todo el dialogo desde el principio" }, { -1, "Acabar el dialogo.                                         " }, { 3, "Dialogo con 3 opciones                                     " }, { 0, "Mas opciones para mostrar el funcionamiento de mas opciones" }, { 1, "Otra opcion random para probar                   " } };
+	ops = { { 0, "Repite todo el dialogo desde el principio" }, { -1, "Acabar el dialogo." }, { 3, "Dialogo con 3 opciones                                     " }, { 0, "Mas opciones para mostrar el funcionamiento de mas opciones" }, { 1, "Otra opcion random para probar                   " } };
 	NodoDialogo* nodo3 = new NodoDialogo(2, 3, text, 5, ops, Alena, especial);
-	ops = { { 0, "1                                   " }, { -1, "2                                 " }, { 1, "3                               " } };
+	ops = { { 0, "1" }, { -1, "2" }, { 1, "3" } };
 	NodoDialogo* nodo4 = new NodoDialogo(2, 3, text, 3, ops, Alena, especial);
 
 	dialogo.push_back(nodo1);
