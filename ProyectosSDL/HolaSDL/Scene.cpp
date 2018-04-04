@@ -20,58 +20,88 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 		json j;
 		i >> j;
 		int n;
+		string obj = "ItemInventario"; // nombre del array del objeto en el json
 
 		// Cargado de items de inventario
-		for (int i = 0; i < j["ItemInventario"].size(); i++) {
+		for (int i = 0; i < j[obj].size(); i++) {
 
-			n = j["ItemInventario"][i]["Texture"];
+			n = j[obj][i]["Texture"];
 
-			SceneItems.push_front(new ItemInventario(app, j["ItemInventario"][i]["x"], j["ItemInventario"][i]["y"], j["ItemInventario"][i]["w"], j["ItemInventario"][i]["h"],
-				j["ItemInventario"][i]["descripcion"], j["ItemInventario"][i]["tag"],
+			SceneItems.push_front(new ItemInventario(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+				j[obj][i]["descripcion"], j[obj][i]["tag"],
 				app->getResources()->getImageTexture(Resources::ImageId(n))));
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
 		}
 
+		obj = "GOState";
 		//Cargado de Puzles
-		for (int i = 0; i < j["GOState"].size(); i++) {
+		for (int i = 0; i < j[obj].size(); i++) {
 
-			n = j["GOState"][i]["Texture"];
+			n = j[obj][i]["Texture"];
 			SceneStates.push_back(new Puzzle1State(app, app->getStateMachine()->currentState(),
-				j["GOState"][i]["numberPuzzle"]));
+				j[obj][i]["numberPuzzle"]));
 
-			SceneItems.push_back(new GOstates(app, j["GOState"][i]["x"], j["GOState"][i]["y"],
-				j["GOState"][i]["w"], j["GOState"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)),SceneStates.back(), j["GOState"][i]["rotat"]));
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+
+			SceneItems.push_back(new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
+				j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)),SceneStates.back()));
+			
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
 		}
 
 		// Cargado de GODoors
-		for (int i = 0; i < j["GODoors"].size(); i++) {
+		obj = "GODoors";
+		for (int i = 0; i < j[obj].size(); i++) {
 
-			n = j["GODoors"][i]["Texture"];
+			n = j[obj][i]["Texture"];
+			double rotGOTrans = 0;
+			if(!j[obj][i]["rotGOTr"].is_null())
+				rotGOTrans = j[obj][i]["rotGOTr"];
 
-			SceneItems.push_back(new GODoors(app, j["GODoors"][i]["x"], j["GODoors"][i]["y"], j["GODoors"][i]["w"], j["GODoors"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GODoors"][i]["tag"], j["GODoors"][i]["scneNum"], j["GODoors"][i]["rotat"]));
+			SceneItems.push_back(new GODoors(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans));
+			
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
 		}
 
 		// Cargado de GOTransiciones
-		for (int i = 0; i < j["GOTransiciones"].size(); i++) {
+		obj = "GOTransiciones";
+		for (int i = 0; i < j[obj].size(); i++) {
 
-			n = j["GOTransiciones"][i]["Texture"];
+			n = j[obj][i]["Texture"];
 
-			SceneItems.push_back(new GOTransiciones(app, j["GOTransiciones"][i]["x"], j["GOTransiciones"][i]["y"],
-				j["GOTransiciones"][i]["w"], j["GOTransiciones"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOTransiciones"][i]["scneNum"], j["GOTransiciones"][i]["rotat"]));
+			SceneItems.push_back(new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
+				j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]));
+			
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
 		}
 
-
-
 		// Cargado de Colisiones
-		for (int i = 0; i < j["CollisionableObject"].size(); i++) {
+		obj = "CollisionableObject";
+		for (int i = 0; i < j[obj].size(); i++) {
 
-			n = j["CollisionableObject"][i]["Texture"];
+			n = j[obj][i]["Texture"];
 
-			SceneItems.push_back(new ColisionableObject(app, j["CollisionableObject"][i]["x"], j["CollisionableObject"][i]["y"],
-				j["CollisionableObject"][i]["w"], j["CollisionableObject"][i]["h"],
+			SceneItems.push_back(new ColisionableObject(app, j[obj][i]["x"], j[obj][i]["y"],
+				j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n))));
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
 		}
 
 		//ESCENARIO

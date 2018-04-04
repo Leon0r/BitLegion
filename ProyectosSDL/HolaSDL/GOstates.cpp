@@ -3,7 +3,7 @@
 #include "MainCharacter.h"
 
 
-GOstates::GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, GameState* state,  int rotation) : ClickeableGO(game, x, y, w, h, texture), rotation_(rotation), state_(state)
+GOstates::GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, GameState* state) : ClickeableGO(game, x, y, w, h, texture), state_(state)
 {
 	this->delRenderComponent(render);
 	addAnim("RightArrow", { 0,1,2,3 });
