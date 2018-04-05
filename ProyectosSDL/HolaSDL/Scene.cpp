@@ -44,11 +44,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 
 			n = j[obj][i]["Texture"];
 
-			int numberPuzzle; //numero que representa el json
-			if (j[obj][i]["numberPuzzle"].is_null()) numberPuzzle = -1; //como no todos se van a leer de json, establezco la posibilidad de que no haya ningun numero
-			else numberPuzzle = j[obj][i]["numberPuzzle"];
 
-			SceneStates.push_back(PuzzleCreator(j[obj][i]["type"], numberPuzzle, j[obj][i]));
+			SceneStates.push_back(PuzzleCreator(j[obj][i]["type"], j[obj][i]));
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -244,13 +241,13 @@ void Scene::saveSceneToJson() {
 	i.close(); //cierra el flujo
 }
 
-GameState * Scene::PuzzleCreator(PuzzleTypes type, const int& id, const json& j){
+GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
 	GameState* nPuzzle = nullptr;
 
 	switch (type)
 	{
 	case (Match3):
-		nPuzzle = new Puzzle1State(app, app->getStateMachine()->currentState(), id);
+		nPuzzle = new Puzzle1State(app, app->getStateMachine()->currentState(), j["numberPuzzle"], j["numText"]);
 		break;
 	case (Lights):
 		nPuzzle = new LightsOut(app, j["numCas"], j["dificultad"]);

@@ -30,6 +30,7 @@ private:
 	//--------------------------VARIABLES AUXILIARES-----------------------------------------
 	const int numCas = 5;
 	int numRestantes = 0;
+	int numText_;
 	const int espaciado = 117.0;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const double topD = relacion.first*(espaciado*4 + 240 + espaciado/2), topI = relacion.first*(240-espaciado/2), topA = relacion.second*(53 - (espaciado-10) / 2), topAB = relacion.second*((espaciado-5)*4 + 53 + espaciado / 2);
@@ -67,7 +68,7 @@ private:
 	void destCasilla(CasillaPuzzle1* aux);
 public:
 	Puzzle1State() {};
-	Puzzle1State(SDLApp* game,  GameState* previousState, Uint8 numberPuzzle);
+	Puzzle1State(SDLApp* game,  GameState* previousState, Uint8 numberPuzzle, int numText);
 	virtual ~Puzzle1State() { destroy(); stage.clear(); };
 
 	//----------------------------HE, RENDER, UPDATE--------------------------
