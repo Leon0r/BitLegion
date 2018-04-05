@@ -20,7 +20,7 @@ PlayState::~PlayState() {
 	delete list;
 }
 
-PlayState::PlayState(SDLApp* app): GameState(app) {
+PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
 	
 	// crea la lista vacia
 	list = new ObjectList(app);
@@ -37,13 +37,23 @@ PlayState::PlayState(SDLApp* app): GameState(app) {
 	stage.push_front(alena);
 
 	i.close();
-
+	if (!load) {
+		scenes.push_back(new Scene(0, app, alena));
+		scenes.push_back(new Scene(1, app, alena));
+		scenes.push_back(new Scene(2, app, alena));
+		scenes.push_back(new Scene(3, app, alena));
+		scenes.push_back(new Scene(4, app, alena));
+	}
+	else
+	{
+		scenes.push_back(new Scene(0, app, alena, load));
+		scenes.push_back(new Scene(1, app, alena, load));
+		scenes.push_back(new Scene(2, app, alena, load));
+		scenes.push_back(new Scene(3, app, alena, load));
+		scenes.push_back(new Scene(4, app, alena, load));
+	}
 	// crea las escenas desde archivo
-	scenes.push_back(new Scene(0, app, alena));
-	scenes.push_back(new Scene(1, app, alena));
-	scenes.push_back(new Scene(2, app, alena));
-	scenes.push_back(new Scene(3, app, alena));
-	scenes.push_back(new Scene(4, app, alena));
+	
 }
 
 void PlayState::swapScene(int nextScene)

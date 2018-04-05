@@ -14,7 +14,7 @@ class Scene
 {
 public:
 	Scene();
-	Scene(int numEscena, SDLApp* app, MainCharacter* pj);
+	Scene(int numEscena, SDLApp* app, MainCharacter* pj, bool load = false);
 	~Scene();
 	void enterScene();
 	void exitScene();

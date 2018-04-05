@@ -29,7 +29,7 @@ private:
 public:
 	PlayState() {}
 	virtual ~PlayState();
-	PlayState(SDLApp* app);
+	PlayState(SDLApp* app, bool load = false);
 	MainCharacter* getMainPj() { return alena; }
 	ShortCut* getShortCut(){ return shortcut; }
 	void creaInventario() { app->getStateMachine()->pushState(new Inventory(app, list, this, shortcut)); }

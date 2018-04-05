@@ -11,7 +11,7 @@ class ClickeableGO :
 {
 public:
 	ClickeableGO() {};
-	ClickeableGO(SDLApp* game,int x,int y,int w,int h,  Texture* texture);
+	ClickeableGO(SDLApp* game,int x,int y,int w,int h,  Texture* texture, bool rangeCheck_ = true);
 	virtual ~ClickeableGO();
 	void handleInput(Uint32 time, const SDL_Event& event);
 protected:
@@ -23,5 +23,7 @@ protected:
 	virtual void act() = 0;
 	virtual void saveToJson(json& j) = 0; //se encargarán de guardarse los objetos específicos
 	
+private:
+	bool rangeCheck;
 };
 
