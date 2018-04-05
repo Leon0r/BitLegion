@@ -12,5 +12,5 @@ public:
 	virtual void saveToJson(json& j);
 private:
 	GameState* state_;
-	json jAux_; //saber los datos para guardarlos luego
+	json jAux_; //saber los datos para guardarlos luego. Guardamos el objeto json que tiene tooodo dentro. Facilita maaazo las cosas
 };
