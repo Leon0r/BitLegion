@@ -51,6 +51,9 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 		addInventoryObject(item);
 		delete item;
 	}
+	
+	if(!j["mainPj"]["actualScene"].is_null())
+		this->currentScene = j["mainPj"]["actualScene"];
 }
 
 MainCharacter::~MainCharacter()
@@ -83,6 +86,8 @@ void MainCharacter::saveToJson(json& j) {
 	for (int i = 0; i < list->getLength(); i++) {
 		list->getItem(i)->saveToJson(aux["itemList"]);
 	}
+
+	aux["actualScene"] = this->getCurrentScene();
 
 	j["mainPj"].update(aux);
 }

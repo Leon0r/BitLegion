@@ -51,7 +51,12 @@ void MainMenuState::newGame(SDLApp* app_)
 void MainMenuState::loadGame(SDLApp* app_)
 {
 	app_->getStateMachine()->pushState(new PlayState(app_,true));//pop antes??
-	dynamic_cast<PlayState*>(app_->getStateMachine()->currentState())->getScenes()[0]->enterScene();
+
+	PlayState* nPlayState_ = dynamic_cast<PlayState*>(app_->getStateMachine()->currentState());
+
+	if (nPlayState_ != nullptr) {
+		nPlayState_->getScenes()[nPlayState_->getNumCurrentScene()]->enterScene(); //entra en la actual
+	}
 }
 
 void MainMenuState::exit(SDLApp* app_)

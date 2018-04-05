@@ -52,6 +52,9 @@ PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
 		scenes.push_back(new Scene(3, app, alena, load));
 		scenes.push_back(new Scene(4, app, alena, load));
 	}
+
+	this->currentScene = alena->getCurrentScene();
+
 	// crea las escenas desde archivo
 	
 }
@@ -62,6 +65,7 @@ void PlayState::swapScene(int nextScene)
 		scenes[currentScene]->exitScene();
 		currentScene = nextScene;
 		scenes[nextScene]->enterScene();
+		alena->setCurrentScene(currentScene);
 	}
 	else cout << "Escena no encontrada, n�mero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
 }

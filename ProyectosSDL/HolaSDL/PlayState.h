@@ -40,6 +40,7 @@ public:
 	void swapScene(int nextScene);
 	Scene* getCurrentScene() { return scenes[currentScene]; }
 	void pauseMenu() { app->getStateMachine()->pushState(new inGameMenu(app)); };
+	int getNumCurrentScene() const { return this->currentScene; };
 
 };
 
