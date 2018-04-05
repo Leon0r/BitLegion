@@ -34,7 +34,7 @@ private:
 public:
 	LightsOut() {};
 	virtual ~LightsOut();
-	LightsOut(SDLApp* app);
+	LightsOut(SDLApp* app, int numCas, int dificultad);
 	bool win();
 	virtual void receive(Mensaje* msg);
 	virtual void render();

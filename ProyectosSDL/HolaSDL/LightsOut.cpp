@@ -2,7 +2,7 @@
 
 
 
-LightsOut::LightsOut(SDLApp* app) : GameState::GameState(app), puzzleHasStarted(false)
+LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad) : GameState::GameState(app), puzzleHasStarted(false), numCas(numCas)
 {
 	botonRender = (app->getResources()->getImageTexture(Resources::BotonPuzzle));//render del boton
 	
@@ -19,7 +19,7 @@ LightsOut::LightsOut(SDLApp* app) : GameState::GameState(app), puzzleHasStarted(
 			stage.push_front(lights[i][j]);
 		}
 	}
-	this->apagaLuces(1);
+	this->apagaLuces(dificultad);
 
 	//--------Botones-----
 	botonReset = Boton(app, resetPuzzle, this, "reset");

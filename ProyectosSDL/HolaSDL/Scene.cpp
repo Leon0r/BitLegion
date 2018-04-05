@@ -2,6 +2,7 @@
 #include <fstream>
 #include "MainCharacter.h"
 #include "GOstates.h"
+#include "LightsOut.h"
 
 Scene::Scene()
 {
@@ -47,7 +48,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 			if (j[obj][i]["numberPuzzle"].is_null()) numberPuzzle = -1; //como no todos se van a leer de json, establezco la posibilidad de que no haya ningun numero
 			else numberPuzzle = j[obj][i]["numberPuzzle"];
 
-			SceneStates.push_back(PuzzleCreator(j[obj][i]["type"], numberPuzzle));
+			SceneStates.push_back(PuzzleCreator(j[obj][i]["type"], numberPuzzle, j[obj][i]));
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -243,7 +244,7 @@ void Scene::saveSceneToJson() {
 	i.close(); //cierra el flujo
 }
 
-GameState * Scene::PuzzleCreator(PuzzleTypes type, const int& id){
+GameState * Scene::PuzzleCreator(PuzzleTypes type, const int& id, const json& j){
 	GameState* nPuzzle = nullptr;
 
 	switch (type)
@@ -251,8 +252,8 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, const int& id){
 	case (Match3):
 		nPuzzle = new Puzzle1State(app, app->getStateMachine()->currentState(), id);
 		break;
-	case (LightsOut):
-		//nPuzzle = availableWithMerge();
+	case (Lights):
+		nPuzzle = new LightsOut(app, j["numCas"], j["dificultad"]);
 		break;
 	default:
 		break;

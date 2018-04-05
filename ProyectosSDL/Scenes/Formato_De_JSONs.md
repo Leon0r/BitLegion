@@ -60,4 +60,12 @@ SceneX.json // X = numero de la escena
             {...},
             {...}
     	]
+		
+		//Array con los objetos que cambian de estado (puzzles por ahora)
+		 "GOState": [
+        { "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotation": -45, "numberPuzzle": 0,"type": 0 }, //Match3
+		{"x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 8},
+		{...}
+		]
+		
 	}
