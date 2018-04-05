@@ -26,7 +26,9 @@ public:
 	//útil para botones que hacen algo con los estados (start, exit...)
 	Boton(SDLApp* app, CallBackOnClickState* state, GameState* actualState, string nombre) : Entity(app), state(state), actualState(actualState), nombre(nombre), inApp(nullptr), stateFC(nullptr) {};//constructora
 	//con puntero al estado actual, útil para "botones" que hacen cosas en el estado (usar y swap del inventario, maybe objetos interactuables...)
+
 	Boton(SDLApp* app, CallBackOnClickStateFC* stateFC, GameState* actualState, string nombre, int fil, int col) : Entity(app), stateFC(stateFC), actualState(actualState), nombre(nombre), f(fil), c(col), inApp(nullptr), state(nullptr) {};//constructora2
+
 	virtual void handleInput(Uint32 time, const SDL_Event& event);
 	
 };

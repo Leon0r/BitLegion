@@ -15,7 +15,9 @@ std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.p
 	"..//images/flechaTransicionDer.png", "..//images/flechaTransicionIzq.png", "..//images/llavePisoPuzzle.png", "..//images/casillaPuzzleV.png", 
 	"..//images/botonPuzzle.png" , "..//images/PuzzleHud.png" , "..//images/botonReiniciar.png", "..//images/casillaPuzzleBloq.png", "..//images/casillaPuzzleDestroy.png",
 	"..//images/escena4caso1.png", "..//images/moto.png", "..//images/escena3caso1.png", "..//images/muebleentrada.png", "..//images/macetaentrada.png", "..//images/puertaentrada.png",
-	"..//images/colisionableAux.png" };
+	"..//images/colisionableAux.png" , "..//images/LuzApagada.png", "..//images/LuzEncendida.png", "..//images/Barras.png", "..//images/BarraCarga.png", "..//images/ondas.png",
+	"..//images/LucesHud.png", "..//images/TextoPixel.png", "..//images/BarridoBotella.png"  };
+
 
 #include <iostream>
 
@@ -69,3 +71,16 @@ int Resources::getPosTexture(Texture* text) const {
 	}
 	return i;
 }
+
+
+
+/*
+<<<<<<< HEAD
+"..//images/botonPuzzle.png" , "..//images/PuzzleHud.png" , "..//images/botonReiniciar.png", "..//images/casillaPuzzleBloq.png", "..//images/casillaPuzzleDestroy.png",
+"..//images/escena4caso1.png", "..//images/moto.png", "..//images/escena3caso1.png", "..//images/muebleentrada.png", "..//images/macetaentrada.png", "..//images/puertaentrada.png",
+"..//images/colisionableAux.png" };
+=======
+"..//images/botonPuzzle.png", "..//images/LuzApagada.png", "..//images/LuzEncendida.png", "..//images/Barras.png", "..//images/BarraCarga.png", "..//images/ondas.png",
+"..//images/LucesHud.png", "..//images/TextoPixel.png", "..//images/BarridoBotella.png"  };
+>>>>>>> Puzzle-2+-basura
+*/

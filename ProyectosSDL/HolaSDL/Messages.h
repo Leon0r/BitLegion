@@ -9,5 +9,17 @@ enum Messages {
 	Moving,
 	MouseStop,
 	MouseMoving,
-	CambioEscena
+	CambioEscena,
+	LuzInvertida
+};
+
+struct Mensaje{
+	Mensaje(Messages id) : id_(id) {}
+	Messages id_;
+};
+
+struct MensajePosicionMatriz: Mensaje //mensaje que devuelve la posicion de la matriz (puzzles)
+{
+	MensajePosicionMatriz(Messages id, std::pair<const int, const int> pos) : Mensaje(id), pos_(pos) {}
+	std::pair<const int, const int> pos_;
 };

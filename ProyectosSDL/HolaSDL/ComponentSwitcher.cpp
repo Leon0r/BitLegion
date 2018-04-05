@@ -61,10 +61,11 @@ void ComponentSwitcher::setMode(int i) {
 }
 
 //para independizar los dos tipos de movimiento
-void ComponentSwitcher::receive(Messages msg) {
-	if (msg == Moving)keyBoard = true;
-	else if (msg == StopRight || msg == StopLeft)keyBoard = false;
-	else if (msg == MouseMoving)mouse = true;
-	else if (msg == MouseStop)mouse = false;
-	else if (msg == CambioEscena) { setMode(0); keyComp = true; };
+void ComponentSwitcher::receive(Mensaje* msg) {
+	if (msg->id_ == Moving)keyBoard = true;
+	else if (msg->id_ == StopRight || msg->id_ == StopLeft)keyBoard = false;
+	else if (msg->id_ == MouseMoving)mouse = true;
+	else if (msg->id_ == MouseStop)mouse = false;
+	else if (msg->id_ == CambioEscena)cambioEscena = true;
+
 }

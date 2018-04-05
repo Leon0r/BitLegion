@@ -86,9 +86,9 @@ int AnimationRenderer::nextFrame()
 	return aux;
 }
 
-void AnimationRenderer::receive(Messages msg)
+void AnimationRenderer::receive(Mensaje* msg)
 {
-	switch (msg){
+	switch (msg->id_){
 	case Ch_Left:
 		playAnim("Left");
 		break;

@@ -7,13 +7,13 @@ Entity::Entity(SDLApp* game) :
 
 Entity::~Entity() {
 	for (InputComponent* ic : inputComp_) { //problemas al hacer todo esto, hay destructoras perdidas que deben estar mal (o no están..)
-		if (ic != nullptr && dynamic_cast<PhysicsComponent*>(ic) == nullptr) { delete ic; ic = nullptr; }
+		if (ic != nullptr && dynamic_cast<PhysicsComponent*>(ic) == nullptr) { delete ic; ic = nullptr; delInputComponent(ic); }
 	}
 	for (PhysicsComponent* pc : physicsComp_) {
-		if (pc != nullptr) { delete pc; pc = nullptr; }
+		if (pc != nullptr) { delete pc; pc = nullptr; delPhysicsComponent(pc); }
 	}
 	for (RenderComponent* rc : renderComp_) {
-		if (rc != nullptr) { delete rc; rc = nullptr; }
+		if (rc != nullptr) { delete rc; rc = nullptr; delRenderComponent(rc); }
 	}
 }
 

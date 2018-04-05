@@ -64,7 +64,17 @@ public:
 		MesaRecepcion,
 		PlantaRecepcion,
 		PuertaPortal,
-		ColisionableAux
+		ColisionableAux,
+		//BotonPuzzle,
+		LuzApagada,
+		LuzEncendida,
+		Barras,
+		Carga,
+		Onda,
+		HudLuces,
+		TextoPixel,
+		BotellaAnimada
+
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
