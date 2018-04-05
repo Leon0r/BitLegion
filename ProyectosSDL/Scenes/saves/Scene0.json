@@ -34,6 +34,18 @@
          "y": 116.0
       }
    ],
+   "GOState": [
+      {
+         "Texture": 32,
+         "h": 30.0,
+         "numberPuzzle": 0,
+         "rotation": -45,
+         "type": 0,
+         "w": 30.0,
+         "x": 705.0,
+         "y": 265.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 32,

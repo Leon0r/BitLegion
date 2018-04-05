@@ -52,14 +52,25 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 			SceneStates.push_back(PuzzleCreator(j[obj][i]["type"], numberPuzzle));
 
+			SceneItems.push_back(new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
+				j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)),SceneStates.back(), j[obj][i]));
+			
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
+		}
 
-			SceneItems.push_back(new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
+		// Cargado de GOTransiciones
+		obj = "GOTransiciones";
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+
+			SceneItems.push_back(new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)),SceneStates.back()));
-			
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]));
+
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
@@ -76,21 +87,6 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 			SceneItems.push_back(new GODoors(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans));
-			
-			if (!j[obj][i]["rotation"].is_null()) {
-				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
-			}
-		}
-
-		// Cargado de GOTransiciones
-		obj = "GOTransiciones";
-		for (int i = 0; i < j[obj].size(); i++) {
-
-			n = j[obj][i]["Texture"];
-
-			SceneItems.push_back(new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
-				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]));
 			
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
