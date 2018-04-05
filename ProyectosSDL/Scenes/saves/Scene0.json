@@ -51,24 +51,26 @@
          "Texture": 32,
          "h": 60.0,
          "rotat": 0.0,
-         "scneNum": 2,
-         "w": 60.0,
-         "x": 641.0,
-         "y": 207.0
-      },
-      {
-         "Texture": 32,
-         "h": 60.0,
-         "rotat": 0.0,
          "scneNum": 1,
          "w": 60.0,
          "x": 1200.0,
          "y": 600.0
       }
    ],
+   "ItemInventario": [
+      {
+         "Texture": 22,
+         "descripcion": "key",
+         "h": 40.0,
+         "tag": "key",
+         "w": 40.0,
+         "x": 710.0,
+         "y": 490.0
+      }
+   ],
    "PlayerPos": {
-      "x": 641.0,
-      "y": 207.0
+      "x": 100.0,
+      "y": 500.0
    },
    "PlayerTam": {
       "h": 201.6,

@@ -35,9 +35,11 @@ void GOstates::saveToJson(json & j){
 
 	aux["type"] = jAux_["type"]; //tipo de puzzle
 	aux["rotation"] = jAux_["rotation"];
-	if (!jAux_["numberPuzzle"].is_null()) { aux["numberPuzzle"] = jAux_["numberPuzzle"]; } //atributos diferentes en cada puzzle... nos ahorramos excepciones raras con el isNull();
+	if (!jAux_["numberPuzzle"].is_null()) { aux["numberPuzzle"] = jAux_["numberPuzzle"]; } //atributos diferentes en cada puzzle... nos ahorramos excepciones raras con el isNull(); pero hay que ponerlos todos aqui ais...
+	//(si se os ocurre otra forma avisad, que son las 2 de la mañana y ya no tiro)
 	if (!jAux_["numCas"].is_null()) { aux["numCas"] = jAux_["numCas"]; }
 	if (!jAux_["dificultad"].is_null()) { aux["dificultad"] = jAux_["dificultad"]; }
+	if (!jAux_["numText"].is_null()) { aux["numText"] = jAux_["numText"]; }
 
 	j["GOState"].push_back(aux);
 }
