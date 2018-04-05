@@ -24,7 +24,9 @@ PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
 	
 	// crea la lista vacia
 	list = new ObjectList(app);
-	string name = "..\\Scenes\\pj.json";
+	string name;
+	if (load)name = "..\\Scenes\\saves\\pj.json";
+	else name = "..\\Scenes\\pj.json";
 	// Inicializa el personaje con los datos de archivo de la primera escena
 	std::ifstream i(name);
 	json j;
@@ -69,3 +71,7 @@ void PlayState::swapScene(int nextScene)
 	}
 	else cout << "Escena no encontrada, n�mero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
 }
+
+
+
+	
