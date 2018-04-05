@@ -5,7 +5,7 @@
 PlayState::~PlayState() {
 	vector<Scene*>::iterator aux;
 	scenes[currentScene]->exitScene();
-	std::ofstream i("..\\Scenes\\pj.json"); //archivo donde se va a guardar
+	std::ofstream i("..\\Scenes\\saves\\pj.json"); //archivo donde se va a guardar
 	json j;
 	alena->saveToJson(j);
 	i << std::setw(4) << j; //pretty identación para leer mejor el archivo
