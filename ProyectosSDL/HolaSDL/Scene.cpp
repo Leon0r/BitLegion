@@ -238,8 +238,8 @@ void Scene::saveSceneToJson() {
 	j["PlayerPos"]["x"] = posIni.getX();
 	j["PlayerPos"]["y"] = posIni.getY();
 
-	j["playerTam"]["w"] = playerTam.getX();
-	j["playerTam"]["h"] = playerTam.getY();
+	j["PlayerTam"]["w"] = playerTam.getX();
+	j["PlayerTam"]["h"] = playerTam.getY();
 
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo
