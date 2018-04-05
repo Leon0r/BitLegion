@@ -15,7 +15,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 	else name = "..\\Scenes\\Scene";
 	name = name + to_string(numEscena) +".json";
 	//name += ".json";
-	cout << name;
+	//cout << name;
 
 	std::ifstream i(name);
 	

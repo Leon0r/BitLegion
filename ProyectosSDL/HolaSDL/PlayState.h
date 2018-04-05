@@ -14,6 +14,8 @@
 #include "json.hpp"
 #include "MainCharacter.h"
 #include "puzzle1State.h"
+#include "inGameMenu.h"
+
 
 //estado de prueba, con Alena moviendose por pantalla
 class PlayState: public GameState
@@ -37,5 +39,7 @@ public:
 	vector<Scene*> getScenes(){ return scenes; };
 	void swapScene(int nextScene);
 	Scene* getCurrentScene() { return scenes[currentScene]; }
+	void pauseMenu() { app->getStateMachine()->pushState(new inGameMenu(app)); };
+
 };
 

@@ -7,6 +7,7 @@ MainMenuState::MainMenuState()
 }
 MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 {
+	cout << "mainMenu" << endl;
 	btext = new ImageRenderer(app->getResources()->getImageTexture(Resources::TicketCompra));
 	Boton* b;
 	b = (new Boton(app, newGame, "New Game"));
@@ -30,12 +31,13 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 MainMenuState::~MainMenuState()
 {
-	stage.clear();
-	/*cout << botones.size();
-	for (int i= botones.size(); i >0; i--) {
-		//(botones.at(i)->delRenderComponent(btext));
-		delete(botones.at(i));
-	}*/
+	//stage.clear();
+	for(int i =0; i < botones.size();i++)botones.at(i)->delRenderComponent(btext);
+	vector<Boton*>::iterator it;
+	for (it = botones.begin(); it != botones.end();it++) {
+		this->deleteElement(*it);
+	}
+	delete(btext);
 }
 
 
@@ -54,5 +56,5 @@ void MainMenuState::loadGame(SDLApp* app_)
 
 void MainMenuState::exit(SDLApp* app_)
 {
-	app_->getStateMachine()->popState();//Nunca deberia de haber un estado por encima de este
+	app_->exitGame();//Nunca deberia de haber un estado por encima de este
 }
