@@ -1,5 +1,4 @@
 #include "Inventory.h"
-#include "Boton.h"
 #include "Font.h"
 #include "MainCharacter.h"
 #include "AnimationRenderer.h"
@@ -56,7 +55,7 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 	}
 
 	//--------------------Pruebas Botones ----------------------
-	Boton* useButton = new Boton(app, usar, this, "use"); //nuevo Boton
+	useButton = new Boton(app, usar, this, "use"); //nuevo Boton
 	RenderComponent* im = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonUsar), useButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	useButton->addRenderComponent(im);
 	useButton->setPosition(Vector2D{ 548*relacion.first, 449*relacion.second }); //posiciones random de prueba
@@ -64,7 +63,7 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 	useButton->setHeight(31*relacion.second);
 	stage.push_back(useButton); //se pushea
 
-	Boton* swapButton = new Boton(app, swap, this, "swap"); //nuevo Boton
+	swapButton = new Boton(app, swap, this, "swap"); //nuevo Boton
 	RenderComponent* im2 = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSwap), swapButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	swapButton->addRenderComponent(im2);
 	swapButton->setPosition(Vector2D{ 548*relacion.first, 480*relacion.second }); //posiciones random de prueba
@@ -128,6 +127,7 @@ void Inventory::swap(GameState* state){
 
 void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea en este estado
 	int tam = inventario->getLength();
+
 	if (tam > numCas) tam = numCas;
 	if (tam != 0){
 		for (int i = 0; i < tam; i++){
@@ -139,10 +139,17 @@ void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea
 	}
 
 	delete f; f = nullptr;
+
 	if (inventario->getLength() != 0)	delete copia;
 	copia = nullptr;
+
 	delete inventarioHud; inventarioHud = nullptr;
+
 	delete marca; marca = nullptr;
+
+	delete useButton; useButton = nullptr;
+
+	delete swapButton; swapButton = nullptr;
 }
 
 void Inventory::usar(GameState* state) {
