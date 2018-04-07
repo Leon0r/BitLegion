@@ -82,5 +82,5 @@ void Entity::setTexture(Uint16 pos, Texture* newText) {
 
 void Entity::saveToJson(json& j) {
 	Vector2D pos = this->getPosition(); j["x"] = pos.getX(); j["y"] = pos.getY();  j["w"] = this->getWidth();
-	j["h"] = this->getHeight(); j["Texture"] = app->getResources()->getPosTexture(this->getTexture(0));
+	j["h"] = this->getHeight(); j["Texture"] = app->getResources()->getPosTexture(this->getTexture(0)); j["rotation"] = this->getAngle();
 }

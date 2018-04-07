@@ -35,6 +35,8 @@ SceneX.json // X = numero de la escena
         	{"descripcion":"Esta es mi descripcion","tag":"Este es mi tag","Texture":0},
         	{"descripcion":"key","tag":"key","Texture":15},
         	{"descripcion":"adafsfdf","tag":"ffftag","Texture":14},
+		{"descripcion":"adafsfdf","tag":"ffftag","Texture":14, "permanente": true}, //permanente es una variable que indica si lo vas a poder usar indefinidamente
+		//o no. Poner "permanente": false es igual que no poner nada. Poner "permanente": true significa que lo puedes usar todas las veces que quieras
             {...},
             {...}
 
