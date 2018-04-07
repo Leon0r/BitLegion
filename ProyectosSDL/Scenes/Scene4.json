@@ -22,9 +22,6 @@
         "y": 290
     },
 
-    "ItemInventario": [
-        { "x": 710, "y": 490, "w": 40, "h": 40, "descripcion": "key", "tag": "keyMoto", "Texture": 22 }
-    ],
     "PlayerTam": {
         "w": 50,
         "h": 120

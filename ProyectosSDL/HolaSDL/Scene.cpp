@@ -32,9 +32,12 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 			n = j[obj][i]["Texture"];
 
+			bool permanente = false;
+			if (!j[obj][i]["permanente"].is_null()) { permanente = j[obj][i]["permanente"]; }
+
 			SceneItems.push_front(new ItemInventario(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
 				j[obj][i]["descripcion"], j[obj][i]["tag"],
-				app->getResources()->getImageTexture(Resources::ImageId(n))));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), permanente));
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);

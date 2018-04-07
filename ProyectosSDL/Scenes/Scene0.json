@@ -7,7 +7,8 @@
     "y": 0.0,
 
     "ItemInventario": [
-        { "x": 710, "y": 490, "w": 40, "h": 40, "descripcion": "key", "tag": "key", "Texture": 22 }
+        { "x": 710, "y": 490, "w": 40, "h": 40, "descripcion": "key", "tag": "key", "Texture": 22 },
+	{ "x": 630, "y": 500, "w": 40, "h": 40, "descripcion": "key", "tag": "keyMoto", "Texture": 60, "permanente": true }
     ],
 
     "GODoors": [
