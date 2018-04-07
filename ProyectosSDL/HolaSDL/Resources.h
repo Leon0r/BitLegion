@@ -79,7 +79,9 @@ public:
 		LLaveCoche,
 		LlaveMoto,
 		Rotulador,
-		OrdenadorAlena
+		OrdenadorAlena,
+		VecinaAbuela,
+		VecinoPerro
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
