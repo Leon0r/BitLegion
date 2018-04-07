@@ -1,6 +1,7 @@
 {
     "mainPj": {
         "Texture": 0,
+        "actualScene": 0,
         "h": 201.6,
         "w": 84.0,
         "x": 100.0,

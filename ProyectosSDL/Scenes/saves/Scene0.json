@@ -34,6 +34,19 @@
          "y": 116.0
       }
    ],
+   "GOState": [
+      {
+         "Texture": 32,
+         "h": 30.0,
+         "numText": 35,
+         "numberPuzzle": 0,
+         "rotation": -45,
+         "type": 0,
+         "w": 30.0,
+         "x": 705.0,
+         "y": 265.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 32,
@@ -59,6 +72,10 @@
    "PlayerPos": {
       "x": 100.0,
       "y": 500.0
+   },
+   "PlayerTam": {
+      "h": 201.6,
+      "w": 84.0
    },
    "Texture": 10,
    "h": 720.0,

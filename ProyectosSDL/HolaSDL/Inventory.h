@@ -4,6 +4,7 @@
 #include "CasillaInventario.h"
 #include "ObjectList.h"
 #include "ShortCut.h"
+#include "Boton.h"
 #include "sdl_includes.h"
 
 const unsigned int tamanyoFuente = 35;
@@ -22,6 +23,8 @@ private:
 	RenderComponent* imagen;
 	RenderComponent* imagenMarca;
 	RenderComponent* selectedTexture;
+	Boton* useButton;
+	Boton* swapButton;
 	Entity* inventarioHud = new Entity(app);
 	Entity* marca = new Entity(app);
 	ShortCut* SC;

@@ -41,5 +41,6 @@ public:
 	const Resources* getResources() const{ return resources; }
 	void initResources() { resources = new Resources(this); }
 	void closeResources(){ delete resources; }
+	void exitGame() { exit = true; };
 };
 

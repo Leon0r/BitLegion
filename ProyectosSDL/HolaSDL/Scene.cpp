@@ -10,10 +10,13 @@ Scene::Scene()
 	//Idealmente lee de un archivo
 }
 
-Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(numEscena), pj(pj) {
-	string name = "..\\Scenes\\Scene" + to_string(numEscena);
-	name += ".json";
-	cout << name;
+Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), SceneNum(numEscena), pj(pj) {
+	string name;
+	if (load)name = "..\\Scenes\\saves\\Scene";
+	else name = "..\\Scenes\\Scene";
+	name = name + to_string(numEscena) +".json";
+	//name += ".json";
+	//cout << name;
 
 	std::ifstream i(name);
 	
@@ -47,14 +50,25 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 
 			SceneStates.push_back(PuzzleCreator(j[obj][i]["type"], j[obj][i]));
 
+			SceneItems.push_back(new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
+				j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)),SceneStates.back(), j[obj][i]));
+			
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
+		}
 
-			SceneItems.push_back(new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
+		// Cargado de GOTransiciones
+		obj = "GOTransiciones";
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+
+			SceneItems.push_back(new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)),SceneStates.back()));
-			
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]));
+
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
@@ -71,21 +85,6 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 
 			SceneItems.push_back(new GODoors(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans));
-			
-			if (!j[obj][i]["rotation"].is_null()) {
-				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
-			}
-		}
-
-		// Cargado de GOTransiciones
-		obj = "GOTransiciones";
-		for (int i = 0; i < j[obj].size(); i++) {
-
-			n = j[obj][i]["Texture"];
-
-			SceneItems.push_back(new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
-				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]));
 			
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -236,6 +235,9 @@ void Scene::saveSceneToJson() {
 
 	j["PlayerPos"]["x"] = posIni.getX();
 	j["PlayerPos"]["y"] = posIni.getY();
+
+	j["PlayerTam"]["w"] = playerTam.getX();
+	j["PlayerTam"]["h"] = playerTam.getY();
 
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo

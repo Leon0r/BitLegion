@@ -33,6 +33,8 @@ public:
 		mouseMovement->setSceneTam(w, h, x, y);
 		static_cast<MovementComponent*>(movement)->setSceneTam(w, h, x, y);
 	}
+	int getCurrentScene() const { return this->currentScene; };
+	void setCurrentScene(int nScene_) { this->currentScene = nScene_; };
 	void setPosIni();
 	void setTam();
 	void cleanKeys();
@@ -50,5 +52,6 @@ private:
 	ObjectList* list;
 	std::list<GameObject*>* colisionables;
 	ComponentSwitcher switcher = ComponentSwitcher(app, this);
+	int currentScene = 0; //para guardar la ultima escena
 };
 
