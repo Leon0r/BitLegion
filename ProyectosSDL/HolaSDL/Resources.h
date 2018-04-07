@@ -73,8 +73,9 @@ public:
 		Onda,
 		HudLuces,
 		TextoPixel,
-		BotellaAnimada
-
+		BotellaAnimada,
+		Hidroqueno,
+		Escena5caso1
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
