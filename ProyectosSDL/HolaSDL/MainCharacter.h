@@ -21,6 +21,7 @@ public:
 	string getCurrentTag() { return this->currentTag; };
 	ShortCut* getShortcut() { return shortCut; }
 	void setCurrenTag(string newTag) { this->currentTag = newTag; };
+	void marcaOut() { shortCut->marcaOut(); }
 	ObjectList* getList() { return list; };
 	virtual void saveToJson(json& j);
 	virtual void handleInput(Uint32 time, const SDL_Event& event) { switcher.handleInput(time, event); Entity::handleInput(time, event); }
