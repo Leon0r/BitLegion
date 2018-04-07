@@ -220,6 +220,7 @@ void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se
 	pj->setVelocity(Vector2D(0.0, 0.0));
 	pj->getMouseComponent()->send(&Mensaje(MouseStop));
 	pj->getMouseComponent()->send(&Mensaje(CambioEscena));
+	this->setPosIni(pj->getPosition()); //funciona *_*
 }
 
 

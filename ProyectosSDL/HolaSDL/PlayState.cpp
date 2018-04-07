@@ -45,6 +45,7 @@ PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
 		scenes.push_back(new Scene(2, app, alena));
 		scenes.push_back(new Scene(3, app, alena));
 		scenes.push_back(new Scene(4, app, alena));
+		scenes.push_back(new Scene(5, app, alena));
 	}
 	else
 	{
@@ -53,6 +54,7 @@ PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
 		scenes.push_back(new Scene(2, app, alena, load));
 		scenes.push_back(new Scene(3, app, alena, load));
 		scenes.push_back(new Scene(4, app, alena, load));
+		scenes.push_back(new Scene(5, app, alena, load));
 	}
 
 	this->currentScene = alena->getCurrentScene();
@@ -70,6 +72,19 @@ void PlayState::swapScene(int nextScene)
 		alena->setCurrentScene(currentScene);
 	}
 	else cout << "Escena no encontrada, n�mero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
+}
+
+void PlayState::handleEvent(SDL_Event & e){
+	if (e.type == SDL_KEYDOWN) { //jaaaaaaaaaaaaaaaacksss
+		if (e.key.keysym.sym == SDLK_F1) {
+			swapScene(currentScene + 1);
+		}
+		else if (e.key.keysym.sym == SDLK_F2) {
+			swapScene(currentScene - 1);
+		}
+	}
+
+	GameState::handleEvent(e);
 }
 
 

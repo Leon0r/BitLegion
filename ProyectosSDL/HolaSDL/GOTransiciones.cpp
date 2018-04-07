@@ -25,7 +25,7 @@ void GOTransiciones::act() {
 	//Cambio de escena(ScneNumber)
 	PlayState* aux = dynamic_cast<PlayState*>(app->getStateMachine()->currentState());
 	if (aux != nullptr) {
-		aux->getCurrentScene()->setPosIni(getPosition());
+		//aux->getCurrentScene()->setPosIni(Vector2D(getPosition().getX(), getPosition().getY() - 135));
 		aux->swapScene(SceneNumber);
 	}
 }
