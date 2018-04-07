@@ -75,7 +75,11 @@ public:
 		TextoPixel,
 		BotellaAnimada,
 		Hidroqueno,
-		Escena5caso1
+		Escena5caso1,
+		LLaveCoche,
+		LlaveMoto,
+		Rotulador,
+		OrdenadorAlena
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
