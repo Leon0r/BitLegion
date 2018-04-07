@@ -18,7 +18,7 @@ protected:
 	
 	RenderComponent* render;
 	bool inRange(int _x) {//prob not final
-		return (abs(_x - this->getPosition().getX()) < 150);
+		return (abs(_x - this->getPosition().getX()) < this->getWidth() + 50);
 	}
 	virtual void act() = 0;
 	virtual void saveToJson(json& j) = 0; //se encargarán de guardarse los objetos específicos
