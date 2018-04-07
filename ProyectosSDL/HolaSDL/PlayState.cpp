@@ -39,6 +39,8 @@ PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
 	stage.push_front(alena);
 
 	i.close();
+
+	//pls un for ya
 	if (!load) {
 		scenes.push_back(new Scene(0, app, alena));
 		scenes.push_back(new Scene(1, app, alena));
@@ -46,6 +48,7 @@ PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
 		scenes.push_back(new Scene(3, app, alena));
 		scenes.push_back(new Scene(4, app, alena));
 		scenes.push_back(new Scene(5, app, alena));
+		scenes.push_back(new Scene(6, app, alena));
 	}
 	else
 	{
@@ -55,6 +58,7 @@ PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
 		scenes.push_back(new Scene(3, app, alena, load));
 		scenes.push_back(new Scene(4, app, alena, load));
 		scenes.push_back(new Scene(5, app, alena, load));
+		scenes.push_back(new Scene(6, app, alena, load));
 	}
 
 	this->currentScene = alena->getCurrentScene();

@@ -81,7 +81,11 @@ public:
 		Rotulador,
 		OrdenadorAlena,
 		VecinaAbuela,
-		VecinoPerro
+		VecinoPerro,
+		Bin,
+		Desk,
+		MaquinaAgua,
+		Escena6caso1
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
