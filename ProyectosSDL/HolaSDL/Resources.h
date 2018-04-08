@@ -94,7 +94,11 @@ public:
 		Desk2,
 		Desk3,
 		BolsaCafe,
-		Plaza
+		Plaza,
+		Escena7caso1,
+		Planta,
+		TaquillaAbierta,
+		TaquillaCerrada
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
