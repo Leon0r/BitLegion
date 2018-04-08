@@ -40,25 +40,29 @@ PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
 
 	i.close();
 
-	//pls un for ya
+	name = "..\\Scenes\\numScenes.json"; //archivo que indica el numero de las escenas
+	int numScenes = 0;
+	std::ifstream k(name);
+	if (k.is_open()) {
+		json numSC;
+		k >> numSC;
+		numScenes = numSC["numScenes"];
+		k.close();
+	}
+	else {
+		cout << "Archivo no encontrado: " + name;
+	}
+
 	if (!load) {
-		scenes.push_back(new Scene(0, app, alena));
-		scenes.push_back(new Scene(1, app, alena));
-		scenes.push_back(new Scene(2, app, alena));
-		scenes.push_back(new Scene(3, app, alena));
-		scenes.push_back(new Scene(4, app, alena));
-		scenes.push_back(new Scene(5, app, alena));
-		scenes.push_back(new Scene(6, app, alena));
+		for (int cont = 0; cont < numScenes; cont++) {
+			scenes.push_back(new Scene(cont, app, alena));
+		}
 	}
 	else
 	{
-		scenes.push_back(new Scene(0, app, alena, load));
-		scenes.push_back(new Scene(1, app, alena, load));
-		scenes.push_back(new Scene(2, app, alena, load));
-		scenes.push_back(new Scene(3, app, alena, load));
-		scenes.push_back(new Scene(4, app, alena, load));
-		scenes.push_back(new Scene(5, app, alena, load));
-		scenes.push_back(new Scene(6, app, alena, load));
+		for (int cont = 0; cont < numScenes; cont++) {
+			scenes.push_back(new Scene(cont, app, alena, load));
+		}
 	}
 
 	this->currentScene = alena->getCurrentScene();

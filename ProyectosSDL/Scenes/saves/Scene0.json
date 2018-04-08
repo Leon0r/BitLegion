@@ -66,16 +66,6 @@
    ],
    "ItemInventario": [
       {
-         "Texture": 60,
-         "descripcion": "key",
-         "h": 40.0,
-         "rotation": 0.0,
-         "tag": "keyMoto",
-         "w": 40.0,
-         "x": 630.0,
-         "y": 500.0
-      },
-      {
          "Texture": 22,
          "descripcion": "key",
          "h": 40.0,
@@ -84,11 +74,21 @@
          "w": 40.0,
          "x": 710.0,
          "y": 490.0
+      },
+      {
+         "Texture": 60,
+         "descripcion": "key",
+         "h": 40.0,
+         "rotation": 0.0,
+         "tag": "keyMoto",
+         "w": 40.0,
+         "x": 630.0,
+         "y": 500.0
       }
    ],
    "PlayerPos": {
-      "x": 190.0,
-      "y": 464.0
+      "x": 100.0,
+      "y": 500.0
    },
    "PlayerTam": {
       "h": 201.6,
