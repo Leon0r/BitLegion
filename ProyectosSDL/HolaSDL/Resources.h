@@ -90,7 +90,9 @@ public:
 		Comp1,
 		Comp2,
 		Comp3,
-		NinaComp
+		NinaComp,
+		Desk2,
+		Desk3
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
