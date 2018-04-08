@@ -92,7 +92,9 @@ public:
 		Comp3,
 		NinaComp,
 		Desk2,
-		Desk3
+		Desk3,
+		BolsaCafe,
+		Plaza
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
