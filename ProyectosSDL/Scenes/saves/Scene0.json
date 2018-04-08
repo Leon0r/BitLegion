@@ -66,16 +66,6 @@
    ],
    "ItemInventario": [
       {
-         "Texture": 22,
-         "descripcion": "key",
-         "h": 40.0,
-         "rotation": 0.0,
-         "tag": "key",
-         "w": 40.0,
-         "x": 710.0,
-         "y": 490.0
-      },
-      {
          "Texture": 60,
          "descripcion": "key",
          "h": 40.0,
@@ -84,6 +74,16 @@
          "w": 40.0,
          "x": 630.0,
          "y": 500.0
+      },
+      {
+         "Texture": 22,
+         "descripcion": "key",
+         "h": 40.0,
+         "rotation": 0.0,
+         "tag": "key",
+         "w": 40.0,
+         "x": 710.0,
+         "y": 490.0
       }
    ],
    "PlayerPos": {
