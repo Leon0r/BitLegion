@@ -85,7 +85,12 @@ public:
 		Bin,
 		Desk,
 		MaquinaAgua,
-		Escena6caso1
+		Escena6caso1,
+		VecinaNiña,
+		Comp1,
+		Comp2,
+		Comp3,
+		NinaComp
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
