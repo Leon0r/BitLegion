@@ -39,8 +39,9 @@ private:
 	int currentFil, currentCol;
 
 	//--------------------------------------METODOS DE LOS BOTONES---------------------
+	function<void()> resetFunct_;
 	static void usar(GameState* state, int fil, int col);
-	static void resetFunction(GameState* state) { Puzzle1State* aux = dynamic_cast<Puzzle1State*>(state); if (aux != nullptr) { if (!aux->isMoving()) { aux->restart(); } } }
+	void resetFunction(GameState* state) { Puzzle1State* aux = dynamic_cast<Puzzle1State*>(state); if (aux != nullptr) { if (!aux->isMoving()) { aux->restart(); } } }
 
 	//----------------------------------------METODOS PRIVADOS ----------------------
 	bool isMoving() { return this->mover; };

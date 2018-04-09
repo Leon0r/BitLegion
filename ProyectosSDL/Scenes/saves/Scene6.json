@@ -65,10 +65,25 @@
          "y": 252.0
       },
       {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               3
+            ]
+         ],
          "Texture": 67,
+         "animation": true,
          "h": 195.0,
+         "heightFrame": 195,
+         "loop": true,
+         "numColsFrame": 5,
+         "numFilsFrame": 2,
          "rotation": 0.0,
+         "vel": 200.0,
          "w": 65.0,
+         "widthFrame": 65,
          "x": 800.0,
          "y": 325.0
       }

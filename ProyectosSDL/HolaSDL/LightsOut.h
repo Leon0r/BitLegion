@@ -31,6 +31,7 @@ private:
 	static void resetPuzzle(GameState* state);
 	void creaDecoracion();
 	void fadeOut();
+	function<void()> resetFunc_;
 public:
 	LightsOut() {};
 	virtual ~LightsOut();

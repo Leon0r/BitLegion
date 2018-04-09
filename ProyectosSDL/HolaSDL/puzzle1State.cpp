@@ -44,7 +44,8 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	}
 
 	//------------------------------------HUD-------------------------------------------------------------
-	resetButton = new Boton(app, resetFunction, this, "reset");
+	resetFunct_ = [this]() mutable {resetFunction(this); };
+	resetButton = new Boton(app, "reset", resetFunct_);
 	resetButton->addAnim("normal", { 0 }, false);
 	resetButton->addAnim("pulsado", { 1 }, false, -1, 50);
 	reiniciar = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar), resetButton->getAnimations(), 1, 2, 140, 140);
