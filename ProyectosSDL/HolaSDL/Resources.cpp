@@ -23,6 +23,12 @@ std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.p
 	"..//images/plaza.png", "..//images/escena7caso1.png", "..//images/planta.png", "..//images/lockerNotsave.png",  "..//images/lockersave.png",  "..//images//JeffaSpriteSheet.png",
 	"..//images//GalinaNoviaMuertoSheet.png" };
 
+std::vector<std::string> Resources::musicFiles_{ "..//Music/initTest.mp3",
+/*"sound/cheer.wav", "sound/boooo.wav"*/ };
+
+std::vector<std::string> Resources::soundEffectFiles_{ "..//SoundFX/door.mp3",
+/*"sound/paddle_hit.wav"*/ };
+
 
 #include <iostream>
 

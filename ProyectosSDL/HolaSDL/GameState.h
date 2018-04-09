@@ -4,6 +4,7 @@
 #include "Font.h"
 #include "Texture.h"
 #include <list>
+#include "SoundManager.h"
 
 const int FRAME_RATE = 25; // A menor tiempo de espera entre frames, mayor la velocidad del bucle
 
@@ -19,6 +20,8 @@ protected:
 	list <GameObject*> stage; //lista de objetos del estados
 	list<GameObject*>::iterator it;
 	SDLApp* app; //puntero a SDLApp
+	SoundManager* soundManager_ = new SoundManager(app);
+
 public:
 	virtual void render(); //manda a los objetos del estado render, el 0 es por el tiempo que no sé porq lo tenemos
 	virtual void update(); //manda a los objetos del estado update
