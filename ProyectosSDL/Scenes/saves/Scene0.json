@@ -64,31 +64,9 @@
          "y": 600.0
       }
    ],
-   "ItemInventario": [
-      {
-         "Texture": 60,
-         "descripcion": "key",
-         "h": 40.0,
-         "rotation": 0.0,
-         "tag": "keyMoto",
-         "w": 40.0,
-         "x": 630.0,
-         "y": 500.0
-      },
-      {
-         "Texture": 22,
-         "descripcion": "key",
-         "h": 40.0,
-         "rotation": 0.0,
-         "tag": "key",
-         "w": 40.0,
-         "x": 710.0,
-         "y": 490.0
-      }
-   ],
    "PlayerPos": {
-      "x": 100.0,
-      "y": 500.0
+      "x": 652.4194646853351,
+      "y": 225.6
    },
    "PlayerTam": {
       "h": 201.6,
