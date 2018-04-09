@@ -12,7 +12,7 @@
 
     "CollisionableObject": [
 	{ "x": 25, "y": 205, "w": 93, "h": 230, "Texture": 90 },
-	{ "x": 425, "y": 175, "w": 405, "h": 260, "Texture": 91 }
+	{ "x": 425, "y": 215, "w": 385, "h": 240, "Texture": 91 }
     ],
 
     "PlayerPos": {
