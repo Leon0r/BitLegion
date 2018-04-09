@@ -103,7 +103,20 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			SceneItems.push_back(new ColisionableObject(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n))));
+			if (!j[obj][i]["animation"].is_null()) {
+				if (j[obj][i]["animation"]) {
+					Entity* col = static_cast<Entity*>(SceneItems.back());
+					col->delEveryRenderComponent();
+					for (unsigned int k = 0; k < j[obj][i]["Anims"].size(); k++) {
+						col->addAnim("Anim" + to_string(k), j[obj][i]["Anims"][k], true, -1, j[obj][i]["vel"]);
+					}
 
+					col->addRenderComponent(new AnimationRenderer(
+					app->getResources()->getImageTexture(Resources::ImageId(n)), col->getAnimations(),
+					j[obj][i]["numFilsFrame"], j[obj][i]["numColsFrame"], j[obj][i]["widthFrame"], j[obj][i]["heightFrame"]));
+				}
+
+			}
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
