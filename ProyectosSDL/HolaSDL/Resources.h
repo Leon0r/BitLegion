@@ -105,7 +105,10 @@ public:
 		Policia1,
 		Policia2, 
 		Policia3,
-		Policia4
+		Policia4,
+		Escena8caso1,
+		Perchero,
+		DeskD
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
