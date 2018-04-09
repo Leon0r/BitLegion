@@ -100,7 +100,12 @@ public:
 		TaquillaAbierta,
 		TaquillaCerrada, 
 		Jeffa,
-		Galina
+		Galina,
+		SeñoraDelBajo,
+		Policia1,
+		Policia2, 
+		Policia3,
+		Policia4
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
