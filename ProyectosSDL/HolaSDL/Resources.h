@@ -98,7 +98,9 @@ public:
 		Escena7caso1,
 		Planta,
 		TaquillaAbierta,
-		TaquillaCerrada
+		TaquillaCerrada, 
+		Jeffa,
+		Galina
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
