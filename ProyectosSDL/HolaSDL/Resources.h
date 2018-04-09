@@ -64,7 +64,11 @@ public:
 		MesaRecepcion,
 		PlantaRecepcion,
 		PuertaPortal,
-		ColisionableAux
+		ColisionableAux,
+
+		//las nuestras de prueba de expresiones
+		AlenaExpresiones,
+		AnderExpresiones
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

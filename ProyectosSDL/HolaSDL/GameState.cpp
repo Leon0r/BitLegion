@@ -19,7 +19,7 @@ void GameState::update() {
 }
 
 void GameState::handleEvent(SDL_Event &e) { //manda a los objetos del juego que detecten 
-	//bool handled = false;
+	
 	it = stage.begin();
 	listhasChanged = false;
 

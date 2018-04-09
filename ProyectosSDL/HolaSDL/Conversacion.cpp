@@ -43,7 +43,6 @@ void Conversacion::escribir(){
 }
 
 void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
-	if (enconversacion){
 
 
 		if (event.type == SDL_MOUSEBUTTONDOWN) {
@@ -92,7 +91,6 @@ void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 				}
 
 				if (nodoActual == -1) {
-					enconversacion = false;
 					static_cast<PlayState*>(app->getStateMachine()->currentState())->setEnConversacion(false);
 				}
 				else if (dialogo[nodoActual]->getNumOpciones() > 3){
@@ -109,29 +107,31 @@ void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 
 			}
 		}
-	}
 }
 void Conversacion::update(Uint32 time){
 	//ANIMACIONES GUAYS
 }
 void Conversacion::render(Uint32 time){
-	if(enconversacion)
-		escribir();
+	escribir();
+	
+	clip.x = 130 * (dialogo[nodoActual]->getEmo() % 2);
+	clip.y = 130 * (dialogo[nodoActual]->getEmo() / 2);
+	app->getResources()->getImageTexture(dialogo[nodoActual]->getPj())->render(app->getRenderer(), { retratoX, retratoY, retratoW, retratoH }, &clip);
 }
 
 void Conversacion::ConversacionDePrueba(){
 
 
-	vector<string> text = { "Prueba de dialogo", "Dialogo normal, se puede clickar", "en cualquiera de las frases para avanzar" };
+	vector<string> text = { "Prueba de dialogo.", "Dialogo normal, se puede clickar", "en cualquiera de las frases para avanzar :)" };
 	vector<opciones> ops;
-	NodoDialogo* nodo1 = new NodoDialogo(0, 1, text, -1, ops, Alena, feliz);
-	text = { "Otro nodo para probar saltos." };
-	NodoDialogo* nodo2 = new NodoDialogo(1, 2, text, -1, ops, Alena, triste);
+	NodoDialogo* nodo1 = new NodoDialogo(0, 1, text, -1, ops, Resources::AlenaExpresiones, triste);
+	text = { "Hola soy ander jejeje." };
+	NodoDialogo* nodo2 = new NodoDialogo(1, 2, text, -1, ops, Resources::AnderExpresiones, feliz);
 	text = { "" };
 	ops = { { 0, "Repite todo el dialogo desde el principio" }, { -1, "Acabar el dialogo." }, { 3, "Dialogo con 3 opciones" }, { 0, "Mas opciones para mostrar mas opciones" }, { 1, "Otra opcion random para probar" } };
-	NodoDialogo* nodo3 = new NodoDialogo(2, 3, text, 5, ops, Alena, especial);
+	NodoDialogo* nodo3 = new NodoDialogo(2, 3, text, 5, ops, Resources::AlenaExpresiones, sorpresa);
 	ops = { { 0, "1" }, { -1, "2" }, { 1, "3" } };
-	NodoDialogo* nodo4 = new NodoDialogo(2, 3, text, 3, ops, Alena, especial);
+	NodoDialogo* nodo4 = new NodoDialogo(2, 3, text, 3, ops, Resources::AnderExpresiones, enfado);
 
 	dialogo.push_back(nodo1);
 	dialogo.push_back(nodo2);

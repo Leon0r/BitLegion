@@ -2,8 +2,9 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include "Resources.h"
 
-enum personajes{ Alena, Ander, Jeffa, Extras };
+
 enum emociones{ normal, especial, sorpresa, enfado, triste, feliz };
 
 
@@ -24,7 +25,7 @@ public:
 	virtual ~NodoDialogo();
 
 
-	NodoDialogo(int numnodo, int nodosig, vector<string> text, int numopciones, vector<opciones> resp, personajes Pj, emociones Emo);
+	NodoDialogo(int numnodo, int nodosig, vector<string> text, int numopciones, vector<opciones> resp, Resources::ImageId Pj, emociones Emo);
 
 	
 
@@ -32,7 +33,7 @@ public:
 	int getSiguiente(int opcion = -1);		//por defecto, no tiene opciones y apunta a nodoSig
 	int getNumOpciones(){return numOpciones;}
 	emociones getEmo(){return emo;}
-	personajes getPj(){return pj;}
+	Resources::ImageId getPj(){return pj;}
 	int getNumNodo(){ return numNodo; }
 	vector<opciones> getOpciones(){ return respuestas; }
 
@@ -42,7 +43,7 @@ private:
 	vector<string> texto;
 	int numOpciones;
 	vector<opciones> respuestas;
-	personajes pj;
+	Resources::ImageId pj;
 	emociones emo;
 };
 

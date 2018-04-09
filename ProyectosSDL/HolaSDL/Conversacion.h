@@ -35,15 +35,14 @@ private:
 
 	const int retratoX = 10;
 	const int retratoY = 540;
-	const int retratoW = 200;
-	const int retratoH = 200;
+	const int retratoW = 150;
+	const int retratoH = 150;
 
-
+	SDL_Rect clip = { 0,0,130,130 };
 
 
 	int grupoOps = 0;
 
-	bool enconversacion = true;
 
 	Font* f;
 };
