@@ -68,7 +68,8 @@ public:
 
 		//las nuestras de prueba de expresiones
 		AlenaExpresiones,
-		AnderExpresiones
+		AnderExpresiones,
+		JeffaExpresiones
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

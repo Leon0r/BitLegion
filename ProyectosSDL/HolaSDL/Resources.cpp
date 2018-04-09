@@ -17,7 +17,7 @@ std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.p
 	"..//images/escena4caso1.png", "..//images/moto.png", "..//images/escena3caso1.png", "..//images/muebleentrada.png", "..//images/macetaentrada.png", "..//images/puertaentrada.png",
 	"..//images/colisionableAux.png", 
 	//Las expresiones de pruebaaaa
-	"..//images/alenaExpresiones.png", "..//images/anderExpresiones.png" };
+	"..//images/alenaExpresiones.png", "..//images/anderExpresiones.png", "..//images/jeffaExpresiones.png" };
 
 #include <iostream>
 

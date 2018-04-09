@@ -124,7 +124,7 @@ void Conversacion::ConversacionDePrueba(){
 
 	vector<string> text = { "Prueba de dialogo.", "Dialogo normal, se puede clickar", "en cualquiera de las frases para avanzar :)" };
 	vector<opciones> ops;
-	NodoDialogo* nodo1 = new NodoDialogo(0, 1, text, -1, ops, Resources::AlenaExpresiones, triste);
+	NodoDialogo* nodo1 = new NodoDialogo(0, 1, text, -1, ops, Resources::JeffaExpresiones, feliz);
 	text = { "Hola soy ander jejeje." };
 	NodoDialogo* nodo2 = new NodoDialogo(1, 2, text, -1, ops, Resources::AnderExpresiones, feliz);
 	text = { "" };
