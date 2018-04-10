@@ -20,6 +20,7 @@ private:
 	static void mute(SDLApp* app_) {};
 
 	RenderComponent* btext;
+	
 
 };
 

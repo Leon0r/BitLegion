@@ -6,6 +6,7 @@
 #include "ImageRenderer.h"
 #include "AnimationRenderer.h"
 #include "Boton.h"
+#include "GOUnlockeable.h"
 
 class Puzzle1State :
 	public GameState
@@ -26,6 +27,7 @@ private:
 	RenderComponent* imagenCopia;
 	Entity* copia = new Entity(app);
 	Entity* puzzleHud = new Entity(app);
+	vector<GOUnlockeable*> unlockeables;
 
 	//--------------------------VARIABLES AUXILIARES-----------------------------------------
 	const int numCas = 5;
@@ -65,11 +67,15 @@ private:
 	}
 	void destroy();
 
+	void win(); 
+
 	void destCasilla(CasillaPuzzle1* aux);
 public:
 	Puzzle1State() {};
-	Puzzle1State(SDLApp* game,  GameState* previousState, Uint8 numberPuzzle, int numText);
+	Puzzle1State(SDLApp* game,  GameState* previousState, Uint8 numberPuzzle, int numText,char id = NULL);
 	virtual ~Puzzle1State() { destroy(); stage.clear(); };
+
+	char _id;
 
 	//----------------------------HE, RENDER, UPDATE--------------------------
 	virtual void handleEvent(SDL_Event& event) { 

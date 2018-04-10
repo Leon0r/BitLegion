@@ -23,3 +23,4 @@ struct MensajePosicionMatriz: Mensaje //mensaje que devuelve la posicion de la m
 	MensajePosicionMatriz(Messages id, std::pair<const int, const int> pos) : Mensaje(id), pos_(pos) {}
 	std::pair<const int, const int> pos_;
 };
+

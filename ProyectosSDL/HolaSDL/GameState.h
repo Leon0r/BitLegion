@@ -4,11 +4,14 @@
 #include "Font.h"
 #include "Texture.h"
 #include <list>
+#include "Observable.h"
+#include "Observer.h"
 
 const int FRAME_RATE = 25; // A menor tiempo de espera entre frames, mayor la velocidad del bucle
 
 class Entity;
-class GameState
+class GameState:
+	public Observable, Observer
 {
 private:
 	bool listhasChanged = false;
@@ -30,5 +33,7 @@ public:
 	void deleteElement(GameObject* o);
 	list <GameObject*>* getStage() {return &stage;}
 	void changeList() { listhasChanged = true; }
+	virtual void receive(Mensaje* msg) {};
+
 };
 

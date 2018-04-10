@@ -5,7 +5,7 @@ class GODoors :
 	public GOUnlockeable
 {
 public:
-	GODoors(SDLApp* game, int x, int y, int w, int h, Texture* texture, string tag, int _scneNum, double rotGOT = 0) : GOUnlockeable(game, x, y, w, h, texture, tag),scneNum(_scneNum), rotationGOTrans(rotGOT){}
+	GODoors(SDLApp* game, int x, int y, int w, int h, Texture* texture, string tag, int _scneNum, double rotGOT = 0, char id = NULL) : GOUnlockeable(game, x, y, w, h, texture, tag,id),scneNum(_scneNum), rotationGOTrans(rotGOT){}
 	~GODoors();
 	virtual void saveToJson(json& j) { json aux; Entity::saveToJson(aux); aux["tag"] = key; aux["scneNum"] = scneNum; aux["rotat"] = rotation_; 
 		aux["rotGOTr"] = rotationGOTrans; j["GODoors"].push_back(aux);  }

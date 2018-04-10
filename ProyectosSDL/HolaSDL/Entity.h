@@ -39,11 +39,13 @@ public:
 		animData* newAnim = new animData(label, framesAnim, loop, onEnded, rate); animations.push_back(newAnim);
 	}
 	virtual vector<animData*> getAnimations() { return animations; }
+	
 
 private:
 	vector<InputComponent*> inputComp_;
 	vector<PhysicsComponent*> physicsComp_;
 	vector<RenderComponent*> renderComp_;
+
 
 protected:
 	vector<animData*> animations;
