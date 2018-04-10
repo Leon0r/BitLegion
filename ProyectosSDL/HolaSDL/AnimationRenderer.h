@@ -10,7 +10,7 @@ class AnimationRenderer :
 {
 public:
 	AnimationRenderer() {};
-	AnimationRenderer(Texture* texture, vector<animData*> animations, int numFilsFrames, int numColsFrames, int frWidth, int frHeigth);
+	AnimationRenderer(Texture* texture, vector<animData*> animations, int numColsFrames, int numFilsFrames, int frWidth, int frHeigth);
 
 	virtual ~AnimationRenderer();
 	virtual void render(GameObject* o, Uint32 time);
