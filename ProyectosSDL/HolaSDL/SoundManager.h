@@ -14,7 +14,7 @@ public:
 	SoundManager() {}
 	SoundManager(SDLApp* game);
 	virtual ~SoundManager();
-	virtual void receive(Messages* msg);
+	virtual void receive(Mensaje* msg);
 	virtual void update(Uint32 time);
 private:
 	struct PlayMessage {

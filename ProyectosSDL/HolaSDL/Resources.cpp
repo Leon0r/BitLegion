@@ -21,7 +21,8 @@ std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.p
 	"..//images/bin.png", "..//images/desk.png", "..//images/cooler.png", "..//images/escena6Caso1.png", "..//images/vecinaNinya.png", "..//images/companyero1.png", 
 	"..//images/companyero2.png", "..//images/companyero3.png", "..//images/ninaCompanyera.png", "..//images/desk2.png", "..//images/desk3.png", "..//images/bolsaCafe.png",
 	"..//images/plaza.png", "..//images/escena7caso1.png", "..//images/planta.png", "..//images/lockerNotsave.png",  "..//images/lockersave.png",  "..//images//JeffaSpriteSheet.png",
-	"..//images//GalinaNoviaMuertoSheet.png" };
+	"..//images//GalinaNoviaMuertoSheet.png", "..//images//señoraDelBajo.png", "..//images//policia1.png", "..//images//policia2.png", "..//images//policia3.png", 
+	"..//images//policia4.png", "..//images//escena8caso1.png", "..//images//perchero.png","..//images//deskD.png" };
 
 std::vector<std::string> Resources::musicFiles_{ "..//Music/initTest.mp3",
 /*"sound/cheer.wav", "sound/boooo.wav"*/ };

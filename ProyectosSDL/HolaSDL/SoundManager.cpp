@@ -18,26 +18,8 @@ void SoundManager::update(Uint32 time) {
 	}
 }
 
-void SoundManager::receive(Messages* msg) {
-	switch (static_cast<Messages*>(msg)->id_) {
+void SoundManager::receive(Mensaje* msg) {
+	switch (msg->id_) {
 	case FIGHTER_SHOOT:
-		eventQueue.push(PlayMessage(Resources::GunShot, 0));
-		break;
-
-	case BULLET_ASTROID_COLLISION:
-		eventQueue.push(PlayMessage(Resources::ExplosionSound, 0));
-		break;
-
-	case ASTROID_FIGHTER_COLLISION:
-		eventQueue.push(PlayMessage(Resources::ExplosionSound, 0));
-		break;
-
-	case ROUND_START:
-		game_->getResources()->getMusic(Resources::ImperialMarch)->play(3);
-		break;
-
-	case ROUND_OVER:
-		game_->getResources()->getMusic(Resources::ImperialMarch)->stop();
-		break;
 	}
 }

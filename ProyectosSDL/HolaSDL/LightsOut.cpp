@@ -22,7 +22,8 @@ LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad) : GameState::GameS
 	this->apagaLuces(dificultad);
 
 	//--------Botones-----
-	botonReset = Boton(app, resetPuzzle, this, "reset");
+	resetFunc_ = [this]() mutable {resetPuzzle(this); };
+	botonReset = Boton(app, "reset", resetFunc_);
 	botonReset.setWidth(80);
 	botonReset.setHeight(60);
 	botonReset.setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight()/2 + botonReset.getHeight()*1.8));

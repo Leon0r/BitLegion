@@ -29,6 +29,11 @@ public:
 	
 	virtual void receive(Mensaje* msg);
 
+	int getfrWidth() const { return frWidth_; };
+	int getfrHeight() const { return frHeigth_; };
+	int getnumFrFils() const { return numFrFils_; };
+	int getNumFrCols() const { return numFrCols_; };
+
 protected:
 
 	uint32_t timeNext; // Control del tiempo de repeticion del bucle
