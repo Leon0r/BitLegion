@@ -101,14 +101,16 @@ public:
 		TaquillaCerrada, 
 		Jeffa,
 		Galina,
-		SeñoraDelBajo,
+		SenyoraDelBajo,
 		Policia1,
 		Policia2, 
 		Policia3,
 		Policia4,
 		Escena8caso1,
 		Perchero,
-		DeskD
+		DeskD,
+		Azotea,
+		PuertaAzotea
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
