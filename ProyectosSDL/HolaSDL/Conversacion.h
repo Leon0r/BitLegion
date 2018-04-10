@@ -22,12 +22,13 @@ public:
 	}
 
 	void ConversacionDePrueba();
+	bool loadConversation(string fileName);
 
 	virtual void saveToJson(json& j) {};
 
 private:
-	vector<NodoDialogo*> dialogo;
-	int nodoActual;
+	vector<NodoDialogo> dialogo;
+	int nodoActual = 0;
 	const int x = 200;
 	const int y = 540;			//MIRAR DONDE QUEDA BIEN
 	const int w = 1200;

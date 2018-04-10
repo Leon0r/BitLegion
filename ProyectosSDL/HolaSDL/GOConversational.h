@@ -9,7 +9,7 @@ public:
 	~GOConversational();
 	GOConversational(SDLApp* game, int x, int y, int w, int h, Texture* texture) : ClickeableGO(game, x, y, w, h, texture) {
 		convo = new Conversacion(app);
-		convo->ConversacionDePrueba();
+		convo->loadConversation("conversacion");
 	};
 	virtual void saveToJson(json& j) {};
 private:
