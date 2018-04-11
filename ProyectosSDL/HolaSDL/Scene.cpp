@@ -260,13 +260,22 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
 	{
 	case (Match3):
 	{
-		int aux = j["UnlockId"];
+		int aux = -4;
+		if(!j["UnlockId"].is_null())
+			aux = j["UnlockId"];
+
 		nPuzzle = new Puzzle1State(app, app->getStateMachine()->currentState(), j["numberPuzzle"], j["numText"], aux);
 		break;
 	}
 	case (Lights):
-		nPuzzle = new LightsOut(app, j["numCas"], j["dificultad"]);
+	{
+		int aux = -4;
+		if (!j["UnlockId"].is_null())
+			aux = j["UnlockId"];
+		
+		nPuzzle = new LightsOut(app, j["numCas"], j["dificultad"], aux);
 		break;
+	}
 	default:
 		break;
 	}

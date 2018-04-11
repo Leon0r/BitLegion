@@ -2,7 +2,7 @@
 
 
 
-LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad) : Puzzle(app), puzzleHasStarted(false), numCas(numCas)
+LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(app, id), puzzleHasStarted(false), numCas(numCas)
 {
 	botonRender = (app->getResources()->getImageTexture(Resources::BotonPuzzle));//render del boton
 	
@@ -45,18 +45,18 @@ LightsOut::~LightsOut() //destructora
 
 bool LightsOut::win(){ //comprueba que todas las luces esten encendidas
 
-	bool win = true;
+	bool _win = true;
 	unsigned int i = 0;
-	while (i < lights.size() && win) {
+	while (i < lights.size() && _win) {
 		unsigned int j = 0;
-		while (j < lights[i].size() && win) {
-			if (!lights[i][j]->isOn()) { win = false;}
+		while (j < lights[i].size() && _win) {
+			if (!lights[i][j]->isOn()) { _win = false;}
 			j++;
 		}
 		i++;
 	}
-	return win;
-	
+
+	return _win;
 }
 
 void LightsOut::receive(Mensaje* msg){
@@ -77,8 +77,11 @@ void LightsOut::receive(Mensaje* msg){
 		if (aux.second - 1 >= 0) {
 			lights[aux.first][aux.second - 1]->invertir();
 		}
+
 		if (win() && puzzleHasStarted) { //si gana y el puzzle ha empezado
 			cout << "Disgüised Toast";
+			app->getStateMachine()->popState(false);
+			unlockObjects();
 		}
 	}
 }

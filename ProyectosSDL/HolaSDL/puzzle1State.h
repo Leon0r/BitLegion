@@ -29,7 +29,6 @@ private:
 	RenderComponent* imagenCopia;
 	Entity* copia = new Entity(app);
 	Entity* puzzleHud = new Entity(app);
-	vector<GOUnlockeable*> unlockeables;
 
 	//--------------------------VARIABLES AUXILIARES-----------------------------------------
 	const int numCas = 5;
@@ -70,7 +69,6 @@ private:
 	void destroy();
 
 	void win();
-	virtual void searchId();
 
 	void destCasilla(CasillaPuzzle1* aux);
 public:

@@ -2,7 +2,7 @@
 #include <fstream>
 #include "json.hpp"
 #include "Puzzle.h"
-Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numberPuzzle, int numText, int id) :Puzzle(game), previousState(previousState), numText_(numText), _id(id)
+Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numberPuzzle, int numText, int id) :Puzzle(game, id), previousState(previousState), numText_(numText), _id(id)
 {
 	loadFromJson(numberPuzzle); //el 1 ese habr� que sacarlo de alg�n lado
 
@@ -77,30 +77,18 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 void Puzzle1State::update()
 {
 	GameState::update();
-	if (mover) mueveMatriz();
-	win();	
+	if (mover) { mueveMatriz(); win(); }
 }
 
 
 void Puzzle1State::win() {
 
 	if (numRestantes == 0) {
-		vector<GOUnlockeable*>::iterator it;
 		app->getStateMachine()->popState(false);
-		for (it = unlockeables.begin(); it != unlockeables.end(); it++) (*it)->secondAct();
-	}
-
-}
-
-void Puzzle1State::searchId(){
-	if (_id != -4) {
-		previousState = app->getStateMachine()->currentState(); //nos devuelve siempre el anterior antes de pushearlo
-		list<GameObject*>::iterator aux;
-		for (aux = previousState->getStage()->begin(); aux != previousState->getStage()->end(); aux++) {
-			if ((*aux)->_id == _id)unlockeables.push_back(static_cast<GOUnlockeable*>((*aux)));
-		}
+		unlockObjects();
 	}
 }
+
 //---------------------------------------------------------------------------------------------------
 
 void Puzzle1State::tresUnidos()
