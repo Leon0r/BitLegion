@@ -1,15 +1,17 @@
 #pragma once
 #include "checkML.h"
-#include "GameState.h"
+//#include "GameState.h"
 #include "CasillaPuzzle1.h"
 #include "MovementComponent.h"
 #include "ImageRenderer.h"
 #include "AnimationRenderer.h"
 #include "Boton.h"
 #include "GOUnlockeable.h"
+#include "Puzzle.h"
+
 
 class Puzzle1State :
-	public GameState
+	public  Puzzle
 {
 private:
 	//--------------------ENUM DE LOS TIPOS DE CASILLAS -------------------------------

@@ -2,7 +2,7 @@
 
 
 
-LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad) : GameState::GameState(app), puzzleHasStarted(false), numCas(numCas)
+LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad) : Puzzle(app), puzzleHasStarted(false), numCas(numCas)
 {
 	botonRender = (app->getResources()->getImageTexture(Resources::BotonPuzzle));//render del boton
 	
@@ -56,6 +56,7 @@ bool LightsOut::win(){ //comprueba que todas las luces esten encendidas
 		i++;
 	}
 	return win;
+	
 }
 
 void LightsOut::receive(Mensaje* msg){

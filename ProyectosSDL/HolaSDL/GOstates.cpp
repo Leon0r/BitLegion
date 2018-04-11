@@ -3,8 +3,9 @@
 #include "MainCharacter.h"
 
 
-GOstates::GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, GameState* state, json j) : ClickeableGO(game, x, y, w, h, texture), state_(state), jAux_(j)
+GOstates::GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, GameState* state, json j) : ClickeableGO(game, x, y, w, h, texture), jAux_(j)
 {
+	state_ = static_cast<Puzzle*>(state);
 	this->delRenderComponent(render);
 	addAnim("RightArrow", { 0,1,2,3 });
 	addAnim("LeftArrow", { 4,5,6,7 });
@@ -19,10 +20,10 @@ GOstates::GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, G
 	this->addRenderComponent(render);
 }
 
-//BORRAR ESTO AL PASARTE EL PUZZLE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//LISTA ESCENAS TIENE QUE SER CLASE PADRE PUZZLE
-//QUITAR ESTE PUNTERO Y CAMBIARLO A PADREPUZZLE
-//EL SERACHID() BAJARLO A PADREPUZZLE
+//BORRAR ESTO AL PASARTE EL PUZZLE!!! ====Son las 3AM y no se me ocurre una forma bonica de hacerlo, ya mañana se mira
+//LISTA ESCENAS TIENE QUE SER CLASE PADRE PUZZLE ====DONE====
+//QUITAR ESTE PUNTERO Y CAMBIARLO A PADREPUZZLE ====DONE===
+//EL SERACHID() BAJARLO A PADREPUZZLE ====DONE====
 
 
 //ADAPTAR EL LIGHTSOUT A LA NUEVA ESTRUCTURA
@@ -34,7 +35,7 @@ GOstates::~GOstates()
 void GOstates::act() {
 	app->getStateMachine()->currentState()->changeList();
 	state_->searchId(); 
-	this->getGame()->getStateMachine()->pushState(state_);
+	this->getGame()->getStateMachine()->pushState(dynamic_cast<GameState*>(state_));///Hmmmmm borrar dynamic
 }
 
 void GOstates::saveToJson(json & j){

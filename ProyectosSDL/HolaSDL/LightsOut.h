@@ -1,12 +1,13 @@
 #pragma once
-#include "GameState.h"
+//#include "GameState.h"
 #include "CasillaLight.h"
 #include "Boton.h"
 #include "PlayState.h"
 #include "checkML.h"
+#include "Puzzle.h"
 
 class LightsOut :
-	public GameState, public Observer
+	public Puzzle, public Observer
 {
 private:
 	ImageRenderer botonRender;

@@ -6,6 +6,7 @@
 #include "GOTransiciones.h"
 #include "ColisionableObject.h"
 #include <fstream>
+#include "Puzzle.h"
 
 using json = nlohmann::json;
 

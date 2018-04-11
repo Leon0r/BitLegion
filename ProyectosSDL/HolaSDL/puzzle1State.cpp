@@ -1,8 +1,8 @@
 #include "puzzle1State.h"
 #include <fstream>
 #include "json.hpp"
-
-Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numberPuzzle, int numText, int id) : GameState::GameState(game), previousState(previousState), numText_(numText), _id(id)
+#include "Puzzle.h"
+Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numberPuzzle, int numText, int id) :Puzzle(game), previousState(previousState), numText_(numText), _id(id)
 {
 	loadFromJson(numberPuzzle); //el 1 ese habr� que sacarlo de alg�n lado
 
