@@ -26,7 +26,7 @@ GOstates::GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, G
 //EL SERACHID() BAJARLO A PADREPUZZLE ====DONE====
 
 
-//ADAPTAR EL LIGHTSOUT A LA NUEVA ESTRUCTURA
+//ADAPTAR EL LIGHTSOUT A LA NUEVA ESTRUCTURA ===DONE===
 
 GOstates::~GOstates()
 {
