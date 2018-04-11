@@ -28,6 +28,7 @@
    "GODoors": [
       {
          "Texture": 31,
+         "UnlockId": 1,
          "h": 242.0,
          "rotGOTr": -90.0,
          "rotat": 0.0,
@@ -42,6 +43,7 @@
    "GOState": [
       {
          "Texture": 32,
+         "UnlockId": 1,
          "h": 30.0,
          "numText": 35,
          "numberPuzzle": 0,
@@ -87,8 +89,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 100.0,
-      "y": 500.0
+      "x": 352.0,
+      "y": 440.0
    },
    "PlayerTam": {
       "h": 201.6,

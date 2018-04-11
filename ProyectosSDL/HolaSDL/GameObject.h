@@ -17,7 +17,7 @@ class GameObject
 {
 public:
 	GameObject();
-	GameObject(SDLApp* game, char _id = NULL) :app(game) {}
+	GameObject(SDLApp* game, int _id = -4) :app(game), _id(_id) {}
 	virtual ~GameObject();
 
 	// abstract methods to be implemented in sub-classes
@@ -80,7 +80,7 @@ public:
 
 	virtual void saveToJson(json& j) = 0;
 
-	char _id;
+	int _id;
 
 protected:
 	SDLApp* app;   // pointer to the game

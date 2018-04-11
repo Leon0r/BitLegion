@@ -67,15 +67,16 @@ private:
 	}
 	void destroy();
 
-	void win(); 
+	void win();
+	virtual void searchId();
 
 	void destCasilla(CasillaPuzzle1* aux);
 public:
 	Puzzle1State() {};
-	Puzzle1State(SDLApp* game,  GameState* previousState, Uint8 numberPuzzle, int numText,char id = NULL);
+	Puzzle1State(SDLApp* game,  GameState* previousState, Uint8 numberPuzzle, int numText, int id = -4);
 	virtual ~Puzzle1State() { destroy(); stage.clear(); };
 
-	char _id;
+	int _id;
 
 	//----------------------------HE, RENDER, UPDATE--------------------------
 	virtual void handleEvent(SDL_Event& event) { 
@@ -92,4 +93,5 @@ public:
 
 	GameState* getPreviousState() { return previousState; };
 	void loadFromJson(int numeroPuzzle);
+	int getId() const { return _id; };
 };

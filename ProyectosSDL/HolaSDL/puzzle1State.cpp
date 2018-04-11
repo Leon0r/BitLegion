@@ -2,7 +2,7 @@
 #include <fstream>
 #include "json.hpp"
 
-Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numberPuzzle, int numText, char id) : GameState::GameState(game), previousState(previousState), numText_(numText), _id(id)
+Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numberPuzzle, int numText, int id) : GameState::GameState(game), previousState(previousState), numText_(numText), _id(id)
 {
 	loadFromJson(numberPuzzle); //el 1 ese habr� que sacarlo de alg�n lado
 
@@ -69,10 +69,7 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	static_cast<AnimationRenderer*>(HUD)->playAnim(0);
 	stage.push_back(puzzleHud);
 	//---------------------------------------------------------------------------------------------------
-	list<GameObject*>::iterator aux;
-	for (aux = previousState->getStage()->begin(); aux != previousState->getStage()->end(); aux++) {
-		if ((*aux)->_id == id)unlockeables.push_back(static_cast<GOUnlockeable*>((*aux)));
-	}
+	
 
 }
 
@@ -81,18 +78,27 @@ void Puzzle1State::update()
 {
 	GameState::update();
 	if (mover) mueveMatriz();
-	win();
-	
+	win();	
 }
 
 
 void Puzzle1State::win() {
-	{
-		if (numRestantes == 0) {
-			vector<GOUnlockeable*>::iterator it;
-			for (it = unlockeables.begin(); it != unlockeables.end(); it++) (*it)->secondAct();
+
+	if (numRestantes == 0) {
+		vector<GOUnlockeable*>::iterator it;
+		app->getStateMachine()->popState(false);
+		for (it = unlockeables.begin(); it != unlockeables.end(); it++) (*it)->secondAct();
+	}
+
+}
+
+void Puzzle1State::searchId(){
+	if (_id != -4) {
+		previousState = app->getStateMachine()->currentState(); //nos devuelve siempre el anterior antes de pushearlo
+		list<GameObject*>::iterator aux;
+		for (aux = previousState->getStage()->begin(); aux != previousState->getStage()->end(); aux++) {
+			if ((*aux)->_id == _id)unlockeables.push_back(static_cast<GOUnlockeable*>((*aux)));
 		}
-		app->getStateMachine()->popState();
 	}
 }
 //---------------------------------------------------------------------------------------------------

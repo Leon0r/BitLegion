@@ -86,8 +86,14 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			if(!j[obj][i]["rotGOTr"].is_null())
 				rotGOTrans = j[obj][i]["rotGOTr"];
 
+			int id = -4;
+			if (!j[obj][i]["UnlockId"].is_null())
+				if (j[obj][i]["UnlockId"].is_number_integer()) {
+					id = j[obj][i]["UnlockId"];
+				}
+
 			SceneItems.push_back(new GODoors(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans, id));
 			
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -253,8 +259,11 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
 	switch (type)
 	{
 	case (Match3):
-		nPuzzle = new Puzzle1State(app, app->getStateMachine()->currentState(), j["numberPuzzle"], j["numText"]);
+	{
+		int aux = j["UnlockId"];
+		nPuzzle = new Puzzle1State(app, app->getStateMachine()->currentState(), j["numberPuzzle"], j["numText"], aux);
 		break;
+	}
 	case (Lights):
 		nPuzzle = new LightsOut(app, j["numCas"], j["dificultad"]);
 		break;

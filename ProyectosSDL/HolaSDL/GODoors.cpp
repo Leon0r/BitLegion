@@ -18,5 +18,4 @@ void GODoors::secondAct() {
 		app->getResources()->getImageTexture(Resources::FlechaTransicionSpriteSheet), scneNum));
 	it--; // hay que restarle 1 porque señala al siguiente al que se ha metido nuevo 
 	(*it)->setRotation(rotationGOTrans);
-
 }

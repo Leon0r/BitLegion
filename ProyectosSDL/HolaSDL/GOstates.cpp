@@ -19,6 +19,13 @@ GOstates::GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, G
 	this->addRenderComponent(render);
 }
 
+//BORRAR ESTO AL PASARTE EL PUZZLE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//LISTA ESCENAS TIENE QUE SER CLASE PADRE PUZZLE
+//QUITAR ESTE PUNTERO Y CAMBIARLO A PADREPUZZLE
+//EL SERACHID() BAJARLO A PADREPUZZLE
+
+
+//ADAPTAR EL LIGHTSOUT A LA NUEVA ESTRUCTURA
 
 GOstates::~GOstates()
 {
@@ -26,6 +33,7 @@ GOstates::~GOstates()
 
 void GOstates::act() {
 	app->getStateMachine()->currentState()->changeList();
+	state_->searchId(); 
 	this->getGame()->getStateMachine()->pushState(state_);
 }
 
@@ -40,6 +48,7 @@ void GOstates::saveToJson(json & j){
 	if (!jAux_["numCas"].is_null()) { aux["numCas"] = jAux_["numCas"]; }
 	if (!jAux_["dificultad"].is_null()) { aux["dificultad"] = jAux_["dificultad"]; }
 	if (!jAux_["numText"].is_null()) { aux["numText"] = jAux_["numText"]; }
+	if (!jAux_["UnlockId"].is_null()) {	aux["UnlockId"] = jAux_["UnlockId"]; }
 
 	j["GOState"].push_back(aux);
 }
