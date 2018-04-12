@@ -4,7 +4,8 @@
 
 
 
-ItemInventario::ItemInventario(SDLApp* game, int x, int y, int w, int h, string _desc, string _tag, Texture* texture) : ClickeableGO(game,x, y,w,h, texture), desc(_desc), tag(_tag)
+ItemInventario::ItemInventario(SDLApp* game, int x, int y, int w, int h, string _desc, string _tag, Texture* texture, bool permanente) : 
+	ClickeableGO(game,x, y,w,h, texture), desc(_desc), tag(_tag), permanente_(permanente)
 {
 }
 

@@ -98,3 +98,7 @@ void Texture::render(SDL_Renderer* renderer, const SDL_Rect& dest, double angle,
 			SDL_FLIP_NONE);
 	}
 }
+
+void Texture::changeAlpha(Uint8 newAlpha){
+	SDL_SetTextureAlphaMod(this->texture_, newAlpha);
+}

@@ -1,0 +1,127 @@
+{
+   "CollisionableObject": [
+      {
+         "Texture": 72,
+         "h": 210.0,
+         "rotation": 0.0,
+         "w": 65.0,
+         "x": 415.0,
+         "y": 505.0
+      },
+      {
+         "Texture": 70,
+         "h": 210.0,
+         "rotation": 0.0,
+         "w": 65.0,
+         "x": 450.0,
+         "y": 470.0
+      },
+      {
+         "Texture": 73,
+         "h": 190.0,
+         "rotation": 0.0,
+         "w": 55.0,
+         "x": 560.0,
+         "y": 495.0
+      },
+      {
+         "Texture": 71,
+         "h": 190.0,
+         "rotation": 0.0,
+         "w": 55.0,
+         "x": 960.0,
+         "y": 495.0
+      },
+      {
+         "Texture": 65,
+         "h": 90.0,
+         "rotation": 0.0,
+         "w": 80.0,
+         "x": 251.0,
+         "y": 340.0
+      },
+      {
+         "Texture": 66,
+         "h": 180.0,
+         "rotation": 0.0,
+         "w": 250.0,
+         "x": 0.0,
+         "y": 252.0
+      },
+      {
+         "Texture": 74,
+         "h": 180.0,
+         "rotation": 0.0,
+         "w": 250.0,
+         "x": 950.0,
+         "y": 252.0
+      },
+      {
+         "Texture": 75,
+         "h": 180.0,
+         "rotation": 0.0,
+         "w": 250.0,
+         "x": 480.0,
+         "y": 252.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               3
+            ]
+         ],
+         "Texture": 67,
+         "animation": true,
+         "h": 195.0,
+         "heightFrame": 195,
+         "loop": true,
+         "numColsFrame": 5,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 65.0,
+         "widthFrame": 65,
+         "x": 800.0,
+         "y": 325.0
+      }
+   ],
+   "GOTransiciones": [
+      {
+         "Texture": 32,
+         "h": 60.0,
+         "rotat": 0.0,
+         "rotation": 0.0,
+         "scneNum": 5,
+         "w": 60.0,
+         "x": 1200.0,
+         "y": 600.0
+      },
+      {
+         "Texture": 32,
+         "h": 60.0,
+         "rotat": 180.0,
+         "rotation": 180.0,
+         "scneNum": 7,
+         "w": 60.0,
+         "x": 20.0,
+         "y": 600.0
+      }
+   ],
+   "PlayerPos": {
+      "x": 1180.0,
+      "y": 500.0
+   },
+   "PlayerTam": {
+      "h": 201.6,
+      "w": 84.0
+   },
+   "Texture": 68,
+   "h": 720.0,
+   "rotation": 0.0,
+   "w": 1280.0,
+   "x": 0.0,
+   "y": 0.0
+}

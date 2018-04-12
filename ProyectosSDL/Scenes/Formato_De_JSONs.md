@@ -1,4 +1,4 @@
-Formato de los archivos de cargado/guardado�
+﻿Formato de los archivos de cargado/guardado�
 
 [] denota array
 {}denota objeto
@@ -35,6 +35,8 @@ SceneX.json // X = numero de la escena
         	{"descripcion":"Esta es mi descripcion","tag":"Este es mi tag","Texture":0},
         	{"descripcion":"key","tag":"key","Texture":15},
         	{"descripcion":"adafsfdf","tag":"ffftag","Texture":14},
+		{"descripcion":"adafsfdf","tag":"ffftag","Texture":14, "permanente": true}, //permanente es una variable que indica si lo vas a poder usar indefinidamente
+		//o no. Poner "permanente": false es igual que no poner nada. Poner "permanente": true significa que lo puedes usar todas las veces que quieras
             {...},
             {...}
 
@@ -60,4 +62,12 @@ SceneX.json // X = numero de la escena
             {...},
             {...}
     	]
+		
+		//Array con los objetos que cambian de estado (puzzles por ahora)
+		 "GOState": [
+                { "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotation": -45, "numberPuzzle": 0,"type": 0 }, //Match3
+		{"x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 8}, //LightsOut
+		{...}
+		]
+		
 	}

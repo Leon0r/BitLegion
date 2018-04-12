@@ -30,6 +30,7 @@ private:
 	//--------------------------VARIABLES AUXILIARES-----------------------------------------
 	const int numCas = 5;
 	int numRestantes = 0;
+	int numText_;
 	const int espaciado = 117.0;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const double topD = relacion.first*(espaciado*4 + 240 + espaciado/2), topI = relacion.first*(240-espaciado/2), topA = relacion.second*(53 - (espaciado-10) / 2), topAB = relacion.second*((espaciado-5)*4 + 53 + espaciado / 2);
@@ -38,8 +39,9 @@ private:
 	int currentFil, currentCol;
 
 	//--------------------------------------METODOS DE LOS BOTONES---------------------
+	function<void()> resetFunct_;
 	static void usar(GameState* state, int fil, int col);
-	static void resetFunction(GameState* state) { Puzzle1State* aux = dynamic_cast<Puzzle1State*>(state); if (aux != nullptr) { if (!aux->isMoving()) { aux->restart(); } } }
+	void resetFunction(GameState* state) { Puzzle1State* aux = dynamic_cast<Puzzle1State*>(state); if (aux != nullptr) { if (!aux->isMoving()) { aux->restart(); } } }
 
 	//----------------------------------------METODOS PRIVADOS ----------------------
 	bool isMoving() { return this->mover; };
@@ -67,7 +69,7 @@ private:
 	void destCasilla(CasillaPuzzle1* aux);
 public:
 	Puzzle1State() {};
-	Puzzle1State(SDLApp* game,  GameState* previousState);
+	Puzzle1State(SDLApp* game,  GameState* previousState, Uint8 numberPuzzle, int numText);
 	virtual ~Puzzle1State() { destroy(); stage.clear(); };
 
 	//----------------------------HE, RENDER, UPDATE--------------------------

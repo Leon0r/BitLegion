@@ -3,6 +3,7 @@
       {
          "Texture": 11,
          "h": 200.0,
+         "rotation": 0.0,
          "w": 370.0,
          "x": 0.0,
          "y": 290.0
@@ -10,6 +11,7 @@
       {
          "Texture": 12,
          "h": 230.0,
+         "rotation": 0.0,
          "w": 220.0,
          "x": 580.0,
          "y": 432.0
@@ -17,6 +19,7 @@
       {
          "Texture": 13,
          "h": 300.0,
+         "rotation": 0.0,
          "w": 365.0,
          "x": 915.0,
          "y": 125.0
@@ -26,7 +29,9 @@
       {
          "Texture": 31,
          "h": 242.0,
-         "rotat": 3,
+         "rotGOTr": -90.0,
+         "rotat": 0.0,
+         "rotation": 0.0,
          "scneNum": 2,
          "tag": "key",
          "w": 119.0,
@@ -34,11 +39,25 @@
          "y": 116.0
       }
    ],
+   "GOState": [
+      {
+         "Texture": 32,
+         "h": 30.0,
+         "numText": 35,
+         "numberPuzzle": 0,
+         "rotation": -45,
+         "type": 0,
+         "w": 30.0,
+         "x": 705.0,
+         "y": 265.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 32,
          "h": 60.0,
-         "rotat": 0,
+         "rotat": 0.0,
+         "rotation": 0.0,
          "scneNum": 1,
          "w": 60.0,
          "x": 1200.0,
@@ -47,9 +66,20 @@
    ],
    "ItemInventario": [
       {
+         "Texture": 60,
+         "descripcion": "key",
+         "h": 40.0,
+         "rotation": 0.0,
+         "tag": "keyMoto",
+         "w": 40.0,
+         "x": 630.0,
+         "y": 500.0
+      },
+      {
          "Texture": 22,
          "descripcion": "key",
          "h": 40.0,
+         "rotation": 0.0,
          "tag": "key",
          "w": 40.0,
          "x": 710.0,
@@ -60,8 +90,13 @@
       "x": 100.0,
       "y": 500.0
    },
+   "PlayerTam": {
+      "h": 201.6,
+      "w": 84.0
+   },
    "Texture": 10,
    "h": 720.0,
+   "rotation": 0.0,
    "w": 1280.0,
    "x": 0.0,
    "y": 0.0

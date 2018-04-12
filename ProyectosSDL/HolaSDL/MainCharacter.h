@@ -21,6 +21,7 @@ public:
 	string getCurrentTag() { return this->currentTag; };
 	ShortCut* getShortcut() { return shortCut; }
 	void setCurrenTag(string newTag) { this->currentTag = newTag; };
+	void marcaOut() { shortCut->marcaOut(); }
 	ObjectList* getList() { return list; };
 	virtual void saveToJson(json& j);
 	virtual void handleInput(Uint32 time, const SDL_Event& event) { switcher.handleInput(time, event); Entity::handleInput(time, event); }
@@ -33,6 +34,8 @@ public:
 		mouseMovement->setSceneTam(w, h, x, y);
 		static_cast<MovementComponent*>(movement)->setSceneTam(w, h, x, y);
 	}
+	int getCurrentScene() const { return this->currentScene; };
+	void setCurrentScene(int nScene_) { this->currentScene = nScene_; };
 	void setPosIni();
 	void setTam();
 	void cleanKeys();
@@ -50,5 +53,6 @@ private:
 	ObjectList* list;
 	std::list<GameObject*>* colisionables;
 	ComponentSwitcher switcher = ComponentSwitcher(app, this);
+	int currentScene = 0; //para guardar la ultima escena
 };
 

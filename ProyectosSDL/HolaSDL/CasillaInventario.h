@@ -9,6 +9,7 @@ class CasillaInventario :
 private:
 	string tag;
 	string description;
+	bool permanente_ = false;
 public:
 	CasillaInventario() {};
 	virtual ~CasillaInventario() {}
@@ -21,5 +22,7 @@ public:
 	void setTag(string newTag) { this->tag = newTag; };
 	bool pulsacion(const SDL_Event& event, int espaciadoX, int espaciadoY);
 	virtual void saveToJson(json& j) { json aux;  Entity::saveToJson(aux); aux["tag"] = tag; aux["descripcion"] = description; j.push_back(aux); };
+	void setPermanente(bool p) { permanente_ = p; };
+	bool const isPermanent() { return permanente_; };
 };
 

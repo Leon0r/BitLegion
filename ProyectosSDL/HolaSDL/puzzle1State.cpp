@@ -2,11 +2,11 @@
 #include <fstream>
 #include "json.hpp"
 
-Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState::GameState(game), previousState(previousState)
+Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numberPuzzle, int numText) : GameState::GameState(game), previousState(previousState), numText_(numText)
 {
-	loadFromJson(1); //el 1 ese habr� que sacarlo de alg�n lado
+	loadFromJson(numberPuzzle); //el 1 ese habr� que sacarlo de alg�n lado
 
-	imagenCopia = new ImageRenderer(app->getResources()->getImageTexture(Resources::llavePisoPuzzle));
+	imagenCopia = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(numText)));
 	copia->addRenderComponent(imagenCopia);
 	copia->setWidth(imagenCopia->getTexture()->getHeight()*1.5*relacion.first);
 	copia->setHeight(imagenCopia->getTexture()->getHeight()*1.7*relacion.second);
@@ -44,7 +44,8 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState) : GameState
 	}
 
 	//------------------------------------HUD-------------------------------------------------------------
-	resetButton = new Boton(app, resetFunction, this, "reset");
+	resetFunct_ = [this]() mutable {resetFunction(this); };
+	resetButton = new Boton(app, "reset", resetFunct_);
 	resetButton->addAnim("normal", { 0 }, false);
 	resetButton->addAnim("pulsado", { 1 }, false, -1, 50);
 	reiniciar = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar), resetButton->getAnimations(), 1, 2, 140, 140);
@@ -76,10 +77,6 @@ void Puzzle1State::update()
 {
 	GameState::update();
 	if (mover) mueveMatriz();
-	/*if (numRestantes == 0) {
-		restart();
-		app->getStateMachine()->popState(false);
-	}*/
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -268,7 +265,7 @@ void Puzzle1State::eligeTipoCasilla(int tipoCas, string name, CasillaPuzzle1*& c
 			break;
 		case CasillaLlena:
 			numRestantes++;
-			cas = new CasillaPuzzle1(app, name, app->getResources()->getImageTexture(Resources::llavePisoPuzzle), true);
+			cas = new CasillaPuzzle1(app, name, app->getResources()->getImageTexture(Resources::ImageId(numText_)), true);
 			break;
 		default:
 			cas = new CasillaPuzzle1(app, name, app->getResources()->getImageTexture(Resources::CasillaPuzzleV)); //por defecto es vac�a
