@@ -7,7 +7,7 @@
 #include "Puzzle.h"
 
 class LightsOut :
-	public Puzzle, public Observer
+	public Puzzle
 {
 private:
 	ImageRenderer botonRender;
@@ -32,11 +32,11 @@ private:
 	static void resetPuzzle(GameState* state);
 	void creaDecoracion();
 	void fadeOut();
+	void win();
 public:
 	LightsOut() {};
 	virtual ~LightsOut();
 	LightsOut(SDLApp* app, int numCas, int dificultad, int id = -4);
-	bool win();
 	virtual void receive(Mensaje* msg);
 	virtual void render();
 	virtual void handleEvent(SDL_Event &e);

@@ -11,7 +11,7 @@ const int FRAME_RATE = 25; // A menor tiempo de espera entre frames, mayor la ve
 
 class Entity;
 class GameState:
-	public Observable, Observer
+	public Observable, public Observer
 {
 private:
 	bool listhasChanged = false;

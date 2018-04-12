@@ -35,7 +35,8 @@ GOstates::~GOstates()
 void GOstates::act() {
 	app->getStateMachine()->currentState()->changeList();
 	state_->searchId(); 
-	this->getGame()->getStateMachine()->pushState(dynamic_cast<GameState*>(state_));///Hmmmmm borrar dynamic
+	if (!added) { state_->addObserver(this); added = true; } //si no se ha añadido mas veces, lo anyade (evitar fallos raros al clickar varias veces)
+	this->getGame()->getStateMachine()->pushState(state_); ///Hmmmmm borrar dynamic
 }
 
 void GOstates::saveToJson(json & j){
@@ -52,4 +53,14 @@ void GOstates::saveToJson(json & j){
 	if (!jAux_["UnlockId"].is_null()) {	aux["UnlockId"] = jAux_["UnlockId"]; }
 
 	j["GOState"].push_back(aux);
+}
+
+void GOstates::receive(Mensaje * msg){
+	switch (msg->id_) {
+		case WinPuzzle:
+			this->setActive(false); //lo desactiva (no se renderiza, ni handle input, ni update)
+			break;
+		default:
+			break;
+	}
 }

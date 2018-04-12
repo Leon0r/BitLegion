@@ -31,6 +31,6 @@
     },
 
     "GOState": [
-		{ "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotation": -45,"numText": 43 ,"numberPuzzle": 0,"type": 0, "UnlockId": 1 }
+		{ "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotation": -45,"numText": 35 ,"numberPuzzle": 0,"type": 0, "UnlockId": 1 }
     ]
 }

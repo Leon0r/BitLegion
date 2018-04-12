@@ -17,7 +17,7 @@ class GameObject
 {
 public:
 	GameObject();
-	GameObject(SDLApp* game, int _id = -4) :app(game), _id(_id) {}
+	GameObject(SDLApp* game, int _id = -4) :app(game), _id(_id), active_(true) {}
 	virtual ~GameObject();
 
 	// abstract methods to be implemented in sub-classes
@@ -26,36 +26,37 @@ public:
 	virtual void render(Uint32 time) = 0;
 	virtual Texture* getTexture(Uint16 pos) const = 0;
 
-	Vector2D getPosition() {
+	Vector2D getPosition() const{
 		return position_;
 	}
 
-	Vector2D getVelocity() {
+	Vector2D getVelocity() const{
 		return velocity_;
 	}
 
-	Vector2D getDirection() {
+	Vector2D getDirection() const{
 		return direction_;
 	}
 
-	void setVelocity(Vector2D velocity) {
-		velocity_ = velocity;
-	}
 
-	void setDirection(Vector2D velocity) {
-		velocity_ = velocity;
-	}
-
-	double getWidth() {
+	double getWidth() const {
 		return width_;
 	}
 
-	double getHeight() {
+	double getHeight() const{
 		return height_;
 	}
 
-	double getAngle() {
+	double getAngle() const{
 		return rotation_;
+	}
+
+	SDLApp* getGame() const {
+		return app;
+	}
+
+	bool isActive() const {
+		return active_;
 	}
 
 	void setWidth(double w) {
@@ -74,8 +75,16 @@ public:
 		position_ = newPos;
 	}
 
-	SDLApp* getGame() {
-		return app;
+	void setVelocity(Vector2D velocity) {
+		velocity_ = velocity;
+	}
+
+	void setDirection(Vector2D velocity) {
+		velocity_ = velocity;
+	}
+
+	void setActive(bool nActive) {
+		active_ = nActive;
 	}
 
 	virtual void saveToJson(json& j) = 0;

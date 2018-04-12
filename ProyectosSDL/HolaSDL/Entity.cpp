@@ -18,20 +18,26 @@ Entity::~Entity() {
 }
 
 void Entity::handleInput(Uint32 time, const SDL_Event& event) {
-	for (InputComponent* ic : inputComp_) {
-		ic->handleInput(this, time, event);
+	if (this->active_) {
+		for (InputComponent* ic : inputComp_) {
+			ic->handleInput(this, time, event);
+		}
 	}
 }
 
 void Entity::update(Uint32 time) {
-	for (PhysicsComponent* pc : physicsComp_) {
-		pc->update(this, time);
+	if (this->active_) {
+		for (PhysicsComponent* pc : physicsComp_) {
+			pc->update(this, time);
+		}
 	}
 }
 
 void Entity::render(Uint32 time) {
-	for (RenderComponent* rc : renderComp_) {
-		rc->render(this, time);
+	if (this->active_) {
+		for (RenderComponent* rc : renderComp_) {
+			rc->render(this, time);
+		}
 	}
 }
 

@@ -43,7 +43,7 @@ LightsOut::~LightsOut() //destructora
 	stage.clear();
 }
 
-bool LightsOut::win(){ //comprueba que todas las luces esten encendidas
+void LightsOut::win(){ //comprueba que todas las luces esten encendidas
 
 	bool _win = true;
 	unsigned int i = 0;
@@ -55,8 +55,11 @@ bool LightsOut::win(){ //comprueba que todas las luces esten encendidas
 		}
 		i++;
 	}
-
-	return _win;
+	
+	if (_win && puzzleHasStarted) { //si gana y el puzzle ha empezado
+		cout << "Disgüised Toast";
+		Puzzle::win();
+	}
 }
 
 void LightsOut::receive(Mensaje* msg){
@@ -78,11 +81,7 @@ void LightsOut::receive(Mensaje* msg){
 			lights[aux.first][aux.second - 1]->invertir();
 		}
 
-		if (win() && puzzleHasStarted) { //si gana y el puzzle ha empezado
-			cout << "Disgüised Toast";
-			app->getStateMachine()->popState(false);
-			unlockObjects();
-		}
+		win(); //comprueba si ha ganado o no
 	}
 }
 

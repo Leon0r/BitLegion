@@ -25,6 +25,12 @@ public:
 	virtual void unlockObjects() {
 		vector<GOUnlockeable*>::iterator it;
 		for (it = unlockeables.begin(); it != unlockeables.end(); it++) (*it)->secondAct();
+	};
+
+	virtual void win() {
+		app->getStateMachine()->popState(false);
+		unlockObjects();
+		send(&Mensaje(WinPuzzle));
 	}
 };
 

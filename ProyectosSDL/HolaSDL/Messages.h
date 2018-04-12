@@ -10,7 +10,8 @@ enum Messages {
 	MouseStop,
 	MouseMoving,
 	CambioEscena,
-	LuzInvertida
+	LuzInvertida,
+	WinPuzzle
 };
 
 struct Mensaje{

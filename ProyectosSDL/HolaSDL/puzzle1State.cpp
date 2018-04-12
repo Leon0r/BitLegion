@@ -84,8 +84,7 @@ void Puzzle1State::update()
 void Puzzle1State::win() {
 
 	if (numRestantes == 0) {
-		app->getStateMachine()->popState(false);
-		unlockObjects();
+		Puzzle::win();
 	}
 }
 

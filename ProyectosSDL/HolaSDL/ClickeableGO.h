@@ -13,7 +13,7 @@ public:
 	ClickeableGO() {};
 	ClickeableGO(SDLApp* game,int x,int y,int w,int h,  Texture* texture, bool rangeCheck_ = true);
 	virtual ~ClickeableGO();
-	void handleInput(Uint32 time, const SDL_Event& event);
+	virtual void handleInput(Uint32 time, const SDL_Event& event);
 protected:
 	
 	RenderComponent* render;
