@@ -9,8 +9,8 @@ class AnimationRenderer :
 	public RenderComponent, public Observer
 {
 public:
-
-	AnimationRenderer(Texture* texture, vector<animData*> animations, int numFilsFrames, int numColsFrames, int frWidth, int frHeigth);
+	AnimationRenderer() {};
+	AnimationRenderer(Texture* texture, vector<animData*> animations, int numColsFrames, int numFilsFrames, int frWidth, int frHeigth);
 
 	virtual ~AnimationRenderer();
 	virtual void render(GameObject* o, Uint32 time);
@@ -27,7 +27,12 @@ public:
 	virtual void playAnim(string label);
 	virtual void playAnim(int anim) { (anim < animations_.size() && anim >= 0) ? (nextAnim_ = anim) : (nextAnim_ = currentAnim_); }// operador ternario (if)?(true):(false);
 	
-	virtual void receive(Messages msg);
+	virtual void receive(Mensaje* msg);
+
+	int getfrWidth() const { return frWidth_; };
+	int getfrHeight() const { return frHeigth_; };
+	int getnumFrFils() const { return numFrFils_; };
+	int getNumFrCols() const { return numFrCols_; };
 
 protected:
 

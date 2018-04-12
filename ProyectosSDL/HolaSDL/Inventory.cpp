@@ -1,5 +1,4 @@
 #include "Inventory.h"
-#include "Boton.h"
 #include "Font.h"
 #include "MainCharacter.h"
 #include "AnimationRenderer.h"
@@ -55,8 +54,9 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 		muestraDescripcion();
 	}
 
-	//--------------------Pruebas Botones ----------------------
-	Boton* useButton = new Boton(app, usar, this, "use"); //nuevo Boton
+	//--------------------Botones----------------------
+	usFunc_ = [this]() mutable {usar(this); };
+	useButton = new Boton(app, "use", usFunc_); //nuevo Boton
 	RenderComponent* im = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonUsar), useButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	useButton->addRenderComponent(im);
 	useButton->setPosition(Vector2D{ 548*relacion.first, 449*relacion.second }); //posiciones random de prueba
@@ -64,7 +64,8 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 	useButton->setHeight(31*relacion.second);
 	stage.push_back(useButton); //se pushea
 
-	Boton* swapButton = new Boton(app, swap, this, "swap"); //nuevo Boton
+	swFunct_ = [this]() mutable {swap(this); };
+	swapButton = new Boton(app, "swap", swFunct_); //nuevo Boton
 	RenderComponent* im2 = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSwap), swapButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	swapButton->addRenderComponent(im2);
 	swapButton->setPosition(Vector2D{ 548*relacion.first, 480*relacion.second }); //posiciones random de prueba
@@ -121,13 +122,14 @@ void Inventory::muestraDescripcion() {
 	copia->setTexture(0, selected->getTexture(0));
 }
 
-void Inventory::swap(GameState* state){
-	static_cast<Inventory*>(state)->bswap = true;
-	static_cast<Inventory*>(state)->marca->setTexture(0, static_cast<Inventory*>(state)->app->getResources()->getImageTexture(Resources::InvMarcaS));
+void Inventory::swap(Inventory* state){
+	(state)->bswap = true;
+	(state)->marca->setTexture(0, (state)->app->getResources()->getImageTexture(Resources::InvMarcaS));
 }
 
 void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea en este estado
 	int tam = inventario->getLength();
+
 	if (tam > numCas) tam = numCas;
 	if (tam != 0){
 		for (int i = 0; i < tam; i++){
@@ -139,20 +141,27 @@ void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea
 	}
 
 	delete f; f = nullptr;
+
 	if (inventario->getLength() != 0)	delete copia;
 	copia = nullptr;
+
 	delete inventarioHud; inventarioHud = nullptr;
+
 	delete marca; marca = nullptr;
+
+	delete useButton; useButton = nullptr;
+
+	delete swapButton; swapButton = nullptr;
 }
 
-void Inventory::usar(GameState* state) {
-	Inventory* inv = dynamic_cast<Inventory*>(state);
+void Inventory::usar(Inventory* state) {
+	Inventory* inv = (state);
 	if (inv != nullptr) { //comprobamos que sea el inventario por si acaso
 		MainCharacter* aux = dynamic_cast<MainCharacter*>(inv->getPreviousState()->getStage()->front()); //si lo es, se obtiene el primer elemento de stage (el personaje)
 		if (aux != nullptr && inv->selected != nullptr) {
 			aux->setCurrenTag(inv->getLastClicked()->getTag()); //se cambia la current tag
 			inv->app->getStateMachine()->popState(); //se popea el estado
-			aux->getShortcut()->recorreEInicia(aux->getShortcut()->getCoef());
+			//(aux->getShortcut()->recorreEInicia(aux->getShortcut()->getCoef());
 		}
 	}
 }

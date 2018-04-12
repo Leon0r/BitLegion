@@ -25,6 +25,7 @@ public:
 	void render(SDL_Renderer* renderer, SDL_Rect const& dest, double angle,
 		SDL_Rect* clip = nullptr) const;
 	void close();
+	void changeAlpha(Uint8 newAlpha);
 
 private:
 

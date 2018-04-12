@@ -32,6 +32,7 @@ public:
 	virtual void render(Uint32 time);
 	void ini(int pos, double coefred);
 	void recorreEInicia(double coefred = 1.0);
+	void marcaOut() { marca->setPosition(Vector2D(0 - marca->getWidth(), 0 - marca->getHeight())); }
 	const double getCoef() { return coefRed; }
 	void usar();//devuelve el tag del objeto usado
 	vector<Vector2D> getMatriz(){ return matriz; }//devuelve la matriz para que el inventario sepa recolocar los objetos cuando se sale de el

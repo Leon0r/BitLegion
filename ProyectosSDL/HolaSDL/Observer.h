@@ -13,6 +13,6 @@ protected:
 public:
 	Observer();
 	virtual~Observer();
-	virtual void receive(Messages msg) = 0;
+	virtual void receive(Mensaje* msg) = 0;
 };
 

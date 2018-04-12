@@ -54,12 +54,20 @@ public:
 		return height_;
 	}
 
+	double getAngle() {
+		return rotation_;
+	}
+
 	void setWidth(double w) {
 		width_ = w;
 	}
 
 	void setHeight(double h) {
 		height_ = h;
+	}
+
+	void setRotation(double angle) {
+		rotation_ = angle;
 	}
 
 	void setPosition(Vector2D newPos) {
@@ -79,6 +87,7 @@ protected:
 
 	double width_;  // width
 	double height_; // height
+	double rotation_ = 0; // rotation respecto de {0,1} (eje vertical positivo)
 
 	Vector2D position_; // position
 	Vector2D direction_; // angle in degrees (0) is considered facing left

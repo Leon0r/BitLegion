@@ -4,6 +4,7 @@
 #include "CasillaInventario.h"
 #include "ObjectList.h"
 #include "ShortCut.h"
+#include "Boton.h"
 #include "sdl_includes.h"
 
 const unsigned int tamanyoFuente = 35;
@@ -22,6 +23,8 @@ private:
 	RenderComponent* imagen;
 	RenderComponent* imagenMarca;
 	RenderComponent* selectedTexture;
+	Boton* useButton;
+	Boton* swapButton;
 	Entity* inventarioHud = new Entity(app);
 	Entity* marca = new Entity(app);
 	ShortCut* SC;
@@ -30,9 +33,11 @@ private:
 	const int numCas = 5;
 	vector<Vector2D> matriz;
 	SDL_Rect rectF = RECT(0, 0, app->getWindowWidth(), app->getWindowHeight());
-	static void usar(GameState* state); 
+	void usar(Inventory* state); 
 										 //ya funciona, se puede usar un cast para un metodo del inventario (usar, swap, por ejemplo)
-	static void swap(GameState* state);
+	void swap(Inventory* state);
+	function<void()> usFunc_;
+	function<void()> swFunct_;
 public:
 	Inventory() {};
 	Inventory(SDLApp* game, ObjectList* inventario, GameState* previousState, ShortCut* shortcut);

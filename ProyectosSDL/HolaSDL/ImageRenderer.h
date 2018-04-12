@@ -11,6 +11,7 @@
  */
 class ImageRenderer: public RenderComponent {
 public:
+	ImageRenderer() {};
 	ImageRenderer(Texture* image);
 	virtual ~ImageRenderer();
 	virtual void render(GameObject* o, Uint32 time);

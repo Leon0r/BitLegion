@@ -51,7 +51,7 @@ void AnimationRenderer::render(GameObject* o, Uint32 time)
 	SDL_Rect rect{ o->getPosition().getX(), o->getPosition().getY(),
 		o->getWidth(), o->getHeight() };
 
-	texture_->render(o->getGame()->getRenderer(), rect, &sourceRect);
+	texture_->render(o->getGame()->getRenderer(), rect, o->getAngle(), &sourceRect);
 }
 
 void AnimationRenderer::playAnim(string label)
@@ -86,9 +86,9 @@ int AnimationRenderer::nextFrame()
 	return aux;
 }
 
-void AnimationRenderer::receive(Messages msg)
+void AnimationRenderer::receive(Mensaje* msg)
 {
-	switch (msg){
+	switch (msg->id_){
 	case Ch_Left:
 		playAnim("Left");
 		break;

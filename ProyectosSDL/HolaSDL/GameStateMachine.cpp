@@ -14,13 +14,14 @@ GameStateMachine::~GameStateMachine()
 
 void GameStateMachine::popState(bool b) {
 	if (!states.empty()) { //si la pila de estados no está vacia
-		if(b) delete states.top(); //delete y pop
-		states.pop();
+		if (b) deleteAndPopState(); //delete y pop
+		else { states.pop(); actualStates.pop_back(); }//pop de la lista auxiliar
 	}
 }
 
 void GameStateMachine::pushState(GameState* newState) {
 	states.push(newState); //pushea un nuevo estado a la pila
+	actualStates.push_back(newState); //push a la lista auxiliar
 }
 
 GameState* GameStateMachine::currentState() {
@@ -29,8 +30,25 @@ GameState* GameStateMachine::currentState() {
 	}
 }
 
+bool GameStateMachine::checkElement(GameState * state){
+	list<GameState*>::reverse_iterator it = actualStates.rbegin();
+	bool found = false;
+	while (it != actualStates.rend() && !found) { //comprueba si el estado está dentro de la lista
+		if (*it == state) {
+			found = true;
+		}
+		it++;
+	}
+	return found;
+}
+
 void GameStateMachine::libera() {
 	while (!states.empty()) {
-		popState(); //mientras la pila esté llena, va liberando
+		deleteAndPopState();
 	}
+}
+
+void GameStateMachine::deleteAndPopState(){
+	delete states.top();
+	states.pop();
 }

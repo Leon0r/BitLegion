@@ -16,6 +16,7 @@ void ObjectList::addItem(GameObject* o) {
 			newCasilla->setWidth(40*app->getWindowWidth()/800);
 			newCasilla->setHeight(40*app->getWindowHeight()/600); //medidas de prueba
 			newCasilla->setPosition(Vector2D(-newCasilla->getWidth() / 2, -newCasilla->getHeight() / 2));
+			newCasilla->setPermanente(aux->isPermanent());
 			objetos.push_back(newCasilla); //lo guardamos
 		}
 	}
@@ -31,8 +32,10 @@ void ObjectList::deleteItem(string tag) {
 	while (it != objetos.end() && !borrado) {//si no ha llegado al final y no lo ha encontrado
 		if ((*it)->getTag() == tag && !borrado) {//si el tag coincide
 			borrado = true;
-			delete(*it);//lo borra
-			it = objetos.erase(it);
+			if (!(*it)->isPermanent()) { //si es permanente no lo borra
+				delete(*it);//lo borra
+				it = objetos.erase(it);
+			}
 		}
 		else {
 			it++;

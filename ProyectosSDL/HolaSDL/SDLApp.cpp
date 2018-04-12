@@ -1,9 +1,12 @@
 #include "SDLApp.h"
 #include "PlayState.h"
 #include "Inventory.h"
+#include "LightsOut.h"
+#include "MainMenuState.h"
 
 SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 {
+		srand(time(NULL)); //inicia la seed del random para que genere distintos numeros siempre que compilemos
 		window = nullptr;
 		renderer = nullptr;
 		int winX, winY;
@@ -15,8 +18,8 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		TTF_Init();
 		initResources();
 		maquinaEstados = new GameStateMachine();
-		maquinaEstados->pushState(new PlayState(this));
-		dynamic_cast<PlayState*>(maquinaEstados->currentState())->getScenes()[0]->enterScene();
+		maquinaEstados->pushState(new MainMenuState(this));
+		//dynamic_cast<PlayState*>(maquinaEstados->currentState())->getScenes()[0]->enterScene();
 }
 
 void SDLApp::handleEvent() {

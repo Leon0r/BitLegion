@@ -17,7 +17,7 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	render = new AnimationRenderer(_texture, animations, 4, 4, 60, 144);
 	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
 	movement = new MovementComponent(colisionables);//mueve al jugador cuando se usa el teclado
-	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i);//decide la direccion del jugador cuando se usa el teclado
+	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i,SDLK_p);//decide la direccion del jugador cuando se usa el teclado
 	mouseMovement = new MouseMovement(colisionables, vel);
 	switcher.addMode({ keyboard, movement, nullptr });//si se pulsa alguna tecla se activaran los componentes de teclado
 	switcher.addMode({ mouseMovement, mouseMovement, nullptr });//si se pulsa el raton se activaran los componentes de raton
@@ -51,6 +51,9 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 		addInventoryObject(item);
 		delete item;
 	}
+	
+	if(!j["mainPj"]["actualScene"].is_null())
+		this->currentScene = j["mainPj"]["actualScene"];
 }
 
 MainCharacter::~MainCharacter()
@@ -83,6 +86,8 @@ void MainCharacter::saveToJson(json& j) {
 	for (int i = 0; i < list->getLength(); i++) {
 		list->getItem(i)->saveToJson(aux["itemList"]);
 	}
+
+	aux["actualScene"] = this->getCurrentScene();
 
 	j["mainPj"].update(aux);
 }

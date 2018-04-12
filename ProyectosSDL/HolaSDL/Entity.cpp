@@ -1,5 +1,6 @@
 #include "Entity.h"
 #include "SDLApp.h"
+#include "AnimationRenderer.h"
 
 Entity::Entity(SDLApp* game) :
 		GameObject(game), inputComp_(), physicsComp_(), renderComp_() {
@@ -7,13 +8,13 @@ Entity::Entity(SDLApp* game) :
 
 Entity::~Entity() {
 	for (InputComponent* ic : inputComp_) { //problemas al hacer todo esto, hay destructoras perdidas que deben estar mal (o no están..)
-		if (ic != nullptr && dynamic_cast<PhysicsComponent*>(ic) == nullptr) { delete ic; ic = nullptr; }
+		if (ic != nullptr && dynamic_cast<PhysicsComponent*>(ic) == nullptr) { delete ic; ic = nullptr; delInputComponent(ic); }
 	}
 	for (PhysicsComponent* pc : physicsComp_) {
-		if (pc != nullptr) { delete pc; pc = nullptr; }
+		if (pc != nullptr) { delete pc; pc = nullptr; delPhysicsComponent(pc); }
 	}
 	for (RenderComponent* rc : renderComp_) {
-		if (rc != nullptr) { delete rc; rc = nullptr; }
+		if (rc != nullptr) { delete rc; rc = nullptr; delRenderComponent(rc); }
 	}
 }
 
@@ -82,5 +83,29 @@ void Entity::setTexture(Uint16 pos, Texture* newText) {
 
 void Entity::saveToJson(json& j) {
 	Vector2D pos = this->getPosition(); j["x"] = pos.getX(); j["y"] = pos.getY();  j["w"] = this->getWidth();
-	j["h"] = this->getHeight(); j["Texture"] = app->getResources()->getPosTexture(this->getTexture(0));
+	j["h"] = this->getHeight(); j["Texture"] = app->getResources()->getPosTexture(this->getTexture(0)); j["rotation"] = this->getAngle();
+	saveAnims(j);
+}
+
+void Entity::delEveryRenderComponent() { //deletea y borra de la lista
+	std::vector<RenderComponent*>::iterator it;
+	for (it = renderComp_.begin(); it != renderComp_.end();) {
+		it = renderComp_.erase(it);
+	}
+}
+
+void Entity::saveAnims(json & j){
+	if (this->isAnimated()) { //si esta animado, guarda las animaciones
+		j["animation"] = true;
+		AnimationRenderer* aux = static_cast<AnimationRenderer*>(renderComp_.front());
+		j["numFilsFrame"] = aux->getnumFrFils();
+		j["numColsFrame"] = aux->getNumFrCols();
+		j["widthFrame"] = aux->getfrWidth();
+		j["heightFrame"] = aux->getfrHeight();
+		j["loop"] = this->getAnimations()[0]->loop_;
+		j["vel"] = this->getAnimations()[0]->rate_;
+		for (unsigned int i = 0; i < this->getAnimations().size(); i++) {
+			j["Anims"][i] = this->getAnimations()[i]->framesAnim_;
+		}
+	}
 }

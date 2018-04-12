@@ -3,19 +3,15 @@
 #include "MainCharacter.h"
 
 
-GOTransiciones::GOTransiciones(SDLApp* game, int x, int y, int w, int h, Texture* texture, int _SceneNumber, int rotation):ClickeableGO(game, x, y, w, h,texture), SceneNumber(_SceneNumber), rotation_(rotation)
+GOTransiciones::GOTransiciones(SDLApp* game, int x, int y, int w, int h, Texture* texture, int _SceneNumber):ClickeableGO(game, x, y, w, h,texture), SceneNumber(_SceneNumber)
 {
 	this->delRenderComponent(render);
-	addAnim("RightArrow", { 0,1,2,3});
-	addAnim("LeftArrow", { 4,5,6,7 });
-	addAnim("DownArrow", { 8,9,10,11 });
-	addAnim("UpArrow", { 12,13,14,15 });
+	addAnim("Arrow", { 0,1,2,3});
 	if (render != nullptr) {
 		delete render;
 		render = nullptr;
 	}
 	render = new AnimationRenderer(texture,animations,4,4,60,60);
-	static_cast<AnimationRenderer*>(render)->playAnim(rotation_);
 	this->addRenderComponent(render);
 }
 
@@ -29,7 +25,7 @@ void GOTransiciones::act() {
 	//Cambio de escena(ScneNumber)
 	PlayState* aux = dynamic_cast<PlayState*>(app->getStateMachine()->currentState());
 	if (aux != nullptr) {
-		aux->getCurrentScene()->setPosIni(getPosition());
+		//aux->getCurrentScene()->setPosIni(Vector2D(getPosition().getX(), getPosition().getY() - 135));
 		aux->swapScene(SceneNumber);
 	}
 }

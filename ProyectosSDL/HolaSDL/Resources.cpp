@@ -15,9 +15,15 @@ std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.p
 	"..//images/flechaTransicionDer.png", "..//images/flechaTransicionIzq.png", "..//images/llavePisoPuzzle.png", "..//images/casillaPuzzleV.png", 
 	"..//images/botonPuzzle.png" , "..//images/PuzzleHud.png" , "..//images/botonReiniciar.png", "..//images/casillaPuzzleBloq.png", "..//images/casillaPuzzleDestroy.png",
 	"..//images/escena4caso1.png", "..//images/moto.png", "..//images/escena3caso1.png", "..//images/muebleentrada.png", "..//images/macetaentrada.png", "..//images/puertaentrada.png",
-	"..//images/colisionableAux.png", 
-	//Las expresiones de pruebaaaa
-	"..//images/alenaExpresiones.png", "..//images/anderExpresiones.png", "..//images/jeffaExpresiones.png" };
+	"..//images/colisionableAux.png" , "..//images/LuzApagada.png", "..//images/LuzEncendida.png", "..//images/Barras.png", "..//images/BarraCarga.png", "..//images/ondas.png",
+	"..//images/LucesHud.png", "..//images/TextoPixel.png", "..//images/BarridoBotella.png", "..//images/hidroqueno.png", "..//images/escena5caso1.png",
+	"..//images/llaveCoche.png", "..//images/llaveMoto.png", "..//images/rotulador.png", "..//images/ordenadorAlena.png", "..//images/vecinaAbuela.png", "..//images/vecinoPerro.png",
+	"..//images/bin.png", "..//images/desk.png", "..//images/cooler.png", "..//images/escena6Caso1.png", "..//images/vecinaNinya.png", "..//images/companyero1.png", 
+	"..//images/companyero2.png", "..//images/companyero3.png", "..//images/ninaCompanyera.png", "..//images/desk2.png", "..//images/desk3.png", "..//images/bolsaCafe.png",
+	"..//images/plaza.png", "..//images/escena7caso1.png", "..//images/planta.png", "..//images/lockerNotsave.png",  "..//images/lockersave.png",  "..//images//JeffaSpriteSheet.png",
+	"..//images//GalinaNoviaMuertoSheet.png", "..//images//senyoraDelBajo.png", "..//images//policia1.png", "..//images//policia2.png", "..//images//policia3.png", 
+	"..//images//policia4.png", "..//images//escena8caso1.png", "..//images//perchero.png", "..//images//deskD.png", "..//images//azotea.png", "..//images//puertaAzotea.png" };
+
 
 #include <iostream>
 
@@ -71,3 +77,16 @@ int Resources::getPosTexture(Texture* text) const {
 	}
 	return i;
 }
+
+
+
+/*
+<<<<<<< HEAD
+"..//images/botonPuzzle.png" , "..//images/PuzzleHud.png" , "..//images/botonReiniciar.png", "..//images/casillaPuzzleBloq.png", "..//images/casillaPuzzleDestroy.png",
+"..//images/escena4caso1.png", "..//images/moto.png", "..//images/escena3caso1.png", "..//images/muebleentrada.png", "..//images/macetaentrada.png", "..//images/puertaentrada.png",
+"..//images/colisionableAux.png" };
+=======
+"..//images/botonPuzzle.png", "..//images/LuzApagada.png", "..//images/LuzEncendida.png", "..//images/Barras.png", "..//images/BarraCarga.png", "..//images/ondas.png",
+"..//images/LucesHud.png", "..//images/TextoPixel.png", "..//images/BarridoBotella.png"  };
+>>>>>>> Puzzle-2+-basura
+*/

@@ -2,6 +2,7 @@
 #include <fstream>
 #include "MainCharacter.h"
 #include "GOstates.h"
+#include "LightsOut.h"
 #include "GOConversational.h"
 
 Scene::Scene()
@@ -10,9 +11,13 @@ Scene::Scene()
 	//Idealmente lee de un archivo
 }
 
-Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(numEscena), pj(pj) {
-	string name = "..\\Scenes\\Scene" + to_string(numEscena);
-	name += ".json";
+Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), SceneNum(numEscena), pj(pj) {
+	string name;
+	if (load)name = "..\\Scenes\\saves\\Scene";
+	else name = "..\\Scenes\\Scene";
+	name = name + to_string(numEscena) +".json";
+	//name += ".json";
+	//cout << name;
 
 	std::ifstream i(name);
 	
@@ -21,56 +26,98 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj):app(app), SceneNum(n
 		json j;
 		i >> j;
 		int n;
+		string obj = "ItemInventario"; // nombre del array del objeto en el json
 
 		// Cargado de items de inventario
-		for (int i = 0; i < j["ItemInventario"].size(); i++) {
+		for (int i = 0; i < j[obj].size(); i++) {
 
-			n = j["ItemInventario"][i]["Texture"];
+			n = j[obj][i]["Texture"];
 
-			SceneItems.push_front(new ItemInventario(app, j["ItemInventario"][i]["x"], j["ItemInventario"][i]["y"], j["ItemInventario"][i]["w"], j["ItemInventario"][i]["h"],
-				j["ItemInventario"][i]["descripcion"], j["ItemInventario"][i]["tag"],
-				app->getResources()->getImageTexture(Resources::ImageId(n))));
+			bool permanente = false;
+			if (!j[obj][i]["permanente"].is_null()) { permanente = j[obj][i]["permanente"]; }
+
+			SceneItems.push_front(new ItemInventario(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+				j[obj][i]["descripcion"], j[obj][i]["tag"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), permanente));
+
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
 		}
 
+		obj = "GOState";
 		//Cargado de Puzles
-		for (int i = 0; i < j["GOState"].size(); i++) {
+		for (int i = 0; i < j[obj].size(); i++) {
 
-			n = j["GOState"][i]["Texture"];
+			n = j[obj][i]["Texture"];
 
-			SceneItems.push_back(new GOstates(app, j["GOState"][i]["x"], j["GOState"][i]["y"],
-				j["GOState"][i]["w"], j["GOState"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), new Puzzle1State(app, app->getStateMachine()->currentState()), j["GOState"][i]["rotat"]));
-		}
 
-		// Cargado de GODoors
-		for (int i = 0; i < j["GODoors"].size(); i++) {
+			SceneStates.push_back(PuzzleCreator(j[obj][i]["type"], j[obj][i]));
 
-			n = j["GODoors"][i]["Texture"];
+			SceneItems.push_back(new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
+				j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)),SceneStates.back(), j[obj][i]));
 
-			SceneItems.push_back(new GODoors(app, j["GODoors"][i]["x"], j["GODoors"][i]["y"], j["GODoors"][i]["w"], j["GODoors"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GODoors"][i]["tag"], j["GODoors"][i]["scneNum"], j["GODoors"][i]["rotat"]));
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+			
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
 		}
 
 		// Cargado de GOTransiciones
-		for (int i = 0; i < j["GOTransiciones"].size(); i++) {
+		obj = "GOTransiciones";
+		for (int i = 0; i < j[obj].size(); i++) {
 
-			n = j["GOTransiciones"][i]["Texture"];
+			n = j[obj][i]["Texture"];
 
-			SceneItems.push_back(new GOTransiciones(app, j["GOTransiciones"][i]["x"], j["GOTransiciones"][i]["y"],
-				j["GOTransiciones"][i]["w"], j["GOTransiciones"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOTransiciones"][i]["scneNum"], j["GOTransiciones"][i]["rotat"]));
+			SceneItems.push_back(new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
+				j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]));
+
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
 		}
 
+		// Cargado de GODoors
+		obj = "GODoors";
+		for (int i = 0; i < j[obj].size(); i++) {
 
+			n = j[obj][i]["Texture"];
+			double rotGOTrans = 0;
+			if(!j[obj][i]["rotGOTr"].is_null())
+				rotGOTrans = j[obj][i]["rotGOTr"];
+
+			SceneItems.push_back(new GODoors(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans));
+
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+			
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+		}
 
 		// Cargado de Colisiones
-		for (int i = 0; i < j["CollisionableObject"].size(); i++) {
+		obj = "CollisionableObject";
+		for (int i = 0; i < j[obj].size(); i++) {
 
-			n = j["CollisionableObject"][i]["Texture"];
+			n = j[obj][i]["Texture"];
 
-			SceneItems.push_back(new ColisionableObject(app, j["CollisionableObject"][i]["x"], j["CollisionableObject"][i]["y"],
-				j["CollisionableObject"][i]["w"], j["CollisionableObject"][i]["h"],
+			SceneItems.push_back(new ColisionableObject(app, j[obj][i]["x"], j[obj][i]["y"],
+				j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n))));
+
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
 		}
 
 
@@ -144,6 +191,12 @@ Scene::~Scene()
 		delete *aux;
 		aux = SceneItems.erase(aux); //aux = aux++
 	}
+
+	list<GameState*>::iterator stateIt;
+	for (stateIt = SceneStates.begin(); stateIt != SceneStates.end();) {
+		if(!app->getStateMachine()->checkElement(*stateIt)) delete *stateIt; //si no está dentro de la pila en el momento de borrar todo, se borra. Si está, no se borra ya que ya ha sido borrado
+		stateIt = SceneStates.erase(stateIt); //aux = aux++
+	}
 }
 
 void Scene::enterScene() {
@@ -189,8 +242,9 @@ void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se
 	SceneItems.pop_front(); //quitamos al jugador de la escena (es global). Se puede hacer as� o con un for que se salte el primero y copie los dem�s
 	SceneItems.pop_front(); //quitamos al shortcut
 	pj->setVelocity(Vector2D(0.0, 0.0));
-	pj->getMouseComponent()->send(Messages(MouseStop));
-	pj->getMouseComponent()->send(Messages(CambioEscena));
+	pj->getMouseComponent()->send(&Mensaje(MouseStop));
+	pj->getMouseComponent()->send(&Mensaje(CambioEscena));
+	this->setPosIni(pj->getPosition()); //funciona *_*
 }
 
 
@@ -207,6 +261,45 @@ void Scene::saveSceneToJson() {
 	j["PlayerPos"]["x"] = posIni.getX();
 	j["PlayerPos"]["y"] = posIni.getY();
 
+	j["PlayerTam"]["w"] = playerTam.getX();
+	j["PlayerTam"]["h"] = playerTam.getY();
+
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo
+}
+
+GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
+	GameState* nPuzzle = nullptr;
+
+	switch (type)
+	{
+	case (Match3):
+		nPuzzle = new Puzzle1State(app, app->getStateMachine()->currentState(), j["numberPuzzle"], j["numText"]);
+		break;
+	case (Lights):
+		nPuzzle = new LightsOut(app, j["numCas"], j["dificultad"]);
+		break;
+	default:
+		break;
+	}
+	return nPuzzle;
+}
+
+void Scene::addAnimsFromJSON(GameObject* obj, json& j, const int numText){
+
+	if (!j["animation"].is_null()) {
+		if (j["animation"]) {
+			Entity* col = static_cast<Entity*>(SceneItems.back());
+			col->setAnimated(true);
+			col->delEveryRenderComponent();
+			for (unsigned int k = 0; k < j["Anims"].size(); k++) {
+				col->addAnim("Anim" + to_string(k), j["Anims"][k], j["loop"], -1, j["vel"]);
+			}
+
+			col->addRenderComponent(new AnimationRenderer(
+				app->getResources()->getImageTexture(Resources::ImageId(numText)), col->getAnimations(),
+				j["numFilsFrame"], j["numColsFrame"], j["widthFrame"], j["heightFrame"]));
+		}
+
+	}
 }
