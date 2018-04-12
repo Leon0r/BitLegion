@@ -96,14 +96,15 @@ void PlayState::handleEvent(SDL_Event & e){
 			swapScene(currentScene + 1);
 		}
 		else if (e.key.keysym.sym == SDLK_F2) {
-		}
+		
 			swapScene(currentScene - 1);
+		}
 	}
 
 	if (!enConversacion) {
 		GameState::handleEvent(e);
-	else {
 	}
+	else {
 		stage.front()->handleInput(0, e);
 	}
 

@@ -86,7 +86,7 @@ public:
 		Desk,
 		MaquinaAgua,
 		Escena6caso1,
-		VecinaNi�a,
+		VecinaNinya,
 		Comp1,
 		Comp2,
 		Comp3,
@@ -110,7 +110,10 @@ public:
 		Perchero,
 		DeskD,
 		Azotea,
-		PuertaAzotea
+		PuertaAzotea,
+		AlenaExpresiones,
+		AnderExpresiones,
+		JeffaExpresiones
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
