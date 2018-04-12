@@ -114,6 +114,7 @@ void PlayState::setEnConversacion(bool conv) {
 	enConversacion = conv; 
 	if (!conv) {
 		delete stage.front();
-	}
 		stage.pop_front();
+	}
+		
 }
