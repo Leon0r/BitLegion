@@ -86,7 +86,7 @@ public:
 		Desk,
 		MaquinaAgua,
 		Escena6caso1,
-		VecinaNiña,
+		VecinaNiï¿½a,
 		Comp1,
 		Comp2,
 		Comp3,

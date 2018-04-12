@@ -3,6 +3,7 @@
 #include "MainCharacter.h"
 #include "GOstates.h"
 #include "LightsOut.h"
+#include "GOConversational.h"
 
 Scene::Scene()
 {
@@ -117,6 +118,16 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
+		}
+
+
+		//Cargado objetos conversaciones
+		for (int i = 0; i < j["GOConversational"].size(); i++) {
+
+			n = j["GOConversational"][i]["Texture"];
+
+			SceneItems.push_front(new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"], j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n))));
 		}
 
 		//ESCENARIO

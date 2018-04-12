@@ -28,6 +28,8 @@ private:
 	const Resources* resources = app->getResources();//recursos del juego
 	vector<Scene*> scenes;
 	int currentScene = 0;
+
+	bool enConversacion = false;
 public:
 	PlayState() {}
 	virtual ~PlayState();
@@ -42,6 +44,6 @@ public:
 	void pauseMenu() { app->getStateMachine()->pushState(new inGameMenu(app)); };
 	int getNumCurrentScene() const { return this->currentScene; };
 	virtual void handleEvent(SDL_Event &e);
-
+	void setEnConversacion(bool conv);
 };
 
