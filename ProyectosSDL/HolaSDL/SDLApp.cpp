@@ -3,6 +3,7 @@
 #include "Inventory.h"
 #include "LightsOut.h"
 #include "MainMenuState.h"
+#include "PasswordState.h"
 
 SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 {
