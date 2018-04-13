@@ -10,24 +10,19 @@ class Boton :
 private:
 	string nombre;
 	int f = -1, c = -1;
-	typedef void CallBackOnClickApp(SDLApp* app);
-	CallBackOnClickApp* inApp; //declaracion del callBack con puntero a la App
-	typedef void CallBackOnClickState(GameState* actualState);
-	CallBackOnClickState* state; //declaracion del callBack con puntero al state
 	typedef void CallBackOnClickStateFC(GameState* actualState, int f, int c);
 	CallBackOnClickStateFC* stateFC;
 	GameState* actualState;
 	RenderComponent* render_ = nullptr;
+	function<void()> fun;
 public:
 	void setRender(RenderComponent* r) { if (render_ != nullptr) delete render_; render_ = nullptr; render_ = r; }
-	Boton() : state(nullptr), inApp(nullptr), stateFC(nullptr), actualState(nullptr), Entity(nullptr), nombre("") {}; //constructora vacia
+	Boton() : fun(nullptr), stateFC(nullptr), actualState(nullptr), Entity(nullptr), nombre("") {}; //constructora vacia
 	virtual ~Boton();
-	Boton(SDLApp* app, CallBackOnClickApp* inApp, string nombre) : Entity(app), inApp(inApp), nombre(nombre), state(nullptr), actualState(nullptr), stateFC(nullptr) {}; //constructora con puntero a la app
-	//útil para botones que hacen algo con los estados (start, exit...)
-	Boton(SDLApp* app, CallBackOnClickState* state, GameState* actualState, string nombre) : Entity(app), state(state), actualState(actualState), nombre(nombre), inApp(nullptr), stateFC(nullptr) {};//constructora
-	//con puntero al estado actual, útil para "botones" que hacen cosas en el estado (usar y swap del inventario, maybe objetos interactuables...)
 
-	Boton(SDLApp* app, CallBackOnClickStateFC* stateFC, GameState* actualState, string nombre, int fil, int col) : Entity(app), stateFC(stateFC), actualState(actualState), nombre(nombre), f(fil), c(col), inApp(nullptr), state(nullptr) {};//constructora2
+	Boton(SDLApp* app, CallBackOnClickStateFC* stateFC, GameState* actualState, string nombre, int fil, int col) : Entity(app), stateFC(stateFC), actualState(actualState), nombre(nombre), f(fil), c(col), fun(nullptr) {};//constructora2
+
+	Boton(SDLApp* app, string nombre, function<void()> f) : Entity(app), nombre(nombre), fun(f), stateFC(nullptr) {}; //constructora que recibe cualquier funcion (de tipo void)
 
 	virtual void handleInput(Uint32 time, const SDL_Event& event);
 	

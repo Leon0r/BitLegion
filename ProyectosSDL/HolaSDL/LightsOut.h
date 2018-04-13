@@ -33,6 +33,7 @@ private:
 	void creaDecoracion();
 	void fadeOut();
 	void win();
+
 public:
 	LightsOut() {};
 	virtual ~LightsOut();

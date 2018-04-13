@@ -33,6 +33,10 @@ public:
 	Texture* getTexture(Uint16 pos = 0) const;
 	void setTexture(Uint16 pos, Texture* newText);
 	virtual void saveToJson(json& j);
+	virtual void delEveryRenderComponent();
+	void setAnimated(bool an) { animated = an; };
+	bool isAnimated () const { return animated; };
+	void saveAnims(json& j);
 
 	virtual void addAnim(string label, vector<int> framesAnim, bool loop = true, int onEnded = -1, double rate = 100)
 	{
@@ -45,6 +49,7 @@ private:
 	vector<InputComponent*> inputComp_;
 	vector<PhysicsComponent*> physicsComp_;
 	vector<RenderComponent*> renderComp_;
+	bool animated = false;
 
 
 protected:

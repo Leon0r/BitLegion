@@ -36,5 +36,6 @@ private:
 	double width = 0, height = 0, x = 0, y = 0;
 	Vector2D posIni, playerTam;
 	GameState* PuzzleCreator(PuzzleTypes type, const json& j); //dependiendo del tag, elige un puzzle u otro (podemos tener mas de dos)
+	void addAnimsFromJSON(GameObject* obj, json& j, const int numText);
 };
 

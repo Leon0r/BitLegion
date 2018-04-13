@@ -3,6 +3,7 @@
 #include "MainCharacter.h"
 #include "GOstates.h"
 #include "LightsOut.h"
+#include "GOConversational.h"
 
 Scene::Scene()
 {
@@ -39,6 +40,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 				j[obj][i]["descripcion"], j[obj][i]["tag"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), permanente));
 
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
@@ -56,6 +59,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			SceneItems.push_back(new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)),SceneStates.back(), j[obj][i]));
+
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
 			
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -71,6 +76,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			SceneItems.push_back(new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]));
+
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -93,7 +100,9 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 				}
 
 			SceneItems.push_back(new GODoors(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans, id));
+			app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans, id));
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+
 			
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -110,9 +119,21 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 				j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n))));
 
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
+		}
+
+
+		//Cargado objetos conversaciones
+		for (int i = 0; i < j["GOConversational"].size(); i++) {
+
+			n = j["GOConversational"][i]["Texture"];
+
+			SceneItems.push_front(new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"], j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n))));
 		}
 
 		//ESCENARIO
@@ -280,4 +301,23 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
 		break;
 	}
 	return nPuzzle;
+}
+
+void Scene::addAnimsFromJSON(GameObject* obj, json& j, const int numText){
+
+	if (!j["animation"].is_null()) {
+		if (j["animation"]) {
+			Entity* col = static_cast<Entity*>(SceneItems.back());
+			col->setAnimated(true);
+			col->delEveryRenderComponent();
+			for (unsigned int k = 0; k < j["Anims"].size(); k++) {
+				col->addAnim("Anim" + to_string(k), j["Anims"][k], j["loop"], -1, j["vel"]);
+			}
+
+			col->addRenderComponent(new AnimationRenderer(
+				app->getResources()->getImageTexture(Resources::ImageId(numText)), col->getAnimations(),
+				j["numFilsFrame"], j["numColsFrame"], j["widthFrame"], j["heightFrame"]));
+		}
+
+	}
 }

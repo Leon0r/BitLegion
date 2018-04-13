@@ -8,7 +8,8 @@ GameState::GameState()
 void GameState::update() {
 	startTime = SDL_GetTicks();
 
-	for (GameObject* it : stage) { it->update(0); }
+	for (GameObject* it : stage) { 
+		it->update(0); }
 
 	// Calcula el tiempo del update del playState
 	frameTime = SDL_GetTicks() - startTime;
@@ -18,7 +19,7 @@ void GameState::update() {
 }
 
 void GameState::handleEvent(SDL_Event &e) { //manda a los objetos del juego que detecten 
-	bool handled = false;
+	
 	it = stage.begin();
 	listhasChanged = false;
 

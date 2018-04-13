@@ -3,6 +3,13 @@
 #include <list>
 
 PlayState::~PlayState() {
+
+	//Se destruye la conversacion si la hay, para que no de problemas
+	if (enConversacion) {
+		delete stage.front();
+		stage.pop_front();
+	}
+
 	vector<Scene*>::iterator aux;
 	scenes[currentScene]->exitScene();
 	std::ofstream i("..\\Scenes\\saves\\pj.json"); //archivo donde se va a guardar
@@ -12,6 +19,7 @@ PlayState::~PlayState() {
 	i.close(); //cierra el flujo
 	delete alena;
 	delete shortcut;
+
 	stage.clear();
 	for (aux = scenes.begin(); aux != scenes.end(); aux++) {
 		(*aux)->saveSceneToJson();
@@ -79,7 +87,7 @@ void PlayState::swapScene(int nextScene)
 		scenes[nextScene]->enterScene();
 		alena->setCurrentScene(currentScene);
 	}
-	else cout << "Escena no encontrada, n�mero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
+	else cout << "Escena no encontrada, numero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
 }
 
 void PlayState::handleEvent(SDL_Event & e){
@@ -88,13 +96,25 @@ void PlayState::handleEvent(SDL_Event & e){
 			swapScene(currentScene + 1);
 		}
 		else if (e.key.keysym.sym == SDLK_F2) {
+		
 			swapScene(currentScene - 1);
 		}
 	}
 
-	GameState::handleEvent(e);
+	if (!enConversacion) {
+		GameState::handleEvent(e);
+	}
+	else {
+		stage.front()->handleInput(0, e);
+	}
+
 }
+void PlayState::setEnConversacion(bool conv) { 
 
-
-
-	
+	enConversacion = conv; 
+	if (!conv) {
+		delete stage.front();
+		stage.pop_front();
+	}
+		
+}

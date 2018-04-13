@@ -86,7 +86,7 @@ public:
 		Desk,
 		MaquinaAgua,
 		Escena6caso1,
-		VecinaNiña,
+		VecinaNinya,
 		Comp1,
 		Comp2,
 		Comp3,
@@ -100,7 +100,20 @@ public:
 		TaquillaAbierta,
 		TaquillaCerrada, 
 		Jeffa,
-		Galina
+		Galina,
+		SenyoraDelBajo,
+		Policia1,
+		Policia2, 
+		Policia3,
+		Policia4,
+		Escena8caso1,
+		Perchero,
+		DeskD,
+		Azotea,
+		PuertaAzotea,
+		AlenaExpresiones,
+		AnderExpresiones,
+		JeffaExpresiones
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
