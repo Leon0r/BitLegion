@@ -4,7 +4,7 @@
 
 Conversacion::Conversacion(SDLApp* game) :GameObject(game)
 {
-	f = new Font("..//images/fuente2.ttf", tamanyoFuenteConv);
+	f = new Font("..//images/Moonace-Regular.ttf", tamanyoFuenteConv);
 }
 
 
@@ -112,6 +112,8 @@ void Conversacion::update(Uint32 time){
 	//ANIMACIONES GUAYS
 }
 void Conversacion::render(Uint32 time){
+
+	app->getResources()->getImageTexture(Resources::GUIDialogosAlpha)->render(app->getRenderer(), { GUIx,GUIy,GUIw,GUIh });
 	escribir();
 	
 	clip.x = 130 * (dialogo[nodoActual].getEmo() % 2);
