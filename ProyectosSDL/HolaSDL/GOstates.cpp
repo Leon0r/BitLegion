@@ -40,19 +40,21 @@ void GOstates::act() {
 }
 
 void GOstates::saveToJson(json & j){
-	json aux; 
-	Entity::saveToJson(aux);
+	if (this->isActive()) {
+		json aux;
+		Entity::saveToJson(aux);
 
-	aux["type"] = jAux_["type"]; //tipo de puzzle
-	aux["rotation"] = jAux_["rotation"];
-	if (!jAux_["numberPuzzle"].is_null()) { aux["numberPuzzle"] = jAux_["numberPuzzle"]; } //atributos diferentes en cada puzzle... nos ahorramos excepciones raras con el isNull(); pero hay que ponerlos todos aqui ais...
-	//(si se os ocurre otra forma avisad, que son las 2 de la mañana y ya no tiro)
-	if (!jAux_["numCas"].is_null()) { aux["numCas"] = jAux_["numCas"]; }
-	if (!jAux_["dificultad"].is_null()) { aux["dificultad"] = jAux_["dificultad"]; }
-	if (!jAux_["numText"].is_null()) { aux["numText"] = jAux_["numText"]; }
-	if (!jAux_["UnlockId"].is_null()) {	aux["UnlockId"] = jAux_["UnlockId"]; }
+		aux["type"] = jAux_["type"]; //tipo de puzzle
+		aux["rotation"] = jAux_["rotation"];
+		if (!jAux_["numberPuzzle"].is_null()) { aux["numberPuzzle"] = jAux_["numberPuzzle"]; } //atributos diferentes en cada puzzle... nos ahorramos excepciones raras con el isNull(); pero hay que ponerlos todos aqui ais...
+		//(si se os ocurre otra forma avisad, que son las 2 de la mañana y ya no tiro)
+		if (!jAux_["numCas"].is_null()) { aux["numCas"] = jAux_["numCas"]; }
+		if (!jAux_["dificultad"].is_null()) { aux["dificultad"] = jAux_["dificultad"]; }
+		if (!jAux_["numText"].is_null()) { aux["numText"] = jAux_["numText"]; }
+		if (!jAux_["UnlockId"].is_null()) { aux["UnlockId"] = jAux_["UnlockId"]; }
 
-	j["GOState"].push_back(aux);
+		j["GOState"].push_back(aux);
+	}
 }
 
 void GOstates::receive(Mensaje * msg){
