@@ -7,8 +7,9 @@ private:
 	const string password_; //contrasenya a averiguar
 	string userPass_;
 	bool checkPassword();
-	//Texture text;
+	void resetPassword();
 	Font* f;
+	unsigned int i = 0;
 public:
 	PasswordState();
 	PasswordState(SDLApp* app, string password = "hanzomain", int id = -4);
@@ -16,5 +17,6 @@ public:
 	virtual void handleEvent(SDL_Event &e);
 	virtual void render();
 	virtual void win();
+
 };
 
