@@ -33,6 +33,7 @@ private:
 	void creaDecoracion();
 	void fadeOut();
 	void win();
+	function<void()> resetFunc_;
 
 public:
 	LightsOut() {};
