@@ -113,7 +113,9 @@ public:
 		PuertaAzotea,
 		AlenaExpresiones,
 		AnderExpresiones,
-		JeffaExpresiones
+		JeffaExpresiones,
+		DescansilloMuerto,
+		Muerto
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
