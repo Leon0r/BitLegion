@@ -42,11 +42,10 @@ void MovementComponent::windowBounces(GameObject* o, double& x, double& y, Vecto
 //controla que el personaje no colisione con ningun objeto
 void MovementComponent::collideObjects(GameObject* o, double& x, double& y, Vector2D& velocity)
 {
-		it = collisions->begin();
-		while (it != collisions->end() && !Collisions::collides(o, *it)) { ++it; }
+	for (it = collisions->begin(); it != collisions->end(); it++) {
 
-		//si hemos colisionado con algun objeto de la escena
-		if (it != collisions->end()) {
+		if (Collisions::collides(o, *it)) {
+			//si hemos colisionado con algun objeto de la escena
 			//si hemos colisionado por los lados
 			if (o->getPosition().getX() <= (*it)->getPosition().getX() - o->getWidth() ||
 				o->getPosition().getX() >= (*it)->getPosition().getX() + (*it)->getWidth()) {
@@ -60,4 +59,6 @@ void MovementComponent::collideObjects(GameObject* o, double& x, double& y, Vect
 				velocity.setY(0);//paramos en y
 			}
 		}
+
+	}
 }

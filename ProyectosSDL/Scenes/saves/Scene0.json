@@ -40,17 +40,21 @@
          "y": 116.0
       }
    ],
-   "GOTransiciones": [
+   "GOState": [
       {
          "Texture": 32,
-         "h": 60.0,
-         "rotat": -90.0,
-         "rotation": -90.0,
-         "scneNum": 2,
-         "w": 60.0,
-         "x": 641.0,
-         "y": 207.0
-      },
+         "UnlockId": 1,
+         "h": 30.0,
+         "numText": 35,
+         "numberPuzzle": 0,
+         "rotation": -45,
+         "type": 0,
+         "w": 30.0,
+         "x": 705.0,
+         "y": 265.0
+      }
+   ],
+   "GOTransiciones": [
       {
          "Texture": 32,
          "h": 60.0,
@@ -64,16 +68,6 @@
    ],
    "ItemInventario": [
       {
-         "Texture": 22,
-         "descripcion": "key",
-         "h": 40.0,
-         "rotation": 0.0,
-         "tag": "key",
-         "w": 40.0,
-         "x": 710.0,
-         "y": 490.0
-      },
-      {
          "Texture": 60,
          "descripcion": "key",
          "h": 40.0,
@@ -82,11 +76,21 @@
          "w": 40.0,
          "x": 630.0,
          "y": 500.0
+      },
+      {
+         "Texture": 22,
+         "descripcion": "key",
+         "h": 40.0,
+         "rotation": 0.0,
+         "tag": "key",
+         "w": 40.0,
+         "x": 710.0,
+         "y": 490.0
       }
    ],
    "PlayerPos": {
-      "x": 640.0,
-      "y": 225.6
+      "x": 100.0,
+      "y": 500.0
    },
    "PlayerTam": {
       "h": 201.6,
