@@ -53,7 +53,7 @@ public:
 		FlechaTransicionIzq,
 		llavePisoPuzzle,
 		CasillaPuzzleV,
-		BotonPuzzle,  
+		BotonPuzzle,
 		PuzzleHud,
 		BotonReiniciar,
 		casillaPuzzleBloq,
@@ -98,12 +98,12 @@ public:
 		Escena7caso1,
 		Planta,
 		TaquillaAbierta,
-		TaquillaCerrada, 
+		TaquillaCerrada,
 		Jeffa,
 		Galina,
 		SenyoraDelBajo,
 		Policia1,
-		Policia2, 
+		Policia2,
 		Policia3,
 		Policia4,
 		Escena8caso1,
@@ -118,7 +118,11 @@ public:
 		Muerto,
 		Escena13Caso1,
 		MesaCocina,
-		Encimera
+		Encimera,
+		Periodista1,
+		Periodista2,
+		Periodista3,
+		Periodista4
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
