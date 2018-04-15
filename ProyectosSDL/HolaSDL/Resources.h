@@ -115,7 +115,10 @@ public:
 		AnderExpresiones,
 		JeffaExpresiones,
 		DescansilloMuerto,
-		Muerto
+		Muerto,
+		Escena13Caso1,
+		MesaCocina,
+		Encimera
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
