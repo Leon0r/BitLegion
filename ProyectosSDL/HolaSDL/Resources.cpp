@@ -20,11 +20,11 @@ std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.p
 	"..//images/llaveCoche.png", "..//images/llaveMoto.png", "..//images/rotulador.png", "..//images/ordenadorAlena.png", "..//images/vecinaAbuela.png", "..//images/vecinoPerro.png",
 	"..//images/bin.png", "..//images/desk.png", "..//images/cooler.png", "..//images/escena6Caso1.png", "..//images/vecinaNinya.png", "..//images/companyero1.png", 
 	"..//images/companyero2.png", "..//images/companyero3.png", "..//images/ninaCompanyera.png", "..//images/desk2.png", "..//images/desk3.png", "..//images/bolsaCafe.png",
-	"..//images/plaza.png", "..//images/escena7caso1.png", "..//images/planta.png", "..//images/lockerNotsave.png",  "..//images/lockersave.png",  "..//images//JeffaSpriteSheet.png",
+	"..//images/escena10caso1.png", "..//images/escena7caso1.png", "..//images/planta.png", "..//images/lockerNotsave.png",  "..//images/lockersave.png",  "..//images//JeffaSpriteSheet.png",
 	"..//images//GalinaNoviaMuertoSheet.png", "..//images//senyoraDelBajo.png", "..//images//policia1.png", "..//images//policia2.png", "..//images//policia3.png", 
-	"..//images//policia4.png", "..//images//escena8caso1.png", "..//images//perchero.png", "..//images//deskD.png", "..//images//azotea.png", "..//images//puertaAzotea.png",
-	"..//images//alenaExpresiones.png", "..//images//anderExpresiones.png", "..//images//jeffaExpresiones.png", "..//images//descansilloMuerto.png", "..//images//muerto.png", "..//images//escena13caso1.png",  "..//images//mesaCocina.png" , 
-	"..//images//encimera.png" };
+	"..//images//policia4.png", "..//images//escena8caso1.png", "..//images//perchero.png", "..//images//deskD.png", "..//images//escena12caso1.png", "..//images//puertaAzotea.png",
+	"..//images//alenaExpresiones.png", "..//images//anderExpresiones.png", "..//images//jeffaExpresiones.png", "..//images//escena16caso1.png", "..//images//muerto.png", "..//images//escena13caso1.png", 
+	"..//images//mesaCocina.png" , "..//images//encimera.png" };
 
 
 #include <iostream>
