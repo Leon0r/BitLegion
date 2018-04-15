@@ -4,6 +4,8 @@
 #include "GOstates.h"
 #include "LightsOut.h"
 #include "GOConversational.h"
+#include "PasswordState.h"
+#include "PasswordState.h"
 
 Scene::Scene()
 {
@@ -84,6 +86,23 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			}
 		}
 
+		// Cargado de Colisiones
+		obj = "CollisionableObject";
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+
+			SceneItems.push_back(new ColisionableObject(app, j[obj][i]["x"], j[obj][i]["y"],
+				j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n))));
+
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+		}
+
 		// Cargado de GODoors
 		obj = "GODoors";
 		for (int i = 0; i < j[obj].size(); i++) {
@@ -104,23 +123,6 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
 
 			
-			if (!j[obj][i]["rotation"].is_null()) {
-				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
-			}
-		}
-
-		// Cargado de Colisiones
-		obj = "CollisionableObject";
-		for (int i = 0; i < j[obj].size(); i++) {
-
-			n = j[obj][i]["Texture"];
-
-			SceneItems.push_back(new ColisionableObject(app, j[obj][i]["x"], j[obj][i]["y"],
-				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n))));
-
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
-
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
@@ -295,6 +297,16 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
 			aux = j["UnlockId"];
 		
 		nPuzzle = new LightsOut(app, j["numCas"], j["dificultad"], aux);
+		break;
+	}
+
+	case (Password): 
+	{
+		int aux = -4;
+		if (!j["UnlockId"].is_null())
+			aux = j["UnlockId"];
+
+		nPuzzle = new PasswordState(app, j["password"], aux);
 		break;
 	}
 	default:

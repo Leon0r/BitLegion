@@ -122,7 +122,12 @@ public:
 		Periodista1,
 		Periodista2,
 		Periodista3,
-		Periodista4
+		Periodista4,
+		Escena11caso1,
+		PuertaTrasera,
+		CuboBasura1,
+		BolsasBasura,
+		EscalerasMano
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

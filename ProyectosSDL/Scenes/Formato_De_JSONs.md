@@ -67,6 +67,7 @@ SceneX.json // X = numero de la escena
 		 "GOState": [
                 { "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotation": -45,"numText": 43 ,"numberPuzzle": 0,"type": 0,  }, //Match3
 		{"x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 1, *("UnlockId": 1)}, //LightsOut
+        { "x": 387, "y": 365, "w": 30, "h": 30, "Texture": 32, "rotation": -45, "password": "kaka","type": 2, "UnlockId": 1 }, //password
 		{...}
 		]
 		
