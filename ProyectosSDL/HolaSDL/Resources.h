@@ -135,7 +135,12 @@ public:
 		Curioso4,
 		Escena15Caso1,
 		Escena18Caso1,
-		EncimeraMuerto
+		EncimeraMuerto,
+		Escena14Caso1,
+		EstanteriaVieja,
+		MesillaVieja,
+		SofaVieja,
+		MesaVieja
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

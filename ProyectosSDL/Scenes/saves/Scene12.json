@@ -1,0 +1,89 @@
+{
+   "CollisionableObject": [
+      {
+         "Texture": 48,
+         "h": 750.0,
+         "rotation": 0.0,
+         "w": 302.0,
+         "x": 0.0,
+         "y": 0.0
+      },
+      {
+         "Texture": 48,
+         "h": 750.0,
+         "rotation": 0.0,
+         "w": 302.0,
+         "x": 972.0,
+         "y": 0.0
+      },
+      {
+         "Texture": 48,
+         "h": 350.0,
+         "rotation": 0.0,
+         "w": 1280.0,
+         "x": 0.0,
+         "y": 0.0
+      },
+      {
+         "Texture": 48,
+         "h": 295.0,
+         "rotation": 0.0,
+         "w": 192.0,
+         "x": 289.0,
+         "y": 176.0
+      }
+   ],
+   "GODoors": [
+      {
+         "Texture": 93,
+         "UnlockId": 1,
+         "h": 173.0,
+         "rotGOTr": -90.0,
+         "rotat": 0.0,
+         "rotation": 0.0,
+         "scneNum": 0,
+         "tag": "-",
+         "w": 96.0,
+         "x": 337.0,
+         "y": 287.0
+      }
+   ],
+   "GOState": [
+      {
+         "Texture": 32,
+         "UnlockId": 1,
+         "h": 30.0,
+         "rotation": -45,
+         "type": 2,
+         "w": 30.0,
+         "x": 387.0,
+         "y": 365.0
+      }
+   ],
+   "GOTransiciones": [
+      {
+         "Texture": 32,
+         "h": 60.0,
+         "rotat": 0.0,
+         "rotation": 0.0,
+         "scneNum": 11,
+         "w": 60.0,
+         "x": 870.0,
+         "y": 640.0
+      }
+   ],
+   "PlayerPos": {
+      "x": 850.0,
+      "y": 518.4
+   },
+   "PlayerTam": {
+      "h": 201.6,
+      "w": 84.0
+   },
+   "Texture": 92,
+   "h": 720.0,
+   "rotation": 0.0,
+   "w": 1280.0,
+   "x": 0.0,
+   "y": 0.0
+}
