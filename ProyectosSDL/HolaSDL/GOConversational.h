@@ -7,9 +7,9 @@ class GOConversational :
 public:
 	GOConversational();
 	~GOConversational();
-	GOConversational(SDLApp* game, int x, int y, int w, int h, Texture* texture) : ClickeableGO(game, x, y, w, h, texture) {
+	GOConversational(SDLApp* game, int x, int y, int w, int h, Texture* texture, string convoName) : ClickeableGO(game, x, y, w, h, texture) {
 		convo = new Conversacion(app);
-		convo->loadConversation("conversacion");
+		convo->loadConversation(convoName);
 	};
 	virtual void saveToJson(json& j) {};
 private:

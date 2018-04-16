@@ -127,7 +127,8 @@ public:
 		PuertaTrasera,
 		CuboBasura1,
 		BolsasBasura,
-		EscalerasMano
+		EscalerasMano,
+		GUIDialogosAlpha
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

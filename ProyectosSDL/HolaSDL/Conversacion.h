@@ -29,15 +29,21 @@ public:
 private:
 	vector<NodoDialogo> dialogo;
 	int nodoActual = 0;
+
+	const int GUIx = 0;
+	const int GUIy = 360;
+	const int GUIw = 1242;
+	const int GUIh = 355;
+
 	const int x = 200;
 	const int y = 540;			//MIRAR DONDE QUEDA BIEN
 	const int w = 1200;
 	const int h = 168;			//MIRAR DONDE QUEDA BIEN, HACERLO EN FUNCION DE TAMAÑO DE PANTALLA EN VEZ DE A LO BRUTO
 
-	const int retratoX = 10;
-	const int retratoY = 540;
-	const int retratoW = 150;
-	const int retratoH = 150;
+	const int retratoX = 15;
+	const int retratoY = 376;
+	const int retratoW = 125;
+	const int retratoH = 125;
 
 	SDL_Rect clip = { 0,0,130,130 };
 
