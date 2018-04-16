@@ -20,7 +20,7 @@
         { "x": 450, "y": 470, "w": 65, "h": 210, "Texture": 70,
             "animation": true, "numFilsFrame": 3, "numColsFrame": 2,
             "widthFrame": 43, "heightFrame": 138, "vel": 200, "loop": true,
-            "Anims": [ [0,1,2,3,5,6,7,8,2] ] 
+            "Anims": [ [0,1,0,1,0,2,5,4,3] ] 
         },
         { "x": 560, "y": 495, "w": 55, "h": 190, "Texture": 73 },
         { "x": 960, "y": 495, "w": 55, "h": 190, "Texture": 71,
