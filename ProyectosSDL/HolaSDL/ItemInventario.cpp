@@ -22,7 +22,8 @@ void ItemInventario::act() {
 		MainCharacter* personaje = dynamic_cast<MainCharacter*>(aux->getMainPj()); //casteo del main
 		if (personaje != nullptr) {
 			personaje->addInventoryObject(this); //añadimos objeto
-			app->getStateMachine()->currentState()->deleteElement(this);
+			this->setActive(false);
+			//app->getStateMachine()->currentState()->deleteElement(this);
 		}
 	}
 }

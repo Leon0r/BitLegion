@@ -140,7 +140,8 @@ bool compareZ(GameObject* obj1, GameObject* obj2) {
 
 void PlayState::render() {
 	std::list<GameObject*>::iterator it;
-	//Zbuffer = stage;
+	Zbuffer = stage;
+	Zbuffer.pop_back();
 
 	int alenaZActual = alena->getPosition().getY();
 
