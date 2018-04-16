@@ -2,7 +2,7 @@
 #include "Resources.h"
 #include "SDLApp.h"
 
-std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.png",  //"..//images/Alena.png",
+std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.png",
 		"..//images/bit legion_logo.png", "..//images/boton.png", "..//images/BotonSwapSheet.png",
 		"..//images/BotonUsarSheet.png", "..//images/ImgTest.png", "..//images/InventarioAnimSheet.png",
 		"..//images/InvMarca.png", "..//images/InvMarcaS.png", "..//images/shortcut.png",

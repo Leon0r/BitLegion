@@ -2,11 +2,11 @@
 
 
 
-AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animations, int numFilsFrames, int numColsFrames,
+AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animations, int numColsFrames, int numFilsFrames,
 	int frWidth, int frHeigth):
-	texture_(texture), numFrCols_(numColsFrames), numFrFils_(numFilsFrames), frWidth_(frWidth), frHeigth_(frHeigth)
+	texture_(texture), numFrCols_(numFilsFrames), numFrFils_(numColsFrames), frWidth_(frWidth), frHeigth_(frHeigth)
 {
-	numFrames = numColsFrames * numFilsFrames;
+	numFrames = numFilsFrames * numColsFrames;
 	timeNext = SDL_GetTicks();
 	timeLastFrame = timeNext;
 	nextAnim_ = currentAnim_;

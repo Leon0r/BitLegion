@@ -328,7 +328,7 @@ void Scene::addAnimsFromJSON(GameObject* obj, json& j, const int numText){
 
 			col->addRenderComponent(new AnimationRenderer(
 				app->getResources()->getImageTexture(Resources::ImageId(numText)), col->getAnimations(),
-				j["numFilsFrame"], j["numColsFrame"], j["widthFrame"], j["heightFrame"]));
+				 j["numColsFrame"], j["numFilsFrame"], j["widthFrame"], j["heightFrame"]));
 		}
 
 	}
