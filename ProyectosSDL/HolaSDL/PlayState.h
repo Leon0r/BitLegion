@@ -28,11 +28,16 @@ private:
 	const Resources* resources = app->getResources();//recursos del juego
 	vector<Scene*> scenes;
 	int currentScene = 0;
-
+	std::list<GameObject*> Zbuffer;
+	int alenaZ;
+	
 	bool enConversacion = false;
 public:
 	PlayState() {}
 	virtual ~PlayState();
+	virtual void render();
+
+	void SetZBuffer();
 	PlayState(SDLApp* app, bool load = false);
 	MainCharacter* getMainPj() { return alena; }
 	ShortCut* getShortCut(){ return shortcut; }

@@ -213,12 +213,14 @@ void Scene::enterScene() {
 	it = CurrentState->getStage()->begin();
 	it++; it++;
 	app->getStateMachine()->currentState()->changeList();
+	
 
 	while (it != CurrentState->getStage()->end()) {//Mientras no se acaben los items
 		
 		it = CurrentState->getStage()->erase(it);//borramos el item
 	}
 	CurrentState->getStage()->insert(CurrentState->getStage()->end(), SceneItems.begin(), SceneItems.end());
+	static_cast<PlayState*>(app->getStateMachine()->currentState())->SetZBuffer();
 	for (GameObject* it : SceneItems) {
 		ColisionableObject* col = dynamic_cast<ColisionableObject*>(it);
 		if (col != nullptr) {

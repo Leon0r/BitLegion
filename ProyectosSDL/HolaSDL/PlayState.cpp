@@ -2,30 +2,11 @@
 #include "GOstates.h"
 #include <list>
 
-PlayState::~PlayState() {
-
-	//Se destruye la conversacion si la hay, para que no de problemas
-	if (enConversacion) {
-		delete stage.front();
-		stage.pop_front();
-	}
-
-	vector<Scene*>::iterator aux;
-	scenes[currentScene]->exitScene();
-	std::ofstream i("..\\Scenes\\saves\\pj.json"); //archivo donde se va a guardar
-	json j;
-	alena->saveToJson(j);
-	i << std::setw(4) << j; //pretty identación para leer mejor el archivo
-	i.close(); //cierra el flujo
-	delete alena;
-	delete shortcut;
-
-	stage.clear();
-	for (aux = scenes.begin(); aux != scenes.end(); aux++) {
-		(*aux)->saveSceneToJson();
-		delete (*aux);
-	}	
-	delete list;
+void PlayState::SetZBuffer()
+{
+	Zbuffer.clear();
+	Zbuffer = stage;
+	Zbuffer.pop_back();
 }
 
 PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
@@ -75,14 +56,47 @@ PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
 
 	this->currentScene = alena->getCurrentScene();
 
+
+	//Zbuffer = stage;
 	// crea las escenas desde archivo
 	
 }
+
+
+PlayState::~PlayState() {
+
+	//Se destruye la conversacion si la hay, para que no de problemas
+	if (enConversacion) {
+		delete stage.front();
+		stage.pop_front();
+	}
+
+	vector<Scene*>::iterator aux;
+	scenes[currentScene]->exitScene();
+	std::ofstream i("..\\Scenes\\saves\\pj.json"); //archivo donde se va a guardar
+	json j;
+	alena->saveToJson(j);
+	i << std::setw(4) << j; //pretty identación para leer mejor el archivo
+	i.close(); //cierra el flujo
+	delete alena;
+	delete shortcut;
+
+	stage.clear();
+	for (aux = scenes.begin(); aux != scenes.end(); aux++) {
+		(*aux)->saveSceneToJson();
+		delete (*aux);
+	}	
+	delete list;
+
+	
+}
+
 
 void PlayState::swapScene(int nextScene)
 {
 	if (nextScene < (int)scenes.size() && nextScene >= 0) { // basicamente se asegura de que la escena a la que quiere cambiar existe
 		scenes[currentScene]->exitScene();
+		
 		currentScene = nextScene;
 		scenes[nextScene]->enterScene();
 		alena->setCurrentScene(currentScene);
@@ -118,3 +132,30 @@ void PlayState::setEnConversacion(bool conv) {
 	}
 		
 }
+
+bool compareZ(GameObject* obj1, GameObject* obj2) {
+	return ((obj1->getPosition().getY()+obj1->getHeight()/2) < (obj2->getPosition().getY() + obj2->getHeight() / 2));
+}
+
+
+void PlayState::render() {
+	std::list<GameObject*>::iterator it;
+	//Zbuffer = stage;
+
+	int alenaZActual = alena->getPosition().getY();
+
+	if (alenaZActual != alenaZ){
+		//short
+		Zbuffer.sort(compareZ);
+		
+		//std::sort(Zbuffer.begin(), Zbuffer.end(), compareZ);
+	}
+	
+	stage.back()->render(0);
+	
+	for (it = Zbuffer.begin(); it != Zbuffer.end(); it++)
+		(*it)->render(0);
+
+
+}
+
