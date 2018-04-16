@@ -128,7 +128,14 @@ public:
 		CuboBasura1,
 		BolsasBasura,
 		EscalerasMano,
-		GUIDialogosAlpha
+		GUIDialogosAlpha,
+		Curioso1,
+		Curioso2,
+		Curioso3,
+		Curioso4,
+		Escena15Caso1,
+		Escena18Caso1,
+		EncimeraMuerto
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
