@@ -10,6 +10,7 @@ Conversacion::Conversacion(SDLApp* game) :GameObject(game)
 
 Conversacion::~Conversacion()
 {
+	delete f;
 }
 
 void Conversacion::escribir(){
