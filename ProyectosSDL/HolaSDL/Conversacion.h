@@ -36,7 +36,7 @@ private:
 	const int GUIh = 355;
 
 	const int x = 200;
-	const int y = 540;			//MIRAR DONDE QUEDA BIEN
+	const int y = 520;			//MIRAR DONDE QUEDA BIEN
 	const int w = 1200;
 	const int h = 168;			//MIRAR DONDE QUEDA BIEN, HACERLO EN FUNCION DE TAMAÑO DE PANTALLA EN VEZ DE A LO BRUTO
 
