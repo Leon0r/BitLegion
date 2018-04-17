@@ -2,11 +2,17 @@
 #include "GOstates.h"
 #include <list>
 
+
+bool compareZ(GameObject* o1, GameObject* o2) {
+	return (o1->getPosition().getY() > o2->getPosition().getY());
+}
+
 void PlayState::SetZBuffer()
 {
 	Zbuffer.clear();
 	Zbuffer = stage;
 	Zbuffer.pop_back();//Quitamos el fondo
+	Zbuffer.sort(compareZ);
 }
 
 PlayState::PlayState(SDLApp* app, bool load) : GameState(app) {
@@ -144,6 +150,8 @@ void PlayState::render() {
 		(*its)->render(0);
 }
 
+
+
 void PlayState::sortZbuffer() {
 	int alenaZActual = alena->getPosition().getY();
 
@@ -151,16 +159,13 @@ void PlayState::sortZbuffer() {
 	if (listhasChanged) {
 		SetZBuffer();
 	}
-	if (alenaZActual != alenaZ) {
+	if (true) {
 		//short
 		std::list<GameObject*>::iterator it;
 		std::list<GameObject*>::iterator alenaIt;// = consAlenaIt;//No begin dynamic alena
 		for (alenaIt = Zbuffer.begin(); (*alenaIt) != alena; alenaIt++);//Encontramos la pos de alena
 
-		cout << Zbuffer.size() << endl;
-		//if((*alenaIt) == alena) 
 		Zbuffer.erase(alenaIt);
-		cout << Zbuffer.size() << endl;
 		alenaZ = alenaZActual;
 		SDL_Rect AlenaRect, itmRect, hanzpReckt;
 
