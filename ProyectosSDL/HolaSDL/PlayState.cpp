@@ -6,11 +6,11 @@ void PlayState::SetZBuffer()
 {
 	Zbuffer.clear();
 	Zbuffer = stage;
-	Zbuffer.pop_back();
+	Zbuffer.pop_back();//Quitamos el fondo
 }
 
-PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
-	
+PlayState::PlayState(SDLApp* app, bool load) : GameState(app) {
+
 	// crea la lista vacia
 	list = new ObjectList(app);
 	string name;
@@ -59,7 +59,7 @@ PlayState::PlayState(SDLApp* app, bool load): GameState(app) {
 
 	//Zbuffer = stage;
 	// crea las escenas desde archivo
-	
+
 }
 
 
@@ -85,10 +85,10 @@ PlayState::~PlayState() {
 	for (aux = scenes.begin(); aux != scenes.end(); aux++) {
 		(*aux)->saveSceneToJson();
 		delete (*aux);
-	}	
+	}
 	delete list;
 
-	
+
 }
 
 
@@ -96,7 +96,7 @@ void PlayState::swapScene(int nextScene)
 {
 	if (nextScene < (int)scenes.size() && nextScene >= 0) { // basicamente se asegura de que la escena a la que quiere cambiar existe
 		scenes[currentScene]->exitScene();
-		
+
 		currentScene = nextScene;
 		scenes[nextScene]->enterScene();
 		alena->setCurrentScene(currentScene);
@@ -104,13 +104,13 @@ void PlayState::swapScene(int nextScene)
 	else cout << "Escena no encontrada, numero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
 }
 
-void PlayState::handleEvent(SDL_Event & e){
+void PlayState::handleEvent(SDL_Event & e) {
 	if (e.type == SDL_KEYDOWN) { //jaaaaaaaaaaaaaaaacksss
 		if (e.key.keysym.sym == SDLK_F1) {
 			swapScene(currentScene + 1);
 		}
 		else if (e.key.keysym.sym == SDLK_F2) {
-		
+
 			swapScene(currentScene - 1);
 		}
 	}
@@ -123,54 +123,61 @@ void PlayState::handleEvent(SDL_Event & e){
 	}
 
 }
-void PlayState::setEnConversacion(bool conv) { 
+void PlayState::setEnConversacion(bool conv) {
 
-	enConversacion = conv; 
+	enConversacion = conv;
 	if (!conv) {
 		delete stage.front();
 		stage.pop_front();
 	}
-		
-}
 
-bool compareZ(GameObject* obj1, GameObject* obj2) {
-	return ((obj1->getPosition().getY()) < (obj2->getPosition().getY()));
 }
-
 
 void PlayState::render() {
-	std::list<GameObject*>::const_reverse_iterator its;
 
+	sortZbuffer();
+
+	stage.back()->render(0);
+
+	std::list<GameObject*>::const_reverse_iterator its;
+	for (its = Zbuffer.rbegin(); its != Zbuffer.rend(); its++)
+		(*its)->render(0);
+}
+
+void PlayState::sortZbuffer() {
 	int alenaZActual = alena->getPosition().getY();
 
-	bool flag =true;
+	bool flag = true;
 	if (listhasChanged) {
-		Zbuffer = stage;
-		Zbuffer.pop_back();//Quitamos fondo
+		SetZBuffer();
 	}
-	if (alenaZActual != alenaZ){
+	if (alenaZActual != alenaZ) {
 		//short
 		std::list<GameObject*>::iterator it;
-		std::list<GameObject*>::iterator alenaIt = Zbuffer.begin();//No begin dynamic alena
+		std::list<GameObject*>::iterator alenaIt;// = consAlenaIt;//No begin dynamic alena
+		for (alenaIt = Zbuffer.begin(); (*alenaIt) != alena; alenaIt++);//Encontramos la pos de alena
+
+		cout << Zbuffer.size() << endl;
 		//if((*alenaIt) == alena) 
-			Zbuffer.erase(alenaIt);
+		Zbuffer.erase(alenaIt);
+		cout << Zbuffer.size() << endl;
 		alenaZ = alenaZActual;
-		SDL_Rect AlenaRect, itmRect,hanzpReckt;
+		SDL_Rect AlenaRect, itmRect, hanzpReckt;
 
 		AlenaRect.x = alena->getPosition().getX();
-		AlenaRect.y = alena->getPosition().getY() + alena->getHeight();
+		AlenaRect.y = alena->getPosition().getY() + alena->getHeight() + 10;
 		AlenaRect.w = alena->getWidth();
-		AlenaRect.h = alena->getHeight()/6;
+		AlenaRect.h = alena->getHeight() / 6;
 		it = Zbuffer.begin();
-		while (it != Zbuffer.end()) {
+		while (it != Zbuffer.end() && flag) {
 			itmRect.x = (*it)->getPosition().getX();
 			itmRect.y = (*it)->getPosition().getY();
 			itmRect.w = (*it)->getWidth();
 			itmRect.h = (*it)->getHeight();
 			if (SDL_IntersectRect(&AlenaRect, &itmRect, &hanzpReckt)) {
-				it++;
-				Zbuffer.insert(it, alena);
-				it--;
+				it++;//Como inserta en el previo, necesitamos avanazar para mantener el orden
+				Zbuffer.insert(it, alena);//inserta en el previo
+				it--;//donde ha sido insertado
 				flag = false;
 			}
 			it++;
@@ -178,16 +185,5 @@ void PlayState::render() {
 		if (flag) {
 			Zbuffer.push_front(alena);
 		}
-
-		//AlenaRect = SDL_Rect(*(alenaIt)->getPosition().getX(), (*alenaIt)->getPosition().getY(), (*alenaIt)->getWidth(), (*alenaIt)->getHeight());
-		//std::sort(Zbuffer.begin(), Zbuffer.end(), compareZ);
 	}
-	
-	stage.back()->render(0);
-	
-	for (its = Zbuffer.rbegin(); its != Zbuffer.rend(); its++)
-		(*its)->render(0);
-
-
 }
-

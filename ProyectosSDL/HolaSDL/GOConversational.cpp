@@ -17,6 +17,7 @@ void GOConversational::act() {
 		inconversation = true;
 		static_cast<PlayState*>(app->getStateMachine()->currentState())->setEnConversacion(true);
 		app->getStateMachine()->currentState()->getStage()->push_front(convo);
+		app->getStateMachine()->currentState()->changeList();
 	}
 
 }

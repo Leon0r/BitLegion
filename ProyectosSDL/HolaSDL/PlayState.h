@@ -30,7 +30,7 @@ private:
 	int currentScene = 0;
 	std::list<GameObject*> Zbuffer;
 	int alenaZ;
-	
+	void sortZbuffer();
 	bool enConversacion = false;
 public:
 	PlayState() {}

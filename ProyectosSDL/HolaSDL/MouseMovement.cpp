@@ -117,7 +117,7 @@ void MouseMovement::generaMatriz(GameObject* o) {
 			bool colisionado = false;
 
 			if (y < tamMatriz) {//si no peta :)
-				//por cada casilla mirramos si hay algun colisionable en su punto medio
+				//por cada casilla miramos si hay algun colisionable en su punto medio
 				while (it != collisions->end() && !colisionado) {
 					SDL_Rect rect = { (*it)->getPosition().getX(), (*it)->getPosition().getY(), (*it)->getWidth(), (*it)->getHeight() };
 					SDL_Point pMedio = { j, i };
