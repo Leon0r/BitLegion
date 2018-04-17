@@ -145,8 +145,7 @@ public:
 		MesaMuerto,
 		MesillaMuerto,
 		SofaMuerto,
-		PlantaMuerto,
-
+		PlantaMuerto
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

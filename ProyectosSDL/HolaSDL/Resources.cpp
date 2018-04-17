@@ -29,7 +29,7 @@ std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.p
 	"..//images//escalera Incendios_edificio_Drzewo.png", "..//IMAGES//GUIdialogosAlpha.png", "..//images//curioso1.png", "..//images//curioso2.png", "..//images//curioso3.png", "..//images//curioso4.png", 
 	"..//images//escena15caso1.png", "..//images//escena18caso1.png", "..//images//encimeraMuerto.png", "..//images//escena14caso1.png", "..//images//estanteriaVieja.png",  "..//images//mesillaVieja.png",
 	"..//images//sofaVieja.png",  "..//images//mesaVieja.png", "..//images//escena17caso1.png", "..//images//mesaMuerto.png" , "..//images//mesillaMuerto.png" ,"..//images//sofaMuerto.png"  ,
-	"..//images//plantaMuerto.png", };
+	"..//images//plantaMuerto.png" };
 
 
 
