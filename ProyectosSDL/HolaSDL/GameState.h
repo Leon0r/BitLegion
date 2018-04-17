@@ -14,9 +14,9 @@ class GameState:
 	public Observable, public Observer
 {
 private:
-	bool listhasChanged = false;
 
 protected:
+	bool listhasChanged = false;
 	uint32_t startTime, frameTime; // Control del tiempo de repeticion del bucle
 
 	list <GameObject*> stage; //lista de objetos del estados

@@ -134,28 +134,59 @@ void PlayState::setEnConversacion(bool conv) {
 }
 
 bool compareZ(GameObject* obj1, GameObject* obj2) {
-	return ((obj1->getPosition().getY()+obj1->getHeight()/2) < (obj2->getPosition().getY() + obj2->getHeight() / 2));
+	return ((obj1->getPosition().getY()) < (obj2->getPosition().getY()));
 }
 
 
 void PlayState::render() {
-	std::list<GameObject*>::iterator it;
-	Zbuffer = stage;
-	Zbuffer.pop_back();
+	std::list<GameObject*>::const_reverse_iterator its;
 
 	int alenaZActual = alena->getPosition().getY();
 
+	bool flag =true;
+	if (listhasChanged) {
+		Zbuffer = stage;
+		Zbuffer.pop_back();//Quitamos fondo
+	}
 	if (alenaZActual != alenaZ){
 		//short
-		Zbuffer.sort(compareZ);
-		
+		std::list<GameObject*>::iterator it;
+		std::list<GameObject*>::iterator alenaIt = Zbuffer.begin();//No begin dynamic alena
+		//if((*alenaIt) == alena) 
+			Zbuffer.erase(alenaIt);
+		alenaZ = alenaZActual;
+		SDL_Rect AlenaRect, itmRect,hanzpReckt;
+
+		AlenaRect.x = alena->getPosition().getX();
+		AlenaRect.y = alena->getPosition().getY() + alena->getHeight();
+		AlenaRect.w = alena->getWidth();
+		AlenaRect.h = alena->getHeight()/6;
+		it = Zbuffer.begin();
+		while (it != Zbuffer.end()) {
+			itmRect.x = (*it)->getPosition().getX();
+			itmRect.y = (*it)->getPosition().getY();
+			itmRect.w = (*it)->getWidth();
+			itmRect.h = (*it)->getHeight();
+			if (SDL_IntersectRect(&AlenaRect, &itmRect, &hanzpReckt)) {
+				it++;
+				Zbuffer.insert(it, alena);
+				it--;
+				flag = false;
+			}
+			it++;
+		}
+		if (flag) {
+			Zbuffer.push_front(alena);
+		}
+
+		//AlenaRect = SDL_Rect(*(alenaIt)->getPosition().getX(), (*alenaIt)->getPosition().getY(), (*alenaIt)->getWidth(), (*alenaIt)->getHeight());
 		//std::sort(Zbuffer.begin(), Zbuffer.end(), compareZ);
 	}
 	
 	stage.back()->render(0);
 	
-	for (it = Zbuffer.begin(); it != Zbuffer.end(); it++)
-		(*it)->render(0);
+	for (its = Zbuffer.rbegin(); its != Zbuffer.rend(); its++)
+		(*its)->render(0);
 
 
 }
