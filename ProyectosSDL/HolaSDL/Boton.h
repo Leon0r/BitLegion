@@ -3,9 +3,10 @@
 #include "Entity.h"
 #include "GameState.h"
 #include "ComponenteClickeable.h"
+#include "Messages.h"
 
 class Boton :
-	public Entity, ComponenteClickeable
+	public Entity, public ComponenteClickeable
 {
 private:
 	string nombre;

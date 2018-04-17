@@ -3,6 +3,8 @@
 
 #include "checkML.h"
 #include "Texture.h"
+#include "Music.h"
+#include "SoundEffect.h"
 #include <vector>
 #include <tuple>
 
@@ -141,15 +143,31 @@ public:
 
 	int getPosTexture(Texture* text) const;
 
+
+	Music* getMusic(MusicId i) const;
+	SoundEffect* getSoundEffect(SoundEffectId i) const;
+
 private:
 	void setImageTextures(std::vector<std::string> textures);
+	void setMusic(std::vector<std::string> music);
+	void setSoundEffects(std::vector<std::string> soundEffects);
 
+
+	void closeMusic();
+	void closeSoundEffects();
 	void closeImageTextures();
 
 	SDLApp* game_;
 
 	int numOfImageTextures_;
 	Texture** imageTextures_;
+
+	int numOfMusic_;
+	Music** music_;
+
+	int numOfSoundEffects_;
+	SoundEffect** soundEffects_;
+
 };
 
 #endif /* RESOURCES_H_ */

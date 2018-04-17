@@ -3,7 +3,7 @@
 
 SoundManager::SoundManager(SDLApp* game) {
 	// TODO Auto-generated constructor stub
-
+	app = game;
 }
 
 SoundManager::~SoundManager() {
@@ -13,13 +13,21 @@ SoundManager::~SoundManager() {
 void SoundManager::update(Uint32 time) {
 
 	while (!eventQueue.empty()) {
-		game_->getResources()->getSoundEffect(eventQueue.front().id_)->play(eventQueue.front().num_);
+		app->getResources()->getSoundEffect(eventQueue.front().id_)->play(eventQueue.front().num_);
 		eventQueue.pop();
 	}
 }
 
 void SoundManager::receive(Mensaje* msg) {
 	switch (msg->id_) {
-	case FIGHTER_SHOOT:
+	case In_Menu:
+		
+		break;
+	case Game_Start:
+
+		break;
+	case Button_Press:
+
+		break;
 	}
 }

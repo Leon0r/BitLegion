@@ -33,18 +33,21 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	b->setWidth(100); b->setHeight(75);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 5) * 1 / 3));
 	b->addRenderComponent(btext);
+	b->addObserver(sound_);
 	botones.push_back(b); stage.push_back(b);
 
 	b = (new Boton(app, "Load Game", lGame_));
 	b->setWidth(100); b->setHeight(75);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 5) * 2 / 3));
 	b->addRenderComponent(btext);
+	b->addObserver(sound_);
 	botones.push_back(b); stage.push_back(b);
 
 	b = (new Boton(app, "Exit", eGame_));
 	b->setWidth(100); b->setHeight(75);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 5) * 3 / 3));
 	b->addRenderComponent(btext);
+	b->addObserver(sound_);
 	botones.push_back(b);stage.push_back(b);
 }
 

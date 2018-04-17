@@ -1,6 +1,7 @@
 #ifndef SRC_SOUNDMANAGER_H_
 #define SRC_SOUNDMANAGER_H_
 
+#include "SDLApp.h"
 #include "Resources.h"
 #include "GameObject.h"
 #include "Observer.h"
@@ -23,6 +24,7 @@ private:
 		int num_;
 	};
 	queue<PlayMessage> eventQueue;
+	SDLApp* app;
 };
 
 #endif /* SRC_SOUNDMANAGER_H_ */

@@ -12,6 +12,7 @@ void Boton::handleInput(Uint32 time, const SDL_Event& event) {
 	if (ComponenteClickeable::handleInput(this, event)) { //si es pulsado
 		if(this->animations.size() > 1 && render_ != nullptr) static_cast<AnimationRenderer*>(render_)->playAnim(1);
 		else if (this->animations.size() > 0)static_cast<AnimationRenderer*>(render_)->playAnim(0);
+		send(&Mensaje(Button_Press));
 
 		if (stateFC != nullptr) { //si state != nullptr se ejecuta (valido para las matrices del puzzle match3 solo...)
 			stateFC(actualState, f, c);
@@ -21,3 +22,4 @@ void Boton::handleInput(Uint32 time, const SDL_Event& event) {
 
 	else if (this->animations.size() > 0 && render_ != nullptr) static_cast<AnimationRenderer*>(render_)->playAnim(0);
 }
+

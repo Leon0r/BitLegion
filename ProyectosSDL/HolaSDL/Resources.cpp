@@ -52,6 +52,25 @@ void Resources::setImageTextures(std::vector<std::string> textures) {
 	}
 }
 
+
+void Resources::setMusic(std::vector<std::string> music) {
+	closeMusic();
+	numOfMusic_ = music.size();
+	music_ = new Music*[numOfMusic_];
+	for (int i = 0; i < numOfMusic_; i++) {
+		music_[i] = new Music(music[i]);
+	}
+}
+
+void Resources::setSoundEffects(std::vector<std::string> soundEffects) {
+	closeSoundEffects();
+	numOfSoundEffects_ = soundEffects.size();
+	soundEffects_ = new SoundEffect*[numOfSoundEffects_];
+	for (int i = 0; i < numOfSoundEffects_; i++) {
+		soundEffects_[i] = new SoundEffect(soundEffects[i]);
+	}
+}
+
 void Resources::closeImageTextures() {
 	for (int i = 0; i < numOfImageTextures_; i++) {
 		if (imageTextures_[i] != nullptr) {
@@ -82,6 +101,40 @@ int Resources::getPosTexture(Texture* text) const {
 		}
 	}
 	return i;
+}
+
+Music* Resources::getMusic(MusicId i) const {
+	if (i < numOfMusic_)
+		return music_[i];
+	else
+		return nullptr;
+}
+
+SoundEffect* Resources::getSoundEffect(SoundEffectId i) const {
+	if (i < numOfSoundEffects_)
+		return soundEffects_[i];
+	else
+		return nullptr;
+}
+
+void Resources::closeMusic() {
+	for (int i = 0; i < numOfMusic_; i++) {
+		if (music_[i] != nullptr) {
+			delete music_[i];
+		}
+	}
+	delete[] music_;
+	numOfMusic_ = 0;
+}
+
+void Resources::closeSoundEffects() {
+	for (int i = 0; i < numOfSoundEffects_; i++) {
+		if (soundEffects_[i] != nullptr) {
+			delete soundEffects_[i];
+		}
+	}
+	delete[] soundEffects_;
+	numOfSoundEffects_ = 0;
 }
 
 

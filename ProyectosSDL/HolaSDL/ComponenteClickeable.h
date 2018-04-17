@@ -2,9 +2,9 @@
 #include "checkML.h"
 #include <SDL.h>
 #include "GameObject.h"
+#include "Observable.h"
 
-class ComponenteClickeable
-	//:public InputComponent
+class ComponenteClickeable : public Observable
 {
 public:
 	ComponenteClickeable();
