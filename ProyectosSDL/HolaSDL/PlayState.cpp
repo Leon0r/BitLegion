@@ -160,6 +160,14 @@ void PlayState::sortZbuffer() {
 		SetZBuffer();
 	}
 	if (true) {
+		vector<std::list<GameObject*>::iterator*> overlap;
+		overlap = getOverlapping();
+
+		if (overlap.size() == 0) {
+			cout << "Empty" << endl;
+		}
+		else cout << overlap.size() << endl;
+		
 		//short
 		std::list<GameObject*>::iterator it;
 		std::list<GameObject*>::iterator alenaIt;// = consAlenaIt;//No begin dynamic alena
@@ -191,4 +199,28 @@ void PlayState::sortZbuffer() {
 			Zbuffer.push_front(alena);
 		}
 	}
+}
+
+vector<std::list<GameObject*>::iterator*> PlayState::getOverlapping()
+{
+	vector<std::list<GameObject*>::iterator*> overlap;
+	SDL_Rect AlenaRect, itmRect, hanzpReckt;
+	//Rect Alena
+	AlenaRect.x = alena->getPosition().getX();
+	AlenaRect.y = alena->getPosition().getY() + alena->getHeight() + 10;
+	AlenaRect.w = alena->getWidth();
+	AlenaRect.h = alena->getHeight() / 6; 
+	
+	for(it = Zbuffer.begin(); it != Zbuffer.end();it++){//Comprobamos con que rects hay colision
+		itmRect.x = (*it)->getPosition().getX();
+		itmRect.y = (*it)->getPosition().getY();
+		itmRect.w = (*it)->getWidth();
+		itmRect.h = (*it)->getHeight();
+		if (SDL_IntersectRect(&AlenaRect, &itmRect, &hanzpReckt)) {
+			overlap.push_back(&it); //Los añadimos al vector
+		}
+	}
+
+
+	return overlap;
 }
