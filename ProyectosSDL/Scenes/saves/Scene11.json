@@ -1,7 +1,7 @@
 {
    "CollisionableObject": [
       {
-         "Texture": 48,
+         "Texture": 43,
          "h": 740.0,
          "rotation": 0.0,
          "w": 184.0,
@@ -9,7 +9,7 @@
          "y": 0.0
       },
       {
-         "Texture": 108,
+         "Texture": 103,
          "h": 90.0,
          "rotation": 0.0,
          "w": 60.0,
@@ -17,7 +17,7 @@
          "y": 290.0
       },
       {
-         "Texture": 109,
+         "Texture": 104,
          "h": 105.0,
          "rotation": 0.0,
          "w": 142.0,
@@ -25,7 +25,7 @@
          "y": 315.0
       },
       {
-         "Texture": 110,
+         "Texture": 105,
          "h": 394.0,
          "rotation": 0.0,
          "w": 506.0,
@@ -35,7 +35,7 @@
    ],
    "GODoors": [
       {
-         "Texture": 107,
+         "Texture": 102,
          "h": 223.0,
          "rotGOTr": 0.0,
          "rotat": 0.0,
@@ -49,7 +49,7 @@
    ],
    "GOTransiciones": [
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 60.0,
          "rotat": -90.0,
          "rotation": -90.0,
@@ -59,7 +59,7 @@
          "y": 295.0
       },
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 60.0,
          "rotat": -90.0,
          "rotation": -90.0,
@@ -69,7 +69,7 @@
          "y": 295.0
       },
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 60.0,
          "rotat": 90.0,
          "rotation": 90.0,
@@ -87,7 +87,7 @@
       "h": 201.6,
       "w": 84.0
    },
-   "Texture": 106,
+   "Texture": 101,
    "h": 720.0,
    "rotation": 0.0,
    "w": 1280.0,

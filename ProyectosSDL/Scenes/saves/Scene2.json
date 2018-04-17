@@ -1,7 +1,7 @@
 {
    "CollisionableObject": [
       {
-         "Texture": 29,
+         "Texture": 26,
          "h": 196.0,
          "rotation": 0.0,
          "w": 82.0,
@@ -9,7 +9,7 @@
          "y": 220.0
       },
       {
-         "Texture": 30,
+         "Texture": 27,
          "h": 228.0,
          "rotation": 0.0,
          "w": 75.0,
@@ -17,7 +17,7 @@
          "y": 200.0
       },
       {
-         "Texture": 63,
+         "Texture": 58,
          "h": 170.0,
          "rotation": 0.0,
          "w": 90.0,
@@ -25,7 +25,7 @@
          "y": 280.0
       },
       {
-         "Texture": 69,
+         "Texture": 64,
          "h": 110.0,
          "rotation": 0.0,
          "w": 47.0,
@@ -35,7 +35,7 @@
    ],
    "GOTransiciones": [
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 60.0,
          "rotat": -90.0,
          "rotation": -90.0,
@@ -45,7 +45,7 @@
          "y": 290.0
       },
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 60.0,
          "rotat": -90.0,
          "rotation": -90.0,
@@ -63,7 +63,7 @@
       "h": 201.6,
       "w": 84.0
    },
-   "Texture": 28,
+   "Texture": 25,
    "h": 720.0,
    "rotation": 0.0,
    "w": 1280.0,

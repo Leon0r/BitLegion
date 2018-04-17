@@ -17,7 +17,6 @@ public:
 	//
 	enum ImageId {
 		Alena,
-		BitLegionLogo,
 		Boton,
 		BotonSwap,
 		BotonUsar,
@@ -30,8 +29,6 @@ public:
 		Cama,
 		Mesa,
 		Cocina,
-		PuertaCutre,
-		LlaveCutre,
 		BolsaCoca,
 		BolsaVacia,
 		BotellaVodka,
@@ -49,8 +46,6 @@ public:
 		RelojPasillo,
 		PuertaCasaAlena,
 		FlechaTransicionSpriteSheet,
-		FlechaTransicionDer,
-		FlechaTransicionIzq,
 		llavePisoPuzzle,
 		CasillaPuzzleV,
 		BotonPuzzle,
@@ -60,12 +55,11 @@ public:
 		casillaPuzzleDest,
 		Escena4Caso1,
 		MotoAlena,
-		Escena3Caso1,//44
+		Escena3Caso1,
 		MesaRecepcion,
 		PlantaRecepcion,
 		PuertaPortal,
 		ColisionableAux,
-		//BotonPuzzle,
 		LuzApagada,
 		LuzEncendida,
 		Barras,
@@ -145,7 +139,10 @@ public:
 		MesaMuerto,
 		MesillaMuerto,
 		SofaMuerto,
-		PlantaMuerto
+		PlantaMuerto,
+		Ander,
+		NPCFumador,
+		NPCMujerNinyo
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

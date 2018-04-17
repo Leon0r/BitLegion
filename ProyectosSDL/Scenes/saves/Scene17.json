@@ -1,7 +1,7 @@
 {
    "CollisionableObject": [
       {
-         "Texture": 126,
+         "Texture": 121,
          "h": 120.0,
          "rotation": 0.0,
          "w": 80.0,
@@ -9,7 +9,7 @@
          "y": 265.0
       },
       {
-         "Texture": 127,
+         "Texture": 122,
          "h": 135.0,
          "rotation": 0.0,
          "w": 267.0,
@@ -17,7 +17,7 @@
          "y": 265.0
       },
       {
-         "Texture": 128,
+         "Texture": 123,
          "h": 133.0,
          "rotation": 0.0,
          "w": 42.0,
@@ -25,7 +25,7 @@
          "y": 245.0
       },
       {
-         "Texture": 125,
+         "Texture": 120,
          "h": 110.0,
          "rotation": 0.0,
          "w": 252.0,
@@ -33,7 +33,7 @@
          "y": 450.0
       },
       {
-         "Texture": 98,
+         "Texture": 93,
          "h": 121.0,
          "rotation": 0.0,
          "w": 258.0,
@@ -41,7 +41,7 @@
          "y": 600.0
       },
       {
-         "Texture": 18,
+         "Texture": 15,
          "h": 44.0,
          "rotation": 0.0,
          "w": 50.0,
@@ -51,7 +51,7 @@
    ],
    "GOTransiciones": [
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 60.0,
          "rotat": 90.0,
          "rotation": 90.0,
@@ -61,7 +61,7 @@
          "y": 650.0
       },
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 60.0,
          "rotat": 0.0,
          "rotation": 0.0,
@@ -72,14 +72,14 @@
       }
    ],
    "PlayerPos": {
-      "x": 1118.0,
-      "y": 384.0
+      "x": 1190.0,
+      "y": 450.0
    },
    "PlayerTam": {
       "h": 201.6,
       "w": 84.0
    },
-   "Texture": 124,
+   "Texture": 119,
    "h": 720.0,
    "rotation": 0.0,
    "w": 1280.0,

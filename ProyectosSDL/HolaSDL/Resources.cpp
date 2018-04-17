@@ -2,34 +2,134 @@
 #include "Resources.h"
 #include "SDLApp.h"
 
-std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.png",
-		"..//images/bit legion_logo.png", "..//images/boton.png", "..//images/BotonSwapSheet.png",
-		"..//images/BotonUsarSheet.png", "..//images/ImgTest.png", "..//images/InventarioAnimSheet.png",
-		"..//images/InvMarca.png", "..//images/InvMarcaS.png", "..//images/shortcut.png",
-	"..//images/escena1caso1.png", "..//images/cama.png", "..//images/mesa.png", "..//images/cocina.png", 
-	"..//images/puertaCutre.png", "..//images/llaveCutre.png", "..//images/bolsaCoca.png", "..//images/bolsaVacia.png",
-	"..//images/botellaVodka.png", "..//images/cuaderno.png", "..//images/fotoNoviaMuerto.png",
-	"..//images/llaveHotel.png", "..//images/llavePiso.png", "..//images/movilMuerto.png", "..//images/ticketCompra.png",
-	"..//images/vater.png", "..//images/lavaboDucha.png", "..//images/bano.png", "..//images/escena2caso1.png", 
-	"..//images/mesillapasillo.png","..//images/relojpasillo.png", "..//images/puertaCasaAlena.png", "..//images/flechaTransicion.png",
-	"..//images/flechaTransicionDer.png", "..//images/flechaTransicionIzq.png", "..//images/llavePisoPuzzle.png", "..//images/casillaPuzzleV.png", 
-	"..//images/botonPuzzle.png" , "..//images/PuzzleHud.png" , "..//images/botonReiniciar.png", "..//images/casillaPuzzleBloq.png", "..//images/casillaPuzzleDestroy.png",
-	"..//images/escena4caso1.png", "..//images/moto.png", "..//images/escena3caso1.png", "..//images/muebleentrada.png", "..//images/macetaentrada.png", "..//images/puertaentrada.png",
-	"..//images/colisionableAux.png" , "..//images/LuzApagada.png", "..//images/LuzEncendida.png", "..//images/Barras.png", "..//images/BarraCarga.png", "..//images/ondas.png",
-	"..//images/LucesHud.png", "..//images/TextoPixel.png", "..//images/BarridoBotella.png", "..//images/hidroqueno.png", "..//images/escena5caso1.png",
-	"..//images/llaveCoche.png", "..//images/llaveMoto.png", "..//images/rotulador.png", "..//images/ordenadorAlena.png", "..//images/vecinaAbuela.png", "..//images/vecinoPerro.png",
-	"..//images/bin.png", "..//images/desk.png", "..//images/cooler.png", "..//images/escena6Caso1.png", "..//images/vecinaNinya.png", "..//images/companyero1.png", 
-	"..//images/companyero2.png", "..//images/companyero3.png", "..//images/ninaCompanyera.png", "..//images/desk2.png", "..//images/desk3.png", "..//images/bolsaCafe.png",
-	"..//images/escena10caso1.png", "..//images/escena7caso1.png", "..//images/planta.png", "..//images/lockerNotsave.png",  "..//images/lockersave.png",  "..//images//JeffaSpriteSheet.png",
-	"..//images//GalinaNoviaMuertoSheet.png", "..//images//senyoraDelBajo.png", "..//images//policia1.png", "..//images//policia2.png", "..//images//policia3.png", 
-	"..//images//policia4.png", "..//images//escena8caso1.png", "..//images//perchero.png", "..//images//deskD.png", "..//images//escena12caso1.png", "..//images//puertaAzotea.png",
-	"..//images//alenaExpresiones.png", "..//images//anderExpresiones.png", "..//images//jeffaExpresiones.png", "..//images//escena16caso1.png", "..//images//muerto.png", "..//images//escena13caso1.png", 
-	"..//images//mesaCocina.png" , "..//images//encimera.png", "..//images//periodista1.png", "..//images//periodista2.png", "..//images//periodista3.png", "..//images//periodista4.png",
-	"..//images//escena11caso1.png", "..//images//puertaTrasera_edificio_Drzewo.png", "..//images//Cubo de basura_edificio_Drzewo.png", "..//images//Basura_edificio_Drzewo.png", 
-	"..//images//escalera Incendios_edificio_Drzewo.png", "..//IMAGES//GUIdialogosAlpha.png", "..//images//curioso1.png", "..//images//curioso2.png", "..//images//curioso3.png", "..//images//curioso4.png", 
-	"..//images//escena15caso1.png", "..//images//escena18caso1.png", "..//images//encimeraMuerto.png", "..//images//escena14caso1.png", "..//images//estanteriaVieja.png",  "..//images//mesillaVieja.png",
-	"..//images//sofaVieja.png",  "..//images//mesaVieja.png", "..//images//escena17caso1.png", "..//images//mesaMuerto.png" , "..//images//mesillaMuerto.png" ,"..//images//sofaMuerto.png"  ,
-	"..//images//plantaMuerto.png" };
+std::vector<std::string> Resources::imageFiles_{ "..//images/SpriteSheets_Personajes/AlenaSpriteSheet.png", //Alena,
+"..//images/Puzles/boton.png", //Boton
+"..//images/Puzles/BotonSwapSheet.png", //BotonSwap
+"..//images/Puzles/BotonUsarSheet.png", //BotonUsar
+"..//images/ImgTest.png", //ImagenTest
+"..//images/Inventario/InventarioAnimSheet.png", //Inventario
+"..//images/Inventario/InvMarca.png", //InvMarca
+"..//images/Inventario/InvMarcaS.png", //InvMarcaS
+"..//images/Inventario/shortcut.png", //ShortCut
+"..//images/Fondos/escena1caso1.png", // Escena1Caso1
+"..//images/Objetos/Colisionables/cama.png", //Cama
+"..//images/Objetos/Colisionables/mesa.png", //Mesa
+"..//images/Objetos/Colisionables/cocina.png", //Cocina
+"..//images/Objetos/Takeable/bolsaCoca.png", //BolsaCoca
+"..//images/Objetos/Takeable/bolsaVacia.png", //BolsaVacia
+"..//images/Objetos/Takeable/botellaVodka.png", //BotellaVodka
+"..//images/Objetos/Takeable/cuaderno.png", //Cuaderno
+"..//images/Objetos/Takeable/fotoNoviaMuerto.png", //FotoNoviaMuerto
+"..//images/Objetos/Takeable/llaveHotel.png", //LlaveHotel
+"..//images/Objetos/Takeable/llavePiso.png", //LlavePiso
+"..//images/Objetos/Takeable/movilMuerto.png", //MovilMuerto
+"..//images/Objetos/Takeable/ticketCompra.png", //TicketCompra
+"..//images/Objetos/Colisionables/vater.png", //Vater
+"..//images/Objetos/Colisionables/lavaboDucha.png", // LavaboDucha
+"..//images/Fondos/escena0caso1.png", //Banio
+"..//images/Fondos/escena2caso1.png", // Escena2Caso1
+"..//images/Objetos/Colisionables/mesillapasillo.png", //MesillaPasillo
+"..//images/Objetos/Colisionables/relojpasillo.png", //RelojPasillo
+"..//images/Objetos/Doors/puertaCasaAlena.png", // PuertaCasaAlena
+"..//images/Objetos/flechaTransicion.png", //FlechaTransicionSpriteSheet
+"..//images/llavePisoPuzzle.png", //llavePisoPuzzle
+"..//images/Puzles/casillaPuzzleV.png", //CasillaPuzzleV
+"..//images/Puzles/botonPuzzle.png" , //BotonPuzzle
+"..//images/Puzles/PuzzleHud.png" , //PuzzleHud
+"..//images/Puzles/botonReiniciar.png", //BotonReiniciar
+"..//images/Puzles/casillaPuzzleBloq.png", //casillaPuzzleBloq
+"..//images/Puzles/casillaPuzzleDestroy.png", //casillaPuzzleDest
+"..//images/Fondos/escena4caso1.png", //Escena4Caso1
+"..//images/Objetos/moto.png", //MotoAlena
+"..//images/Fondos/escena3caso1.png", //Escena3Caso1
+"..//images/Objetos/Colisionables/muebleentrada.png", //MesaRecepcion
+"..//images/Objetos/Colisionables/macetaentrada.png", //PlantaRecepcion
+"..//images/Objetos/Doors/puertaentrada.png", //PuertaPortal
+"..//images/colisionableAux.png", //ColisionableAux
+"..//images/Puzles/LuzApagada.png", //LuzApagada
+"..//images/Puzles/LuzEncendida.png", //LuzEncendida
+"..//images/Puzles/Barras.png", //Barras
+"..//images/Puzles/BarraCarga.png", // Carga
+"..//images/Puzles/ondas.png", //Onda
+"..//images/Puzles/LucesHud.png", // HudLuces
+"..//images/Puzles/TextoPixel.png", //TextoPixel
+"..//images/Puzles/BarridoBotella.png", //BotellaAnimada
+"..//images/SpriteSheets_Personajes/hidroqueno.png", //Hidroqueno
+"..//images/Fondos/escena5caso1.png", //Escena5caso1
+"..//images/Objetos/Takeable/llaveCoche.png", //LLaveCoche
+"..//images/Objetos/Takeable/llaveMoto.png", //LlaveMoto
+"..//images/Objetos/Takeable/rotulador.png", //Rotulador
+"..//images/Objetos/ordenadorAlena.png", // OrdenadorAlena
+"..//images/SpriteSheets_Personajes/vecinaAbuela.png", //VecinaAbuela
+"..//images/SpriteSheets_Personajes/vecinoPerro.png", //VecinoPerro
+"..//images/Objetos/Colisionables/bin.png", //Bin
+"..//images/Objetos/Colisionables/desk.png", //Desk
+"..//images/Objetos/Colisionables/cooler.png", //MaquinaAgua
+"..//images/Fondos/escena6Caso1.png", // Escena6caso1
+"..//images/SpriteSheets_Personajes/vecinaNinya.png", //VecinaNinya
+"..//images/SpriteSheets_Personajes/companyero1.png", //Comp1
+"..//images/SpriteSheets_Personajes/companyero2.png", //Comp2
+"..//images/SpriteSheets_Personajes/companyero3.png", //Comp3
+"..//images/SpriteSheets_Personajes/ninaCompanyera.png", //NinaComp
+"..//images/Objetos/Colisionables/desk2.png", //Desk2
+"..//images/Objetos/Colisionables/desk3.png", //Desk3
+"..//images/Objetos/Takeable/bolsaCafe.png", //BolsaCafe
+"..//images/Fondos/escena10caso1.png", // Escena10caso1
+"..//images/Fondos/escena7caso1.png", //Escena7caso1
+"..//images/Objetos/Colisionables/planta.png", //Planta
+"..//images/Objetos/Colisionables/lockerNotsave.png", //TaquillaAbierta
+"..//images/Objetos/Colisionables/lockersave.png", //TaquillaCerrada
+"..//images/SpriteSheets_Personajes/JeffaSpriteSheet.png", //Jeffa
+"..//images/SpriteSheets_Personajes/GalinaNoviaMuertoSheet.png", //Galina
+"..//images/SpriteSheets_Personajes/senyoraDelBajo.png", //SenyoraDelBajo
+"..//images/SpriteSheets_Personajes/policia1.png", //Policia1
+"..//images/SpriteSheets_Personajes/policia2.png", //Policia2
+"..//images/SpriteSheets_Personajes/policia3.png", //Policia3
+"..//images/SpriteSheets_Personajes/policia4.png", //Policia4
+"..//images/Fondos/escena8caso1.png", //Escena8caso1
+"..//images/Objetos/Colisionables/perchero.png", //Perchero
+"..//images/Objetos/Colisionables/deskD.png", //DeskD
+"..//images/Fondos/escena12caso1.png", // Escena12caso1
+"..//images/Objetos/Doors/puertaAzotea.png", //PuertaAzotea
+"..//images/Expresiones/alenaExpresiones.png", // AlenaExpresiones
+"..//images/Expresiones/anderExpresiones.png", //AnderExpresiones
+"..//images/Expresiones/jeffaExpresiones.png", //JeffaExpresiones
+"..//images/Fondos/escena16caso1.png", //Escena16caso1
+"..//images/Objetos/muerto.png", //Muerto
+"..//images/Fondos/escena13caso1.png", // Escena13Caso1
+"..//images/Objetos/Colisionables/mesaCocina.png", //MesaCocina
+"..//images/Objetos/Colisionables/encimera.png", //Encimera
+"..//images/SpriteSheets_Personajes/periodista1.png", // Periodista1
+"..//images/SpriteSheets_Personajes/periodista2.png", //Periodista2
+"..//images/SpriteSheets_Personajes/periodista3.png", //Periodista3
+"..//images/SpriteSheets_Personajes/periodista4.png", //Periodista4
+"..//images/Fondos/escena11caso1.png", //Escena11caso1
+"..//images/Objetos/Doors/puertaTrasera_edificio_Drzewo.png", // PuertaTrasera
+"..//images/Objetos/Colisionables/Cubo de basura_edificio_Drzewo.png", //CuboBasura1
+"..//images/Objetos/Colisionables/Basura_edificio_Drzewo.png", //BolsasBasura
+"..//images/Objetos/Colisionables/escalera Incendios_edificio_Drzewo.png", //EscalerasMano
+"..//images/Dialogos/GUIdialogosAlpha.png", //GUIDialogosAlpha
+"..//images/SpriteSheets_Personajes/curioso1.png", //Curioso1
+"..//images/SpriteSheets_Personajes/curioso2.png", //Curioso2
+"..//images/SpriteSheets_Personajes/curioso3.png", //Curioso3
+"..//images/SpriteSheets_Personajes/curioso4.png", //Curioso4
+"..//images/Fondos/escena15caso1.png", // Escena15Caso1
+"..//images/Fondos/escena18caso1.png", //Escena18Caso1
+"..//images/Objetos/Colisionables/encimeraMuerto.png", //EncimeraMuerto
+"..//images/Fondos/escena14caso1.png", //Escena14Caso1
+"..//images/Objetos/Colisionables/estanteriaVieja.png", // EstanteriaVieja
+"..//images/Objetos/Colisionables/mesillaVieja.png", //MesillaVieja
+"..//images/Objetos/Colisionables/sofaVieja.png", //SofaVieja
+"..//images/Objetos/Colisionables/mesaVieja.png", //MesaVieja
+"..//images/Fondos/escena17caso1.png", // Escena17Caso1
+"..//images/Objetos/Colisionables/mesaMuerto.png" , //MesaMuerto
+"..//images/Objetos/Colisionables/mesillaMuerto.png", //MesillaMuerto
+"..//images/Objetos/Colisionables/sofaMuerto.png", //SofaMuerto
+"..//images/Objetos/Colisionables/plantaMuerto.png", //PlantaMuerto
+"..//images/SpriteSheets_Personajes/ander.png", // Ander
+"..//images/SpriteSheets_Personajes/FumadorNPC.png", // NPCFumador
+"..//images/SpriteSheets_Personajes/mujerNinyoNPC.png" // NPCMujerNinyo
+};
 
 
 

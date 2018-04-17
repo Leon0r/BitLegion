@@ -1,7 +1,7 @@
 {
    "CollisionableObject": [
       {
-         "Texture": 11,
+         "Texture": 10,
          "h": 200.0,
          "rotation": 0.0,
          "w": 370.0,
@@ -9,7 +9,7 @@
          "y": 290.0
       },
       {
-         "Texture": 12,
+         "Texture": 11,
          "h": 230.0,
          "rotation": 0.0,
          "w": 220.0,
@@ -17,7 +17,7 @@
          "y": 432.0
       },
       {
-         "Texture": 13,
+         "Texture": 12,
          "h": 300.0,
          "rotation": 0.0,
          "w": 365.0,
@@ -27,7 +27,7 @@
    ],
    "GODoors": [
       {
-         "Texture": 31,
+         "Texture": 28,
          "UnlockId": 1,
          "h": 242.0,
          "rotGOTr": -90.0,
@@ -42,7 +42,7 @@
    ],
    "GOState": [
       {
-         "Texture": 32,
+         "Texture": 29,
          "UnlockId": 1,
          "h": 30.0,
          "numText": 35,
@@ -56,7 +56,7 @@
    ],
    "GOTransiciones": [
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 60.0,
          "rotat": 0.0,
          "rotation": 0.0,
@@ -68,7 +68,7 @@
    ],
    "ItemInventario": [
       {
-         "Texture": 60,
+         "Texture": 55,
          "descripcion": "key",
          "h": 40.0,
          "rotation": 0.0,
@@ -78,7 +78,7 @@
          "y": 500.0
       },
       {
-         "Texture": 22,
+         "Texture": 19,
          "descripcion": "key",
          "h": 40.0,
          "rotation": 0.0,
@@ -89,14 +89,14 @@
       }
    ],
    "PlayerPos": {
-      "x": 100.0,
-      "y": 500.0
+      "x": 430.0,
+      "y": 356.0
    },
    "PlayerTam": {
       "h": 201.6,
       "w": 84.0
    },
-   "Texture": 10,
+   "Texture": 9,
    "h": 720.0,
    "rotation": 0.0,
    "w": 1280.0,

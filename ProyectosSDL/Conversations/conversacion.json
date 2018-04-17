@@ -5,7 +5,7 @@
 	"Nodo": [
 
 	{"numNodo":0, "nodoSig":1, "numLineas": 2, "lineas":[ {"texto": "Prueba de texto rico"}, {"texto": "Otra linea lololo"} ],
-	"numOpciones":0, "pj": 94, "emo": 0
+	"numOpciones":0, "pj": 89, "emo": 0
 	},
 
 	{
@@ -22,7 +22,7 @@
 	{"nodoApuntado": 2, "textoOpcion": "Al siguiente nodo"}
 	],
 
-	"pj": 95,
+	"pj": 90,
 	"emo": 4
 	},
 
@@ -35,7 +35,7 @@
 
 	"numOpciones":0, 
 
-	"pj": 96,
+	"pj": 91,
 	"emo": 2
 
 	}
