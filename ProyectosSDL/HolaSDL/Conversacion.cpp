@@ -5,6 +5,8 @@
 Conversacion::Conversacion(SDLApp* game) :GameObject(game)
 {
 	f = new Font("..//images/Dialogos/Moonace-Regular.ttf", tamanyoFuenteConv);
+	this->setWidth(GUIw);
+	this->setHeight(GUIh);
 }
 
 

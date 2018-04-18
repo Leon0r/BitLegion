@@ -49,6 +49,34 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			}
 		}
 
+		//Cargado objetos conversaciones
+		for (int i = 0; i < j["GOConversational"].size(); i++) {
+
+			n = j["GOConversational"][i]["Texture"];
+
+			SceneItems.push_front(new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"], j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOConversational"][i]["convoName"]));
+		}
+
+		// Cargado de decoracion
+		obj = "Decorado";
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+			Entity* aux = new Entity(app);
+			aux->setPosition(Vector2D(j[obj][i]["x"], j[obj][i]["y"]));
+			aux->setHeight(j[obj][i]["h"]);
+			aux->setWidth(j[obj][i]["w"]);
+			aux->addRenderComponent(new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n))));
+			SceneItems.push_back(aux);
+
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+		}
+
 		obj = "GOState";
 		//Cargado de Puzles
 		for (int i = 0; i < j[obj].size(); i++) {
@@ -126,35 +154,6 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
-		}
-
-		// Cargado de decoracion
-		obj = "Decorado";
-		for (int i = 0; i < j[obj].size(); i++) {
-
-			n = j[obj][i]["Texture"];
-			Entity* aux = new Entity(app);
-			aux->setPosition(Vector2D(j[obj][i]["x"], j[obj][i]["y"]));
-			aux->setHeight(j[obj][i]["h"]);
-			aux->setWidth(j[obj][i]["w"]);
-			aux->addRenderComponent(new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n))));
-			SceneItems.push_back(aux); 
-
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
-
-			if (!j[obj][i]["rotation"].is_null()) {
-				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
-			}
-		}
-
-
-		//Cargado objetos conversaciones
-		for (int i = 0; i < j["GOConversational"].size(); i++) {
-
-			n = j["GOConversational"][i]["Texture"];
-
-			SceneItems.push_front(new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"], j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOConversational"][i]["convoName"]));
 		}
 
 		//ESCENARIO

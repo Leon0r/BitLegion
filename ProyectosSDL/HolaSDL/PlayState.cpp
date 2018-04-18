@@ -3,7 +3,7 @@
 #include <list>
 
 
-bool compareZ(GameObject* o1, GameObject* o2) {
+bool compareZ(GameObject* o1, GameObject* o2) { //pure luck require ahead
 	int obj1_, obj2_;
 	obj1_ = obj2_ = 10;
 	if (o1->getPosition().getY() > o1->getGame()->getWindowHeight() / 2) {
@@ -14,14 +14,22 @@ bool compareZ(GameObject* o1, GameObject* o2) {
 		obj2_ = o2->getPosition().getY();
 	}
 
+	if (o1->getWidth() > 1000) { //es feiiiiisimo pero es mas eficiente que las otras opciones
+		obj1_ = 800;
+	}
+
+	if (o2->getWidth() > 1000) {
+		obj2_ = 800;
+	}
+
 	return (obj1_ > obj2_);
 }
 
-void PlayState::SetZBuffer()
+void PlayState::SetZBuffer() //try tongue
 {
 	Zbuffer.clear();
 	Zbuffer = stage;
-	Zbuffer.pop_back();//Quitamos el fondo
+	Zbuffer.pop_back(); //Quitamos el fondo
 	Zbuffer.sort(compareZ);
 }
 
@@ -155,7 +163,7 @@ void PlayState::render() {
 
 
 
-void PlayState::sortZbuffer() {
+void PlayState::sortZbuffer() { //no apto para sensibles
 	int alenaZActual = alena->getPosition().getY();
 
 	bool flag = true;
@@ -167,17 +175,17 @@ void PlayState::sortZbuffer() {
 	std::list<GameObject*>::iterator alenaIt;// = consAlenaIt;//No begin dynamic alena
 	for (alenaIt = Zbuffer.begin(); (*alenaIt) != alena; alenaIt++); //Encontramos la pos de alena parece un for pero es un while disfrazado (eficiencia yeyy)
 	alenaZ = alenaZActual;
-	Zbuffer.erase(alenaIt);
+	if(!enConversacion) Zbuffer.erase(alenaIt);
 	//short
 	if (!overlap.empty()) {
 		SetZBuffer();
 	}
-	else {
+	else if(!enConversacion){
 		Zbuffer.push_front(alena);
 	}
 }
 
-vector<std::list<GameObject*>::iterator*> PlayState::getOverlapping()
+vector<std::list<GameObject*>::iterator*> PlayState::getOverlapping() //tears
 {
 	vector<std::list<GameObject*>::iterator*> overlap;
 	SDL_Rect AlenaRect, itmRect, hanzpReckt;
