@@ -4,7 +4,17 @@
 
 
 bool compareZ(GameObject* o1, GameObject* o2) {
-	return (o1->getPosition().getY() > o2->getPosition().getY());
+	int obj1_, obj2_;
+	obj1_ = obj2_ = 10;
+	if (o1->getPosition().getY() > o1->getGame()->getWindowHeight() / 2) {
+		obj1_ = o1->getPosition().getY();
+	}
+
+	if (o2->getPosition().getY() > o2->getGame()->getWindowHeight() / 2) {
+		obj2_ = o2->getPosition().getY();
+	}
+
+	return (obj1_ > obj2_);
 }
 
 void PlayState::SetZBuffer()
@@ -61,11 +71,6 @@ PlayState::PlayState(SDLApp* app, bool load) : GameState(app) {
 	}
 
 	this->currentScene = alena->getCurrentScene();
-
-
-	//Zbuffer = stage;
-	// crea las escenas desde archivo
-
 }
 
 
@@ -93,8 +98,6 @@ PlayState::~PlayState() {
 		delete (*aux);
 	}
 	delete list;
-
-
 }
 
 
@@ -159,36 +162,39 @@ void PlayState::sortZbuffer() {
 	if (listhasChanged) {
 		SetZBuffer();
 	}
-	if (true) {
-		//short
-		std::list<GameObject*>::iterator it;
-		std::list<GameObject*>::iterator alenaIt;// = consAlenaIt;//No begin dynamic alena
-		for (alenaIt = Zbuffer.begin(); (*alenaIt) != alena; alenaIt++);//Encontramos la pos de alena
+	vector<std::list<GameObject*>::iterator*> overlap;
+	overlap = getOverlapping();
+	std::list<GameObject*>::iterator alenaIt;// = consAlenaIt;//No begin dynamic alena
+	for (alenaIt = Zbuffer.begin(); (*alenaIt) != alena; alenaIt++); //Encontramos la pos de alena parece un for pero es un while disfrazado (eficiencia yeyy)
+	alenaZ = alenaZActual;
+	Zbuffer.erase(alenaIt);
+	//short
+	if (!overlap.empty()) {
+		SetZBuffer();
+	}
+	else {
+		Zbuffer.push_front(alena);
+	}
+}
 
-		Zbuffer.erase(alenaIt);
-		alenaZ = alenaZActual;
-		SDL_Rect AlenaRect, itmRect, hanzpReckt;
-
-		AlenaRect.x = alena->getPosition().getX();
-		AlenaRect.y = alena->getPosition().getY() + alena->getHeight() + 10;
-		AlenaRect.w = alena->getWidth();
-		AlenaRect.h = alena->getHeight() / 6;
-		it = Zbuffer.begin();
-		while (it != Zbuffer.end() && flag) {
-			itmRect.x = (*it)->getPosition().getX();
-			itmRect.y = (*it)->getPosition().getY();
-			itmRect.w = (*it)->getWidth();
-			itmRect.h = (*it)->getHeight();
-			if (SDL_IntersectRect(&AlenaRect, &itmRect, &hanzpReckt)) {
-				it++;//Como inserta en el previo, necesitamos avanazar para mantener el orden
-				Zbuffer.insert(it, alena);//inserta en el previo
-				it--;//donde ha sido insertado
-				flag = false;
-			}
-			it++;
-		}
-		if (flag) {
-			Zbuffer.push_front(alena);
+vector<std::list<GameObject*>::iterator*> PlayState::getOverlapping()
+{
+	vector<std::list<GameObject*>::iterator*> overlap;
+	SDL_Rect AlenaRect, itmRect, hanzpReckt;
+	//Rect Alena
+	AlenaRect.x = alena->getPosition().getX();
+	AlenaRect.y = alena->getPosition().getY() + alena->getHeight() + 10;
+	AlenaRect.w = alena->getWidth();
+	AlenaRect.h = alena->getHeight() / 6; 
+	
+	for(it = Zbuffer.begin(); it != Zbuffer.end();it++){//Comprobamos con que rects hay colision
+		itmRect.x = (*it)->getPosition().getX();
+		itmRect.y = (*it)->getPosition().getY();
+		itmRect.w = (*it)->getWidth();
+		itmRect.h = (*it)->getHeight();
+		if (SDL_IntersectRect(&AlenaRect, &itmRect, &hanzpReckt)) {
+			overlap.push_back(&it); //Los añadimos al vector
 		}
 	}
+	return overlap;
 }
