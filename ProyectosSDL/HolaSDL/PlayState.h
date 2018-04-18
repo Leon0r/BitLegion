@@ -32,7 +32,6 @@ private:
 	int alenaZ;
 	void sortZbuffer();
 	bool enConversacion = false;
-
 	vector<std::list<GameObject*>::iterator*> getOverlapping();
 public:
 	PlayState() {}
