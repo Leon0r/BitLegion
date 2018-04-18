@@ -45,7 +45,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
 
 			if (!j[obj][i]["rotation"].is_null()) {
-				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+				SceneItems.front()->setRotation(j[obj][i]["rotation"]);
 			}
 		}
 

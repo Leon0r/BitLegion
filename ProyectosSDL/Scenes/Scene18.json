@@ -22,7 +22,7 @@
     ],
 
     "ItemInventario": [
-        { "x": 1180, "y": 300, "w": 20, "h": 20, "descripcion": "Ticket de compra", "tag": "ticket", "Texture": 21, "rotation": 180 }
+        { "x": 1180, "y": 300, "w": 20, "h": 20, "descripcion": "Ticket de compra", "tag": "ticket", "Texture": 21, "rotation": 45}
     ],
 
     "PlayerPos": {
