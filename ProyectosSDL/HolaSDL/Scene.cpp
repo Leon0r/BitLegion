@@ -128,6 +128,25 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			}
 		}
 
+		// Cargado de decoracion
+		obj = "Decorado";
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+			Entity* aux = new Entity(app);
+			aux->setPosition(Vector2D(j[obj][i]["x"], j[obj][i]["y"]));
+			aux->setHeight(j[obj][i]["h"]);
+			aux->setWidth(j[obj][i]["w"]);
+			aux->addRenderComponent(new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n))));
+			SceneItems.push_back(aux); 
+
+			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+		}
+
 
 		//Cargado objetos conversaciones
 		for (int i = 0; i < j["GOConversational"].size(); i++) {
