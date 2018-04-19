@@ -129,7 +129,8 @@ std::vector<std::string> Resources::imageFiles_{ "..//images/SpriteSheets_Person
 "..//images/SpriteSheets_Personajes/ander.png", // Ander
 "..//images/SpriteSheets_Personajes/FumadorNPC.png", // NPCFumador
 "..//images/SpriteSheets_Personajes/mujerNinyoNPC.png", // NPCMujerNinyo
-"..//images/Objetos/Colisionables/camaSpriteSheet.png" // spritesheet de la cama con el neon
+"..//images/Objetos/Colisionables/camaSpriteSheet.png", // spritesheet de la cama con el neon
+"..//images/Objetos/ventanaOAnim.png" //ventana animada
 };
 
 

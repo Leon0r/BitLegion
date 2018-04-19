@@ -143,7 +143,8 @@ public:
 		Ander,
 		NPCFumador,
 		NPCMujerNinyo,
-		CamaSpriteSheet
+		CamaSpriteSheet,
+		VentanaAnimada
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
