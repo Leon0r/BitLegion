@@ -1,6 +1,7 @@
 #include "PlayState.h"
 #include "GOstates.h"
 #include <list>
+#include "TransitionScreen.h"
 
 
 bool compareZ(GameObject* o1, GameObject* o2) { //pure luck require ahead
@@ -117,8 +118,10 @@ void PlayState::swapScene(int nextScene)
 		currentScene = nextScene;
 		scenes[nextScene]->enterScene();
 		alena->setCurrentScene(currentScene);
+		//app->getStateMachine()->pushState(new TransitionScreen(app, app->getStateMachine()->currentState(), 1000));
 	}
 	else cout << "Escena no encontrada, numero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
+
 }
 
 void PlayState::handleEvent(SDL_Event & e) {

@@ -1,4 +1,5 @@
 #include "MainMenuState.h"
+#include "TransitionScreen.h"
 
 
 
@@ -10,6 +11,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	nGame_ = [game]() { // funcion newGame();
 		game->getStateMachine()->pushState(new PlayState(game));//pop antes??
 		dynamic_cast<PlayState*>(game->getStateMachine()->currentState())->getScenes()[0]->enterScene(); 
+		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
 	};
 
 	lGame_ = [game]() { //funcion LoadGame();
@@ -20,6 +22,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 		if (nPlayState_ != nullptr) {
 			nPlayState_->getScenes()[nPlayState_->getNumCurrentScene()]->enterScene(); //entra en la actual
 			}
+		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
 	};
 
 	eGame_ = [game]() {

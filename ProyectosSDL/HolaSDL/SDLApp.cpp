@@ -4,6 +4,7 @@
 #include "LightsOut.h"
 #include "MainMenuState.h"
 #include "PasswordState.h"
+#include "TransitionScreen.h"
 
 SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 {
@@ -19,7 +20,9 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		TTF_Init();
 		initResources();
 		maquinaEstados = new GameStateMachine();
+
 		maquinaEstados->pushState(new MainMenuState(this));
+		maquinaEstados->pushState(new TransitionScreen(this,maquinaEstados->currentState(),3500));
 		//dynamic_cast<PlayState*>(maquinaEstados->currentState())->getScenes()[0]->enterScene();
 }
 
