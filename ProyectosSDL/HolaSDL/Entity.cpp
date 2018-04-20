@@ -64,8 +64,9 @@ void Entity::delInputComponent(InputComponent* ic) {
 void Entity::delPhysicsComponent(PhysicsComponent* pc) {
 	std::vector<PhysicsComponent*>::iterator position = std::find(
 			physicsComp_.begin(), physicsComp_.end(), pc);
-	if (position != physicsComp_.end())
+	if (position != physicsComp_.end()) {
 		physicsComp_.erase(position);
+	}
 }
 
 void Entity::delRenderComponent(RenderComponent* rc) {

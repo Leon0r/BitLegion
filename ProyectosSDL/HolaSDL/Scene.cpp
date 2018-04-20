@@ -67,10 +67,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			aux->setPosition(Vector2D(j[obj][i]["x"], j[obj][i]["y"]));
 			aux->setHeight(j[obj][i]["h"]);
 			aux->setWidth(j[obj][i]["w"]);
-			aux->addRenderComponent(new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n))));
+			ImageRenderer* im = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
+			aux->addRenderComponent(im);
 			SceneItems.push_back(aux);
 
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+			if (addAnimsFromJSON(SceneItems.back(), j[obj][i], n)) {
+				delete im; //si tiene animaciones, borra el anterior componente de render
+			}
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -335,7 +338,7 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
 	return nPuzzle;
 }
 
-void Scene::addAnimsFromJSON(GameObject* obj, json& j, const int numText){
+bool Scene::addAnimsFromJSON(GameObject* obj, json& j, const int numText){
 
 	if (!j["animation"].is_null()) {
 		if (j["animation"]) {
@@ -349,7 +352,8 @@ void Scene::addAnimsFromJSON(GameObject* obj, json& j, const int numText){
 			col->addRenderComponent(new AnimationRenderer(
 				app->getResources()->getImageTexture(Resources::ImageId(numText)), col->getAnimations(),
 				 j["numColsFrame"], j["numFilsFrame"], j["widthFrame"], j["heightFrame"]));
+			return true;
 		}
-
 	}
+	return false;
 }
