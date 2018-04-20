@@ -5,7 +5,7 @@
 TransitionScreen::TransitionScreen(SDLApp * app, GameState* previousState , Uint32 timeLimit) :GameState(app),MaxTime(timeLimit),prevState(previousState)
 {
 	timeStart = SDL_GetTicks();
-	txt = app->getResources()->getImageTexture(Resources::Cama);
+	txt = app->getResources()->getImageTexture(Resources::Transicion);
 	a = 255;
 	x = 1;
 	alphaTime = (x*MaxTime) / 255;

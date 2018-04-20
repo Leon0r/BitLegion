@@ -144,7 +144,8 @@ public:
 		NPCFumador,
 		NPCMujerNinyo,
 		CamaSpriteSheet,
-		VentanaAnimada
+		VentanaAnimada,
+		Transicion
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
