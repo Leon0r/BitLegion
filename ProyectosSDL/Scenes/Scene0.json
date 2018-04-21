@@ -27,6 +27,12 @@
         { "x": 915, "y": 125, "w": 365, "h": 300, "Texture": 12 }
     ],
 
+    "Decorado": [
+        { "x": 30, "y": 324, "w": 42, "h": 52, "Texture": 130, "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
+            "widthFrame": 42, "heightFrame": 52, "vel": 200, "loop": true,
+            "Anims": [ [0, 1, 2, 3] ] }
+    ],
+
     "GOConversational": [
          { "x": 581, "y": 400, "w": 50, "h": 50, "descripcion": "key", "tag": "key", "Texture": 19, "convoName": "conversacion" }
     ],
