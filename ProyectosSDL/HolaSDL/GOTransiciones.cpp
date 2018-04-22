@@ -6,7 +6,7 @@
 GOTransiciones::GOTransiciones(SDLApp* game, int x, int y, int w, int h, Texture* texture, int _SceneNumber):ClickeableGO(game, x, y, w, h,texture), SceneNumber(_SceneNumber)
 {
 	this->delRenderComponent(render);
-	addAnim("Arrow", { 0,1,2,3});
+	addAnim("Arrow", { 0,1,2,3}, true, -1, 200);
 	if (render != nullptr) {
 		delete render;
 		render = nullptr;
