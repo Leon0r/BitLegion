@@ -11,10 +11,25 @@
         { "x": 0, "y": 400, "w": 1280, "h": 230, "Texture": 43 }
     ],
     "Decorado": [
-    	{ "x": 323, "y": 493, "w": 56, "h": 12, "Texture": 132,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 3,
-            "widthFrame": 56, "heightFrame": 12, "vel": 100, "loop": true,
-            "Anims": [ [0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,5] ] 
+        {
+            "x": 323,
+            "y": 493,
+            "w": 56,
+            "h": 12,
+            "Texture": 132,
+            "animation": true,
+            "numFilsFrame": 2,
+            "numColsFrame": 3,
+            "widthFrame": 56,
+            "heightFrame": 12,
+            "vel": 100,
+            "loop": true,
+            "Anims": [ [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5 ] ]
+        },
+        { "x": 317, "y": 18, "w": 40, "h": 204, "Texture": 133,
+            "animation": true, "numFilsFrame": 1, "numColsFrame": 4,
+            "widthFrame": 40, "heightFrame": 204, "vel": 100, "loop": true,
+            "Anims": [ [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,2,2,2,2,3,3] ] 
         }
     ],
     "GODoors": [

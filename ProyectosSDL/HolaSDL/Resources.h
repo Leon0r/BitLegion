@@ -148,7 +148,8 @@ public:
 		Transicion,
 		CigarrillosAnim,
 		Escena9Caso1,
-		AlcantarillaAnim
+		AlcantarillaAnim,
+		NeonAnim1
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

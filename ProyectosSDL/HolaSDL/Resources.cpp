@@ -135,7 +135,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/transicion.png", //transicion
 "..//images/Objetos/cigarrillosAnim.png", //cigarrillos animados con humo
 "..//images/Fondos/escena9caso1.png", //Escena14Caso1
-"..//images/Objetos/alcantarillaAnim.png" //animacion de la alcantarilla de la calle
+"..//images/Objetos/alcantarillaAnim.png", //animacion de la alcantarilla de la calle
+"..//images/Objetos/neonAnim1.png" //animacion del neon de la calle
 };
 
 
