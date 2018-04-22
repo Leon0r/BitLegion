@@ -190,6 +190,7 @@ bool Conversacion::loadConversation(string fileName) {
 			//dialogo[i] = &nodo;
 
 		}
+		i.close();
 	}
 	return 0;
 }

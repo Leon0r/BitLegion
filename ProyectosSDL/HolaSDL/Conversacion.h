@@ -12,7 +12,7 @@ class Conversacion : public GameObject
 {
 public:
 	Conversacion(SDLApp* game);
-	~Conversacion();
+	virtual ~Conversacion();
 	void escribir();
 	virtual void handleInput(Uint32 time, const SDL_Event& event);
 	virtual void update(Uint32 time);
