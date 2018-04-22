@@ -208,7 +208,9 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 		RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
 		escenario->addRenderComponent(renderEscenario);
-		addAnimsFromJSON(escenario, j, n);
+		if (addAnimsFromJSON(escenario, j, n)) {
+			delete renderEscenario;
+		}
 		SceneItems.push_back(escenario);
 		i.close();
 	}
