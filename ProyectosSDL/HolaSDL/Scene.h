@@ -29,6 +29,7 @@ private:
 	int SceneNum;
 	list<GameObject*> SceneItems;
 	list<GameState*> SceneStates;
+	bool alenaActiva = true;
 	enum PuzzleTypes {Match3, Lights, Password}; //para la lectura del json
 	list<GameObject*>::iterator it;
 	GameState* CurrentState;

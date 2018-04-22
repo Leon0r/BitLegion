@@ -161,7 +161,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 		//ESCENARIO
 
-		n = j["Texture"];
+		if(!j["Texture"].is_null()) n = j["Texture"];
+		else n = 0;
 
 		Entity* escenario = new Entity(app);
 
@@ -196,6 +197,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			posIni.setY(j["PlayerPos"]["y"]);
 		}
 
+		if (!j["AlenaActiva"].is_null()) { alenaActiva = j["AlenaActiva"]; }
+
 		//guardamos su tamaño dependiendo de lo que ponga en el json
 		if (j["PlayerTam"].is_object()) {
 			playerTam.setX(j["PlayerTam"]["w"]);
@@ -205,6 +208,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 		RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
 		escenario->addRenderComponent(renderEscenario);
+		addAnimsFromJSON(escenario, j, n);
 		SceneItems.push_back(escenario);
 		i.close();
 	}
@@ -260,6 +264,13 @@ void Scene::enterScene() {
 
 	//establecemos su tamaño
 	pj->setTam();
+
+	if (!alenaActiva) {
+		pj->setActive(false);
+	}
+	else {
+		pj->setActive(true);
+	}
 
 	//genera la matriz para el mouse
 	pj->collisionListWasModified();
@@ -342,7 +353,7 @@ bool Scene::addAnimsFromJSON(GameObject* obj, json& j, const int numText){
 
 	if (!j["animation"].is_null()) {
 		if (j["animation"]) {
-			Entity* col = static_cast<Entity*>(SceneItems.back());
+			Entity* col = static_cast<Entity*>(obj);
 			col->setAnimated(true);
 			col->delEveryRenderComponent();
 			for (unsigned int k = 0; k < j["Anims"].size(); k++) {

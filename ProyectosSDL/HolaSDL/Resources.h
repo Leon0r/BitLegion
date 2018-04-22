@@ -146,7 +146,8 @@ public:
 		CamaSpriteSheet,
 		VentanaAnimada,
 		Transicion,
-		CigarrillosAnim
+		CigarrillosAnim,
+		Escena9Caso1
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

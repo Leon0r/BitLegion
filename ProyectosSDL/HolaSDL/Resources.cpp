@@ -133,7 +133,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Colisionables/camaSpriteSheet.png", // spritesheet de la cama con el neon
 "..//images/Objetos/ventanaOAnim.png", //ventana animada
 "..//images/Fondos/transicion.png", //transicion
-"..//images/Objetos/cigarrillosAnim.png" //cigarrillos animados con humo
+"..//images/Objetos/cigarrillosAnim.png", //cigarrillos animados con humo
+"..//images/Fondos/escena9caso1.png" //Escena14Caso1
 };
 
 

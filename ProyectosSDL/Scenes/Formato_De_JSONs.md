@@ -30,6 +30,9 @@ SceneX.json // X = numero de la escena
 
 	{
 		"Texture":0; //textura del fondo
+        
+        "AlenaActiva": true/false //si quieres que alena este activada o no. Si no pones nada se mantiene activa.
+
 		// Array con los datos de los objetos "cogibles" por el jugador existentes en la escena
     	"ItemInventario":[
         	{"descripcion":"Esta es mi descripcion","tag":"Este es mi tag","Texture":0},
