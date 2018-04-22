@@ -12,7 +12,7 @@
 
     "PlayerPos": {
         "x": 850,
-        "y": 640
+        "y": 500
     },
 
     "CollisionableObject": [
