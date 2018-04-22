@@ -1,4 +1,22 @@
 {
+   "CollisionableObject": [
+      {
+         "Texture": 81,
+         "h": 220.0,
+         "rotation": 0.0,
+         "w": 65.0,
+         "x": 960.0,
+         "y": 190.0
+      },
+      {
+         "Texture": 82,
+         "h": 210.0,
+         "rotation": 0.0,
+         "w": 55.0,
+         "x": 1180.0,
+         "y": 200.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 29,
@@ -22,8 +40,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 235.0,
-      "y": 360.0
+      "x": 920.0,
+      "y": 225.6
    },
    "PlayerTam": {
       "h": 201.6,
