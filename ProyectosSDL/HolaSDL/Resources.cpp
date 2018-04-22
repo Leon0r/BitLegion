@@ -34,7 +34,7 @@ std::vector<std::string> Resources::soundEffectFiles_{ "..//SoundFX/door.mp3",
 #include <iostream>
 
 Resources::Resources(SDLApp* game) :
-		game_(game), numOfImageTextures_(0), imageTextures_(nullptr) {
+		game_(game), numOfImageTextures_(0), imageTextures_(nullptr), music_(nullptr) {
 
 	setImageTextures(imageFiles_);
 	setMusic(musicFiles_);
