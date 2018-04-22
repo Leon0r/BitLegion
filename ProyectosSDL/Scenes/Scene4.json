@@ -26,10 +26,25 @@
             "loop": true,
             "Anims": [ [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5 ] ]
         },
-        { "x": 317, "y": 18, "w": 40, "h": 204, "Texture": 133,
-            "animation": true, "numFilsFrame": 1, "numColsFrame": 4,
-            "widthFrame": 40, "heightFrame": 204, "vel": 100, "loop": true,
-            "Anims": [ [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,2,2,2,2,3,3] ] 
+        {
+            "x": 317,
+            "y": 18,
+            "w": 40,
+            "h": 204,
+            "Texture": 133,
+            "animation": true,
+            "numFilsFrame": 1,
+            "numColsFrame": 4,
+            "widthFrame": 40,
+            "heightFrame": 204,
+            "vel": 100,
+            "loop": true,
+            "Anims": [ [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 2, 2, 2, 2, 3, 3 ] ]
+        },
+        { "x": 806, "y": 130, "w": 381, "h": 56, "Texture": 134,
+            "animation": true, "numFilsFrame": 4, "numColsFrame": 1,
+            "widthFrame": 381, "heightFrame": 56, "vel": 150, "loop": true,
+            "Anims": [ [0,0,0,0,3,3,0,3,0,0,0,0,0,0,0,0,0,1,0,1,1,2,2,2,2,3,3,0,3] ] 
         }
     ],
     "GODoors": [
