@@ -24,7 +24,7 @@ std::vector<std::string> Resources::imageFiles_ { "..//images/AlenaSpriteSheet.p
 	"..//images//GalinaNoviaMuertoSheet.png", "..//images//señoraDelBajo.png", "..//images//policia1.png", "..//images//policia2.png", "..//images//policia3.png", 
 	"..//images//policia4.png", "..//images//escena8caso1.png", "..//images//perchero.png","..//images//deskD.png" };
 
-std::vector<std::string> Resources::musicFiles_{ "..//Music/initTest.mp3",
+std::vector<std::string> Resources::musicFiles_{ "..//music/initTest.mp3",
 /*"sound/cheer.wav", "sound/boooo.wav"*/ };
 
 std::vector<std::string> Resources::soundEffectFiles_{ "..//SoundFX/door.mp3",
@@ -37,6 +37,8 @@ Resources::Resources(SDLApp* game) :
 		game_(game), numOfImageTextures_(0), imageTextures_(nullptr) {
 
 	setImageTextures(imageFiles_);
+	setMusic(musicFiles_);
+	//setSoundEffects(soundEffectFiles_);
 }
 
 Resources::~Resources() {

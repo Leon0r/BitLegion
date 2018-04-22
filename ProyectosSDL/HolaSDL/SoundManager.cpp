@@ -1,5 +1,6 @@
 #include "SoundManager.h"
 #include "Messages.h"
+#include "SDLApp.h"
 
 SoundManager::SoundManager(SDLApp* game) {
 	// TODO Auto-generated constructor stub
@@ -21,7 +22,7 @@ void SoundManager::update(Uint32 time) {
 void SoundManager::receive(Mensaje* msg) {
 	switch (msg->id_) {
 	case In_Menu:
-		
+		app->getResources()->getMusic(Resources::Beat)->play(-1);
 		break;
 	case Game_Start:
 

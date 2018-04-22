@@ -4,12 +4,12 @@
 #include "Font.h"
 #include "Texture.h"
 #include <list>
-#include "SoundManager.h"
+#include "Observable.h"
 
 const int FRAME_RATE = 25; // A menor tiempo de espera entre frames, mayor la velocidad del bucle
 
 class Entity;
-class GameState
+class GameState : public Observable
 {
 private:
 	bool listhasChanged = false;
@@ -28,7 +28,7 @@ public:
 	void addEntity(GameObject* entity){ stage.push_back(entity); }
 	GameState();
 	virtual ~GameState() { for (GameObject* it : stage) { delete it; } }; //delete de los objetos
-	GameState(SDLApp* app) : app(app) {}
+	GameState(SDLApp* app) : app(app){}
 	void deleteElement(GameObject* o);
 	list <GameObject*>* getStage() {return &stage;}
 	void changeList() { listhasChanged = true; }

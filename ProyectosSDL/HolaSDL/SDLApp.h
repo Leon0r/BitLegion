@@ -4,6 +4,8 @@
 #include "checkML.h"
 #include "GameStateMachine.h"
 #include "Resources.h"
+#include "SoundManager.h"
+
 
 using namespace std;
 
@@ -16,6 +18,7 @@ private:
 	SDL_Window* window;
 
 	Resources* resources;
+	SoundManager* soundManager;
 	SDL_Color color;
 	SDL_Event event; //maneja eventos
 	SDL_Renderer* renderer;

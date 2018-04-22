@@ -10,7 +10,7 @@ class MainMenuState :
 {
 public:
 	MainMenuState();
-	MainMenuState(SDLApp* game);
+	MainMenuState(SDLApp* game, SoundManager* sManager);
 	~MainMenuState();
 	vector<Boton*> botones;
 
@@ -22,6 +22,6 @@ private:
 	function<void()> nGame_;
 	function<void()> lGame_;
 	function<void()> eGame_;
-	Observer* sound_ = new SoundManager(app);
+	SoundManager* soundManager;
 };
 

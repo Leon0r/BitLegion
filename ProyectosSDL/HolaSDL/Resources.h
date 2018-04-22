@@ -118,8 +118,6 @@ public:
 	//
 	enum MusicId {
 		Beat, 
-		Cheer, 
-		Boooo
 	};
 
 
@@ -127,7 +125,6 @@ public:
 	//
 	enum SoundEffectId {
 		Wall_Hit, 
-		Paddle_Hit
 	};
 
 private:

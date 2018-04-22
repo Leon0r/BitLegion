@@ -17,8 +17,9 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 		TTF_Init();
 		initResources();
+		soundManager = new SoundManager(this);
 		maquinaEstados = new GameStateMachine();
-		maquinaEstados->pushState(new MainMenuState(this));
+		maquinaEstados->pushState(new MainMenuState(this, soundManager));
 		//dynamic_cast<PlayState*>(maquinaEstados->currentState())->getScenes()[0]->enterScene();
 }
 
