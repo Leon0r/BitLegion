@@ -150,7 +150,16 @@ public:
 		Escena9Caso1,
 		AlcantarillaAnim,
 		NeonAnim1,
-		NeonAnim2
+		NeonAnim2,
+		ventanaAnim2,
+		lampAnim,
+		fregaderoAnim,
+		ventiladorAnim,
+		porroAnim,
+		radiador,
+		mesaMuerto,
+		dentaduraAnim,
+		luzTechoAnim,
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
