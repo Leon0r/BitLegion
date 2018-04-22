@@ -119,16 +119,17 @@ void MouseMovement::generaMatriz(GameObject* o) {
 			if (y < tamMatriz) {//si no peta :)
 				//por cada casilla miramos si hay algun colisionable en su punto medio
 				while (it != collisions->end() && !colisionado) {
-					SDL_Rect rect = { (*it)->getPosition().getX(), (*it)->getPosition().getY(), (*it)->getWidth(), (*it)->getHeight() };
+					SDL_Rect rect = { (*it)->getPosition().getX(), (*it)->getPosition().getY() + (*it)->getHeight()/2, (*it)->getWidth(), (*it)->getHeight()/2 };
 					SDL_Point pMedio = { j, i };
 
 					//si lo hay, escribimos 0 (no puede pasar)
 					if (SDL_PointInRect(&pMedio, &rect)) {
 						colisionado = true;
 						grid2[y][x] = 0;
+						if (y - 1 >= scenePosX)grid2[y - 1][x] = 0;//para que no se bugeen los coliders añadimos una fila mas
 					}
 					//si no, escribimos 1 (puede pasar)
-					else grid2[y][x] = 1;
+					else if (x != tamMatriz / 2)grid2[y][x] = 1;//si es la primera fila se queda a 0
 					it++;
 				}
 				//por si acaso no hay colisiones en la escena, se setearian todos a unos (menos la pared)

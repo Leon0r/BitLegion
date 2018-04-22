@@ -118,7 +118,7 @@ void PlayState::swapScene(int nextScene)
 		currentScene = nextScene;
 		scenes[nextScene]->enterScene();
 		alena->setCurrentScene(currentScene);
-		app->getStateMachine()->pushState(new TransitionScreen(app, app->getStateMachine()->currentState(), 1000)); //se puede quitar si eso
+		//app->getStateMachine()->pushState(new TransitionScreen(app, app->getStateMachine()->currentState(), 1000)); //se puede quitar si eso
 	}
 	else cout << "Escena no encontrada, numero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
 

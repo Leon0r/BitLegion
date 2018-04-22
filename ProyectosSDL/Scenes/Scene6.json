@@ -12,7 +12,7 @@
     ],
 
     "Decorado": [
-    	{ "x": 355, "y": 85, "w": 605, "h": 199, "Texture": 128,
+    	{ "x": 350, "y": 82, "w": 605, "h": 199, "Texture": 128,
             "animation": true, "numFilsFrame": 5, "numColsFrame": 2,
             "widthFrame": 605, "heightFrame": 199, "vel": 200, "loop": true,
             "Anims": [ [0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7,8,8,8,9,9,9,10,10,10,11,11,11,12,12,12,13,13,13,14,14,14] ] 
@@ -42,22 +42,22 @@
 
         { "x": 251, "y": 340, "w": 80, "h": 90, "Texture": 60 },
 
-        { "x": 0, "y": 282, "w": 250, "h": 180, "Texture": 61,
+        { "x": 0, "y": 270, "w": 250, "h": 180, "Texture": 61,
         	"animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 330, "heightFrame": 259, "vel": 200, "loop": true,
             "Anims": [ [0,0,1,1] ] },
 
-        { "x": 950, "y": 282, "w": 250, "h": 180, "Texture": 69,
+        { "x": 950, "y": 270, "w": 250, "h": 180, "Texture": 69,
         	"animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 330, "heightFrame": 259, "vel": 200, "loop": true,
             "Anims": [ [0,0,1,1] ]  },
 
-        { "x": 480, "y": 282, "w": 250, "h": 180, "Texture": 70,
+        { "x": 480, "y": 270, "w": 250, "h": 180, "Texture": 70,
         	"animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 330, "heightFrame": 259, "vel": 200, "loop": true,
             "Anims": [ [0,0, 1,1] ]  },
 
-        { "x": 810, "y": 282, "w": 45, "h": 155, "Texture": 62,
+        { "x": 810, "y": 285, "w": 45, "h": 155, "Texture": 62,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 5,
             "widthFrame": 65, "heightFrame": 195, "vel": 200, "loop": true,
             "Anims": [ [0, 1, 2, 3] ]
