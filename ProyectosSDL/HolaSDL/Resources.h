@@ -147,7 +147,8 @@ public:
 		VentanaAnimada,
 		Transicion,
 		CigarrillosAnim,
-		Escena9Caso1
+		Escena9Caso1,
+		AlcantarillaAnim
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
