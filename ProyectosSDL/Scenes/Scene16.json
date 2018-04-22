@@ -17,14 +17,20 @@
             "y": 190,
             "w": 65,
             "h": 220,
-            "Texture": 81
+            "Texture": 81,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
+            "widthFrame": 39, "heightFrame": 150, "vel": 350, "loop": true,
+            "Anims": [ [0,3,0,2,0,2,0,2,0,2,1,0,2,0,2] ]
         },
         {
             "x": 1180,
             "y": 200,
             "w": 55,
             "h": 210,
-            "Texture": 82
+            "Texture": 82,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
+            "widthFrame": 37, "heightFrame": 147, "vel": 300, "loop": true,
+            "Anims": [ [0,2,0,3,0,2,0,2,0,2,0,2,1] ]
         }
     ],
 
