@@ -4,7 +4,6 @@
 #include "Font.h"
 #include "Texture.h"
 
-
 const unsigned int tamanyoFuenteConv = 40;
 const SDL_Color colorFuenteConv = { 255, 255, 255, 1 };
 
@@ -49,6 +48,9 @@ private:
 
 
 	int grupoOps = 0;
+
+
+	Mensaje* msg = nullptr;
 
 
 	Font* f;

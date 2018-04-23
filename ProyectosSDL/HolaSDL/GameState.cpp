@@ -21,6 +21,7 @@ void GameState::update() {
 void GameState::handleEvent(SDL_Event &e) { //manda a los objetos del juego que detecten 
 	
 	it = stage.begin();
+
 	listhasChanged = false;
 
 	while (!listhasChanged && it != stage.end() && *it != nullptr) {

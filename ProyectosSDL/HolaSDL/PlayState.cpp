@@ -119,6 +119,7 @@ void PlayState::swapScene(int nextScene)
 		scenes[nextScene]->enterScene();
 		alena->setCurrentScene(currentScene);
 		//app->getStateMachine()->pushState(new TransitionScreen(app, app->getStateMachine()->currentState(), 1000)); //se puede quitar si eso
+		this->changeList();
 	}
 	else cout << "Escena no encontrada, numero buscado: " << nextScene << " , escenas existentes hasta: " << scenes.size() - 1;
 
@@ -138,7 +139,7 @@ void PlayState::handleEvent(SDL_Event & e) {
 	if (!enConversacion) {
 		GameState::handleEvent(e);
 	}
-	else {
+	else{
 		stage.front()->handleInput(0, e);
 	}
 
@@ -147,7 +148,6 @@ void PlayState::setEnConversacion(bool conv) {
 
 	enConversacion = conv;
 	if (!conv) {
-		delete stage.front();
 		stage.pop_front();
 	}
 
@@ -208,4 +208,24 @@ vector<std::list<GameObject*>::iterator*> PlayState::getOverlapping() //tears
 		}
 	}
 	return overlap;
+}
+
+void PlayState::receive(Mensaje* msg) {
+	switch (msg->id_) {
+	case CambioEscena: 
+	{
+		int numScene = static_cast<MensajeCambioEscenaDialogos*>(msg)->numScene_;
+		/*GameObject* saux = stage.front();
+		delete saux;
+		enConversacion = false;*/
+		setEnConversacion(false);
+		swapScene(numScene);
+		break;
+	}
+	case DialogoAcabado:
+		setEnConversacion(false);
+		break;
+	default:
+		break;
+	}
 }

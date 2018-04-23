@@ -13,6 +13,7 @@ Conversacion::Conversacion(SDLApp* game) :GameObject(game)
 Conversacion::~Conversacion()
 {
 	delete f;
+	delete msg;
 }
 
 void Conversacion::escribir(){
@@ -94,7 +95,9 @@ void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 				}
 
 				if (nodoActual == -1) {
-					static_cast<PlayState*>(app->getStateMachine()->currentState())->setEnConversacion(false);
+					send(msg);
+					//delete this;
+					this->setActive(false);
 				}
 				else if (dialogo[nodoActual].getNumOpciones() > 3){
 						r.y = y + 3 * h / 4 + 2;
@@ -189,6 +192,22 @@ bool Conversacion::loadConversation(string fileName) {
 
 			//dialogo[i] = &nodo;
 
+		}
+
+		if (!j["msg"].is_null()) {
+			int mensaje = j["msg"];
+
+			switch (mensaje) { //pendiente de mas mensajes
+			case 0:
+				msg = new MensajeCambioEscenaDialogos(CambioEscena, j["numScene"]);
+				break;
+			default:
+				msg = new Mensaje(DialogoAcabado);
+				break;
+			}
+		}
+		else {
+			msg = new Mensaje(DialogoAcabado);
 		}
 		i.close();
 	}

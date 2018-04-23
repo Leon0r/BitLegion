@@ -5,6 +5,7 @@
 #include "Vector2D.h"
 #include <string>
 #include "json.hpp"
+#include "Observable.h"
 
 
 using namespace std;
@@ -13,7 +14,7 @@ using json = nlohmann::json;
 
 class SDLApp;
 class Texture;
-class GameObject
+class GameObject: public Observable, public Observer
 {
 public:
 	GameObject();
@@ -88,6 +89,8 @@ public:
 	}
 
 	virtual void saveToJson(json& j) = 0;
+
+	virtual void receive(Mensaje* msg) {};
 
 	int _id;
 

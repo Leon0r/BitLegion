@@ -12,7 +12,7 @@ public:
 		convo->loadConversation(convoName);
 	};
 	virtual void saveToJson(json& j) {};
-private:
+protected:
 	virtual void act();
 	virtual void secondAct() {};
 	bool inconversation = false;

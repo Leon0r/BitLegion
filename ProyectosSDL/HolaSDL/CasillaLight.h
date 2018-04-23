@@ -1,7 +1,7 @@
 #pragma once
 #include "ClickeableGO.h"
 class CasillaLight :
-	public ComponenteClickeable, public Entity, public Observable
+	public ComponenteClickeable, public Entity
 {
 private:
 	bool encendido;

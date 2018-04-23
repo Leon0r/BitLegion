@@ -6,6 +6,7 @@
 #include "GOConversational.h"
 #include "PasswordState.h"
 #include "PasswordState.h"
+#include "AutoConversational.h"
 
 Scene::Scene()
 {
@@ -56,6 +57,15 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 			SceneItems.push_front(new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"], j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOConversational"][i]["convoName"]));
+		}
+
+		//Cargado objetos autoconversaciones
+		for (int i = 0; i < j["AutoGOConversational"].size(); i++) {
+
+			n = j["AutoGOConversational"][i]["Texture"];
+
+			SceneItems.push_front(new AutoConversational(app, j["AutoGOConversational"][i]["x"], j["AutoGOConversational"][i]["y"], j["AutoGOConversational"][i]["w"], j["AutoGOConversational"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["AutoGOConversational"][i]["convoName"]));
 		}
 
 		// Cargado de decoracion

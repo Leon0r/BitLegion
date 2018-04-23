@@ -3,7 +3,7 @@
 
 void GOUnlockeable::act() {
 	if (!opened) {
-		if (dynamic_cast<MainCharacter*>(dynamic_cast<PlayState*>(this->getGame()->getStateMachine()->currentState())->getMainPj())->getCurrentTag() == key) {
+		if (static_cast<MainCharacter*>(static_cast<PlayState*>(this->getGame()->getStateMachine()->currentState())->getMainPj())->getCurrentTag() == key) {
 			opened = true;
 			PlayState* aux = static_cast<PlayState*>(app->getStateMachine()->currentState());
 			if (aux != nullptr) {

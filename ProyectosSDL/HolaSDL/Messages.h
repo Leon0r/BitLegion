@@ -11,11 +11,16 @@ enum Messages {
 	MouseMoving,
 	CambioEscena,
 	LuzInvertida,
-	WinPuzzle
+	WinPuzzle,
+	ChangeScene,
+	MensajeVacio,
+	DialogoAcabado,
+	Stop
 };
 
 struct Mensaje{
-	Mensaje(Messages id) : id_(id) {}
+	Mensaje(Messages id) : id_(id) {};
+	Mensaje(): id_(MensajeVacio){};
 	Messages id_;
 };
 
@@ -23,5 +28,11 @@ struct MensajePosicionMatriz: Mensaje //mensaje que devuelve la posicion de la m
 {
 	MensajePosicionMatriz(Messages id, std::pair<const int, const int> pos) : Mensaje(id), pos_(pos) {}
 	std::pair<const int, const int> pos_;
+};
+
+struct MensajeCambioEscenaDialogos : Mensaje 
+{
+	MensajeCambioEscenaDialogos(Messages id, int numScene) : Mensaje(id), numScene_(numScene) {}
+	int numScene_;
 };
 

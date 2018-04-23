@@ -51,5 +51,7 @@ public:
 	int getNumCurrentScene() const { return this->currentScene; };
 	virtual void handleEvent(SDL_Event &e);
 	void setEnConversacion(bool conv);
+
+	virtual void receive(Mensaje* msg);
 };
 

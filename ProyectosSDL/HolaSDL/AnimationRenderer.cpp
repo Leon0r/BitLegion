@@ -101,6 +101,9 @@ void AnimationRenderer::receive(Mensaje* msg)
 	case StopLeft:
 		playAnim("IdleLeft");
 		break;
+	case Ch_TakeObj:
+		playAnim("IdleLeft");
+		break;
 	default:
 		playAnim("Idle");
 		break;

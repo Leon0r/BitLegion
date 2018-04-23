@@ -12,9 +12,11 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	addAnim("IdleLeft", { 16,17,18,19 }, true, -1, 200);//parada a la izquierda
 	addAnim("Left", { 0,1,2,3,4,5,6,7 });//caminar a la izquierda 
 	addAnim("Right", { 8,9,10,11,12,13,14,15 });//caminar a la derecha
+	addAnim("Rara", { 1, 5, 7, 10, 3, 22, 21 });//caminar a la derecha
 
 	//componentes
 	render = new AnimationRenderer(_texture, animations, 4, 4, 60, 144);
+	
 	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
 	movement = new MovementComponent(colisionables);//mueve al jugador cuando se usa el teclado
 	keyboard = new KeyboardComponent(vel, SDLK_d, SDLK_a, SDLK_w, SDLK_s, SDLK_i,SDLK_p);//decide la direccion del jugador cuando se usa el teclado
@@ -24,10 +26,11 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	switcher.setMode(0);
 
 	//mensajes
-	keyboard->addObserver(dynamic_cast<AnimationRenderer*>(render));//teclado a animaciones
-	keyboard->addObserver(dynamic_cast<ComponentSwitcher*>(&switcher));//teclado a switcher para no pisarse con mouse
-	mouseMovement->addObserver(dynamic_cast<AnimationRenderer*>(render));//mouse a animaciones
-	mouseMovement->addObserver(dynamic_cast<ComponentSwitcher*>(&switcher));//mouse a switcher para no pisarse con teclado
+	keyboard->addObserver(static_cast<AnimationRenderer*>(render));//teclado a animaciones
+	keyboard->addObserver(static_cast<ComponentSwitcher*>(&switcher));//teclado a switcher para no pisarse con mouse
+	mouseMovement->addObserver(static_cast<AnimationRenderer*>(render));//mouse a animaciones
+	mouseMovement->addObserver(static_cast<ComponentSwitcher*>(&switcher));//mouse a switcher para no pisarse con teclado
+	this->addObserver(static_cast<AnimationRenderer*>(render));
 
 	// posicion y dimensiones
 	this->setWidth(j["mainPj"]["w"]);//ancho, alto, posicion y textura
@@ -97,4 +100,18 @@ void MainCharacter::setTam() {
 	Vector2D tam = static_cast<PlayState*>(app->getStateMachine()->currentState())->getCurrentScene()->getPlayerTam();
 	setWidth(tam.getX()); setHeight(tam.getY());
 }
-void MainCharacter::cleanKeys() { static_cast<KeyboardComponent*>(keyboard)->cleanStacks(); }//llamado al entrar en una escena, limpia las pilas de teclas para evitar errores
+void MainCharacter::cleanKeys() { (keyboard)->cleanStacks(); }//llamado al entrar en una escena, limpia las pilas de teclas para evitar errores
+
+void MainCharacter::receive(Mensaje* msg) {
+	switch (msg->id_)
+	{
+	case Stop:
+		this->setVelocity(Vector2D(0.0, 0.0));
+		this->getMouseComponent()->send(&Mensaje(MouseStop));
+		this->getMouseComponent()->send(&Mensaje(CambioEscena));
+		this->cleanKeys();
+		break;
+	default:
+		break;
+	}
+}
