@@ -11,7 +11,7 @@
     ],
 
     "Decorado": [
-    	{ "x": 725, "y": 220, "w": 80, "h": 133, "Texture": 136,
+    	{ "x": 725, "y": 220, "w": 77, "h": 130, "Texture": 136,
             "animation": true, "numFilsFrame": 1, "numColsFrame": 2,
             "widthFrame": 80, "heightFrame": 133, "vel": 200, "loop": true,
             "Anims": [ [1,1,1,1,1,1,0,1,1,0,0] ] 
@@ -19,8 +19,13 @@
     ],
 
     "CollisionableObject": [
-	{ "x": 25, "y": 205, "w": 93, "h": 230, "Texture": 85 },
-	{ "x": 425, "y": 215, "w": 385, "h": 240, "Texture": 86 }
+    { "x": 600, "y": 350, "w": 65, "h": 215, "Texture": 77,
+        "animation": true, "numFilsFrame": 2, "numColsFrame": 6,
+        "widthFrame": 35, "heightFrame": 137, "vel": 200, "loop": true,
+        "Anims": [ [0,5,6,7,8,7,10,9,7,10,7,10,7,10,7,10,7,10,6,5,4,1,3,2,3,1,0,3] ]
+    },
+    { "x": 25, "y": 205, "w": 90, "h": 220, "Texture": 85 },  
+    { "x": 425, "y": 215, "w": 375, "h": 230, "Texture": 86 }
     ],
 
     "PlayerPos": {
