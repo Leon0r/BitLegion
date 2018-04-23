@@ -12,10 +12,10 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	addAnim("IdleLeft", { 16,17,18,19 }, true, -1, 200);//parada a la izquierda
 	addAnim("Left", { 0,1,2,3,4,5,6,7 });//caminar a la izquierda 
 	addAnim("Right", { 8,9,10,11,12,13,14,15 });//caminar a la derecha
-	addAnim("Rara", { 1, 5, 7, 10, 3, 22, 21 });//caminar a la derecha
+	addAnim("TakeObj", { 24,25,26,25,24,23 }, false, 0, 200);//coger objetos
 
 	//componentes
-	render = new AnimationRenderer(_texture, animations, 4, 4, 60, 144);
+	render = new AnimationRenderer(_texture, animations, 4, 7, 60, 144);
 	
 	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
 	movement = new MovementComponent(colisionables);//mueve al jugador cuando se usa el teclado

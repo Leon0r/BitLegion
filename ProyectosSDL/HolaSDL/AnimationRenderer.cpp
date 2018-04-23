@@ -102,7 +102,7 @@ void AnimationRenderer::receive(Mensaje* msg)
 		playAnim("IdleLeft");
 		break;
 	case Ch_TakeObj:
-		playAnim("IdleLeft");
+		playAnim("TakeObj");
 		break;
 	default:
 		playAnim("Idle");
