@@ -10,14 +10,14 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 {
 	nGame_ = [game]() { // funcion newGame();
 		game->getStateMachine()->pushState(new PlayState(game));//pop antes??
-		dynamic_cast<PlayState*>(game->getStateMachine()->currentState())->getScenes()[0]->enterScene(); 
+		static_cast<PlayState*>(game->getStateMachine()->currentState())->getScenes()[0]->enterScene();
 		//game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
 	};
 
 	lGame_ = [game]() { //funcion LoadGame();
 		game->getStateMachine()->pushState(new PlayState(game, true));//pop antes??
 
-		PlayState* nPlayState_ = dynamic_cast<PlayState*>(game->getStateMachine()->currentState());
+		PlayState* nPlayState_ = static_cast<PlayState*>(game->getStateMachine()->currentState());
 
 		if (nPlayState_ != nullptr) {
 			nPlayState_->getScenes()[nPlayState_->getNumCurrentScene()]->enterScene(); //entra en la actual
