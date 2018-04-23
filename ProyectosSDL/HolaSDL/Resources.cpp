@@ -137,15 +137,15 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/escena9caso1.png", //Escena14Caso1
 "..//images/Objetos/alcantarillaAnim.png", //animacion de la alcantarilla de la calle
 "..//images/Objetos/neonAnim1.png", //animacion del neon de la calle
-"..//images/Objetos/neonAnim2.png" //animacion del neon de la calle
-"..//images/Objetos/ventanaAnim2.png" //animacion del descansillo de jeffa (ventana)
-"..//images/Objetos/lampDeskD.png" //animacion de la lampara de jeffa
-"..//images/Objetos/fregadero.png" //animacion del fregadero de la vieja
-"..//images/Objetos/ventiladorTecho.png" //animacion ventilador
-"..//images/Objetos/porro.png" //porro del muerto
-"..//images/Objetos/Colisionables/radiador.png" //radiador de la vieja
-"..//images/Objetos/Colisionables/mesaCocina2.png" //mesa del muerto(cocina)
-"..//images/Objetos/dentaduraVieja.png" //animacion de la dentadura de la vieja
+"..//images/Objetos/neonAnim2.png", //animacion del neon de la calle
+"..//images/Objetos/ventanaAnim2.png", //animacion del descansillo de jeffa (ventana)
+"..//images/Objetos/lampDeskD.png", //animacion de la lampara de jeffa
+"..//images/Objetos/fregadero.png", //animacion del fregadero de la vieja
+"..//images/Objetos/ventiladorTecho.png", //animacion ventilador
+"..//images/Objetos/porro.png", //porro del muerto
+"..//images/Objetos/Colisionables/radiador.png", //radiador de la vieja
+"..//images/Objetos/Colisionables/mesaCocina2.png", //mesa del muerto(cocina)
+"..//images/Objetos/dentaduraVieja.png", //animacion de la dentadura de la vieja
 "..//images/Objetos/luzTecho.png", //animacion de las luces del salon del muerto
 "..//images/Fondos/FondoMenu.png", //fondo del menu principal
 "..//images/Fondos/logo.png", //logo del juego

@@ -17,6 +17,9 @@ private:
 	static void loadGame(SDLApp* app_);
 	static void exit(SDLApp* app_);*/
 	RenderComponent* btext;
+	RenderComponent* fondotext;
+	RenderComponent* logo;
+	Entity* fondo;
 	function<void()> nGame_;
 	function<void()> lGame_;
 	function<void()> eGame_;

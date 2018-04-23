@@ -10,14 +10,14 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 {
 	nGame_ = [game]() { // funcion newGame();
 		game->getStateMachine()->pushState(new PlayState(game));//pop antes??
-		static_cast<PlayState*>(game->getStateMachine()->currentState())->getScenes()[0]->enterScene(); 
+		dynamic_cast<PlayState*>(game->getStateMachine()->currentState())->getScenes()[0]->enterScene(); 
 		//game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
 	};
 
 	lGame_ = [game]() { //funcion LoadGame();
 		game->getStateMachine()->pushState(new PlayState(game, true));//pop antes??
 
-		PlayState* nPlayState_ = static_cast<PlayState*>(game->getStateMachine()->currentState());
+		PlayState* nPlayState_ = dynamic_cast<PlayState*>(game->getStateMachine()->currentState());
 
 		if (nPlayState_ != nullptr) {
 			nPlayState_->getScenes()[nPlayState_->getNumCurrentScene()]->enterScene(); //entra en la actual
@@ -31,6 +31,8 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 	cout << "mainMenu" << endl;
 	btext = new ImageRenderer(app->getResources()->getImageTexture(Resources::TicketCompra));
+	fondotext = new ImageRenderer(app->getResources()->getImageTexture(Resources::FondoMenu));
+
 	Boton* b;
 	b = new Boton(app, "NewGame", nGame_);
 	b->setWidth(100); b->setHeight(75);
@@ -49,6 +51,13 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	b->setPosition(Vector2D(app->getWindowWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 5) * 3 / 3));
 	b->addRenderComponent(btext);
 	botones.push_back(b);stage.push_back(b);
+
+	fondo = new Entity(app);
+	fondo->setPosition({ 0, 0 });
+	fondo->setWidth(fondo->getGame()->getWindowWidth());
+	fondo->setHeight(fondo->getGame()->getWindowHeight());
+	fondo->addRenderComponent(fondotext);
+	stage.push_back(fondo);
 }
 
 MainMenuState::~MainMenuState()
@@ -60,6 +69,7 @@ MainMenuState::~MainMenuState()
 		this->deleteElement(*it);
 	}
 	delete(btext);
+	//delete(logo);
 }
 
 
