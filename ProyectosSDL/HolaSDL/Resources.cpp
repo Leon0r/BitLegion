@@ -33,7 +33,7 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Colisionables/relojpasillo.png", //RelojPasillo
 "..//images/Objetos/Doors/puertaCasaAlena.png", // PuertaCasaAlena
 "..//images/Objetos/flechaTransicion.png", //FlechaTransicionSpriteSheet
-"..//images/llavePisoPuzzle.png", //llavePisoPuzzle
+"..//images/Puzles/llavePisoPuzzle.png", //llavePisoPuzzle
 "..//images/Puzles/casillaPuzzleV.png", //CasillaPuzzleV
 "..//images/Puzles/botonPuzzle.png" , //BotonPuzzle
 "..//images/Puzles/PuzzleHud.png" , //PuzzleHud
