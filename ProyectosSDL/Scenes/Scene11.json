@@ -16,7 +16,7 @@
 	],
 
      "GOState": [
-        { "x": 488, "y": 240, "w": 30, "h": 30, "Texture": 29, "rotation": -45, "password": "kaka","type": 2, "UnlockId": 1 }
+        { "x": 588, "y": 240, "w": 30, "h": 30, "Texture": 29, "rotation": -45, "password": "kaka","type": 2, "UnlockId": 1 }
     ],
 
 	"CollisionableObject": [

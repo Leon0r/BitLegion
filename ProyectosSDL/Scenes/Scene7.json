@@ -24,7 +24,7 @@
     ],
 
     "Decorado": [
-        { "x": 975, "y": 110, "w": 166, "h": 150, "Texture": 135,
+        { "x": 965, "y": 115, "w": 166, "h": 150, "Texture": 135,
             "animation": true, "numFilsFrame": 4, "numColsFrame": 4,
             "widthFrame": 166, "heightFrame": 150, "vel": 200, "loop": true,
             "Anims": [ [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14] ] 

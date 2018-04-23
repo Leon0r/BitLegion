@@ -107,6 +107,33 @@
          "widthFrame": 26,
          "x": 700.0,
          "y": 450.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               3,
+               4,
+               5,
+               6,
+               7
+            ]
+         ],
+         "Texture": 138,
+         "animation": true,
+         "h": 133.0,
+         "heightFrame": 133,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 4,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 180.0,
+         "widthFrame": 180,
+         "x": 146.0,
+         "y": 22.0
       }
    ],
    "GOTransiciones": [

@@ -34,6 +34,62 @@
          "y": 450.0
       }
    ],
+   "Decorado": [
+      {
+         "Anims": [
+            [
+               0,
+               0,
+               1,
+               1,
+               2,
+               2,
+               3,
+               3
+            ]
+         ],
+         "Texture": 142,
+         "animation": true,
+         "h": 32.0,
+         "heightFrame": 32,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 15.0,
+         "widthFrame": 15,
+         "x": 146.0,
+         "y": 249.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               3,
+               4,
+               5,
+               6,
+               7
+            ]
+         ],
+         "Texture": 138,
+         "animation": true,
+         "h": 133.0,
+         "heightFrame": 133,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 4,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 180.0,
+         "widthFrame": 180,
+         "x": 546.0,
+         "y": 20.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 29,
@@ -57,7 +113,7 @@
       }
    ],
    "PlayerPos": {
-      "x": 1200.0,
+      "x": 1196.0,
       "y": 450.0
    },
    "PlayerTam": {
