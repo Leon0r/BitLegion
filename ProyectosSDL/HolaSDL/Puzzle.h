@@ -30,6 +30,7 @@ public:
 	virtual void win() {
 		app->getStateMachine()->popState(false);
 		unlockObjects();
+		app->getStateMachine()->currentState()->SetZBuffer();
 		send(&Mensaje(WinPuzzle));
 	}
 };

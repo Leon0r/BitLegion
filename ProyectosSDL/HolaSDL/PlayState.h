@@ -38,7 +38,7 @@ public:
 	virtual ~PlayState();
 	virtual void render();
 
-	void SetZBuffer();
+	virtual void SetZBuffer();
 	PlayState(SDLApp* app, bool load = false);
 	MainCharacter* getMainPj() { return alena; }
 	ShortCut* getShortCut(){ return shortcut; }

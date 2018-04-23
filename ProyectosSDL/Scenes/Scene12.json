@@ -24,9 +24,5 @@
 
     "GODoors": [
         { "x": 337, "y": 287, "w": 96, "h": 173, "Texture": 88, "tag": "-", "scneNum": 0, "rotGOTr": -90, "UnlockId": 1 }
-    ],
-
-    "GOState": [
-		{ "x": 387, "y": 365, "w": 30, "h": 30, "Texture": 29, "rotation": -45, "password": "kaka","type": 2, "UnlockId": 1 }
     ]
 }

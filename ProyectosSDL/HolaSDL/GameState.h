@@ -34,6 +34,7 @@ public:
 	list <GameObject*>* getStage() {return &stage;}
 	void changeList() { listhasChanged = true; }
 	virtual void receive(Mensaje* msg) {};
+	virtual void SetZBuffer() {};
 
 };
 
