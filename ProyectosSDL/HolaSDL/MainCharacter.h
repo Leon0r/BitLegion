@@ -48,7 +48,7 @@ private:
 	ShortCut * shortCut;
 	string currentTag;
 	RenderComponent* render;
-	KeyboardComponent* keyboard;
+	InputComponent* keyboard;
 	PhysicsComponent* movement;
 	MouseMovement* mouseMovement;
 	ObjectList* list;

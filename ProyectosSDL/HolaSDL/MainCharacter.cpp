@@ -100,7 +100,7 @@ void MainCharacter::setTam() {
 	Vector2D tam = static_cast<PlayState*>(app->getStateMachine()->currentState())->getCurrentScene()->getPlayerTam();
 	setWidth(tam.getX()); setHeight(tam.getY());
 }
-void MainCharacter::cleanKeys() { (keyboard)->cleanStacks(); }//llamado al entrar en una escena, limpia las pilas de teclas para evitar errores
+void MainCharacter::cleanKeys() { static_cast<KeyboardComponent*>(keyboard)->cleanStacks(); }//llamado al entrar en una escena, limpia las pilas de teclas para evitar errores
 
 void MainCharacter::receive(Mensaje* msg) {
 	switch (msg->id_)
