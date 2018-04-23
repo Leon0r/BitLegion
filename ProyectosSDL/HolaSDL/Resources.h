@@ -117,14 +117,14 @@ public:
 	// Music -- each file is loaded as an instance of Music
 	//
 	enum MusicId {
-		Beat, 
+		MainTheme
 	};
 
 
 	// Sound Effects -- each file is loaded as an instance of SoundEffect
 	//
 	enum SoundEffectId {
-		Wall_Hit, 
+		Wall_Hit 
 	};
 
 private:

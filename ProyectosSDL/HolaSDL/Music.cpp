@@ -27,6 +27,10 @@ void Music::pause() {
 	Mix_PauseMusic();
 }
 
+void Music::resume() {
+	Mix_ResumeMusic();
+}
+
 void Music::close() {
 	if (music_ != nullptr) {
 		Mix_FreeMusic(music_);
