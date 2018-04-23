@@ -87,8 +87,7 @@ PlayState::~PlayState() {
 
 	//Se destruye la conversacion si la hay, para que no de problemas
 	if (enConversacion) {
-		delete stage.front();
-		stage.pop_front();
+		setEnConversacion(false);
 	}
 
 	vector<Scene*>::iterator aux;
