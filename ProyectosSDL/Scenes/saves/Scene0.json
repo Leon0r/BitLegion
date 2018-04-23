@@ -1,10 +1,41 @@
 {
    "CollisionableObject": [
       {
+         "Anims": [
+            [
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               1,
+               0,
+               1,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0
+            ]
+         ],
          "Texture": 127,
+         "animation": true,
          "h": 318.0,
+         "heightFrame": 318,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
          "rotation": 0.0,
+         "vel": 150.0,
          "w": 330.0,
+         "widthFrame": 330,
          "x": 0.0,
          "y": 140.0
       },
@@ -23,6 +54,31 @@
          "w": 365.0,
          "x": 915.0,
          "y": 125.0
+      }
+   ],
+   "Decorado": [
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               3
+            ]
+         ],
+         "Texture": 130,
+         "animation": true,
+         "h": 52.0,
+         "heightFrame": 52,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 42.0,
+         "widthFrame": 42,
+         "x": 30.0,
+         "y": 324.0
       }
    ],
    "GODoors": [

@@ -94,8 +94,8 @@ void Entity::saveToJson(json& j) {
 
 	if (_id != -4) {
 		j["UnlockId"] = _id;
-		saveAnims(j);
 	}
+	saveAnims(j);
 }
 
 void Entity::delEveryRenderComponent() { //deletea y borra de la lista

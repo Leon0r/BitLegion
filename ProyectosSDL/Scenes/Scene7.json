@@ -12,8 +12,14 @@
     ],
 
     "CollisionableObject": [
-	{ "x": 215, "y": 175, "w": 155, "h": 225, "Texture": 76 },
-	{ "x": 450, "y": 175, "w": 155, "h": 225, "Texture": 75 },
+	{ "x": 215, "y": 175, "w": 155, "h": 225, "Texture": 76,
+	 "animation": true, "numFilsFrame": 1, "numColsFrame": 2,
+            "widthFrame": 206, "heightFrame": 320, "vel": 200, "loop": true,
+            "Anims": [ [0,0,1,1] ] },
+	{ "x": 450, "y": 175, "w": 155, "h": 225, "Texture": 75,
+	 "animation": true, "numFilsFrame": 1, "numColsFrame": 2,
+            "widthFrame": 207, "heightFrame": 320, "vel": 200, "loop": true,
+            "Anims": [ [0,0,1,1] ]  },
 	{ "x": 640, "y": 295, "w": 105, "h": 98, "Texture": 74 }
     ],
 

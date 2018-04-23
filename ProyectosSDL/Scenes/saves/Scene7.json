@@ -1,18 +1,48 @@
 {
    "CollisionableObject": [
       {
+         "Anims": [
+            [
+               0,
+               0,
+               1,
+               1
+            ]
+         ],
          "Texture": 76,
+         "animation": true,
          "h": 225.0,
+         "heightFrame": 320,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
          "rotation": 0.0,
+         "vel": 200.0,
          "w": 155.0,
+         "widthFrame": 206,
          "x": 215.0,
          "y": 175.0
       },
       {
+         "Anims": [
+            [
+               0,
+               0,
+               1,
+               1
+            ]
+         ],
          "Texture": 75,
+         "animation": true,
          "h": 225.0,
+         "heightFrame": 320,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
          "rotation": 0.0,
+         "vel": 200.0,
          "w": 155.0,
+         "widthFrame": 207,
          "x": 450.0,
          "y": 175.0
       },

@@ -17,10 +17,29 @@
          "y": 125.0
       },
       {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               3,
+               4,
+               5,
+               6,
+               7
+            ]
+         ],
          "Texture": 59,
+         "animation": true,
          "h": 210.0,
+         "heightFrame": 112,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 4,
          "rotation": 0.0,
+         "vel": 200.0,
          "w": 90.0,
+         "widthFrame": 49,
          "x": 610.0,
          "y": 325.0
       }

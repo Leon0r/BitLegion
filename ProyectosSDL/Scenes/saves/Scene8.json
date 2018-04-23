@@ -17,6 +17,38 @@
          "y": 215.0
       }
    ],
+   "Decorado": [
+      {
+         "Anims": [
+            [
+               1,
+               1,
+               1,
+               1,
+               1,
+               1,
+               0,
+               1,
+               1,
+               0,
+               0
+            ]
+         ],
+         "Texture": 136,
+         "animation": true,
+         "h": 133.0,
+         "heightFrame": 133,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 80.0,
+         "widthFrame": 80,
+         "x": 725.0,
+         "y": 220.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 29,

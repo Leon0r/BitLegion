@@ -7,6 +7,7 @@
 #include "PasswordState.h"
 #include "PasswordState.h"
 #include "AutoConversational.h"
+#include "Decorado.h"
 
 Scene::Scene()
 {
@@ -73,7 +74,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 		for (int i = 0; i < j[obj].size(); i++) {
 
 			n = j[obj][i]["Texture"];
-			Entity* aux = new Entity(app);
+			Decorado* aux = new Decorado(app);
 			aux->setPosition(Vector2D(j[obj][i]["x"], j[obj][i]["y"]));
 			aux->setHeight(j[obj][i]["h"]);
 			aux->setWidth(j[obj][i]["w"]);

@@ -41,6 +41,73 @@
          "y": 500.0
       }
    ],
+   "Decorado": [
+      {
+         "Texture": 15,
+         "h": 44.0,
+         "rotation": 0.0,
+         "w": 50.0,
+         "x": 715.0,
+         "y": 465.0
+      },
+      {
+         "Anims": [
+            [
+               1,
+               1,
+               1,
+               1,
+               1,
+               1,
+               0,
+               1,
+               1,
+               0,
+               0
+            ]
+         ],
+         "Texture": 143,
+         "animation": true,
+         "h": 328.0,
+         "heightFrame": 328,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 1,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 421.0,
+         "widthFrame": 421,
+         "x": 725.0,
+         "y": 39.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               0,
+               1,
+               1,
+               2,
+               2,
+               3,
+               3
+            ]
+         ],
+         "Texture": 139,
+         "animation": true,
+         "h": 32.0,
+         "heightFrame": 32,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "vel": 150.0,
+         "w": 26.0,
+         "widthFrame": 26,
+         "x": 700.0,
+         "y": 450.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 29,
