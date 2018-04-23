@@ -163,7 +163,7 @@ public:
 		FondoMenu,
 		Logo,
 		LogoAnim,
-		Telefono
+		Telefono,
 		ExpresionesExtrasOficina
 	};
 private:
