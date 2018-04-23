@@ -146,7 +146,10 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Colisionables/radiador.png" //radiador de la vieja
 "..//images/Objetos/Colisionables/mesaCocina2.png" //mesa del muerto(cocina)
 "..//images/Objetos/dentaduraVieja.png" //animacion de la dentadura de la vieja
-"..//images/Objetos/luzTecho.png" //animacion de las luces del salon del muerto
+"..//images/Objetos/luzTecho.png", //animacion de las luces del salon del muerto
+"..//images/Fondos/FondoMenu.png", //fondo del menu principal
+"..//images/Fondos/logo.png", //logo del juego
+"..//images/Fondos/logoAnim.png" //logo del juego animado
 };
 
 
