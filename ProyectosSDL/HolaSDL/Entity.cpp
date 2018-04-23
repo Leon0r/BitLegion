@@ -109,8 +109,8 @@ void Entity::saveAnims(json & j){
 	if (this->isAnimated()) { //si esta animado, guarda las animaciones
 		j["animation"] = true;
 		AnimationRenderer* aux = static_cast<AnimationRenderer*>(renderComp_.front());
-		j["numFilsFrame"] = aux->getnumFrFils();
-		j["numColsFrame"] = aux->getNumFrCols();
+		j["numColsFrame"] = aux->getnumFrFils();
+		j["numFilsFrame"] = aux->getNumFrCols();
 		j["widthFrame"] = aux->getfrWidth();
 		j["heightFrame"] = aux->getfrHeight();
 		j["loop"] = this->getAnimations()[0]->loop_;
