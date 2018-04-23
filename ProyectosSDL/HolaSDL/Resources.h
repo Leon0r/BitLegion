@@ -160,6 +160,9 @@ public:
 		mesaMuerto,
 		dentaduraAnim,
 		luzTechoAnim,
+		FondoMenu,
+		Logo,
+		LogoAnim
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
