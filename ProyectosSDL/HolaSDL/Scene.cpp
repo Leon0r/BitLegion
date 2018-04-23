@@ -319,6 +319,8 @@ void Scene::saveSceneToJson() {
 	j["PlayerTam"]["w"] = playerTam.getX();
 	j["PlayerTam"]["h"] = playerTam.getY();
 
+	j["AlenaActiva"] = alenaActiva;
+
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo
 }
