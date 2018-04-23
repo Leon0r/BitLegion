@@ -20,7 +20,7 @@ void ClickeableGO::handleInput(Uint32 time, const SDL_Event& event) {
 	if (ComponenteClickeable::handleInput(this, event) && this->isActive()) {
 		// vvvv Habra que cambiarlo cuando se suba el personaje la clase escena en general vvvv
 		if (rangeCheck)
-			if(inRange((int)dynamic_cast<PlayState*>(this->getGame()->getStateMachine()->currentState())->getMainPj()->getPosition().getX())) {
+			if(inRange((int)static_cast<PlayState*>(this->getGame()->getStateMachine()->currentState())->getMainPj()->getPosition().getX())) {
 				act();//Redefinico en cada clase
 				cout << "Pulsado" << endl;
 			}

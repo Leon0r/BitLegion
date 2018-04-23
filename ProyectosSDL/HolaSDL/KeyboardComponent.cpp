@@ -29,13 +29,13 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 			r = l = u = d = false;
 			while (!Xaxis.empty())Xaxis.pop();
 			while (!Yaxis.empty())Yaxis.pop();
-			dynamic_cast<PlayState*>(o->getGame()->getStateMachine()->currentState())->creaInventario();
+			static_cast<PlayState*>(o->getGame()->getStateMachine()->currentState())->creaInventario();
 		}
 		if (event.key.keysym.sym == pause) {
 			r = l = u = d = false;
 			while (!Xaxis.empty())Xaxis.pop();
 			while (!Yaxis.empty())Yaxis.pop();
-			dynamic_cast<PlayState*>(o->getGame()->getStateMachine()->currentState())->pauseMenu();
+			static_cast<PlayState*>(o->getGame()->getStateMachine()->currentState())->pauseMenu();
 		}
 	}
 	//si se ha levantado una tecla se quita de la pila de teclas y se marca como no pulsada

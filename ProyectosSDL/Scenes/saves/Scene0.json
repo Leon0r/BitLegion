@@ -40,21 +40,17 @@
          "y": 116.0
       }
    ],
-   "GOState": [
+   "GOTransiciones": [
       {
          "Texture": 29,
-         "UnlockId": 1,
-         "h": 30.0,
-         "numText": 30,
-         "numberPuzzle": 0,
-         "rotation": -45,
-         "type": 0,
-         "w": 30.0,
-         "x": 705.0,
-         "y": 265.0
-      }
-   ],
-   "GOTransiciones": [
+         "h": 60.0,
+         "rotat": -90.0,
+         "rotation": -90.0,
+         "scneNum": 2,
+         "w": 60.0,
+         "x": 641.0,
+         "y": 207.0
+      },
       {
          "Texture": 29,
          "h": 60.0,
@@ -89,8 +85,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 671.4601008211571,
-      "y": 177.87524700727528
+      "x": 634.0,
+      "y": 225.6
    },
    "PlayerTam": {
       "h": 201.6,
