@@ -52,6 +52,7 @@ void GOstates::saveToJson(json & j){
 		if (!jAux_["dificultad"].is_null()) { aux["dificultad"] = jAux_["dificultad"]; }
 		if (!jAux_["numText"].is_null()) { aux["numText"] = jAux_["numText"]; }
 		if (!jAux_["UnlockId"].is_null()) { aux["UnlockId"] = jAux_["UnlockId"]; }
+		if(!jAux_["password"].is_null()) { aux["password"] = jAux_["password"]; }
 
 		j["GOState"].push_back(aux);
 	}

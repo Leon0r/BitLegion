@@ -14,7 +14,7 @@ PasswordState::~PasswordState()
 
 PasswordState::PasswordState(SDLApp * app, string password, int id): Puzzle(app, id), password_(password)
 {
-	f = new Font("..//images/fuente2.ttf", 35);
+	f = new Font("..//images/Dialogos/Moonace-Regular.ttf", 35);
 	resetPassword();
 }
 

@@ -14,8 +14,8 @@
          "h": 225.0,
          "heightFrame": 320,
          "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
+         "numColsFrame": 2,
+         "numFilsFrame": 1,
          "rotation": 0.0,
          "vel": 200.0,
          "w": 155.0,
@@ -37,8 +37,8 @@
          "h": 225.0,
          "heightFrame": 320,
          "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
+         "numColsFrame": 2,
+         "numFilsFrame": 1,
          "rotation": 0.0,
          "vel": 200.0,
          "w": 155.0,
@@ -53,6 +53,42 @@
          "w": 105.0,
          "x": 640.0,
          "y": 295.0
+      }
+   ],
+   "Decorado": [
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               3,
+               4,
+               5,
+               6,
+               7,
+               8,
+               9,
+               10,
+               11,
+               12,
+               13,
+               14
+            ]
+         ],
+         "Texture": 135,
+         "animation": true,
+         "h": 150.0,
+         "heightFrame": 150,
+         "loop": true,
+         "numColsFrame": 4,
+         "numFilsFrame": 4,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 166.0,
+         "widthFrame": 166,
+         "x": 975.0,
+         "y": 110.0
       }
    ],
    "GOTransiciones": [
