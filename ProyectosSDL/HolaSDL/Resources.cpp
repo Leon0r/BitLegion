@@ -149,7 +149,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/luzTecho.png", //animacion de las luces del salon del muerto
 "..//images/Fondos/FondoMenu.png", //fondo del menu principal
 "..//images/Fondos/logo.png", //logo del juego
-"..//images/Fondos/logoAnim.png" //logo del juego animado
+"..//images/Fondos/logoAnim.png", //logo del juego animado
+"..//images/Objetos/telefono.png"
 };
 
 

@@ -162,7 +162,8 @@ public:
 		luzTechoAnim,
 		FondoMenu,
 		Logo,
-		LogoAnim
+		LogoAnim,
+		Telefono
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
