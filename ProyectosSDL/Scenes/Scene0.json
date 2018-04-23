@@ -34,7 +34,7 @@
     ],
 
     "GOConversational": [
-         { "x": 581, "y": 400, "w": 50, "h": 50, "descripcion": "key", "tag": "key", "Texture": 19, "convoName": "conversacion" }
+         { "x": 581, "y": 400, "w": 50, "h": 50, "descripcion": "key", "tag": "key", "Texture": 19, "convoName": "AlenaJeffaTelefono" }
     ],
 
     "PlayerPos": {

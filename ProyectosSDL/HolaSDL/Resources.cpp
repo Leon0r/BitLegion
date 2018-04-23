@@ -151,6 +151,7 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/logo.png", //logo del juego
 "..//images/Fondos/logoAnim.png", //logo del juego animado
 "..//images/Objetos/telefono.png"
+"..//images/Expresiones/ExtrasOficina.png"//expresiones de extras en la oficina
 };
 
 
