@@ -4,7 +4,7 @@ html {
     text-align: center;
   }
   head{
-      background-image: url("https://i.imgur.com/QMTAF0m.png")no-repeat top center;
+      background-image: url("./ProyectosSDL/images/Fondos/logo.png")no-repeat top center;
   }
   
   body {
@@ -13,7 +13,7 @@ html {
     font-family: Courier, 'Courier New', monospace;
     font-size: 1.6rem;
     background-color: rgb(0, 0, 0);
-    background-image: url("https://downloadhdwallpapers.in/wp-content/uploads/2018/01/World-Of-Warcraft-Battle-For-Azeroth-4K-8K-1920x1200.jpg");
+    background-image: url("./ProyectosSDL/images/Fondos/FondoMenu.png");
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;
