@@ -23,12 +23,12 @@ LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(a
 
 	//--------Botones-----
 	resetFunc_ = [this]() mutable {resetPuzzle(this); };
-	botonReset = Boton(app, "reset", resetFunc_);
-	botonReset.setWidth(80);
-	botonReset.setHeight(60);
-	botonReset.setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight()/2 + botonReset.getHeight()*1.8));
-	botonReset.addRenderComponent(&botonRender);
-	stage.push_front(&botonReset);
+	botonReset = new Boton(app, "reset", resetFunc_);
+	botonReset->setWidth(80);
+	botonReset->setHeight(60);
+	botonReset->setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight()/2 + botonReset->getHeight()*1.8));
+	botonReset->addRenderComponent(&botonRender);
+	stage.push_front(botonReset);
 }
 
 
@@ -40,7 +40,8 @@ LightsOut::~LightsOut() //destructora
 			delete lights[i][j]; lights[i][j] = nullptr;
 		}
 	}
-	botonReset.delRenderComponent(&botonRender);
+	botonReset->delRenderComponent(&botonRender);
+	delete botonReset;
 	stage.clear();
 }
 

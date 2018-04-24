@@ -22,7 +22,7 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		maquinaEstados = new GameStateMachine();
 
 		maquinaEstados->pushState(new MainMenuState(this));
-		//maquinaEstados->pushState(new TransitionScreen(this,maquinaEstados->currentState(),3500));
+		maquinaEstados->pushState(new TransitionScreen(this,maquinaEstados->currentState(),3500));
 		//dynamic_cast<PlayState*>(maquinaEstados->currentState())->getScenes()[0]->enterScene();
 }
 
