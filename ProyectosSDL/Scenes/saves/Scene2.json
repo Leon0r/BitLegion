@@ -115,6 +115,20 @@
          "y": 580.0
       }
    ],
+   "GOState": [
+      {
+         "Texture": 29,
+         "UnlockId": 1,
+         "dificultad": 1,
+         "h": 30.0,
+         "numCas": 3,
+         "rotation": -45,
+         "type": 1,
+         "w": 30.0,
+         "x": 305.0,
+         "y": 265.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 29,
@@ -138,8 +152,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 226.0,
-      "y": 225.6
+      "x": 910.0,
+      "y": 290.0
    },
    "PlayerTam": {
       "h": 201.6,

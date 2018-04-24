@@ -8,6 +8,7 @@
 #include "PasswordState.h"
 #include "AutoConversational.h"
 #include "Decorado.h"
+#include "NPC.h"
 
 Scene::Scene()
 {
@@ -85,6 +86,26 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			if (addAnimsFromJSON(SceneItems.back(), j[obj][i], n)) {
 				delete im; //si tiene animaciones, borra el anterior componente de render
 			}
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+		}
+
+		obj = "NPC";
+		//Cargado de Puzles
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+
+
+			NPC* npc = new NPC(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"], 
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["dialogo"]);
+
+			SceneItems.push_back(npc);
+			SceneItems.push_back(npc->getColisionable()); //pusheamos el colisionable asociado
+
+			addAnimsFromJSON(npc, j[obj][i], n);
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);

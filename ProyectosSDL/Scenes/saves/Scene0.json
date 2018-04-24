@@ -2,6 +2,14 @@
    "AlenaActiva": true,
    "CollisionableObject": [
       {
+         "Texture": 157,
+         "h": 110.0,
+         "rotation": 0.0,
+         "w": 47.0,
+         "x": 930.0,
+         "y": 580.0
+      },
+      {
          "Anims": [
             [
                0,
@@ -97,27 +105,21 @@
          "y": 116.0
       }
    ],
+   "GOState": [
+      {
+         "Texture": 29,
+         "UnlockId": 1,
+         "h": 30.0,
+         "numText": 30,
+         "numberPuzzle": 0,
+         "rotation": -45,
+         "type": 0,
+         "w": 30.0,
+         "x": 705.0,
+         "y": 265.0
+      }
+   ],
    "GOTransiciones": [
-      {
-         "Texture": 29,
-         "h": 60.0,
-         "rotat": -90.0,
-         "rotation": -90.0,
-         "scneNum": 2,
-         "w": 60.0,
-         "x": 641.0,
-         "y": 207.0
-      },
-      {
-         "Texture": 29,
-         "h": 60.0,
-         "rotat": -90.0,
-         "rotation": -90.0,
-         "scneNum": 2,
-         "w": 60.0,
-         "x": 641.0,
-         "y": 207.0
-      },
       {
          "Texture": 29,
          "h": 60.0,
@@ -151,9 +153,83 @@
          "y": 490.0
       }
    ],
+   "NPC": [
+      {
+         "Anims": [
+            [
+               0,
+               3,
+               5,
+               6,
+               7,
+               8,
+               9,
+               10,
+               11,
+               12,
+               13,
+               14,
+               15,
+               16,
+               15,
+               14,
+               13,
+               12,
+               11,
+               10,
+               9,
+               8,
+               7,
+               6,
+               5,
+               4,
+               1,
+               2,
+               0,
+               2,
+               0,
+               3,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               1,
+               0,
+               1,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2
+            ]
+         ],
+         "Texture": 64,
+         "animation": true,
+         "dialogo": "AlenaJeffaTelefono",
+         "h": 110.0,
+         "heightFrame": 81,
+         "loop": true,
+         "numColsFrame": 5,
+         "numFilsFrame": 4,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 47.0,
+         "widthFrame": 39,
+         "x": 930.0,
+         "y": 580.0
+      }
+   ],
    "PlayerPos": {
-      "x": 676.0,
-      "y": 278.0
+      "x": 838.0,
+      "y": 494.4
    },
    "PlayerTam": {
       "h": 201.6,

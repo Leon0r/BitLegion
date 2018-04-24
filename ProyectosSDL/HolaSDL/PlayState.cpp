@@ -2,6 +2,7 @@
 #include "GOstates.h"
 #include <list>
 #include "TransitionScreen.h"
+#include "NPC.h"
 
 
 bool compareZ(GameObject* o1, GameObject* o2) { //pure luck require ahead

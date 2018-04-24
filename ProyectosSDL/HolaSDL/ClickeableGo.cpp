@@ -14,6 +14,8 @@ ClickeableGO::ClickeableGO(SDLApp* game, int x, int y, int w, int h, Texture* te
 
 ClickeableGO::~ClickeableGO()
 {
+	this->delRenderComponent(render);
+	delete render;
 }
 
 void ClickeableGO::handleInput(Uint32 time, const SDL_Event& event) {
