@@ -96,8 +96,8 @@ MainMenuState::~MainMenuState()
 	delete(btext);
 	delete(bLoadtext);
 	delete(bExittext);
-	delete(logo);
-	delete(fondo);
+	//delete(logo);
+	//delete(fondo);
 }
 
 
