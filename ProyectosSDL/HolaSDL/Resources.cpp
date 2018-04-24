@@ -157,6 +157,7 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/SALIR.png",//boton SALIR
 "..//images/Objetos/MENU.png",//boton Menu
 "..//images/Objetos/MUTE.png",//boton Mute
+"..//images/Dialogos/transparente.png", //textura transparente
 };
 
 
