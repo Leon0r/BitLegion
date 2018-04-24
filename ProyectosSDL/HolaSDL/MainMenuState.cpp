@@ -11,7 +11,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	nGame_ = [game]() { // funcion newGame();
 		game->getStateMachine()->pushState(new PlayState(game));//pop antes??
 		static_cast<PlayState*>(game->getStateMachine()->currentState())->getScenes()[0]->enterScene();
-		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
+		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 2000));
 	};
 
 	lGame_ = [game]() { //funcion LoadGame();
