@@ -164,7 +164,12 @@ public:
 		Logo,
 		LogoAnim,
 		Telefono,
-		ExpresionesExtrasOficina
+		ExpresionesExtrasOficina,
+		BotonComenzar,
+		BotonLoad,
+		BotonExit,
+		BotonMenu,
+		BotonMute
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

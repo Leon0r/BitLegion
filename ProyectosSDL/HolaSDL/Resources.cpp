@@ -150,8 +150,13 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/FondoMenu.png", //fondo del menu principal
 "..//images/Fondos/logo.png", //logo del juego
 "..//images/Fondos/logoAnim.png", //logo del juego animado
-"..//images/Objetos/telefono.png"
-"..//images/Expresiones/ExtrasOficina.png"//expresiones de extras en la oficina
+"..//images/Objetos/telefono.png",
+"..//images/Expresiones/ExtrasOficina.png",//expresiones de extras en la oficina
+"..//images/Objetos/COMENZAR.png",//boton Comenzar
+"..//images/Objetos/CONTINUAR.png",//boton continuar
+"..//images/Objetos/SALIR.png",//boton SALIR
+"..//images/Objetos/MENU.png",//boton Menu
+"..//images/Objetos/MUTE.png",//boton Mute
 };
 
 

@@ -32,6 +32,7 @@ public:
 	virtual void delRenderComponent(RenderComponent* rc);
 	Texture* getTexture(Uint16 pos = 0) const;
 	void setTexture(Uint16 pos, Texture* newText);
+	void playAnim(string label);
 	virtual void saveToJson(json& j);
 	virtual void delEveryRenderComponent();
 	void setAnimated(bool an) { animated = an; };

@@ -11,7 +11,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	nGame_ = [game]() { // funcion newGame();
 		game->getStateMachine()->pushState(new PlayState(game));//pop antes??
 		static_cast<PlayState*>(game->getStateMachine()->currentState())->getScenes()[0]->enterScene();
-		//game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
+		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
 	};
 
 	lGame_ = [game]() { //funcion LoadGame();
@@ -22,7 +22,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 		if (nPlayState_ != nullptr) {
 			nPlayState_->getScenes()[nPlayState_->getNumCurrentScene()]->enterScene(); //entra en la actual
 			}
-		//game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
+		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
 	};
 
 	eGame_ = [game]() {
@@ -30,26 +30,40 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	};
 
 	cout << "mainMenu" << endl;
-	btext = new ImageRenderer(app->getResources()->getImageTexture(Resources::TicketCompra));
 	fondotext = new ImageRenderer(app->getResources()->getImageTexture(Resources::FondoMenu));
 
 	Boton* b;
 	b = new Boton(app, "NewGame", nGame_);
-	b->setWidth(100); b->setHeight(75);
-	b->setPosition(Vector2D(app->getWindowWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 5) * 1 / 3));
+	b->setWidth(250); b->setHeight(250);
+	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth()/2, (app->getWindowHeight() - app->getWindowHeight() / 3) * 1 / 3));
+	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
+	b->addAnim("Stop", { 0 }, true, -1, 100);
+	btext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonComenzar), b->getAnimations(), 4, 5, 250, 250);
+	btext->playAnim("Stop");
+	b->setAnimated(true);
 	b->addRenderComponent(btext);
 	botones.push_back(b); stage.push_back(b);
 
 	b = (new Boton(app, "Load Game", lGame_));
-	b->setWidth(100); b->setHeight(75);
-	b->setPosition(Vector2D(app->getWindowWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 5) * 2 / 3));
-	b->addRenderComponent(btext);
+	b->setWidth(250); b->setHeight(250);
+	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 3) * 2 / 3));
+	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
+	b->addAnim("Stop", { 0 }, true, -1, 100);
+	bLoadtext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonLoad), b->getAnimations(), 4, 5, 250, 250);
+	bLoadtext->playAnim("Stop");
+	b->setAnimated(true);
+	b->addRenderComponent(bLoadtext);
 	botones.push_back(b); stage.push_back(b);
 
 	b = (new Boton(app, "Exit", eGame_));
-	b->setWidth(100); b->setHeight(75);
-	b->setPosition(Vector2D(app->getWindowWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 5) * 3 / 3));
-	b->addRenderComponent(btext);
+	b->setWidth(250); b->setHeight(250);
+	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 3) * 3 / 3));
+	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
+	b->addAnim("Stop", { 0 }, true, -1, 100);
+	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 250, 250);
+	bExittext->playAnim("Stop");
+	b->addRenderComponent(bExittext);
+	b->setAnimated(true);
 	botones.push_back(b);stage.push_back(b);
 
 	fondo = new Entity(app);
@@ -63,12 +77,14 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 MainMenuState::~MainMenuState()
 {
 	//stage.clear();
-	for(int i =0; i < botones.size();i++)botones.at(i)->delRenderComponent(btext);
+	for (int i = 0; i < botones.size(); i++) { botones.at(i)->delRenderComponent(btext); botones.at(i)->delRenderComponent(bLoadtext); botones.at(i)->delRenderComponent(bExittext); }
 	vector<Boton*>::iterator it;
 	for (it = botones.begin(); it != botones.end();it++) {
 		this->deleteElement(*it);
 	}
 	delete(btext);
+	delete(bLoadtext);
+	delete(bExittext);
 	//delete(logo);
 }
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "Boton.h"
-#include "ImageRenderer.h"
+#include "AnimationRenderer.h"
 
 
 class inGameMenu :
@@ -19,7 +19,10 @@ private:
 	static void exitGame(SDLApp* app_);
 	static void mute(SDLApp* app_) {};
 
-	RenderComponent* btext;
+	AnimationRenderer* btext;
+	AnimationRenderer* bMenutext;
+	AnimationRenderer* bExittext;
+	AnimationRenderer* bMutetext;
 	function<void()> cGame_;
 	function<void()> eGame_;
 	function<void()> eMenuGame_;

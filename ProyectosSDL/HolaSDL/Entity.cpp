@@ -121,3 +121,10 @@ void Entity::saveAnims(json & j){
 	}
 }
 
+void Entity::playAnim(string label)
+{
+	if (this->isAnimated()) {
+		static_cast<AnimationRenderer*>(renderComp_[0])->playAnim(label);
+	}
+}
+
