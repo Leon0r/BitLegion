@@ -16,6 +16,10 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		window = SDL_CreateWindow("Moonace", winX, winY, winWidth, winHeight, SDL_WINDOW_SHOWN);
 		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 		TTF_Init();
+		// SDL Mixer (Music, Sound, etc)
+		Mix_Init(MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG);
+		Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+
 		initResources();
 		soundManager = new SoundManager(this);
 		maquinaEstados = new GameStateMachine();
