@@ -12,7 +12,6 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 		game->getStateMachine()->pushState(new PlayState(game));//pop antes??
 		static_cast<PlayState*>(game->getStateMachine()->currentState())->getScenes()[0]->enterScene();
 		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
-		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 2000));
 	};
 
 	lGame_ = [game]() { //funcion LoadGame();
@@ -36,35 +35,33 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 	Boton* b;
 	b = new Boton(app, "NewGame", nGame_);
-	b->setWidth(150); b->setHeight(90);
-	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 1 / 5)+ 270));
-	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
-	b->addAnim("Stop", { 0 }, true, -1, 100);
-	btext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonComenzar), b->getAnimations(), 4, 5, 242, 150);
+	b->setWidth(150); b->setHeight(100);
+	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 1 / 5)+ 250));
+	b->addAnim("Feedback", { 16 }, true, -1, 100);
+	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0,0,0,0,0,0,0,0,0,0 }, true, -1, 100);
+	btext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonComenzar), b->getAnimations(), 4, 5, 265, 150);
 	btext->playAnim("Stop");
 	b->setAnimated(true);
 	b->addRenderComponent(btext);
 	botones.push_back(b); stage.push_back(b);
 
 	b = (new Boton(app, "Load Game", lGame_));
-
-	b->setWidth(150); b->setHeight(90);
-	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 2 / 5)+270));
-	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
-	b->addAnim("Stop", { 0 }, true, -1, 100);
-	bLoadtext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonLoad), b->getAnimations(), 4, 5, 242, 150);
+	b->setWidth(150); b->setHeight(100);
+	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 2 / 5)+250));
+	b->addAnim("Feedback", { 16 }, true, -1, 100);
+	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }, true, -1, 100);
+	bLoadtext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonLoad), b->getAnimations(), 4, 5, 265, 150);
 	bLoadtext->playAnim("Stop");
 	b->setAnimated(true);
 	b->addRenderComponent(bLoadtext);
 	botones.push_back(b); stage.push_back(b);
 
 	b = (new Boton(app, "Exit", eGame_));
-
-	b->setWidth(150); b->setHeight(90);
-	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 3 / 5)+270));
-	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
-	b->addAnim("Stop", { 0 }, true, -1, 100);
-	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 242, 150);
+	b->setWidth(150); b->setHeight(100);
+	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 3 / 5)+250));
+	b->addAnim("Feedback", { 16 }, true, -1, 75);
+	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }, true, -1, 100);
+	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 265, 150);
 	bExittext->playAnim("Stop");
 	b->addRenderComponent(bExittext);
 	b->setAnimated(true);
