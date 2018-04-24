@@ -35,33 +35,33 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 	Boton* b;
 	b = new Boton(app, "NewGame", nGame_);
-	b->setWidth(150); b->setHeight(150);
+	b->setWidth(150); b->setHeight(100);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 1 / 5)+ 250));
 	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
 	b->addAnim("Stop", { 0 }, true, -1, 100);
-	btext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonComenzar), b->getAnimations(), 4, 5, 250, 250);
+	btext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonComenzar), b->getAnimations(), 4, 5, 242, 150);
 	btext->playAnim("Stop");
 	b->setAnimated(true);
 	b->addRenderComponent(btext);
 	botones.push_back(b); stage.push_back(b);
 
 	b = (new Boton(app, "Load Game", lGame_));
-	b->setWidth(150); b->setHeight(150);
+	b->setWidth(150); b->setHeight(100);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 2 / 5)+250));
 	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
 	b->addAnim("Stop", { 0 }, true, -1, 100);
-	bLoadtext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonLoad), b->getAnimations(), 4, 5, 250, 250);
+	bLoadtext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonLoad), b->getAnimations(), 4, 5, 242, 150);
 	bLoadtext->playAnim("Stop");
 	b->setAnimated(true);
 	b->addRenderComponent(bLoadtext);
 	botones.push_back(b); stage.push_back(b);
 
 	b = (new Boton(app, "Exit", eGame_));
-	b->setWidth(150); b->setHeight(150);
+	b->setWidth(150); b->setHeight(100);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 3 / 5)+250));
 	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
 	b->addAnim("Stop", { 0 }, true, -1, 100);
-	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 250, 250);
+	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 242, 150);
 	bExittext->playAnim("Stop");
 	b->addRenderComponent(bExittext);
 	b->setAnimated(true);
