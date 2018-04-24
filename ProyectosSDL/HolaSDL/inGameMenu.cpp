@@ -10,9 +10,9 @@ inGameMenu::inGameMenu(SDLApp* game): GameState(game)
 	b = (new Boton(app, "Continue", cGame_));
 	b->setWidth(150); b->setHeight(90);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 3) * 1 / 3));
-	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
-	b->addAnim("Stop", { 0 }, true, -1, 100);
-	btext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonLoad), b->getAnimations(), 4, 5, 242, 150);
+	b->addAnim("Feedback", { 16 }, true, -1, 100);
+	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 }, true, -1, 100);
+	btext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonLoad), b->getAnimations(), 4, 5, 265, 150);
 	btext->playAnim("Stop");
 	b->setAnimated(true);
 	b->addRenderComponent(btext);
@@ -22,9 +22,9 @@ inGameMenu::inGameMenu(SDLApp* game): GameState(game)
 	b = (new Boton(app, "Exit to Menu", eMenuGame_));
 	b->setWidth(150); b->setHeight(90);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 3) * 2 / 3));
-	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
-	b->addAnim("Stop", { 0 }, true, -1, 100);
-	bMenutext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonMenu), b->getAnimations(), 4, 5, 242, 150);
+	b->addAnim("Feedback", { 16 }, true, -1, 100);
+	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 }, true, -1, 100);
+	bMenutext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonMenu), b->getAnimations(), 4, 5, 265, 150);
 	bMenutext->playAnim("Stop");
 	b->setAnimated(true);
 	b->addRenderComponent(bMenutext);
@@ -34,9 +34,9 @@ inGameMenu::inGameMenu(SDLApp* game): GameState(game)
 	b = (new Boton(app, "Exit Game", eGame_));
 	b->setWidth(150); b->setHeight(90);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 3) * 3 / 3));
-	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
-	b->addAnim("Stop", { 0 }, true, -1, 100);
-	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 242, 150);
+	b->addAnim("Feedback", { 16 }, true, -1, 100);
+	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 }, true, -1, 100);
+	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 265, 150);
 	bExittext->playAnim("Stop");
 	b->setAnimated(true);
 	b->addRenderComponent(bExittext);
