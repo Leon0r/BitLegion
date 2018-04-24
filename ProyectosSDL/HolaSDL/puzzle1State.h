@@ -24,8 +24,10 @@ private:
 	vector<RenderComponent*> botonesAnim;
 	vector<vector<int>> matrizOriginal;
 	Boton* resetButton;
+	Boton* exitButton;
 	RenderComponent* HUD;
 	RenderComponent* reiniciar;
+	RenderComponent* exitRenderer;
 	RenderComponent* imagenCopia;
 	Entity* copia = new Entity(app);
 	Entity* puzzleHud = new Entity(app);
@@ -43,6 +45,7 @@ private:
 
 	//--------------------------------------METODOS DE LOS BOTONES---------------------
 	function<void()> resetFunct_;
+	function<void()> exitFunct_;
 	static void usar(GameState* state, int fil, int col);
 	void resetFunction(GameState* state) { Puzzle1State* aux = dynamic_cast<Puzzle1State*>(state); if (aux != nullptr) { if (!aux->isMoving()) { aux->restart(); } } }
 

@@ -45,17 +45,29 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 
 	//------------------------------------HUD-------------------------------------------------------------
 	resetFunct_ = [this]() mutable {resetFunction(this); };
+	exitFunct_ = [game]() mutable {game->getStateMachine()->popState(false); };
+
 	resetButton = new Boton(app, "reset", resetFunct_);
 	resetButton->addAnim("normal", { 0 }, false);
 	resetButton->addAnim("pulsado", { 1 }, false, -1, 50);
 	reiniciar = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar), resetButton->getAnimations(), 1, 2, 140, 140);
-	static_cast<Boton*>(resetButton)->setRender(reiniciar);
-	//reiniciar = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar));
+	resetButton->setRender(reiniciar);
 	resetButton->setPosition(Vector2D(43.5*relacion.first, 378*relacion.second)); //numeros majos
 	resetButton->setHeight(reiniciar->getTexture()->getHeight() * 2.1 / 3);
 	resetButton->setWidth(reiniciar->getTexture()->getWidth() * 4 / 3);
 	resetButton->addRenderComponent(reiniciar);
 	stage.push_back(resetButton);
+
+	exitButton = new Boton(app, "reset", exitFunct_);
+	exitButton->addAnim("normal", { 0 }, false);
+	exitButton->addAnim("pulsado", { 1 }, false, -1, 50);
+	exitRenderer = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSalir), exitButton->getAnimations(), 1, 2, 49, 51);
+	exitButton->setRender(exitRenderer);
+	exitButton->setHeight(exitRenderer->getTexture()->getHeight() * 2.1 / 3);
+	exitButton->setWidth(exitRenderer->getTexture()->getWidth() * 4 / 3);
+	exitButton->setPosition(Vector2D(exitButton->getWidth() / 2, exitButton->getHeight() / 2)); //numeros majos
+	exitButton->addRenderComponent(exitRenderer);
+	stage.push_back(exitButton);
 
 	vector<int> j;
 	j.resize(66);
@@ -242,6 +254,8 @@ void Puzzle1State::destroy()
 	deleteMatrix();
 
 	if (resetButton != nullptr) { delete resetButton; resetButton = nullptr; }
+
+	if (exitButton != nullptr) { delete exitButton; exitButton = nullptr; }
 
 	if (puzzleHud != nullptr) { delete puzzleHud; puzzleHud = nullptr; }
 

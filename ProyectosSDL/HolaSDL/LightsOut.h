@@ -11,11 +11,13 @@ class LightsOut :
 {
 private:
 	ImageRenderer botonRender;
+	ImageRenderer botonExitRender;
 	ImageRenderer hudRend;
 	Entity* hudAux; //puntero auxiliar al hud
 	vector<Entity> decorado;
 	vector<AnimationRenderer*> anim; //se deletea cada uno en su destructora del gameObject
 	Boton* botonReset;
+	Boton* botonExit;
 	bool faded = false;
 	const int numCas = 3;
 	const double tamCas = 150;
@@ -34,6 +36,7 @@ private:
 	void fadeOut();
 	void win();
 	function<void()> resetFunc_;
+	function<void()> exitFun_;
 
 public:
 	LightsOut() {};

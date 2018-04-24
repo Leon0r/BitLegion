@@ -5,7 +5,8 @@
 LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(app, id), puzzleHasStarted(false), numCas(numCas)
 {
 	botonRender = (app->getResources()->getImageTexture(Resources::BotonPuzzle));//render del boton
-	
+	botonExitRender = (app->getResources()->getImageTexture(Resources::BotonSalirLuces));//render del boton
+
 	this->creaDecoracion(); //crea los objetos del HUD
 
 	lights.resize(numCas);
@@ -23,25 +24,38 @@ LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(a
 
 	//--------Botones-----
 	resetFunc_ = [this]() mutable {resetPuzzle(this); };
+	exitFun_ = [app]() mutable {app->getStateMachine()->popState(false); };
 	botonReset = new Boton(app, "reset", resetFunc_);
 	botonReset->setWidth(80);
 	botonReset->setHeight(60);
 	botonReset->setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight()/2 + botonReset->getHeight()*1.8));
 	botonReset->addRenderComponent(&botonRender);
 	stage.push_front(botonReset);
+
+	botonExit = new Boton(app, "exit", exitFun_);
+	botonExit->setWidth(80);
+	botonExit->setHeight(60);
+	botonExit->setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight() / 2 + botonReset->getHeight()*3));
+	botonExit->addRenderComponent(&botonExitRender);
+	stage.push_front(botonExit);
 }
 
 
 LightsOut::~LightsOut() //destructora
 {
 	hudAux->delRenderComponent(&hudRend);
+
 	for (unsigned int i = 0; i < numCas; i++) {
 		for (unsigned int j = 0; j < numCas; j++) {
 			delete lights[i][j]; lights[i][j] = nullptr;
 		}
 	}
+
 	botonReset->delRenderComponent(&botonRender);
+	botonExit->delRenderComponent(&botonExitRender);
+
 	delete botonReset;
+	delete botonExit;
 	stage.clear();
 }
 
