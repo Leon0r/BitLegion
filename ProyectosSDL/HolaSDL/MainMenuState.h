@@ -18,8 +18,9 @@ private:
 	static void exit(SDLApp* app_);*/
 	RenderComponent* btext;
 	RenderComponent* fondotext;
-	RenderComponent* logo;
+	Texture* logotext;
 	Entity* fondo;
+	Entity* logo;
 	function<void()> nGame_;
 	function<void()> lGame_;
 	function<void()> eGame_;

@@ -32,6 +32,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	cout << "mainMenu" << endl;
 	btext = new ImageRenderer(app->getResources()->getImageTexture(Resources::TicketCompra));
 	fondotext = new ImageRenderer(app->getResources()->getImageTexture(Resources::FondoMenu));
+	logotext = app->getResources()->getImageTexture(Resources::LogoAnim);
 
 	Boton* b;
 	b = new Boton(app, "NewGame", nGame_);
@@ -51,6 +52,16 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	b->setPosition(Vector2D(app->getWindowWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 5) * 3 / 3));
 	b->addRenderComponent(btext);
 	botones.push_back(b);stage.push_back(b);
+
+	logo = new Entity(app);
+	logo->setPosition({ (double)logo->getGame()->getWindowWidth()/2 - 300, 150 });
+	logo->setWidth(600);
+	logo->setHeight(203);
+	logo->setAnimated(true);
+	logo->delEveryRenderComponent();
+	logo->addAnim("logoAnim", { 0,0,0,0,0,0,0,0,0,0,0, 1,0,1,0, 3, 3, 3, 5, 0, 0, 0, 4, 4 }, true, -1, 80);
+	logo->addRenderComponent(new AnimationRenderer(logotext, logo->getAnimations(), 1, 6, 600, 203));
+	stage.push_back(logo);
 
 	fondo = new Entity(app);
 	fondo->setPosition({ 0, 0 });
