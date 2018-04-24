@@ -20,8 +20,9 @@ private:
 	AnimationRenderer* bLoadtext;
 	AnimationRenderer* bExittext;
 	RenderComponent* fondotext;
-	RenderComponent* logo;
+	Texture* logotext;
 	Entity* fondo;
+	Entity* logo;
 	function<void()> nGame_;
 	function<void()> lGame_;
 	function<void()> eGame_;
