@@ -12,6 +12,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 		game->getStateMachine()->pushState(new PlayState(game));//pop antes??
 		static_cast<PlayState*>(game->getStateMachine()->currentState())->getScenes()[0]->enterScene();
 		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
+		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 2000));
 	};
 
 	lGame_ = [game]() { //funcion LoadGame();
@@ -46,6 +47,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	botones.push_back(b); stage.push_back(b);
 
 	b = (new Boton(app, "Load Game", lGame_));
+
 	b->setWidth(150); b->setHeight(90);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 2 / 5)+270));
 	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
@@ -57,6 +59,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	botones.push_back(b); stage.push_back(b);
 
 	b = (new Boton(app, "Exit", eGame_));
+
 	b->setWidth(150); b->setHeight(90);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 3 / 5)+270));
 	b->addAnim("Feedback", { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 }, true, -1, 150);
