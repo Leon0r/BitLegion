@@ -3,9 +3,6 @@ html {
     -webkit-font-smoothing: antialiased;
     text-align: center;
   }
-  head{
-      background-image: url("./ProyectosSDL/images/Fondos/logo.png")no-repeat top center;
-  }
   
   body {
     padding: 0;
