@@ -6,6 +6,7 @@ inGameMenu::inGameMenu(SDLApp* game): GameState(game)
 {
 	cGame_ = [this]() mutable { continueGame(app); };
 	cout << "inGameMenu" << endl;
+
 	Boton* b;
 	b = (new Boton(app, "Continue", cGame_));
 	b->setWidth(150); b->setHeight(90);
@@ -15,6 +16,7 @@ inGameMenu::inGameMenu(SDLApp* game): GameState(game)
 	btext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonLoad), b->getAnimations(), 4, 5, 265, 150);
 	btext->playAnim("Stop");
 	b->setAnimated(true);
+	b->addInputComponent(&ov);
 	b->addRenderComponent(btext);
 	botones.push_back(b); stage.push_back(b);
 
@@ -27,6 +29,7 @@ inGameMenu::inGameMenu(SDLApp* game): GameState(game)
 	bMenutext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonMenu), b->getAnimations(), 4, 5, 265, 150);
 	bMenutext->playAnim("Stop");
 	b->setAnimated(true);
+	b->addInputComponent(&ov);
 	b->addRenderComponent(bMenutext);
 	botones.push_back(b); stage.push_back(b);
 
@@ -39,6 +42,7 @@ inGameMenu::inGameMenu(SDLApp* game): GameState(game)
 	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 265, 150);
 	bExittext->playAnim("Stop");
 	b->setAnimated(true);
+	b->addInputComponent(&ov);
 	b->addRenderComponent(bExittext);
 	botones.push_back(b); stage.push_back(b);
 
@@ -57,7 +61,7 @@ inGameMenu::inGameMenu(SDLApp* game): GameState(game)
 inGameMenu::~inGameMenu()
 {
 	for (int i = 0; i < botones.size(); i++) { botones.at(i)->delRenderComponent(btext); botones.at(i)->delRenderComponent(bMenutext); 
-		botones.at(i)->delRenderComponent(bExittext);  botones.at(i)->delRenderComponent(bMutetext); }
+	botones.at(i)->delRenderComponent(bExittext);  botones.at(i)->delRenderComponent(bMutetext); botones.at(i)->delInputComponent(&ov); }
 	vector<Boton*>::iterator it;
 	for (it = botones.begin(); it != botones.end(); it++) {
 		this->deleteElement(*it);

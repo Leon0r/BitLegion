@@ -15,7 +15,6 @@ private:
 	CallBackOnClickStateFC* stateFC;
 	GameState* actualState;
 	RenderComponent* render_ = nullptr;
-	OverlapCursorAnimation ov;
 	function<void()> fun;
 public:
 	void setRender(RenderComponent* r) { if (render_ != nullptr) delete render_; render_ = nullptr; render_ = r; }
@@ -24,7 +23,7 @@ public:
 
 	Boton(SDLApp* app, CallBackOnClickStateFC* stateFC, GameState* actualState, string nombre, int fil, int col) : Entity(app), stateFC(stateFC), actualState(actualState), nombre(nombre), f(fil), c(col), fun(nullptr) {};//constructora2
 
-	Boton(SDLApp* app, string nombre, function<void()> f) : Entity(app), nombre(nombre), fun(f), stateFC(nullptr) { ov = OverlapCursorAnimation(); this->addInputComponent(&ov);  }; //constructora que recibe cualquier funcion (de tipo void)
+	Boton(SDLApp* app, string nombre, function<void()> f) : Entity(app), nombre(nombre), fun(f), stateFC(nullptr) {}; //constructora que recibe cualquier funcion (de tipo void)
 
 	virtual void handleInput(Uint32 time, const SDL_Event& event);
 	

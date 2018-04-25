@@ -214,7 +214,7 @@ void PlayState::receive(Mensaje* msg) {
 	switch (msg->id_) {
 	case CambioEscena: 
 	{
-		int numScene = static_cast<MensajeCambioEscenaDialogos*>(msg)->numScene_;
+		int numScene = static_cast<MensajeCambioEscenaDialogos*>(msg)->numScene_; //los static de los mensajes no se pueden quitar T_T
 		/*GameObject* saux = stage.front();
 		delete saux;
 		enConversacion = false;*/

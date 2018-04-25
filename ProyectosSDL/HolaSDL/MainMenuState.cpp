@@ -9,19 +9,22 @@ MainMenuState::MainMenuState()
 MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 {
 	nGame_ = [game]() { // funcion newGame();
-		game->getStateMachine()->pushState(new PlayState(game));//pop antes??
-		static_cast<PlayState*>(game->getStateMachine()->currentState())->getScenes()[0]->enterScene();
+		PlayState* playState_ = new PlayState(game); //acceder al estado PlayState
+
+		game->getStateMachine()->pushState(playState_);//pop antes??
+
+		playState_->getScenes()[0]->enterScene();
+
 		//game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
 	};
 
 	lGame_ = [game]() { //funcion LoadGame();
-		game->getStateMachine()->pushState(new PlayState(game, true));//pop antes??
+		PlayState* playState_ = new PlayState(game); //acceder al estado PlayState
 
-		PlayState* nPlayState_ = static_cast<PlayState*>(game->getStateMachine()->currentState());
+		game->getStateMachine()->pushState(playState_);//pop antes??
 
-		if (nPlayState_ != nullptr) {
-			nPlayState_->getScenes()[nPlayState_->getNumCurrentScene()]->enterScene(); //entra en la actual
-			}
+		playState_->getScenes()[playState_->getNumCurrentScene()]->enterScene(); //entra en la actual
+
 		//game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
 	};
 
@@ -43,6 +46,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	btext->playAnim("Stop");
 	b->setAnimated(true);
 	b->addRenderComponent(btext);
+	b->addInputComponent(&ov);
 	botones.push_back(b); stage.push_back(b);
 
 	b = (new Boton(app, "Load Game", lGame_));
@@ -54,6 +58,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	bLoadtext->playAnim("Stop");
 	b->setAnimated(true);
 	b->addRenderComponent(bLoadtext);
+	b->addInputComponent(&ov);
 	botones.push_back(b); stage.push_back(b);
 
 	b = (new Boton(app, "Exit", eGame_));
@@ -63,6 +68,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }, true, -1, 100);
 	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 265, 150);
 	bExittext->playAnim("Stop");
+	b->addInputComponent(&ov);
 	b->addRenderComponent(bExittext);
 	b->setAnimated(true);
 	botones.push_back(b);stage.push_back(b);
@@ -88,7 +94,8 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 MainMenuState::~MainMenuState()
 {
 	//stage.clear();
-	for (int i = 0; i < botones.size(); i++) { botones.at(i)->delRenderComponent(btext); botones.at(i)->delRenderComponent(bLoadtext); botones.at(i)->delRenderComponent(bExittext); }
+	for (int i = 0; i < botones.size(); i++) { botones.at(i)->delRenderComponent(btext); 
+	botones.at(i)->delRenderComponent(bLoadtext); botones.at(i)->delRenderComponent(bExittext); botones.at(i)->delInputComponent(&ov); }
 	vector<Boton*>::iterator it;
 	for (it = botones.begin(); it != botones.end();it++) {
 		this->deleteElement(*it);
@@ -97,27 +104,3 @@ MainMenuState::~MainMenuState()
 	delete(bLoadtext);
 	delete(bExittext);
 }
-
-
-/*void MainMenuState::newGame(SDLApp* app_)
-{
-	app_->getStateMachine()->pushState(new PlayState(app_));//pop antes??
-	dynamic_cast<PlayState*>(app_->getStateMachine()->currentState())->getScenes()[0]->enterScene();
-}
-
-
-void MainMenuState::loadGame(SDLApp* app_)
-{
-	app_->getStateMachine()->pushState(new PlayState(app_,true));//pop antes??
-
-	PlayState* nPlayState_ = dynamic_cast<PlayState*>(app_->getStateMachine()->currentState());
-
-	if (nPlayState_ != nullptr) {
-		nPlayState_->getScenes()[nPlayState_->getNumCurrentScene()]->enterScene(); //entra en la actual
-	}
-}
-
-void MainMenuState::exit(SDLApp* app_)
-{
-	app_->exitGame();//Nunca deberia de haber un estado por encima de este
-}*/

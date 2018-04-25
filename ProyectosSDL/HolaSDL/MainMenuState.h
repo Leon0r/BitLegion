@@ -3,6 +3,7 @@
 #include "Boton.h"
 #include "PlayState.h"
 #include "ImageRenderer.h"
+#include "OverlapCursorAnimation.h"
 
 class MainMenuState :
 	public GameState
@@ -20,6 +21,7 @@ private:
 	AnimationRenderer* bLoadtext;
 	AnimationRenderer* bExittext;
 	RenderComponent* fondotext;
+	OverlapCursorAnimation ov;
 	Texture* logotext;
 	Entity* fondo;
 	Entity* logo;

@@ -3,7 +3,6 @@
 
 Boton::~Boton()
 {
-	this->delInputComponent(&ov);
 	actualState = nullptr;
 }
 
