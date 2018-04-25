@@ -159,7 +159,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/MUTE.png",//boton Mute
 "..//images/Dialogos/transparente.png", //textura transparente
 "..//images/Puzles/botonSalir.png", //salir del puzle del conecta 4
-"..//images/Puzles/botonSalirLuces.png" //salir del puzle de las luces
+"..//images/Puzles/botonSalirLuces.png", //salir del puzle de las luces
+"..//images/Puzles/returnLuces.png" //reiniciar puzle de las luces
 };
 
 

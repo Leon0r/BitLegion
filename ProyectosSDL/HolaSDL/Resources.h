@@ -172,7 +172,8 @@ public:
 		BotonMute,
 		Transparente,
 		BotonSalir,
-		BotonSalirLuces
+		BotonSalirLuces,
+		ReturnLuces
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

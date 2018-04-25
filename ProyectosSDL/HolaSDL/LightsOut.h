@@ -10,8 +10,6 @@ class LightsOut :
 	public Puzzle
 {
 private:
-	ImageRenderer botonRender;
-	ImageRenderer botonExitRender;
 	ImageRenderer hudRend;
 	Entity* hudAux; //puntero auxiliar al hud
 	vector<Entity> decorado;
