@@ -15,9 +15,9 @@ public:
 
 private:
 	void continueGame(SDLApp* app_);
-	static void exitToMenu(SDLApp* app_);
-	static void exitGame(SDLApp* app_);
-	static void mute(SDLApp* app_) { cout << "muteaaaandooooo" << endl; };
+	void exitToMenu(SDLApp* app_);
+	void exitGame(SDLApp* app_);
+	void mute(SDLApp* app_) { cout << "muteaaaandooooo" << endl; };
 
 	AnimationRenderer* btext;
 	AnimationRenderer* bMenutext;

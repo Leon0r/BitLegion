@@ -25,7 +25,7 @@ private:
 	vector<vector<int>> matrizOriginal;
 	Boton* resetButton;
 	Boton* exitButton;
-	RenderComponent* HUD;
+	AnimationRenderer* HUD;
 	RenderComponent* reiniciar;
 	RenderComponent* exitRenderer;
 	RenderComponent* imagenCopia;
@@ -47,7 +47,7 @@ private:
 	function<void()> resetFunct_;
 	function<void()> exitFunct_;
 	static void usar(GameState* state, int fil, int col);
-	void resetFunction(GameState* state) { Puzzle1State* aux = dynamic_cast<Puzzle1State*>(state); if (aux != nullptr) { if (!aux->isMoving()) { aux->restart(); } } }
+	void resetFunction();
 
 	//----------------------------------------METODOS PRIVADOS ----------------------
 	bool isMoving() { return this->mover; };

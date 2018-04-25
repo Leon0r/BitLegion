@@ -20,7 +20,7 @@ LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(a
 	this->apagaLuces(dificultad);
 
 	//--------Botones-----
-	resetFunc_ = [this]() mutable {resetPuzzle(this); };
+	resetFunc_ = [this]() mutable {resetPuzzle(); };
 	exitFun_ = [app]() mutable {app->getStateMachine()->popState(false); };
 	botonReset = new Boton(app, "reset", resetFunc_);
 	botonReset->setWidth(80);
@@ -147,8 +147,8 @@ void LightsOut::restartMatrix(){
 	}
 }
 
-void LightsOut::resetPuzzle(GameState * state){
-	static_cast<LightsOut*>(state)->restartMatrix();
+void LightsOut::resetPuzzle(){
+	this->restartMatrix();
 }
 
 void LightsOut::creaDecoracion(){ //como ensuciar el código 2.0

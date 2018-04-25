@@ -44,7 +44,7 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	}
 
 	//------------------------------------HUD-------------------------------------------------------------
-	resetFunct_ = [this]() mutable {resetFunction(this); };
+	resetFunct_ = [this]() mutable { resetFunction(); };
 	exitFunct_ = [game]() mutable {game->getStateMachine()->popState(false); };
 
 	resetButton = new Boton(app, "reset", resetFunct_);
@@ -79,11 +79,9 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 		app->getWindowHeight() / 2 - puzzleHud->getHeight() / 2)));
 	HUD = new AnimationRenderer(app->getResources()->getImageTexture(Resources::PuzzleHud), puzzleHud->getAnimations(), 8, 8, puzzleHud->getWidth()*0.75, puzzleHud->getHeight()*0.75);
 	puzzleHud->addRenderComponent(HUD);
-	static_cast<AnimationRenderer*>(HUD)->playAnim(0);
+	HUD->playAnim(0);
 	stage.push_back(puzzleHud);
 	//---------------------------------------------------------------------------------------------------
-	
-
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -280,6 +278,13 @@ void Puzzle1State::usar(GameState* state, int fil, int col)
 	}
 }
 
+void Puzzle1State::resetFunction()
+{
+	if (!this->isMoving()) { 
+		this->restart(); 
+	} 
+}
+
 //---------------------------------------------------------------------------------------------------
 
 void Puzzle1State::eligeTipoCasilla(int tipoCas, string name, CasillaPuzzle1*& cas) { //A partir del enum y el numero asociado a la casilla
@@ -414,9 +419,9 @@ void Puzzle1State::checkLine(int line, bool Vert)
 void Puzzle1State::destCasilla(CasillaPuzzle1* auxi) {
 	auxi->setActive(false); numRestantes--;
 	auxi->addAnim("destroy", { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, false, -1, 100);
-	RenderComponent* aux = new AnimationRenderer(app->getResources()->getImageTexture(Resources::casillaPuzzleDest), auxi->getAnimations(), 3, 3, 64, 58);
+	AnimationRenderer* aux = new AnimationRenderer(app->getResources()->getImageTexture(Resources::casillaPuzzleDest), auxi->getAnimations(), 3, 3, 64, 58);
 	auxi->setRender(aux);
-	static_cast<AnimationRenderer*>(aux)->playAnim(0);
+	aux->playAnim(0);
 	aux = nullptr;
 }
 
