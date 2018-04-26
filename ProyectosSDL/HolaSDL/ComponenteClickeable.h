@@ -6,6 +6,8 @@
 class ComponenteClickeable
 	//:public InputComponent
 {
+private:
+	bool firstClickDown = false;
 public:
 	ComponenteClickeable();
 	virtual ~ComponenteClickeable();

@@ -4,6 +4,7 @@
 
 LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(app, id), puzzleHasStarted(false), numCas(numCas)
 {
+	press = MouseEventAnimComponent(SDL_MOUSEBUTTONDOWN, "Pressed", "Stop", SDL_BUTTON_LEFT);
 	this->creaDecoracion(); //crea los objetos del HUD
 
 	lights.resize(numCas);

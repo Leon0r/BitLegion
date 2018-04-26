@@ -3,7 +3,6 @@
 #include "Entity.h"
 #include "GameState.h"
 #include "ComponenteClickeable.h"
-#include "OverlapCursorAnimation.h"
 
 class Boton :
 	public Entity, ComponenteClickeable
@@ -14,10 +13,9 @@ private:
 	typedef void CallBackOnClickStateFC(GameState* actualState, int f, int c);
 	CallBackOnClickStateFC* stateFC;
 	GameState* actualState;
-	RenderComponent* render_ = nullptr;
 	function<void()> fun;
+
 public:
-	void setRender(RenderComponent* r) { if (render_ != nullptr) delete render_; render_ = nullptr; render_ = r; }
 	Boton() : fun(nullptr), stateFC(nullptr), actualState(nullptr), Entity(nullptr), nombre("") {}; //constructora vacia
 	virtual ~Boton();
 

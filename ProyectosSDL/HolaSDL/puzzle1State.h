@@ -8,7 +8,7 @@
 #include "Boton.h"
 #include "GOUnlockeable.h"
 #include "Puzzle.h"
-#include "pressButtonAnimation.h"
+#include "MouseEventAnimComponent.h"
 
 
 class Puzzle1State :
@@ -26,13 +26,14 @@ private:
 	vector<vector<int>> matrizOriginal;
 	Boton* resetButton;
 	Boton* exitButton;
+	Boton* useButton;
 	AnimationRenderer* HUD;
 	RenderComponent* reiniciar;
 	RenderComponent* exitRenderer;
 	RenderComponent* imagenCopia;
 	Entity* copia = new Entity(app);
 	Entity* puzzleHud = new Entity(app);
-	pressButtonAnimation pb;
+	MouseEventAnimComponent pb;
 
 	//--------------------------VARIABLES AUXILIARES-----------------------------------------
 	const int numCas = 5;

@@ -4,6 +4,8 @@
 #include "AnimationRenderer.h"
 
 Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousState, ShortCut* shortcut) : GameState(app), inventario(inventario), selected(nullptr), previousState(previousState), SC(shortcut) {
+
+	pb = MouseEventAnimComponent(SDL_MOUSEBUTTONDOWN, "Pressed", "Stop", SDL_BUTTON_LEFT);
 	matriz.resize(numCas*numCas);
 	for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
 		for (int j = 0; j < numCas; j++) {
@@ -115,9 +117,9 @@ void Inventory::handleEvent(SDL_Event& event) {
 void Inventory::render() {
 	if (previousState != nullptr) previousState->render();
 
-	SDL_SetRenderDrawBlendMode(app->getRenderer(), SDL_BLENDMODE_MOD);
+	/*SDL_SetRenderDrawBlendMode(app->getRenderer(), SDL_BLENDMODE_MOD);
 	SDL_SetRenderDrawColor(app->getRenderer(), 70, 70, 70, 1);
-	SDL_RenderFillRect(app->getRenderer(), &rectF);
+	SDL_RenderFillRect(app->getRenderer(), &rectF);*/
 
 	GameState::render(); //se llama a los componentes "Render" de todos los objetos de la lista del inventario
 	if (selected != nullptr){

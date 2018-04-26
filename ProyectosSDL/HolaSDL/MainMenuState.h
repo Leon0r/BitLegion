@@ -3,7 +3,7 @@
 #include "Boton.h"
 #include "PlayState.h"
 #include "ImageRenderer.h"
-#include "OverlapCursorAnimation.h"
+#include "MouseEventAnimComponent.h"
 
 class MainMenuState :
 	public GameState
@@ -18,7 +18,7 @@ private:
 	AnimationRenderer* bLoadtext;
 	AnimationRenderer* bExittext;
 	RenderComponent* fondotext;
-	OverlapCursorAnimation ov;
+	MouseEventAnimComponent ov{ SDL_MOUSEMOTION, "Feedback", "Stop" };
 	Texture* logotext;
 	Entity* fondo;
 	Entity* logo;

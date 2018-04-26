@@ -5,14 +5,14 @@
 #include "PlayState.h"
 #include "checkML.h"
 #include "Puzzle.h"
-#include "pressButtonAnimation.h"
+#include "MouseEventAnimComponent.h"
 
 class LightsOut :
 	public Puzzle
 {
 private:
 	ImageRenderer hudRend;
-	pressButtonAnimation press;
+	MouseEventAnimComponent press;
 	Entity* hudAux; //puntero auxiliar al hud
 	vector<Entity> decorado;
 	vector<AnimationRenderer*> anim; //se deletea cada uno en su destructora del gameObject

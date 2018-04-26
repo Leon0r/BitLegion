@@ -4,6 +4,8 @@
 
 inGameMenu::inGameMenu(SDLApp* game): GameState(game)
 {
+	ov = MouseEventAnimComponent(SDL_MOUSEMOTION, "Feedback", "Stop");
+
 	cGame_ = [this]() mutable { continueGame(app); };
 	cout << "inGameMenu" << endl;
 

@@ -1,22 +1,16 @@
-#include "OverlapCursorAnimation.h"
+#include "MouseEventAnimComponent.h"
 #include "Entity.h"
 
-
-
-OverlapCursorAnimation::OverlapCursorAnimation()
+MouseEventAnimComponent::~MouseEventAnimComponent()
 {
 }
 
 
-OverlapCursorAnimation::~OverlapCursorAnimation()
-{
-}
-
-void OverlapCursorAnimation::handleInput(GameObject * o, Uint32 time, const SDL_Event & event)
+void MouseEventAnimComponent::handleInput(GameObject * o, Uint32 time, const SDL_Event & event)
 {
 	Entity* aux = static_cast<Entity*>(o);
 	if (aux->isAnimated()) {
-		if (event.type == SDL_MOUSEMOTION) {
+		if (event.type == event_ && (button_ == -1 || event.button.button == button_ )) {
 			SDL_Point p;
 			p.x = event.button.x;
 			p.y = event.button.y;
@@ -28,11 +22,15 @@ void OverlapCursorAnimation::handleInput(GameObject * o, Uint32 time, const SDL_
 			rect.h = aux->getHeight();
 
 			if (SDL_PointInRect(&p, &rect)) {
-				aux->playAnim("Feedback");
+				aux->playAnim(anim_);
 			}
 			else {
-				aux->playAnim("Stop");
+				aux->playAnim(defaultAnim_);
 			}
+		}
+		else {
+			aux->playAnim(defaultAnim_);
 		}
 	}
 }
+

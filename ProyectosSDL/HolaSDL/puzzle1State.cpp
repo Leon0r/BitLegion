@@ -5,6 +5,8 @@
 
 Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numberPuzzle, int numText, int id) :Puzzle(game, id), previousState(previousState), numText_(numText), _id(id)
 {
+	pb = MouseEventAnimComponent(SDL_MOUSEBUTTONDOWN, "Pressed", "Stop", SDL_BUTTON_LEFT);
+
 	loadFromJson(numberPuzzle); //el 1 ese habr� que sacarlo de alg�n lado
 
 	imagenCopia = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(numText)));
@@ -21,7 +23,6 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 
 	for (int i = 0; i < numCas*2; i++) {
 		Boton* b;
-		//RenderComponent* bAnim = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonPuzzle));
 		if (i < numCas) {
 			b = new Boton(game, usar, this, "boton1", i, -1);
 			b->setWidth(50);
@@ -41,7 +42,6 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 		b->addAnim("Stop", { 0 }, true);
 		b->addAnim("Pressed", { 1 }, true, -1, 50);
 		RenderComponent* bAnim = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonPuzzle), b->getAnimations(), 1, 2, 49, 51);
-		b->setRender(bAnim);
 		botonesAnim.push_back(bAnim);
 		b->addRenderComponent(botonesAnim[i]);
 		botones.push_back(b);
@@ -55,10 +55,9 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	resetButton = new Boton(app, "reset", resetFunct_);
 	resetButton->addAnim("Stop", { 0 }, true);
 	resetButton->addAnim("Pressed", { 1 }, true, -1, 50);
+	reiniciar = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar), resetButton->getAnimations(), 1, 2, 140, 140);
 	resetButton->setAnimated(true);
 	resetButton->addInputComponent(&pb);
-	reiniciar = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar), resetButton->getAnimations(), 1, 2, 140, 140);
-	resetButton->setRender(reiniciar);
 	resetButton->setPosition(Vector2D(43.5*relacion.first, 378*relacion.second)); //numeros majos
 	resetButton->setHeight(reiniciar->getTexture()->getHeight() * 2.1 / 3);
 	resetButton->setWidth(reiniciar->getTexture()->getWidth() * 4 / 3);
@@ -68,10 +67,9 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	exitButton = new Boton(app, "reset", exitFunct_);
 	exitButton->addAnim("Stop", { 0 }, true);
 	exitButton->addAnim("Pressed", { 1 }, true, -1, 50);
+	exitRenderer = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSalir), exitButton->getAnimations(), 1, 2, 49, 51);
 	exitButton->setAnimated(true);
 	exitButton->addInputComponent(&pb);
-	exitRenderer = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSalir), exitButton->getAnimations(), 1, 2, 49, 51);
-	exitButton->setRender(exitRenderer);
 	exitButton->setHeight(exitRenderer->getTexture()->getHeight() * 2.1 / 3);
 	exitButton->setWidth(exitRenderer->getTexture()->getWidth() * 4 / 3);
 	exitButton->setPosition(Vector2D(exitButton->getWidth() / 2, exitButton->getHeight() / 2)); //numeros majos
@@ -91,6 +89,8 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	HUD->playAnim(0);
 	stage.push_back(puzzleHud);
 	//---------------------------------------------------------------------------------------------------
+
+	
 }
 
 //---------------------------------------------------------------------------------------------------

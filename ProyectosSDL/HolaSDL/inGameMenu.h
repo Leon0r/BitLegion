@@ -2,7 +2,7 @@
 #include "GameState.h"
 #include "Boton.h"
 #include "AnimationRenderer.h"
-#include "OverlapCursorAnimation.h"
+#include "MouseEventAnimComponent.h"
 
 class inGameMenu :
 	public GameState
@@ -23,7 +23,7 @@ private:
 	AnimationRenderer* bMenutext;
 	AnimationRenderer* bExittext;
 	AnimationRenderer* bMutetext;
-	OverlapCursorAnimation ov;
+	MouseEventAnimComponent ov;
 	function<void()> cGame_;
 	function<void()> eGame_;
 	function<void()> eMenuGame_;
