@@ -13,7 +13,6 @@ ComponenteClickeable::~ComponenteClickeable()
 bool ComponenteClickeable::handleInput(GameObject* o, const SDL_Event& e) {
 	
 	bool eventHandled = false;
-	Entity* aux = static_cast<Entity*>(o);
 
 	SDL_Rect rect;//Inizializacion del Rect
 	rect.x = o->getPosition().getX();
@@ -35,6 +34,7 @@ bool ComponenteClickeable::handleInput(GameObject* o, const SDL_Event& e) {
 	}
 	return eventHandled;
 }
+
 bool ComponenteClickeable::handleInput(SDL_Rect* rect, const SDL_Event& e) {
 	bool eventHandled = false;
 
