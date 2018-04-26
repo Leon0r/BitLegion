@@ -57,17 +57,25 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 	//--------------------Botones----------------------
 	usFunc_ = [this]() mutable {usar(this); };
 	useButton = new Boton(app, "use", usFunc_); //nuevo Boton
+	useButton->addAnim("Pressed", { 23 }, true, -1, 100);
+	useButton->addAnim("Stop", { 22 }, true, -1, 100);
 	RenderComponent* im = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonUsar), useButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	useButton->addRenderComponent(im);
+	useButton->setAnimated(true);
+	useButton->addInputComponent(&pb);
 	useButton->setPosition(Vector2D{ 548*relacion.first, 449*relacion.second }); //posiciones random de prueba
 	useButton->setWidth(140*relacion.first);
 	useButton->setHeight(31*relacion.second);
 	stage.push_back(useButton); //se pushea
 
 	swFunct_ = [this]() mutable {swap(this); };
-	swapButton = new Boton(app, "swap", swFunct_); //nuevo Boton
+	swapButton = new Boton(app, "swap", swFunct_); //nuevo BotonswapButton->addAnim("Pressed", { 23 }, true, -1, 100);
+	swapButton->addAnim("Pressed", { 23 }, true, -1, 100);
+	swapButton->addAnim("Stop", { 22 }, true, -1, 100);
 	RenderComponent* im2 = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSwap), swapButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	swapButton->addRenderComponent(im2);
+	swapButton->setAnimated(true);
+	swapButton->addInputComponent(&pb1);
 	swapButton->setPosition(Vector2D{ 548*relacion.first, 480*relacion.second }); //posiciones random de prueba
 	swapButton->setWidth(140*relacion.first);
 	swapButton->setHeight(31*relacion.second);

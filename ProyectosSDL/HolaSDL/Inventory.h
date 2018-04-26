@@ -6,6 +6,7 @@
 #include "ShortCut.h"
 #include "Boton.h"
 #include "sdl_includes.h"
+#include "pressButtonAnimation.h"
 
 const unsigned int tamanyoFuente = 35;
 const SDL_Color colorFuente = { 255, 255, 255, 1 };
@@ -28,6 +29,7 @@ private:
 	Entity* inventarioHud = new Entity(app);
 	Entity* marca = new Entity(app);
 	ShortCut* SC;
+	pressButtonAnimation pb, pb1;
 	const double espaciado = 87;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const int numCas = 5;

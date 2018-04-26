@@ -1,5 +1,5 @@
 #include "ComponenteClickeable.h"
-
+#include "Entity.h"
 //using namespace std;
 
 ComponenteClickeable::ComponenteClickeable()
@@ -13,6 +13,7 @@ ComponenteClickeable::~ComponenteClickeable()
 bool ComponenteClickeable::handleInput(GameObject* o, const SDL_Event& e) {
 	
 	bool eventHandled = false;
+	Entity* aux = static_cast<Entity*>(o);
 
 	SDL_Rect rect;//Inizializacion del Rect
 	rect.x = o->getPosition().getX();

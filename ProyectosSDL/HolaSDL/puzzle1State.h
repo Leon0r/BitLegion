@@ -8,6 +8,7 @@
 #include "Boton.h"
 #include "GOUnlockeable.h"
 #include "Puzzle.h"
+#include "pressButtonAnimation.h"
 
 
 class Puzzle1State :
@@ -31,6 +32,7 @@ private:
 	RenderComponent* imagenCopia;
 	Entity* copia = new Entity(app);
 	Entity* puzzleHud = new Entity(app);
+	vector<pressButtonAnimation> pb;
 
 	//--------------------------VARIABLES AUXILIARES-----------------------------------------
 	const int numCas = 5;
