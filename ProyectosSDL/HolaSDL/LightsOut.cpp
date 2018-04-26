@@ -26,8 +26,8 @@ LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(a
 	botonReset->setWidth(80);
 	botonReset->setHeight(60);
 	botonReset->setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight()/2 + botonReset->getHeight()*1.8));
-	botonReset->addAnim("Pressed", { 1 }, false, -1, 100);
-	botonReset->addAnim("Stop", { 0 }, false, -1, 100);
+	botonReset->addAnim("Stop", { 0 }, true, -1, 100);
+	botonReset->addAnim("Pressed", { 1 }, true, -1, 100);
 	botonReset->addRenderComponent(new AnimationRenderer(app->getResources()->getImageTexture(Resources::ReturnLuces), botonReset->getAnimations(), 1, 2, 56, 53));
 	botonReset->setAnimated(true);
 	botonReset->addInputComponent(&press);
@@ -37,8 +37,8 @@ LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(a
 	botonExit->setWidth(80);
 	botonExit->setHeight(60);
 	botonExit->setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight() / 2 + botonReset->getHeight()*3));
-	botonExit->addAnim("Pressed", { 1 }, false, -1, 100);
-	botonExit->addAnim("Stop", { 0 }, false, -1, 100);
+	botonExit->addAnim("Stop", { 0 }, true, -1, 100);
+	botonExit->addAnim("Pressed", { 1 }, true, -1, 100);
 	botonExit->addInputComponent(&press);
 	botonExit->addRenderComponent(new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSalirLuces), botonExit->getAnimations(), 1, 2, 56, 53));
 	botonExit->setAnimated(true);
