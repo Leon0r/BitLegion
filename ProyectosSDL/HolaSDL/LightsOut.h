@@ -29,7 +29,7 @@ private:
 	void apagaLuces(const unsigned int n); //invierte luces aleatorias "n" veces, así se garantiza solución
 	void updateAux(); //actualiza aux despues de apagar todas las luces
 	void restartMatrix();
-	static void resetPuzzle(GameState* state);
+	void resetPuzzle();
 	void creaDecoracion();
 	void fadeOut();
 	void win();

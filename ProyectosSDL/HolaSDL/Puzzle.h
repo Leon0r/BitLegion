@@ -17,7 +17,7 @@ public:
 			GameState* _previousState = app->getStateMachine()->currentState(); //nos devuelve siempre el anterior antes de pushearlo
 			list<GameObject*>::iterator aux;
 			for (aux = _previousState->getStage()->begin(); aux != _previousState->getStage()->end(); aux++) {
-				if ((*aux)->_id == id) unlockeables.push_back(static_cast<GOUnlockeable*>((*aux)));
+				if ((*aux)->_id == id) unlockeables.push_back(static_cast<GOUnlockeable*>((*aux))); //este static no se me ocurre otra forma de identificar el tipo
 			}
 		}
 	};

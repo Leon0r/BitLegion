@@ -1,0 +1,11 @@
+class Puzzle:
+
+	linea 20 --> static_cast
+
+class Puzzle1State:
+
+	linea 267 --> dynamic_cast
+
+class Inventory:
+
+	linea 160 --> dynamic_cast
