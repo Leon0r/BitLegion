@@ -13,7 +13,7 @@ public:
 	//establecemos velocidad y teclas de direccion
 	KeyboardComponent(double v, SDL_Keycode right, SDL_Keycode left, SDL_Keycode up, SDL_Keycode down, SDL_Keycode inv, SDL_Keycode poss) :
 		vel_(v), right(right), left(left), up(up), down(down), inventory(inv), pause(poss) {}
-	~KeyboardComponent() {}
+	virtual ~KeyboardComponent() {}
 
 	//miramos eventos de teclado
 	virtual void handleInput(GameObject* o, Uint32 time, const SDL_Event& event);
