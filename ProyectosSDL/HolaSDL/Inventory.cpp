@@ -120,6 +120,9 @@ void Inventory::render() {
 	/*SDL_SetRenderDrawBlendMode(app->getRenderer(), SDL_BLENDMODE_MOD);
 	SDL_SetRenderDrawColor(app->getRenderer(), 70, 70, 70, 1);
 	SDL_RenderFillRect(app->getRenderer(), &rectF);*/
+	txt->changeAlpha(255*0.6);
+	SDL_Rect rct = RECT(0, 0, app->getWindowWidth(), app->getWindowHeight());
+	txt->render(app->getRenderer(), rct, nullptr);
 
 	GameState::render(); //se llama a los componentes "Render" de todos los objetos de la lista del inventario
 	if (selected != nullptr){
