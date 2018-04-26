@@ -173,7 +173,12 @@ public:
 		Transparente,
 		BotonSalir,
 		BotonSalirLuces,
-		ReturnLuces
+		ReturnLuces,
+		SenyoraBazar,
+		SenyorBazar,
+		VecinoDelMuerto,
+		NumeroCamello,
+		AmigaDeGalina
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
