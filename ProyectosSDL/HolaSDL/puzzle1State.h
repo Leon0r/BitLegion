@@ -32,7 +32,7 @@ private:
 	RenderComponent* imagenCopia;
 	Entity* copia = new Entity(app);
 	Entity* puzzleHud = new Entity(app);
-	vector<pressButtonAnimation> pb;
+	pressButtonAnimation pb;
 
 	//--------------------------VARIABLES AUXILIARES-----------------------------------------
 	const int numCas = 5;

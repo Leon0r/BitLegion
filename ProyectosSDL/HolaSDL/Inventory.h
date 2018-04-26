@@ -29,7 +29,7 @@ private:
 	Entity* inventarioHud = new Entity(app);
 	Entity* marca = new Entity(app);
 	ShortCut* SC;
-	pressButtonAnimation pb, pb1;
+	pressButtonAnimation pb;
 	const double espaciado = 87;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const int numCas = 5;

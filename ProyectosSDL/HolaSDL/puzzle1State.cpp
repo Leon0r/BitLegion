@@ -19,8 +19,6 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	auxAB = matriz[numCas-1][numCas-1]->getPosition().getY();
 	auxA = auxAB - relacion.second*espaciado;
 
-	pb.resize((numCas * 2)+2);
-
 	for (int i = 0; i < numCas*2; i++) {
 		Boton* b;
 		//RenderComponent* bAnim = new ImageRenderer(app->getResources()->getImageTexture(Resources::BotonPuzzle));
@@ -30,7 +28,7 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 			b->setHeight(40);
 			b->setPosition(Vector2D(b->getWidth() + 280, relacion.second*((espaciado-4)*i + 60)));
 			b->setAnimated(true);
-			b->addInputComponent(&pb[i]);
+			b->addInputComponent(&pb);
 		}
 		else {
 			b = new Boton(game, usar, this, "boton1", -1, i - numCas);
@@ -38,7 +36,7 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 			b->setHeight(40);
 			b->setPosition(Vector2D(relacion.first*(espaciado*(i-numCas) + 97) + espaciado*2, game->getWindowHeight()-b->getHeight() - b->getHeight()/2 + 10));
 			b->setAnimated(true);
-			b->addInputComponent(&pb[i-numCas]);
+			b->addInputComponent(&pb);
 		}
 		b->addAnim("Stop", { 0 }, true);
 		b->addAnim("Pressed", { 1 }, true, -1, 50);
@@ -58,7 +56,7 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	resetButton->addAnim("Stop", { 0 }, true);
 	resetButton->addAnim("Pressed", { 1 }, true, -1, 50);
 	resetButton->setAnimated(true);
-	resetButton->addInputComponent(&pb[numCas * 2]);
+	resetButton->addInputComponent(&pb);
 	reiniciar = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar), resetButton->getAnimations(), 1, 2, 140, 140);
 	resetButton->setRender(reiniciar);
 	resetButton->setPosition(Vector2D(43.5*relacion.first, 378*relacion.second)); //numeros majos
@@ -71,7 +69,7 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	exitButton->addAnim("Stop", { 0 }, true);
 	exitButton->addAnim("Pressed", { 1 }, true, -1, 50);
 	exitButton->setAnimated(true);
-	exitButton->addInputComponent(&pb[numCas * 2 + 1]);
+	exitButton->addInputComponent(&pb);
 	exitRenderer = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSalir), exitButton->getAnimations(), 1, 2, 49, 51);
 	exitButton->setRender(exitRenderer);
 	exitButton->setHeight(exitRenderer->getTexture()->getHeight() * 2.1 / 3);
@@ -256,11 +254,14 @@ void Puzzle1State::deleteMatrix() {
 void Puzzle1State::destroy()
 {
 	for (int i = 0; i < botones.size(); i++) {
-		if (botones[i] != nullptr) { delete botones[i]; botones[i] = nullptr; }
+		if (botones[i] != nullptr) { botones[i]->delInputComponent(&pb); delete botones[i]; botones[i] = nullptr; }
 		if (botonesAnim[i] != nullptr) { botonesAnim[i] = nullptr; }
 	}
 
 	deleteMatrix();
+
+	resetButton->delInputComponent(&pb);
+	exitButton->delInputComponent(&pb);
 
 	if (resetButton != nullptr) { delete resetButton; resetButton = nullptr; }
 

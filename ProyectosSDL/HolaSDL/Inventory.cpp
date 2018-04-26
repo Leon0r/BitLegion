@@ -75,7 +75,7 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 	RenderComponent* im2 = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSwap), swapButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	swapButton->addRenderComponent(im2);
 	swapButton->setAnimated(true);
-	swapButton->addInputComponent(&pb1);
+	swapButton->addInputComponent(&pb);
 	swapButton->setPosition(Vector2D{ 548*relacion.first, 480*relacion.second }); //posiciones random de prueba
 	swapButton->setWidth(140*relacion.first);
 	swapButton->setHeight(31*relacion.second);
@@ -156,6 +156,9 @@ void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea
 	delete inventarioHud; inventarioHud = nullptr;
 
 	delete marca; marca = nullptr;
+
+	useButton->delInputComponent(&pb);
+	swapButton->delInputComponent(&pb);
 
 	delete useButton; useButton = nullptr;
 
