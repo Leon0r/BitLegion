@@ -178,7 +178,9 @@ public:
 		SenyorBazar,
 		VecinoDelMuerto,
 		NumeroCamello,
-		AmigaDeGalina
+		AmigaDeGalina,
+		EntradaBazar,
+		Bazar
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
