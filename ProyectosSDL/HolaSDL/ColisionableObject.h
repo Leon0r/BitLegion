@@ -7,7 +7,7 @@ class ColisionableObject :
 	public Entity
 {
 public:
-	ColisionableObject() {}
+	ColisionableObject() { this->setType(Collider); }
 	ColisionableObject(SDLApp* game, int x, int y, int w, int h, Texture* texture);
 	virtual ~ColisionableObject() {
 		this->delRenderComponent(&render);

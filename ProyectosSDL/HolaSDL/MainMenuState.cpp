@@ -19,7 +19,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	};
 
 	lGame_ = [game]() { //funcion LoadGame();
-		PlayState* playState_ = new PlayState(game); //acceder al estado PlayState
+		PlayState* playState_ = new PlayState(game, true); //acceder al estado PlayState
 
 		game->getStateMachine()->pushState(playState_);//pop antes??
 

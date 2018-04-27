@@ -11,14 +11,14 @@
 using namespace std;
 using json = nlohmann::json;
 
-
 class SDLApp;
 class Texture;
 class GameObject: public Observable, public Observer
 {
 public:
+	enum Type { Collider, ItInventario, Doors, Default };
 	GameObject();
-	GameObject(SDLApp* game, int _id = -4) :app(game), _id(_id), active_(true) {}
+	GameObject(SDLApp* game, int _id = -4) :app(game), _id(_id), active_(true), objectType(Default) {}
 	virtual ~GameObject();
 
 	// abstract methods to be implemented in sub-classes
@@ -60,6 +60,10 @@ public:
 		return active_;
 	}
 
+	Type getType() const {
+		return objectType;
+	}
+
 	void setWidth(double w) {
 		width_ = w;
 	}
@@ -88,6 +92,10 @@ public:
 		active_ = nActive;
 	}
 
+	void setType(Type newType) {
+		objectType = newType;
+	}
+
 	virtual void saveToJson(json& j) = 0;
 
 	virtual void receive(Mensaje* msg) {};
@@ -107,6 +115,9 @@ protected:
 	Vector2D direction_; // angle in degrees (0) is considered facing left
 	Vector2D velocity_; // direction
 
+
+private:
+	Type objectType;
 };
 #endif /* GAMEOBJECT_H_ */
 

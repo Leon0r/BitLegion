@@ -50,7 +50,7 @@ PlayState::PlayState(SDLApp* app, bool load) : GameState(app) {
 	shortcut = new ShortCut(app, list, resources);
 	stage.push_front(shortcut);
 
-	alena = new MainCharacter(app, j, list, &collision, shortcut, 6.0);
+	alena = new MainCharacter(app, j, list, &collision, shortcut, 6.0, this);
 	stage.push_front(alena);
 
 	i.close();
@@ -70,13 +70,13 @@ PlayState::PlayState(SDLApp* app, bool load) : GameState(app) {
 
 	if (!load) {
 		for (int cont = 0; cont < numScenes; cont++) {
-			scenes.push_back(new Scene(cont, app, alena));
+			scenes.push_back(new Scene(cont, app, alena, this));
 		}
 	}
 	else
 	{
 		for (int cont = 0; cont < numScenes; cont++) {
-			scenes.push_back(new Scene(cont, app, alena, load));
+			scenes.push_back(new Scene(cont, app, alena, this, load));
 		}
 	}
 
@@ -218,15 +218,21 @@ void PlayState::receive(Mensaje* msg) {
 	case CambioEscena: 
 	{
 		int numScene = static_cast<MensajeCambioEscenaDialogos*>(msg)->numScene_; //los static de los mensajes no se pueden quitar T_T
-		/*GameObject* saux = stage.front();
-		delete saux;
-		enConversacion = false;*/
 		setEnConversacion(false);
 		swapScene(numScene);
 		break;
 	}
 	case DialogoAcabado:
 		setEnConversacion(false);
+		break;
+	case SetZBufferPlayState:
+		this->SetZBuffer();
+		break;
+	case Pausa:
+		this->pauseMenu();
+		break;
+	case AbreInventario:
+		this->creaInventario();
 		break;
 	default:
 		break;

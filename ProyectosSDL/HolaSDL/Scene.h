@@ -11,11 +11,11 @@
 using json = nlohmann::json;
 
 class MainCharacter;
-class Scene
+class Scene: public Observable
 {
 public:
 	Scene();
-	Scene(int numEscena, SDLApp* app, MainCharacter* pj, bool load = false);
+	Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState, bool load = false);
 	~Scene();
 	void enterScene();
 	void exitScene();
@@ -37,6 +37,6 @@ private:
 	double width = 0, height = 0, x = 0, y = 0;
 	Vector2D posIni, playerTam;
 	GameState* PuzzleCreator(PuzzleTypes type, const json& j); //dependiendo del tag, elige un puzzle u otro (podemos tener mas de dos)
-	bool addAnimsFromJSON(GameObject* obj, json& j, const int numText);
+	bool addAnimsFromJSON(Entity* obj, json& j, const int numText);
 };
 

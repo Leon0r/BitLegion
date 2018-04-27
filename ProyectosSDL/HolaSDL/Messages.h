@@ -15,7 +15,10 @@ enum Messages {
 	ChangeScene,
 	MensajeVacio,
 	DialogoAcabado,
-	Stop
+	Stop,
+	SetZBufferPlayState,
+	AbreInventario,
+	Pausa
 };
 
 struct Mensaje{

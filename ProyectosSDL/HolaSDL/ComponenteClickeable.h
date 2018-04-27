@@ -4,7 +4,6 @@
 #include "GameObject.h"
 
 class ComponenteClickeable
-	//:public InputComponent
 {
 private:
 	bool firstClickDown = false;

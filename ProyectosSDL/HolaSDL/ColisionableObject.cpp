@@ -2,6 +2,8 @@
 
 ColisionableObject::ColisionableObject(SDLApp* game, int x, int y, int w, int h, Texture* texture) : Entity(game)
 {
+	this->setType(Collider);
+
 	if (texture != nullptr) {
 		//componentes
 		render = ImageRenderer(texture);

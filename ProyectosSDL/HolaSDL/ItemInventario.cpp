@@ -25,7 +25,6 @@ void ItemInventario::act() {
 			personaje->addInventoryObject(this); //añadimos objeto
 			personaje->send(&Mensaje(Ch_TakeObj));
 			this->setActive(false);
-			//app->getStateMachine()->currentState()->deleteElement(this);
 		}
 	}
 }

@@ -43,7 +43,7 @@ public:
 	MainCharacter* getMainPj() { return alena; }
 	ShortCut* getShortCut(){ return shortcut; }
 	void creaInventario() { app->getStateMachine()->pushState(new Inventory(app, list, this, shortcut)); }
-	ObjectList* getList() { return list; };//prueba, no deberia estar aqui
+	ObjectList* getList() { return list; };
 	vector<Scene*> getScenes(){ return scenes; };
 	void swapScene(int nextScene);
 	Scene* getCurrentScene() { return scenes[currentScene]; }

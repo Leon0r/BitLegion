@@ -16,13 +16,14 @@ Scene::Scene()
 	//Idealmente lee de un archivo
 }
 
-Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), SceneNum(numEscena), pj(pj) {
+Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState, bool load):app(app), SceneNum(numEscena), pj(pj) {
+
+	addObserver(playState);
+
 	string name;
 	if (load)name = "..\\Scenes\\saves\\Scene";
 	else name = "..\\Scenes\\Scene";
 	name = name + to_string(numEscena) +".json";
-	//name += ".json";
-	//cout << name;
 
 	std::ifstream i(name);
 	
@@ -41,11 +42,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			bool permanente = false;
 			if (!j[obj][i]["permanente"].is_null()) { permanente = j[obj][i]["permanente"]; }
 
-			SceneItems.push_front(new ItemInventario(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+			ItemInventario* item = new ItemInventario(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
 				j[obj][i]["descripcion"], j[obj][i]["tag"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), permanente));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), permanente);
 
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+			SceneItems.push_front(item);
+
+			addAnimsFromJSON(item, j[obj][i], n);
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.front()->setRotation(j[obj][i]["rotation"]);
@@ -83,7 +86,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			aux->addRenderComponent(im);
 			SceneItems.push_back(aux);
 
-			if (addAnimsFromJSON(SceneItems.back(), j[obj][i], n)) {
+			if (addAnimsFromJSON(aux, j[obj][i], n)) {
 				delete im; //si tiene animaciones, borra el anterior componente de render
 			}
 
@@ -121,11 +124,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 			SceneStates.push_back(PuzzleCreator(j[obj][i]["type"], j[obj][i]));
 
-			SceneItems.push_back(new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
+			GOstates* goSt = new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)),SceneStates.back(), j[obj][i]));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), SceneStates.back(), j[obj][i]);
 
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+			SceneItems.push_back(goSt);
+
+			addAnimsFromJSON(goSt, j[obj][i], n);
 			
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -138,11 +143,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 			n = j[obj][i]["Texture"];
 
-			SceneItems.push_back(new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
+			GOTransiciones* goTrans = new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]);
 
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+			SceneItems.push_back(goTrans);
+
+			addAnimsFromJSON(goTrans, j[obj][i], n);
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -155,11 +162,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 			n = j[obj][i]["Texture"];
 
-			SceneItems.push_back(new ColisionableObject(app, j[obj][i]["x"], j[obj][i]["y"],
+			ColisionableObject* newCol = new ColisionableObject(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n))));
+				app->getResources()->getImageTexture(Resources::ImageId(n)));
 
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+			SceneItems.push_back(newCol);
+
+			addAnimsFromJSON(newCol, j[obj][i], n);
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -181,9 +190,11 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 					id = j[obj][i]["UnlockId"];
 				}
 
-			SceneItems.push_back(new GODoors(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
-			app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans, id));
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+			GODoors* door = new GODoors(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans, id);
+
+			SceneItems.push_back(door);
+			addAnimsFromJSON(door, j[obj][i], n);
 
 			
 			if (!j[obj][i]["rotation"].is_null()) {
@@ -279,12 +290,12 @@ void Scene::enterScene() {
 		it = CurrentState->getStage()->erase(it);//borramos el item
 	}
 	CurrentState->getStage()->insert(CurrentState->getStage()->end(), SceneItems.begin(), SceneItems.end());
-	static_cast<PlayState*>(app->getStateMachine()->currentState())->SetZBuffer();
+
+	send(&Mensaje(SetZBufferPlayState)); //mensaje para recolocar el zBuffer
+
 	for (GameObject* it : SceneItems) {
-		ColisionableObject* col = dynamic_cast<ColisionableObject*>(it);
-		if (col != nullptr) {
-			pj->setNewCollision(col);
-		}
+		if(it->getType() == GameObject::Collider) //casteo personalizado
+			pj->setNewCollision(it);
 	}
 
 	//establecemos el tamaño de la nueva escena en el jugador (para las colisiones y el mouse)
@@ -385,11 +396,11 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
 	return nPuzzle;
 }
 
-bool Scene::addAnimsFromJSON(GameObject* obj, json& j, const int numText){
+bool Scene::addAnimsFromJSON(Entity* obj, json& j, const int numText){
 
 	if (!j["animation"].is_null()) {
 		if (j["animation"]) {
-			Entity* col = static_cast<Entity*>(obj);
+			Entity* col = obj;
 			col->setAnimated(true);
 			col->delEveryRenderComponent();
 			for (unsigned int k = 0; k < j["Anims"].size(); k++) {

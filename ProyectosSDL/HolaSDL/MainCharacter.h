@@ -15,7 +15,7 @@ class MainCharacter:
 {
 public:
 	MainCharacter() {};
-	MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, ShortCut* shortcut_, double vel);
+	MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, ShortCut* shortcut_, double vel, Observer* playState);
 	virtual ~MainCharacter();
 	void addInventoryObject(GameObject* o);
 	string getCurrentTag() { return this->currentTag; };
