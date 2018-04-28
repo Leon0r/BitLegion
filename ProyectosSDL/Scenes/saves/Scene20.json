@@ -1,5 +1,38 @@
 {
    "AlenaActiva": true,
+   "Decorado": [
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               3,
+               4,
+               5,
+               6,
+               7,
+               8,
+               9,
+               10,
+               11
+            ]
+         ],
+         "Texture": 168,
+         "animation": true,
+         "h": 100.0,
+         "heightFrame": 100,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "vel": 150.0,
+         "w": 281.0,
+         "widthFrame": 281,
+         "x": 295.0,
+         "y": 0.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 29,

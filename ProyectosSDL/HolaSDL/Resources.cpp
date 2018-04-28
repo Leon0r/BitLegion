@@ -169,9 +169,12 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/entradabazar.png", //entrada al Bazar
 "..//images/Fondos/bazar.png", //Bazar
 "..//images/Fondos/escena22caso1.png", //casa de la novia del muerto
-"..//images/Objetos/Colisionables/coche1.png",
-"..//images/Objetos/Colisionables/coche2.png"
+"..//images/Objetos/Colisionables/coche1.png", //coche1
+"..//images/Objetos/Colisionables/coche2.png", //coche2 (util)
+"..//images/Objetos/cartelbazarspritesheet.png" //cartel animado bazar
 };
+
+
 
 
 

@@ -183,7 +183,8 @@ public:
 		Bazar,
 		Escena22Caso1,
 		Coche1Decorado,
-		Coche2Decorado
+		Coche2Decorado,
+		CartelBazar
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

@@ -56,9 +56,21 @@
          "y": 450.0
       }
    ],
+   "ItemInventario": [
+      {
+         "Texture": 21,
+         "descripcion": "Ticket de compra",
+         "h": 20.0,
+         "rotation": 45.0,
+         "tag": "ticket",
+         "w": 20.0,
+         "x": 1180.0,
+         "y": 300.0
+      }
+   ],
    "PlayerPos": {
-      "x": 1129.010985144458,
-      "y": 225.6
+      "x": 30.0,
+      "y": 450.0
    },
    "PlayerTam": {
       "h": 201.6,

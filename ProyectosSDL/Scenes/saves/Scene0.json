@@ -2,7 +2,7 @@
    "AlenaActiva": true,
    "CollisionableObject": [
       {
-         "Texture": 165,
+         "Texture": 169,
          "h": 110.0,
          "rotation": 0.0,
          "w": 47.0,
@@ -131,6 +131,28 @@
          "y": 600.0
       }
    ],
+   "ItemInventario": [
+      {
+         "Texture": 55,
+         "descripcion": "key",
+         "h": 40.0,
+         "rotation": 0.0,
+         "tag": "keyMoto",
+         "w": 40.0,
+         "x": 630.0,
+         "y": 500.0
+      },
+      {
+         "Texture": 19,
+         "descripcion": "key",
+         "h": 40.0,
+         "rotation": 0.0,
+         "tag": "key",
+         "w": 40.0,
+         "x": 710.0,
+         "y": 490.0
+      }
+   ],
    "NPC": [
       {
          "Anims": [
@@ -206,8 +228,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 700.0,
-      "y": 488.0
+      "x": 100.0,
+      "y": 500.0
    },
    "PlayerTam": {
       "h": 201.6,
