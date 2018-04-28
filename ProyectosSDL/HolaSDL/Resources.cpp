@@ -168,7 +168,9 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/SpriteSheets_Personajes/AmigaGalina.png", //amiga de la novia del muerto
 "..//images/Fondos/entradabazar.png", //entrada al Bazar
 "..//images/Fondos/bazar.png", //Bazar
-"..//images/Fondos/escena22caso1.png"//casa de la novia del muerto
+"..//images/Fondos/escena22caso1.png", //casa de la novia del muerto
+"..//images/Objetos/Colisionables/coche1.png",
+"..//images/Objetos/Colisionables/coche2.png"
 };
 
 

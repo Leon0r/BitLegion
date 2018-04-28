@@ -181,7 +181,9 @@ public:
 		AmigaDeGalina,
 		EntradaBazar,
 		Bazar,
-		Escena22Caso1
+		Escena22Caso1,
+		Coche1Decorado,
+		Coche2Decorado
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
