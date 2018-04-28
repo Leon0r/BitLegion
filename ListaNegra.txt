@@ -9,3 +9,7 @@ class Puzzle1State:
 class Inventory:
 
 	linea 160 --> dynamic_cast
+
+class ClickeableGo:
+
+	linea 24 --> static_cast
