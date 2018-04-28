@@ -180,7 +180,8 @@ public:
 		NumeroCamello,
 		AmigaDeGalina,
 		EntradaBazar,
-		Bazar
+		Bazar,
+		Escena22Caso1
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
