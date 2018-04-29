@@ -172,7 +172,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Colisionables/coche1.png", //coche1
 "..//images/Objetos/Colisionables/coche2.png", //coche2 (util)
 "..//images/Objetos/cartelbazarspritesheet.png", //cartel animado bazar
-"..//images/Fondos/escena19caso1.png"//callejon que lleva al bazar
+"..//images/Fondos/escena19caso1.png", //callejon que lleva al bazar
+"..//images/Objetos/muertoAutopsia.png"
 };
 
 

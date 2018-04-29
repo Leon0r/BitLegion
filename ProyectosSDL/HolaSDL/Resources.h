@@ -185,7 +185,8 @@ public:
 		Coche1Decorado,
 		Coche2Decorado,
 		CartelBazar,
-		Escena19Caso1
+		Escena19Caso1,
+		MuertoAutopsia
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
