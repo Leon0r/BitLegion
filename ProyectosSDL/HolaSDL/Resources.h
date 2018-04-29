@@ -186,7 +186,16 @@ public:
 		Coche2Decorado,
 		CartelBazar,
 		Escena19Caso1,
-		MuertoAutopsia
+		MuertoAutopsia,
+		ControlesRaton,
+		ControlesKeyArrows,
+		ControlesKeyI,
+		ControlesKeyP,
+		ControlesClick,
+		PuertaViejaContra,
+		TaquillaAlenaContra,
+		ControlesButton,
+
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
