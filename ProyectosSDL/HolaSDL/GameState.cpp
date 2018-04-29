@@ -9,7 +9,7 @@ void GameState::update() {
 	startTime = SDL_GetTicks();
 
 	for (GameObject* it : stage) { 
-		it->update(0); }
+		it->update(startTime); }
 
 	// Calcula el tiempo del update del playState
 	frameTime = SDL_GetTicks() - startTime;

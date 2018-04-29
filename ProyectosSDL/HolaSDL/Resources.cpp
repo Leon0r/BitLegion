@@ -179,8 +179,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/key_i.png", //callejon que lleva al bazar
 "..//images/Fondos/key_p.png", //callejon que lleva al bazar
 "..//images/Fondos/ratonMouse.png", //callejon que lleva al bazar
-"..//images/Fondos/puertaViejaContraseña.png", //callejon que lleva al bazar
-"..//images/Fondos/taquillaAlenaContraseña.png", //callejon que lleva al bazar
+"..//images/Fondos/puertaViejaContrasenya.png", //callejon que lleva al bazar
+"..//images/Fondos/taquillaAlenaContrasenya.png", //callejon que lleva al bazar
 "..//images/Objetos/CONTROLES.png", //callejon que lleva al bazar
 };
 

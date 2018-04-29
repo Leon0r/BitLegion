@@ -54,7 +54,7 @@
          "Texture": 29,
          "UnlockId": 1,
          "h": 30.0,
-         "password": "kaka",
+         "password": "kakaaaa",
          "rotation": -45,
          "type": 2,
          "w": 30.0,
@@ -85,8 +85,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 550.0,
-      "y": 500.0
+      "x": 562.0,
+      "y": 236.0
    },
    "PlayerTam": {
       "h": 201.6,

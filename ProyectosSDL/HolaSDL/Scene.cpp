@@ -387,7 +387,12 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
 		if (!j["UnlockId"].is_null())
 			aux = j["UnlockId"];
 
-		nPuzzle = new PasswordState(app, j["password"], aux);
+		int fondo = -1;
+		if (!j["TexturaFondo"].is_null())
+			fondo = j["TexturaFondo"];
+
+
+		nPuzzle = new PasswordState(app, j["password"], aux, fondo);
 		break;
 	}
 	default:
