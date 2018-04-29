@@ -20,14 +20,6 @@ GOstates::GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, G
 	this->addRenderComponent(render);
 }
 
-//BORRAR ESTO AL PASARTE EL PUZZLE!!! ====Son las 3AM y no se me ocurre una forma bonica de hacerlo, ya mañana se mira
-//LISTA ESCENAS TIENE QUE SER CLASE PADRE PUZZLE ====DONE====
-//QUITAR ESTE PUNTERO Y CAMBIARLO A PADREPUZZLE ====DONE===
-//EL SERACHID() BAJARLO A PADREPUZZLE ====DONE====
-
-
-//ADAPTAR EL LIGHTSOUT A LA NUEVA ESTRUCTURA ===DONE===
-
 GOstates::~GOstates()
 {
 }
@@ -36,7 +28,7 @@ void GOstates::act() {
 	app->getStateMachine()->currentState()->changeList();
 	state_->searchId(); 
 	if (!added) { state_->addObserver(this); added = true; } //si no se ha añadido mas veces, lo anyade (evitar fallos raros al clickar varias veces)
-	this->getGame()->getStateMachine()->pushState(state_); ///Hmmmmm borrar dynamic
+	this->getGame()->getStateMachine()->pushState(state_); 
 }
 
 void GOstates::saveToJson(json & j){

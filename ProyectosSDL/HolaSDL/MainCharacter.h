@@ -3,19 +3,20 @@
 #include "Entity.h"
 #include "ImageRenderer.h"
 #include "AnimationRenderer.h"
-#include "KeyboardComponent.h"
 #include "MovementComponent.h"
 #include "ItemInventario.h" // Para cargar 
 #include "ShortCut.h"
 #include "MouseMovement.h"
 #include "ComponentSwitcher.h"
 
+class PlayState;
+class KeyboardComponent;
 class MainCharacter:
 	public Entity
 {
 public:
 	MainCharacter() {};
-	MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, ShortCut* shortcut_, double vel, Observer* playState);
+	MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, ShortCut* shortcut_, double vel, PlayState* playState);
 	virtual ~MainCharacter();
 	void addInventoryObject(GameObject* o);
 	string getCurrentTag() { return this->currentTag; };
@@ -32,7 +33,7 @@ public:
 	//establece el tamaño de la escena para el mouse y las colisiones del movimiento
 	void setSceneTam(double w, double h, double x, double y) {
 		mouseMovement->setSceneTam(w, h, x, y);
-		static_cast<MovementComponent*>(movement)->setSceneTam(w, h, x, y);
+		movement->setSceneTam(w, h, x, y);
 	}
 	int getCurrentScene() const { return this->currentScene; };
 	void setCurrentScene(int nScene_) { this->currentScene = nScene_; };
@@ -47,13 +48,15 @@ private:
 	Texture * _texture;
 	ShortCut * shortCut;
 	string currentTag;
-	RenderComponent* render;
-	InputComponent* keyboard;
-	PhysicsComponent* movement;
+	AnimationRenderer* render;
+	KeyboardComponent* keyboard;
+	MovementComponent* movement;
 	MouseMovement* mouseMovement;
 	ObjectList* list;
 	std::list<GameObject*>* colisionables;
 	ComponentSwitcher switcher = ComponentSwitcher(app, this);
 	int currentScene = 0; //para guardar la ultima escena
+
+	PlayState* mainState; //puntero para acceder al estado
 };
 

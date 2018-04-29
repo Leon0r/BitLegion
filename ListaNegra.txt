@@ -13,3 +13,38 @@ class Inventory:
 class ClickeableGo:
 
 	linea 24 --> static_cast
+
+class GOstates:
+	
+	linea 8-->static_cast
+	linea 19 -->static_cast
+
+class GOConversacional:
+
+	linea 19-->dynamic
+
+class Entity:
+
+	linea 11 ---> static_cast
+	linea 127---> static_cast
+	linea 11-->dynamic_cast
+
+class GOUnlockeable:
+
+	linea 6-->static_cast (antes habia un doble dynamic seguido de dos statics, asi que ni tan mal)
+
+class ItemInventario:
+
+	linea 21 --> static_cast (todos los del playstate se solucionarían pasándole un puntero de playState pero no sé que es peor)
+
+class GOTransiciones:
+
+	linea 26 --->static_cast
+
+class ShortCut:
+
+	linea 55->static_cast
+
+class ObjectList:
+
+	linea 10-->dynamic_cast (este la verdad que no lo veo ni mal)

@@ -17,10 +17,11 @@ ItemInventario::~ItemInventario()
 
 void ItemInventario::act() {
 	cout << "Hanzo main" << endl;
-	PlayState* aux = static_cast<PlayState*>(app->getStateMachine()->currentState()); //casteo del estado de prueba...
+
+	PlayState* aux = static_cast<PlayState*>(app->getStateMachine()->currentState()); //casteo del playState
 
 	if (aux != nullptr) {
-		MainCharacter* personaje = static_cast<MainCharacter*>(aux->getMainPj()); //casteo del main
+		MainCharacter* personaje = aux->getMainPj(); //casteo del main
 		if (personaje != nullptr) {
 			personaje->addInventoryObject(this); //añadimos objeto
 			personaje->send(&Mensaje(Ch_TakeObj));

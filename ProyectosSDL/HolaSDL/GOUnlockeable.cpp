@@ -3,11 +3,12 @@
 
 void GOUnlockeable::act() {
 	if (!opened) {
-		if (static_cast<MainCharacter*>(static_cast<PlayState*>(this->getGame()->getStateMachine()->currentState())->getMainPj())->getCurrentTag() == key) {
+		PlayState* aux = static_cast<PlayState*>(app->getStateMachine()->currentState());
+
+		if (aux->getMainPj()->getCurrentTag() == key) {
 			opened = true;
-			PlayState* aux = static_cast<PlayState*>(app->getStateMachine()->currentState());
 			if (aux != nullptr) {
-				MainCharacter* pj = static_cast<MainCharacter*>(aux->getMainPj());
+				MainCharacter* pj = aux->getMainPj();
 				if (pj != nullptr) {
 					pj->getList()->deleteItem(key);
 					pj->setCurrenTag("");

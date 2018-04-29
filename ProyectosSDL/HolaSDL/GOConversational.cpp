@@ -15,12 +15,14 @@ GOConversational::~GOConversational()
 
 void GOConversational::act() {
 	if (!inconversation) {
-		PlayState* aux = dynamic_cast<PlayState*>(app->getStateMachine()->currentState()); //este dynamic lo veo super necesario en los dialogos automaticos... da problemnas con las transiciones
+
+		PlayState* aux = dynamic_cast<PlayState*>(app->getStateMachine()->currentState()); 
+
 		if (aux != nullptr) {
 			inconversation = true;
-			static_cast<PlayState*>(app->getStateMachine()->currentState())->setEnConversacion(true);
+			aux->setEnConversacion(true);
 			convo->addObserver(app->getStateMachine()->currentState());
-			this->addObserver(static_cast<PlayState*>(app->getStateMachine()->currentState())->getMainPj());
+			this->addObserver(aux->getMainPj());
 			this->send(&Mensaje(Stop));
 			app->getStateMachine()->currentState()->getStage()->push_front(convo);
 			app->getStateMachine()->currentState()->changeList();

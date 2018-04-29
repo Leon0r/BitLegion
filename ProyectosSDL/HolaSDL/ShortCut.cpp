@@ -1,5 +1,6 @@
 #include "ShortCut.h"
 #include "MainCharacter.h"
+#include "PlayState.h"
 
 ShortCut::ShortCut(SDLApp* game, ObjectList* list, const Resources* resources) : Entity(game), lista(list), resources(resources){
 	renderCmp = new ImageRenderer(resources->getImageTexture(Resources::ShortCut));
@@ -51,7 +52,7 @@ void ShortCut::render(Uint32 time) {
 	}
 }
 
-void ShortCut::usar() { dynamic_cast<MainCharacter*>(app->getStateMachine()->currentState()->getStage()->front())->setCurrenTag(selected->getTag()); }
+void ShortCut::usar() { static_cast<PlayState*>(app->getStateMachine()->currentState())->getMainPj()->setCurrenTag(selected->getTag()); }
 
 void ShortCut::ini(int pos, double coefred)
 {

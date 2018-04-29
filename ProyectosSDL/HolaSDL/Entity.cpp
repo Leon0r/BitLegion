@@ -108,7 +108,7 @@ void Entity::delEveryRenderComponent() { //deletea y borra de la lista
 void Entity::saveAnims(json & j){
 	if (this->isAnimated()) { //si esta animado, guarda las animaciones
 		j["animation"] = true;
-		AnimationRenderer* aux = static_cast<AnimationRenderer*>(renderComp_.front());
+		AnimationRenderer* aux = static_cast<AnimationRenderer*>(renderComp_.front()); //ambos los veo necesarios peero
 		j["numColsFrame"] = aux->getnumFrFils();
 		j["numFilsFrame"] = aux->getNumFrCols();
 		j["widthFrame"] = aux->getfrWidth();

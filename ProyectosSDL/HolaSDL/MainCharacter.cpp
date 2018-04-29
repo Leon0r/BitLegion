@@ -1,8 +1,9 @@
 #include "MainCharacter.h"
+#include "KeyboardComponent.h"
 
 
-MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, ShortCut* shorcut_, double vel, Observer* playState):
-	Entity(game), list(list), colisionables(coll), shortCut(shorcut_) {
+MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<GameObject*>* coll, ShortCut* shorcut_, double vel, PlayState* playState):
+	Entity(game), list(list), colisionables(coll), shortCut(shorcut_), mainState(playState) {
 	// textura
 	int n = j["mainPj"]["Texture"];
 	_texture = app->getResources()->getImageTexture(Resources::ImageId(n));
@@ -26,11 +27,11 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	switcher.setMode(0);
 
 	//mensajes
-	keyboard->addObserver(static_cast<AnimationRenderer*>(render));//teclado a animaciones
-	keyboard->addObserver(static_cast<ComponentSwitcher*>(&switcher));//teclado a switcher para no pisarse con mouse
-	mouseMovement->addObserver(static_cast<AnimationRenderer*>(render));//mouse a animaciones
-	mouseMovement->addObserver(static_cast<ComponentSwitcher*>(&switcher));//mouse a switcher para no pisarse con teclado
-	this->addObserver(static_cast<AnimationRenderer*>(render));
+	keyboard->addObserver(render);//teclado a animaciones
+	keyboard->addObserver(&switcher);//teclado a switcher para no pisarse con mouse
+	mouseMovement->addObserver(render);//mouse a animaciones
+	mouseMovement->addObserver(&switcher);//mouse a switcher para no pisarse con teclado
+	this->addObserver(render);
 
 	// posicion y dimensiones
 	this->setWidth(j["mainPj"]["w"]);//ancho, alto, posicion y textura
@@ -95,12 +96,13 @@ void MainCharacter::saveToJson(json& j) {
 	j["mainPj"].update(aux);
 }
 
-void MainCharacter::setPosIni() { setPosition(static_cast<PlayState*>(app->getStateMachine()->currentState())->getCurrentScene()->getPosIni()); }
+void MainCharacter::setPosIni() { setPosition(mainState->getCurrentScene()->getPosIni()); }
+
 void MainCharacter::setTam() {
-	Vector2D tam = static_cast<PlayState*>(app->getStateMachine()->currentState())->getCurrentScene()->getPlayerTam();
+	Vector2D tam = mainState->getCurrentScene()->getPlayerTam();
 	setWidth(tam.getX()); setHeight(tam.getY());
 }
-void MainCharacter::cleanKeys() { static_cast<KeyboardComponent*>(keyboard)->cleanStacks(); }//llamado al entrar en una escena, limpia las pilas de teclas para evitar errores
+void MainCharacter::cleanKeys() { keyboard->cleanStacks(); }//llamado al entrar en una escena, limpia las pilas de teclas para evitar errores
 
 void MainCharacter::receive(Mensaje* msg) {
 	switch (msg->id_)
