@@ -5,7 +5,7 @@
 #include "Texture.h"
 
 const unsigned int tamanyoFuenteConv = 40;
-const SDL_Color colorFuenteConv = { 255, 255, 255, 1 }; //38c81f // es el verde fosforito en hexadecimal pero no se ve bien (creo que se escribe por debajo)
+const SDL_Color colorFuenteConv = { 0, 169, 0, 1 }; //38c81f // es el verde fosforito en hexadecimal pero no se ve bien (creo que se escribe por debajo)
 
 class Conversacion : public GameObject
 {
