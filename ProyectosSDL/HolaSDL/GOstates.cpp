@@ -46,6 +46,7 @@ void GOstates::saveToJson(json & j){
 		if (!jAux_["numText"].is_null()) { aux["numText"] = jAux_["numText"]; }
 		if (!jAux_["UnlockId"].is_null()) { aux["UnlockId"] = jAux_["UnlockId"]; }
 		if(!jAux_["password"].is_null()) { aux["password"] = jAux_["password"]; }
+		if (!jAux_["TexturaFondo"].is_null()) { aux["TexturaFondo"] = jAux_["TexturaFondo"]; }
 
 		j["GOState"].push_back(aux);
 	}

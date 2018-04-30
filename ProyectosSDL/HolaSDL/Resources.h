@@ -209,7 +209,7 @@ public:
 		Escena24Caso1,
 		Armario,
 		Television,
-		MesaVecinoMuero
+		MesaVecinoMuerto
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
