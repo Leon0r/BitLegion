@@ -174,14 +174,14 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/cartelbazarspritesheet.png", //cartel animado bazar
 "..//images/Fondos/escena19caso1.png", //callejon que lleva al bazar
 "..//images/Objetos/muertoAutopsia.png", //muerto en la morgue
-"..//images/Fondos/AlenaMouse.png", //callejon que lleva al bazar
-"..//images/Fondos/AlenaArrows.png", //callejon que lleva al bazar
-"..//images/Fondos/key_i.png", //callejon que lleva al bazar
-"..//images/Fondos/key_p.png", //callejon que lleva al bazar
-"..//images/Fondos/ratonMouse.png", //callejon que lleva al bazar
-"..//images/Fondos/puertaViejaContrasenya.png", //callejon que lleva al bazar
-"..//images/Fondos/taquillaAlenaContrasenya.png", //callejon que lleva al bazar
-"..//images/Objetos/CONTROLES.png", //callejon que lleva al bazar
+"..//images/Fondos/AlenaMouse.png", 
+"..//images/Fondos/AlenaArrows.png", 
+"..//images/Fondos/key_i.png", 
+"..//images/Fondos/key_p.png", 
+"..//images/Fondos/ratonMouse.png", 
+"..//images/Fondos/puertaViejaContrasenya.png", 
+"..//images/Fondos/taquillaAlenaContrasenya.png", 
+"..//images/Objetos/CONTROLES.png"
 };
 
 

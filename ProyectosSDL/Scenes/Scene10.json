@@ -36,7 +36,10 @@
             "y": 340,
             "w": 65,
             "h": 125,
-            "Texture": 107
+            "Texture": 107,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 4,
+            "widthFrame": 33, "heightFrame": 71, "vel": 260, "loop": true,
+            "Anims": [ [0,2,0,2,0,2,0,2,1,5,6,7,5,6,4,7,0,3] ]
         },
         {
             "x": 706,
