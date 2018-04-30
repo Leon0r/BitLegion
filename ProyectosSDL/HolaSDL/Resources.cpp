@@ -193,6 +193,10 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Colisionables/pezGalina.png",
 "..//images/Objetos/Colisionables/lamparaGalina.png",
 "..//images/Objetos/Colisionables/mesaGalina.png",
+"..//images/Fondos/escena24caso1.png",
+"..//images/Objetos/Colisionables/armarioVecinoMuerto.png",
+"..//images/Objetos/Colisionables/teleVecinoMuerto.png",
+"..//images/Objetos/Colisionables/mesaVecinoMuerto.png",
 };
 
 

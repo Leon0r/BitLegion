@@ -205,7 +205,11 @@ public:
 		SofaGalina,
 		Pecera,
 		Lampara,
-		MesaGalina
+		MesaGalina,
+		Escena24Caso1,
+		Armario,
+		Television,
+		MesaVecinoMuero
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
