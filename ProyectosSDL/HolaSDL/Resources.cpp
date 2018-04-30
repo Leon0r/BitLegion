@@ -181,7 +181,13 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/ratonMouse.png", 
 "..//images/Fondos/puertaViejaContrasenya.png", 
 "..//images/Fondos/taquillaAlenaContrasenya.png", 
-"..//images/Objetos/CONTROLES.png"
+"..//images/Objetos/CONTROLES.png",
+"..//images/SpriteSheets_Personajes/forense.png",
+"..//images/SpriteSheets_Personajes/camello.png",
+"..//images/SpriteSheets_Personajes/maks.png",
+"..//images/SpriteSheets_Personajes/amigoMaks.png",
+"..//images/SpriteSheets_Personajes/trabajadorPolbots1.png",
+"..//images/SpriteSheets_Personajes/trabajadorPolbots2.png"
 };
 
 

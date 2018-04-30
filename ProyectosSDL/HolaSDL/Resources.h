@@ -194,7 +194,13 @@ public:
 		ControlesClick,
 		PuertaViejaContra,
 		TaquillaAlenaContra,
-		ControlesButton
+		ControlesButton,
+		Forense,
+		Camello,
+		Maks,
+		AmigoDeMaks,
+		TrabajadorPolbots1,
+		TrabajadorPolbots2
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
