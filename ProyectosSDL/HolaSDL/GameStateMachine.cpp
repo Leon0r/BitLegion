@@ -15,8 +15,9 @@ GameStateMachine::~GameStateMachine()
 void GameStateMachine::popState(bool b) {
 	if (!states.empty()) { //si la pila de estados no está vacia
 		if (b) deleteAndPopState(); //delete y pop
-		else { states.pop(); actualStates.pop_back(); }//pop de la lista auxiliar
+		else { actualStates.remove(currentState()); states.pop(); }//pop de la lista auxiliar
 	}
+	
 }
 
 void GameStateMachine::pushState(GameState* newState) {

@@ -21,7 +21,7 @@ private:
 	bool faded = false;
 	const int numCas = 3;
 	const double tamCas = 150;
-	const Uint8 alphaMin = 40;
+	const Uint8 alphaMin = 60;
 	vector<vector<CasillaLight*>> lights;
 	const double espaciado = 120.5 - 20*(numCas - 1);
 	const int posX = 320 - 5 * (numCas - 1);

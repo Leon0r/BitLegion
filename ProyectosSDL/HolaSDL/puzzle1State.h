@@ -1,6 +1,5 @@
 #pragma once
 #include "checkML.h"
-//#include "GameState.h"
 #include "CasillaPuzzle1.h"
 #include "MovementComponent.h"
 #include "ImageRenderer.h"
@@ -93,7 +92,7 @@ public:
 				app->getStateMachine()->popState(false);
 			}
 		}
-		else GameState::handleEvent(event);
+		else if(!hasWon)GameState::handleEvent(event);
 	}
 	virtual void render() { GameState::render(); }
 	virtual void update();

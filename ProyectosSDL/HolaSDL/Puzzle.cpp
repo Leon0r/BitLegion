@@ -3,4 +3,5 @@
 
 Puzzle::~Puzzle()
 {
+	delete timingSalida;
 }

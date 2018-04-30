@@ -22,7 +22,7 @@ LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(a
 
 	//--------Botones-----
 	resetFunc_ = [this]() mutable {resetPuzzle(); };
-	exitFun_ = [app]() mutable {app->getStateMachine()->popState(false); };
+	exitFun_ = [this]() mutable {this->exit(); };
 	botonReset = new Boton(app, "reset", resetFunc_);
 	botonReset->setWidth(80);
 	botonReset->setHeight(60);
@@ -112,7 +112,7 @@ void LightsOut::render(){
 }
 
 void LightsOut::handleEvent(SDL_Event & e){
-	if (faded) GameState::handleEvent(e); //podria hacerlo activando los gameObjects, pero como el active no lo usamos para nada, no quiero tocar la estructura por un efecto "fancy"
+	if (faded && !hasWon) GameState::handleEvent(e); //podria hacerlo activando los gameObjects, pero como el active no lo usamos para nada, no quiero tocar la estructura por un efecto "fancy"
 }
 
 void LightsOut::apagaLuces(const unsigned int n){

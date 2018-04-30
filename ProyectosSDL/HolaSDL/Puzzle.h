@@ -1,14 +1,24 @@
 #pragma once
 #include "GameState.h"
 #include "GOUnlockeable.h"
+#include "TransitionScreen.h"
+#include "GOTimer.h"
 
 class Puzzle: public GameState
 {
 protected:
 	vector<GOUnlockeable*> unlockeables;
+	GOTimer* timingSalida;
+	bool hasWon = false;
+	virtual void win() {
+		hasWon = true;
+		timingSalida->startTimer();
+	}
+	
+
 public:
 	Puzzle() {};
-	Puzzle(SDLApp* app, int id = -4) : GameState(app), id(id) {};
+	Puzzle(SDLApp* app, int id = -4) : GameState(app), id(id) { function<void()> fun = [this]()mutable {this->winner(); }; timingSalida = new GOTimer(1500, fun); this->stage.push_back(timingSalida); };
 	~Puzzle();
 
 	int id;
@@ -27,11 +37,21 @@ public:
 		for (it = unlockeables.begin(); it != unlockeables.end(); it++) (*it)->secondAct();
 	};
 
-	virtual void win() {
+	virtual void exit() {
+		app->getStateMachine()->popState(false);
+		app->getStateMachine()->pushState(new TransitionScreen(app, app->getStateMachine()->currentState(), 1000));
+	}
+
+	virtual void enter() {
+		app->getStateMachine()->pushState(new TransitionScreen(app, app->getStateMachine()->currentState(), 1000));
+	}
+
+	void winner() {
 		app->getStateMachine()->popState(false);
 		unlockObjects();
 		app->getStateMachine()->currentState()->SetZBuffer();
 		send(&Mensaje(WinPuzzle));
+		app->getStateMachine()->pushState(new TransitionScreen(app, app->getStateMachine()->currentState(), 1000));
 	}
 };
 

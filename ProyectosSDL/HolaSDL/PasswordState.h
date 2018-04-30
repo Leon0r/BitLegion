@@ -17,7 +17,6 @@ private:
 	ImageRenderer img;
 	Entity* fondo = nullptr;
 	GOTimer* timerFail;
-	GOTimer* timeWin;
 
 public:
 	PasswordState();

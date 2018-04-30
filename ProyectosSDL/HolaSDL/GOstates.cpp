@@ -28,7 +28,8 @@ void GOstates::act() {
 	app->getStateMachine()->currentState()->changeList();
 	state_->searchId(); 
 	if (!added) { state_->addObserver(this); added = true; } //si no se ha añadido mas veces, lo anyade (evitar fallos raros al clickar varias veces)
-	this->getGame()->getStateMachine()->pushState(state_); 
+	this->getGame()->getStateMachine()->pushState(state_);
+	state_->enter();
 }
 
 void GOstates::saveToJson(json & j){

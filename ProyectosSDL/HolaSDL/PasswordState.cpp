@@ -11,7 +11,11 @@ PasswordState::~PasswordState()
 {
 	if (f != nullptr) { delete f; f = nullptr; }
 
-	if (fondo != nullptr) { fondo->delRenderComponent(&img); }
+	if (fondo != nullptr) { fondo->delRenderComponent(&img); delete fondo; }
+
+	if (timerFail != nullptr) { delete timerFail; }
+
+	stage.clear();
 }
 
 PasswordState::PasswordState(SDLApp * app, string password, int id, int txt): Puzzle(app, id), password_(password)
@@ -32,10 +36,6 @@ PasswordState::PasswordState(SDLApp * app, string password, int id, int txt): Pu
 
 	timerFail = new GOTimer(2000, fun);
 	this->stage.push_back(timerFail);
-
-	function<void()> fun2 = [this]() mutable { Puzzle::win(); };
-	timeWin = new GOTimer(2000, fun2);
-	this->stage.push_back(timeWin);
 }
 
 void PasswordState::handleEvent(SDL_Event & e)
@@ -74,7 +74,7 @@ bool PasswordState::checkPassword()
 		return false;
 	}
 	else if(!checking){
-		timeWin->startTimer();
+		Puzzle::win();
 		checking = true;
 		return true;
 	}
