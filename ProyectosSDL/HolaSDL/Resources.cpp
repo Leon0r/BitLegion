@@ -187,7 +187,12 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/SpriteSheets_Personajes/maks.png",
 "..//images/SpriteSheets_Personajes/amigoMaks.png",
 "..//images/SpriteSheets_Personajes/trabajadorPolbots1.png",
-"..//images/SpriteSheets_Personajes/trabajadorPolbots2.png"
+"..//images/SpriteSheets_Personajes/trabajadorPolbots2.png",
+"..//images/Fondos/escena23caso1.png", //casa novia
+"..//images/Objetos/Colisionables/sofaGalina.png",
+"..//images/Objetos/Colisionables/pezGalina.png",
+"..//images/Objetos/Colisionables/lamparaGalina.png",
+"..//images/Objetos/Colisionables/mesaGalina.png",
 };
 
 

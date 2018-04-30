@@ -200,7 +200,12 @@ public:
 		Maks,
 		AmigoDeMaks,
 		TrabajadorPolbots1,
-		TrabajadorPolbots2
+		TrabajadorPolbots2,
+		Escena23Caso1,
+		SofaGalina,
+		Pecera,
+		Lampara,
+		MesaGalina
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
