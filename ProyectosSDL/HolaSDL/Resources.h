@@ -214,7 +214,10 @@ public:
 		CamillaForense,
 		MesaForense1,
 		MesaForense2,
-		MuertoCamilla
+		MostradorBazar,
+		PuertaAtras,
+		PuertaBazar,
+		EstanteBazar
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

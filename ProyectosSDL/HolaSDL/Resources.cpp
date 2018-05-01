@@ -201,6 +201,10 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Colisionables/camillaForense.png",
 "..//images/Objetos/Colisionables/mesaForense1.png",
 "..//images/Objetos/Colisionables/mesaForense2.png",
+"..//images/Objetos/Colisionables/mostradorbazar.png",
+"..//images/Objetos/puertadeatrasmostradorspritesheet.png",
+"..//images/Objetos/Doors/puertabazarinteriro.png",
+"..//images/Objetos/Colisionables/estantebazar.png"
 };
 
 
