@@ -197,6 +197,10 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Colisionables/armarioVecinoMuerto.png",
 "..//images/Objetos/Colisionables/teleVecinoMuerto.png",
 "..//images/Objetos/Colisionables/mesaVecinoMuerto.png",
+"..//images/Fondos/escena31caso1.png", //sala de pruebas del forense
+"..//images/Objetos/Colisionables/camillaForense.png",
+"..//images/Objetos/Colisionables/mesaForense1.png",
+"..//images/Objetos/Colisionables/mesaForense2.png"
 };
 
 
