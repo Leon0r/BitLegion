@@ -213,7 +213,8 @@ public:
 		Escena31Caso1,
 		CamillaForense,
 		MesaForense1,
-		MesaForense2
+		MesaForense2,
+		MuertoCamilla
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
