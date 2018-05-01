@@ -61,7 +61,7 @@ void PasswordState::render()
 {
 	GameState::render();
 
-	Texture text(app->getRenderer(), userPass_, *f, { 255, 255, 255, 1 }); //fuente dinamica
+	Texture text(app->getRenderer(), userPass_, *f, colorFuente); //fuente dinamica
 	text.render(app->getRenderer(), 410, 438); //se llama al render de la fuente Dinamica
 }
 

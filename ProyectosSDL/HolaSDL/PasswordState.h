@@ -6,6 +6,7 @@ class PasswordState :
 	public Puzzle
 {
 private:
+	const SDL_Color colorFuente = { 0, 169, 0, 1 };
 	bool checking = false;
 	const string password_; //contrasenya a averiguar
 	string userPass_;
