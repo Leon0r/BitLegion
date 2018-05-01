@@ -17,32 +17,31 @@ Conversacion::~Conversacion()
 }
 
 void Conversacion::escribir(){
-	dialogo[nodoActual];
-	vector<string> escribir = dialogo[nodoActual].getTexto();
+		dialogo[nodoActual];
+		vector<string> escribir = dialogo[nodoActual].getTexto(); //aqui salta excepcion de vez en cuando, jelp es que nodoActual = -1
 
-	int numLineas = escribir.size();
+		int numLineas = escribir.size();
 
-	if (dialogo[nodoActual].getNumOpciones() > 3){
+		if (dialogo[nodoActual].getNumOpciones() > 3) {
 
-		for (int i = grupoOps * 3; i < grupoOps * 3 + 3; i++){
-			if (i < dialogo[nodoActual].getNumOpciones()){
+			for (int i = grupoOps * 3; i < grupoOps * 3 + 3; i++) {
+				if (i < dialogo[nodoActual].getNumOpciones()) {
+					Texture fuente(app->getRenderer(), escribir[i], *f, colorFuenteConv); //fuente dinámica
+					fuente.render(app->getRenderer(), x, y + i % 3 * h / 4 + 2);
+				}
+			}
+
+			Texture fuente(app->getRenderer(), "Mas opciones", *f, colorFuenteConv); //fuente dinámica
+			fuente.render(app->getRenderer(), x, y + 3 * h / 4 + 2);
+		}
+
+		else {
+			grupoOps = 0;
+			for (int i = 0; i < numLineas; i++) {
 				Texture fuente(app->getRenderer(), escribir[i], *f, colorFuenteConv); //fuente dinámica
-				fuente.render(app->getRenderer(), x, y + i%3 * h / 4 + 2);
+				fuente.render(app->getRenderer(), x, y + i * h / 4 + 2);
 			}
 		}
-
-		Texture fuente(app->getRenderer(), "Mas opciones", *f, colorFuenteConv); //fuente dinámica
-		fuente.render(app->getRenderer(), x, y + 3 * h / 4 + 2);
-	}
-
-	else{
-		grupoOps = 0;
-		for (int i = 0; i < numLineas; i++){
-			Texture fuente(app->getRenderer(), escribir[i], *f, colorFuenteConv); //fuente dinámica
-			fuente.render(app->getRenderer(), x, y + i * h / 4 + 2);
-		}
-	}
-	
 	//MAGIA NEGRA PA QUE ESCRIBA
 }
 
@@ -201,6 +200,9 @@ bool Conversacion::loadConversation(string fileName) {
 			case 0:
 				msg = new MensajeCambioEscenaDialogos(CambioEscena, j["numScene"]);
 				break;
+			//case 1:
+				//añadir objeto al inventario de Alena
+				//break;
 			default:
 				msg = new Mensaje(DialogoAcabado);
 				break;

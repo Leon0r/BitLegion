@@ -166,8 +166,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/SpriteSheets_Personajes/vecinoDelMuerto.png",//vecino yonki del muerto
 "..//images/Objetos/Takeable/numeroDelCamello.png",//numero de telefono del camello
 "..//images/SpriteSheets_Personajes/AmigaGalina.png", //amiga de la novia del muerto
-"..//images/Fondos/entradabazar.png", //entrada al Bazar
-"..//images/Fondos/bazar.png", //Bazar
+"..//images/Fondos/escena20caso1.png", //entrada al Bazar
+"..//images/Fondos/escena21caso1.png", //Bazar
 "..//images/Fondos/escena22caso1.png", //casa de la novia del muerto
 "..//images/Objetos/Colisionables/coche1.png", //coche1
 "..//images/Objetos/Colisionables/coche2.png", //coche2 (util)

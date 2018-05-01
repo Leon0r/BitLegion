@@ -13,7 +13,7 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 		}
 	}
 
-	f = new Font("..//images/fuente2.ttf", tamanyoFuente);
+	f = new Font("..//images/Dialogos/Moonace-Regular.ttf", tamanyoFuente);
 	
 	//imagen del inventario
 	inventarioHud->setHeight(app->getWindowHeight()*0.75);
@@ -117,21 +117,17 @@ void Inventory::handleEvent(SDL_Event& event) {
 void Inventory::render() {
 	if (previousState != nullptr) previousState->render();
 
-	/*SDL_SetRenderDrawBlendMode(app->getRenderer(), SDL_BLENDMODE_MOD);
-	SDL_SetRenderDrawColor(app->getRenderer(), 70, 70, 70, 1);
-	SDL_RenderFillRect(app->getRenderer(), &rectF);*/
 	txt->changeAlpha(255*0.6);
 	SDL_Rect rct = RECT(0, 0, app->getWindowWidth(), app->getWindowHeight());
 	txt->render(app->getRenderer(), rct, nullptr);
 
 	GameState::render(); //se llama a los componentes "Render" de todos los objetos de la lista del inventario
 	if (selected != nullptr){
-		Texture fuente(app->getRenderer(), selected->getDescription(), *f, colorFuente); //fuente din�mica
-		fuente.render(app->getRenderer(), (int)(inventarioHud->getWidth() - inventarioHud->getWidth() / 16), (int)(inventarioHud->getHeight() / 1.5)); //se llama al render de la fuente Din�mica
+		muestraDescripcion();
 	}
 }
 
-void Inventory::muestraDescripcion() {
+void Inventory::setCopia() {
 	copia->setTexture(0, selected->getTexture(0));
 }
 
@@ -179,5 +175,35 @@ void Inventory::usar(Inventory* state) {
 			inv->app->getStateMachine()->popState(); //se popea el estado
 			//(aux->getShortcut()->recorreEInicia(aux->getShortcut()->getCoef());
 		}
+	}
+}
+
+void Inventory::muestraDescripcion()
+{
+	unsigned int i = 0;
+	unsigned int j = 0;
+	unsigned int saltoLinea = 0;
+	string aux;
+	while (i < selected->getDescription().size()) {
+
+		if (aux.empty()) { //para que Gonza no llore con los espacios (ensuciar code 3.0)
+			if (selected->getDescription()[i] != ' ') {
+				aux.push_back(selected->getDescription()[i]);
+			}
+		}
+		else {
+			aux.push_back(selected->getDescription()[i]);
+		}
+
+
+		if (j == (letrasPorLinea - 1) || i == (selected->getDescription().size() - 1)) {
+			Texture fuente(app->getRenderer(), aux, *f, colorFuente); //fuente din�mica
+			fuente.render(app->getRenderer(), (int)(inventarioHud->getWidth() - inventarioHud->getWidth() / 21), (int)(inventarioHud->getHeight() / 1.89) + saltoLinea * espaciado/3); //se llama al render de la fuente Din�mica
+			aux.clear();
+			saltoLinea++;
+			j = 0;
+		}
+		i++;
+		j++;
 	}
 }

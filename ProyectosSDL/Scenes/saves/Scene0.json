@@ -144,7 +144,7 @@
       },
       {
          "Texture": 19,
-         "descripcion": "key",
+         "descripcion": "Descripcion prueba. Gonza es idiota. Kk. AAAAA",
          "h": 40.0,
          "rotation": 0.0,
          "tag": "key",
@@ -228,8 +228,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 100.0,
-      "y": 500.0
+      "x": 851.4054895489714,
+      "y": 339.6
    },
    "PlayerTam": {
       "h": 201.6,

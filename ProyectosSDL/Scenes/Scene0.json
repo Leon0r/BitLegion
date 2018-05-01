@@ -7,8 +7,8 @@
     "y": 0.0,
 
     "ItemInventario": [
-        { "x": 710, "y": 490, "w": 40, "h": 40, "descripcion": "key", "tag": "key", "Texture": 19 },
-	{ "x": 630, "y": 500, "w": 40, "h": 40, "descripcion": "key", "tag": "keyMoto", "Texture": 55, "permanente": true }
+        { "x": 710, "y": 490, "w": 40, "h": 40, "descripcion": "Descripcion prueba. Gonza es idiota. Kk. AAAAA", "tag": "key", "Texture": 19 },
+		{ "x": 630, "y": 500, "w": 40, "h": 40, "descripcion": "key", "tag": "keyMoto", "Texture": 55, "permanente": true }
     ],
 
     "GODoors": [

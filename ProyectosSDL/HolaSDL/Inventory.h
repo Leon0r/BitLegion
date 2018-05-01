@@ -9,12 +9,13 @@
 #include "MouseEventAnimComponent.h"
 
 const unsigned int tamanyoFuente = 35;
-const SDL_Color colorFuente = { 255, 255, 255, 1 };
+const SDL_Color colorFuente = { 0, 169, 0, 1 };
 
 class Inventory :
 	public GameState
 {
 private:
+	const int letrasPorLinea = 12; //wuooo
 	GameState* previousState;
 	Texture fuente;
 	Font* f;
@@ -41,13 +42,15 @@ private:
 	void swap(Inventory* state);
 	function<void()> usFunc_;
 	function<void()> swFunct_;
+
+	void muestraDescripcion();
 public:
 	Inventory() {};
 	Inventory(SDLApp* game, ObjectList* inventario, GameState* previousState, ShortCut* shortcut);
 	virtual ~Inventory() { destroy(); stage.clear(); };
 	virtual void handleEvent(SDL_Event& event);
 	virtual void render();
-	void muestraDescripcion();
+	void setCopia();
 	CasillaInventario* getLastClicked() { return selected; };
 	void destroy();
 	ObjectList* inventario;
