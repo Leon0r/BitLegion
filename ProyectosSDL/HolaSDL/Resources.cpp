@@ -173,7 +173,7 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Colisionables/coche2.png", //coche2 (util)
 "..//images/Objetos/cartelbazarspritesheet.png", //cartel animado bazar
 "..//images/Fondos/escena19caso1.png", //callejon que lleva al bazar
-"..//images/Objetos/muertoAutopsia.png", //muerto en la morgue
+"..//images/Objetos/Colisionables/muertoAutopsia.png", //muerto en la morgue
 "..//images/Fondos/AlenaMouse.png", 
 "..//images/Fondos/AlenaArrows.png", 
 "..//images/Fondos/key_i.png", 
@@ -201,7 +201,6 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Colisionables/camillaForense.png",
 "..//images/Objetos/Colisionables/mesaForense1.png",
 "..//images/Objetos/Colisionables/mesaForense2.png",
-"..//images/Objetos/Colisionables/muertoAutopsia.png",
 };
 
 
