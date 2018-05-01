@@ -18,28 +18,30 @@ Conversacion::~Conversacion()
 
 void Conversacion::escribir(){
 		dialogo[nodoActual];
-		vector<string> escribir = dialogo[nodoActual].getTexto(); //aqui salta excepcion de vez en cuando, jelp es que nodoActual = -1
+		if (nodoActual != -1) {
+			vector<string> escribir = dialogo[nodoActual].getTexto(); //aqui salta excepcion de vez en cuando, jelp es que nodoActual = -1
 
-		int numLineas = escribir.size();
+			int numLineas = escribir.size();
 
-		if (dialogo[nodoActual].getNumOpciones() > 3) {
+			if (dialogo[nodoActual].getNumOpciones() > 3) {
 
-			for (int i = grupoOps * 3; i < grupoOps * 3 + 3; i++) {
-				if (i < dialogo[nodoActual].getNumOpciones()) {
-					Texture fuente(app->getRenderer(), escribir[i], *f, colorFuenteConv); //fuente dinámica
-					fuente.render(app->getRenderer(), x, y + i % 3 * h / 4 + 2);
+				for (int i = grupoOps * 3; i < grupoOps * 3 + 3; i++) {
+					if (i < dialogo[nodoActual].getNumOpciones()) {
+						Texture fuente(app->getRenderer(), escribir[i], *f, colorFuenteConv); //fuente dinámica
+						fuente.render(app->getRenderer(), x, y + i % 3 * h / 4 + 2);
+					}
 				}
+
+				Texture fuente(app->getRenderer(), "Mas opciones", *f, colorFuenteConv); //fuente dinámica
+				fuente.render(app->getRenderer(), x, y + 3 * h / 4 + 2);
 			}
 
-			Texture fuente(app->getRenderer(), "Mas opciones", *f, colorFuenteConv); //fuente dinámica
-			fuente.render(app->getRenderer(), x, y + 3 * h / 4 + 2);
-		}
-
-		else {
-			grupoOps = 0;
-			for (int i = 0; i < numLineas; i++) {
-				Texture fuente(app->getRenderer(), escribir[i], *f, colorFuenteConv); //fuente dinámica
-				fuente.render(app->getRenderer(), x, y + i * h / 4 + 2);
+			else {
+				grupoOps = 0;
+				for (int i = 0; i < numLineas; i++) {
+					Texture fuente(app->getRenderer(), escribir[i], *f, colorFuenteConv); //fuente dinámica
+					fuente.render(app->getRenderer(), x, y + i * h / 4 + 2);
+				}
 			}
 		}
 	//MAGIA NEGRA PA QUE ESCRIBA
@@ -64,31 +66,33 @@ void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 			//y comprobamos si el punto donde se ha clickado está dentro del rectangulo
 			if (SDL_PointInRect(&p, &r)) {
 
-				if (dialogo[nodoActual].getNumOpciones() <= 0){
-					//if (nodoActual < dialogo.size() - 1) LINEA MUY MUY DUDOSA
+				if (nodoActual != -1) {
+					if (dialogo[nodoActual].getNumOpciones() <= 0) {
+						//if (nodoActual < dialogo.size() - 1) LINEA MUY MUY DUDOSA
 						nodoActual = dialogo[nodoActual].getSiguiente();
-				}
-				else{
-
-					vector<opciones> respuestas = dialogo[nodoActual].getOpciones();
-
-					r.y = y;
-					r.h = h / 4;
-					if (SDL_PointInRect(&p, &r)){
-						nodoActual = respuestas[grupoOps * 3].nodoApuntado;
 					}
-					else if (grupoOps * 3 + 1 < dialogo[nodoActual].getNumOpciones()){
-						r.y = y + h / 4;
-						if (SDL_PointInRect(&p, &r)){
-							nodoActual = respuestas[grupoOps * 3 + 1].nodoApuntado;
-						}
-						else if (grupoOps * 3 + 2 < dialogo[nodoActual].getNumOpciones()){
-							r.y = y + 2 * h / 4 + 2;
-							if (SDL_PointInRect(&p, &r)){
-								nodoActual = respuestas[grupoOps * 3 + 2].nodoApuntado;
-							}
+					else {
 
-							//ULTIMA OPCION: Más opciones
+						vector<opciones> respuestas = dialogo[nodoActual].getOpciones();
+
+						r.y = y;
+						r.h = h / 4;
+						if (SDL_PointInRect(&p, &r)) {
+							nodoActual = respuestas[grupoOps * 3].nodoApuntado;
+						}
+						else if (grupoOps * 3 + 1 < dialogo[nodoActual].getNumOpciones()) {
+							r.y = y + h / 4;
+							if (SDL_PointInRect(&p, &r)) {
+								nodoActual = respuestas[grupoOps * 3 + 1].nodoApuntado;
+							}
+							else if (grupoOps * 3 + 2 < dialogo[nodoActual].getNumOpciones()) {
+								r.y = y + 2 * h / 4 + 2;
+								if (SDL_PointInRect(&p, &r)) {
+									nodoActual = respuestas[grupoOps * 3 + 2].nodoApuntado;
+								}
+
+								//ULTIMA OPCION: Más opciones
+							}
 						}
 					}
 				}
@@ -118,12 +122,14 @@ void Conversacion::update(Uint32 time){
 }
 void Conversacion::render(Uint32 time){
 
-	app->getResources()->getImageTexture(Resources::GUIDialogosAlpha)->render(app->getRenderer(), { GUIx,GUIy,GUIw,GUIh });
-	escribir();
-	
-	clip.x = 130 * (dialogo[nodoActual].getEmo() % 2);
-	clip.y = 130 * (dialogo[nodoActual].getEmo() / 2);
-	app->getResources()->getImageTexture(dialogo[nodoActual].getPj())->render(app->getRenderer(), { retratoX, retratoY, retratoW, retratoH }, &clip);
+	if (nodoActual != -1) {
+		app->getResources()->getImageTexture(Resources::GUIDialogosAlpha)->render(app->getRenderer(), { GUIx,GUIy,GUIw,GUIh });
+		escribir();
+
+		clip.x = 130 * (dialogo[nodoActual].getEmo() % 2);
+		clip.y = 130 * (dialogo[nodoActual].getEmo() / 2);
+		app->getResources()->getImageTexture(dialogo[nodoActual].getPj())->render(app->getRenderer(), { retratoX, retratoY, retratoW, retratoH }, &clip);
+	}
 }
 
 void Conversacion::ConversacionDePrueba(){
