@@ -64,7 +64,7 @@
          ],
          "Texture": 59,
          "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
+         "dialogo": "caso1_acto1_vecinoPerro",
          "h": 210.0,
          "heightFrame": 112,
          "loop": true,

@@ -25,5 +25,6 @@ private:
 	function<void()> nGame_;
 	function<void()> lGame_;
 	function<void()> eGame_;
+	function<void()> controlesFunc_;
 };
 
