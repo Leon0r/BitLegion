@@ -48,26 +48,26 @@
         { "x": 415, "y": 505, "w": 67, "h": 212, "Texture": 67,
             "animation": true, "numFilsFrame": 5, "numColsFrame": 2,
             "widthFrame": 40, "heightFrame": 140, "vel": 250, "loop": true,
-            "Anims": [ [0,3,4,5,4,5,2,1,0] ], "dialogo": "AlenaJeffaTelefono"
+            "Anims": [ [0,3,4,5,4,5,2,1,0] ], "dialogo": "caso1_acto1_Comp3"
         },
 
         { "x": 450, "y": 470, "w": 67, "h": 212, "Texture": 65,
             "animation": true, "numFilsFrame": 3, "numColsFrame": 2,
             "widthFrame": 43, "heightFrame": 138, "vel": 350, "loop": true,
-            "Anims": [ [0,1,0,1,0,2,5,4,3] ], "dialogo": "AlenaJeffaTelefono" 
+            "Anims": [ [0,1,0,1,0,2,5,4,3] ], "dialogo": "caso1_acto1_Comp1" 
         },
 
         { "x": 560, "y": 495, "w": 57, "h": 192, "Texture": 68,
             "animation": true, "numFilsFrame": 3, "numColsFrame": 4,
             "widthFrame": 36, "heightFrame": 129, "vel": 300, "loop": true,
             "Anims": [ [3,6,7,11,10,11,9,11,9,11,9,11,9,11,9,11,9,
-                    8,5,4,0,2,1,2,1,2,0,2,0,2,0,2,0,2,0,2] ], "dialogo": "AlenaJeffaTelefono" 
+                    8,5,4,0,2,1,2,1,2,0,2,0,2,0,2,0,2,0,2] ], "dialogo": "caso1_acto1_CompNina" 
         },
 
         { "x": 960, "y": 495, "w": 62, "h": 194, "Texture": 66,
             "animation": true, "numFilsFrame": 8, "numColsFrame": 2,
             "widthFrame": 42, "heightFrame": 138, "vel": 200, "loop": true,
-            "Anims": [ [0,3,4,7,8,11,12,14] ], "dialogo": "AlenaJeffaTelefono" 
+            "Anims": [ [0,3,4,7,8,11,12,14] ], "dialogo": "caso1_acto1_Comp2" 
         }
     ],
 

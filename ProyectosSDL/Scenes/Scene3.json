@@ -19,7 +19,7 @@
         { "x": 610, "y": 325, "w": 90, "h": 210, "Texture": 59,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 4,
             "widthFrame": 49, "heightFrame": 112, "vel": 200, "loop": true,
-            "Anims": [ [0,1,2,3,4,5,6,7] ], "dialogo": "AlenaJeffaTelefono" }
+            "Anims": [ [0,1,2,3,4,5,6,7] ], "dialogo": "caso1_acto1_vecinoPerro" }
     ],
 
     "PlayerPos": {
