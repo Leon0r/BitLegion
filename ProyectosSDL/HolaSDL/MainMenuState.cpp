@@ -69,18 +69,6 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	b->addInputComponent(&ov);
 	botones.push_back(b); stage.push_back(b);
 
-	b = (new Boton(app, "Exit", eGame_));
-	b->setWidth(150); b->setHeight(100);
-	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 4 / 5)+250));
-	b->addAnim("Feedback", { 16 }, true, -1, 75);
-	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }, true, -1, 100);
-	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 265, 150);
-	bExittext->playAnim("Stop");
-	b->addInputComponent(&ov);
-	b->addRenderComponent(bExittext);
-	b->setAnimated(true);
-	botones.push_back(b);stage.push_back(b);
-
 	b = (new Boton(app, "Controles", controlesFunc_));
 	b->setWidth(150); b->setHeight(100);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 3 / 5) + 250));
@@ -94,10 +82,22 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	b->setAnimated(true);
 	botones.push_back(b); stage.push_back(b);
 
+	b = (new Boton(app, "Exit", eGame_));
+	b->setWidth(150); b->setHeight(100);
+	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 4 / 5)+250));
+	b->addAnim("Feedback", { 16 }, true, -1, 75);
+	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }, true, -1, 100);
+	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 265, 150);
+	bExittext->playAnim("Stop");
+	b->addInputComponent(&ov);
+	b->addRenderComponent(bExittext);
+	b->setAnimated(true);
+	botones.push_back(b);stage.push_back(b);
+
 	logo = new Entity(app);
 	logo->setPosition({ (double)logo->getGame()->getWindowWidth()/2 - 300, 150 });
 	logo->setWidth(600);
-	logo->setHeight(203);
+	logo->setHeight(190);
 	logo->setAnimated(true);
 	logo->delEveryRenderComponent();
 	logo->addAnim("logoAnim", { 0,0,0,0,0,0,0,0,0,0,0, 1,0,1,0, 3, 3, 3, 5, 0, 0, 0, 4, 4 }, true, -1, 80);
