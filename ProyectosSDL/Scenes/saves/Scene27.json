@@ -1,14 +1,52 @@
 {
    "AlenaActiva": true,
+   "CollisionableObject": [
+      {
+         "Texture": 192,
+         "h": 212.0,
+         "rotation": 0.0,
+         "w": 200.0,
+         "x": 600.0,
+         "y": 200.0
+      },
+      {
+         "Texture": 191,
+         "h": 300.0,
+         "rotation": 0.0,
+         "w": 194.0,
+         "x": 930.0,
+         "y": 110.0
+      },
+      {
+         "Texture": 193,
+         "h": 124.0,
+         "rotation": 0.0,
+         "w": 252.0,
+         "x": 580.0,
+         "y": 430.0
+      }
+   ],
+   "GOTransiciones": [
+      {
+         "Texture": 29,
+         "h": 60.0,
+         "rotat": -180.0,
+         "rotation": -180.0,
+         "scneNum": 26,
+         "w": 60.0,
+         "x": 20.0,
+         "y": 500.0
+      }
+   ],
    "PlayerPos": {
-      "x": 0.0,
-      "y": 0.0
+      "x": 118.0,
+      "y": 475.0
    },
    "PlayerTam": {
-      "h": 0.0,
-      "w": 0.0
+      "h": 201.6,
+      "w": 84.0
    },
-   "Texture": 0,
+   "Texture": 190,
    "h": 720.0,
    "rotation": 0.0,
    "w": 1280.0,
