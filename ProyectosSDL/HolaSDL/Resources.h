@@ -217,7 +217,9 @@ public:
 		MostradorBazar,
 		PuertaAtras,
 		PuertaBazar,
-		EstanteBazar
+		EstanteBazar,
+		Escena30Caso1,
+		LamparaForense
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

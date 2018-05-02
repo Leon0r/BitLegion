@@ -204,7 +204,9 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Colisionables/mostradorbazar.png",
 "..//images/Objetos/puertadeatrasmostradorspritesheet.png",
 "..//images/Objetos/Doors/puertabazarinteriro.png",
-"..//images/Objetos/Colisionables/estantebazar.png"
+"..//images/Objetos/Colisionables/estantebazar.png",
+"..//images/Fondos/escena30caso1.png", //hall del forense
+"..//images/Objetos/Colisionables/lamparaForense.png" //lampara del hall del forense
 };
 
 
