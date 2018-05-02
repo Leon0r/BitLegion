@@ -18,7 +18,7 @@
   	"loop": true, "vel": 200, "numText": 174, "cols": 1,"fils": 2, "frameWidth": 112, "frameHeight": 43},
 
   	{"w": 167, "h": 43, "x":500, "y": 400, "animated":true, 
-  		"frames": [0, 0, 1, 1],
+  		"frames": [1, 1, 0, 0],
   	"loop": true, "vel": 200, "numText": 173, "cols": 1,"fils": 2, "frameWidth": 167, "frameHeight": 43},
 
   	{"x":0, "y": 0,"loop": true, "vel": 200, "numText": 144}
