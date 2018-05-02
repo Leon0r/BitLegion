@@ -2,14 +2,6 @@
    "AlenaActiva": true,
    "CollisionableObject": [
       {
-         "Texture": 202,
-         "h": 110.0,
-         "rotation": 0.0,
-         "w": 47.0,
-         "x": 930.0,
-         "y": 580.0
-      },
-      {
          "Anims": [
             [
                0,
@@ -134,7 +126,7 @@
    "ItemInventario": [
       {
          "Texture": 55,
-         "descripcion": "key",
+         "descripcion": "Llave de la moto de    Alena",
          "h": 40.0,
          "rotation": 0.0,
          "tag": "keyMoto",
@@ -144,87 +136,13 @@
       },
       {
          "Texture": 19,
-         "descripcion": "Descripcion prueba. Gonza es idiota. Kk. AAAAA",
+         "descripcion": "Llave de la casa de    Alena",
          "h": 40.0,
          "rotation": 0.0,
          "tag": "key",
          "w": 40.0,
          "x": 710.0,
          "y": 490.0
-      }
-   ],
-   "NPC": [
-      {
-         "Anims": [
-            [
-               0,
-               3,
-               5,
-               6,
-               7,
-               8,
-               9,
-               10,
-               11,
-               12,
-               13,
-               14,
-               15,
-               16,
-               15,
-               14,
-               13,
-               12,
-               11,
-               10,
-               9,
-               8,
-               7,
-               6,
-               5,
-               4,
-               1,
-               2,
-               0,
-               2,
-               0,
-               3,
-               0,
-               2,
-               0,
-               2,
-               0,
-               2,
-               0,
-               2,
-               1,
-               0,
-               1,
-               2,
-               0,
-               2,
-               0,
-               2,
-               0,
-               2,
-               0,
-               2
-            ]
-         ],
-         "Texture": 64,
-         "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
-         "h": 110.0,
-         "heightFrame": 81,
-         "loop": true,
-         "numColsFrame": 5,
-         "numFilsFrame": 4,
-         "rotation": 0.0,
-         "vel": 200.0,
-         "w": 47.0,
-         "widthFrame": 39,
-         "x": 930.0,
-         "y": 580.0
       }
    ],
    "PlayerPos": {
