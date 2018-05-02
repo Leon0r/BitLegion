@@ -7,8 +7,8 @@
     "y": 0.0,
 
     "ItemInventario": [
-        { "x": 710, "y": 490, "w": 40, "h": 40, "descripcion": "Descripcion prueba. Gonza es idiota. Kk. AAAAA", "tag": "key", "Texture": 19 },
-		{ "x": 630, "y": 500, "w": 40, "h": 40, "descripcion": "key", "tag": "keyMoto", "Texture": 55, "permanente": true }
+        { "x": 710, "y": 490, "w": 40, "h": 40, "descripcion": "Llave de la casa de    Alena", "tag": "key", "Texture": 19 },
+		{ "x": 630, "y": 500, "w": 40, "h": 40, "descripcion": "Llave de la moto de    Alena", "tag": "keyMoto", "Texture": 55, "permanente": true }
     ],
 
     "GODoors": [
@@ -34,18 +34,10 @@
     ],
 
     "GOConversational": [
-         { "x": 915, "y": 280, "w": 40, "h": 40, "descripcion": "key", "tag": "key", "Texture": 20, "convoName": "AlenaJeffaTelefono" },
+         { "x": 915, "y": 280, "w": 40, "h": 40, "descripcion": "tlfono", "tag": "tlfono", "Texture": 20, "convoName": "AlenaJeffaTelefono" },
          { "x": 630, "y": 500, "w": 40, "h": 40, "descripcion": "key", "tag": "keyMoto", "Texture": 154, "convoName": "AlenaLlavesMoto" }
     ],
-
-    "NPC":[
-    	{ "x": 930, "y": 580, "w": 47, "h": 110, "Texture": 64,
-            "animation": true, "numFilsFrame": 4, "numColsFrame": 5,
-            "widthFrame": 39, "heightFrame": 81, "vel": 200, "loop": true,
-            "Anims": [ [0,3,5,6,7,8,9,10,11,12,13,14,15,16,15,14,13,12,11,
-                10,9,8,7,6,5,4,1,2,0,2,0,3,0,2,0,2,0,2,0,2,1,0,1,2,0,2,0,2,0,2,0,2] ], "dialogo": "AlenaJeffaTelefono"}
-    ],
-
+    
     "PlayerPos": {
         "x": 100,
         "y": 500

@@ -11,7 +11,7 @@
         { "x": 1072, "y": 350, "w": 60, "h": 60, "Texture": 29, "scneNum": 17, "rotation": -90 }
     ],
 
-    "CollisionableObject": [
+    "NPC":[
         {
             "x": 960,
             "y": 190,
@@ -20,7 +20,7 @@
             "Texture": 81,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
             "widthFrame": 39, "heightFrame": 150, "vel": 350, "loop": true,
-            "Anims": [ [0,3,0,2,0,2,0,2,0,2,1,0,2,0,2] ]
+            "Anims": [ [0,3,0,2,0,2,0,2,0,2,1,0,2,0,2] ], "dialogo": "AlenaJeffaTelefono"
         },
         {
             "x": 1180,
@@ -30,10 +30,9 @@
             "Texture": 82,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
             "widthFrame": 37, "heightFrame": 147, "vel": 300, "loop": true,
-            "Anims": [ [0,2,0,3,0,2,0,2,0,2,0,2,1] ]
+            "Anims": [ [0,2,0,3,0,2,0,2,0,2,0,2,1] ], "dialogo": "AlenaJeffaTelefono"
         }
     ],
-
     "PlayerPos": {
         "x": 235,
         "y": 360

@@ -2,6 +2,30 @@
    "AlenaActiva": true,
    "CollisionableObject": [
       {
+         "Texture": 202,
+         "h": 125.0,
+         "rotation": 0.0,
+         "w": 38.0,
+         "x": 740.0,
+         "y": 355.0
+      },
+      {
+         "Texture": 202,
+         "h": 127.0,
+         "rotation": 0.0,
+         "w": 47.0,
+         "x": 706.0,
+         "y": 320.0
+      },
+      {
+         "Texture": 202,
+         "h": 115.0,
+         "rotation": 0.0,
+         "w": 33.0,
+         "x": 740.0,
+         "y": 280.0
+      },
+      {
          "Texture": 43,
          "h": 250.0,
          "rotation": 0.0,
@@ -27,38 +51,6 @@
       }
    ],
    "Decorado": [
-      {
-         "Anims": [
-            [
-               0,
-               2,
-               0,
-               2,
-               0,
-               2,
-               0,
-               2,
-               0,
-               3,
-               0,
-               2,
-               1
-            ]
-         ],
-         "Texture": 110,
-         "animation": true,
-         "h": 125.0,
-         "heightFrame": 147,
-         "loop": true,
-         "numColsFrame": 2,
-         "numFilsFrame": 2,
-         "rotation": 0.0,
-         "vel": 250.0,
-         "w": 38.0,
-         "widthFrame": 40,
-         "x": 740.0,
-         "y": 355.0
-      },
       {
          "Anims": [
             [
@@ -130,39 +122,6 @@
          "Anims": [
             [
                0,
-               4,
-               1,
-               4,
-               2,
-               3,
-               0,
-               3,
-               1,
-               5,
-               0,
-               4,
-               2,
-               5
-            ]
-         ],
-         "Texture": 100,
-         "animation": true,
-         "h": 127.0,
-         "heightFrame": 127,
-         "loop": true,
-         "numColsFrame": 3,
-         "numFilsFrame": 2,
-         "rotation": 0.0,
-         "vel": 200.0,
-         "w": 47.0,
-         "widthFrame": 47,
-         "x": 706.0,
-         "y": 320.0
-      },
-      {
-         "Anims": [
-            [
-               0,
                2,
                3,
                3,
@@ -197,42 +156,6 @@
          "widthFrame": 32,
          "x": 640.0,
          "y": 320.0
-      },
-      {
-         "Anims": [
-            [
-               0,
-               3,
-               0,
-               2,
-               0,
-               2,
-               0,
-               2,
-               0,
-               2,
-               1,
-               0,
-               2,
-               0,
-               2,
-               0,
-               2
-            ]
-         ],
-         "Texture": 109,
-         "animation": true,
-         "h": 115.0,
-         "heightFrame": 133,
-         "loop": true,
-         "numColsFrame": 2,
-         "numFilsFrame": 2,
-         "rotation": 0.0,
-         "vel": 280.0,
-         "w": 33.0,
-         "widthFrame": 38,
-         "x": 740.0,
-         "y": 280.0
       },
       {
          "Anims": [
@@ -383,6 +306,112 @@
          "w": 60.0,
          "x": 870.0,
          "y": 375.0
+      }
+   ],
+   "NPC": [
+      {
+         "Anims": [
+            [
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               3,
+               0,
+               2,
+               1
+            ]
+         ],
+         "Texture": 110,
+         "animation": true,
+         "dialogo": "AlenaJeffaTelefono",
+         "h": 125.0,
+         "heightFrame": 147,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "vel": 250.0,
+         "w": 38.0,
+         "widthFrame": 40,
+         "x": 740.0,
+         "y": 355.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               4,
+               1,
+               4,
+               2,
+               3,
+               0,
+               3,
+               1,
+               5,
+               0,
+               4,
+               2,
+               5
+            ]
+         ],
+         "Texture": 100,
+         "animation": true,
+         "dialogo": "AlenaJeffaTelefono",
+         "h": 127.0,
+         "heightFrame": 127,
+         "loop": true,
+         "numColsFrame": 3,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 47.0,
+         "widthFrame": 47,
+         "x": 706.0,
+         "y": 320.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               3,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               1,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2
+            ]
+         ],
+         "Texture": 109,
+         "animation": true,
+         "dialogo": "AlenaJeffaTelefono",
+         "h": 115.0,
+         "heightFrame": 133,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "vel": 280.0,
+         "w": 33.0,
+         "widthFrame": 38,
+         "x": 740.0,
+         "y": 280.0
       }
    ],
    "PlayerPos": {

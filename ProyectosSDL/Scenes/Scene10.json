@@ -12,16 +12,6 @@
 
     "Decorado": [
         {
-            "x": 740,
-            "y": 355,
-            "w": 38,
-            "h": 125,
-            "Texture": 110,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
-            "widthFrame": 40, "heightFrame": 147, "vel": 250, "loop": true,
-            "Anims": [ [0,2,0,2,0,2,0,2,0,3,0,2,1] ]        
-        },
-        {
             "x": 700,
             "y": 355,
             "w": 34,
@@ -42,16 +32,6 @@
             "Anims": [ [0,2,0,2,0,2,0,2,1,5,6,7,5,6,4,7,0,3] ]
         },
         {
-            "x": 706,
-            "y": 320,
-            "w": 47,
-            "h": 127,
-            "Texture": 100,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 3,
-            "widthFrame": 47, "heightFrame": 127, "vel": 200, "loop": true,
-            "Anims": [ [0,4,1,4,2,3,0,3,1,5,0,4,2,5] ]
-        },
-        {
             "x": 640,
             "y": 320,
             "w": 35,
@@ -60,16 +40,6 @@
             "animation": true, "numFilsFrame": 2, "numColsFrame": 3,
             "widthFrame": 32, "heightFrame": 141, "vel": 200, "loop": true,
             "Anims": [ [0,2,3,3,0,0,5,4,0,0,3,3,0,2,3,5,1,0,3,3] ]
-        },
-        {
-            "x": 740,
-            "y": 280,
-            "w": 33,
-            "h": 115,
-            "Texture": 109,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
-            "widthFrame": 38, "heightFrame": 133, "vel": 280, "loop": true,
-            "Anims": [ [0,3,0,2,0,2,0,2,0,2,1,0,2,0,2,0,2] ]
         },
         {
             "x": 485,
@@ -119,10 +89,45 @@
         { "x": 0, "y": 0, "w": 775, "h": 720, "Texture": 43 }
     ],
 
+
+
     "PlayerPos": {
         "x": 1150,
         "y": 300
     },
+
+    "NPC":[
+        {
+            "x": 740,
+            "y": 355,
+            "w": 38,
+            "h": 125,
+            "Texture": 110,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
+            "widthFrame": 40, "heightFrame": 147, "vel": 250, "loop": true,
+            "Anims": [ [0,2,0,2,0,2,0,2,0,3,0,2,1] ], "dialogo": "AlenaJeffaTelefono"
+        },
+        {
+            "x": 706,
+            "y": 320,
+            "w": 47,
+            "h": 127,
+            "Texture": 100,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 3,
+            "widthFrame": 47, "heightFrame": 127, "vel": 200, "loop": true,
+            "Anims": [ [0,4,1,4,2,3,0,3,1,5,0,4,2,5] ], "dialogo": "AlenaJeffaTelefono"
+        },
+        {
+            "x": 740,
+            "y": 280,
+            "w": 33,
+            "h": 115,
+            "Texture": 109,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
+            "widthFrame": 38, "heightFrame": 133, "vel": 280, "loop": true,
+            "Anims": [ [0,3,0,2,0,2,0,2,0,2,1,0,2,0,2,0,2] ], "dialogo": "AlenaJeffaTelefono"
+        }
+    ],
 
     "PlayerTam": {
         "w": 50,
