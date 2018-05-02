@@ -219,7 +219,9 @@ public:
 		PuertaBazar,
 		EstanteBazar,
 		Escena30Caso1,
-		LamparaForense
+		LamparaForense,
+		Escena32Caso1,
+		Drogadicto
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
