@@ -33,7 +33,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	};
 
 	controlesFunc_ = [game]() {
-		ControlesState* contState = new ControlesState();
+		ControlesState* contState = new ControlesState(game);
 
 		game->getStateMachine()->pushState(contState);
 
@@ -121,4 +121,8 @@ MainMenuState::~MainMenuState()
 	delete(btext);
 	delete(bLoadtext);
 	delete(bExittext);
+
+	for (vector<Entity*>::iterator it = ControlesState::entities.begin(); it != ControlesState::entities.end(); it++) { //borramos la variable static de controles
+		delete *it;
+	}
 }

@@ -6,14 +6,17 @@ class ControlesState :
 	public GameState
 {
 private:
-	void create();
+	void readFromJson();
 	Entity movTeclas;
 	Entity movRaton;
-	AnimationRenderer animTeclas;
-	AnimationRenderer animRaton;
+	Entity raton;
+	Entity fondo;
+	Entity teclaPausa;
+	Entity teclaInventario;
 public:
 	ControlesState();
 	virtual ~ControlesState();
-	ControlesState(SDLApp* app) : GameState(app) {};
+	ControlesState(SDLApp* app) : GameState(app) { this->readFromJson(); };
+	static vector<Entity*> entities;
 };
 
