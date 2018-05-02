@@ -71,7 +71,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 	b = (new Boton(app, "Exit", eGame_));
 	b->setWidth(150); b->setHeight(100);
-	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 3 / 5)+250));
+	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 4 / 5)+250));
 	b->addAnim("Feedback", { 16 }, true, -1, 75);
 	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }, true, -1, 100);
 	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 265, 150);
@@ -83,12 +83,15 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 	b = (new Boton(app, "Controles", controlesFunc_));
 	b->setWidth(150); b->setHeight(100);
-	b->setPosition(Vector2D(100, 400));
-	/*b->addAnim("Feedback", { 16 }, true, -1, 75);
-	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }, true, -1, 100);*/
+	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 3 / 5) + 250));
+	b->addAnim("Feedback", { 16 }, true, -1, 75);
+	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }, true, -1, 100);
 	b->addInputComponent(&ov);
-	b->addRenderComponent(new ImageRenderer(app->getResources()->getImageTexture(Resources::BolsaCoca)));
-	//b->setAnimated(true);
+	bControles = new AnimationRenderer(app->getResources()->getImageTexture(Resources::ControlesButton), b->getAnimations(), 4, 5, 265, 150);
+	bControles->playAnim("Stop");
+	b->addRenderComponent(bControles);
+	//b->addRenderComponent(new ImageRenderer(app->getResources()->getImageTexture(Resources::ControlesButton)));
+	b->setAnimated(true);
 	botones.push_back(b); stage.push_back(b);
 
 	logo = new Entity(app);

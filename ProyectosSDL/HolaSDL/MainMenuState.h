@@ -17,6 +17,7 @@ private:
 	AnimationRenderer* btext;
 	AnimationRenderer* bLoadtext;
 	AnimationRenderer* bExittext;
+	AnimationRenderer* bControles;
 	RenderComponent* fondotext;
 	MouseEventAnimComponent ov{ SDL_MOUSEMOTION, "Feedback", "Stop" };
 	Texture* logotext;
