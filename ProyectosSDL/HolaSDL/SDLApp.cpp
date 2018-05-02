@@ -29,9 +29,9 @@ void SDLApp::handleEvent() {
 		if (event.type == SDL_QUIT)
 			exit = true;
 		else if (event.type == SDL_KEYDOWN) {
-			if (event.key.keysym.sym == SDLK_ESCAPE) {
+			/*if (event.key.keysym.sym == SDLK_ESCAPE) {
 				exit = true;
-			}
+			}*/
 		}
 		maquinaEstados->currentState()->handleEvent(event); //invoca el handleEvent del currentState
 	}
