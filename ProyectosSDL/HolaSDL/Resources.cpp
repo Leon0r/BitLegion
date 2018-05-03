@@ -221,6 +221,7 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/CerrarControles.png",
 "..//images/Fondos/escena31caso1.png",
 "..//images/Objetos/Cursor.png",
+"..//images/Dialogos/VecinosExpresiones.png",
 
 };
 
