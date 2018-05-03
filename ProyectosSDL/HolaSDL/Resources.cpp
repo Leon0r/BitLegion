@@ -208,7 +208,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/escena30caso1.png", //hall del forense
 "..//images/Objetos/Colisionables/lamparaForense.png", //lampara del hall del forense
 "..//images/Fondos/escena32caso1.png", //callejon de drogadictos
-"..//images/Objetos/Colisionables/drogadicto.png"
+"..//images/Objetos/Colisionables/drogadicto.png",
+"..//images/Fondos/escena29caso1.png",
 };
 
 

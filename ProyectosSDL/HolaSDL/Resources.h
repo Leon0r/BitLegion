@@ -221,7 +221,8 @@ public:
 		Escena30Caso1,
 		LamparaForense,
 		Escena32Caso1,
-		Drogadicto
+		Drogadicto,
+		Escena29Caso1
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
