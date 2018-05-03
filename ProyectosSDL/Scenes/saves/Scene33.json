@@ -38,16 +38,16 @@
       {
          "Texture": 29,
          "h": 60.0,
-         "rotat": -90.0,
-         "rotation": -90.0,
-         "scneNum": 22,
+         "rotat": 180.0,
+         "rotation": 180.0,
+         "scneNum": 32,
          "w": 60.0,
          "x": 20.0,
-         "y": 300.0
+         "y": 400.0
       }
    ],
    "PlayerPos": {
-      "x": 10.0,
+      "x": 76.0,
       "y": 320.0
    },
    "PlayerTam": {

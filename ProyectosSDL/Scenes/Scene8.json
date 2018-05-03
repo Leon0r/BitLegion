@@ -18,9 +18,8 @@
         }
     ],
 
-    "CollisionableObject": [
-    
-        { "x": 25, "y": 205, "w": 90, "h": 220, "Texture": 85 },  
+    "CollisionableObject": [ 
+        { "x": 25, "y": 205, "w": 70, "h": 220, "Texture": 85 },  
         { "x": 425, "y": 215, "w": 375, "h": 230, "Texture": 86 }
     ],
 
