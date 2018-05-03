@@ -222,7 +222,12 @@ public:
 		LamparaForense,
 		Escena34Caso1,
 		Drogadicto,
-		Escena29Caso1
+		Escena29Caso1,
+		CuadroLuces,
+		Antidoto,
+		BolsaCocaLogoLuna,
+		CartaLogoLuna,
+		CuadernoDroga
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

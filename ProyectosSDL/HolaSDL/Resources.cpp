@@ -210,6 +210,11 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/escena34caso1.png", //callejon de drogadictos
 "..//images/Objetos/Colisionables/drogadicto.png",
 "..//images/Fondos/escena29caso1.png",
+"..//images/Objetos/cuadroLuces.png", //cuadro de luces para puzle de unir cables
+"..//images/Objetos/Takeable/antidoto.png",
+"..//images/Objetos/Takeable/bolsaCocaLogoLuna.png", //luna de George Melies
+"..//images/Objetos/Takeable/cartaLogoLuna.png",
+"..//images/Objetos/Takeable/cuadernoDroga.png"
 };
 
 
