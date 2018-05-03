@@ -228,7 +228,9 @@ public:
 		BolsaCocaLogoLuna,
 		CartaLogoLuna,
 		CuadernoDroga,
-		Escena9Caso1Inv
+		Escena9Caso1Inv,
+		HombrePortal,
+		SalirPassWord
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

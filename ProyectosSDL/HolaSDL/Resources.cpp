@@ -216,6 +216,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Takeable/cartaLogoLuna.png",
 "..//images/Objetos/Takeable/cuadernoDroga.png",
 "..//images/Fondos/escena9caso1Inv.png", //escena coche invertida porque no tira escala negativa
+"..//images/SpriteSheets_Personajes/hombrePortal.png",
+"..//images/Puzles/salirPassWord.png"
 };
 
 
