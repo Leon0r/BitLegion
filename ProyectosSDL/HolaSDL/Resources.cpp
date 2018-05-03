@@ -197,7 +197,7 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Colisionables/armarioVecinoMuerto.png",
 "..//images/Objetos/Colisionables/teleVecinoMuerto.png",
 "..//images/Objetos/Colisionables/mesaVecinoMuerto.png",
-"..//images/Fondos/escena31caso1.png", //sala de pruebas del forense
+"..//images/Fondos/escena33caso1.png", //sala de pruebas del forense
 "..//images/Objetos/Colisionables/camillaForense.png",
 "..//images/Objetos/Colisionables/mesaForense1.png",
 "..//images/Objetos/Colisionables/mesaForense2.png",
@@ -205,15 +205,12 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/puertadeatrasmostradorspritesheet.png",
 "..//images/Objetos/Doors/puertabazarinteriro.png",
 "..//images/Objetos/Colisionables/estantebazar.png",
-"..//images/Fondos/escena30caso1.png", //hall del forense
+"..//images/Fondos/escena32caso1.png", //hall del forense
 "..//images/Objetos/Colisionables/lamparaForense.png", //lampara del hall del forense
-"..//images/Fondos/escena32caso1.png", //callejon de drogadictos
+"..//images/Fondos/escena34caso1.png", //callejon de drogadictos
 "..//images/Objetos/Colisionables/drogadicto.png",
 "..//images/Fondos/escena29caso1.png",
 };
-
-
-
 
 
 #include <iostream>

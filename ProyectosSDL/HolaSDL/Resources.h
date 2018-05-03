@@ -210,7 +210,7 @@ public:
 		Armario,
 		Television,
 		MesaVecinoMuerto,
-		Escena31Caso1,
+		Escena33Caso1,
 		CamillaForense,
 		MesaForense1,
 		MesaForense2,
@@ -218,9 +218,9 @@ public:
 		PuertaAtras,
 		PuertaBazar,
 		EstanteBazar,
-		Escena30Caso1,
-		LamparaForense,
 		Escena32Caso1,
+		LamparaForense,
+		Escena34Caso1,
 		Drogadicto,
 		Escena29Caso1
 	};
