@@ -1,0 +1,50 @@
+{
+   "AlenaActiva": true,
+   "CollisionableObject": [
+      {
+         "Texture": 207,
+         "h": 96.0,
+         "rotation": 0.0,
+         "w": 240.0,
+         "x": 300.0,
+         "y": 360.0
+      }
+   ],
+   "GOTransiciones": [
+      {
+         "Texture": 29,
+         "h": 60.0,
+         "rotat": 180.0,
+         "rotation": 180.0,
+         "scneNum": 33,
+         "w": 60.0,
+         "x": 20.0,
+         "y": 430.0
+      }
+   ],
+   "NPC": [
+      {
+         "Texture": 205,
+         "dialogo": "caso1_acto1_vecinaNinya",
+         "h": 96.0,
+         "rotation": 0.0,
+         "w": 240.0,
+         "x": 300.0,
+         "y": 360.0
+      }
+   ],
+   "PlayerPos": {
+      "x": 64.38004321199742,
+      "y": 225.6
+   },
+   "PlayerTam": {
+      "h": 201.6,
+      "w": 84.0
+   },
+   "Texture": 204,
+   "h": 720.0,
+   "rotation": 0.0,
+   "w": 1280.0,
+   "x": 0.0,
+   "y": 0.0
+}
