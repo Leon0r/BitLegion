@@ -214,7 +214,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Takeable/antidoto.png",
 "..//images/Objetos/Takeable/bolsaCocaLogoLuna.png", //luna de George Melies
 "..//images/Objetos/Takeable/cartaLogoLuna.png",
-"..//images/Objetos/Takeable/cuadernoDroga.png"
+"..//images/Objetos/Takeable/cuadernoDroga.png",
+"..//images/Fondos/escena9caso1Inv.png", //escena coche invertida porque no tira escala negativa
 };
 
 

@@ -227,7 +227,8 @@ public:
 		Antidoto,
 		BolsaCocaLogoLuna,
 		CartaLogoLuna,
-		CuadernoDroga
+		CuadernoDroga,
+		Escena9Caso1Inv
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
