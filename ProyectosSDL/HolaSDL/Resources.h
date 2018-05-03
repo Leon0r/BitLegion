@@ -234,6 +234,7 @@ public:
 		SalirControles,
 		Escena31Caso1,
 		Cursor,
+		VecinosExpresiones,
 		
 	};
 private:
