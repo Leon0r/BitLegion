@@ -144,6 +144,7 @@ void PlayState::handleEvent(SDL_Event & e) {
 	}
 	else{
 		stage.front()->handleInput(0, e);
+		handleCursor(e);
 	}
 
 }
@@ -165,6 +166,8 @@ void PlayState::render() {
 	std::list<GameObject*>::const_reverse_iterator its;
 	for (its = Zbuffer.rbegin(); its != Zbuffer.rend(); its++)
 		(*its)->render(0);
+	
+	this->renderCursor();
 }
 
 

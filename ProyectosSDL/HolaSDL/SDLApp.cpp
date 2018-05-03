@@ -19,6 +19,7 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 		TTF_Init();
 		initResources();
+		SDL_ShowCursor(0);
 		maquinaEstados = new GameStateMachine();
 
 		maquinaEstados->pushState(new MainMenuState(this));

@@ -10,10 +10,12 @@
 const int FRAME_RATE = 25; // A menor tiempo de espera entre frames, mayor la velocidad del bucle
 
 class Entity;
+class Cursor;
 class GameState:
 	public Observable, public Observer
 {
 private:
+	static Cursor* cursor;
 
 protected:
 	bool listhasChanged = false;
@@ -22,14 +24,18 @@ protected:
 	list <GameObject*> stage; //lista de objetos del estados
 	list<GameObject*>::iterator it;
 	SDLApp* app; //puntero a SDLApp
+	
+	void handleCursor(SDL_Event &e);
+	void renderCursor();
+
 public:
 	virtual void render(); //manda a los objetos del estado render, el 0 es por el tiempo que no sé porq lo tenemos
 	virtual void update(); //manda a los objetos del estado update
 	virtual void handleEvent(SDL_Event &e);
 	void addEntity(GameObject* entity){ stage.push_back(entity); }
 	GameState();
-	virtual ~GameState() { for (GameObject* it : stage) { delete it; } }; //delete de los objetos
-	GameState(SDLApp* app) : app(app) {}
+	virtual ~GameState();
+	GameState(SDLApp* app);
 	void deleteElement(GameObject* o);
 	list <GameObject*>* getStage() {return &stage;}
 	void changeList() { listhasChanged = true; }
