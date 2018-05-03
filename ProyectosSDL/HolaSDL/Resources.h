@@ -235,6 +235,8 @@ public:
 		Escena31Caso1,
 		Cursor,
 		VecinosExpresiones,
+		TaquillaOpening,
+		
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
