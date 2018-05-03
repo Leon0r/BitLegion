@@ -3,11 +3,27 @@
    "CollisionableObject": [
       {
          "Texture": 207,
+         "h": 200.0,
+         "rotation": 0.0,
+         "w": 60.0,
+         "x": 1030.0,
+         "y": 180.0
+      },
+      {
+         "Texture": 207,
          "h": 96.0,
          "rotation": 0.0,
          "w": 240.0,
          "x": 300.0,
          "y": 360.0
+      },
+      {
+         "Texture": 43,
+         "h": 750.0,
+         "rotation": 0.0,
+         "w": 400.0,
+         "x": 1090.0,
+         "y": 0.0
       }
    ],
    "GOTransiciones": [
@@ -24,6 +40,44 @@
    ],
    "NPC": [
       {
+         "Anims": [
+            [
+               0,
+               0,
+               1,
+               1,
+               2,
+               2,
+               3,
+               3,
+               4,
+               4,
+               5,
+               5,
+               6,
+               6,
+               7,
+               7,
+               8,
+               8
+            ]
+         ],
+         "Texture": 180,
+         "animation": true,
+         "dialogo": "caso1_acto1_vecinaNinya",
+         "h": 200.0,
+         "heightFrame": 129,
+         "loop": true,
+         "numColsFrame": 3,
+         "numFilsFrame": 3,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 60.0,
+         "widthFrame": 38,
+         "x": 1030.0,
+         "y": 180.0
+      },
+      {
          "Texture": 205,
          "dialogo": "caso1_acto1_vecinaNinya",
          "h": 96.0,
@@ -34,8 +88,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 64.38004321199742,
-      "y": 225.6
+      "x": 1004.1293652158715,
+      "y": 307.8435448976683
    },
    "PlayerTam": {
       "h": 201.6,
