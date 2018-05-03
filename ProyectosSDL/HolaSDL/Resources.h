@@ -230,7 +230,11 @@ public:
 		CuadernoDroga,
 		Escena9Caso1Inv,
 		HombrePortal,
-		SalirPassWord
+		SalirPassWord,
+		SalirControles,
+		Escena31Caso1,
+		Cursor,
+		
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

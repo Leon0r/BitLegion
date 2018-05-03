@@ -161,8 +161,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Puzles/botonSalir.png", //salir del puzle del conecta 4
 "..//images/Puzles/botonSalirLuces.png", //salir del puzle de las luces
 "..//images/Puzles/returnLuces.png", //reiniciar puzle de las luces
-"..//images/SpriteSheets_Personajes/senyoraDelBazar.png",//señora del bazar
-"..//images/SpriteSheets_Personajes/senyorDelBazar.png",//señor del bazar
+"..//images/SpriteSheets_Personajes/senyoraDelBazar.png",//seï¿½ora del bazar
+"..//images/SpriteSheets_Personajes/senyorDelBazar.png",//seï¿½or del bazar
 "..//images/SpriteSheets_Personajes/vecinoDelMuerto.png",//vecino yonki del muerto
 "..//images/Objetos/Takeable/numeroDelCamello.png",//numero de telefono del camello
 "..//images/SpriteSheets_Personajes/AmigaGalina.png", //amiga de la novia del muerto
@@ -217,7 +217,11 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Takeable/cuadernoDroga.png",
 "..//images/Fondos/escena9caso1Inv.png", //escena coche invertida porque no tira escala negativa
 "..//images/SpriteSheets_Personajes/hombrePortal.png",
-"..//images/Puzles/salirPassWord.png"
+"..//images/Puzles/salirPassWord.png",
+"..//images/Objetos/CerrarControles.png",
+"..//images/Fondos/escena31caso1.png",
+"..//images/Objetos/Cursor.png",
+
 };
 
 
