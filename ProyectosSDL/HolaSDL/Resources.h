@@ -234,7 +234,6 @@ public:
 		SalirControles,
 		Escena31Caso1,
 		Cursor,
-		
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

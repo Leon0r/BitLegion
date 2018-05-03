@@ -24,7 +24,7 @@ GameState::~GameState()
 GameState::GameState(SDLApp * app) : app(app)
 {
 	if (cursor == nullptr) {
-		cursor = new Cursor(app, app->getResources()->getImageTexture(Resources::Armario), 50, 50); //singleton (?)
+		cursor = new Cursor(app, app->getResources()->getImageTexture(Resources::Cursor), 15, 21); //singleton (?)
 	}
 	else {
 		cursor->incrementaDependencias(); // para saber por cuantos estados es compartido
