@@ -6,7 +6,7 @@
 ClickeableGO::ClickeableGO(SDLApp* game, int x, int y, int w, int h, Texture* texture, bool rangeCheck_): Entity(game), rangeCheck(rangeCheck_)
 {
 	render = new ImageRenderer(texture);
-	this->addRenderComponent(render);//componente de pintado para que aparezca en pantalla
+	this->addRenderComponent(render); //componente de pintado para que aparezca en pantalla
 	position_ = Vector2D(x, y);
 	height_ = h;
 	width_ = w;

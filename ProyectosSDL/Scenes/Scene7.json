@@ -31,6 +31,18 @@
         }
     ],
 
+    "GOCofres": [
+        { "x": 505, "y": 305, "w": 44, "h": 40, "Texture": 219, "tag": "-1", "wItem": 18, "hItem": 18, "descripcionItem": "funciona", 
+            "tagItem": "funcionaGuay","numTextItem": 93,"UnlockId": 1,
+            "animation": true, "numFilsFrame": 3, "numColsFrame": 2,
+            "widthFrame": 60, "heightFrame": 60, "vel": 200, "loop": true,
+            "Anims": [ [0], [1,1,2,2,3,3,4,4,5,5] ] }
+        ],
+
+    "GOState": [
+        { "x": 500, "y": 317, "w": 30, "h": 30, "Texture": 29, "rotation": -45, "password": "kakaaaa","type": 2, "UnlockId": 1, "TexturaFondo": 177 }
+    ],
+
     "PlayerPos": {
         "x": 900,
         "y": 335

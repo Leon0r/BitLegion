@@ -92,6 +92,62 @@
          "y": 115.0
       }
    ],
+   "GOCofres": [
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1,
+               1,
+               2,
+               2,
+               3,
+               3,
+               4,
+               4,
+               5,
+               5
+            ]
+         ],
+         "Texture": 219,
+         "UnlockId": 1,
+         "animation": true,
+         "descripcionItem": "funciona",
+         "h": 40.0,
+         "hItem": 18,
+         "heightFrame": 60,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 3,
+         "numTextItem": 93,
+         "permanenteItem": false,
+         "rotation": 0.0,
+         "tag": "-1",
+         "tagItem": "funcionaGuay",
+         "vel": 200.0,
+         "w": 44.0,
+         "wItem": 18,
+         "widthFrame": 60,
+         "x": 505.0,
+         "y": 305.0
+      }
+   ],
+   "GOState": [
+      {
+         "TexturaFondo": 177,
+         "Texture": 29,
+         "UnlockId": 1,
+         "h": 30.0,
+         "password": "kakaaaa",
+         "rotation": -45,
+         "type": 2,
+         "w": 30.0,
+         "x": 500.0,
+         "y": 317.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 29,
@@ -115,8 +171,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 900.0,
-      "y": 335.0
+      "x": 504.0,
+      "y": 275.0
    },
    "PlayerTam": {
       "h": 201.6,

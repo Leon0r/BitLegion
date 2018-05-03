@@ -9,6 +9,7 @@
 #include "AutoConversational.h"
 #include "Decorado.h"
 #include "NPC.h"
+#include "GOcofres.h"
 
 Scene::Scene()
 {
@@ -156,6 +157,39 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			}
 		}
 
+		// Cargado de GOCofres (valido para taquillas, cofres, cajas...)
+		obj = "GOCofres";
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+			double rotGOTrans = 0;
+			if (!j[obj][i]["rotGOTr"].is_null())
+				rotGOTrans = j[obj][i]["rotGOTr"];
+
+			int id = -4;
+			if (!j[obj][i]["UnlockId"].is_null())
+				if (j[obj][i]["UnlockId"].is_number_integer()) {
+					id = j[obj][i]["UnlockId"];
+				}
+
+			bool itPerm = false;
+			if (!j[obj][i]["permanenteItem"].is_null()) {
+				itPerm = j[obj][i]["permanenteItem"];
+			}
+
+			GOcofres* door = new GOcofres(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["wItem"], j[obj][i]["hItem"], j[obj][i]["descripcionItem"], j[obj][i]["tagItem"],
+				app->getResources()->getImageTexture(Resources::ImageId(j[obj][i]["numTextItem"])), itPerm, id);
+
+			SceneItems.push_back(door);
+			addAnimsFromJSON(door, j[obj][i], n);
+
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+		}
+
 		// Cargado de Colisiones
 		obj = "CollisionableObject";
 		for (int i = 0; i < j[obj].size(); i++) {
@@ -201,6 +235,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
 		}
+
 
 		//ESCENARIO
 
