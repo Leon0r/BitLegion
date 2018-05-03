@@ -1,5 +1,5 @@
 ﻿#include "PasswordState.h"
-
+#include "AnimationRenderer.h"
 
 
 PasswordState::PasswordState()
@@ -15,13 +15,30 @@ PasswordState::~PasswordState()
 
 	if (timerFail != nullptr) { delete timerFail; }
 
+	if (botonSalir != nullptr) { botonSalir->delInputComponent(&press); delete botonSalir; }
+
 	stage.clear();
 }
 
 PasswordState::PasswordState(SDLApp * app, string password, int id, int txt): Puzzle(app, id), password_(password)
 {
+	press = MouseEventAnimComponent(SDL_MOUSEBUTTONDOWN, "Pressed", "Stop", SDL_BUTTON_LEFT);
+
 	f = new Font("..//images/Dialogos/Moonace-Regular.ttf", 50);
 	resetPassword();
+
+	exitFun_ = [app]() mutable { app->getStateMachine()->popState(false); };
+	botonSalir = new Boton(app, "exitButton", exitFun_);
+	botonSalir->setWidth(56);
+	botonSalir->setHeight(53);
+	botonSalir->setPosition(Vector2D(40, 40));
+	botonSalir->addAnim("Stop", { 0 }, true, -1, 100);
+	botonSalir->addAnim("Pressed", { 1 }, true, -1, 100);
+	botonSalir->addRenderComponent(new AnimationRenderer(app->getResources()->getImageTexture(Resources::SalirPassWord), botonSalir->getAnimations(), 1, 2, 56, 53));
+	botonSalir->addInputComponent(&press);
+	botonSalir->setAnimated(true);
+
+	this->stage.push_back(botonSalir);
 
 	if (txt != -1) {
 		img = ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(txt)));

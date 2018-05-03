@@ -1,6 +1,8 @@
 #pragma once
 #include "Puzzle.h"
 #include "GOTimer.h"
+#include "Boton.h"
+#include "MouseEventAnimComponent.h"
 
 class PasswordState :
 	public Puzzle
@@ -18,6 +20,9 @@ private:
 	ImageRenderer img;
 	Entity* fondo = nullptr;
 	GOTimer* timerFail;
+	Boton* botonSalir;
+	function<void()> exitFun_;
+	MouseEventAnimComponent press;
 
 public:
 	PasswordState();
