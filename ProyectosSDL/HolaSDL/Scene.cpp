@@ -427,7 +427,7 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
 			fondo = j["TexturaFondo"];
 
 
-		nPuzzle = new PasswordState(app, j["password"], aux, fondo);
+		nPuzzle = new PasswordState(app, j["posFontX"], j["posFontY"],j["password"], aux, fondo);
 		break;
 	}
 	default:

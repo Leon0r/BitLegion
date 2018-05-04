@@ -20,7 +20,7 @@ PasswordState::~PasswordState()
 	stage.clear();
 }
 
-PasswordState::PasswordState(SDLApp * app, string password, int id, int txt): Puzzle(app, id), password_(password)
+PasswordState::PasswordState(SDLApp * app, int PosFontX, int PosFontY, string password, int id, int txt): Puzzle(app, id), password_(password), posFontX_(PosFontX), posFontY_(PosFontY)
 {
 	press = MouseEventAnimComponent(SDL_MOUSEBUTTONDOWN, "Pressed", "Stop", SDL_BUTTON_LEFT);
 
@@ -79,7 +79,7 @@ void PasswordState::render()
 	GameState::render();
 
 	Texture text(app->getRenderer(), userPass_, *f, colorFuente); //fuente dinamica
-	text.render(app->getRenderer(), 410, 438); //se llama al render de la fuente Dinamica
+	text.render(app->getRenderer(), posFontX_, posFontY_); //se llama al render de la fuente Dinamica
 }
 
 bool PasswordState::checkPassword()

@@ -56,6 +56,8 @@
          "UnlockId": 1,
          "h": 30.0,
          "password": "kakaaaa",
+         "posFontX": 410,
+         "posFontY": 438,
          "rotation": -45,
          "type": 2,
          "w": 30.0,

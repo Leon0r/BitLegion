@@ -24,9 +24,12 @@ private:
 	function<void()> exitFun_;
 	MouseEventAnimComponent press;
 
+	int posFontX_;
+	int posFontY_;
+
 public:
 	PasswordState();
-	PasswordState(SDLApp* app, string password = "hanzomain", int id = -4, int txt = -1);
+	PasswordState(SDLApp* app, int PosFontX, int PosFontY,string password = "hanzomain", int id = -4, int txt = -1);
 	virtual ~PasswordState();
 	virtual void handleEvent(SDL_Event &e);
 	virtual void render();

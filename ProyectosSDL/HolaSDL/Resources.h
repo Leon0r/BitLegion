@@ -191,7 +191,7 @@ public:
 		ControlesKeyArrows,
 		ControlesKeyI,
 		ControlesKeyP,
-		ControlesClick,
+		MovimientoClick,
 		PuertaViejaContra,
 		TaquillaAlenaContra,
 		ControlesButton,
@@ -235,7 +235,8 @@ public:
 		Escena31Caso1,
 		Cursor,
 		VecinosExpresiones,
-		TaquillaOpening,		
+		TaquillaOpening,
+		ControlesMouseInteractuar,
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp

@@ -178,7 +178,7 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/AlenaArrows.png", 
 "..//images/Fondos/key_i.png", 
 "..//images/Fondos/key_p.png", 
-"..//images/Fondos/ratonMouse.png", 
+"..//images/Fondos/ratonMouseMov.png", 
 "..//images/Fondos/puertaViejaContrasenya.png", 
 "..//images/Fondos/taquillaAlenaContrasenya.png", 
 "..//images/Objetos/CONTROLES.png",
@@ -223,6 +223,7 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Cursor.png",
 "..//images/Dialogos/VecinosExpresiones.png",
 "..//images/Puzles/lockerOpening.png",
+"..//images/Fondos/ratonMouseInteractuar.png",
 
 };
 
