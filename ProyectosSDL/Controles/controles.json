@@ -21,7 +21,9 @@
   		"frames": [1, 1, 0, 0],
   	"loop": true, "vel": 200, "numText": 173, "cols": 1,"fils": 2, "frameWidth": 167, "frameHeight": 43},
 
-  	{"x":0, "y": 0,"loop": true, "vel": 200, "numText": 144}
+  	{"x":0, "y": 0,"alpha":100, "numText": 129},
+
+  	{"x":0, "y": 0, "numText": 144}
 
   ]
 }

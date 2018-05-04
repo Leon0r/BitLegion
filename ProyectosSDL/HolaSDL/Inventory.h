@@ -30,13 +30,14 @@ private:
 	Entity* inventarioHud = new Entity(app);
 	Entity* marca = new Entity(app);
 	ShortCut* SC;
+	Entity* fondoNegro = new Entity(app);
+	ImageRenderer fNegroRender;
 	MouseEventAnimComponent pb;
 	const double espaciado = 87;
 	pair<const double, const double> relacion = { app->getWindowWidth() / 800.0 , app->getWindowHeight() / 600.0 };
 	const int numCas = 5;
 	vector<Vector2D> matriz;
-	Texture* txt = app->getResources()->getImageTexture(Resources::Transicion);
-	SDL_Rect rectF = RECT(0, 0, app->getWindowWidth(), app->getWindowHeight());
+
 	void usar(Inventory* state); 
 										 //ya funciona, se puede usar un cast para un metodo del inventario (usar, swap, por ejemplo)
 	void swap(Inventory* state);

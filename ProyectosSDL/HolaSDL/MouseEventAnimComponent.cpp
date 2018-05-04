@@ -28,9 +28,6 @@ void MouseEventAnimComponent::handleInput(GameObject * o, Uint32 time, const SDL
 				aux->playAnim(defaultAnim_);
 			}
 		}
-		else {
-			aux->playAnim(defaultAnim_);
-		}
 	}
 }
 

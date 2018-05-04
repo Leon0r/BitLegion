@@ -83,7 +83,13 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 	swapButton->setHeight(31*relacion.second);
 	stage.push_back(swapButton); //se pushea
 
+	fNegroRender = ImageRenderer(app->getResources()->getImageTexture(Resources::Transicion));
+	fondoNegro->setWidth(app->getWindowWidth()); fondoNegro->setHeight(app->getWindowHeight()); fondoNegro->setPosition(Vector2D(0, 0));
+	fondoNegro->addRenderComponent(&fNegroRender);
+	fondoNegro->getTexture()->changeAlpha(255 * 0.6);
+
 	stage.push_back(inventarioHud);
+	stage.push_back(fondoNegro);
 	//-------------ConstructoraToGrandeLoko(hay q hacerla m�s peque�ita)------------------------
 }
 
@@ -116,10 +122,6 @@ void Inventory::handleEvent(SDL_Event& event) {
 
 void Inventory::render() {
 	if (previousState != nullptr) previousState->render();
-
-	txt->changeAlpha(255*0.6);
-	SDL_Rect rct = RECT(0, 0, app->getWindowWidth(), app->getWindowHeight());
-	txt->render(app->getRenderer(), rct, nullptr);
 
 	GameState::render(); //se llama a los componentes "Render" de todos los objetos de la lista del inventario
 	if (selected != nullptr){
@@ -164,6 +166,8 @@ void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea
 	delete useButton; useButton = nullptr;
 
 	delete swapButton; swapButton = nullptr;
+
+	fondoNegro->delRenderComponent(&fNegroRender); delete fondoNegro;
 }
 
 void Inventory::usar(Inventory* state) {

@@ -122,30 +122,8 @@
          "y": 600.0
       }
    ],
-   "ItemInventario": [
-      {
-         "Texture": 55,
-         "descripcion": "Llave de la moto de    Alena",
-         "h": 40.0,
-         "rotation": 0.0,
-         "tag": "keyMoto",
-         "w": 40.0,
-         "x": 630.0,
-         "y": 500.0
-      },
-      {
-         "Texture": 19,
-         "descripcion": "Llave de la casa de    Alena",
-         "h": 40.0,
-         "rotation": 0.0,
-         "tag": "key",
-         "w": 40.0,
-         "x": 710.0,
-         "y": 490.0
-      }
-   ],
    "PlayerPos": {
-      "x": 100.0,
+      "x": 694.0,
       "y": 500.0
    },
    "PlayerTam": {

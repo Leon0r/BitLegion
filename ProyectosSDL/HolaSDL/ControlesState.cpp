@@ -1,6 +1,7 @@
 #include "ControlesState.h"
 #include <fstream>
 #include "ImageRenderer.h"
+#include "MouseEventAnimComponent.h"
 
 vector<Entity*> ControlesState::entities; 
 
@@ -17,6 +18,22 @@ ControlesState::~ControlesState()
 void ControlesState::readFromJson()
 {
 	if (entities.empty()) { //si la variable static está vacia...
+
+		botonSalir = new Boton(app, "exitButton", exitFun_);
+		botonSalir->setWidth(65); botonSalir->setHeight(65); botonSalir->setPosition(Vector2D(40, 40));
+		botonSalir->addAnim("Stop", { 0,0,1,1,2,2,3,3,4,4,5,5,6,6 }, true, -1, 100);
+		botonSalir->addAnim("Feedback", { 7 }, true, -1, 100);
+		botonSalir->addAnim("Pressed", { 8 }, true, -1, 100);
+		botonSalir->addRenderComponent(new AnimationRenderer(app->getResources()->getImageTexture(Resources::SalirControles), botonSalir->getAnimations(), 3, 3, 65, 65));
+		botonSalir->addInputComponent(new MouseEventAnimComponent(SDL_MOUSEMOTION, "Feedback", "Stop"));
+		botonSalir->addInputComponent(new MouseEventAnimComponent(SDL_MOUSEBUTTONDOWN, "Pressed", "Stop", SDL_BUTTON_LEFT));
+		botonSalir->setAnimated(true);
+
+		stage.push_back(botonSalir);
+		entities.push_back(botonSalir);
+
+		
+
 		string name;
 		name = "..\\Controles\\controles.json";
 
@@ -62,6 +79,10 @@ void ControlesState::readFromJson()
 				else {
 					if (!j["imagenes"][i]["numText"].is_null())
 						aux->addRenderComponent(new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(j["imagenes"][i]["numText"]))));
+				}
+
+				if (!j["imagenes"][i]["alpha"].is_null()) {
+					aux->getTexture()->changeAlpha(j["imagenes"][i]["alpha"]);
 				}
 
 				stage.push_back(aux);
