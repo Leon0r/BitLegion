@@ -8,7 +8,7 @@ class GOstates :
 	public ClickeableGO, public Observer
 {
 public:
-	GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, GameState* state, json j);
+	GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, GameState* state, json j, Observer* playState);
 	virtual ~GOstates();
 	void act();
 	virtual void saveToJson(json& j);

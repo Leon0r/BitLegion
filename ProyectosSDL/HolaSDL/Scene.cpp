@@ -127,7 +127,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 			GOstates* goSt = new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), SceneStates.back(), j[obj][i]);
+				app->getResources()->getImageTexture(Resources::ImageId(n)), SceneStates.back(), j[obj][i], playState);
 
 			SceneItems.push_back(goSt);
 

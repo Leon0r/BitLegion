@@ -25,8 +25,8 @@ void ControlesState::readFromJson()
 		botonSalir->addAnim("Feedback", { 7 }, true, -1, 100);
 		botonSalir->addAnim("Pressed", { 8 }, true, -1, 100);
 		botonSalir->addRenderComponent(new AnimationRenderer(app->getResources()->getImageTexture(Resources::SalirControles), botonSalir->getAnimations(), 3, 3, 65, 65));
-		botonSalir->addInputComponent(new MouseEventAnimComponent(SDL_MOUSEMOTION, "Feedback", "Stop"));
 		botonSalir->addInputComponent(new MouseEventAnimComponent(SDL_MOUSEBUTTONDOWN, "Pressed", "Stop", SDL_BUTTON_LEFT));
+		botonSalir->addInputComponent(new MouseEventAnimComponent(SDL_MOUSEMOTION, "Feedback", "Stop"));
 		botonSalir->setAnimated(true);
 
 		stage.push_back(botonSalir);

@@ -18,7 +18,8 @@ enum Messages {
 	Stop,
 	SetZBufferPlayState,
 	AbreInventario,
-	Pausa
+	Pausa,
+	CambioEstado
 };
 
 struct Mensaje{

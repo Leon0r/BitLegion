@@ -3,8 +3,10 @@
 #include "MainCharacter.h"
 
 
-GOstates::GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, GameState* state, json j) : ClickeableGO(game, x, y, w, h, texture), jAux_(j)
+GOstates::GOstates(SDLApp* game, int x, int y, int w, int h, Texture* texture, GameState* state, json j, Observer* playState) : ClickeableGO(game, x, y, w, h, texture), jAux_(j)
 {
+	this->addObserver(playState);
+
 	state_ = static_cast<Puzzle*>(state);
 	this->delRenderComponent(render);
 	addAnim("RightArrow", { 0,1,2,3 });
@@ -25,6 +27,7 @@ GOstates::~GOstates()
 }
 
 void GOstates::act() {
+	this->send(&Mensaje(CambioEstado));
 	app->getStateMachine()->currentState()->changeList();
 	state_->searchId(); 
 	if (!added) { state_->addObserver(this); added = true; } //si no se ha añadido mas veces, lo anyade (evitar fallos raros al clickar varias veces)

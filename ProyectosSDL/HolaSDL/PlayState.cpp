@@ -81,6 +81,7 @@ PlayState::PlayState(SDLApp* app, bool load) : GameState(app) {
 	}
 
 	this->currentScene = alena->getCurrentScene();
+	addObserver(alena);
 }
 
 
@@ -236,6 +237,9 @@ void PlayState::receive(Mensaje* msg) {
 		break;
 	case AbreInventario:
 		this->creaInventario();
+		break;
+	case CambioEstado:
+		send(&Mensaje(Stop));
 		break;
 	default:
 		break;
