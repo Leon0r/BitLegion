@@ -134,6 +134,22 @@
          "y": 305.0
       }
    ],
+   "GOState": [
+      {
+         "TexturaFondo": 177,
+         "Texture": 29,
+         "UnlockId": 1,
+         "h": 30.0,
+         "password": "kakaaaa",
+         "posFontX": 417,
+         "posFontY": 436,
+         "rotation": -45,
+         "type": 2,
+         "w": 30.0,
+         "x": 500.0,
+         "y": 317.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 29,
@@ -156,21 +172,9 @@
          "y": 365.0
       }
    ],
-   "ItemInventario": [
-      {
-         "Texture": 93,
-         "descripcion": "funciona",
-         "h": 18.0,
-         "rotation": 0.0,
-         "tag": "funcionaGuay",
-         "w": 18.0,
-         "x": 517.0,
-         "y": 325.0
-      }
-   ],
    "PlayerPos": {
-      "x": 468.0,
-      "y": 281.0
+      "x": 900.0,
+      "y": 335.0
    },
    "PlayerTam": {
       "h": 201.6,

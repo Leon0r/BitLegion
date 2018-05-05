@@ -26,6 +26,20 @@
          "y": 335.0
       }
    ],
+   "GODoors": [
+      {
+         "Texture": 221,
+         "h": 157.0,
+         "rotGOTr": 90.0,
+         "rotat": 0.0,
+         "rotation": 0.0,
+         "scneNum": 24,
+         "tag": "keyCoche",
+         "w": 380.0,
+         "x": 880.0,
+         "y": 410.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 29,
@@ -49,8 +63,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 10.0,
-      "y": 320.0
+      "x": 970.0,
+      "y": 280.0
    },
    "PlayerTam": {
       "h": 120.0,

@@ -237,6 +237,7 @@ public:
 		VecinosExpresiones,
 		TaquillaOpening,
 		ControlesMouseInteractuar,
+		CocheGuay
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
