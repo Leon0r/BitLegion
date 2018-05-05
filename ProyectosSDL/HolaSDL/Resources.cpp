@@ -229,7 +229,9 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/escena38caso1.png",
 "..//images/Fondos/escena39caso1.png",
 "..//images/Fondos/escena40caso1.png",
-"..//images/Fondos/escena41caso1.png"
+"..//images/Fondos/escena41caso1.png",
+"..//images/SpriteSheets_Personajes/mujer5º.png",
+"..//images/Objetos/Doors/puertaPisos.png", // PuertaPisos
 };
 
 

@@ -1,11 +1,33 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 39,
+        "actualScene": 18,
         "h": 201.6,
+        "itemList": [
+            {
+                "Texture": 55,
+                "descripcion": "Llave de la moto de    Alena",
+                "h": 36.92307692307692,
+                "rotation": 0.0,
+                "tag": "keyMoto",
+                "w": 49.230769230769226,
+                "x": 938.1846153846153,
+                "y": 8.53846153846154
+            },
+            {
+                "Texture": 21,
+                "descripcion": "Ticket de compra",
+                "h": 36.92307692307692,
+                "rotation": 0.0,
+                "tag": "ticket",
+                "w": 49.230769230769226,
+                "x": 1007.7846153846152,
+                "y": 8.53846153846154
+            }
+        ],
         "rotation": 0.0,
         "w": 84.0,
-        "x": 38.0,
-        "y": 249.6
+        "x": 1059.0872171556264,
+        "y": 294.60572426961085
     }
 }
