@@ -1,8 +1,6 @@
 #include "GOConversational.h"
 #include "PlayState.h"
 
-
-
 GOConversational::GOConversational()
 {
 }

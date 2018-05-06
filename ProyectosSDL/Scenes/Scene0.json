@@ -34,8 +34,8 @@
     ],
 
     "GOConversational": [
-         { "x": 915, "y": 280, "w": 40, "h": 40, "descripcion": "tlfono", "tag": "tlfono", "Texture": 20, "convoName": "AlenaJeffaTelefono" },
-         { "x": 630, "y": 500, "w": 40, "h": 40, "descripcion": "key", "tag": "keyMoto", "Texture": 154, "convoName": "AlenaLlavesMoto" }
+         { "x": 915, "y": 280, "w": 40, "h": 40, "Texture": 20, "convoName": "AlenaJeffaTelefono" },
+         { "x": 630, "y": 500, "w": 40, "h": 40, "Texture": 154, "convoName": "AlenaLlavesMoto" }
     ],
     
     "PlayerPos": {
