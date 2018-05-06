@@ -248,7 +248,8 @@ public:
 		Escena36Caso1,
 		NeonAnim3,
 		NeonAnim4,
-		TelefonilloAnim
+		TelefonilloAnim,
+		RadiografiaAnim
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
