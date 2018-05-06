@@ -226,12 +226,13 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/ratonMouseInteractuar.png",
 "..//images/Objetos/Colisionables/cocheguay.png",
 "..//images/Fondos/escena37caso1.png", //pisos del acto 5 (hasta escena41caso1)
-"..//images/Fondos/escena38caso1.png",
+"..//images/Fondos/escena38caso1.png", //del piso de la droga (acto 5)
 "..//images/Fondos/escena39caso1.png",
 "..//images/Fondos/escena40caso1.png",
 "..//images/Fondos/escena41caso1.png",
 "..//images/SpriteSheets_Personajes/mujer5º.png",
 "..//images/Objetos/Doors/puertaPisos.png", // PuertaPisos
+"..//images/Fondos/escena36caso1.png" //descansillo del portal del piso de la droga (acto 5)
 };
 
 
