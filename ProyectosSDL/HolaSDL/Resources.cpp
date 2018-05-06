@@ -232,7 +232,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/escena41caso1.png",
 "..//images/SpriteSheets_Personajes/mujer5º.png",
 "..//images/Objetos/Doors/puertaPisos.png", // PuertaPisos
-"..//images/Fondos/escena36caso1.png" //descansillo del portal del piso de la droga (acto 5)
+"..//images/Fondos/escena36caso1.png", //descansillo del portal del piso de la droga (acto 5)
+"..//images/Objetos/neonAnim3.png" //animacion de la escena 19
 };
 
 

@@ -245,7 +245,8 @@ public:
 		Escena41Caso1,
 		Mujer5piso,
 		PuertaPisos,
-		Escena36Caso1
+		Escena36Caso1,
+		NeonAnim3
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
