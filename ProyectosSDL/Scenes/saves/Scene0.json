@@ -142,9 +142,21 @@
          "y": 600.0
       }
    ],
+   "ItemInventario": [
+      {
+         "Texture": 19,
+         "descripcion": "Llave de la casa de    Alena",
+         "h": 40.0,
+         "rotation": 0.0,
+         "tag": "key",
+         "w": 40.0,
+         "x": 710.0,
+         "y": 490.0
+      }
+   ],
    "PlayerPos": {
-      "x": 784.0,
-      "y": 225.6
+      "x": 844.0,
+      "y": 261.6
    },
    "PlayerTam": {
       "h": 201.6,
