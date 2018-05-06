@@ -236,8 +236,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/neonAnim3.png", //animacion de la escena 19
 "..//images/Objetos/neonAnim4.png", //animacion de la escena 22
 "..//images/Objetos/telefonilloAnim.png", //animacion de la escena 22
-"..//images/Objetos/radiografiaAnim.png" //animacion de la escena 33
-"..//images/Fondos/escena41caso1.png",
+"..//images/Objetos/radiografiaAnim.png", //animacion de la escena 33
+"..//images/Fondos/escena35caso1.png"
 };
 
 
