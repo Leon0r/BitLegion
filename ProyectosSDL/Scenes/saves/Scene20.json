@@ -1,5 +1,15 @@
 {
    "AlenaActiva": true,
+   "CollisionableObject": [
+      {
+         "Texture": 43,
+         "h": 197.0,
+         "rotation": 0.0,
+         "w": 1280.0,
+         "x": 0.0,
+         "y": 400.0
+      }
+   ],
    "Decorado": [
       {
          "Anims": [
@@ -52,12 +62,12 @@
          "scneNum": 19,
          "w": 60.0,
          "x": 10.0,
-         "y": 450.0
+         "y": 400.0
       }
    ],
    "PlayerPos": {
-      "x": 5.239507958280285,
-      "y": 205.6
+      "x": 26.0,
+      "y": 208.0
    },
    "PlayerTam": {
       "h": 231.6,
