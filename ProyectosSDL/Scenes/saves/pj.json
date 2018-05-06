@@ -1,11 +1,11 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 19,
+        "actualScene": 22,
         "h": 120.0,
         "rotation": 0.0,
         "w": 50.0,
-        "x": 220.0,
+        "x": 10.0,
         "y": 320.0
     }
 }

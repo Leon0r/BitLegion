@@ -29,5 +29,25 @@
     "PlayerTam": {
         "w": 50,
         "h": 120
-    }
+    },
+
+    "Decorado": [
+        {
+            "x": 935,
+            "y": 218,
+            "w": 195,
+            "h": 30,
+            "Texture": 231,
+            "animation": true,
+            "numFilsFrame": 4,
+            "numColsFrame": 1,
+            "widthFrame": 218,
+            "heightFrame": 30,
+            "vel": 200,
+            "loop": true,
+            "Anims": [ [ 0, 0, 0, 0, 0, 0, 1, 0, 2, 1, 1, 0, 0, 0, 3, 0, 3, 0 ] ]
+        },
+        { "x": 233, "y": 277, "w": 14, "h": 18, "Texture": 232, "animation": true, "numFilsFrame": 1, "numColsFrame": 2,
+            "widthFrame": 14, "heightFrame": 18, "vel": 200, "loop": true, "Anims": [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0] ] }
+    ]
 }
