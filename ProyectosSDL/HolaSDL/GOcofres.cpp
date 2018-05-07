@@ -16,6 +16,8 @@ void GOcofres::secondAct()
 	app->getStateMachine()->currentState()->getStage()->insert
 	(it, new ItemInventario(app, x, y, itmW, itmH,itmDesc,itmTag,itmTexture, imtPerm));
 
+	app->getStateMachine()->currentState()->changeList();
+
 	this->playAnim("Anim1");
 
 	this->setActive(false);

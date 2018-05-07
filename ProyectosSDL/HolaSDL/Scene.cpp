@@ -56,6 +56,28 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			}
 		}
 
+		obj = "GOState";
+		//Cargado de Puzles
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+
+
+			SceneStates.push_back(PuzzleCreator(j[obj][i]["type"], j[obj][i]));
+
+			GOstates* goSt = new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
+				j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), SceneStates.back(), j[obj][i], playState);
+
+			SceneItems.push_back(goSt);
+
+			addAnimsFromJSON(goSt, j[obj][i], n);
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+		}
+
 		//Cargado objetos conversaciones
 		for (int i = 0; i < j["GOConversational"].size(); i++) {
 
@@ -111,28 +133,6 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 			addAnimsFromJSON(npc, j[obj][i], n);
 
-			if (!j[obj][i]["rotation"].is_null()) {
-				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
-			}
-		}
-
-		obj = "GOState";
-		//Cargado de Puzles
-		for (int i = 0; i < j[obj].size(); i++) {
-
-			n = j[obj][i]["Texture"];
-
-
-			SceneStates.push_back(PuzzleCreator(j[obj][i]["type"], j[obj][i]));
-
-			GOstates* goSt = new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
-				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), SceneStates.back(), j[obj][i], playState);
-
-			SceneItems.push_back(goSt);
-
-			addAnimsFromJSON(goSt, j[obj][i], n);
-			
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
