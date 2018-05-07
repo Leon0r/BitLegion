@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 // Archivo solo con el enum de mensajes posibles entre observer/observable
 enum Messages {
 	Ch_Left,
@@ -19,7 +20,8 @@ enum Messages {
 	SetZBufferPlayState,
 	AbreInventario,
 	Pausa,
-	CambioEstado
+	CambioEstado,
+	AddItemDialog
 };
 
 struct Mensaje{
@@ -38,5 +40,16 @@ struct MensajeCambioEscenaDialogos : Mensaje
 {
 	MensajeCambioEscenaDialogos(Messages id, int numScene) : Mensaje(id), numScene_(numScene) {}
 	int numScene_;
+};
+
+struct  MensajeAddItem: Mensaje
+{
+	int txt_;
+	std::string tag_;
+	std::string desc_;
+	bool perm_;
+
+	MensajeAddItem(Messages id, int txt, std::string tag, std::string desc, bool permanente) : Mensaje(id), txt_(txt), tag_(tag),
+		desc_(desc), perm_(permanente) {}
 };
 

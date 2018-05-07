@@ -83,8 +83,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 			n = j["GOConversational"][i]["Texture"];
 
+			bool repeat = true;
+			if (!j["GOConversational"][i]["repeat"].is_null()) {
+				repeat = j["GOConversational"][i]["repeat"];
+			}
+
 			SceneItems.push_front(new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"], j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOConversational"][i]["convoName"]));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOConversational"][i]["convoName"], repeat));
 		}
 
 		//Cargado objetos autoconversaciones
@@ -92,8 +97,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 			n = j["AutoGOConversational"][i]["Texture"];
 
+			bool repeat = true;
+			if (!j["AutoGOConversational"][i]["repeat"].is_null()) {
+				repeat = j["AutoGOConversational"][i]["repeat"];
+			}
+
 			SceneItems.push_front(new AutoConversational(app, j["AutoGOConversational"][i]["x"], j["AutoGOConversational"][i]["y"], j["AutoGOConversational"][i]["w"], j["AutoGOConversational"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j["AutoGOConversational"][i]["convoName"]));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["AutoGOConversational"][i]["convoName"], repeat));
 		}
 
 		// Cargado de decoracion

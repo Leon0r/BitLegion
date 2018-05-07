@@ -4,7 +4,7 @@ class AutoConversational :
 	public GOConversational
 {
 public:
-	AutoConversational(SDLApp* game, int x, int y, int w, int h, Texture* texture, string convoName) : GOConversational(game, x, y, w, h, texture, convoName) {};
+	AutoConversational(SDLApp* game, int x, int y, int w, int h, Texture* texture, string convoName, bool repeat = true) : GOConversational(game, x, y, w, h, texture, convoName, repeat) {};
 	AutoConversational();
 	~AutoConversational();
 	virtual void handleInput(Uint32 time, const SDL_Event& event);

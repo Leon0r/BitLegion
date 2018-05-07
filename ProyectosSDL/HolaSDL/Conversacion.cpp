@@ -101,6 +101,7 @@ void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 					send(msg);
 					//delete this;
 					this->setActive(false);
+					nodoActual = 0;
 				}
 				else if (dialogo[nodoActual].getNumOpciones() > 3){
 						r.y = y + 3 * h / 4 + 2;
@@ -206,9 +207,9 @@ bool Conversacion::loadConversation(string fileName) {
 			case 0:
 				msg = new MensajeCambioEscenaDialogos(CambioEscena, j["numScene"]);
 				break;
-			//case 1:
-				//añadir objeto al inventario de Alena
-				//break;
+			case 1:
+				msg = new MensajeAddItem(AddItemDialog, j["textureItem"], j["tagItem"], j["descripcionItem"], j["permanenteItem"]);//añadir objeto al inventario de Alena
+				break;
 			default:
 				msg = new Mensaje(DialogoAcabado);
 				break;

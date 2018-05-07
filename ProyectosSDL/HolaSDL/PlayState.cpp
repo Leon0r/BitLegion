@@ -226,6 +226,13 @@ void PlayState::receive(Mensaje* msg) {
 		swapScene(numScene);
 		break;
 	}
+	case AddItemDialog:
+	{
+		MensajeAddItem* msgDialog = static_cast<MensajeAddItem*>(msg);
+		alena->addInventoryObject(new ItemInventario(app, 0, 0, 0, 0, msgDialog->desc_, msgDialog->tag_, app->getResources()->getImageTexture(Resources::ImageId(msgDialog->txt_)), msgDialog->perm_));
+		setEnConversacion(false);
+		break;
+	}
 	case DialogoAcabado:
 		setEnConversacion(false);
 		break;
