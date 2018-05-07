@@ -7,7 +7,7 @@ class Observable
 protected:
 	static const int MAX_OBSERVERS = 5;
 	vector<Observer*> observers_;
-	int numOfObservers_=0;
+	int numOfObservers_ = 0;
 
 public:
 

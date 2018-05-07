@@ -19,20 +19,26 @@ Entity::~Entity() {
 }
 
 void Entity::handleInput(Uint32 time, const SDL_Event& event) {
-	for (InputComponent* ic : inputComp_) {
-		ic->handleInput(this, time, event);
+	if (this->active_) {
+		for (InputComponent* ic : inputComp_) {
+			ic->handleInput(this, time, event);
+		}
 	}
 }
 
 void Entity::update(Uint32 time) {
-	for (PhysicsComponent* pc : physicsComp_) {
-		pc->update(this, time);
+	if (this->active_) {
+		for (PhysicsComponent* pc : physicsComp_) {
+			pc->update(this, time);
+		}
 	}
 }
 
 void Entity::render(Uint32 time) {
-	for (RenderComponent* rc : renderComp_) {
-		rc->render(this, time);
+	if (this->active_) {
+		for (RenderComponent* rc : renderComp_) {
+			rc->render(this, time);
+		}
 	}
 }
 
@@ -58,8 +64,9 @@ void Entity::delInputComponent(InputComponent* ic) {
 void Entity::delPhysicsComponent(PhysicsComponent* pc) {
 	std::vector<PhysicsComponent*>::iterator position = std::find(
 			physicsComp_.begin(), physicsComp_.end(), pc);
-	if (position != physicsComp_.end())
+	if (position != physicsComp_.end()) {
 		physicsComp_.erase(position);
+	}
 }
 
 void Entity::delRenderComponent(RenderComponent* rc) {
@@ -84,6 +91,10 @@ void Entity::setTexture(Uint16 pos, Texture* newText) {
 void Entity::saveToJson(json& j) {
 	Vector2D pos = this->getPosition(); j["x"] = pos.getX(); j["y"] = pos.getY();  j["w"] = this->getWidth();
 	j["h"] = this->getHeight(); j["Texture"] = app->getResources()->getPosTexture(this->getTexture(0)); j["rotation"] = this->getAngle();
+
+	if (_id != -4) {
+		j["UnlockId"] = _id;
+	}
 	saveAnims(j);
 }
 
@@ -97,9 +108,9 @@ void Entity::delEveryRenderComponent() { //deletea y borra de la lista
 void Entity::saveAnims(json & j){
 	if (this->isAnimated()) { //si esta animado, guarda las animaciones
 		j["animation"] = true;
-		AnimationRenderer* aux = static_cast<AnimationRenderer*>(renderComp_.front());
-		j["numFilsFrame"] = aux->getnumFrFils();
-		j["numColsFrame"] = aux->getNumFrCols();
+		AnimationRenderer* aux = static_cast<AnimationRenderer*>(renderComp_.front()); //ambos los veo necesarios peero
+		j["numColsFrame"] = aux->getnumFrFils();
+		j["numFilsFrame"] = aux->getNumFrCols();
 		j["widthFrame"] = aux->getfrWidth();
 		j["heightFrame"] = aux->getfrHeight();
 		j["loop"] = this->getAnimations()[0]->loop_;
@@ -109,3 +120,11 @@ void Entity::saveAnims(json & j){
 		}
 	}
 }
+
+void Entity::playAnim(string label)
+{
+	if (this->isAnimated()) {
+		static_cast<AnimationRenderer*>(renderComp_[0])->playAnim(label);
+	}
+}
+

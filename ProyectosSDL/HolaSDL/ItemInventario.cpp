@@ -1,6 +1,7 @@
 #include "ItemInventario.h"
 #include "MainCharacter.h"
 #include "PlayState.h" //esto está mal, deberiamos subirlo al padre
+#include "Messages.h"
 
 
 
@@ -16,13 +17,15 @@ ItemInventario::~ItemInventario()
 
 void ItemInventario::act() {
 	cout << "Hanzo main" << endl;
-	PlayState* aux = dynamic_cast<PlayState*>(app->getStateMachine()->currentState()); //casteo del estado de prueba...
+
+	PlayState* aux = static_cast<PlayState*>(app->getStateMachine()->currentState()); //casteo del playState
 
 	if (aux != nullptr) {
-		MainCharacter* personaje = dynamic_cast<MainCharacter*>(aux->getMainPj()); //casteo del main
+		MainCharacter* personaje = aux->getMainPj(); //casteo del main
 		if (personaje != nullptr) {
 			personaje->addInventoryObject(this); //añadimos objeto
-			app->getStateMachine()->currentState()->deleteElement(this);
+			personaje->send(&Mensaje(Ch_TakeObj));
+			this->setActive(false);
 		}
 	}
 }

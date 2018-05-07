@@ -21,6 +21,7 @@ public:
 	void setActive(bool b) { special = b; }
 	void setRender(RenderComponent* r) {
 		delRenderComponent(imagen);
+		delete imagen;
 		addRenderComponent(r);
 		render_ = r;
 	}

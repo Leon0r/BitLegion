@@ -32,6 +32,7 @@ public:
 	virtual void delRenderComponent(RenderComponent* rc);
 	Texture* getTexture(Uint16 pos = 0) const;
 	void setTexture(Uint16 pos, Texture* newText);
+	void playAnim(string label);
 	virtual void saveToJson(json& j);
 	virtual void delEveryRenderComponent();
 	void setAnimated(bool an) { animated = an; };
@@ -43,12 +44,14 @@ public:
 		animData* newAnim = new animData(label, framesAnim, loop, onEnded, rate); animations.push_back(newAnim);
 	}
 	virtual vector<animData*> getAnimations() { return animations; }
+	
 
 private:
 	vector<InputComponent*> inputComp_;
 	vector<PhysicsComponent*> physicsComp_;
 	vector<RenderComponent*> renderComp_;
 	bool animated = false;
+
 
 protected:
 	vector<animData*> animations;

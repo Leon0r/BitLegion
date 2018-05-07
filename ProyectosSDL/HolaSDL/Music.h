@@ -1,5 +1,4 @@
-#ifndef MUSIC_H_
-#define MUSIC_H_
+#pragma once
 
 #include "sdl_includes.h"
 #include <string>
@@ -12,11 +11,11 @@ public:
 
 	bool load(std::string fileName);
 	void play(int repetitions = -1);
+	void stop();
 	void pause();
-	void close();
 	void resume();
+	void close();
 private:
 	Mix_Music* music_;
 };
 
-#endif /* MUSIC_H_ */

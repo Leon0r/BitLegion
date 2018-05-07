@@ -2,10 +2,9 @@
 
 
 
-LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad) : GameState::GameState(app), puzzleHasStarted(false), numCas(numCas)
+LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(app, id), puzzleHasStarted(false), numCas(numCas)
 {
-	botonRender = (app->getResources()->getImageTexture(Resources::BotonPuzzle));//render del boton
-	
+	press = MouseEventAnimComponent(SDL_MOUSEBUTTONDOWN, "Pressed", "Stop", SDL_BUTTON_LEFT);
 	this->creaDecoracion(); //crea los objetos del HUD
 
 	lights.resize(numCas);
@@ -22,41 +21,66 @@ LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad) : GameState::GameS
 	this->apagaLuces(dificultad);
 
 	//--------Botones-----
-	resetFunc_ = [this]() mutable {resetPuzzle(this); };
-	botonReset = Boton(app, "reset", resetFunc_);
-	botonReset.setWidth(80);
-	botonReset.setHeight(60);
-	botonReset.setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight()/2 + botonReset.getHeight()*1.8));
-	botonReset.addRenderComponent(&botonRender);
-	stage.push_front(&botonReset);
+	resetFunc_ = [this]() mutable {resetPuzzle(); };
+	exitFun_ = [this]() mutable {this->exit(); };
+	botonReset = new Boton(app, "reset", resetFunc_);
+	botonReset->setWidth(80);
+	botonReset->setHeight(60);
+	botonReset->setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight()/2 + botonReset->getHeight()*1.8));
+	botonReset->addAnim("Stop", { 0 }, true, -1, 100);
+	botonReset->addAnim("Pressed", { 1 }, true, -1, 100);
+	botonReset->addRenderComponent(new AnimationRenderer(app->getResources()->getImageTexture(Resources::ReturnLuces), botonReset->getAnimations(), 1, 2, 56, 53));
+	botonReset->setAnimated(true);
+	botonReset->addInputComponent(&press);
+	stage.push_front(botonReset);
+
+	botonExit = new Boton(app, "exit", exitFun_);
+	botonExit->setWidth(80);
+	botonExit->setHeight(60);
+	botonExit->setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight() / 2 + botonReset->getHeight()*3));
+	botonExit->addAnim("Stop", { 0 }, true, -1, 100);
+	botonExit->addAnim("Pressed", { 1 }, true, -1, 100);
+	botonExit->addInputComponent(&press);
+	botonExit->addRenderComponent(new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSalirLuces), botonExit->getAnimations(), 1, 2, 56, 53));
+	botonExit->setAnimated(true);
+	stage.push_front(botonExit);
 }
 
 
 LightsOut::~LightsOut() //destructora
 {
 	hudAux->delRenderComponent(&hudRend);
+
 	for (unsigned int i = 0; i < numCas; i++) {
 		for (unsigned int j = 0; j < numCas; j++) {
 			delete lights[i][j]; lights[i][j] = nullptr;
 		}
 	}
-	botonReset.delRenderComponent(&botonRender);
+
+	botonReset->delInputComponent(&press);
+	botonExit->delInputComponent(&press);
+	delete botonReset;
+	delete botonExit;
 	stage.clear();
 }
 
-bool LightsOut::win(){ //comprueba que todas las luces esten encendidas
+void LightsOut::win(){ //comprueba que todas las luces esten encendidas
 
-	bool win = true;
+	bool _win = true;
 	unsigned int i = 0;
-	while (i < lights.size() && win) {
+	while (i < lights.size() && _win) {
 		unsigned int j = 0;
-		while (j < lights[i].size() && win) {
-			if (!lights[i][j]->isOn()) { win = false;}
+		while (j < lights[i].size() && _win) {
+			if (!lights[i][j]->isOn()) { _win = false;}
 			j++;
 		}
 		i++;
 	}
-	return win;
+	
+	if (_win && puzzleHasStarted) { //si gana y el puzzle ha empezado
+		cout << "Disgüised Toast";
+		Puzzle::win();
+	}
 }
 
 void LightsOut::receive(Mensaje* msg){
@@ -77,9 +101,8 @@ void LightsOut::receive(Mensaje* msg){
 		if (aux.second - 1 >= 0) {
 			lights[aux.first][aux.second - 1]->invertir();
 		}
-		if (win() && puzzleHasStarted) { //si gana y el puzzle ha empezado
-			cout << "Disgüised Toast";
-		}
+
+		win(); //comprueba si ha ganado o no
 	}
 }
 
@@ -89,7 +112,7 @@ void LightsOut::render(){
 }
 
 void LightsOut::handleEvent(SDL_Event & e){
-	if (faded) GameState::handleEvent(e); //podria hacerlo activando los gameObjects, pero como el active no lo usamos para nada, no quiero tocar la estructura por un efecto "fancy"
+	if (faded && !hasWon) GameState::handleEvent(e); //podria hacerlo activando los gameObjects, pero como el active no lo usamos para nada, no quiero tocar la estructura por un efecto "fancy"
 }
 
 void LightsOut::apagaLuces(const unsigned int n){
@@ -131,8 +154,8 @@ void LightsOut::restartMatrix(){
 	}
 }
 
-void LightsOut::resetPuzzle(GameState * state){
-	static_cast<LightsOut*>(state)->restartMatrix();
+void LightsOut::resetPuzzle(){
+	this->restartMatrix();
 }
 
 void LightsOut::creaDecoracion(){ //como ensuciar el código 2.0

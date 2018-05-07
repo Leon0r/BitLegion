@@ -6,7 +6,6 @@
 #include "Resources.h"
 #include "SoundManager.h"
 
-
 using namespace std;
 
 class SDLApp
@@ -18,7 +17,6 @@ private:
 	SDL_Window* window;
 
 	Resources* resources;
-	SoundManager* soundManager;
 	SDL_Color color;
 	SDL_Event event; //maneja eventos
 	SDL_Renderer* renderer;
@@ -26,6 +24,7 @@ private:
 	int winHeight;
 
 	bool exit = false;
+	SoundManager soundManager;
 
 public:
 	SDLApp(int w, int h);
@@ -45,5 +44,6 @@ public:
 	void initResources() { resources = new Resources(this); }
 	void closeResources(){ delete resources; }
 	void exitGame() { exit = true; };
+	SoundManager* getSoundManager() { return &soundManager; }
 };
 

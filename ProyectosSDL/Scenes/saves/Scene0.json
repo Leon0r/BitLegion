@@ -1,15 +1,47 @@
 {
+   "AlenaActiva": true,
    "CollisionableObject": [
       {
-         "Texture": 11,
-         "h": 200.0,
+         "Anims": [
+            [
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               1,
+               0,
+               1,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0
+            ]
+         ],
+         "Texture": 127,
+         "animation": true,
+         "h": 318.0,
+         "heightFrame": 318,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 1,
          "rotation": 0.0,
-         "w": 370.0,
+         "vel": 150.0,
+         "w": 330.0,
+         "widthFrame": 330,
          "x": 0.0,
-         "y": 290.0
+         "y": 140.0
       },
       {
-         "Texture": 12,
+         "Texture": 11,
          "h": 230.0,
          "rotation": 0.0,
          "w": 220.0,
@@ -17,7 +49,7 @@
          "y": 432.0
       },
       {
-         "Texture": 13,
+         "Texture": 12,
          "h": 300.0,
          "rotation": 0.0,
          "w": 365.0,
@@ -25,9 +57,54 @@
          "y": 125.0
       }
    ],
+   "Decorado": [
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               3
+            ]
+         ],
+         "Texture": 130,
+         "animation": true,
+         "h": 52.0,
+         "heightFrame": 52,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 42.0,
+         "widthFrame": 42,
+         "x": 30.0,
+         "y": 324.0
+      }
+   ],
+   "GOConversational": [
+      {
+         "Texture": 154,
+         "convoName": "AlenaLlavesMoto",
+         "h": 40.0,
+         "rotation": 0.0,
+         "w": 40.0,
+         "x": 630.0,
+         "y": 500.0
+      },
+      {
+         "Texture": 20,
+         "convoName": "AlenaJeffaTelefono",
+         "h": 40.0,
+         "rotation": 0.0,
+         "w": 40.0,
+         "x": 915.0,
+         "y": 280.0
+      }
+   ],
    "GODoors": [
       {
-         "Texture": 31,
+         "Texture": 28,
          "h": 242.0,
          "rotGOTr": -90.0,
          "rotat": 0.0,
@@ -41,9 +118,10 @@
    ],
    "GOState": [
       {
-         "Texture": 32,
+         "Texture": 29,
+         "UnlockId": 1,
          "h": 30.0,
-         "numText": 35,
+         "numText": 30,
          "numberPuzzle": 0,
          "rotation": -45,
          "type": 0,
@@ -54,7 +132,7 @@
    ],
    "GOTransiciones": [
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 60.0,
          "rotat": 0.0,
          "rotation": 0.0,
@@ -64,15 +142,37 @@
          "y": 600.0
       }
    ],
+   "ItemInventario": [
+      {
+         "Texture": 55,
+         "descripcion": "Llave de la moto de    Alena",
+         "h": 40.0,
+         "rotation": 0.0,
+         "tag": "keyMoto",
+         "w": 40.0,
+         "x": 630.0,
+         "y": 500.0
+      },
+      {
+         "Texture": 19,
+         "descripcion": "Llave de la casa de    Alena",
+         "h": 40.0,
+         "rotation": 0.0,
+         "tag": "key",
+         "w": 40.0,
+         "x": 710.0,
+         "y": 490.0
+      }
+   ],
    "PlayerPos": {
-      "x": 652.4194646853351,
-      "y": 225.6
+      "x": 100.0,
+      "y": 500.0
    },
    "PlayerTam": {
       "h": 201.6,
       "w": 84.0
    },
-   "Texture": 10,
+   "Texture": 9,
    "h": 720.0,
    "rotation": 0.0,
    "w": 1280.0,

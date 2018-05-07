@@ -1,5 +1,5 @@
 #include "ComponenteClickeable.h"
-
+#include "Entity.h"
 //using namespace std;
 
 ComponenteClickeable::ComponenteClickeable()
@@ -29,11 +29,16 @@ bool ComponenteClickeable::handleInput(GameObject* o, const SDL_Event& e) {
 	//cout << "Mouse  " << "X: " << mouse.x << "" << "Y: " << mouse.y << endl;
 
 	if(e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT && SDL_PointInRect(&mouse, &rect )){//Si se pulsa el boton izquierdo del raton y estamos en el rect deseado
-			eventHandled = true; 
-			//cout << "TRUE" << endl;
+		firstClickDown = true;
 	}
+	else if (e.type == SDL_MOUSEBUTTONUP && e.button.button == SDL_BUTTON_LEFT && firstClickDown && SDL_PointInRect(&mouse, &rect)) { //para que tenga que hacer el click completo
+		eventHandled = true;
+		firstClickDown = false;
+	}
+
 	return eventHandled;
 }
+
 bool ComponenteClickeable::handleInput(SDL_Rect* rect, const SDL_Event& e) {
 	bool eventHandled = false;
 

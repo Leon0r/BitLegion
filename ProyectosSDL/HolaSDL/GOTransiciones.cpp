@@ -6,7 +6,7 @@
 GOTransiciones::GOTransiciones(SDLApp* game, int x, int y, int w, int h, Texture* texture, int _SceneNumber):ClickeableGO(game, x, y, w, h,texture), SceneNumber(_SceneNumber)
 {
 	this->delRenderComponent(render);
-	addAnim("Arrow", { 0,1,2,3});
+	addAnim("Arrow", { 0,1,2,3}, true, -1, 200);
 	if (render != nullptr) {
 		delete render;
 		render = nullptr;
@@ -23,9 +23,10 @@ GOTransiciones::~GOTransiciones()
 void GOTransiciones::act() {
 
 	//Cambio de escena(ScneNumber)
-	PlayState* aux = dynamic_cast<PlayState*>(app->getStateMachine()->currentState());
+	PlayState* aux = static_cast<PlayState*>(app->getStateMachine()->currentState());
+
 	if (aux != nullptr) {
-		//aux->getCurrentScene()->setPosIni(Vector2D(getPosition().getX(), getPosition().getY() - 135));
 		aux->swapScene(SceneNumber);
 	}
+
 }

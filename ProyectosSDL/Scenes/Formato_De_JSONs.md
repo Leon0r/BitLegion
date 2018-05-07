@@ -30,6 +30,9 @@ SceneX.json // X = numero de la escena
 
 	{
 		"Texture":0; //textura del fondo
+        
+        "AlenaActiva": true/false //si quieres que alena este activada o no. Si no pones nada se mantiene activa.
+
 		// Array con los datos de los objetos "cogibles" por el jugador existentes en la escena
     	"ItemInventario":[
         	{"descripcion":"Esta es mi descripcion","tag":"Este es mi tag","Texture":0},
@@ -44,7 +47,7 @@ SceneX.json // X = numero de la escena
 
     	// Array con los datos de los objetos "abribles" con llaves existentes en la escena
     	"GODoors":[
-			{"x":200,"y":500,"w":200,"h":300,"Texture":9,"tag":"key","scneNum":1},
+			{"x":200,"y":500,"w":200,"h":300,"Texture":9,"tag":"key","scneNum":1, *("UnlockId"): 1},
             {...},
             {...}
     	],
@@ -65,9 +68,13 @@ SceneX.json // X = numero de la escena
 		
 		//Array con los objetos que cambian de estado (puzzles por ahora)
 		 "GOState": [
-                { "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotation": -45, "numberPuzzle": 0,"type": 0 }, //Match3
-		{"x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 8}, //LightsOut
+                { "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotation": -45,"numText": 43 ,"numberPuzzle": 0,"type": 0,  }, //Match3
+		{"x": 705, "y": 265, "w": 30, "h": 30, "Texture": 32, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 1, *("UnlockId": 1)}, //LightsOut
+        { "x": 387, "y": 365, "w": 30, "h": 30, "Texture": 32, "rotation": -45, "password": "kaka","type": 2, "UnlockId": 1 }, //password
 		{...}
 		]
 		
 	}
+
+//*SI EN AMBOS OBJETOS "UNLOCKID" ES EL MISMO, AL RESOLVER EL PUZZLE ABRE LA PUERTA, COFRE O LO QUE TOQUE. SI NO LO PONEIS NO PASA NADA, SE ABRIRIA CON LLAVE NORMAL. SI LO PONEIS,
+//LA TAG QUE ABRE EL OBJETO EN SI PUEDE SER UN STRING RANDOM QUE SE OS OCURRA

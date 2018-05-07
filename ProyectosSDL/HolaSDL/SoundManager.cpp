@@ -21,14 +21,8 @@ void SoundManager::update(Uint32 time) {
 
 void SoundManager::receive(Mensaje* msg) {
 	switch (msg->id_) {
-	case In_Menu:
-		app->getResources()->getMusic(Resources::MainTheme)->play(3);
-		break;
-	case Game_Start:
-
-		break;
-	case Button_Press:
-
+	case Suena:
+		app->getResources()->getMusic(Resources::MainTheme)->play(30);
 		break;
 	}
 }

@@ -1,7 +1,24 @@
 {
+   "AlenaActiva": true,
    "CollisionableObject": [
       {
-         "Texture": 29,
+         "Texture": 242,
+         "h": 110.0,
+         "rotation": 0.0,
+         "w": 47.0,
+         "x": 930.0,
+         "y": 580.0
+      },
+      {
+         "Texture": 242,
+         "h": 170.0,
+         "rotation": 0.0,
+         "w": 90.0,
+         "x": 0.0,
+         "y": 280.0
+      },
+      {
+         "Texture": 26,
          "h": 196.0,
          "rotation": 0.0,
          "w": 82.0,
@@ -9,33 +26,17 @@
          "y": 220.0
       },
       {
-         "Texture": 30,
+         "Texture": 27,
          "h": 228.0,
          "rotation": 0.0,
          "w": 75.0,
          "x": 150.0,
          "y": 200.0
-      },
-      {
-         "Texture": 63,
-         "h": 170.0,
-         "rotation": 0.0,
-         "w": 90.0,
-         "x": 30.0,
-         "y": 280.0
-      },
-      {
-         "Texture": 69,
-         "h": 110.0,
-         "rotation": 0.0,
-         "w": 47.0,
-         "x": 930.0,
-         "y": 580.0
       }
    ],
    "GOTransiciones": [
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 60.0,
          "rotat": -90.0,
          "rotation": -90.0,
@@ -45,7 +46,7 @@
          "y": 290.0
       },
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 60.0,
          "rotat": -90.0,
          "rotation": -90.0,
@@ -55,15 +56,116 @@
          "y": 350.0
       }
    ],
+   "NPC": [
+      {
+         "Anims": [
+            [
+               0,
+               3,
+               5,
+               6,
+               7,
+               8,
+               9,
+               10,
+               11,
+               12,
+               13,
+               14,
+               15,
+               16,
+               15,
+               14,
+               13,
+               12,
+               11,
+               10,
+               9,
+               8,
+               7,
+               6,
+               5,
+               4,
+               1,
+               2,
+               0,
+               2,
+               0,
+               3,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               1,
+               0,
+               1,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2
+            ]
+         ],
+         "Texture": 64,
+         "animation": true,
+         "dialogo": "caso1_acto1_vecinaNinya",
+         "h": 110.0,
+         "heightFrame": 81,
+         "loop": true,
+         "numColsFrame": 5,
+         "numFilsFrame": 4,
+         "rotation": 0.0,
+         "vel": 200.0,
+         "w": 47.0,
+         "widthFrame": 39,
+         "x": 930.0,
+         "y": 580.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               1,
+               3,
+               4,
+               5
+            ]
+         ],
+         "Texture": 58,
+         "animation": true,
+         "dialogo": "caso1_acto1_vecinaVieja",
+         "h": 170.0,
+         "heightFrame": 91,
+         "loop": true,
+         "numColsFrame": 3,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "vel": 500.0,
+         "w": 90.0,
+         "widthFrame": 51,
+         "x": 0.0,
+         "y": 280.0
+      }
+   ],
    "PlayerPos": {
-      "x": 631.9615130004457,
-      "y": 230.7722803477709
+      "x": 910.0,
+      "y": 290.0
    },
    "PlayerTam": {
       "h": 201.6,
       "w": 84.0
    },
-   "Texture": 28,
+   "Texture": 25,
    "h": 720.0,
    "rotation": 0.0,
    "w": 1280.0,

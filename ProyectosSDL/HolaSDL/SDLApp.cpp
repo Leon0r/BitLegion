@@ -3,6 +3,8 @@
 #include "Inventory.h"
 #include "LightsOut.h"
 #include "MainMenuState.h"
+#include "PasswordState.h"
+#include "TransitionScreen.h"
 
 SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 {
@@ -19,12 +21,12 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		// SDL Mixer (Music, Sound, etc)
 		Mix_Init(MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG);
 		Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
-
 		initResources();
-		soundManager = new SoundManager(this);
+		SDL_ShowCursor(0);
+		soundManager = SoundManager(this);
 		maquinaEstados = new GameStateMachine();
-		maquinaEstados->pushState(new MainMenuState(this, soundManager));
-		//dynamic_cast<PlayState*>(maquinaEstados->currentState())->getScenes()[0]->enterScene();
+
+		maquinaEstados->pushState(new MainMenuState(this));
 }
 
 void SDLApp::handleEvent() {
@@ -32,9 +34,9 @@ void SDLApp::handleEvent() {
 		if (event.type == SDL_QUIT)
 			exit = true;
 		else if (event.type == SDL_KEYDOWN) {
-			if (event.key.keysym.sym == SDLK_ESCAPE) {
+			/*if (event.key.keysym.sym == SDLK_ESCAPE) {
 				exit = true;
-			}
+			}*/
 		}
 		maquinaEstados->currentState()->handleEvent(event); //invoca el handleEvent del currentState
 	}

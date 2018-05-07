@@ -10,7 +10,7 @@ public:
 	void act();
 	string getTag() { return tag; };
 	string getDescription() { return desc; }
-	virtual void saveToJson(json& j) { json aux;  Entity::saveToJson(aux); aux["tag"] = getTag(); aux["descripcion"] = getDescription();  j["ItemInventario"].push_back(aux); }
+	virtual void saveToJson(json& j) { if (this->isActive()) { json aux;  Entity::saveToJson(aux); aux["tag"] = getTag(); aux["descripcion"] = getDescription();  j["ItemInventario"].push_back(aux); } }
 	bool const isPermanent() { return permanente_; };
 private:
 	string desc;

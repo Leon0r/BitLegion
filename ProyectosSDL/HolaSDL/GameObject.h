@@ -5,19 +5,20 @@
 #include "Vector2D.h"
 #include <string>
 #include "json.hpp"
+#include "Observable.h"
 
 
 using namespace std;
 using json = nlohmann::json;
 
-
 class SDLApp;
 class Texture;
-class GameObject
+class GameObject: public Observable, public Observer
 {
 public:
+	enum Type { Collider, ItInventario, Doors, Default };
 	GameObject();
-	GameObject(SDLApp* game) :app(game) {}
+	GameObject(SDLApp* game, int _id = -4) :app(game), _id(_id), active_(true), objectType(Default) {}
 	virtual ~GameObject();
 
 	// abstract methods to be implemented in sub-classes
@@ -26,36 +27,41 @@ public:
 	virtual void render(Uint32 time) = 0;
 	virtual Texture* getTexture(Uint16 pos) const = 0;
 
-	Vector2D getPosition() {
+	Vector2D getPosition() const{
 		return position_;
 	}
 
-	Vector2D getVelocity() {
+	Vector2D getVelocity() const{
 		return velocity_;
 	}
 
-	Vector2D getDirection() {
+	Vector2D getDirection() const{
 		return direction_;
 	}
 
-	void setVelocity(Vector2D velocity) {
-		velocity_ = velocity;
-	}
 
-	void setDirection(Vector2D velocity) {
-		velocity_ = velocity;
-	}
-
-	double getWidth() {
+	double getWidth() const {
 		return width_;
 	}
 
-	double getHeight() {
+	double getHeight() const{
 		return height_;
 	}
 
-	double getAngle() {
+	double getAngle() const{
 		return rotation_;
+	}
+
+	SDLApp* getGame() const {
+		return app;
+	}
+
+	bool isActive() const {
+		return active_;
+	}
+
+	Type getType() const {
+		return objectType;
 	}
 
 	void setWidth(double w) {
@@ -74,11 +80,27 @@ public:
 		position_ = newPos;
 	}
 
-	SDLApp* getGame() {
-		return app;
+	void setVelocity(Vector2D velocity) {
+		velocity_ = velocity;
+	}
+
+	void setDirection(Vector2D velocity) {
+		velocity_ = velocity;
+	}
+
+	void setActive(bool nActive) {
+		active_ = nActive;
+	}
+
+	void setType(Type newType) {
+		objectType = newType;
 	}
 
 	virtual void saveToJson(json& j) = 0;
+
+	virtual void receive(Mensaje* msg) {};
+
+	int _id;
 
 protected:
 	SDLApp* app;   // pointer to the game
@@ -93,6 +115,9 @@ protected:
 	Vector2D direction_; // angle in degrees (0) is considered facing left
 	Vector2D velocity_; // direction
 
+
+private:
+	Type objectType;
 };
 #endif /* GAMEOBJECT_H_ */
 

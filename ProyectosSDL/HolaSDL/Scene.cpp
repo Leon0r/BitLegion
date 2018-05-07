@@ -3,6 +3,13 @@
 #include "MainCharacter.h"
 #include "GOstates.h"
 #include "LightsOut.h"
+#include "GOConversational.h"
+#include "PasswordState.h"
+#include "PasswordState.h"
+#include "AutoConversational.h"
+#include "Decorado.h"
+#include "NPC.h"
+#include "GOcofres.h"
 
 Scene::Scene()
 {
@@ -10,13 +17,14 @@ Scene::Scene()
 	//Idealmente lee de un archivo
 }
 
-Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), SceneNum(numEscena), pj(pj) {
+Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState, bool load):app(app), SceneNum(numEscena), pj(pj) {
+
+	addObserver(playState);
+
 	string name;
 	if (load)name = "..\\Scenes\\saves\\Scene";
 	else name = "..\\Scenes\\Scene";
 	name = name + to_string(numEscena) +".json";
-	//name += ".json";
-	//cout << name;
 
 	std::ifstream i(name);
 	
@@ -35,14 +43,16 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			bool permanente = false;
 			if (!j[obj][i]["permanente"].is_null()) { permanente = j[obj][i]["permanente"]; }
 
-			SceneItems.push_front(new ItemInventario(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+			ItemInventario* item = new ItemInventario(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
 				j[obj][i]["descripcion"], j[obj][i]["tag"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), permanente));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), permanente);
 
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+			SceneItems.push_front(item);
+
+			addAnimsFromJSON(item, j[obj][i], n);
 
 			if (!j[obj][i]["rotation"].is_null()) {
-				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+				SceneItems.front()->setRotation(j[obj][i]["rotation"]);
 			}
 		}
 
@@ -55,12 +65,74 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 			SceneStates.push_back(PuzzleCreator(j[obj][i]["type"], j[obj][i]));
 
-			SceneItems.push_back(new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
+			GOstates* goSt = new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)),SceneStates.back(), j[obj][i]));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), SceneStates.back(), j[obj][i], playState);
 
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
-			
+			SceneItems.push_back(goSt);
+
+			addAnimsFromJSON(goSt, j[obj][i], n);
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+		}
+
+		//Cargado objetos conversaciones
+		for (int i = 0; i < j["GOConversational"].size(); i++) {
+
+			n = j["GOConversational"][i]["Texture"];
+
+			SceneItems.push_front(new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"], j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOConversational"][i]["convoName"]));
+		}
+
+		//Cargado objetos autoconversaciones
+		for (int i = 0; i < j["AutoGOConversational"].size(); i++) {
+
+			n = j["AutoGOConversational"][i]["Texture"];
+
+			SceneItems.push_front(new AutoConversational(app, j["AutoGOConversational"][i]["x"], j["AutoGOConversational"][i]["y"], j["AutoGOConversational"][i]["w"], j["AutoGOConversational"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["AutoGOConversational"][i]["convoName"]));
+		}
+
+		// Cargado de decoracion
+		obj = "Decorado";
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+			Decorado* aux = new Decorado(app);
+			aux->setPosition(Vector2D(j[obj][i]["x"], j[obj][i]["y"]));
+			aux->setHeight(j[obj][i]["h"]);
+			aux->setWidth(j[obj][i]["w"]);
+			ImageRenderer* im = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
+			aux->addRenderComponent(im);
+			SceneItems.push_back(aux);
+
+			if (addAnimsFromJSON(aux, j[obj][i], n)) {
+				delete im; //si tiene animaciones, borra el anterior componente de render
+			}
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+		}
+
+		obj = "NPC";
+		//Cargado de Puzles
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+
+
+			NPC* npc = new NPC(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"], 
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["dialogo"]);
+
+			SceneItems.push_back(npc);
+			SceneItems.push_back(npc->getColisionable()); //pusheamos el colisionable asociado
+
+			addAnimsFromJSON(npc, j[obj][i], n);
+
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
@@ -72,11 +144,65 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 			n = j[obj][i]["Texture"];
 
-			SceneItems.push_back(new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
+			GOTransiciones* goTrans = new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]));
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]);
 
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+			SceneItems.push_back(goTrans);
+
+			addAnimsFromJSON(goTrans, j[obj][i], n);
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+		}
+
+		// Cargado de GOCofres (valido para taquillas, cofres, cajas...)
+		obj = "GOCofres";
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+			double rotGOTrans = 0;
+			if (!j[obj][i]["rotGOTr"].is_null())
+				rotGOTrans = j[obj][i]["rotGOTr"];
+
+			int id = -4;
+			if (!j[obj][i]["UnlockId"].is_null())
+				if (j[obj][i]["UnlockId"].is_number_integer()) {
+					id = j[obj][i]["UnlockId"];
+				}
+
+			bool itPerm = false;
+			if (!j[obj][i]["permanenteItem"].is_null()) {
+				itPerm = j[obj][i]["permanenteItem"];
+			}
+
+			GOcofres* door = new GOcofres(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["wItem"], j[obj][i]["hItem"], j[obj][i]["descripcionItem"], j[obj][i]["tagItem"],
+				app->getResources()->getImageTexture(Resources::ImageId(j[obj][i]["numTextItem"])), itPerm, id);
+
+			SceneItems.push_back(door);
+			addAnimsFromJSON(door, j[obj][i], n);
+
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+		}
+
+		// Cargado de Colisiones
+		obj = "CollisionableObject";
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+
+			ColisionableObject* newCol = new ColisionableObject(app, j[obj][i]["x"], j[obj][i]["y"],
+				j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)));
+
+			SceneItems.push_back(newCol);
+
+			addAnimsFromJSON(newCol, j[obj][i], n);
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -92,36 +218,29 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			if(!j[obj][i]["rotGOTr"].is_null())
 				rotGOTrans = j[obj][i]["rotGOTr"];
 
-			SceneItems.push_back(new GODoors(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans));
+			int id = -4;
+			if (!j[obj][i]["UnlockId"].is_null())
+				if (j[obj][i]["UnlockId"].is_number_integer()) {
+					id = j[obj][i]["UnlockId"];
+				}
 
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
+			GODoors* door = new GODoors(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans, id);
+
+			SceneItems.push_back(door);
+			addAnimsFromJSON(door, j[obj][i], n);
+
 			
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
 		}
 
-		// Cargado de Colisiones
-		obj = "CollisionableObject";
-		for (int i = 0; i < j[obj].size(); i++) {
-
-			n = j[obj][i]["Texture"];
-
-			SceneItems.push_back(new ColisionableObject(app, j[obj][i]["x"], j[obj][i]["y"],
-				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n))));
-
-			addAnimsFromJSON(SceneItems.back(), j[obj][i], n);
-
-			if (!j[obj][i]["rotation"].is_null()) {
-				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
-			}
-		}
 
 		//ESCENARIO
 
-		n = j["Texture"];
+		if(!j["Texture"].is_null()) n = j["Texture"];
+		else n = 0;
 
 		Entity* escenario = new Entity(app);
 
@@ -156,6 +275,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 			posIni.setY(j["PlayerPos"]["y"]);
 		}
 
+		if (!j["AlenaActiva"].is_null()) { alenaActiva = j["AlenaActiva"]; }
+
 		//guardamos su tamaño dependiendo de lo que ponga en el json
 		if (j["PlayerTam"].is_object()) {
 			playerTam.setX(j["PlayerTam"]["w"]);
@@ -165,6 +286,9 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj,bool load):app(app), 
 
 		RenderComponent* renderEscenario = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
 		escenario->addRenderComponent(renderEscenario);
+		if (addAnimsFromJSON(escenario, j, n)) {
+			delete renderEscenario;
+		}
 		SceneItems.push_back(escenario);
 		i.close();
 	}
@@ -194,17 +318,19 @@ void Scene::enterScene() {
 	it = CurrentState->getStage()->begin();
 	it++; it++;
 	app->getStateMachine()->currentState()->changeList();
+	
 
 	while (it != CurrentState->getStage()->end()) {//Mientras no se acaben los items
 		
 		it = CurrentState->getStage()->erase(it);//borramos el item
 	}
 	CurrentState->getStage()->insert(CurrentState->getStage()->end(), SceneItems.begin(), SceneItems.end());
+
+	send(&Mensaje(SetZBufferPlayState)); //mensaje para recolocar el zBuffer
+
 	for (GameObject* it : SceneItems) {
-		ColisionableObject* col = dynamic_cast<ColisionableObject*>(it);
-		if (col != nullptr) {
-			pj->setNewCollision(col);
-		}
+		if(it->getType() == GameObject::Collider) //casteo personalizado
+			pj->setNewCollision(it);
 	}
 
 	//establecemos el tamaño de la nueva escena en el jugador (para las colisiones y el mouse)
@@ -218,6 +344,13 @@ void Scene::enterScene() {
 
 	//establecemos su tamaño
 	pj->setTam();
+
+	if (!alenaActiva) {
+		pj->setActive(false);
+	}
+	else {
+		pj->setActive(true);
+	}
 
 	//genera la matriz para el mouse
 	pj->collisionListWasModified();
@@ -253,6 +386,8 @@ void Scene::saveSceneToJson() {
 	j["PlayerTam"]["w"] = playerTam.getX();
 	j["PlayerTam"]["h"] = playerTam.getY();
 
+	j["AlenaActiva"] = alenaActiva;
+
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo
 }
@@ -263,22 +398,49 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
 	switch (type)
 	{
 	case (Match3):
-		nPuzzle = new Puzzle1State(app, app->getStateMachine()->currentState(), j["numberPuzzle"], j["numText"]);
+	{
+		int aux = -4;
+		if(!j["UnlockId"].is_null())
+			aux = j["UnlockId"];
+
+		nPuzzle = new Puzzle1State(app, app->getStateMachine()->currentState(), j["numberPuzzle"], j["numText"], aux);
 		break;
+	}
 	case (Lights):
-		nPuzzle = new LightsOut(app, j["numCas"], j["dificultad"]);
+	{
+		int aux = -4;
+		if (!j["UnlockId"].is_null())
+			aux = j["UnlockId"];
+		
+		nPuzzle = new LightsOut(app, j["numCas"], j["dificultad"], aux);
 		break;
+	}
+
+	case (Password): 
+	{
+		int aux = -4;
+		if (!j["UnlockId"].is_null())
+			aux = j["UnlockId"];
+
+		int fondo = -1;
+		if (!j["TexturaFondo"].is_null())
+			fondo = j["TexturaFondo"];
+
+
+		nPuzzle = new PasswordState(app, j["posFontX"], j["posFontY"],j["password"], aux, fondo);
+		break;
+	}
 	default:
 		break;
 	}
 	return nPuzzle;
 }
 
-void Scene::addAnimsFromJSON(GameObject* obj, json& j, const int numText){
+bool Scene::addAnimsFromJSON(Entity* obj, json& j, const int numText){
 
 	if (!j["animation"].is_null()) {
 		if (j["animation"]) {
-			Entity* col = static_cast<Entity*>(SceneItems.back());
+			Entity* col = obj;
 			col->setAnimated(true);
 			col->delEveryRenderComponent();
 			for (unsigned int k = 0; k < j["Anims"].size(); k++) {
@@ -287,8 +449,9 @@ void Scene::addAnimsFromJSON(GameObject* obj, json& j, const int numText){
 
 			col->addRenderComponent(new AnimationRenderer(
 				app->getResources()->getImageTexture(Resources::ImageId(numText)), col->getAnimations(),
-				j["numFilsFrame"], j["numColsFrame"], j["widthFrame"], j["heightFrame"]));
+				 j["numColsFrame"], j["numFilsFrame"], j["widthFrame"], j["heightFrame"]));
+			return true;
 		}
-
 	}
+	return false;
 }

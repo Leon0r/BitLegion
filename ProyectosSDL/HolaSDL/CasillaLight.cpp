@@ -10,7 +10,7 @@ CasillaLight::CasillaLight(SDLApp * game, int x, int y, int w, int h, Texture * 
 	this->setWidth(w);
 	this->setHeight(h);
 	this->addRenderComponent(&render);
-	//this->addObserver(obs); //observer es el estado del puzzle
+	this->addObserver(obs); //observer es el estado del puzzle
 	invertir();
 }
 
@@ -29,7 +29,7 @@ void CasillaLight::handleInput(Uint32 time, const SDL_Event & event)
 void CasillaLight::act()
 {
 	invertir(); //se invierte 
-	//send(&MensajePosicionMatriz(LuzInvertida, pos_));//manda un mensaje al estado de que ha sido clickada
+	send(&MensajePosicionMatriz(LuzInvertida, pos_));//manda un mensaje al estado de que ha sido clickada
 }
 
 void CasillaLight::invertir()

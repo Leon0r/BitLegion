@@ -3,10 +3,10 @@
 
 #include "checkML.h"
 #include "Texture.h"
-#include "Music.h"
-#include "SoundEffect.h"
 #include <vector>
 #include <tuple>
+#include "Music.h"
+#include "SoundEffect.h"
 
 class SDLApp;
 class Resources {
@@ -19,7 +19,6 @@ public:
 	//
 	enum ImageId {
 		Alena,
-		BitLegionLogo,
 		Boton,
 		BotonSwap,
 		BotonUsar,
@@ -32,8 +31,6 @@ public:
 		Cama,
 		Mesa,
 		Cocina,
-		PuertaCutre,
-		LlaveCutre,
 		BolsaCoca,
 		BolsaVacia,
 		BotellaVodka,
@@ -51,23 +48,20 @@ public:
 		RelojPasillo,
 		PuertaCasaAlena,
 		FlechaTransicionSpriteSheet,
-		FlechaTransicionDer,
-		FlechaTransicionIzq,
 		llavePisoPuzzle,
 		CasillaPuzzleV,
-		BotonPuzzle,  
+		BotonPuzzle,
 		PuzzleHud,
 		BotonReiniciar,
 		casillaPuzzleBloq,
 		casillaPuzzleDest,
 		Escena4Caso1,
 		MotoAlena,
-		Escena3Caso1,//44
+		Escena3Caso1,
 		MesaRecepcion,
 		PlantaRecepcion,
 		PuertaPortal,
 		ColisionableAux,
-		//BotonPuzzle,
 		LuzApagada,
 		LuzEncendida,
 		Barras,
@@ -88,7 +82,7 @@ public:
 		Desk,
 		MaquinaAgua,
 		Escena6caso1,
-		VecinaNiña,
+		VecinaNinya,
 		Comp1,
 		Comp2,
 		Comp3,
@@ -96,23 +90,177 @@ public:
 		Desk2,
 		Desk3,
 		BolsaCafe,
-		Plaza,
+		Escena10caso1,
 		Escena7caso1,
 		Planta,
 		TaquillaAbierta,
-		TaquillaCerrada, 
+		TaquillaCerrada,
 		Jeffa,
 		Galina,
-		SeñoraDelBajo,
+		SenyoraDelBajo,
 		Policia1,
-		Policia2, 
+		Policia2,
 		Policia3,
 		Policia4,
 		Escena8caso1,
 		Perchero,
-		DeskD
+		DeskD,
+		Escena12caso1,
+		PuertaAzotea,
+		AlenaExpresiones,
+		AnderExpresiones,
+		JeffaExpresiones,
+		Escena16caso1,
+		Muerto,
+		Escena13Caso1,
+		MesaCocina,
+		Encimera,
+		Periodista1,
+		Periodista2,
+		Periodista3,
+		Periodista4,
+		Escena11caso1,
+		PuertaTrasera,
+		CuboBasura1,
+		BolsasBasura,
+		EscalerasMano,
+		GUIDialogosAlpha,
+		Curioso1,
+		Curioso2,
+		Curioso3,
+		Curioso4,
+		Escena15Caso1,
+		Escena18Caso1,
+		EncimeraMuerto,
+		Escena14Caso1,
+		EstanteriaVieja,
+		MesillaVieja,
+		SofaVieja,
+		MesaVieja,
+		Escena17Caso1,
+		MesaMuerto,
+		MesillaMuerto,
+		SofaMuerto,
+		PlantaMuerto,
+		Ander,
+		NPCFumador,
+		NPCMujerNinyo,
+		CamaSpriteSheet,
+		VentanaAnimada,
+		Transicion,
+		CigarrillosAnim,
+		Escena9Caso1,
+		AlcantarillaAnim,
+		NeonAnim1,
+		NeonAnim2,
+		ventanaAnim2,
+		lampAnim,
+		fregaderoAnim,
+		ventiladorAnim,
+		porroAnim,
+		radiador,
+		mesaMuerto,
+		dentaduraAnim,
+		luzTechoAnim,
+		FondoMenu,
+		Logo,
+		LogoAnim,
+		Telefono,
+		ExpresionesExtrasOficina,
+		BotonComenzar,
+		BotonLoad,
+		BotonExit,
+		BotonMenu,
+		BotonMute,
+		Transparente,
+		BotonSalir,
+		BotonSalirLuces,
+		ReturnLuces,
+		SenyoraBazar,
+		SenyorBazar,
+		VecinoDelMuerto,
+		NumeroCamello,
+		AmigaDeGalina,
+		EntradaBazar,
+		Bazar,
+		Escena22Caso1,
+		Coche1Decorado,
+		Coche2Decorado,
+		CartelBazar,
+		Escena19Caso1,
+		MuertoAutopsia,
+		ControlesRaton,
+		ControlesKeyArrows,
+		ControlesKeyI,
+		ControlesKeyP,
+		MovimientoClick,
+		PuertaViejaContra,
+		TaquillaAlenaContra,
+		ControlesButton,
+		Forense,
+		Camello,
+		Maks,
+		AmigoDeMaks,
+		TrabajadorPolbots1,
+		TrabajadorPolbots2,
+		Escena23Caso1,
+		SofaGalina,
+		Pecera,
+		Lampara,
+		MesaGalina,
+		Escena24Caso1,
+		Armario,
+		Television,
+		MesaVecinoMuerto,
+		Escena33Caso1,
+		CamillaForense,
+		MesaForense1,
+		MesaForense2,
+		MostradorBazar,
+		PuertaAtras,
+		PuertaBazar,
+		EstanteBazar,
+		Escena32Caso1,
+		LamparaForense,
+		Escena34Caso1,
+		Drogadicto,
+		Escena29Caso1,
+		CuadroLuces,
+		Antidoto,
+		BolsaCocaLogoLuna,
+		CartaLogoLuna,
+		CuadernoDroga,
+		Escena9Caso1Inv,
+		HombrePortal,
+		SalirPassWord,
+		SalirControles,
+		Escena31Caso1,
+		Cursor,
+		VecinosExpresiones,
+		TaquillaOpening,
+		ControlesMouseInteractuar,
+		CocheGuay,
+		Escena37Caso1,
+		Escena38Caso1,
+		Escena39Caso1,
+		Escena40Caso1,
+		Escena41Caso1,
+		Mujer5piso,
+		PuertaPisos,
+		Escena36Caso1,
+		NeonAnim3,
+		NeonAnim4,
+		TelefonilloAnim,
+		RadiografiaAnim,
+		Escena35Caso1,
+		Escena42Caso1,
+		BuzonCamello,
+		InterruptorCamello,
+		LucesCamello,
+		SofaCamello,
+		BuzonCamelloAbierto,
+		MesaCamello,
 	};
-
 
 	// Music -- each file is loaded as an instance of Music
 	//
@@ -124,7 +272,7 @@ public:
 	// Sound Effects -- each file is loaded as an instance of SoundEffect
 	//
 	enum SoundEffectId {
-		Wall_Hit 
+		Wall_Hit
 	};
 
 private:
@@ -140,7 +288,6 @@ public:
 
 	int getPosTexture(Texture* text) const;
 
-
 	Music* getMusic(MusicId i) const;
 	SoundEffect* getSoundEffect(SoundEffectId i) const;
 
@@ -149,10 +296,9 @@ private:
 	void setMusic(std::vector<std::string> music);
 	void setSoundEffects(std::vector<std::string> soundEffects);
 
-
+	void closeImageTextures();
 	void closeMusic();
 	void closeSoundEffects();
-	void closeImageTextures();
 
 	SDLApp* game_;
 
@@ -164,7 +310,6 @@ private:
 
 	int numOfSoundEffects_;
 	SoundEffect** soundEffects_;
-
 };
 
 #endif /* RESOURCES_H_ */

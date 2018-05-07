@@ -1,0 +1,36 @@
+{
+
+    "Texture": 164,
+    "h": 720.0,
+    "w": 1280.0,
+    "x": 0.0,
+    "y": 0.0,
+
+    "GOTransiciones": [
+        { "x": 200, "y": 648, "w": 60, "h": 60, "Texture": 29, "scneNum": 20, "rotation": 90 }
+    ],
+
+    "CollisionableObject": [
+        { "x": 875, "y": 230, "w": 400, "h": 190, "Texture": 198 },
+        { "x": 90, "y": 390, "w": 400, "h": 192, "Texture": 201 }
+    ],
+
+    "Decorado":[
+    	{ "x": 915, "y": 99, "w": 171, "h": 180, "Texture": 199,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
+            "widthFrame": 171, "heightFrame": 180, "vel": 150, "loop": true,
+            "Anims": [ [0,0,0,1,1,1,0,0,1,1,1,1,0,0] ] 
+        },
+
+        { "x": 560, "y": 118, "w": 141, "h": 230, "Texture": 200}
+    ],
+
+    "NPC":[
+        
+    ],
+    
+    "PlayerPos": {
+        "x": 200,
+        "y": 630
+    }
+}

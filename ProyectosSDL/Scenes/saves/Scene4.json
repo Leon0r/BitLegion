@@ -1,7 +1,8 @@
 {
+   "AlenaActiva": true,
    "CollisionableObject": [
       {
-         "Texture": 43,
+         "Texture": 38,
          "h": 79.0,
          "rotation": 0.0,
          "w": 260.0,
@@ -9,17 +10,146 @@
          "y": 450.0
       },
       {
-         "Texture": 48,
+         "Texture": 43,
          "h": 230.0,
          "rotation": 0.0,
          "w": 1280.0,
          "x": 0.0,
-         "y": 490.0
+         "y": 400.0
+      }
+   ],
+   "Decorado": [
+      {
+         "Anims": [
+            [
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               1,
+               2,
+               3,
+               4,
+               5
+            ]
+         ],
+         "Texture": 132,
+         "animation": true,
+         "h": 12.0,
+         "heightFrame": 12,
+         "loop": true,
+         "numColsFrame": 3,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "vel": 100.0,
+         "w": 56.0,
+         "widthFrame": 56,
+         "x": 323.0,
+         "y": 493.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               1,
+               0,
+               1,
+               1,
+               2,
+               2,
+               2,
+               2,
+               3,
+               3
+            ]
+         ],
+         "Texture": 133,
+         "animation": true,
+         "h": 204.0,
+         "heightFrame": 204,
+         "loop": true,
+         "numColsFrame": 4,
+         "numFilsFrame": 1,
+         "rotation": 0.0,
+         "vel": 100.0,
+         "w": 40.0,
+         "widthFrame": 40,
+         "x": 317.0,
+         "y": 18.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               0,
+               0,
+               0,
+               3,
+               3,
+               0,
+               3,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               0,
+               1,
+               0,
+               1,
+               1,
+               2,
+               2,
+               2,
+               2,
+               3,
+               3,
+               0,
+               3
+            ]
+         ],
+         "Texture": 134,
+         "animation": true,
+         "h": 56.0,
+         "heightFrame": 56,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 4,
+         "rotation": 0.0,
+         "vel": 150.0,
+         "w": 381.0,
+         "widthFrame": 381,
+         "x": 806.0,
+         "y": 130.0
       }
    ],
    "GODoors": [
       {
-         "Texture": 43,
+         "Texture": 38,
          "h": 79.0,
          "rotGOTr": 90.0,
          "rotat": 0.0,
@@ -33,7 +163,7 @@
    ],
    "GOTransiciones": [
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 40.0,
          "rotat": -90.0,
          "rotation": -90.0,
@@ -44,14 +174,14 @@
       }
    ],
    "PlayerPos": {
-      "x": 1122.333571134078,
-      "y": 322.0
+      "x": 620.0,
+      "y": 290.0
    },
    "PlayerTam": {
       "h": 120.0,
       "w": 50.0
    },
-   "Texture": 42,
+   "Texture": 37,
    "h": 720.0,
    "rotation": 0.0,
    "w": 1280.0,

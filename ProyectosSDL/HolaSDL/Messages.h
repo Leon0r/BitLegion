@@ -1,9 +1,6 @@
 #pragma once
 // Archivo solo con el enum de mensajes posibles entre observer/observable
 enum Messages {
-	In_Menu,
-	Game_Start,
-	Game_End,
 	Ch_Left,
 	Ch_Right,
 	Ch_TakeObj,
@@ -14,11 +11,21 @@ enum Messages {
 	MouseMoving,
 	CambioEscena,
 	LuzInvertida,
-	Button_Press
+	WinPuzzle,
+	ChangeScene,
+	MensajeVacio,
+	DialogoAcabado,
+	Stop,
+	SetZBufferPlayState,
+	AbreInventario,
+	Pausa,
+	CambioEstado,
+	Suena
 };
 
 struct Mensaje{
-	Mensaje(Messages id) : id_(id) {}
+	Mensaje(Messages id) : id_(id) {};
+	Mensaje(): id_(MensajeVacio){};
 	Messages id_;
 };
 
@@ -27,3 +34,10 @@ struct MensajePosicionMatriz: Mensaje //mensaje que devuelve la posicion de la m
 	MensajePosicionMatriz(Messages id, std::pair<const int, const int> pos) : Mensaje(id), pos_(pos) {}
 	std::pair<const int, const int> pos_;
 };
+
+struct MensajeCambioEscenaDialogos : Mensaje 
+{
+	MensajeCambioEscenaDialogos(Messages id, int numScene) : Mensaje(id), numScene_(numScene) {}
+	int numScene_;
+};
+

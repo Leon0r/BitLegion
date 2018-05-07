@@ -1,0 +1,85 @@
+{
+   "AlenaActiva": true,
+   "CollisionableObject": [
+      {
+         "Texture": 141,
+         "h": 128.0,
+         "rotation": 0.0,
+         "w": 210.0,
+         "x": 370.0,
+         "y": 420.0
+      },
+      {
+         "Texture": 113,
+         "h": 249.0,
+         "rotation": 0.0,
+         "w": 458.0,
+         "x": 750.0,
+         "y": 165.0
+      }
+   ],
+   "Decorado": [
+      {
+         "Texture": 15,
+         "h": 40.0,
+         "rotation": 0.0,
+         "w": 40.0,
+         "x": 905.0,
+         "y": 270.0
+      },
+      {
+         "Texture": 71,
+         "h": 45.0,
+         "rotation": 0.0,
+         "w": 45.0,
+         "x": 975.0,
+         "y": 270.0
+      },
+      {
+         "Texture": 71,
+         "h": 45.0,
+         "rotation": 0.0,
+         "w": 45.0,
+         "x": 1075.0,
+         "y": 260.0
+      }
+   ],
+   "GOTransiciones": [
+      {
+         "Texture": 29,
+         "h": 60.0,
+         "rotat": 180.0,
+         "rotation": 180.0,
+         "scneNum": 17,
+         "w": 60.0,
+         "x": 10.0,
+         "y": 450.0
+      }
+   ],
+   "ItemInventario": [
+      {
+         "Texture": 21,
+         "descripcion": "Ticket de compra",
+         "h": 20.0,
+         "rotation": 45.0,
+         "tag": "ticket",
+         "w": 20.0,
+         "x": 1180.0,
+         "y": 300.0
+      }
+   ],
+   "PlayerPos": {
+      "x": 30.0,
+      "y": 450.0
+   },
+   "PlayerTam": {
+      "h": 201.6,
+      "w": 84.0
+   },
+   "Texture": 112,
+   "h": 720.0,
+   "rotation": 0.0,
+   "w": 1280.0,
+   "x": 0.0,
+   "y": 0.0
+}

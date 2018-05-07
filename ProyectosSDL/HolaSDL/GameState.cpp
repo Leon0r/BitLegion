@@ -1,14 +1,43 @@
 #include "GameState.h"
+#include "Cursor.h"
+
+Cursor* GameState::cursor = nullptr;
 
 GameState::GameState()
 {
+}
+
+GameState::~GameState()
+{
+	for (GameObject* it : stage) { 
+		delete it; //delete de los objetos
+	}
+
+	if (cursor->getDependencias() == 0) { //si no hay nadie más con él, significa que se cierra el juego (no puede haber una pila de estados vacia y todos los estados comparten el cursor)
+		delete cursor; //se borra
+	}
+	else {
+		cursor->decrementaDependencias(); //si hay más gente compartiendolo, significa que se ha cerrado un estado superior. Se decrementa una dependencia del cursor.
+	}
+}
+
+GameState::GameState(SDLApp * app) : app(app)
+{
+	addObserver(app->getSoundManager());
+	if (cursor == nullptr) {
+		cursor = new Cursor(app, app->getResources()->getImageTexture(Resources::Cursor), 15, 21); //singleton (?)
+	}
+	else {
+		cursor->incrementaDependencias(); // para saber por cuantos estados es compartido
+	}
 }
 
 //manda a los objetos del estado update
 void GameState::update() {
 	startTime = SDL_GetTicks();
 
-	for (GameObject* it : stage) { it->update(0); }
+	for (GameObject* it : stage) { 
+		it->update(startTime); }
 
 	// Calcula el tiempo del update del playState
 	frameTime = SDL_GetTicks() - startTime;
@@ -18,8 +47,9 @@ void GameState::update() {
 }
 
 void GameState::handleEvent(SDL_Event &e) { //manda a los objetos del juego que detecten 
-	bool handled = false;
+	
 	it = stage.begin();
+
 	listhasChanged = false;
 
 	while (!listhasChanged && it != stage.end() && *it != nullptr) {
@@ -28,12 +58,26 @@ void GameState::handleEvent(SDL_Event &e) { //manda a los objetos del juego que 
 			it++; //si no borras nada se incrementa
 		}
 	}
+
+	this->handleCursor(e);
+}
+
+void GameState::handleCursor(SDL_Event &e)
+{
+	if (cursor != nullptr) { cursor->handleInput(0, e); } //aparte del stage por si acaso fallos je
+}
+
+void GameState::renderCursor()
+{
+	if (cursor != nullptr) { cursor->render(0); } //aparte del stage por si acaso fallos je (again)
 }
 
 void GameState::render() {
 	list<GameObject*>::const_reverse_iterator aux;
 	for(aux = stage.rbegin(); aux != stage.rend(); aux++)
 		(*aux)->render(0);
+
+	this->renderCursor();;
 }
 
 void GameState::deleteElement(GameObject* o) {

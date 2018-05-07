@@ -1,14 +1,17 @@
 #pragma once
 #include "checkML.h"
-#include "GameState.h"
 #include "CasillaPuzzle1.h"
 #include "MovementComponent.h"
 #include "ImageRenderer.h"
 #include "AnimationRenderer.h"
 #include "Boton.h"
+#include "GOUnlockeable.h"
+#include "Puzzle.h"
+#include "MouseEventAnimComponent.h"
+
 
 class Puzzle1State :
-	public GameState
+	public  Puzzle
 {
 private:
 	//--------------------ENUM DE LOS TIPOS DE CASILLAS -------------------------------
@@ -21,11 +24,15 @@ private:
 	vector<RenderComponent*> botonesAnim;
 	vector<vector<int>> matrizOriginal;
 	Boton* resetButton;
-	RenderComponent* HUD;
+	Boton* exitButton;
+	Boton* useButton;
+	AnimationRenderer* HUD;
 	RenderComponent* reiniciar;
+	RenderComponent* exitRenderer;
 	RenderComponent* imagenCopia;
 	Entity* copia = new Entity(app);
 	Entity* puzzleHud = new Entity(app);
+	MouseEventAnimComponent pb;
 
 	//--------------------------VARIABLES AUXILIARES-----------------------------------------
 	const int numCas = 5;
@@ -40,8 +47,9 @@ private:
 
 	//--------------------------------------METODOS DE LOS BOTONES---------------------
 	function<void()> resetFunct_;
+	function<void()> exitFunct_;
 	static void usar(GameState* state, int fil, int col);
-	void resetFunction(GameState* state) { Puzzle1State* aux = dynamic_cast<Puzzle1State*>(state); if (aux != nullptr) { if (!aux->isMoving()) { aux->restart(); } } }
+	void resetFunction();
 
 	//----------------------------------------METODOS PRIVADOS ----------------------
 	bool isMoving() { return this->mover; };
@@ -66,11 +74,15 @@ private:
 	}
 	void destroy();
 
+	void win();
+
 	void destCasilla(CasillaPuzzle1* aux);
 public:
 	Puzzle1State() {};
-	Puzzle1State(SDLApp* game,  GameState* previousState, Uint8 numberPuzzle, int numText);
+	Puzzle1State(SDLApp* game,  GameState* previousState, Uint8 numberPuzzle, int numText, int id = -4);
 	virtual ~Puzzle1State() { destroy(); stage.clear(); };
+
+	int _id;
 
 	//----------------------------HE, RENDER, UPDATE--------------------------
 	virtual void handleEvent(SDL_Event& event) { 
@@ -80,11 +92,12 @@ public:
 				app->getStateMachine()->popState(false);
 			}
 		}
-		else GameState::handleEvent(event);
+		else if(!hasWon)GameState::handleEvent(event);
 	}
 	virtual void render() { GameState::render(); }
 	virtual void update();
 
 	GameState* getPreviousState() { return previousState; };
 	void loadFromJson(int numeroPuzzle);
+	int getId() const { return _id; };
 };

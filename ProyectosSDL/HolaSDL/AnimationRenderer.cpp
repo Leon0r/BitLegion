@@ -2,11 +2,14 @@
 
 
 
-AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animations, int numFilsFrames, int numColsFrames,
+AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animations, int numColsFrames, int numFilsFrames,
 	int frWidth, int frHeigth):
-	texture_(texture), numFrCols_(numColsFrames), numFrFils_(numFilsFrames), frWidth_(frWidth), frHeigth_(frHeigth)
+	texture_(texture), numFrCols_(numFilsFrames), numFrFils_(numColsFrames), frWidth_(frWidth), frHeigth_(frHeigth)
 {
-	numFrames = numColsFrames * numFilsFrames;
+	currentAnim_ = 0;
+	currentFrame_ = 0;
+
+	numFrames = numFilsFrames * numColsFrames;
 	timeNext = SDL_GetTicks();
 	timeLastFrame = timeNext;
 	nextAnim_ = currentAnim_;
@@ -64,7 +67,10 @@ void AnimationRenderer::playAnim(string label)
 
 void AnimationRenderer::changeAnim()
 {
-	if (nextAnim_ != currentAnim_) {
+	// si la actual no es en loop y no ha acabado 
+	if (!animations_[currentAnim_]->loop_ &&
+		currentFrame_ < animations_[currentAnim_]->framesAnim_.size()) {}
+	else if (nextAnim_ != currentAnim_) { // si la animacion siguiente no es la que ya esta puesta
 		currentAnim_ = nextAnim_;
 		currentFrame_ = 0;
 	}
@@ -74,11 +80,13 @@ int AnimationRenderer::nextFrame()
 {
 
 	int aux = currentFrame_ + 1;
-	if (aux >= animations_[currentAnim_]->framesAnim_.size())
-		if (animations_[currentAnim_]->loop_)
+	
+	// prueba si hay frame siguiente
+	if (aux >= animations_[currentAnim_]->framesAnim_.size()) // si no hay
+		if (animations_[currentAnim_]->loop_)  // si es loopeada, vuelve al principio
 			aux = 0;
-		else if (animations_[currentAnim_]->onEnded_ >= 0 && animations_[currentAnim_]->onEnded_ < animations_.size()) {
-			currentAnim_ = animations_[currentAnim_]->onEnded_;
+		else if (animations_[currentAnim_]->onEnded_ >= 0 && animations_[currentAnim_]->onEnded_ < animations_.size()) { // si no, y tiene animacion siguiente
+			currentAnim_ = animations_[currentAnim_]->onEnded_; // la pone
 			nextAnim_ = currentAnim_;
 		}
 		else
@@ -101,6 +109,9 @@ void AnimationRenderer::receive(Mensaje* msg)
 	case StopLeft:
 		playAnim("IdleLeft");
 		break;
+	case Ch_TakeObj:
+		playAnim("TakeObj");
+		break;
 	default:
 		playAnim("Idle");
 		break;
@@ -109,11 +120,13 @@ void AnimationRenderer::receive(Mensaje* msg)
 
 void AnimationRenderer::calculateNextSourceRect()
 {
-	int y = (animations_[currentAnim_]->framesAnim_[currentFrame_]) / numFrFils_;
-	int x = (animations_[currentAnim_]->framesAnim_[currentFrame_]) % numFrFils_;
+	if (currentFrame_ < animations_[currentAnim_]->framesAnim_.size()) {
+		int y = (animations_[currentAnim_]->framesAnim_[currentFrame_]) / numFrFils_;
+		int x = (animations_[currentAnim_]->framesAnim_[currentFrame_]) % numFrFils_;
 
-	y *= frHeigth_;
-	x *= frWidth_;
+		y *= frHeigth_;
+		x *= frWidth_;
 
-	sourceRect = { x, y, frWidth_, frHeigth_ };
+		sourceRect = { x, y, frWidth_, frHeigth_ };
+	}
 }

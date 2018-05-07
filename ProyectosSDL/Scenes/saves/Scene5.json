@@ -1,7 +1,8 @@
 {
+   "AlenaActiva": true,
    "CollisionableObject": [
       {
-         "Texture": 43,
+         "Texture": 38,
          "h": 135.0,
          "rotation": 0.0,
          "w": 460.0,
@@ -9,17 +10,17 @@
          "y": 530.0
       },
       {
-         "Texture": 48,
+         "Texture": 43,
          "h": 230.0,
          "rotation": 0.0,
          "w": 1280.0,
          "x": 0.0,
-         "y": 580.0
+         "y": 480.0
       }
    ],
    "GODoors": [
       {
-         "Texture": 43,
+         "Texture": 38,
          "h": 135.0,
          "rotGOTr": 90.0,
          "rotat": 0.0,
@@ -29,11 +30,23 @@
          "w": 460.0,
          "x": 0.0,
          "y": 530.0
+      },
+      {
+         "Texture": 221,
+         "h": 300.0,
+         "rotGOTr": 90.0,
+         "rotat": 0.0,
+         "rotation": 0.0,
+         "scneNum": 9,
+         "tag": "keyCoche",
+         "w": 726.0,
+         "x": 580.0,
+         "y": 420.0
       }
    ],
    "GOTransiciones": [
       {
-         "Texture": 32,
+         "Texture": 29,
          "h": 40.0,
          "rotat": -90.0,
          "rotation": -90.0,
@@ -51,7 +64,7 @@
       "h": 201.6,
       "w": 84.0
    },
-   "Texture": 58,
+   "Texture": 53,
    "h": 720.0,
    "rotation": 0.0,
    "w": 1280.0,

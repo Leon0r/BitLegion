@@ -4,6 +4,8 @@
 #include "AnimationRenderer.h"
 
 Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousState, ShortCut* shortcut) : GameState(app), inventario(inventario), selected(nullptr), previousState(previousState), SC(shortcut) {
+
+	pb = MouseEventAnimComponent(SDL_MOUSEBUTTONDOWN, "Pressed", "Stop", SDL_BUTTON_LEFT);
 	matriz.resize(numCas*numCas);
 	for (int i = 0; i < numCas; i++) {//inicializacion de la matriz de casillas
 		for (int j = 0; j < numCas; j++) {
@@ -11,7 +13,7 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 		}
 	}
 
-	f = new Font("..//images/fuente2.ttf", tamanyoFuente);
+	f = new Font("..//images/Dialogos/Moonace-Regular.ttf", tamanyoFuente);
 	
 	//imagen del inventario
 	inventarioHud->setHeight(app->getWindowHeight()*0.75);
@@ -57,23 +59,37 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 	//--------------------Botones----------------------
 	usFunc_ = [this]() mutable {usar(this); };
 	useButton = new Boton(app, "use", usFunc_); //nuevo Boton
+	useButton->addAnim("Pressed", { 23 }, true, -1, 100);
+	useButton->addAnim("Stop", { 22 }, true, -1, 100);
 	RenderComponent* im = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonUsar), useButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	useButton->addRenderComponent(im);
+	useButton->setAnimated(true);
+	useButton->addInputComponent(&pb);
 	useButton->setPosition(Vector2D{ 548*relacion.first, 449*relacion.second }); //posiciones random de prueba
 	useButton->setWidth(140*relacion.first);
 	useButton->setHeight(31*relacion.second);
 	stage.push_back(useButton); //se pushea
 
 	swFunct_ = [this]() mutable {swap(this); };
-	swapButton = new Boton(app, "swap", swFunct_); //nuevo Boton
+	swapButton = new Boton(app, "swap", swFunct_); //nuevo BotonswapButton->addAnim("Pressed", { 23 }, true, -1, 100);
+	swapButton->addAnim("Pressed", { 23 }, true, -1, 100);
+	swapButton->addAnim("Stop", { 22 }, true, -1, 100);
 	RenderComponent* im2 = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSwap), swapButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
 	swapButton->addRenderComponent(im2);
+	swapButton->setAnimated(true);
+	swapButton->addInputComponent(&pb);
 	swapButton->setPosition(Vector2D{ 548*relacion.first, 480*relacion.second }); //posiciones random de prueba
 	swapButton->setWidth(140*relacion.first);
 	swapButton->setHeight(31*relacion.second);
 	stage.push_back(swapButton); //se pushea
 
+	fNegroRender = ImageRenderer(app->getResources()->getImageTexture(Resources::Transicion));
+	fondoNegro->setWidth(app->getWindowWidth()); fondoNegro->setHeight(app->getWindowHeight()); fondoNegro->setPosition(Vector2D(0, 0));
+	fondoNegro->addRenderComponent(&fNegroRender);
+	fondoNegro->getTexture()->changeAlpha(255 * 0.6);
+
 	stage.push_back(inventarioHud);
+	stage.push_back(fondoNegro);
 	//-------------ConstructoraToGrandeLoko(hay q hacerla m�s peque�ita)------------------------
 }
 
@@ -107,18 +123,13 @@ void Inventory::handleEvent(SDL_Event& event) {
 void Inventory::render() {
 	if (previousState != nullptr) previousState->render();
 
-	SDL_SetRenderDrawBlendMode(app->getRenderer(), SDL_BLENDMODE_MOD);
-	SDL_SetRenderDrawColor(app->getRenderer(), 70, 70, 70, 1);
-	SDL_RenderFillRect(app->getRenderer(), &rectF);
-
 	GameState::render(); //se llama a los componentes "Render" de todos los objetos de la lista del inventario
 	if (selected != nullptr){
-		Texture fuente(app->getRenderer(), selected->getDescription(), *f, colorFuente); //fuente din�mica
-		fuente.render(app->getRenderer(), (int)(inventarioHud->getWidth() - inventarioHud->getWidth() / 16), (int)(inventarioHud->getHeight() / 1.5)); //se llama al render de la fuente Din�mica
+		muestraDescripcion();
 	}
 }
 
-void Inventory::muestraDescripcion() {
+void Inventory::setCopia() {
 	copia->setTexture(0, selected->getTexture(0));
 }
 
@@ -149,9 +160,14 @@ void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea
 
 	delete marca; marca = nullptr;
 
+	useButton->delInputComponent(&pb);
+	swapButton->delInputComponent(&pb);
+
 	delete useButton; useButton = nullptr;
 
 	delete swapButton; swapButton = nullptr;
+
+	fondoNegro->delRenderComponent(&fNegroRender); delete fondoNegro;
 }
 
 void Inventory::usar(Inventory* state) {
@@ -163,5 +179,36 @@ void Inventory::usar(Inventory* state) {
 			inv->app->getStateMachine()->popState(); //se popea el estado
 			//(aux->getShortcut()->recorreEInicia(aux->getShortcut()->getCoef());
 		}
+	}
+}
+
+void Inventory::muestraDescripcion()
+{
+	setCopia();
+	unsigned int i = 0;
+	unsigned int j = 0;
+	unsigned int saltoLinea = 0;
+	string aux;
+	while (i < selected->getDescription().size()) {
+
+		if (aux.empty()) { //para que Gonza no llore con los espacios (ensuciar code 3.0)
+			if (selected->getDescription()[i] != ' ') {
+				aux.push_back(selected->getDescription()[i]);
+			}
+		}
+		else {
+			aux.push_back(selected->getDescription()[i]);
+		}
+
+
+		if (j == (letrasPorLinea - 1) || i == (selected->getDescription().size() - 1)) {
+			Texture fuente(app->getRenderer(), aux, *f, colorFuente); //fuente din�mica
+			fuente.render(app->getRenderer(), (int)(inventarioHud->getWidth() - inventarioHud->getWidth() / 21), (int)(inventarioHud->getHeight() / 1.89) + saltoLinea * espaciado/3); //se llama al render de la fuente Din�mica
+			aux.clear();
+			saltoLinea++;
+			j = 0;
+		}
+		i++;
+		j++;
 	}
 }
