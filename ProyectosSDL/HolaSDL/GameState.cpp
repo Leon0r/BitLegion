@@ -97,7 +97,7 @@ void GameState::deleteElement(GameObject* o) {
 	delete o;
 }
 
-Entity * GameState::getCursor()
+Entity * GameState::getCursor() const
 {
 	return cursor;
 }
