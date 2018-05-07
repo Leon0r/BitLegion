@@ -259,7 +259,6 @@ public:
 		BuzonCamelloAbierto,
 		MesaCamello,
 		LucesCamelloAbierta,
-		CursorMano,
 		LuzPolbots,
 		NeonSports,
 		VentanaGalina,
