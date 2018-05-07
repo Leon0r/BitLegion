@@ -245,6 +245,12 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Colisionables/sofaCamello.png",
 "..//images/Objetos/cajafuerteAbierta.png",
 "..//images/Objetos/Colisionables/mesaCamello.png",
+"..//images/Objetos/cajaDeLucesAbierta.png",
+"..//images/Objetos/cursorMano.png",
+"..//images/Objetos/luzPolbots.png",
+"..//images/Objetos/neonDeportes.png",
+"..//images/Objetos/ventanaGalina.png",
+"..//images/Objetos/Puzles/casillaPuzzleCarta.png",
 };
 
 

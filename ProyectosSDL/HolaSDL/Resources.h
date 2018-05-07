@@ -258,6 +258,12 @@ public:
 		SofaCamello,
 		BuzonCamelloAbierto,
 		MesaCamello,
+		LucesCamelloAbierta,
+		CursorMano,
+		LuzPolbots,
+		NeonSports,
+		VentanaGalina,
+		CasillaPuzleCarta,
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
