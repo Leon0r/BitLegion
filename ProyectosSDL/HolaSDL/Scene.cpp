@@ -9,6 +9,7 @@
 #include "AutoConversational.h"
 #include "Decorado.h"
 #include "NPC.h"
+#include "FeedbackCursorInputComponent.h"
 #include "GOcofres.h"
 
 Scene::Scene()
@@ -47,6 +48,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				j[obj][i]["descripcion"], j[obj][i]["tag"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), permanente);
 
+			item->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+
 			SceneItems.push_front(item);
 
 			addAnimsFromJSON(item, j[obj][i], n);
@@ -69,6 +72,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), SceneStates.back(), j[obj][i], playState);
 
+			goSt->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+
 			SceneItems.push_back(goSt);
 
 			addAnimsFromJSON(goSt, j[obj][i], n);
@@ -88,8 +93,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				repeat = j["GOConversational"][i]["repeat"];
 			}
 
-			SceneItems.push_front(new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"], j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOConversational"][i]["convoName"], repeat));
+			GOConversational* conver = new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"], j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOConversational"][i]["convoName"], repeat);
+
+			conver->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+
+			SceneItems.push_front(conver);
+
 		}
 
 		//Cargado objetos autoconversaciones
@@ -138,6 +148,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			NPC* npc = new NPC(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"], 
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["dialogo"]);
 
+			npc->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+
 			SceneItems.push_back(npc);
 			SceneItems.push_back(npc->getColisionable()); //pusheamos el colisionable asociado
 
@@ -157,6 +169,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			GOTransiciones* goTrans = new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]);
+
+			goTrans->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
 
 			SceneItems.push_back(goTrans);
 
@@ -187,12 +201,14 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				itPerm = j[obj][i]["permanenteItem"];
 			}
 
-			GOcofres* door = new GOcofres(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+			GOcofres* cofre = new GOcofres(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["wItem"], j[obj][i]["hItem"], j[obj][i]["descripcionItem"], j[obj][i]["tagItem"],
 				app->getResources()->getImageTexture(Resources::ImageId(j[obj][i]["numTextItem"])), itPerm, id);
 
-			SceneItems.push_back(door);
-			addAnimsFromJSON(door, j[obj][i], n);
+			cofre->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+
+			SceneItems.push_back(cofre);
+			addAnimsFromJSON(cofre, j[obj][i], n);
 
 
 			if (!j[obj][i]["rotation"].is_null()) {
@@ -364,6 +380,8 @@ void Scene::enterScene() {
 
 	//genera la matriz para el mouse
 	pj->collisionListWasModified();
+
+	app->getStateMachine()->currentState()->getCursor()->playAnim("Normal"); //estética simplemente
 }
 
 void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se vuelcan en la lista de la escena para que se queden guardados (menos el jugador)

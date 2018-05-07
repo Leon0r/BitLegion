@@ -39,6 +39,7 @@ public:
 		return direction_;
 	}
 
+	int getCurrentAnim() const { return currentAnim; };
 
 	double getWidth() const {
 		return width_;
@@ -92,6 +93,10 @@ public:
 		active_ = nActive;
 	}
 
+	void setCurrentAnim(int nAnim) {
+		currentAnim = nAnim;
+	}
+
 	void setType(Type newType) {
 		objectType = newType;
 	}
@@ -115,6 +120,7 @@ protected:
 	Vector2D direction_; // angle in degrees (0) is considered facing left
 	Vector2D velocity_; // direction
 
+	int currentAnim = 0;
 
 private:
 	Type objectType;

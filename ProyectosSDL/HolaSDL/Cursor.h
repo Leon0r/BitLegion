@@ -2,13 +2,14 @@
 #include "Entity.h"
 #include "FollowCursor.h"
 #include "ImageRenderer.h"
+#include "AnimationRenderer.h"
 
 class Cursor :
 	public Entity
 {
 private:
 	FollowCursor fc;
-	ImageRenderer ren;
+	AnimationRenderer* ren;
 	static int dependencias;
 
 public:

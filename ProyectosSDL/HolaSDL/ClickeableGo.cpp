@@ -29,4 +29,6 @@ void ClickeableGO::handleInput(Uint32 time, const SDL_Event& event) {
 		else
 			act();
 	}
+
+	Entity::handleInput(time, event);
 }

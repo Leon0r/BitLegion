@@ -42,5 +42,7 @@ public:
 	virtual void receive(Mensaje* msg) {};
 	virtual void SetZBuffer() {};
 
+	Entity* getCursor();
+
 };
 

@@ -3,7 +3,18 @@
 
 Boton::~Boton()
 {
+	delInputComponent(&feed);
 	actualState = nullptr;
+}
+
+Boton::Boton(SDLApp * app, CallBackOnClickStateFC * stateFC, GameState * actualState, string nombre, int fil, int col) : Entity(app), stateFC(stateFC), actualState(actualState), nombre(nombre), f(fil), c(col), fun(nullptr)
+{
+	feed = FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()); addInputComponent(&feed);
+}
+
+Boton::Boton(SDLApp * app, string nombre, function<void()> f) : Entity(app), nombre(nombre), fun(f), stateFC(nullptr)
+{
+	feed = FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()); addInputComponent(&feed);
 }
 
 void Boton::handleInput(Uint32 time, const SDL_Event& event) {
