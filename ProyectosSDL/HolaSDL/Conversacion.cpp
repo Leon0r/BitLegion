@@ -2,11 +2,16 @@
 #include "SDLApp.h"
 #include "PlayState.h"
 
-Conversacion::Conversacion(SDLApp* game) :GameObject(game)
+Conversacion::Conversacion(SDLApp* game) : Entity(game)
 {
 	f = new Font("..//images/Dialogos/Moonace-Regular.ttf", tamanyoFuenteConv);
-	this->setWidth(GUIw);
-	this->setHeight(GUIh);
+	this->setWidth(w);
+	this->setHeight(h);
+
+	this->setPosition(Vector2D(x, y));
+
+	feed = FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor());
+	addInputComponent(&feed);
 }
 
 
@@ -14,6 +19,7 @@ Conversacion::~Conversacion()
 {
 	delete f;
 	delete msg;
+	delInputComponent(&feed);
 }
 
 void Conversacion::escribir(){
@@ -99,7 +105,7 @@ void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 
 				if (nodoActual == -1) {
 					send(msg);
-					//delete this;
+					app->getStateMachine()->currentState()->resetCursor();
 					this->setActive(false);
 					nodoActual = 0;
 				}
@@ -117,6 +123,8 @@ void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 
 			}
 		}
+
+		Entity::handleInput(time, event);
 }
 void Conversacion::update(Uint32 time){
 	//ANIMACIONES GUAYS

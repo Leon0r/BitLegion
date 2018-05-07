@@ -17,6 +17,7 @@ void GOConversational::act() {
 		PlayState* aux = dynamic_cast<PlayState*>(app->getStateMachine()->currentState()); 
 
 		if (aux != nullptr) {
+			app->getStateMachine()->currentState()->resetCursor();
 			inconversation = true;
 			aux->setEnConversacion(true);
 			if (firstTime_) {

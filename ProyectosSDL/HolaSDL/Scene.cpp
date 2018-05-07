@@ -381,7 +381,7 @@ void Scene::enterScene() {
 	//genera la matriz para el mouse
 	pj->collisionListWasModified();
 
-	app->getStateMachine()->currentState()->getCursor()->playAnim("Normal"); //estética simplemente
+	app->getStateMachine()->currentState()->resetCursor();
 }
 
 void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se vuelcan en la lista de la escena para que se queden guardados (menos el jugador)

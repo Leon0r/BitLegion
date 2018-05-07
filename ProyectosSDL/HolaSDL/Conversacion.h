@@ -1,13 +1,14 @@
 #pragma once
 #include "NodoDialogo.h"
-#include "GameObject.h"
+#include "Entity.h"
 #include "Font.h"
 #include "Texture.h"
+#include "FeedbackCursorInputComponent.h"
 
 const unsigned int tamanyoFuenteConv = 40;
 const SDL_Color colorFuenteConv = { 0, 169, 0, 1 }; //38c81f // es el verde fosforito en hexadecimal pero no se ve bien (creo que se escribe por debajo)
 
-class Conversacion : public GameObject
+class Conversacion : public Entity
 {
 public:
 	Conversacion(SDLApp* game);
@@ -54,5 +55,7 @@ private:
 
 
 	Font* f;
+
+	FeedbackCursorInputComponent feed;
 };
 

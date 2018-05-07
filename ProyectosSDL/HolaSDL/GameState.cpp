@@ -30,7 +30,7 @@ GameState::GameState(SDLApp * app) : app(app)
 		cursor->incrementaDependencias(); // para saber por cuantos estados es compartido
 	}
 
-	cursor->playAnim("Normal");
+	this->resetCursor();
 }
 
 //manda a los objetos del estado update
@@ -100,4 +100,9 @@ void GameState::deleteElement(GameObject* o) {
 Entity * GameState::getCursor()
 {
 	return cursor;
+}
+
+void GameState::resetCursor()
+{
+	cursor->playAnim("Normal");
 }

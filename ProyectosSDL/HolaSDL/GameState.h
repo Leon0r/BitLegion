@@ -44,5 +44,7 @@ public:
 
 	Entity* getCursor();
 
+	void resetCursor();
+
 };
 
