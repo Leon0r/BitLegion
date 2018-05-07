@@ -47,7 +47,7 @@ public:
 	vector<Scene*> getScenes(){ return scenes; };
 	void swapScene(int nextScene);
 	Scene* getCurrentScene() { return scenes[currentScene]; }
-	void pauseMenu() { app->getStateMachine()->pushState(new inGameMenu(app)); };
+	void pauseMenu() { app->getStateMachine()->pushState(new inGameMenu(app,app->getStateMachine()->currentState())); };
 	int getNumCurrentScene() const { return this->currentScene; };
 	virtual void handleEvent(SDL_Event &e);
 	void setEnConversacion(bool conv);

@@ -24,9 +24,8 @@ void TransitionScreen::update()
 		x++;
 		a--;
 	}
-	if (a == 0) completed = true;
-	cout << (double)a << endl;
-	if (completed)
+	
+	if (a == 0)
 		app->getStateMachine()->popState();
 }
 

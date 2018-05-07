@@ -1,8 +1,10 @@
 #include "inGameMenu.h"
+#include "sdl_includes.h"
 
 
 
-inGameMenu::inGameMenu(SDLApp* game): GameState(game)
+
+inGameMenu::inGameMenu(SDLApp* game, GameState* previousState): GameState(game), prevState(previousState)
 {
 	ov = MouseEventAnimComponent(SDL_MOUSEMOTION, "Feedback", "Stop");
 
@@ -57,6 +59,10 @@ inGameMenu::inGameMenu(SDLApp* game): GameState(game)
 	bMutetext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonMute), b->getAnimations(), 1, 2, 352, 131);
 	b->addRenderComponent(bMutetext);
 	botones.push_back(b); stage.push_back(b);
+
+
+	txt = app->getResources()->getImageTexture(Resources::Transicion);
+	txt->changeAlpha(175);
 }
 
 
@@ -90,5 +96,23 @@ void inGameMenu::exitToMenu(SDLApp * app_)
 void inGameMenu::exitGame(SDLApp * app_)
 {
 	app_->exitGame();
+}
+
+void inGameMenu::render()
+{
+	if (prevState != nullptr)
+		prevState->render();
+
+
+	SDL_Rect rct = RECT(0, 0, app->getWindowWidth(), app->getWindowHeight());
+	txt->render(app->getRenderer(), rct, nullptr);
+
+	//current state render
+	list<GameObject*>::const_reverse_iterator aux;
+	for (aux = stage.rbegin(); aux != stage.rend(); aux++)
+		(*aux)->render(0);
+
+
+	this->renderCursor();
 }
 

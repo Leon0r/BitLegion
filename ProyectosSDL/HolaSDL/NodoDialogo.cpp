@@ -40,12 +40,7 @@ vector<string> NodoDialogo::getTexto(){
 }
 
 NodoDialogo::NodoDialogo(int numnodo, int nodosig, vector<string> text, 
-	int numopciones, vector<opciones> resp, Resources::ImageId Pj, emociones Emo){
-	numNodo = numnodo;
-	nodoSig = nodosig;
-	texto = text;
-	numOpciones = numopciones;
-	respuestas = resp;
-	pj = Pj;
-	emo = Emo;
+	int numopciones, vector<opciones> resp, Resources::ImageId Pj, emociones Emo):numNodo(numnodo),nodoSig(nodosig),texto(text),
+	numOpciones(numopciones), respuestas(resp), pj(Pj), emo(Emo) {
+	;
 }

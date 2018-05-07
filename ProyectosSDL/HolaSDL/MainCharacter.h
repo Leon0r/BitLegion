@@ -35,8 +35,8 @@ public:
 		mouseMovement->setSceneTam(w, h, x, y);
 		movement->setSceneTam(w, h, x, y);
 	}
-	int getCurrentScene() const { return this->currentScene; };
-	void setCurrentScene(int nScene_) { this->currentScene = nScene_; };
+	inline int getCurrentScene() const { return this->currentScene; };
+	inline void setCurrentScene(int nScene_) { this->currentScene = nScene_; };
 	void setPosIni();
 	void setTam();
 	void cleanKeys();
