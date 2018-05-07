@@ -256,7 +256,7 @@ public:
 		InterruptorCamello,
 		LucesCamello,
 		SofaCamello,
-		PuertaCamello,
+		BuzonCamelloAbierto,
 		MesaCamello,
 	};
 private:

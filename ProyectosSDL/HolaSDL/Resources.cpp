@@ -239,11 +239,11 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/radiografiaAnim.png", //animacion de la escena 33
 "..//images/Fondos/escena35caso1.png",
 "..//images/Fondos/escena42caso1.png",
-"..//images/Objetos/cajaFuerte.png",
+"..//images/Objetos/cajafuerte.png",
 "..//images/Objetos/interruptorCamello.png",
 "..//images/Objetos/cajaDeLuces.png",
 "..//images/Objetos/Colisionables/sofaCamello.png",
-"..//images/Objetos/Doors/puertaCasaCamello.png",
+"..//images/Objetos/cajafuerteAbierta.png",
 "..//images/Objetos/Colisionables/mesaCamello.png",
 };
 
