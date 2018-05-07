@@ -250,7 +250,14 @@ public:
 		NeonAnim4,
 		TelefonilloAnim,
 		RadiografiaAnim,
-		Escena35Caso1
+		Escena35Caso1,
+		Escena42Caso1,
+		BuzonCamello,
+		InterruptorCamello,
+		LucesCamello,
+		SofaCamello,
+		PuertaCamello,
+		MesaCamello,
 	};
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
