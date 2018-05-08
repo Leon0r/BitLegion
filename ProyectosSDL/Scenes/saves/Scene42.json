@@ -42,6 +42,9 @@
                0,
                0,
                1
+            ],
+            [
+               2
             ]
          ],
          "Texture": 238,
@@ -50,7 +53,7 @@
          "heightFrame": 81,
          "loop": true,
          "numColsFrame": 1,
-         "numFilsFrame": 2,
+         "numFilsFrame": 3,
          "rotation": 0.0,
          "vel": 150.0,
          "w": 70.0,
@@ -61,18 +64,33 @@
    ],
    "GOCofres": [
       {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
          "Texture": 236,
+         "animation": true,
          "descripcionItem": "funciona",
-         "h": 29.0,
+         "h": 55.0,
          "hItem": 18,
+         "heightFrame": 55,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
          "numTextItem": 210,
-         "open": false,
+         "open": true,
          "permanenteItem": false,
          "rotation": 0.0,
          "tag": "",
          "tagItem": "funcionaGuay",
+         "vel": 150.0,
          "w": 50.0,
          "wItem": 18,
+         "widthFrame": 50,
          "x": 213.0,
          "y": 275.0
       }
@@ -103,9 +121,21 @@
          "y": 310.0
       }
    ],
+   "ItemInventario": [
+      {
+         "Texture": 210,
+         "descripcion": "funciona",
+         "h": 18.0,
+         "rotation": 0.0,
+         "tag": "funcionaGuay",
+         "w": 18.0,
+         "x": 228.0,
+         "y": 302.0
+      }
+   ],
    "PlayerPos": {
-      "x": 422.0,
-      "y": 378.0
+      "x": 152.0,
+      "y": 240.0
    },
    "PlayerTam": {
       "h": 201.6,
