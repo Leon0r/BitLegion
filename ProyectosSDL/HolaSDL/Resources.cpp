@@ -249,6 +249,14 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/ventanaGalina.png",
 "..//images/Objetos/Puzles/casillaPuzzleCarta.png",
 "..//images/Objetos/luz.png",
+"..//images/Fondos/escena30caso1.png",
+"..//images/Objetos/taburetecafeteria.png",
+"..//images/Objetos/taburetemanchado.png",
+"..//images/Objetos/tocadiscosspritesheet.png",
+"..//images/Objetos/barradecefeteria.png",
+"..//images/Objetos/carteldeexit.png",
+"..//images/Objetos/plantabar.png",
+"..//images/Objetos/ventanacafeteriaspritesheet.png",
 };
 
 std::vector<std::string> Resources::musicFiles_{

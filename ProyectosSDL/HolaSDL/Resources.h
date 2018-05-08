@@ -264,6 +264,14 @@ public:
 		VentanaGalina,
 		CasillaPuzleCarta,
 		Luz,
+		Escena30Caso1,
+		Taburete1,
+		Taburete2,
+		TocaDiscos,
+		BarraBar,
+		CartelExit,
+		PlantaBar,
+		VentanaCafe
 	};
 
 	// Music -- each file is loaded as an instance of Music
