@@ -4,6 +4,7 @@
 #include "checkML.h"
 #include "GameStateMachine.h"
 #include "Resources.h"
+#include "SoundManager.h"
 
 using namespace std;
 
@@ -23,6 +24,7 @@ private:
 	int winHeight;
 
 	bool exit = false;
+	SoundManager soundManager;
 
 public:
 	SDLApp(int w, int h);
@@ -42,5 +44,6 @@ public:
 	void initResources() { resources = new Resources(this); }
 	void closeResources(){ delete resources; }
 	void exitGame() { exit = true; };
+	SoundManager* getSoundManager() { return &soundManager; }
 };
 

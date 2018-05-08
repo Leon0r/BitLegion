@@ -250,17 +250,29 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Puzles/casillaPuzzleCarta.png",
 };
 
+std::vector<std::string> Resources::musicFiles_{
+	"..//music/initTest.wav"
+};
+
+std::vector<std::string> Resources::soundEffectFiles_{ 
+	"..//SoundFX/door.mp3"
+};
+
 
 #include <iostream>
 
 Resources::Resources(SDLApp* game) :
-		game_(game), numOfImageTextures_(0), imageTextures_(nullptr) {
+	game_(game), numOfImageTextures_(0), imageTextures_(nullptr), music_(nullptr), numOfMusic_(0), soundEffects_(nullptr), numOfSoundEffects_(0) {
 
 	setImageTextures(imageFiles_);
+	setMusic(musicFiles_);
+	setSoundEffects(soundEffectFiles_);
 }
 
 Resources::~Resources() {
 	closeImageTextures();
+	closeMusic();
+	closeSoundEffects();
 }
 
 void Resources::setImageTextures(std::vector<std::string> textures) {
@@ -269,6 +281,24 @@ void Resources::setImageTextures(std::vector<std::string> textures) {
 	imageTextures_ = new Texture*[numOfImageTextures_];
 	for (int i = 0; i < numOfImageTextures_; i++) {
 		imageTextures_[i] = new Texture(game_->getRenderer(), textures[i]);
+	}
+}
+
+void Resources::setMusic(std::vector<std::string> music) {
+	closeMusic();
+	numOfMusic_ = music.size();
+	music_ = new Music*[numOfMusic_];
+	for (int i = 0; i < numOfMusic_; i++) {
+		music_[i] = new Music(music[i]);
+	}
+}
+
+void Resources::setSoundEffects(std::vector<std::string> soundEffects) {
+	closeSoundEffects();
+	numOfSoundEffects_ = soundEffects.size();
+	soundEffects_ = new SoundEffect*[numOfSoundEffects_];
+	for (int i = 0; i < numOfSoundEffects_; i++) {
+		soundEffects_[i] = new SoundEffect(soundEffects[i]);
 	}
 }
 
@@ -304,15 +334,36 @@ int Resources::getPosTexture(Texture* text) const {
 	return i;
 }
 
+Music* Resources::getMusic(MusicId i) const {
+	if (i < numOfMusic_)
+		return music_[i];
+	else
+		return nullptr;
+}
 
+SoundEffect* Resources::getSoundEffect(SoundEffectId i) const {
+	if (i < numOfSoundEffects_)
+		return soundEffects_[i];
+	else
+		return nullptr;
+}
 
-/*
-<<<<<<< HEAD
-"..//images/botonPuzzle.png" , "..//images/PuzzleHud.png" , "..//images/botonReiniciar.png", "..//images/casillaPuzzleBloq.png", "..//images/casillaPuzzleDestroy.png",
-"..//images/escena4caso1.png", "..//images/moto.png", "..//images/escena3caso1.png", "..//images/muebleentrada.png", "..//images/macetaentrada.png", "..//images/puertaentrada.png",
-"..//images/colisionableAux.png" };
-=======
-"..//images/botonPuzzle.png", "..//images/LuzApagada.png", "..//images/LuzEncendida.png", "..//images/Barras.png", "..//images/BarraCarga.png", "..//images/ondas.png",
-"..//images/LucesHud.png", "..//images/TextoPixel.png", "..//images/BarridoBotella.png"  };
->>>>>>> Puzzle-2+-basura
-*/
+void Resources::closeMusic() {
+	for (int i = 0; i < numOfMusic_; i++) {
+		if (music_[i] != nullptr) {
+			delete music_[i];
+		}
+	}
+	delete[] music_;
+	numOfMusic_ = 0;
+}
+
+void Resources::closeSoundEffects() {
+	for (int i = 0; i < numOfSoundEffects_; i++) {
+		if (soundEffects_[i] != nullptr) {
+			delete soundEffects_[i];
+		}
+	}
+	delete[] soundEffects_;
+	numOfSoundEffects_ = 0;
+}

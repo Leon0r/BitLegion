@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include "Resources.h"
+
 // Archivo solo con el enum de mensajes posibles entre observer/observable
 enum Messages {
 	Ch_Left,
@@ -21,7 +23,13 @@ enum Messages {
 	AbreInventario,
 	Pausa,
 	CambioEstado,
-	AddItemDialog
+	AddItemDialog,
+	PLAY_MUSIC,
+	STOP_MUSIC,
+	PAUSE_MUSIC,
+	RESUME_MUSIC,
+	PLAY_SOUNDEFFECT,
+	STOP_ALL_SOUNDEFFECT
 };
 
 struct Mensaje{
@@ -42,7 +50,7 @@ struct MensajeCambioEscenaDialogos : Mensaje
 	int numScene_;
 };
 
-struct  MensajeAddItem: Mensaje
+struct  MensajeAddItem : Mensaje
 {
 	int txt_;
 	std::string tag_;
@@ -51,5 +59,41 @@ struct  MensajeAddItem: Mensaje
 
 	MensajeAddItem(Messages id, int txt, std::string tag, std::string desc, bool permanente) : Mensaje(id), txt_(txt), tag_(tag),
 		desc_(desc), perm_(permanente) {}
+};
+
+struct PlayMusic : Mensaje {
+	PlayMusic(Resources::MusicId idMusic) :
+		Mensaje(PLAY_MUSIC), idMusic_(idMusic) {
+	}
+	Resources::MusicId idMusic_;
+};
+
+struct StopMusic : Mensaje {
+	StopMusic(Resources::MusicId idMusic) :
+		Mensaje(STOP_MUSIC), idMusic_(idMusic) {
+	}
+	Resources::MusicId idMusic_;
+};
+
+struct PauseMusic : Mensaje {
+	PauseMusic(Resources::MusicId idMusic) :
+		Mensaje(PAUSE_MUSIC), idMusic_(idMusic) {
+	}
+	Resources::MusicId idMusic_;
+};
+
+struct ResumeMusic : Mensaje {
+	ResumeMusic(Resources::MusicId idMusic) :
+		Mensaje(RESUME_MUSIC), idMusic_(idMusic) {
+	}
+	Resources::MusicId idMusic_;
+};
+
+struct PlaySoundE : Mensaje {
+	PlaySoundE(Resources::SoundEffectId idSoundE, int numReps) :
+		Mensaje(PLAY_SOUNDEFFECT), idSoundE_(idSoundE), numReps_(numReps) {
+	}
+	Resources::SoundEffectId idSoundE_;
+	int numReps_;
 };
 

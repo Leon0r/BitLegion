@@ -23,6 +23,7 @@ GameState::~GameState()
 
 GameState::GameState(SDLApp * app) : app(app)
 {
+	addObserver(app->getSoundManager());
 	if (cursor == nullptr) {
 		cursor = new Cursor(app, app->getResources()->getImageTexture(Resources::Cursor), 15, 21); //singleton (?)
 	}

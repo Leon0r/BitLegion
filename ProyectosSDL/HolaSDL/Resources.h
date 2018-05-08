@@ -5,6 +5,8 @@
 #include "Texture.h"
 #include <vector>
 #include <tuple>
+#include "Music.h"
+#include "SoundEffect.h"
 
 class SDLApp;
 class Resources {
@@ -262,8 +264,24 @@ public:
 		VentanaGalina,
 		CasillaPuzleCarta,
 	};
+
+	// Music -- each file is loaded as an instance of Music
+	//
+	enum MusicId {
+		MainTheme
+	};
+
+
+	// Sound Effects -- each file is loaded as an instance of SoundEffect
+	//
+	enum SoundEffectId {
+		Door
+	};
+
 private:
 	static std::vector<std::string> imageFiles_; // initialized in .cpp
+	static std::vector<std::string> musicFiles_; // initialized in .cpp
+	static std::vector<std::string> soundEffectFiles_; // initialized in .cpp
 
 public:
 	Resources(SDLApp* game);
@@ -273,15 +291,28 @@ public:
 
 	int getPosTexture(Texture* text) const;
 
+	Music* getMusic(MusicId i) const;
+	SoundEffect* getSoundEffect(SoundEffectId i) const;
+
 private:
 	void setImageTextures(std::vector<std::string> textures);
+	void setMusic(std::vector<std::string> music);
+	void setSoundEffects(std::vector<std::string> soundEffects);
 
 	void closeImageTextures();
+	void closeMusic();
+	void closeSoundEffects();
 
 	SDLApp* game_;
 
 	int numOfImageTextures_;
 	Texture** imageTextures_;
+
+	int numOfMusic_;
+	Music** music_;
+
+	int numOfSoundEffects_;
+	SoundEffect** soundEffects_;
 };
 
 #endif /* RESOURCES_H_ */
