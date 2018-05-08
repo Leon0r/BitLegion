@@ -256,7 +256,6 @@ public:
 		InterruptorCamello,
 		LucesCamello,
 		SofaCamello,
-		BuzonCamelloAbierto,
 		MesaCamello,
 		LuzPolbots,
 		NeonSports,

@@ -243,7 +243,6 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/interruptorCamello.png",
 "..//images/Objetos/cajaDeLuces.png",
 "..//images/Objetos/Colisionables/sofaCamello.png",
-"..//images/Objetos/cajafuerteAbierta.png",
 "..//images/Objetos/Colisionables/mesaCamello.png",
 "..//images/Objetos/luzPolbots.png",
 "..//images/Objetos/neonDeportes.png",
