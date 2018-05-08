@@ -20,6 +20,8 @@ void GOcofres::secondAct()
 
 	this->playAnim("Anim1");
 
+	open = true;
+
 	//this->setActive(false);
 }
 

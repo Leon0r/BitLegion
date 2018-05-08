@@ -113,6 +113,7 @@
          "numColsFrame": 2,
          "numFilsFrame": 3,
          "numTextItem": 93,
+         "open": false,
          "permanenteItem": false,
          "rotation": 0.0,
          "tag": "-1",
@@ -123,22 +124,6 @@
          "widthFrame": 60,
          "x": 505.0,
          "y": 305.0
-      }
-   ],
-   "GOState": [
-      {
-         "TexturaFondo": 177,
-         "Texture": 29,
-         "UnlockId": 1,
-         "h": 30.0,
-         "password": "kakaaaa",
-         "posFontX": 417,
-         "posFontY": 436,
-         "rotation": -45,
-         "type": 2,
-         "w": 30.0,
-         "x": 500.0,
-         "y": 317.0
       }
    ],
    "GOTransiciones": [
@@ -164,8 +149,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 900.0,
-      "y": 335.0
+      "x": 444.0,
+      "y": 263.0
    },
    "PlayerTam": {
       "h": 201.6,

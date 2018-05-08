@@ -210,7 +210,11 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			SceneItems.push_back(cofre);
 			addAnimsFromJSON(cofre, j[obj][i], n);
 
-
+			if (!j[obj][i]["open"].is_null()) {
+				if (j[obj][i]["open"]) {
+					cofre->playAnim("Anim1");
+				}
+			}
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
