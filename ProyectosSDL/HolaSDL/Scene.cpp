@@ -203,7 +203,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 			bool open = false;
 			if (!j[obj][i]["open"].is_null()) {
-				itPerm = j[obj][i]["open"];
+				open = j[obj][i]["open"];
 			}
 
 			GOcofres* cofre = new GOcofres(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
