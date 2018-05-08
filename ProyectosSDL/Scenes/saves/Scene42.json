@@ -46,8 +46,8 @@
          ],
          "Texture": 238,
          "animation": true,
-         "h": 50.0,
-         "heightFrame": 50,
+         "h": 81.0,
+         "heightFrame": 81,
          "loop": true,
          "numColsFrame": 1,
          "numFilsFrame": 2,
@@ -104,8 +104,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 230.0,
-      "y": 330.0
+      "x": 422.0,
+      "y": 378.0
    },
    "PlayerTam": {
       "h": 201.6,

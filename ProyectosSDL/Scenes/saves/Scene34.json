@@ -2,7 +2,7 @@
    "AlenaActiva": true,
    "CollisionableObject": [
       {
-         "Texture": 247,
+         "Texture": 246,
          "h": 200.0,
          "rotation": 0.0,
          "w": 60.0,
@@ -10,7 +10,7 @@
          "y": 180.0
       },
       {
-         "Texture": 247,
+         "Texture": 246,
          "h": 96.0,
          "rotation": 0.0,
          "w": 240.0,

@@ -20,9 +20,9 @@
     ],
 
     "Decorado": [
-        { "x": 700, "y": 305, "w": 70, "h": 50, "Texture": 238, "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 70, "heightFrame": 50, "vel": 150, "loop": true,
-            "Anims": [ [0,1,1,0,0,0,0,1,0,1,0,0,1,1,0,0,1,0,0,1] ]}
+        { "x": 700, "y": 305, "w": 70, "h": 81, "Texture": 238, "animation": true, "numFilsFrame": 3, "numColsFrame": 1,
+            "widthFrame": 70, "heightFrame": 81, "vel": 150, "loop": true,
+            "Anims": [ [0,1,1,0,0,0,0,1,0,1,0,0,1,1,0,0,1,0,0,1], [2] ]}
     ],
 
     "GOCofres": [
