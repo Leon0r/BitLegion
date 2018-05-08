@@ -5,7 +5,7 @@ void GOUnlockeable::act() {
 	if (!opened) {
 		PlayState* aux = static_cast<PlayState*>(app->getStateMachine()->currentState());
 
-		if (aux->getMainPj()->getCurrentTag() == key) {
+		if (aux->getMainPj()->getCurrentTag() == key || key == "") {
 			if (aux != nullptr) {
 				MainCharacter* pj = aux->getMainPj();
 				if (pj != nullptr) {

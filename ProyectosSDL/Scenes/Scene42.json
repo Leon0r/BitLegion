@@ -25,6 +25,10 @@
             "Anims": [ [0,1,1,0,0,0,0,1,0,1,0,0,1,1,0,0,1,0,0,1], [2] ]}
     ],
 
+    "Interruptores": [
+        { "x": 100, "y": 235, "w": 37, "h": 34, "Texture": 237, "tag": "interruptor0", "maxAlpha": 250, "minAlpha": 0, "UnlockId": 1, "off": true, "canWork": false  }
+    ],
+
     "GOCofres": [
         { "x": 213, "y": 275, "w": 50, "h": 55, "Texture": 236, "tag": "", "wItem": 18, "hItem": 18, "descripcionItem": "funciona", 
             "tagItem": "funcionaGuay","numTextItem": 210, "xItem": 218, "yItem": 280, "animation": true, "numFilsFrame": 2, "numColsFrame": 1,

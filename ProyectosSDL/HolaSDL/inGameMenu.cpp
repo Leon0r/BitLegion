@@ -62,6 +62,7 @@ inGameMenu::inGameMenu(SDLApp* game, GameState* previousState): GameState(game),
 
 
 	txt = app->getResources()->getImageTexture(Resources::Transicion);
+	prevAlpha = txt->getAlpha(); //para restaurar el alpha por posibles errores
 	txt->changeAlpha(175);
 }
 
@@ -78,6 +79,7 @@ inGameMenu::~inGameMenu()
 	delete(bMenutext);
 	delete(bExittext);
 	delete(bMutetext);
+	txt->changeAlpha(prevAlpha);
 }
 
 

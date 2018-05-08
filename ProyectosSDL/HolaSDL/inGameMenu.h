@@ -34,5 +34,7 @@ private:
 	function<void()> eGame_;
 	function<void()> eMenuGame_;
 	function<void()> muteVol_;
+
+	int prevAlpha;
 };
 

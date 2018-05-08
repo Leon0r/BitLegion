@@ -10,7 +10,7 @@
          "y": 270.0
       },
       {
-         "Texture": 241,
+         "Texture": 240,
          "h": 162.0,
          "rotation": 0.0,
          "w": 252.0,
@@ -82,8 +82,8 @@
          "numColsFrame": 1,
          "numFilsFrame": 2,
          "numTextItem": 210,
-         "open": true,
-         "permanenteItem": true,
+         "open": false,
+         "permanenteItem": false,
          "rotation": 0.0,
          "tag": "",
          "tagItem": "funcionaGuay",
@@ -95,20 +95,6 @@
          "xItem": 218,
          "y": 275.0,
          "yItem": 280
-      }
-   ],
-   "GOState": [
-      {
-         "Texture": 29,
-         "UnlockId": 1,
-         "dificultad": 1,
-         "h": 30.0,
-         "numCas": 3,
-         "rotation": -45,
-         "type": 1,
-         "w": 30.0,
-         "x": 705.0,
-         "y": 325.0
       }
    ],
    "GOTransiciones": [
@@ -123,9 +109,25 @@
          "y": 310.0
       }
    ],
+   "Interruptores": [
+      {
+         "Texture": 237,
+         "UnlockId": 1,
+         "canWork": true,
+         "h": 34.0,
+         "maxAlpha": 250,
+         "minAlpha": 0,
+         "off": false,
+         "rotation": 0.0,
+         "tag": "interruptor0",
+         "w": 37.0,
+         "x": 100.0,
+         "y": 235.0
+      }
+   ],
    "PlayerPos": {
-      "x": 146.0,
-      "y": 228.0
+      "x": 92.0,
+      "y": 225.6
    },
    "PlayerTam": {
       "h": 201.6,

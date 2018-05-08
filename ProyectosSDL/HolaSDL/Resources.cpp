@@ -248,6 +248,7 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/neonDeportes.png",
 "..//images/Objetos/ventanaGalina.png",
 "..//images/Objetos/Puzles/casillaPuzzleCarta.png",
+"..//images/Objetos/luz.png",
 };
 
 std::vector<std::string> Resources::musicFiles_{

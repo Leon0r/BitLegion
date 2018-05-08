@@ -263,6 +263,7 @@ public:
 		NeonSports,
 		VentanaGalina,
 		CasillaPuzleCarta,
+		Luz,
 	};
 
 	// Music -- each file is loaded as an instance of Music

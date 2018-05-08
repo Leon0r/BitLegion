@@ -47,7 +47,7 @@ public:
 private:
 	Texture * _texture;
 	ShortCut * shortCut;
-	string currentTag;
+	string currentTag = "";
 	AnimationRenderer* render;
 	KeyboardComponent* keyboard;
 	MovementComponent* movement;

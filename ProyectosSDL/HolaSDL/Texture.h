@@ -26,9 +26,10 @@ public:
 		SDL_Rect* clip = nullptr) const;
 	void close();
 	void changeAlpha(Uint8 newAlpha);
+	int getAlpha() const { return actualAlpha_; };
 
 private:
-
+	int actualAlpha_ = 255;
 	SDL_Texture *texture_;
 	int width_;
 	int height_;

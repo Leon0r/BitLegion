@@ -10,6 +10,7 @@
 #include "Decorado.h"
 #include "NPC.h"
 #include "FeedbackCursorInputComponent.h"
+#include "Interruptor.h"
 #include "GOcofres.h"
 
 Scene::Scene()
@@ -238,6 +239,42 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			SceneItems.push_back(newCol);
 
 			addAnimsFromJSON(newCol, j[obj][i], n);
+
+			if (!j[obj][i]["rotation"].is_null()) {
+				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+			}
+		}
+
+		// Cargado de GODoors
+		obj = "Interruptores";
+		for (int i = 0; i < j[obj].size(); i++) {
+
+			n = j[obj][i]["Texture"];
+
+			int id = -4;
+			if (!j[obj][i]["UnlockId"].is_null())
+				if (j[obj][i]["UnlockId"].is_number_integer()) {
+					id = j[obj][i]["UnlockId"];
+				}
+
+			bool off = true;
+			if (!j[obj][i]["off"].is_null()) {
+				off = j[obj][i]["off"];
+			}
+
+			bool canWork = true;
+			if (!j[obj][i]["canWork"].is_null()) {
+				canWork = j[obj][i]["canWork"];
+			}
+
+
+			Interruptor* interr = new Interruptor(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["maxAlpha"], j[obj][i]["minAlpha"], id, off, canWork);
+
+			SceneItems.push_back(interr);
+			SceneItems.push_back(interr->getLuz());
+
+			addAnimsFromJSON(interr, j[obj][i], n);
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);

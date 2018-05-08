@@ -101,4 +101,5 @@ void Texture::render(SDL_Renderer* renderer, const SDL_Rect& dest, double angle,
 
 void Texture::changeAlpha(Uint8 newAlpha){
 	SDL_SetTextureAlphaMod(this->texture_, newAlpha);
+	actualAlpha_ = newAlpha;
 }
