@@ -1,4 +1,6 @@
 #pragma once
+#include "Resources.h"
+
 // Archivo solo con el enum de mensajes posibles entre observer/observable
 enum Messages {
 	Ch_Left,
@@ -20,7 +22,10 @@ enum Messages {
 	AbreInventario,
 	Pausa,
 	CambioEstado,
-	Suena
+	PLAY_MUSIC,
+	STOP_MUSIC,
+	PAUSE_MUSIC,
+	RESUME_MUSIC
 };
 
 struct Mensaje{
@@ -39,5 +44,33 @@ struct MensajeCambioEscenaDialogos : Mensaje
 {
 	MensajeCambioEscenaDialogos(Messages id, int numScene) : Mensaje(id), numScene_(numScene) {}
 	int numScene_;
+};
+
+struct PlayMusic : Mensaje {
+	PlayMusic(Resources::MusicId idMusic) :
+		Mensaje(PLAY_MUSIC), idMusic_(idMusic) {
+	}
+	Resources::MusicId idMusic_;
+};
+
+struct StopMusic : Mensaje {
+	StopMusic(Resources::MusicId idMusic) :
+		Mensaje(STOP_MUSIC), idMusic_(idMusic) {
+	}
+	Resources::MusicId idMusic_;
+};
+
+struct PauseMusic : Mensaje {
+	PauseMusic(Resources::MusicId idMusic) :
+		Mensaje(PAUSE_MUSIC), idMusic_(idMusic) {
+	}
+	Resources::MusicId idMusic_;
+};
+
+struct ResumeMusic : Mensaje {
+	ResumeMusic(Resources::MusicId idMusic) :
+		Mensaje(RESUME_MUSIC), idMusic_(idMusic) {
+	}
+	Resources::MusicId idMusic_;
 };
 

@@ -8,8 +8,10 @@ MainMenuState::MainMenuState()
 }
 MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 {
-	send(&Mensaje(Suena));
-	nGame_ = [game]() { // funcion newGame();
+	playMusic(Resources::MainTheme);
+	nGame_ = [game, this]()mutable { // funcion newGame();
+		stopMusic(Resources::MainTheme);
+
 		PlayState* playState_ = new PlayState(game); //acceder al estado PlayState
 
 		game->getStateMachine()->pushState(playState_);//pop antes??
@@ -19,7 +21,8 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 		//game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
 	};
 
-	lGame_ = [game]() { //funcion LoadGame();
+	lGame_ = [game, this]()mutable { //funcion LoadGame();
+		stopMusic(Resources::MainTheme);
 		PlayState* playState_ = new PlayState(game, true); //acceder al estado PlayState
 
 		game->getStateMachine()->pushState(playState_);//pop antes??
@@ -29,7 +32,8 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 		//game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
 	};
 
-	eGame_ = [game]() {
+	eGame_ = [game, this]()mutable {
+		stopMusic(Resources::MainTheme);
 		game->exitGame();//Nunca deberia de haber un estado por encima de este
 	};
 

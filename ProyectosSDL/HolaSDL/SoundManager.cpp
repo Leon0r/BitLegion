@@ -21,8 +21,25 @@ void SoundManager::update(Uint32 time) {
 
 void SoundManager::receive(Mensaje* msg) {
 	switch (msg->id_) {
-	case Suena:
-		app->getResources()->getMusic(Resources::MainTheme)->play(30);
+	case PLAY_MUSIC: {
+		PlayMusic* m = static_cast<PlayMusic*>(msg);
+		app->getResources()->getMusic(m->idMusic_)->play();
 		break;
+	}
+	case STOP_MUSIC: {
+		StopMusic* m = static_cast<StopMusic*>(msg);
+		app->getResources()->getMusic(m->idMusic_)->stop();
+		break;
+	}
+	case PAUSE_MUSIC: {
+		PauseMusic* m = static_cast<PauseMusic*>(msg);
+		app->getResources()->getMusic(m->idMusic_)->pause();
+		break;
+	}
+	case RESUME_MUSIC: {
+		ResumeMusic* m = static_cast<ResumeMusic*>(msg);
+		app->getResources()->getMusic(m->idMusic_)->resume();
+		break;
+	}
 	}
 }

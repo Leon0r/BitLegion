@@ -27,7 +27,22 @@ protected:
 	
 	void handleCursor(SDL_Event &e);
 	void renderCursor();
-
+	void playMusic(Resources::MusicId id) {
+		PlayMusic msg = { id };
+		send(&msg);
+	}
+	void stopMusic(Resources::MusicId id) {
+		StopMusic msg = { id };
+		send(&msg);
+	}
+	void pauseMusic(Resources::MusicId id) {
+		PauseMusic msg = { id };
+		send(&msg);
+	}
+	void resumeMusic(Resources::MusicId id) {
+		ResumeMusic msg = { id };
+		send(&msg);
+	}
 public:
 	virtual void render(); //manda a los objetos del estado render, el 0 es por el tiempo que no sé porq lo tenemos
 	virtual void update(); //manda a los objetos del estado update
