@@ -13,7 +13,7 @@ public:
 	};
 	virtual void saveToJson(json& j) {
 		json aux; Entity::saveToJson(aux);
-		aux["convoName"] = convoName_; j["GOConversational"].push_back(aux);
+		aux["convoName"] = convoName_; aux["repeat"] = repeat_; j["GOConversational"].push_back(aux);
 	};
 
 	virtual void receive(Mensaje* msg);

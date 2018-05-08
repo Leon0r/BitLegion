@@ -10,6 +10,14 @@
          "y": 250.0
       },
       {
+         "Texture": 247,
+         "h": 207.0,
+         "rotation": 0.0,
+         "w": 55.0,
+         "x": 600.0,
+         "y": 250.0
+      },
+      {
          "Texture": 85,
          "h": 220.0,
          "rotation": 0.0,
@@ -112,6 +120,7 @@
          "loop": true,
          "numColsFrame": 6,
          "numFilsFrame": 2,
+         "repeat": true,
          "rotation": 0.0,
          "vel": 200.0,
          "w": 55.0,

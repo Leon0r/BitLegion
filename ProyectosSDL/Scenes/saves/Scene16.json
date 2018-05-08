@@ -16,6 +16,22 @@
          "w": 55.0,
          "x": 1180.0,
          "y": 200.0
+      },
+      {
+         "Texture": 247,
+         "h": 220.0,
+         "rotation": 0.0,
+         "w": 65.0,
+         "x": 960.0,
+         "y": 190.0
+      },
+      {
+         "Texture": 247,
+         "h": 210.0,
+         "rotation": 0.0,
+         "w": 55.0,
+         "x": 1180.0,
+         "y": 200.0
       }
    ],
    "GOTransiciones": [
@@ -69,6 +85,7 @@
          "loop": true,
          "numColsFrame": 2,
          "numFilsFrame": 2,
+         "repeat": true,
          "rotation": 0.0,
          "vel": 350.0,
          "w": 65.0,
@@ -102,6 +119,7 @@
          "loop": true,
          "numColsFrame": 2,
          "numFilsFrame": 2,
+         "repeat": true,
          "rotation": 0.0,
          "vel": 300.0,
          "w": 55.0,

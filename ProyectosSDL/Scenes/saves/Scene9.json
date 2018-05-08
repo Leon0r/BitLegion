@@ -34,6 +34,7 @@
          "Texture": 19,
          "convoName": "conversacionCoche",
          "h": 0.0,
+         "repeat": false,
          "rotation": 0.0,
          "w": 0.0,
          "x": 581.0,

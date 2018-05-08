@@ -84,22 +84,24 @@
    ],
    "GOConversational": [
       {
-         "Texture": 154,
-         "convoName": "AlenaLlavesMoto",
-         "h": 40.0,
-         "rotation": 0.0,
-         "w": 40.0,
-         "x": 630.0,
-         "y": 500.0
-      },
-      {
          "Texture": 20,
          "convoName": "AlenaJeffaTelefono",
          "h": 40.0,
+         "repeat": false,
          "rotation": 0.0,
          "w": 40.0,
          "x": 915.0,
          "y": 280.0
+      },
+      {
+         "Texture": 154,
+         "convoName": "AlenaLlavesMoto",
+         "h": 40.0,
+         "repeat": false,
+         "rotation": 0.0,
+         "w": 40.0,
+         "x": 630.0,
+         "y": 500.0
       }
    ],
    "GODoors": [
@@ -144,16 +146,6 @@
    ],
    "ItemInventario": [
       {
-         "Texture": 55,
-         "descripcion": "Llave de la moto de    Alena",
-         "h": 40.0,
-         "rotation": 0.0,
-         "tag": "keyMoto",
-         "w": 40.0,
-         "x": 630.0,
-         "y": 500.0
-      },
-      {
          "Texture": 19,
          "descripcion": "Llave de la casa de    Alena",
          "h": 40.0,
@@ -162,11 +154,21 @@
          "w": 40.0,
          "x": 710.0,
          "y": 490.0
+      },
+      {
+         "Texture": 55,
+         "descripcion": "Llave de la moto de    Alena",
+         "h": 40.0,
+         "rotation": 0.0,
+         "tag": "keyMoto",
+         "w": 40.0,
+         "x": 630.0,
+         "y": 500.0
       }
    ],
    "PlayerPos": {
-      "x": 100.0,
-      "y": 500.0
+      "x": 652.0,
+      "y": 255.6
    },
    "PlayerTam": {
       "h": 201.6,

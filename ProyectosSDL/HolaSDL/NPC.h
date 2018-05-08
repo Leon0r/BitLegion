@@ -13,6 +13,6 @@ public:
 	virtual ~NPC();
 	ColisionableObject* getColisionable() { return obj; };
 	virtual void saveToJson(json& j) { json aux; Entity::saveToJson(aux); 
-	aux["dialogo"] = convoName_;  j["NPC"].push_back(aux); };
+	aux["dialogo"] = convoName_;   aux["repeat"] = repeat_; j["NPC"].push_back(aux); };
 };
 

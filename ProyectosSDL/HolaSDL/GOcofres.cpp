@@ -20,7 +20,7 @@ void GOcofres::secondAct()
 
 	this->playAnim("Anim1");
 
-	this->setActive(false);
+	//this->setActive(false);
 }
 
 

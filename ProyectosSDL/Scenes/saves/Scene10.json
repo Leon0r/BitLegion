@@ -26,6 +26,30 @@
          "y": 280.0
       },
       {
+         "Texture": 247,
+         "h": 125.0,
+         "rotation": 0.0,
+         "w": 38.0,
+         "x": 740.0,
+         "y": 355.0
+      },
+      {
+         "Texture": 247,
+         "h": 127.0,
+         "rotation": 0.0,
+         "w": 47.0,
+         "x": 706.0,
+         "y": 320.0
+      },
+      {
+         "Texture": 247,
+         "h": 115.0,
+         "rotation": 0.0,
+         "w": 33.0,
+         "x": 740.0,
+         "y": 280.0
+      },
+      {
          "Texture": 43,
          "h": 250.0,
          "rotation": 0.0,
@@ -335,6 +359,7 @@
          "loop": true,
          "numColsFrame": 2,
          "numFilsFrame": 2,
+         "repeat": true,
          "rotation": 0.0,
          "vel": 250.0,
          "w": 38.0,
@@ -369,6 +394,7 @@
          "loop": true,
          "numColsFrame": 3,
          "numFilsFrame": 2,
+         "repeat": true,
          "rotation": 0.0,
          "vel": 200.0,
          "w": 47.0,
@@ -406,6 +432,7 @@
          "loop": true,
          "numColsFrame": 2,
          "numFilsFrame": 2,
+         "repeat": true,
          "rotation": 0.0,
          "vel": 280.0,
          "w": 33.0,
