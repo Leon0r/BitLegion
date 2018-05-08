@@ -123,7 +123,9 @@
          "wItem": 18,
          "widthFrame": 60,
          "x": 505.0,
-         "y": 305.0
+         "xItem": 517,
+         "y": 305.0,
+         "yItem": 325
       }
    ],
    "GOState": [

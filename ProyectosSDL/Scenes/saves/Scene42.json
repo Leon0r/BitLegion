@@ -83,16 +83,18 @@
          "numFilsFrame": 2,
          "numTextItem": 210,
          "open": true,
-         "permanenteItem": false,
+         "permanenteItem": true,
          "rotation": 0.0,
          "tag": "",
          "tagItem": "funcionaGuay",
-         "vel": 150.0,
+         "vel": 20.0,
          "w": 50.0,
          "wItem": 18,
          "widthFrame": 50,
          "x": 213.0,
-         "y": 275.0
+         "xItem": 218,
+         "y": 275.0,
+         "yItem": 280
       }
    ],
    "GOState": [
@@ -121,21 +123,9 @@
          "y": 310.0
       }
    ],
-   "ItemInventario": [
-      {
-         "Texture": 210,
-         "descripcion": "funciona",
-         "h": 18.0,
-         "rotation": 0.0,
-         "tag": "funcionaGuay",
-         "w": 18.0,
-         "x": 228.0,
-         "y": 302.0
-      }
-   ],
    "PlayerPos": {
-      "x": 152.0,
-      "y": 240.0
+      "x": 146.0,
+      "y": 228.0
    },
    "PlayerTam": {
       "h": 201.6,

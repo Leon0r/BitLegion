@@ -201,9 +201,14 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				itPerm = j[obj][i]["permanenteItem"];
 			}
 
+			bool open = false;
+			if (!j[obj][i]["open"].is_null()) {
+				itPerm = j[obj][i]["open"];
+			}
+
 			GOcofres* cofre = new GOcofres(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["wItem"], j[obj][i]["hItem"], j[obj][i]["descripcionItem"], j[obj][i]["tagItem"],
-				app->getResources()->getImageTexture(Resources::ImageId(j[obj][i]["numTextItem"])), itPerm, id);
+				app->getResources()->getImageTexture(Resources::ImageId(j[obj][i]["numTextItem"])), j[obj][i]["xItem"], j[obj][i]["yItem"], itPerm, id, open);
 
 			cofre->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
 
