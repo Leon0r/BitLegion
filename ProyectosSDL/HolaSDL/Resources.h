@@ -258,7 +258,6 @@ public:
 		SofaCamello,
 		BuzonCamelloAbierto,
 		MesaCamello,
-		LucesCamelloAbierta,
 		LuzPolbots,
 		NeonSports,
 		VentanaGalina,
