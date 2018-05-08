@@ -11,34 +11,49 @@ SoundManager::~SoundManager() {
 	// TODO Auto-generated destructor stub
 }
 
-void SoundManager::update(Uint32 time) {
+void SoundManager::update() {
 
 	while (!eventQueue.empty()) {
-		app->getResources()->getSoundEffect(eventQueue.front().id_)->play(eventQueue.front().num_);
+		app->getResources()->getSoundEffect(eventQueue.front().idSoundE_)->play(eventQueue.front().numReps_);
 		eventQueue.pop();
 	}
 }
 
 void SoundManager::receive(Mensaje* msg) {
 	switch (msg->id_) {
+	//reproduce musica dado un id
 	case PLAY_MUSIC: {
 		PlayMusic* m = static_cast<PlayMusic*>(msg);
 		app->getResources()->getMusic(m->idMusic_)->play();
 		break;
 	}
+	//para la musica dado un id
 	case STOP_MUSIC: {
 		StopMusic* m = static_cast<StopMusic*>(msg);
 		app->getResources()->getMusic(m->idMusic_)->stop();
 		break;
 	}
+	//pausa la musica dado un id
 	case PAUSE_MUSIC: {
 		PauseMusic* m = static_cast<PauseMusic*>(msg);
 		app->getResources()->getMusic(m->idMusic_)->pause();
 		break;
 	}
+	//reanuda la musica dado un id
 	case RESUME_MUSIC: {
 		ResumeMusic* m = static_cast<ResumeMusic*>(msg);
 		app->getResources()->getMusic(m->idMusic_)->resume();
+		break;
+	}
+	//reproduce un efecto de sonido dado un id
+	case PLAY_SOUNDEFFECT: {
+		PlaySoundE* m = static_cast<PlaySoundE*>(msg);
+		eventQueue.push(*m);
+		break;
+	}
+	//para todos los efectos de sonido
+	case STOP_ALL_SOUNDEFFECT: {
+		while (!eventQueue.empty())eventQueue.pop();
 		break;
 	}
 	}

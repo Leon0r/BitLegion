@@ -15,14 +15,14 @@ public:
 	SoundManager(SDLApp* game);
 	virtual ~SoundManager();
 	virtual void receive(Mensaje* msg);
-	virtual void update(Uint32 time);
+	virtual void update();
 private:
 	struct PlayMessage {
 		PlayMessage(Resources::SoundEffectId id, int num) : id_(id), num_(num) {};
 		Resources::SoundEffectId id_; //id del sonido a reproducir
 		int num_;
 	};
-	queue<PlayMessage> eventQueue;
+	queue<PlaySoundE> eventQueue;
 	SDLApp* app;
 };
 

@@ -272,7 +272,7 @@ public:
 	// Sound Effects -- each file is loaded as an instance of SoundEffect
 	//
 	enum SoundEffectId {
-		Wall_Hit
+		Door
 	};
 
 private:

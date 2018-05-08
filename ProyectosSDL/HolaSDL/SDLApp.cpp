@@ -44,6 +44,7 @@ void SDLApp::handleEvent() {
 
 void SDLApp::update() {
 	maquinaEstados->currentState()->update();
+	soundManager.update();//actualizamos soundManager para que actualice la cola de soundEffects
 }
 
 void SDLApp::render() {

@@ -8,9 +8,9 @@ MainMenuState::MainMenuState()
 }
 MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 {
-	playMusic(Resources::MainTheme);
-	nGame_ = [game, this]()mutable { // funcion newGame();
-		stopMusic(Resources::MainTheme);
+	playMusic(Resources::MainTheme);//al principio comienza el mainTheme
+	nGame_ = [game, this]()mutable { // funcion newGame(); mutable hace que puedas modificar cosas dentro
+		stopMusic(Resources::MainTheme);//si pulsamos algun boton se para la musica
 
 		PlayState* playState_ = new PlayState(game); //acceder al estado PlayState
 
