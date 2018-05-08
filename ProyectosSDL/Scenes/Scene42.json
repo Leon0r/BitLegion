@@ -7,7 +7,7 @@
     "y": 0.0,
 
     "GOTransiciones": [
-        { "x": 236, "y": 310, "w": 60, "h": 60, "Texture": 29, "scneNum": 41, "rotation": -90 }
+        { "x": 209, "y": 310, "w": 60, "h": 60, "Texture": 29, "scneNum": 41, "rotation": -90 }
     ],
 
      "CollisionableObject": [
@@ -20,11 +20,13 @@
     ],
 
     "Decorado": [
-        { "x": 700, "y": 305, "w": 70, "h": 50, "Texture": 236}
+        { "x": 700, "y": 305, "w": 70, "h": 50, "Texture": 238, "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
+            "widthFrame": 70, "heightFrame": 50, "vel": 150, "loop": true,
+            "Anims": [ [0,1,1,0,0,0,0,1,0,1,0,0,1,1,0,0,1,0,0,1] ]}
     ],
 
     "GOCofres": [
-        { "x": 220, "y": 275, "w": 50, "h": 29, "Texture": 236, "tag": "", "wItem": 18, "hItem": 18, "descripcionItem": "funciona", 
+        { "x": 213, "y": 275, "w": 50, "h": 29, "Texture": 236, "tag": "", "wItem": 18, "hItem": 18, "descripcionItem": "funciona", 
             "tagItem": "funcionaGuay","numTextItem": 210}
     ],
 

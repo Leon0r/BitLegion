@@ -20,10 +20,41 @@
    ],
    "Decorado": [
       {
-         "Texture": 236,
+         "Anims": [
+            [
+               0,
+               1,
+               1,
+               0,
+               0,
+               0,
+               0,
+               1,
+               0,
+               1,
+               0,
+               0,
+               1,
+               1,
+               0,
+               0,
+               1,
+               0,
+               0,
+               1
+            ]
+         ],
+         "Texture": 238,
+         "animation": true,
          "h": 50.0,
+         "heightFrame": 50,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
          "rotation": 0.0,
+         "vel": 150.0,
          "w": 70.0,
+         "widthFrame": 70,
          "x": 700.0,
          "y": 305.0
       }
@@ -41,7 +72,7 @@
          "tagItem": "funcionaGuay",
          "w": 50.0,
          "wItem": 18,
-         "x": 220.0,
+         "x": 213.0,
          "y": 275.0
       }
    ],
@@ -67,13 +98,13 @@
          "rotation": -90.0,
          "scneNum": 41,
          "w": 60.0,
-         "x": 236.0,
+         "x": 208.0,
          "y": 310.0
       }
    ],
    "PlayerPos": {
-      "x": 230.0,
-      "y": 330.0
+      "x": 332.0,
+      "y": 378.0
    },
    "PlayerTam": {
       "h": 201.6,

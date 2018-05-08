@@ -2,10 +2,23 @@
    "AlenaActiva": true,
    "CollisionableObject": [
       {
+         "Anims": [
+            [
+               0,
+               1
+            ]
+         ],
          "Texture": 192,
+         "animation": true,
          "h": 212.0,
+         "heightFrame": 212,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
          "rotation": 0.0,
+         "vel": 150.0,
          "w": 200.0,
+         "widthFrame": 200,
          "x": 600.0,
          "y": 200.0
       },
