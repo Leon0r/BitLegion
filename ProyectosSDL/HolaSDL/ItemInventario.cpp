@@ -21,6 +21,7 @@ void ItemInventario::act() {
 	PlayState* aux = static_cast<PlayState*>(app->getStateMachine()->currentState()); //casteo del playState
 
 	if (aux != nullptr) {
+		app->getStateMachine()->currentState()->resetCursor();
 		MainCharacter* personaje = aux->getMainPj(); //casteo del main
 		if (personaje != nullptr) {
 			personaje->addInventoryObject(this); //añadimos objeto

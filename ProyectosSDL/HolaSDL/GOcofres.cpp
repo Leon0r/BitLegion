@@ -8,7 +8,6 @@ GOcofres::~GOcofres()
 
 void GOcofres::secondAct()
 {
-	if (!activado) {
 		this->playAnim("Anim1");
 
 		list<GameObject*>::iterator it = app->getStateMachine()->currentState()->getStage()->begin();
@@ -21,8 +20,7 @@ void GOcofres::secondAct()
 
 		app->getStateMachine()->currentState()->changeList();
 
-		activado = true;
-	}
+		opened = true;
 
 	//this->setActive(false);
 }

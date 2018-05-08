@@ -6,7 +6,6 @@ void GOUnlockeable::act() {
 		PlayState* aux = static_cast<PlayState*>(app->getStateMachine()->currentState());
 
 		if (aux->getMainPj()->getCurrentTag() == key) {
-			opened = true;
 			if (aux != nullptr) {
 				MainCharacter* pj = aux->getMainPj();
 				if (pj != nullptr) {
@@ -21,6 +20,7 @@ void GOUnlockeable::act() {
 				}
 			}
 			secondAct();
+			opened = true;
 		}
 		else
 		{
