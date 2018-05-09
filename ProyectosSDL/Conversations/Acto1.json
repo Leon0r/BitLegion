@@ -1,5 +1,5 @@
 {
-	"NumNodos": 2,
+	"NumNodos": 47,
 
 	"Nodo": [
 
@@ -232,13 +232,13 @@
 
 	"lineas":[ {"texto": "*Explicacion sobre la empresa que alex no ha puesto"},
 	{"texto": "*Risas del publico porque me he olvidado de cambiar este nodo*"},
-	{"texto": "*Risas++; por la rotura de la cuarta pared*"},],
+	{"texto": "*Risas++; por la rotura de la cuarta pared*"}],
 	"numOpciones":0, "pj": 94, "emo": 0
 	},
 
 	{"numNodo":26, "nodoSig":27, "numLineas": 3, 
 
-	"lineas":[ {"texto": "Cierto, ¿Ves? Así es como tiemes que trabajar si quieres que te ascienda"}
+	"lineas":[ {"texto": "Cierto, ¿Ves? Así es como tiemes que trabajar si quieres que te ascienda"},
 		{"texto": "Como no sabía si ibas a poder resolver el caso, te he asignado un compañero"},
 		{"texto": "para que te ayude"}],
 	"numOpciones":0, "pj": 94, "emo": 0
@@ -246,14 +246,14 @@
 
 	{"numNodo":28, "nodoSig":29, "numLineas": 2, 
 
-	"lineas":[ {"texto": "Pues si, otra vez. eso si, esta vez no le des una paliza cuando"}
+	"lineas":[ {"texto": "Pues si, otra vez. eso si, esta vez no le des una paliza cuando"},
 	{"texto": "te tenga que ayudar a trepar por una ventana."}],
 	"numOpciones":0, "pj": 94, "emo": 0
 	},
 
 	{"numNodo":30, "nodoSig":31, "numLineas": 2, 
 
-	"lineas":[ {"texto": "Para este casi si, Alena. Puede ser peligroso y no quiero mandar"}
+	"lineas":[ {"texto": "Para este casi si, Alena. Puede ser peligroso y no quiero mandar"},
 		{"texto": "a ningún agente solo. Compórtate por favor."}],
 	"numOpciones":0, "pj": 94, "emo": 0
 	},
@@ -274,7 +274,7 @@
 
 	"lineas":[ {"texto": "Y ya hablamos de ello en su momento, asique déjate de tonterías. Además,"},
 		{"texto": "ese hombre no volvió a pisar la oficina cuando efectivamente se demostró que"},
-		{"texto": "intento manosear a otras compañeras, el asqueroso"},],
+		{"texto": "intento manosear a otras compañeras, el asqueroso"}],
 	"numOpciones":0, "pj": 94, "emo": 0
 	},
 
@@ -337,7 +337,6 @@
 
 	"lineas":[ {"texto": "Efectivamente, eso es lo que me han dicho. Me llamo Ander."}],
 	"numOpciones":0, "pj": 94, "emo": 0
-	},
-
+	}
 	]
 }
