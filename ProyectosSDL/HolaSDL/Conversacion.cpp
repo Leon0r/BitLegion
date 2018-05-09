@@ -180,9 +180,13 @@ bool Conversacion::loadConversation(string fileName) {
 
 		for (int i = 0; i < j["NumNodos"]; i++) {
 			
-			if (j["Nodo"][i]["numOpciones"] == 0)
+			if (i == 42) {
+				int kk = 2;
+			}
+			if (j["Nodo"][i]["numOpciones"].is_null() || j["Nodo"][i]["numOpciones"] == 0)
 				opciones = {};
 			else {
+				int k = j["Nodo"][i]["numOpciones"];
 				opciones.resize(j["Nodo"][i]["numOpciones"]);
 				for (int k = 0; k < j["Nodo"][i]["numOpciones"]; k++) {
 					opciones[k].nodoApuntado = j["Nodo"][i]["opciones"][k]["nodoApuntado"];
