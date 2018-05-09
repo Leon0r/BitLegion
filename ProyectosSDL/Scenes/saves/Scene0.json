@@ -95,7 +95,7 @@
       },
       {
          "Texture": 20,
-         "convoName": "AlenaJeffaTelefono",
+         "convoName": "AlenaLlavesMoto",
          "h": 40.0,
          "repeat": false,
          "rotation": 0.0,
@@ -167,8 +167,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 586.0,
-      "y": 273.6
+      "x": 100.0,
+      "y": 500.0
    },
    "PlayerTam": {
       "h": 201.6,

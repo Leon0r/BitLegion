@@ -34,7 +34,7 @@
     ],
 
     "GOConversational": [
-         { "x": 915, "y": 280, "w": 40, "h": 40, "Texture": 20, "convoName": "AlenaJeffaTelefono", "repeat": false },
+         { "x": 915, "y": 280, "w": 40, "h": 40, "Texture": 20, "convoName": "AlenaLlavesMoto", "repeat": false },
          { "x": 630, "y": 500, "w": 40, "h": 40, "Texture": 154, "convoName": "AlenaLlavesMoto", "repeat":  false }
     ],
     
