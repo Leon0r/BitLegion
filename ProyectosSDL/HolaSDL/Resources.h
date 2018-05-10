@@ -287,7 +287,10 @@ public:
 		Door,
 		pickItem,
 		invStartUp,
-		BotonSonido
+		BotonSonido,
+		Neon,
+		Paso,
+		TVnoSignal
 	};
 
 private:
