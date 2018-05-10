@@ -264,7 +264,9 @@ std::vector<std::string> Resources::musicFiles_{
 };
 
 std::vector<std::string> Resources::soundEffectFiles_{ 
-	"..//SoundFX/door.mp3"
+	"..//SoundFX/door.mp3",
+	"..//SoundFX/CogerObjeto.mp3",
+	"..//SoundFX/inventarioON.wav",
 };
 
 

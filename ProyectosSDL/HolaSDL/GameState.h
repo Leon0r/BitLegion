@@ -28,6 +28,24 @@ protected:
 	void handleCursor(SDL_Event &e);
 	void renderCursor();
 
+public:
+	virtual void render(); //manda a los objetos del estado render, el 0 es por el tiempo que no sé porq lo tenemos
+	virtual void update(); //manda a los objetos del estado update
+	virtual void handleEvent(SDL_Event &e);
+	void addEntity(GameObject* entity){ stage.push_back(entity); }
+	GameState();
+	virtual ~GameState();
+	GameState(SDLApp* app);
+	void deleteElement(GameObject* o);
+	list <GameObject*>* getStage() {return &stage;}
+	void changeList() { listhasChanged = true; }
+	virtual void receive(Mensaje* msg) {};
+	virtual void SetZBuffer() {};
+
+	Entity* getCursor() const;
+
+	void resetCursor();
+
 	//metodos para hacer mas sencillas las instrucciones de sonido
 	void playMusic(Resources::MusicId id) {
 		PlayMusic msg = { id };
@@ -55,23 +73,5 @@ protected:
 		Mensaje msg = { STOP_ALL_SOUNDEFFECT };
 		send(&msg);
 	}
-
-public:
-	virtual void render(); //manda a los objetos del estado render, el 0 es por el tiempo que no sé porq lo tenemos
-	virtual void update(); //manda a los objetos del estado update
-	virtual void handleEvent(SDL_Event &e);
-	void addEntity(GameObject* entity){ stage.push_back(entity); }
-	GameState();
-	virtual ~GameState();
-	GameState(SDLApp* app);
-	void deleteElement(GameObject* o);
-	list <GameObject*>* getStage() {return &stage;}
-	void changeList() { listhasChanged = true; }
-	virtual void receive(Mensaje* msg) {};
-	virtual void SetZBuffer() {};
-
-	Entity* getCursor() const;
-
-	void resetCursor();
 };
 

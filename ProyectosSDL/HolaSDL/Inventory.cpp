@@ -4,6 +4,7 @@
 #include "AnimationRenderer.h"
 
 Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousState, ShortCut* shortcut) : GameState(app), inventario(inventario), selected(nullptr), previousState(previousState), SC(shortcut) {
+	playSoundEffect(Resources::invStartUp);
 
 	pb = MouseEventAnimComponent(SDL_MOUSEBUTTONDOWN, "Pressed", "Stop", SDL_BUTTON_LEFT);
 	matriz.resize(numCas*numCas);
@@ -139,6 +140,7 @@ void Inventory::swap(Inventory* state){
 }
 
 void Inventory::destroy() { //destrucci�n de la memoria din�mica que se crea en este estado
+	stopAllSoundEffect();
 	int tam = inventario->getLength();
 
 	if (tam > numCas) tam = numCas;
