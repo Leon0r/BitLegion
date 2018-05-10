@@ -267,6 +267,7 @@ std::vector<std::string> Resources::soundEffectFiles_{
 	"..//SoundFX/door.mp3",
 	"..//SoundFX/CogerObjeto.mp3",
 	"..//SoundFX/inventarioON.wav",
+	"..//SoundFX/botonSonido.mp3"
 };
 
 

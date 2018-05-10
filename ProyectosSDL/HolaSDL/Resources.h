@@ -287,7 +287,7 @@ public:
 		Door,
 		pickItem,
 		invStartUp,
-
+		BotonSonido
 	};
 
 private:

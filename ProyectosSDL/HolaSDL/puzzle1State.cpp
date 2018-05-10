@@ -49,8 +49,8 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	}
 
 	//------------------------------------HUD-------------------------------------------------------------
-	resetFunct_ = [this]() mutable { resetFunction(); };
-	exitFunct_ = [this]() mutable { this->exit(); };
+	resetFunct_ = [this]() mutable { playSoundEffect(Resources::BotonSonido); resetFunction(); };
+	exitFunct_ = [this]() mutable { playSoundEffect(Resources::BotonSonido); this->exit(); };
 
 	resetButton = new Boton(app, "reset", resetFunct_);
 	resetButton->addAnim("Stop", { 0 }, true);

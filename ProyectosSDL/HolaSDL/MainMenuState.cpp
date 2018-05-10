@@ -11,6 +11,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	playMusic(Resources::MainTheme);//al principio comienza el mainTheme
 	nGame_ = [game, this]()mutable { // funcion newGame(); mutable hace que puedas modificar cosas dentro
 		stopMusic(Resources::MainTheme);//si pulsamos algun boton se para la musica
+		playSoundEffect(Resources::BotonSonido);
 
 		PlayState* playState_ = new PlayState(game); //acceder al estado PlayState
 
@@ -23,6 +24,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 	lGame_ = [game, this]()mutable { //funcion LoadGame();
 		stopMusic(Resources::MainTheme);
+		playSoundEffect(Resources::BotonSonido);
 		PlayState* playState_ = new PlayState(game, true); //acceder al estado PlayState
 
 		game->getStateMachine()->pushState(playState_);//pop antes??
@@ -33,10 +35,12 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 	eGame_ = [game, this]()mutable {
 		stopMusic(Resources::MainTheme);
+		playSoundEffect(Resources::BotonSonido);
 		game->exitGame();//Nunca deberia de haber un estado por encima de este
 	};
 
-	controlesFunc_ = [game]() {
+	controlesFunc_ = [game, this]()mutable {
+		playSoundEffect(Resources::BotonSonido);
 		ControlesState* contState = new ControlesState(game);
 
 		game->getStateMachine()->pushState(contState);

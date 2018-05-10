@@ -21,8 +21,8 @@ LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(a
 	this->apagaLuces(dificultad);
 
 	//--------Botones-----
-	resetFunc_ = [this]() mutable {resetPuzzle(); };
-	exitFun_ = [this]() mutable {this->exit(); };
+	resetFunc_ = [this]() mutable {playSoundEffect(Resources::BotonSonido); resetPuzzle(); };
+	exitFun_ = [this]() mutable {playSoundEffect(Resources::BotonSonido); this->exit(); };
 	botonReset = new Boton(app, "reset", resetFunc_);
 	botonReset->setWidth(80);
 	botonReset->setHeight(60);

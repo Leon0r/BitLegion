@@ -27,7 +27,7 @@ PasswordState::PasswordState(SDLApp * app, int PosFontX, int PosFontY, string pa
 	f = new Font("..//images/Dialogos/Moonace-Regular.ttf", 50);
 	resetPassword();
 
-	exitFun_ = [app]() mutable { app->getStateMachine()->popState(false); };
+	exitFun_ = [app, this]() mutable { playSoundEffect(Resources::BotonSonido); app->getStateMachine()->popState(false); };
 	botonSalir = new Boton(app, "exitButton", exitFun_);
 	botonSalir->setWidth(56);
 	botonSalir->setHeight(53);
