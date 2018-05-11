@@ -26,6 +26,12 @@ private:
 	bool exit = false;
 	SoundManager soundManager;
 
+	bool resourInitiated = false;
+
+	void pantallaCarga();
+
+	//void go();
+
 public:
 	SDLApp(int w, int h);
 	~SDLApp() { this->closeSDL(); };
@@ -41,9 +47,10 @@ public:
 	int SDLApp::getWindowWidth() const;
 	int SDLApp::getWindowHeight() const;
 	const Resources* getResources() const{ return resources; }
-	void initResources() { resources = new Resources(this); }
+	void initResources() { if (!resourInitiated) { resources = new Resources(this); resourInitiated = true; } }
 	void closeResources(){ delete resources; }
 	void exitGame() { exit = true; };
 	SoundManager* getSoundManager() { return &soundManager; }
+	void setSoundManager(SoundManager s) { soundManager = s; };
 };
 

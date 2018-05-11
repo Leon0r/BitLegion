@@ -1,4 +1,6 @@
 #include "SDLApp.h"
+#include <thread>
+#include <mutex>
 #include "PlayState.h"
 #include "Inventory.h"
 #include "LightsOut.h"
@@ -6,8 +8,25 @@
 #include "PasswordState.h"
 #include "TransitionScreen.h"
 
+
+bool initiated = false;
+
+void call_from_thread(SDLApp* app) {
+	app->initResources();
+	cout << "aparcao"<< endl;
+	initiated = true;
+}
+
+void SDLApp::pantallaCarga()
+{
+	Texture f = Texture(this->getRenderer(), "..//images/Objetos/ventanacafeteriaspritesheet.png");
+	f.render(this->getRenderer(), 0, 0);
+	SDL_RenderPresent(this->getRenderer());
+}
+
 SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 {
+		std::thread t;
 		srand(time(NULL)); //inicia la seed del random para que genere distintos numeros siempre que compilemos
 		window = nullptr;
 		renderer = nullptr;
@@ -21,10 +40,17 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 		// SDL Mixer (Music, Sound, etc)
 		Mix_Init(MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG);
 		Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
-		initResources();
+
+		pantallaCarga();
 		SDL_ShowCursor(0);
-		soundManager = SoundManager(this);
 		maquinaEstados = new GameStateMachine();
+
+		t = std::thread(call_from_thread, this); //hebra que carga recursos
+
+		t.join(); // wait de la hebra
+
+		//cuando la carga de recursos ha acabado, empieza el juego cargando el soundmanager y el menu
+		soundManager = SoundManager(this);
 
 		maquinaEstados->pushState(new MainMenuState(this));
 }

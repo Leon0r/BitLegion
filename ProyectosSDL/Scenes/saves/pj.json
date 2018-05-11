@@ -1,7 +1,7 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 3,
+        "actualScene": 42,
         "h": 201.6,
         "itemList": [
             {
@@ -27,7 +27,7 @@
         ],
         "rotation": 0.0,
         "w": 84.0,
-        "x": 365.0,
-        "y": 320.0
+        "x": 230.0,
+        "y": 330.0
     }
 }
