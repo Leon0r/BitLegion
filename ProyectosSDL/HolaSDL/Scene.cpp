@@ -55,6 +55,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 			addAnimsFromJSON(item, j[obj][i], n);
 
+			readSoundEffect(item, j[obj][i]);
+
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.front()->setRotation(j[obj][i]["rotation"]);
 			}
@@ -79,6 +81,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 			addAnimsFromJSON(goSt, j[obj][i], n);
 
+			readSoundEffect(goSt, j[obj][i]);
+
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
@@ -100,6 +104,10 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			conver->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
 
 			SceneItems.push_front(conver);
+
+			addAnimsFromJSON(conver, j["GOConversational"][i], n);
+
+			readSoundEffect(conver, j["GOConversational"][i]);
 
 		}
 
@@ -134,6 +142,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				delete im; //si tiene animaciones, borra el anterior componente de render
 			}
 
+			readSoundEffect(aux, j[obj][i]);
+
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
@@ -156,6 +166,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 			addAnimsFromJSON(npc, j[obj][i], n);
 
+			readSoundEffect(npc, j[obj][i]);
+
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
@@ -176,6 +188,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			SceneItems.push_back(goTrans);
 
 			addAnimsFromJSON(goTrans, j[obj][i], n);
+
+			readSoundEffect(goTrans, j[obj][i]);
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -216,6 +230,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			SceneItems.push_back(cofre);
 			addAnimsFromJSON(cofre, j[obj][i], n);
 
+			readSoundEffect(cofre, j[obj][i]);
+
 			if (!j[obj][i]["open"].is_null()) {
 				if (j[obj][i]["open"]) {
 					cofre->playAnim("Anim1");
@@ -239,6 +255,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			SceneItems.push_back(newCol);
 
 			addAnimsFromJSON(newCol, j[obj][i], n);
+
+			readSoundEffect(newCol, j[obj][i]);
 
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -278,6 +296,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 			addAnimsFromJSON(interr, j[obj][i], n);
 
+			readSoundEffect(interr, j[obj][i]);
+
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
@@ -306,6 +326,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			SceneItems.push_back(door);
 			addAnimsFromJSON(door, j[obj][i], n);
 
+			readSoundEffect(door, j[obj][i]);
 			
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
@@ -470,7 +491,7 @@ void Scene::saveSceneToJson() {
 	i.close(); //cierra el flujo
 }
 
-GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
+GameState * Scene::PuzzleCreator(PuzzleTypes type, json& j){
 	GameState* nPuzzle = nullptr;
 
 	switch (type)
@@ -504,7 +525,6 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, const json& j){
 		if (!j["TexturaFondo"].is_null())
 			fondo = j["TexturaFondo"];
 
-
 		nPuzzle = new PasswordState(app, j["posFontX"], j["posFontY"],j["password"], aux, fondo);
 		break;
 	}
@@ -532,4 +552,11 @@ bool Scene::addAnimsFromJSON(Entity* obj, json& j, const int numText){
 		}
 	}
 	return false;
+}
+
+void Scene::readSoundEffect(Entity * obj, json & j)
+{
+	if (!j["soundEffect"].is_null()) { //si el sonido no es null, se establece su valor
+		obj->setSoundEffect(j["soundEffect"]);
+	}
 }

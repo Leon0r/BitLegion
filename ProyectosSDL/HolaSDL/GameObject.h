@@ -65,6 +65,10 @@ public:
 		return objectType;
 	}
 
+	int getSoundEffect() const {
+		return soundEffect_;
+	}
+
 	void setWidth(double w) {
 		width_ = w;
 	}
@@ -101,6 +105,10 @@ public:
 		objectType = newType;
 	}
 
+	void setSoundEffect(int s) {
+		soundEffect_ = s;
+	}
+
 	virtual void saveToJson(json& j) = 0;
 
 	virtual void receive(Mensaje* msg) {};
@@ -121,6 +129,8 @@ protected:
 	Vector2D velocity_; // direction
 
 	int currentAnim = 0;
+
+	int soundEffect_ = 0;
 
 private:
 	Type objectType;
