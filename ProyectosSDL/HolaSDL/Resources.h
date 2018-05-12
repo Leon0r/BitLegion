@@ -290,7 +290,11 @@ public:
 		BotonSonido,
 		Neon,
 		Paso,
-		TVnoSignal
+		TVnoSignal,
+		Click,
+		WrongPuzle,
+		CorrectPuzle,
+
 	};
 
 private:

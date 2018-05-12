@@ -85,6 +85,7 @@ void PasswordState::render()
 bool PasswordState::checkPassword()
 {
 	if (userPass_ != password_ && !checking) {
+		playSoundEffect(Resources::WrongPuzle);
 		timerFail->startTimer();
 		checking = true;
 		i = 0;

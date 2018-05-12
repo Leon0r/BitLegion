@@ -270,7 +270,11 @@ std::vector<std::string> Resources::soundEffectFiles_{
 	"..//SoundFX/botonSonido.mp3",
 	"..//SoundFX/Neon.mp3",
 	"..//SoundFX/Paso.mp3",
-	"..//SoundFX/TVnoSignal.mp3"
+	"..//SoundFX/TVnoSignal.mp3",
+	"..//SoundFX/Click.wav",
+	"..//SoundFX/WrongPuzzle.wav",
+	"..//SoundFX/CorrectPuzzle.wav",
+
 };
 
 

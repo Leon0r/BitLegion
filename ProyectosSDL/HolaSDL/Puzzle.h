@@ -47,6 +47,7 @@ public:
 	}
 
 	void winner() {
+		playSoundEffect(Resources::CorrectPuzle);
 		app->getStateMachine()->popState(false);
 		unlockObjects();
 		app->getStateMachine()->currentState()->SetZBuffer();
