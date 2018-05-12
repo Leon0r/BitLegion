@@ -19,8 +19,8 @@ void call_from_thread(SDLApp* app) {
 
 void SDLApp::pantallaCarga()
 {
-	Texture f = Texture(this->getRenderer(), "..//images/Objetos/ventanacafeteriaspritesheet.png");
-	f.render(this->getRenderer(), 0, 0);
+	Texture f = Texture(this->getRenderer(), "..//images/Fondos/cargando.png");
+	f.render(this->getRenderer(), this->getWindowWidth() - f.getWidth(), this->getWindowHeight() - f.getHeight());
 	SDL_RenderPresent(this->getRenderer());
 }
 
