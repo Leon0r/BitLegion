@@ -16,13 +16,25 @@
     ],
 
     "Decorado": [
-    	 { "x": 905, "y": 270, "w": 40, "h": 40, "Texture": 15 },
-    	 { "x": 975, "y": 270, "w": 45, "h": 45, "Texture": 71 },
-    	 { "x": 1075, "y": 260, "w": 45, "h": 45, "Texture": 71 }
+         { "x": 905, "y": 270, "w": 40, "h": 40, "Texture": 15,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
+            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
+            "Anims": [ [0],[1] ]},
+         { "x": 975, "y": 270, "w": 45, "h": 45, "Texture": 71,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
+            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
+            "Anims": [ [0],[1] ]},
+         { "x": 1075, "y": 260, "w": 45, "h": 45, "Texture": 71,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
+            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
+            "Anims": [ [0],[1] ]}
     ],
 
     "ItemInventario": [
-        { "x": 1180, "y": 300, "w": 20, "h": 20, "descripcion": "Ticket de compra", "tag": "ticket", "Texture": 21, "rotation": 45, "soundEffect": 1}
+        { "x": 1180, "y": 300, "w": 20, "h": 20, "descripcion": "Ticket de compra", "tag": "ticket", "Texture": 21, "rotation": 45, "soundEffect": 1,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
+            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
+            "Anims": [ [0],[1] ]}
     ],
 
     "PlayerPos": {

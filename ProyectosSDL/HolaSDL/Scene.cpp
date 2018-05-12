@@ -50,7 +50,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				app->getResources()->getImageTexture(Resources::ImageId(n)), permanente);
 
 			item->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
-
+			item->addInputComponent(new MouseEventAnimComponent(SDL_MOUSEMOTION, "Anim1", "Anim0"));
 			SceneItems.push_front(item);
 
 			addAnimsFromJSON(item, j[obj][i], n);
@@ -102,6 +102,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOConversational"][i]["convoName"], repeat);
 
 			conver->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+			conver->addInputComponent(new MouseEventAnimComponent(SDL_MOUSEMOTION, "Anim1", "Anim0"));
 
 			SceneItems.push_front(conver);
 
@@ -133,13 +134,11 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			Decorado* aux = new Decorado(app);
 			aux->setPosition(Vector2D(j[obj][i]["x"], j[obj][i]["y"]));
 			aux->setHeight(j[obj][i]["h"]);
-			aux->setWidth(j[obj][i]["w"]);
-			ImageRenderer* im = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
-			aux->addRenderComponent(im);
-			SceneItems.push_back(aux);
+			aux->setWidth(j[obj][i]["w"]);			
 
-			if (addAnimsFromJSON(aux, j[obj][i], n)) {
-				delete im; //si tiene animaciones, borra el anterior componente de render
+			if (!addAnimsFromJSON(aux, j[obj][i], n)) {
+				ImageRenderer* im = new ImageRenderer(app->getResources()->getImageTexture(Resources::ImageId(n)));
+				aux->addRenderComponent(im); //si no tiene animaciones, añade un render normal
 			}
 
 			readSoundEffect(aux, j[obj][i]);
@@ -147,10 +146,12 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			if (!j[obj][i]["rotation"].is_null()) {
 				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
 			}
+			SceneItems.push_back(aux);
 		}
 
+
+		//Cargado de NPCs
 		obj = "NPC";
-		//Cargado de Puzles
 		for (int i = 0; i < j[obj].size(); i++) {
 
 			n = j[obj][i]["Texture"];
