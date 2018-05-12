@@ -44,7 +44,7 @@ Inventory::Inventory(SDLApp* app, ObjectList* inventario, GameState* previousSta
 if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 		copia = new Entity(app);
 		selected = inventario->getItem(0); //inicializamos el primero como seleccionado
-		selectedTexture = new ImageRenderer(selected->getTexture(0));
+		selectedTexture = new ImageRenderer(selected->getTexture(0),1,2,0);
 		copia->addRenderComponent(selectedTexture);
 		copia->setHeight(selected->getHeight() * relacion.first);//lo agranda
 		copia->setWidth(selected->getWidth() * relacion.second);

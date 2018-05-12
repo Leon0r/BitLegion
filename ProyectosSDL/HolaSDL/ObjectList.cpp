@@ -11,7 +11,7 @@ void ObjectList::addItem(GameObject* o) {
 	if (aux != nullptr) { //si se puede
 		if (objetos.size() < 25) {
 			CasillaInventario* newCasilla = new CasillaInventario(app, aux->getTag(), aux->getDescription()); //creamos el objeto con su tag y su descripcion
-			ImageRenderer* cmpRender = new ImageRenderer(aux->getTexture(0));
+			ImageRenderer* cmpRender = new ImageRenderer(aux->getTexture(0), 1, 2, 0);
 			newCasilla->addRenderComponent(cmpRender);
 			newCasilla->setWidth(40*app->getWindowWidth()/800);
 			newCasilla->setHeight(40*app->getWindowHeight()/600); //medidas de prueba
