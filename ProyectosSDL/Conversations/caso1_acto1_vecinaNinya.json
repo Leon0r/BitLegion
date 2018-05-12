@@ -5,9 +5,9 @@
 	"Nodo": [
 
 	{"numNodo":0, "nodoSig":-1, "numLineas": 2, "lineas":[ 
-		{"texto": "Deberia volver a casa pero... áéíóúñ ¿[] $ # @"}, 
+		{"texto": "Deberia volver a casa pero..."}, 
 		{"texto": "¡Mira el juguete que he encontrado!"} ],
-	"numOpciones":0, "pj": 148, "emo": 4
+	"numOpciones":0, "pj": 218, "emo": 2
 	}
 
 	]
