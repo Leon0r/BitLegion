@@ -1,9 +1,8 @@
 #include "AnimationRenderer.h"
 
 
-
 AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animations, int numColsFrames, int numFilsFrames,
-	int frWidth, int frHeigth):
+	int frWidth, int frHeigth) :
 	texture_(texture), numFrCols_(numFilsFrames), numFrFils_(numColsFrames), frWidth_(frWidth), frHeigth_(frHeigth)
 {
 	currentAnim_ = 0;
@@ -45,7 +44,7 @@ void AnimationRenderer::render(GameObject* o, Uint32 time)
 
 		calculateNextSourceRect();
 
-		if(animations_[currentAnim_]->framesAnim_.size() > 0)
+		if (animations_[currentAnim_]->framesAnim_.size() > 0)
 			currentFrame_ = nextFrame();
 
 		timeLastFrame = SDL_GetTicks();
@@ -55,24 +54,34 @@ void AnimationRenderer::render(GameObject* o, Uint32 time)
 		o->getWidth(), o->getHeight() };
 
 	texture_->render(o->getGame()->getRenderer(), rect, o->getAngle(), &sourceRect);
+	changeAnim();
 }
-
 void AnimationRenderer::playAnim(string label)
 {
 	int i = 0;
 	while (i < animations_.size() && animations_[i]->label_ != label) i++;
-	
-	if (i < animations_.size()) nextAnim_ = i;
+
+	if (i < animations_.size()) { 
+		nextAnim_ = i; 
+
+		if (!animations_[nextAnim_]->loop_)
+			changeAnim();
+	}
 }
 
 void AnimationRenderer::changeAnim()
 {
-	// si la actual no es en loop y no ha acabado 
-	if (!animations_[currentAnim_]->loop_ &&
-		currentFrame_ < animations_[currentAnim_]->framesAnim_.size()) {}
-	else if (nextAnim_ != currentAnim_) { // si la animacion siguiente no es la que ya esta puesta
-		currentAnim_ = nextAnim_;
-		currentFrame_ = 0;
+	// si la animacion siguiente no es la que ya esta puesta
+	if (nextAnim_ != currentAnim_) {
+		// si la actual es en loop
+		if (animations_[currentAnim_]->loop_) {
+			currentAnim_ = nextAnim_;
+			currentFrame_ = 0;
+		}
+		else if(currentFrame_ >= animations_[currentAnim_]->framesAnim_.size()-1){
+			currentAnim_ = nextAnim_;
+			currentFrame_ = 0;
+		}
 	}
 }
 
@@ -80,7 +89,7 @@ int AnimationRenderer::nextFrame()
 {
 
 	int aux = currentFrame_ + 1;
-	
+
 	// prueba si hay frame siguiente
 	if (aux >= animations_[currentAnim_]->framesAnim_.size()) // si no hay
 		if (animations_[currentAnim_]->loop_)  // si es loopeada, vuelve al principio
@@ -96,7 +105,7 @@ int AnimationRenderer::nextFrame()
 
 void AnimationRenderer::receive(Mensaje* msg)
 {
-	switch (msg->id_){
+	switch (msg->id_) {
 	case Ch_Left:
 		playAnim("Left");
 		break;

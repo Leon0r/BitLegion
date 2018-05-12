@@ -25,7 +25,10 @@ public:
 
 	// inicia la animacion de entrada o pone la 0 en caso de no encontrarla
 	virtual void playAnim(string label);
-	virtual void playAnim(int anim) { (anim < animations_.size() && anim >= 0) ? (nextAnim_ = anim) : (nextAnim_ = currentAnim_); }// operador ternario (if)?(true):(false);
+	virtual void playAnim(int anim) {(anim < animations_.size() && anim >= 0) ? (nextAnim_ = anim) : (nextAnim_ = currentAnim_); // operador ternario (if)?(true):(false);
+	if (nextAnim_ != anim && !animations_[nextAnim_]->loop_)
+		changeAnim();
+	}
 	
 	virtual void receive(Mensaje* msg);
 
