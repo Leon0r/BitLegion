@@ -13,8 +13,9 @@ SoundManager::~SoundManager() {
 
 void SoundManager::update() {
 
-	while (!eventQueue.empty()) {
-		app->getResources()->getSoundEffect(eventQueue.front().idSoundE_)->play(eventQueue.front().numReps_);
+	while (!eventQueue.empty()) {//nos guardamos el efecto de sonido actual
+		actualSoundEffect = app->getResources()->getSoundEffect(eventQueue.front().idSoundE_);
+		actualSoundEffect->play(eventQueue.front().numReps_);
 		eventQueue.pop();
 	}
 }
@@ -54,6 +55,7 @@ void SoundManager::receive(Mensaje* msg) {
 	//para todos los efectos de sonido
 	case STOP_ALL_SOUNDEFFECT: {
 		while (!eventQueue.empty())eventQueue.pop();
+		actualSoundEffect->stop();//stop del actual que ya esta sonando (ya no se encuentra en la cola de eventos)
 		break;
 	}
 	}
