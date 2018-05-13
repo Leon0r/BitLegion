@@ -28,9 +28,9 @@ void MouseEventAnimComponent::handleInput(GameObject * o, Uint32 time, const SDL
 				aux->playAnim(defaultAnim_);
 			}
 		}
-		else {
-			aux->playAnim(defaultAnim_); //si hubiera manera de ver si esta haciendo play de una anim totalmente diferente (se puede hacer supongo), entonces se podria meter un boton con overlap y con click
-		}
+		//else {
+		//	aux->playAnim(defaultAnim_); //si hubiera manera de ver si esta haciendo play de una anim totalmente diferente (se puede hacer supongo), entonces se podria meter un boton con overlap y con click
+		//}
 	}
 }
 
