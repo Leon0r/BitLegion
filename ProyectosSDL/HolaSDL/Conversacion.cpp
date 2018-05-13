@@ -179,10 +179,7 @@ bool Conversacion::loadConversation(string fileName) {
 		dialogo.resize(j["NumNodos"]);
 
 		for (int i = 0; i < j["NumNodos"]; i++) {
-			
-			if (i == 42) {
-				int kk = 2;
-			}
+
 			if (j["Nodo"][i]["numOpciones"].is_null() || j["Nodo"][i]["numOpciones"] == 0)
 				opciones = {};
 			else {

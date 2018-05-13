@@ -44,10 +44,25 @@
    ],
    "Decorado": [
       {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
          "Texture": 15,
+         "animation": true,
          "h": 44.0,
+         "heightFrame": 40,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
          "rotation": 0.0,
+         "vel": 200.0,
          "w": 50.0,
+         "widthFrame": 40,
          "x": 715.0,
          "y": 465.0
       },
@@ -159,8 +174,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 705.9606918308675,
-      "y": 362.17173789131493
+      "x": 878.0,
+      "y": 500.0
    },
    "PlayerTam": {
       "h": 201.6,

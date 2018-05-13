@@ -184,31 +184,6 @@
                1
             ]
          ],
-         "Texture": 55,
-         "animation": true,
-         "descripcion": "Llave de la moto de    Alena",
-         "h": 40.0,
-         "heightFrame": 40,
-         "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
-         "rotation": 0.0,
-         "tag": "keyMoto",
-         "vel": 200.0,
-         "w": 40.0,
-         "widthFrame": 40,
-         "x": 630.0,
-         "y": 500.0
-      },
-      {
-         "Anims": [
-            [
-               0
-            ],
-            [
-               1
-            ]
-         ],
          "Texture": 19,
          "animation": true,
          "descripcion": "Llave de la casa de    Alena",
@@ -227,8 +202,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 100.0,
-      "y": 500.0
+      "x": 574.0,
+      "y": 471.6
    },
    "PlayerTam": {
       "h": 201.6,
