@@ -271,7 +271,12 @@ public:
 		BarraBar,
 		CartelExit,
 		PlantaBar,
-		VentanaCafe
+		VentanaCafe,
+		HidroquenosExpresiones,
+		GalinaNoviaMuertoExpresiones,
+		SenyoraBajoExpresiones,
+		SenyoraBazarExpresiones
+
 	};
 
 	// Music -- each file is loaded as an instance of Music

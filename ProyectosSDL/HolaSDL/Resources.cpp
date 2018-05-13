@@ -257,6 +257,11 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/carteldeexit.png",
 "..//images/Objetos/plantabar.png",
 "..//images/Objetos/ventanacafeteriaspritesheet.png",
+"..//images/Expresiones/hidroquenosExpresiones.png",
+"..//images/Expresiones/GalinaExpresiones.png",
+"..//images/Expresiones/SeñoraBajoExpresiones.png",
+"..//images/Expresiones/SeñoraBazarExpresiones.png",
+
 };
 
 std::vector<std::string> Resources::musicFiles_{
