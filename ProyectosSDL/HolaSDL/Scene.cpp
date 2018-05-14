@@ -35,13 +35,15 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 		json j;
 		i >> j;
 		int n;
-		string obj = "ItemInventario"; // nombre del array del objeto en el json
 
 		if (!j["CambioActo"].is_null()) {
 			cambioActo = j["CambioActo"];
 		}
 
+		GOstates* puzzleAux = nullptr; //para el objeto que requiere un puzzle en su constructora
+
 		// Cargado de items de inventario
+		string obj = "ItemInventario"; // nombre del array del objeto en el json
 		for (int i = 0; i < j[obj].size(); i++) {
 
 			n = j[obj][i]["Texture"];
@@ -78,6 +80,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			GOstates* goSt = new GOstates(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), SceneStates.back(), j[obj][i], playState);
+
+			puzzleAux = goSt;
 
 			goSt->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
 
@@ -227,9 +231,21 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				open = j[obj][i]["open"];
 			}
 
-			GOcofres* cofre = new GOcofres(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["wItem"], j[obj][i]["hItem"], j[obj][i]["descripcionItem"], j[obj][i]["tagItem"],
-				app->getResources()->getImageTexture(Resources::ImageId(j[obj][i]["numTextItem"])), j[obj][i]["xItem"], j[obj][i]["yItem"], itPerm, id, open);
+			bool devuelveEstado = false;
+
+			if (!j[obj][i]["generaState"].is_null()) {
+				devuelveEstado = j[obj][i]["generaState"];
+			}
+			GOcofres* cofre = nullptr;
+			if (devuelveEstado) {
+				cofre = new GOcofres(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+					app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], id, puzzleAux);
+			}
+			else {
+				cofre = new GOcofres(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
+					app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["wItem"], j[obj][i]["hItem"], j[obj][i]["descripcionItem"], j[obj][i]["tagItem"],
+					app->getResources()->getImageTexture(Resources::ImageId(j[obj][i]["numTextItem"])), j[obj][i]["xItem"], j[obj][i]["yItem"], itPerm, id, open);
+			}
 
 			cofre->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
 

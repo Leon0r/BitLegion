@@ -16,7 +16,8 @@
     ],
 
     "GOState":[
-        {"x": 705, "y": 325, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 1, "UnlockId": 1}
+        {"x": 705, "y": 325, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 1, "UnlockId": 1},
+        { "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"numText": 30 ,"numberPuzzle": 0,"type": 0, "UnlockId": 1 }
     ],
 
     "Decorado": [
@@ -26,14 +27,16 @@
     ],
 
     "Interruptores": [
-        { "x": 100, "y": 235, "w": 37, "h": 34, "Texture": 237, "tag": "interruptor0", "maxAlpha": 250, "minAlpha": 0, "UnlockId": 1, "off": true, "canWork": false  }
+        { "x": 100, "y": 235, "w": 37, "h": 34, "Texture": 237, "tag": "interruptor0", "maxAlpha": 250, "minAlpha": 0, "UnlockId": 1, "off": true, "canWork": true  }
     ],
 
     "GOCofres": [
         { "x": 213, "y": 275, "w": 50, "h": 55, "Texture": 236, "tag": "", "wItem": 18, "hItem": 18, "descripcionItem": "funciona", 
-            "tagItem": "funcionaGuay","numTextItem": 210, "xItem": 218, "yItem": 280, "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
+            "tagItem": "carta","numTextItem": 210, "xItem": 218, "yItem": 280, "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 50, "heightFrame": 55, "vel": 20, "loop": true,
-            "Anims": [ [0], [1] ]}
+            "Anims": [ [0], [1] ]},
+
+        { "x": 917, "y": 470, "w": 80, "h": 80, "Texture": 57, "tag": "carta", "UnlockId": 1, "generaState": true }
     ],
 
     "PlayerPos": {

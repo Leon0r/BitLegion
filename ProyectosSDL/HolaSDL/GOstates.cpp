@@ -36,6 +36,8 @@ void GOstates::act() {
 }
 
 void GOstates::saveToJson(json & j){
+	if (!done) { this->setActive(true); } //si no lo ha acabado, lo activa (algun objeto lo usa)
+
 	if (this->isActive()) {
 		json aux;
 		Entity::saveToJson(aux);
@@ -60,6 +62,7 @@ void GOstates::saveToJson(json & j){
 void GOstates::receive(Mensaje * msg){
 	switch (msg->id_) {
 		case WinPuzzle:
+			done = true;
 			this->setActive(false); //lo desactiva (no se renderiza, ni handle input, ni update)
 			break;
 		default:

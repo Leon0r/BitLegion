@@ -106,6 +106,7 @@
          "UnlockId": 1,
          "animation": true,
          "descripcionItem": "funciona",
+         "generaState": false,
          "h": 40.0,
          "hItem": 18,
          "heightFrame": 60,

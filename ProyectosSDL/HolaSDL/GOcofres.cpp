@@ -2,12 +2,23 @@
 
 
 
+GOcofres::GOcofres(SDLApp * game, int x, int y, int w, int h, Texture * texture, string _tag, char id, GOstates * puzzle):GOUnlockeable(game, x, y, w, h, texture, _tag, id), puzzle(puzzle)
+{
+	if (puzzle != nullptr)
+		puzzle->setActive(false);//Lo desactivamos
+	guardado = true;
+}
+
 GOcofres::~GOcofres()
 {
 }
 
 void GOcofres::secondAct()
 {
+	if (puzzle !=nullptr) {
+		puzzle->setActive(true);//Activamos el item
+	}
+	else {
 		this->playAnim("Anim1");
 
 		list<GameObject*>::iterator it = app->getStateMachine()->currentState()->getStage()->begin();
@@ -21,8 +32,7 @@ void GOcofres::secondAct()
 		app->getStateMachine()->currentState()->changeList();
 
 		opened = true;
-
-	//this->setActive(false);
+	}
 }
 
 

@@ -17,4 +17,5 @@ public:
 private:
 	Puzzle* state_;
 	json jAux_; //saber los datos para guardarlos luego. Guardamos el objeto json que tiene tooodo dentro. Facilita maaazo las cosas
+	bool done = false;
 };

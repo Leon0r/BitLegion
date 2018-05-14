@@ -130,7 +130,7 @@ protected:
 
 	int currentAnim = 0;
 
-	int soundEffect_ = 0;
+	int soundEffect_ = 1;
 
 private:
 	Type objectType;

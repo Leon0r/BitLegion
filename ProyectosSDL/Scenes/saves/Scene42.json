@@ -75,6 +75,7 @@
          "Texture": 236,
          "animation": true,
          "descripcionItem": "funciona",
+         "generaState": false,
          "h": 55.0,
          "hItem": 18,
          "heightFrame": 55,
@@ -82,11 +83,11 @@
          "numColsFrame": 1,
          "numFilsFrame": 2,
          "numTextItem": 210,
-         "open": false,
+         "open": true,
          "permanenteItem": false,
          "rotation": 0.0,
          "tag": "",
-         "tagItem": "funcionaGuay",
+         "tagItem": "carta",
          "vel": 20.0,
          "w": 50.0,
          "wItem": 18,
@@ -95,6 +96,26 @@
          "xItem": 218,
          "y": 275.0,
          "yItem": 280
+      },
+      {
+         "Texture": 57,
+         "UnlockId": 1,
+         "descripcionItem": "",
+         "generaState": true,
+         "h": 80.0,
+         "hItem": -842150451,
+         "numTextItem": 258,
+         "open": true,
+         "permanenteItem": true,
+         "rotation": 0.0,
+         "tag": "carta",
+         "tagItem": "",
+         "w": 80.0,
+         "wItem": -842150451,
+         "x": 917.0,
+         "xItem": -842150451,
+         "y": 470.0,
+         "yItem": -842150451
       }
    ],
    "GOState": [
@@ -109,6 +130,18 @@
          "w": 30.0,
          "x": 705.0,
          "y": 325.0
+      },
+      {
+         "Texture": 29,
+         "UnlockId": 1,
+         "h": 30.0,
+         "numText": 30,
+         "numberPuzzle": 0,
+         "rotation": -45,
+         "type": 0,
+         "w": 30.0,
+         "x": 705.0,
+         "y": 265.0
       }
    ],
    "GOTransiciones": [
@@ -127,11 +160,11 @@
       {
          "Texture": 237,
          "UnlockId": 1,
-         "canWork": false,
+         "canWork": true,
          "h": 34.0,
          "maxAlpha": 250,
          "minAlpha": 0,
-         "off": true,
+         "off": false,
          "rotation": 0.0,
          "tag": "interruptor0",
          "w": 37.0,
@@ -140,8 +173,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 230.0,
-      "y": 330.0
+      "x": 848.0,
+      "y": 488.4
    },
    "PlayerTam": {
       "h": 201.6,
