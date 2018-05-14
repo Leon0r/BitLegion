@@ -10,7 +10,7 @@ class Boton :
 {
 private:
 	string nombre;
-	int f = -1, c = -1;
+	int f = -1, c = -1, repeticiones_, volumen_;
 	typedef void CallBackOnClickStateFC(GameState* actualState, int f, int c);
 	CallBackOnClickStateFC* stateFC;
 	GameState* actualState;
@@ -23,9 +23,9 @@ public:
 	Boton() : fun(nullptr), stateFC(nullptr), actualState(nullptr), Entity(nullptr), nombre("") {}; //constructora vacia
 	virtual ~Boton();
 
-	Boton(SDLApp* app, CallBackOnClickStateFC* stateFC, GameState* actualState, string nombre, int fil, int col, Resources::SoundEffectId id_); //constructora2
+	Boton(SDLApp* app, CallBackOnClickStateFC* stateFC, GameState* actualState, string nombre, int fil, int col, Resources::SoundEffectId id_, int repeticiones = 0, int volumen = 70); //constructora2
 
-	Boton(SDLApp* app, string nombre, function<void()> f, Resources::SoundEffectId id_);  //constructora que recibe cualquier funcion (de tipo void)
+	Boton(SDLApp* app, string nombre, function<void()> f, Resources::SoundEffectId id_, int repeticiones = 0, int volumen = 70);  //constructora que recibe cualquier funcion (de tipo void)
 
 	virtual void handleInput(Uint32 time, const SDL_Event& event);
 	
@@ -51,7 +51,7 @@ public:
 		send(&msg);
 	}
 	//este cuenta con el numero de repeticiones que quieres para el soundEffect, por defecto a 0
-	void playSoundEffect(Resources::SoundEffectId id, int numReps = 0, int volume = 70) {
+	void playSoundEffect(Resources::SoundEffectId id, int numReps, int volume) {
 		if (numReps != 0)numReps--;//esto es porque siempre se repite una vez mas de la que le pones (i dunno why)
 		PlaySoundE msg = { id, numReps };
 		send(&msg);
