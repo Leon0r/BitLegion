@@ -8,11 +8,11 @@ inGameMenu::inGameMenu(SDLApp* game, GameState* previousState): GameState(game),
 {
 	ov = MouseEventAnimComponent(SDL_MOUSEMOTION, "Feedback", "Stop");
 
-	cGame_ = [this]() mutable { playSoundEffect(Resources::BotonSonido); continueGame(app); };
+	cGame_ = [this]() mutable { continueGame(app); };
 	cout << "inGameMenu" << endl;
 
 	Boton* b;
-	b = (new Boton(app, "Continue", cGame_));
+	b = (new Boton(app, "Continue", cGame_, Resources::BotonSonido));
 	b->setWidth(150); b->setHeight(90);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 3) * 1 / 3));
 	b->addAnim("Feedback", { 16 }, true, -1, 100);
@@ -24,8 +24,8 @@ inGameMenu::inGameMenu(SDLApp* game, GameState* previousState): GameState(game),
 	b->addRenderComponent(btext);
 	botones.push_back(b); stage.push_back(b);
 
-	eMenuGame_ = [this]() mutable { playSoundEffect(Resources::BotonSonido); exitToMenu(app); };
-	b = (new Boton(app, "Exit to Menu", eMenuGame_));
+	eMenuGame_ = [this]() mutable { playMusic(Resources::MainThemePro); exitToMenu(app); };//pone el mainTheme y sale al menu principal
+	b = (new Boton(app, "Exit to Menu", eMenuGame_, Resources::BotonSonido));
 	b->setWidth(150); b->setHeight(90);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 3) * 2 / 3));
 	b->addAnim("Feedback", { 16 }, true, -1, 100);
@@ -37,8 +37,8 @@ inGameMenu::inGameMenu(SDLApp* game, GameState* previousState): GameState(game),
 	b->addRenderComponent(bMenutext);
 	botones.push_back(b); stage.push_back(b);
 
-	eGame_ = [this]() mutable {playSoundEffect(Resources::BotonSonido); exitGame(app); };
-	b = (new Boton(app, "Exit Game", eGame_));
+	eGame_ = [this]() mutable { exitGame(app); };
+	b = (new Boton(app, "Exit Game", eGame_, Resources::BotonSonido));
 	b->setWidth(150); b->setHeight(90);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, (app->getWindowHeight() - app->getWindowHeight() / 3) * 3 / 3));
 	b->addAnim("Feedback", { 16 }, true, -1, 100);
@@ -50,8 +50,8 @@ inGameMenu::inGameMenu(SDLApp* game, GameState* previousState): GameState(game),
 	b->addRenderComponent(bExittext);
 	botones.push_back(b); stage.push_back(b);
 
-	muteVol_ = [this]() mutable {playSoundEffect(Resources::BotonSonido); mute(app); };
-	b = (new Boton(app, "mute", muteVol_));
+	muteVol_ = [this]() mutable { mute(app); };
+	b = (new Boton(app, "mute", muteVol_, Resources::BotonSonido));
 	b->setWidth(75); b->setHeight(28);
 	b->setPosition(Vector2D(app->getWindowWidth() * (1/7) - 10, app->getWindowHeight() * (1 / 7)+ 10));
 	b->addAnim("Feedback", { 0 }, true, -1, 150);

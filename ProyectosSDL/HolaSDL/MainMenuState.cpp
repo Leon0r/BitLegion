@@ -8,10 +8,9 @@ MainMenuState::MainMenuState()
 }
 MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 {
-	playMusic(Resources::MainTheme);//al principio comienza el mainTheme
+	playMusic(Resources::MainThemePro);//al principio comienza el mainTheme
 	nGame_ = [game, this]()mutable { // funcion newGame(); mutable hace que puedas modificar cosas dentro
 		stopMusic(Resources::MainTheme);//si pulsamos algun boton se para la musica
-		playSoundEffect(Resources::BotonSonido);
 
 		PlayState* playState_ = new PlayState(game); //acceder al estado PlayState
 
@@ -24,7 +23,6 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 	lGame_ = [game, this]()mutable { //funcion LoadGame();
 		stopMusic(Resources::MainTheme);
-		playSoundEffect(Resources::BotonSonido);
 		PlayState* playState_ = new PlayState(game, true); //acceder al estado PlayState
 
 		game->getStateMachine()->pushState(playState_);//pop antes??
@@ -35,12 +33,10 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 	eGame_ = [game, this]()mutable {
 		stopMusic(Resources::MainTheme);
-		playSoundEffect(Resources::BotonSonido);
 		game->exitGame();//Nunca deberia de haber un estado por encima de este
 	};
 
-	controlesFunc_ = [game, this]()mutable {
-		playSoundEffect(Resources::BotonSonido);
+	controlesFunc_ = [game]()mutable {
 		ControlesState* contState = new ControlesState(game);
 
 		game->getStateMachine()->pushState(contState);
@@ -53,7 +49,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	logotext = app->getResources()->getImageTexture(Resources::LogoAnim);
 
 	Boton* b;
-	b = new Boton(app, "NewGame", nGame_);
+	b = new Boton(app, "NewGame", nGame_, Resources::BotonSonido);
 	b->setWidth(150); b->setHeight(100);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 1 / 5)+ 250));
 	b->addAnim("Feedback", { 16 }, true, -1, 100);
@@ -65,7 +61,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	b->addInputComponent(&ov);
 	botones.push_back(b); stage.push_back(b);
 
-	b = (new Boton(app, "Load Game", lGame_));
+	b = (new Boton(app, "Load Game", lGame_, Resources::BotonSonido));
 	b->setWidth(150); b->setHeight(100);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 2 / 5)+250));
 	b->addAnim("Feedback", { 16 }, true, -1, 100);
@@ -77,7 +73,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	b->addInputComponent(&ov);
 	botones.push_back(b); stage.push_back(b);
 
-	b = (new Boton(app, "Controles", controlesFunc_));
+	b = (new Boton(app, "Controles", controlesFunc_, Resources::BotonSonido));
 	b->setWidth(150); b->setHeight(100);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 3 / 5) + 250));
 	b->addAnim("Feedback", { 16 }, true, -1, 75);
@@ -90,7 +86,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	b->setAnimated(true);
 	botones.push_back(b); stage.push_back(b);
 
-	b = (new Boton(app, "Exit", eGame_));
+	b = (new Boton(app, "Exit", eGame_, Resources::BotonSonido));
 	b->setWidth(150); b->setHeight(100);
 	b->setPosition(Vector2D(app->getWindowWidth() / 2 - b->getWidth() / 2, ((app->getWindowHeight() - app->getWindowHeight() / 3) * 4 / 5)+250));
 	b->addAnim("Feedback", { 16 }, true, -1, 75);

@@ -54,9 +54,8 @@ void SoundManager::receive(Mensaje* msg) {
 	}
 	//para todos los efectos de sonido
 	case STOP_ALL_SOUNDEFFECT: {
-		while (!eventQueue.empty())eventQueue.pop();
 		actualSoundEffect->stop();//stop del actual que ya esta sonando (ya no se encuentra en la cola de eventos)
-		break;
+		break;//ese stop manda parar todos los canales (soundEffects)
 	}
 	}
 }

@@ -26,9 +26,6 @@ void SoundEffect::play(int repetirions) {
 	}
 }
 
-void SoundEffect::pause() {
-}
-
 void SoundEffect::close() {
 	if (chunck_ != nullptr) {
 		Mix_FreeChunk(chunck_);

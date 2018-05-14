@@ -21,9 +21,9 @@ LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(a
 	this->apagaLuces(dificultad);
 
 	//--------Botones-----
-	resetFunc_ = [this]() mutable {playSoundEffect(Resources::BotonSonido); resetPuzzle(); };
-	exitFun_ = [this]() mutable {playSoundEffect(Resources::BotonSonido); this->exit(); };
-	botonReset = new Boton(app, "reset", resetFunc_);
+	resetFunc_ = [this]() mutable { resetPuzzle(); };
+	exitFun_ = [this]() mutable { this->exit(); };
+	botonReset = new Boton(app, "reset", resetFunc_, Resources::BotonSonido);
 	botonReset->setWidth(80);
 	botonReset->setHeight(60);
 	botonReset->setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight()/2 + botonReset->getHeight()*1.8));
@@ -34,7 +34,7 @@ LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(a
 	botonReset->addInputComponent(&press);
 	stage.push_front(botonReset);
 
-	botonExit = new Boton(app, "exit", exitFun_);
+	botonExit = new Boton(app, "exit", exitFun_, Resources::BotonSonido);
 	botonExit->setWidth(80);
 	botonExit->setHeight(60);
 	botonExit->setPosition(Vector2D(app->getWindowWidth() / 1.35, app->getWindowHeight() / 2 + botonReset->getHeight()*3));

@@ -24,7 +24,7 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	for (int i = 0; i < numCas*2; i++) {
 		Boton* b;
 		if (i < numCas) {
-			b = new Boton(game, usar, this, "boton1", i, -1);
+			b = new Boton(game, usar, this, "boton1", i, -1, Resources::BotonSonido);
 			b->setWidth(50);
 			b->setHeight(40);
 			b->setPosition(Vector2D(b->getWidth() + 280, relacion.second*((espaciado-4)*i + 60)));
@@ -32,7 +32,7 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 			b->addInputComponent(&pb);
 		}
 		else {
-			b = new Boton(game, usar, this, "boton1", -1, i - numCas);
+			b = new Boton(game, usar, this, "boton1", -1, i - numCas, Resources::BotonSonido);
 			b->setWidth(50);
 			b->setHeight(40);
 			b->setPosition(Vector2D(relacion.first*(espaciado*(i-numCas) + 97) + espaciado*2, game->getWindowHeight()-b->getHeight() - b->getHeight()/2 + 10));
@@ -49,10 +49,10 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	}
 
 	//------------------------------------HUD-------------------------------------------------------------
-	resetFunct_ = [this]() mutable { playSoundEffect(Resources::BotonSonido); resetFunction(); };
-	exitFunct_ = [this]() mutable { playSoundEffect(Resources::BotonSonido); this->exit(); };
+	resetFunct_ = [this]() mutable { resetFunction(); };
+	exitFunct_ = [this]() mutable { this->exit(); };
 
-	resetButton = new Boton(app, "reset", resetFunct_);
+	resetButton = new Boton(app, "reset", resetFunct_, Resources::BotonSonido);
 	resetButton->addAnim("Stop", { 0 }, true);
 	resetButton->addAnim("Pressed", { 1 }, true, -1, 50);
 	reiniciar = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonReiniciar), resetButton->getAnimations(), 1, 2, 140, 140);
@@ -64,7 +64,7 @@ Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numbe
 	resetButton->addRenderComponent(reiniciar);
 	stage.push_back(resetButton);
 
-	exitButton = new Boton(app, "reset", exitFunct_);
+	exitButton = new Boton(app, "reset", exitFunct_, Resources::BotonSonido);
 	exitButton->addAnim("Stop", { 0 }, true);
 	exitButton->addAnim("Pressed", { 1 }, true, -1, 50);
 	exitRenderer = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSalir), exitButton->getAnimations(), 1, 2, 49, 51);

@@ -59,7 +59,7 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 
 	//--------------------Botones----------------------
 	usFunc_ = [this]() mutable {usar(this); };
-	useButton = new Boton(app, "use", usFunc_); //nuevo Boton
+	useButton = new Boton(app, "use", usFunc_, Resources::BotonSonido); //nuevo Boton
 	useButton->addAnim("Pressed", { 23 }, true, -1, 100);
 	useButton->addAnim("Stop", { 22 }, true, -1, 100);
 	RenderComponent* im = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonUsar), useButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer
@@ -72,7 +72,7 @@ if (inventario->getLength() != 0) {//si hay algun objeto en la lista de objetos
 	stage.push_back(useButton); //se pushea
 
 	swFunct_ = [this]() mutable {swap(this); };
-	swapButton = new Boton(app, "swap", swFunct_); //nuevo BotonswapButton->addAnim("Pressed", { 23 }, true, -1, 100);
+	swapButton = new Boton(app, "swap", swFunct_, Resources::BotonSonido); //nuevo BotonswapButton->addAnim("Pressed", { 23 }, true, -1, 100);
 	swapButton->addAnim("Pressed", { 23 }, true, -1, 100);
 	swapButton->addAnim("Stop", { 22 }, true, -1, 100);
 	RenderComponent* im2 = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonSwap), swapButton->getAnimations(), 4, 6, 140, 31); //se crea su image Renderer

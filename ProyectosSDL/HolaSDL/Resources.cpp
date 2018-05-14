@@ -265,7 +265,8 @@ std::vector<std::string> Resources::imageFiles_{
 };
 
 std::vector<std::string> Resources::musicFiles_{
-	"..//music/initTest.wav"
+	"..//music/initTest.wav",
+	"..//music/MainThemeProGoW.mp3"
 };
 
 std::vector<std::string> Resources::soundEffectFiles_{ 

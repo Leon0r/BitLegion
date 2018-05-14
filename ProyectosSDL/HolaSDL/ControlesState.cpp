@@ -19,7 +19,7 @@ void ControlesState::readFromJson()
 {
 	if (entities.empty()) { //si la variable static está vacia...
 
-		botonSalir = new Boton(app, "exitButton", exitFun_);
+		botonSalir = new Boton(app, "exitButton", exitFun_, Resources::BotonSonido);
 		botonSalir->setWidth(65); botonSalir->setHeight(65); botonSalir->setPosition(Vector2D(40, 40));
 		botonSalir->addAnim("Stop", { 0,0,1,1,2,2,3,3,4,4,5,5,6,6 }, true, -1, 100);
 		botonSalir->addAnim("Feedback", { 7 }, true, -1, 100);
