@@ -63,11 +63,17 @@ public:
 		ResumeMusic msg = { id };
 		send(&msg);
 	}
+	void setMusicVolume(Resources::MusicId id, int volume) {
+		MusicVolume msg = { id, volume };
+		send(&msg);
+	}
 	//este cuenta con el numero de repeticiones que quieres para el soundEffect, por defecto a 0
-	void playSoundEffect(Resources::SoundEffectId id, int numReps = 0) {
+	void playSoundEffect(Resources::SoundEffectId id, int numReps = 0, int volume = 70) {
 		if (numReps != 0)numReps--;//esto es porque siempre se repite una vez mas de la que le pones (i dunno why)
 		PlaySoundE msg = { id, numReps };
 		send(&msg);
+		SoundEffectVolume vol = { id, volume };
+		send(&vol);
 	}
 	void stopAllSoundEffect() {
 		Mensaje msg = { STOP_ALL_SOUNDEFFECT };

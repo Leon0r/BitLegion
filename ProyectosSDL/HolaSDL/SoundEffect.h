@@ -11,6 +11,7 @@ public:
 	bool load(std::string fileName);
 	void play(int repetirions = 0);
 	void stop() { Mix_HaltChannel(-1); }//para todos los canales (soundEffects)
+	void setVolume(int volume);
 	void close();
 private:
 	Mix_Chunk *chunck_ = nullptr;

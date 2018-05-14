@@ -16,7 +16,6 @@ public:
 	virtual ~SoundManager();
 	virtual void receive(Mensaje* msg);
 	virtual void update();
-	SoundEffect* getLastSoundEffect() { return actualSoundEffect; }
 private:
 	struct PlayMessage {
 		PlayMessage(Resources::SoundEffectId id, int num) : id_(id), num_(num) {};

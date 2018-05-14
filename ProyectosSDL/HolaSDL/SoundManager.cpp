@@ -52,6 +52,18 @@ void SoundManager::receive(Mensaje* msg) {
 		eventQueue.push(*m);
 		break;
 	}
+	//establece el volumen de la musica dada
+	case MUSIC_VOLUME: {
+		MusicVolume* m = static_cast<MusicVolume*>(msg);
+		app->getResources()->getMusic(m->idMusic_)->setVolume(m->volume_);
+		break;
+	}
+	//establece el volumen del sound effect dado
+	case SOUNDEFFECT_VOLUME: {
+		SoundEffectVolume* m = static_cast<SoundEffectVolume*>(msg);
+		app->getResources()->getSoundEffect(m->idSound_)->setVolume(m->volume_);
+		break;
+	}
 	//para todos los efectos de sonido
 	case STOP_ALL_SOUNDEFFECT: {
 		actualSoundEffect->stop();//stop del actual que ya esta sonando (ya no se encuentra en la cola de eventos)
