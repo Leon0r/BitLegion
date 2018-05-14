@@ -306,6 +306,7 @@ void Resources::setImageTextures(std::vector<std::string> textures) {
 	imageTextures_ = new Texture*[numOfImageTextures_];
 	for (int i = 0; i < numOfImageTextures_; i++) {
 		imageTextures_[i] = new Texture(game_->getRenderer(), textures[i]);
+		game_->updatePantallaCarga();
 	}
 }
 
@@ -314,6 +315,7 @@ void Resources::setMusic(std::vector<std::string> music) {
 	numOfMusic_ = music.size();
 	music_ = new Music*[numOfMusic_];
 	for (int i = 0; i < numOfMusic_; i++) {
+		game_->updatePantallaCarga();
 		music_[i] = new Music(music[i]);
 	}
 }
@@ -323,6 +325,7 @@ void Resources::setSoundEffects(std::vector<std::string> soundEffects) {
 	numOfSoundEffects_ = soundEffects.size();
 	soundEffects_ = new SoundEffect*[numOfSoundEffects_];
 	for (int i = 0; i < numOfSoundEffects_; i++) {
+		game_->updatePantallaCarga();
 		soundEffects_[i] = new SoundEffect(soundEffects[i]);
 	}
 }

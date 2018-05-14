@@ -1,23 +1,11 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 0,
+        "actualScene": 2,
         "h": 201.6,
-        "itemList": [
-            {
-                "Texture": 55,
-                "descripcion": "Llave de la moto de    Alena",
-                "h": 36.92307692307692,
-                "rotation": 0.0,
-                "tag": "keyMoto",
-                "w": 49.230769230769226,
-                "x": 938.1846153846153,
-                "y": 8.53846153846154
-            }
-        ],
         "rotation": 0.0,
         "w": 84.0,
-        "x": 574.0,
-        "y": 471.6
+        "x": 946.0,
+        "y": 518.0
     }
 }

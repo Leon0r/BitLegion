@@ -28,9 +28,11 @@ private:
 
 	bool resourInitiated = false;
 
-	void pantallaCarga();
+	void loadCarga();
 
-	//void go();
+	Entity* carga;
+
+	Texture* tx;
 
 public:
 	SDLApp(int w, int h);
@@ -42,6 +44,7 @@ public:
 	void run() { while (!this->exit) { handleEvent(); update(); render(); } }
 	void closeSDL();
 	void setExit(bool b) { exit = b; }
+	void updatePantallaCarga();
 	SDL_Window* SDLApp::getWindow() const;
 	SDL_Renderer* SDLApp::getRenderer() const;
 	int SDLApp::getWindowWidth() const;
