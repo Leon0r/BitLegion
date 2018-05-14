@@ -39,5 +39,6 @@ private:
 	GameState* PuzzleCreator(PuzzleTypes type, json& j); //dependiendo del tag, elige un puzzle u otro (podemos tener mas de dos)
 	bool addAnimsFromJSON(Entity* obj, json& j, const int numText);
 	void readSoundEffect(Entity* obj, json& j);
+	bool cambioActo = false;
 };
 

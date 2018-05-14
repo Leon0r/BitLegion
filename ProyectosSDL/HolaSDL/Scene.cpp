@@ -37,6 +37,10 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 		int n;
 		string obj = "ItemInventario"; // nombre del array del objeto en el json
 
+		if (!j["CambioActo"].is_null()) {
+			cambioActo = j["CambioActo"];
+		}
+
 		// Cargado de items de inventario
 		for (int i = 0; i < j[obj].size(); i++) {
 
