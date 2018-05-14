@@ -144,7 +144,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			readSoundEffect(aux, j[obj][i]);
 
 			if (!j[obj][i]["rotation"].is_null()) {
-				SceneItems.back()->setRotation(j[obj][i]["rotation"]);
+				int n = j[obj][i]["rotation"];
+				aux->setRotation(n);
 			}
 			SceneItems.push_back(aux);
 		}
