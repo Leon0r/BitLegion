@@ -26,6 +26,10 @@ void SoundEffect::play(int repetirions) {
 	}
 }
 
+void SoundEffect::setVolume(int volume) {
+	Mix_VolumeChunk(chunck_, volume);
+}
+
 void SoundEffect::close() {
 	if (chunck_ != nullptr) {
 		Mix_FreeChunk(chunck_);

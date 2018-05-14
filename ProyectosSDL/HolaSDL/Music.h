@@ -15,6 +15,7 @@ public:
 	void pause();
 	void resume();
 	void close();
+	void setVolume(int volume);
 private:
 	Mix_Music* music_;
 };

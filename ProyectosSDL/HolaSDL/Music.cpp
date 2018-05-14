@@ -35,6 +35,10 @@ void Music::resume() {
 	Mix_ResumeMusic();
 }
 
+void Music::setVolume(int volume) {
+	Mix_VolumeMusic(volume);
+}
+
 void Music::close() {
 	if (music_ != nullptr) {
 		Mix_FreeMusic(music_);
