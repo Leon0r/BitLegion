@@ -1,5 +1,7 @@
 {
-	"NumNodos": 47,
+	"NumNodos": 51,
+	"msg": 0,
+    "numScene": 9,
 
 	"Nodo": [
 
@@ -391,11 +393,11 @@
 
 	{"numNodo":46, "nodoSig":47, "numLineas": 1, 
 
-	"lineas":[ {"texto": "!Espera¡ No nos hemos presentado, me llamo Ander, encantado."}],
+	"lineas":[ {"texto": "¡Espera! No nos hemos presentado, me llamo Ander, encantado."}],
 	"numOpciones":0, "pj": 94, "emo": 0
 	},
 
-	{"numNodo":47, "nodoSig":48, "numLineas": 1, 
+	{"numNodo":47, "nodoSig":49, "numLineas": 1, 
 
 	"lineas":[ {"texto": "Alena, y ahora vámonos."}],
 	"numOpciones":0, "pj": 94, "emo": 0
@@ -414,7 +416,7 @@
 	"numOpciones":0, "pj": 94, "emo": 0
 	},
 
-	{"numNodo":50, "nodoSig":51, "numLineas": 2, 
+	{"numNodo":50, "nodoSig":-1, "numLineas": 2, 
 
 	"lineas":[ {"texto": "Eso está muy lejos, fuera de la ciudad."},
 	{"texto": "No me apetece nada coger el coche."}],
