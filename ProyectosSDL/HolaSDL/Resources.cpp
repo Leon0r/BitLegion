@@ -272,14 +272,14 @@ std::vector<std::string> Resources::musicFiles_{
 std::vector<std::string> Resources::soundEffectFiles_{ 
 	"..//SoundFX/door.mp3",
 	"..//SoundFX/CogerObjeto.mp3",
-	"..//SoundFX/inventarioON.wav",
+	"..//SoundFX/inventarioON.mp3",
 	"..//SoundFX/botonSonido.mp3",
 	"..//SoundFX/Neon.mp3",
 	"..//SoundFX/Paso.mp3",
 	"..//SoundFX/TVnoSignal.mp3",
-	"..//SoundFX/Click.wav",
-	"..//SoundFX/WrongPuzzle.wav",
-	"..//SoundFX/CorrectPuzzle.wav",
+	"..//SoundFX/Click.mp3",
+	"..//SoundFX/WrongPuzzle.mp3",
+	"..//SoundFX/CorrectPuzzle.mp3",
 
 };
 
