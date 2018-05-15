@@ -35,6 +35,6 @@ private:
 	stack<SDL_Keycode> Xaxis;//pila de teclas del eje x
 	stack<SDL_Keycode> Yaxis;//pila de teclas del eje y
 	//flags para saber si has pulsado las teclas. El ultimo sirev para saber si has parado hacia la derecha o no
-	bool r = false, l = false, u = false, d = false, iddleRight = true;
+	bool r = false, l = false, u = false, d = false, iddleRight = true, walking = false;
 };
 

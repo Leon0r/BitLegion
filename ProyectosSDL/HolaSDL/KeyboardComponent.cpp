@@ -8,6 +8,11 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 
 	//si se ha pulsado una tecla se a�ade a la pila de teclas y se marca como pulsada
 	if (event.type == SDL_KEYDOWN) {
+		if (!walking && (event.key.keysym.sym == right || event.key.keysym.sym == left || event.key.keysym.sym == up || event.key.keysym.sym == down)) {
+			walking = true;
+			PlaySoundE msg = { Resources::Paso, -1 };
+			send(&msg);//suenan los pasos de alena
+		}
 		send(&Mensaje(Moving));
 		if (event.key.keysym.sym == right) {
 			if (!r) Xaxis.push(right);
@@ -86,6 +91,9 @@ void KeyboardComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 
 	//si esta parado se establece la animacion correspondiente al lado hacia el que mira
 	if (Xaxis.empty() && Yaxis.empty()) {
+		walking = false;
+		Mensaje msg = { STOP_ALL_SOUNDEFFECT };
+		send(&msg);//paran los pasos de alena
 		if(iddleRight)send(&Mensaje(StopRight));
 		else send(&Mensaje(StopLeft));
 	}

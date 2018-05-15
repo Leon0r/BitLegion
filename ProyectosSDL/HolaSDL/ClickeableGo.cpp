@@ -10,6 +10,7 @@ ClickeableGO::ClickeableGO(SDLApp* game, int x, int y, int w, int h, Texture* te
 	position_ = Vector2D(x, y);
 	height_ = h;
 	width_ = w;
+	addObserver(app->getSoundManager());
 }
 
 ClickeableGO::~ClickeableGO()
@@ -25,7 +26,13 @@ void ClickeableGO::handleInput(Uint32 time, const SDL_Event& event) {
 				act();//Redefinico en cada clase
 				cout << "Pulsado" << endl;
 			}
-			else cout << "not in range" << endl;
+			else {
+				PlaySoundE msg = { Resources::WrongPuzle, 0 };
+				send(&msg);
+				SoundEffectVolume vol = { Resources::WrongPuzle, 50 };
+				send(&vol);
+				cout << "not in range" << endl;
+			}
 		else
 			act();
 	}

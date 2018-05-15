@@ -29,8 +29,10 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	//mensajes
 	keyboard->addObserver(render);//teclado a animaciones
 	keyboard->addObserver(&switcher);//teclado a switcher para no pisarse con mouse
+	keyboard->addObserver(app->getSoundManager());//teclado a soundmanager
 	mouseMovement->addObserver(render);//mouse a animaciones
 	mouseMovement->addObserver(&switcher);//mouse a switcher para no pisarse con teclado
+	mouseMovement->addObserver(app->getSoundManager());//mouse a soundmanager
 	this->addObserver(render);
 
 	// posicion y dimensiones
