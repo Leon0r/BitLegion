@@ -93,7 +93,6 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	bControles = new AnimationRenderer(app->getResources()->getImageTexture(Resources::ControlesButton), b->getAnimations(), 4, 5, 265, 150);
 	bControles->playAnim("Stop");
 	b->addRenderComponent(bControles);
-	//b->addRenderComponent(new ImageRenderer(app->getResources()->getImageTexture(Resources::ControlesButton)));
 	b->setAnimated(true);
 	botones.push_back(b); stage.push_back(b);
 

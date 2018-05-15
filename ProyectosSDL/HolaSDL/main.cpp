@@ -11,6 +11,6 @@ int main(int argc, char* argv[]){
 	SDLApp g(1280, 720);
 	g.run();
 	g.closeSDL();
-	//_CrtDumpMemoryLeaks(); //esta instruccion le vale a Diego para ver la basura. No quiteis el comentario pls T_T
+	_CrtDumpMemoryLeaks(); //esta instruccion le vale a Diego para ver la basura. No quiteis el comentario pls T_T
 	return 0;
 }

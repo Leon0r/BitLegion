@@ -104,7 +104,7 @@
          "generaState": true,
          "h": 80.0,
          "hItem": -842150451,
-         "numTextItem": 258,
+         "numTextItem": 262,
          "open": false,
          "permanenteItem": true,
          "rotation": 0.0,
@@ -164,7 +164,7 @@
          "h": 34.0,
          "maxAlpha": 240,
          "minAlpha": 0,
-         "off": false,
+         "off": true,
          "rotation": 0.0,
          "tag": "interruptor0",
          "w": 37.0,
@@ -197,11 +197,36 @@
          "widthFrame": 54,
          "x": 1015.0,
          "y": 471.0
+      },
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 209,
+         "animation": true,
+         "descripcion": "Ese símbolo lo hemos visto ya en muchos sitios.",
+         "h": 30.0,
+         "heightFrame": 42,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "tag": "bolsaCocaLogo",
+         "vel": 200.0,
+         "w": 30.0,
+         "widthFrame": 42,
+         "x": 890.0,
+         "y": 470.0
       }
    ],
    "PlayerPos": {
-      "x": 848.0,
-      "y": 315.6
+      "x": 230.0,
+      "y": 330.0
    },
    "PlayerTam": {
       "h": 201.6,

@@ -16,7 +16,8 @@ public:
 	virtual ~SoundManager();
 	virtual void receive(Mensaje* msg);
 	virtual void update();
-	void changeMute() { mute = !mute; }
+	void changeMute() { mute = !mute; };
+	inline bool const getMute() { return mute; };
 private:
 	struct PlayMessage {
 		PlayMessage(Resources::SoundEffectId id, int num) : id_(id), num_(num) {};

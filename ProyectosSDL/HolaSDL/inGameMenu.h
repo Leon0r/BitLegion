@@ -3,6 +3,7 @@
 #include "Boton.h"
 #include "AnimationRenderer.h"
 #include "MouseEventAnimComponent.h"
+#include "ChangeAnimClickInputComponent.h"
 
 class inGameMenu :
 	public GameState
@@ -31,6 +32,7 @@ private:
 	AnimationRenderer* bExittext;
 	AnimationRenderer* bMutetext;
 	MouseEventAnimComponent ov;
+	ChangeAnimClickInputComponent clk;
 
 	//Cambiar por clase por boton
 	function<void()> cGame_;

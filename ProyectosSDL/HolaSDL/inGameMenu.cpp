@@ -7,6 +7,7 @@
 inGameMenu::inGameMenu(SDLApp* game, GameState* previousState): GameState(game), prevState(previousState)
 {
 	ov = MouseEventAnimComponent(SDL_MOUSEMOTION, "Feedback", "Stop");
+	clk = ChangeAnimClickInputComponent(SDL_MOUSEBUTTONDOWN, "Mute", "Desmute", SDL_BUTTON_LEFT);
 
 	cGame_ = [this]() mutable { continueGame(app); };
 	cout << "inGameMenu" << endl;
@@ -54,10 +55,22 @@ inGameMenu::inGameMenu(SDLApp* game, GameState* previousState): GameState(game),
 	b = (new Boton(app, "mute", muteVol_, Resources::BotonSonido));
 	b->setWidth(75); b->setHeight(28);
 	b->setPosition(Vector2D(app->getWindowWidth() * (1/7) - 10, app->getWindowHeight() * (1 / 7)+ 10));
-	b->addAnim("Feedback", { 0 }, true, -1, 150);
-	b->addAnim("Stop", { 1 }, true, -1, 100);
+	b->addAnim("Desmute", { 0 }, true, -1, 100);
+	b->addAnim("Mute", { 1 }, true, -1, 100);
 	bMutetext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonMute), b->getAnimations(), 1, 2, 352, 131);
+	if (app->getSoundManager()->getMute()) {
+		clk.setAnim1("Mute");
+		clk.setAnim2("Desmute");
+		bMutetext->playAnim("Mute");
+	}
+	else {
+		clk.setAnim1("Desmute");
+		clk.setAnim2("Mute");
+		bMutetext->playAnim("Desmute");
+	}
+	b->setAnimated(true);
 	b->addRenderComponent(bMutetext);
+	b->addInputComponent(&clk);
 	botones.push_back(b); stage.push_back(b);
 
 
@@ -70,7 +83,7 @@ inGameMenu::inGameMenu(SDLApp* game, GameState* previousState): GameState(game),
 inGameMenu::~inGameMenu()
 {
 	for (int i = 0; i < botones.size(); i++) { botones.at(i)->delRenderComponent(btext); botones.at(i)->delRenderComponent(bMenutext); 
-	botones.at(i)->delRenderComponent(bExittext);  botones.at(i)->delRenderComponent(bMutetext); botones.at(i)->delInputComponent(&ov); }
+	botones.at(i)->delRenderComponent(bExittext);  botones.at(i)->delRenderComponent(bMutetext); botones.at(i)->delInputComponent(&ov); botones.at(i)->delInputComponent(&clk); }
 	vector<Boton*>::iterator it;
 	for (it = botones.begin(); it != botones.end(); it++) {
 		this->deleteElement(*it);
