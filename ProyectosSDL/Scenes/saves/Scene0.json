@@ -196,9 +196,34 @@
                1
             ]
          ],
+         "Texture": 56,
+         "animation": true,
+         "descripcion": "Es un rotulador... rojo.... y ya.",
+         "h": 40.0,
+         "heightFrame": 40,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "tag": "rotulador",
+         "vel": 200.0,
+         "w": 40.0,
+         "widthFrame": 40,
+         "x": 670.0,
+         "y": 500.0
+      },
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
          "Texture": 55,
          "animation": true,
-         "descripcion": "Llave de la moto de    Alena",
+         "descripcion": "La moto salio demasiado cara como para perder esto.",
          "h": 40.0,
          "heightFrame": 40,
          "loop": true,
@@ -223,7 +248,7 @@
          ],
          "Texture": 19,
          "animation": true,
-         "descripcion": "Llave de la casa de    Alena",
+         "descripcion": "Esto si que nos puede ser util. Pero, ¿donde la podemos usar?",
          "h": 40.0,
          "heightFrame": 40,
          "loop": true,
@@ -239,7 +264,7 @@
       }
    ],
    "PlayerPos": {
-      "x": 142.0,
+      "x": 100.0,
       "y": 500.0
    },
    "PlayerTam": {

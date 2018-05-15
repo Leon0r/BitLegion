@@ -1,11 +1,23 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 10,
-        "h": 120.0,
+        "actualScene": 42,
+        "h": 201.6,
+        "itemList": [
+            {
+                "Texture": 209,
+                "descripcion": "Ese símbolo lo hemos visto ya en muchos sitios.",
+                "h": 36.92307692307692,
+                "rotation": 0.0,
+                "tag": "bolsaCocaLogo",
+                "w": 49.230769230769226,
+                "x": 938.1846153846153,
+                "y": 8.53846153846154
+            }
+        ],
         "rotation": 0.0,
-        "w": 50.0,
-        "x": 1150.0,
-        "y": 300.0
+        "w": 84.0,
+        "x": 848.0,
+        "y": 315.6
     }
 }

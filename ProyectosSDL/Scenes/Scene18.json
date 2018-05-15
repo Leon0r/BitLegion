@@ -33,9 +33,9 @@
             "Anims": [ [0],[1] ]},
         { "x": 975, "y": 270, "w": 45, "h": 45, "descripcion": "Huele a cafe recién hecho.", "tag": "bolsaCafe", "Texture": 71, "soundEffect": 1,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
+            "widthFrame": 42, "heightFrame": 42, "vel": 200, "loop": true,
             "Anims": [ [0],[1] ]},
-        { "x": 380, "y": 420, "w": 45, "h": 45, "descripcion": "Nos puede proporcionar muchas pistas.", "tag": "MovilMuerto", "Texture": 20, "soundEffect": 1,
+        { "x": 380, "y": 435, "w": 45, "h": 45, "descripcion": "Nos puede proporcionar muchas pistas.", "tag": "MovilMuerto", "Texture": 20, "soundEffect": 1,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
             "Anims": [ [0],[1] ]}

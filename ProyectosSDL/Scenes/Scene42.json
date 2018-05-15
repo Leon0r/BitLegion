@@ -41,9 +41,9 @@
     "ItemInventario": [
         { "x": 890, "y": 470, "w": 30, "h": 30, "descripcion": "Ese símbolo lo hemos visto ya en muchos sitios.", "tag": "bolsaCocaLogo", "Texture": 209, "soundEffect": 1,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
+            "widthFrame": 42, "heightFrame": 42, "vel": 200, "loop": true,
             "Anims": [ [0],[1] ] },
-        { "x": 1015, "y": 472, "w": 64, "h": 54, "descripcion": "No hay muchisima informacion, pero con esto sabemos como se organizan.", "tag": "cuadernoDroga", "Texture": 211, "soundEffect": 1,
+        { "x": 1015, "y": 471, "w": 64, "h": 54, "descripcion": "No hay muchisima informacion, pero con esto sabemos como se organizan.", "tag": "cuadernoDroga", "Texture": 211, "soundEffect": 1,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 54, "heightFrame": 44, "vel": 200, "loop": true,
             "Anims": [ [0],[1] ] }

@@ -74,7 +74,7 @@
          ],
          "Texture": 236,
          "animation": true,
-         "descripcionItem": "funciona",
+         "descripcionItem": "Con esto ya tenemos pruebas más sólidas contra Moonprice.",
          "generaState": false,
          "h": 55.0,
          "hItem": 18,
@@ -164,7 +164,7 @@
          "h": 34.0,
          "maxAlpha": 240,
          "minAlpha": 0,
-         "off": true,
+         "off": false,
          "rotation": 0.0,
          "tag": "interruptor0",
          "w": 37.0,
@@ -172,9 +172,36 @@
          "y": 235.0
       }
    ],
+   "ItemInventario": [
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 211,
+         "animation": true,
+         "descripcion": "No hay muchisima informacion, pero con esto sabemos como se organizan.",
+         "h": 54.0,
+         "heightFrame": 44,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "tag": "cuadernoDroga",
+         "vel": 200.0,
+         "w": 64.0,
+         "widthFrame": 54,
+         "x": 1015.0,
+         "y": 471.0
+      }
+   ],
    "PlayerPos": {
-      "x": 230.0,
-      "y": 330.0
+      "x": 848.0,
+      "y": 315.6
    },
    "PlayerTam": {
       "h": 201.6,
