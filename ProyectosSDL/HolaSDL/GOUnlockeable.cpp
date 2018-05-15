@@ -9,6 +9,7 @@ void GOUnlockeable::act() {
 			if (aux != nullptr) {
 				MainCharacter* pj = aux->getMainPj();
 				if (pj != nullptr) {
+					aux->playSoundEffect(Resources::CorrectPuzle);
 					pj->getList()->deleteItem(key);
 					pj->setCurrenTag("");
 					pj->marcaOut();
@@ -24,7 +25,7 @@ void GOUnlockeable::act() {
 		}
 		else
 		{
-			cout << "Cthun 2 broken" << endl;
+			aux->playSoundEffect(Resources::WrongPuzle);
 		}
 	}
 	
