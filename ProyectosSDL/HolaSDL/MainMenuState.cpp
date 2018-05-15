@@ -1,6 +1,7 @@
 #include "MainMenuState.h"
 #include "TransitionScreen.h"
 #include "ControlesState.h"
+#include "CreditosState.h"
 
 
 MainMenuState::MainMenuState()
@@ -40,6 +41,14 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 		ControlesState* contState = new ControlesState(game);
 
 		game->getStateMachine()->pushState(contState);
+
+		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
+	};
+
+	creditosFun_ = [game]()mutable {
+		CreditosState* credits = new CreditosState(game);
+
+		game->getStateMachine()->pushState(credits);
 
 		//game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
 	};
@@ -97,6 +106,18 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	b->addRenderComponent(bExittext);
 	b->setAnimated(true);
 	botones.push_back(b);stage.push_back(b);
+
+	b = (new Boton(app, "Creditos", creditosFun_, Resources::BotonSonido));
+	b->setWidth(150); b->setHeight(100);
+	b->setPosition(Vector2D(app->getWindowWidth() - b->getWidth(), app->getWindowHeight() - b->getHeight()));
+	b->addAnim("Feedback", { 16 }, true, -1, 75);
+	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }, true, -1, 100);
+	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 265, 150);
+	bExittext->playAnim("Stop");
+	b->addInputComponent(&ov);
+	b->addRenderComponent(bExittext);
+	b->setAnimated(true);
+	botones.push_back(b); stage.push_back(b);
 
 	logo = new Entity(app);
 	logo->setPosition({ (double)logo->getGame()->getWindowWidth()/2 - 300, 150 });

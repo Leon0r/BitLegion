@@ -27,5 +27,6 @@ private:
 	function<void()> lGame_;
 	function<void()> eGame_;
 	function<void()> controlesFunc_;
+	function<void()> creditosFun_;
 };
 

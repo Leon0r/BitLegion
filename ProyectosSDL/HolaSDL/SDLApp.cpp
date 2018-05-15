@@ -7,6 +7,7 @@
 #include "MainMenuState.h"
 #include "PasswordState.h"
 #include "TransitionScreen.h"
+#include "CreditosState.h"
 
 
 SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
