@@ -38,10 +38,6 @@
         { "x": 380, "y": 420, "w": 45, "h": 45, "descripcion": "Nos puede proporcionar muchas pistas.", "tag": "MovilMuerto", "Texture": 20, "soundEffect": 1,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
-            "Anims": [ [0],[1] ]},
-        { "x": 380, "y": 420, "w": 45, "h": 45, "descripcion": "Espero que el camello colabore con nosotros...", "tag": "NumeroCamello", "Texture": 161, "soundEffect": 1,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
             "Anims": [ [0],[1] ]}
     ],
 
