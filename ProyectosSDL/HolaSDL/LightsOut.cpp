@@ -9,15 +9,17 @@ LightsOut::LightsOut(SDLApp* app, int numCas, int dificultad, int id) : Puzzle(a
 
 	lights.resize(numCas);
 	aux.resize(numCas);
-	for (int i = 0; i < numCas; i++) {//inicializacion de la lights de casillas
+
+	for (int i = 0; i < numCas; i++) { //inicializacion de la lights de casillas
 		lights[i].resize(numCas);
 		aux[i].resize(numCas);
 		for (int j = 0; j < numCas; j++) {
-			lights[i][j] = new CasillaLight(app, i, j, tamCas/numCas, tamCas/numCas, nullptr, this);
+			lights[i][j] = new CasillaLight(app, i, j, tamCas/numCas, tamCas/numCas, app->getResources()->getImageTexture(Resources::LuzApagada), this);
 			lights[i][j]->setPosition(Vector2D(relacion.first*(espaciado*j + posX), relacion.second*(espaciado*i + 182)));
 			stage.push_front(lights[i][j]);
 		}
 	}
+
 	this->apagaLuces(dificultad);
 
 	//--------Botones-----
@@ -78,7 +80,6 @@ void LightsOut::win(){ //comprueba que todas las luces esten encendidas
 	}
 	
 	if (_win && puzzleHasStarted) { //si gana y el puzzle ha empezado
-		cout << "Disgüised Toast";
 		Puzzle::win();
 	}
 }

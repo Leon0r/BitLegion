@@ -247,7 +247,7 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/luzPolbots.png",
 "..//images/Objetos/neonDeportes.png",
 "..//images/Objetos/ventanaGalina.png",
-"..//images/Objetos/Puzles/casillaPuzzleCarta.png",
+"..//images/Puzles/casillaPuzzleCarta.png",
 "..//images/Objetos/luz.png",
 "..//images/Fondos/escena30caso1.png",
 "..//images/Objetos/taburetecafeteria.png",

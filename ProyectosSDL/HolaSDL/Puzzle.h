@@ -18,7 +18,7 @@ protected:
 
 public:
 	Puzzle() {};
-	Puzzle(SDLApp* app, int id = -4) : GameState(app), id(id) { function<void()> fun = [this]()mutable {this->winner(); }; timingSalida = new GOTimer(1500, fun); this->stage.push_back(timingSalida); };
+	Puzzle(SDLApp* app, int id = -4) : GameState(app), id(id) { function<void()> fun = [this]()mutable {this->winner(); }; timingSalida = new GOTimer(800, fun); this->stage.push_back(timingSalida); };
 	~Puzzle();
 
 	int id;

@@ -1,5 +1,5 @@
 #include "CasillaLight.h"
-
+#include "FeedbackCursorInputComponent.h"
 
 
 CasillaLight::CasillaLight()
@@ -11,6 +11,7 @@ CasillaLight::CasillaLight(SDLApp * game, int x, int y, int w, int h, Texture * 
 	this->setHeight(h);
 	this->addRenderComponent(&render);
 	this->addObserver(obs); //observer es el estado del puzzle
+	this->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
 	invertir();
 }
 
@@ -24,6 +25,8 @@ void CasillaLight::handleInput(Uint32 time, const SDL_Event & event)
 	if (ComponenteClickeable::handleInput(this, event)) { //si es clickada...
 		act();
 	}
+
+	Entity::handleInput(time, event);
 }
 
 void CasillaLight::act()

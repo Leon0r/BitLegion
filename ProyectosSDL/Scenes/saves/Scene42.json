@@ -11,7 +11,7 @@
       },
       {
          "Texture": 240,
-         "h": 162.0,
+         "h": 200.0,
          "rotation": 0.0,
          "w": 252.0,
          "x": 840.0,
@@ -83,7 +83,7 @@
          "numColsFrame": 1,
          "numFilsFrame": 2,
          "numTextItem": 210,
-         "open": true,
+         "open": false,
          "permanenteItem": false,
          "rotation": 0.0,
          "tag": "",
@@ -105,7 +105,7 @@
          "h": 80.0,
          "hItem": -842150451,
          "numTextItem": 258,
-         "open": true,
+         "open": false,
          "permanenteItem": true,
          "rotation": 0.0,
          "tag": "carta",
@@ -135,13 +135,13 @@
          "Texture": 29,
          "UnlockId": 1,
          "h": 30.0,
-         "numText": 30,
+         "numText": 244,
          "numberPuzzle": 0,
          "rotation": -45,
          "type": 0,
          "w": 30.0,
-         "x": 705.0,
-         "y": 265.0
+         "x": 930.0,
+         "y": 500.0
       }
    ],
    "GOTransiciones": [
@@ -162,9 +162,9 @@
          "UnlockId": 1,
          "canWork": true,
          "h": 34.0,
-         "maxAlpha": 250,
+         "maxAlpha": 240,
          "minAlpha": 0,
-         "off": false,
+         "off": true,
          "rotation": 0.0,
          "tag": "interruptor0",
          "w": 37.0,
@@ -173,8 +173,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 848.0,
-      "y": 488.4
+      "x": 230.0,
+      "y": 330.0
    },
    "PlayerTam": {
       "h": 201.6,

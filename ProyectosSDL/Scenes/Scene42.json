@@ -12,12 +12,12 @@
 
      "CollisionableObject": [
         { "x": 800, "y": 270, "w": 300, "h": 156, "Texture": 239 },
-        { "x": 840, "y": 470, "w": 252, "h": 162, "Texture": 240 }
+        { "x": 840, "y": 470, "w": 252, "h": 200, "Texture": 240 }
     ],
 
     "GOState":[
         {"x": 705, "y": 325, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 1, "UnlockId": 1},
-        { "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"numText": 30 ,"numberPuzzle": 0,"type": 0, "UnlockId": 1 }
+        { "x": 930, "y": 500, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"numText": 244 ,"numberPuzzle": 0,"type": 0, "UnlockId": 1 }
     ],
 
     "Decorado": [
