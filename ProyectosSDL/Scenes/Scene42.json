@@ -31,12 +31,22 @@
     ],
 
     "GOCofres": [
-        { "x": 213, "y": 275, "w": 50, "h": 55, "Texture": 236, "tag": "", "wItem": 18, "hItem": 18, "descripcionItem": "funciona", 
+        { "x": 213, "y": 275, "w": 50, "h": 55, "Texture": 236, "tag": "", "wItem": 18, "hItem": 18, "descripcionItem": "Con esto ya tenemos pruebas más sólidas contra Moonprice.", 
             "tagItem": "carta","numTextItem": 210, "xItem": 218, "yItem": 280, "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 50, "heightFrame": 55, "vel": 20, "loop": true,
             "Anims": [ [0], [1] ]},
 
         { "x": 917, "y": 470, "w": 80, "h": 80, "Texture": 57, "tag": "carta", "UnlockId": 1, "generaState": true }
+    ],
+    "ItemInventario": [
+        { "x": 890, "y": 470, "w": 30, "h": 30, "descripcion": "Ese símbolo lo hemos visto ya en muchos sitios.", "tag": "bolsaCocaLogo", "Texture": 209, "soundEffect": 1,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
+            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
+            "Anims": [ [0],[1] ] },
+        { "x": 1015, "y": 472, "w": 64, "h": 54, "descripcion": "No hay muchisima informacion, pero con esto sabemos como se organizan.", "tag": "cuadernoDroga", "Texture": 211, "soundEffect": 1,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
+            "widthFrame": 54, "heightFrame": 44, "vel": 200, "loop": true,
+            "Anims": [ [0],[1] ] }
     ],
 
     "PlayerPos": {
