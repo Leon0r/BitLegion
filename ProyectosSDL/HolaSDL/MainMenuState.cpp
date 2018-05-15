@@ -56,6 +56,8 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	cout << "mainMenu" << endl;
 	fondotext = new ImageRenderer(app->getResources()->getImageTexture(Resources::FondoMenu));
 	logotext = app->getResources()->getImageTexture(Resources::LogoAnim);
+	logotext2 = new ImageRenderer(app->getResources()->getImageTexture(Resources::LogoBitLegion));
+	logotextSDL = new ImageRenderer(app->getResources()->getImageTexture(Resources::LogoSDL));
 
 	Boton* b;
 	b = new Boton(app, "NewGame", nGame_, Resources::BotonSonido);
@@ -129,6 +131,20 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	logo->addRenderComponent(new AnimationRenderer(logotext, logo->getAnimations(), 1, 6, 600, 203));
 	stage.push_back(logo);
 
+	logoSDL = new Entity(app);
+	logoSDL->setWidth(50);
+	logoSDL->setHeight(40);
+	logoSDL->setPosition(Vector2D(5, app->getWindowHeight() - logoSDL->getHeight()-5));
+	logoSDL->addRenderComponent(logotextSDL);
+	stage.push_back(logoSDL);
+
+	logo2 = new Entity(app);
+	logo2->setWidth(40);
+	logo2->setHeight(40);
+	logo2->setPosition(Vector2D(logoSDL->getWidth()+20, app->getWindowHeight() - logo2->getHeight()-5));
+	logo2->addRenderComponent(logotext2);
+	stage.push_back(logo2);
+	
 	fondo = new Entity(app);
 	fondo->setPosition({ 0, 0 });
 	fondo->setWidth(fondo->getGame()->getWindowWidth());

@@ -277,7 +277,9 @@ public:
 		SenyoraBajoExpresiones,
 		SenyoraBazarExpresiones,
 		CreditosBoton,
-		Creditos
+		Creditos,
+		LogoSDL,
+		LogoBitLegion,
 	};
 
 	// Music -- each file is loaded as an instance of Music

@@ -21,8 +21,12 @@ private:
 	RenderComponent* fondotext;
 	MouseEventAnimComponent ov{ SDL_MOUSEMOTION, "Feedback", "Stop" };
 	Texture* logotext;
+	RenderComponent* logotext2;
+	RenderComponent* logotextSDL;
 	Entity* fondo;
 	Entity* logo;
+	Entity* logo2;
+	Entity* logoSDL;
 	function<void()> nGame_;
 	function<void()> lGame_;
 	function<void()> eGame_;
