@@ -6,7 +6,7 @@
 
 void CreditosState::endCredits()
 {
-	if (creditos->getPosition().getY() + creditos->getHeight() * 1.5 < 0) {
+	if (creditos->getPosition().getY() + creditos->getHeight() + END_DELAY < 0) {
 		app->getStateMachine()->popState(false);
 		app->getStateMachine()->pushState(new TransitionScreen(app, app->getStateMachine()->currentState(), 1500));
 		delete this;

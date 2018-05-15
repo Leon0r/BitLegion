@@ -6,6 +6,7 @@ class CreditosState :
 private:
 	Entity* creditos;
 	void endCredits();
+	const int END_DELAY = 50;
 public:
 	CreditosState();
 	virtual ~CreditosState();
