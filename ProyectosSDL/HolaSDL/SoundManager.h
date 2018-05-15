@@ -16,6 +16,7 @@ public:
 	virtual ~SoundManager();
 	virtual void receive(Mensaje* msg);
 	virtual void update();
+	void changeMute() { mute = !mute; }
 private:
 	struct PlayMessage {
 		PlayMessage(Resources::SoundEffectId id, int num) : id_(id), num_(num) {};
@@ -25,6 +26,7 @@ private:
 	queue<PlaySoundE> eventQueue;
 	SDLApp* app;
 	SoundEffect* actualSoundEffect = nullptr;
+	bool mute = false;
 };
 
 #endif /* SRC_SOUNDMANAGER_H_ */

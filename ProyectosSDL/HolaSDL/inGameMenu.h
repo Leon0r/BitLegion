@@ -18,7 +18,10 @@ private:
 	void continueGame(SDLApp* app_);
 	void exitToMenu(SDLApp* app_);
 	void exitGame(SDLApp* app_);
-	void mute(SDLApp* app_) { cout << "muteaaaandooooo" << endl; };
+	void mute(SDLApp* app_) {
+		stopAllSoundEffect();
+		app->getSoundManager()->changeMute();
+	}
 
 	GameState * prevState;
 	Texture* txt;
