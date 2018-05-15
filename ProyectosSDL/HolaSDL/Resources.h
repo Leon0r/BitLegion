@@ -280,6 +280,9 @@ public:
 		Creditos,
 		LogoSDL,
 		LogoBitLegion,
+		VecinoMuertoExpresiones,
+		MaksExpresiones,
+		ForenseExpresiones,
 	};
 
 	// Music -- each file is loaded as an instance of Music

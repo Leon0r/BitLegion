@@ -265,6 +265,9 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Fondos/Credits.png", //creditos
 "..//images/Objetos/poweredbySDL.png",
 "..//images/Objetos/logo.png",
+"..//images/Expresiones/VecinoMuertoExpresiones.png",
+"..//images/Expresiones/MaksExpresiones.png",
+"..//images/Expresiones/ForenseExpresiones.png",
 };
 
 std::vector<std::string> Resources::musicFiles_{
