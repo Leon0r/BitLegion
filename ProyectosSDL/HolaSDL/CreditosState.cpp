@@ -26,11 +26,11 @@ CreditosState::~CreditosState()
 CreditosState::CreditosState(SDLApp * app) : GameState(app) {
 	creditos = new Entity(app);
 
-	creditos->setHeight(100);
-	creditos->setWidth(100);
+	creditos->setHeight(1280);
+	creditos->setWidth(1280);
 	creditos->setPosition(Vector2D(app->getWindowWidth()/2 - creditos->getWidth()/2, app->getWindowHeight()));
 
-	creditos->addRenderComponent(new ImageRenderer(app->getResources()->getImageTexture(Resources::AlenaExpresiones)));
+	creditos->addRenderComponent(new ImageRenderer(app->getResources()->getImageTexture(Resources::Creditos)));
 	creditos->addPhysicsComponent(new VerticalMovement());
 
 	stage.push_back(creditos);
