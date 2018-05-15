@@ -1,7 +1,10 @@
 {
 	"NumNodos": 51,
-	"msg": 0,
-    "numScene": 9,
+	"msg": 1,
+    "textureItem": 54,
+    "tagItem": "keyCoche",
+    "descripcionItem": "Es la llave del coche  de la empresa",
+    "permanenteItem": false,
 
 	"Nodo": [
 
