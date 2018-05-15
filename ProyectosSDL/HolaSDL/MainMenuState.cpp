@@ -112,7 +112,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 	b->setPosition(Vector2D(app->getWindowWidth() - b->getWidth(), app->getWindowHeight() - b->getHeight()));
 	b->addAnim("Feedback", { 16 }, true, -1, 75);
 	b->addAnim("Stop", { 0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }, true, -1, 100);
-	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::BotonExit), b->getAnimations(), 4, 5, 265, 150);
+	bExittext = new AnimationRenderer(app->getResources()->getImageTexture(Resources::CreditosBoton), b->getAnimations(), 4, 5, 265, 150);
 	bExittext->playAnim("Stop");
 	b->addInputComponent(&ov);
 	b->addRenderComponent(bExittext);

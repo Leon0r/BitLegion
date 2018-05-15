@@ -275,7 +275,8 @@ public:
 		HidroquenosExpresiones,
 		GalinaNoviaMuertoExpresiones,
 		SenyoraBajoExpresiones,
-		SenyoraBazarExpresiones
+		SenyoraBazarExpresiones,
+		CreditosBoton
 
 	};
 
