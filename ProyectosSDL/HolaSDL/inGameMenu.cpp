@@ -103,6 +103,7 @@ void inGameMenu::continueGame(SDLApp * app_)
 
 void inGameMenu::exitToMenu(SDLApp * app_)
 {
+	stopAllSoundEffect();
 	app_->getStateMachine()->popState();
 	app_->getStateMachine()->popState();
 }
