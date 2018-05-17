@@ -1,5 +1,5 @@
 {
-	"NumNodos": 49,
+	"NumNodos": 48,
 	"msg": 1,
     "textureItem": 54,
     "tagItem": "keyCoche",
@@ -95,7 +95,7 @@
 
 	{"numNodo":9, "nodoSig":3, "numLineas": 2, 
 
-	"lineas":[ {"texto": "De verdad, Alena, te ha tocado. Si quieres creer en la empresa"},
+	"lineas":[ {"texto": "De verdad, Alena, te ha tocado. Si quieres crecer en la empresa"},
 		{"texto": "de nuevo, tienes que trabajar duro."}],
 	
 	"numOpciones":0, "pj": 91, "emo": 0
@@ -141,9 +141,9 @@
 
 	{"numNodo":14, "nodoSig":15, "numLineas": 3, 
 
-	"lineas":[ {"texto": "Porque la gente nunca están agusto con las que ya tienen, siempre"},
+	"lineas":[ {"texto": "Porque la gente nunca está agusto con las que ya tienen, siempre"},
 		{"texto": "buscan más emociones, más placer. En fin"},
-		{"texto": "¿crees que estás preparada?"}],
+		{"texto": "¿crees estar preparada?"}],
 	
 	"numOpciones":0, "pj": 91, "emo": 0
 	},
@@ -201,7 +201,7 @@
 
 	{"numNodo":21, "nodoSig":22, "numLineas": 4, 
 
-	"lineas":[ {"texto": "Bueno, han reportado la muerte de un hombre de veimteiséis años"}, 
+	"lineas":[ {"texto": "Bueno, han reportado la muerte de un hombre de veinteiséis años"}, 
 	{"texto": "en su casa. Parece que sucedió hace unos dos días. Se cree que murió por "},	
 	{"texto": "una droga que está repartiendo esta empresa, aunque no se sabe si de  "},
 	{"texto": "verdad es de ellos o no. Te va a tocar ir a investigarles."}],
@@ -214,11 +214,12 @@
 	"numOpciones":0, "pj": 89, "emo": 0
 	},
 
-	{"numNodo":23, "nodoSig":21, "numLineas": 3, 
+	{"numNodo":23, "nodoSig":21, "numLineas": 4, 
 
-	"lineas":[ {"texto": "*Explicacion sobre la empresa que alex no ha puesto"},
-	{"texto": "*Risas del publico porque me he olvidado de cambiar este nodo*"},
-	{"texto": "*Risas++; por la rotura de la cuarta pared*"}],
+	"lineas":[ {"texto": "Ah, en fin, que desastre puedes ser a veces Alena. Moonprice es una"},
+	{"texto": "farmacéutica que extrae minerales de la Luna, con ellos hacen medicinas"},
+	{"texto": "bastante potentes. Ahora sin embargo la están liando bastante con sus"},
+	{"texto": "experimentos y creemos que se dedican a crear drogas de diseño."}],
 	"numOpciones":0, "pj": 91, "emo": 0
 	},
 
@@ -275,7 +276,7 @@
 
 	{"numNodo":30, "nodoSig":31, "numLineas": 1, 
 
-	"lineas":[ {"texto": "Ahora le digo que pase. Se llama Ander y es de Inglaterra."}],
+	"lineas":[ {"texto": "Es este hombre de aquí, se llama Ander y es de Inglaterra."}],
 	"numOpciones":0, "pj": 91, "emo": 0
 	},
 
@@ -283,8 +284,8 @@
 
 	"numOpciones":2, 
 	"opciones":[
-	{"nodoApuntado": 36, "textoOpcion": "Buff que nombre más horrible."},
-	{"nodoApuntado": 37, "textoOpcion": "Puede que sea majo."}
+	{"nodoApuntado": 34, "textoOpcion": "Buff que nombre más horrible."},
+	{"nodoApuntado": 35, "textoOpcion": "Puede que sea majo."}
 	],
 
 	"pj": 89,	"emo": 0
@@ -317,91 +318,84 @@
 	"numOpciones":0, "pj": 91, "emo": 5
 	},
 
-	{"numNodo":36, "nodoSig":37, "numLineas": 1, 
-
-	"lineas":[ {"texto": "Vaya eso sí que es nuevo en ti Alena. ¿Estás bien?"}],
-	"numOpciones":0, "pj": 91, "emo": 5
-	},
-
-
-	{"numNodo":37, "nodoSig":38, "numLineas": 0,
+	{"numNodo":36, "nodoSig":37, "numLineas": 0,
 
 	"numOpciones":2, 
 	"opciones":[
 	{"nodoApuntado": 34, "textoOpcion": "No, sólo estaba de broma."},
-	{"nodoApuntado": 39, "textoOpcion": "Perfectamente, es sólo que quiero empezar a trabajar ya."}
+	{"nodoApuntado": 38, "textoOpcion": "Perfectamente, es sólo que quiero empezar a trabajar ya."}
 	],
 
 	"pj": 89,	"emo": 0
 	},
 
-	{"numNodo":38, "nodoSig":34, "numLineas": 1, 
+	{"numNodo":37, "nodoSig":34, "numLineas": 1, 
 
 	"lineas":[ {"texto": "Buff, que nombre más horrible."}],
 	"numOpciones":0, "pj": 91, "emo": 0
 	},
 
-	{"numNodo":39, "nodoSig":29, "numLineas": 1, 
+	{"numNodo":38, "nodoSig":29, "numLineas": 1, 
 
 	"lineas":[ {"texto": "Perfecto entonces. Pero compórtate."}],
 	"numOpciones":0, "pj": 91, "emo": 0
 	},
 
+	{"numNodo":39, "nodoSig":40, "numLineas": 1, 
+
+	"lineas":[ {"texto": "Este de aquí es Ander, como te he dicho."}],
+	"numOpciones":0, "pj": 91, "emo": 0
+	},
+
 	{"numNodo":40, "nodoSig":41, "numLineas": 1, 
 
-	"lineas":[ {"texto": "*Entra ander en escena.*"}],
+	"lineas":[ {"texto": "Ander, puedes quitarte la música."}],
 	"numOpciones":0, "pj": 91, "emo": 0
 	},
 
 	{"numNodo":41, "nodoSig":42, "numLineas": 1, 
 
-	"lineas":[ {"texto": "Ander, puedes pasar."}],
-	"numOpciones":0, "pj": 91, "emo": 0
-	},
-
-	{"numNodo":42, "nodoSig":43, "numLineas": 1, 
-
-	"lineas":[ {"texto": "¡Buenas! Me parece que alguien me ha llamado."}],
+	"lineas":[ {"texto": "¡Buenas! Jeffa me dijo que me quedara aquí sin escuchar, lo siento."}],
 	"numOpciones":0, "pj": 90, "emo": 5
 	},
 
-	{"numNodo":43, "nodoSig":42, "numLineas": 0,
+	{"numNodo":42, "nodoSig":41, "numLineas": 0,
 
 	"numOpciones":2, 
 	"opciones":[
-	{"nodoApuntado": 44, "textoOpcion": "Hola."},
-	{"nodoApuntado": 46, "textoOpcion": "Hola, creo que vamos a ser compañeros."}
+	{"nodoApuntado": 43, "textoOpcion": "Hola."},
+	{"nodoApuntado": 45, "textoOpcion": "Hola, creo que vamos a ser compañeros."}
 	],
 
 	"pj": 89,	"emo": 0
 	},
 
-	{"numNodo":44, "nodoSig":45, "numLineas": 1, 
+	{"numNodo":43, "nodoSig":44, "numLineas": 1, 
 
 	"lineas":[ {"texto": "¡Espera! No nos hemos presentado, me llamo Ander, encantado."}],
 	"numOpciones":0, "pj": 90, "emo": 5
 	},
 
-	{"numNodo":45, "nodoSig":47, "numLineas": 1, 
+	{"numNodo":44, "nodoSig":46, "numLineas": 1, 
 
 	"lineas":[ {"texto": "Alena, y ahora vámonos."}],
 	"numOpciones":0, "pj": 89, "emo": 0
 	},
 
-	{"numNodo":46, "nodoSig":45, "numLineas": 1, 
+	{"numNodo":45, "nodoSig":44, "numLineas": 1, 
 
 	"lineas":[ {"texto": "Efectivamente, eso es lo que me han dicho. Me llamo Ander."}],
 	"numOpciones":0, "pj": 90, "emo": 5
 	},
 
-	{"numNodo":47, "nodoSig":48, "numLineas": 2, 
+	{"numNodo":46, "nodoSig":47, "numLineas": 2, 
 
 	"lineas":[ {"texto": "Segun el informe el piso está en la plaza Drzewo."},
 		{"texto": "En el cuarto piso de un bloque bastante grande."}],
 	"numOpciones":0, "pj": 90, "emo": 0
 	},
 
-	{"numNodo":48, "nodoSig":-1, "numLineas": 2, 
+	{"numNodo":47, "nodoSig":-1, "numLineas": 2, 
 
 	"lineas":[ {"texto": "Eso está muy lejos, fuera de la ciudad."},
 	{"texto": "No me apetece nada coger el coche."}],

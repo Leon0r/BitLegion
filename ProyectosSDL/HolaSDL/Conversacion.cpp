@@ -34,7 +34,7 @@ void Conversacion::escribir(){
 
 				for (int i = grupoOps * 3; i < grupoOps * 3 + 3; i++) {
 					if (i < dialogo[nodoActual].getNumOpciones()) {
-						Texture fuente(app->getRenderer(), escribir[i], *f, colorFuenteConv); //fuente dinámica
+						Texture fuente(app->getRenderer(), escribir[i], *f, colorOpcionesDiag); //fuente dinámica
 						fuente.render(app->getRenderer(), x, y + i % 3 * h / 4 + 2);
 					}
 				}
@@ -43,6 +43,13 @@ void Conversacion::escribir(){
 				fuente.render(app->getRenderer(), x, y + 3 * h / 4 + 2);
 			}
 
+			else if (dialogo[nodoActual].getNumOpciones() > 0) {
+				grupoOps = 0;
+				for (int i = 0; i < numLineas; i++) {
+					Texture fuente(app->getRenderer(), escribir[i], *f, colorOpcionesDiag); //fuente dinámica
+					fuente.render(app->getRenderer(), x, y + i * h / 4 + 2);
+				}
+			}
 			else {
 				grupoOps = 0;
 				for (int i = 0; i < numLineas; i++) {

@@ -278,7 +278,7 @@ std::vector<std::string> Resources::imageFiles_{
 
 std::vector<std::string> Resources::musicFiles_{
 	"..//music/initTest.wav",
-	"..//music/MainThemeProGoW.mp3",
+	"..//music/I don't want.mp3",
 	"..//music/Paso.mp3"
 };
 
