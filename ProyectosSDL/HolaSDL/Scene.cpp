@@ -518,11 +518,9 @@ void Scene::saveSceneToJson() {
 
 	j["AlenaActiva"] = alenaActiva;
 
-	int k = 0;
 	while (!SceneSoundEffects.empty()) {
 		j["SoundEffect"].push_back(SceneSoundEffects.front());
 		SceneSoundEffects.pop();
-		k++;
 	}
 
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
