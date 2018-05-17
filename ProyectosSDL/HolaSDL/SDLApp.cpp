@@ -7,6 +7,7 @@
 #include "MainMenuState.h"
 #include "PasswordState.h"
 #include "TransitionScreen.h"
+#include "IntroState.h"
 #include "CreditosState.h"
 
 
@@ -32,6 +33,8 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 	maquinaEstados = new GameStateMachine();
 
 	maquinaEstados->pushState(new MainMenuState(this));
+
+	maquinaEstados->pushState(new IntroState(this));
 }
 
 void SDLApp::handleEvent() {

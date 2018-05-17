@@ -5,7 +5,7 @@
          "Texture": 167,
          "h": 95.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 380.0,
          "x": 50.0,
          "y": 455.0
@@ -14,7 +14,7 @@
          "Texture": 166,
          "h": 95.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 380.0,
          "x": 450.0,
          "y": 455.0
@@ -23,7 +23,7 @@
          "Texture": 43,
          "h": 400.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 1280.0,
          "x": 0.0,
          "y": 335.0
@@ -61,7 +61,7 @@
          "numColsFrame": 1,
          "numFilsFrame": 4,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "vel": 200.0,
          "w": 195.0,
          "widthFrame": 218,
@@ -102,7 +102,7 @@
          "numColsFrame": 2,
          "numFilsFrame": 1,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "vel": 200.0,
          "w": 14.0,
          "widthFrame": 14,
@@ -118,7 +118,7 @@
          "rotat": 0.0,
          "rotation": 0.0,
          "scneNum": 24,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "tag": "keyCoche",
          "w": 380.0,
          "x": 880.0,
@@ -132,7 +132,7 @@
          "rotat": -90.0,
          "rotation": -90.0,
          "scneNum": 23,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 60.0,
          "x": 495.0,
          "y": 295.0
@@ -143,15 +143,15 @@
          "rotat": -180.0,
          "rotation": -180.0,
          "scneNum": 19,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 60.0,
          "x": 10.0,
          "y": 400.0
       }
    ],
    "PlayerPos": {
-      "x": 10.0,
-      "y": 320.0
+      "x": 1042.0,
+      "y": 370.0
    },
    "PlayerTam": {
       "h": 120.0,
@@ -160,7 +160,7 @@
    "Texture": 165,
    "h": 720.0,
    "rotation": 0.0,
-   "soundEffect": 0,
+   "soundEffect": 1,
    "w": 1280.0,
    "x": 0.0,
    "y": 0.0

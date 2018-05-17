@@ -5,7 +5,7 @@
          "Texture": 38,
          "h": 135.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 460.0,
          "x": 0.0,
          "y": 530.0
@@ -14,7 +14,7 @@
          "Texture": 43,
          "h": 230.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 1280.0,
          "x": 0.0,
          "y": 480.0
@@ -28,7 +28,7 @@
          "rotat": 0.0,
          "rotation": 0.0,
          "scneNum": 4,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "tag": "keyMoto",
          "w": 460.0,
          "x": 0.0,
@@ -41,7 +41,7 @@
          "rotat": 0.0,
          "rotation": 0.0,
          "scneNum": 9,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "tag": "keyCoche",
          "w": 726.0,
          "x": 580.0,
@@ -51,19 +51,30 @@
    "GOTransiciones": [
       {
          "Texture": 29,
+         "h": 60.0,
+         "rotat": 90.0,
+         "rotation": 90.0,
+         "scneNum": 9,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 913.0,
+         "y": 580.0
+      },
+      {
+         "Texture": 29,
          "h": 40.0,
          "rotat": -90.0,
          "rotation": -90.0,
          "scneNum": 6,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 40.0,
          "x": 620.0,
          "y": 290.0
       }
    ],
    "PlayerPos": {
-      "x": 100.0,
-      "y": 290.0
+      "x": 832.0,
+      "y": 368.0
    },
    "PlayerTam": {
       "h": 201.6,
@@ -72,7 +83,7 @@
    "Texture": 53,
    "h": 720.0,
    "rotation": 0.0,
-   "soundEffect": 0,
+   "soundEffect": 1,
    "w": 1280.0,
    "x": 0.0,
    "y": 0.0

@@ -7,9 +7,13 @@ class IntroState :
 {
 private:
 	Entity* logo;
+	bool done_ = false;
+	void checkAnimDone();
 public:
 	IntroState();
 	virtual ~IntroState();
 	IntroState(SDLApp* app);
+	virtual void receive(Mensaje* msg);
+	virtual void update();
 };
 

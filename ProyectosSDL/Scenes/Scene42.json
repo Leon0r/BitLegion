@@ -27,7 +27,7 @@
     ],
 
     "Interruptores": [
-        { "x": 100, "y": 235, "w": 37, "h": 34, "Texture": 237, "tag": "interruptor0", "maxAlpha": 240, "minAlpha": 0, "UnlockId": 1, "off": true, "canWork": true  }
+        { "x": 100, "y": 235, "w": 37, "h": 34, "Texture": 237, "tag": "interruptor0", "maxAlpha": 240, "minAlpha": 0, "UnlockId": 1, "off": true, "canWork": false  }
     ],
 
     "GOCofres": [

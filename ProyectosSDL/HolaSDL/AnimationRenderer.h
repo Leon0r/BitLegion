@@ -6,11 +6,11 @@
 #include "AnimationData.h"
 
 class AnimationRenderer :
-	public RenderComponent, public Observer
+	public RenderComponent, public Observer, public Observable
 {
 public:
 	AnimationRenderer() {};
-	AnimationRenderer(Texture* texture, vector<animData*> animations, int numColsFrames, int numFilsFrames, int frWidth, int frHeigth);
+	AnimationRenderer(Texture* texture, vector<animData*> animations, int numColsFrames, int numFilsFrames, int frWidth, int frHeigth, Observer* obs = nullptr);
 
 	virtual ~AnimationRenderer();
 	virtual void render(GameObject* o, Uint32 time);

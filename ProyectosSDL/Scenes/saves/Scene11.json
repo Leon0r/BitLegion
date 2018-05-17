@@ -5,7 +5,7 @@
          "Texture": 43,
          "h": 740.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 184.0,
          "x": 0.0,
          "y": 0.0
@@ -14,7 +14,7 @@
          "Texture": 103,
          "h": 90.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 60.0,
          "x": 186.0,
          "y": 290.0
@@ -23,7 +23,7 @@
          "Texture": 104,
          "h": 105.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 142.0,
          "x": 642.0,
          "y": 315.0
@@ -32,7 +32,7 @@
          "Texture": 105,
          "h": 394.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 506.0,
          "x": 742.0,
          "y": 0.0
@@ -47,7 +47,7 @@
          "rotat": 0.0,
          "rotation": 0.0,
          "scneNum": 13,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "tag": "key",
          "w": 205.0,
          "x": 478.0,
@@ -64,7 +64,7 @@
          "posFontX": 410,
          "posFontY": 438,
          "rotation": -45,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "type": 2,
          "w": 30.0,
          "x": 588.0,
@@ -78,7 +78,7 @@
          "rotat": -90.0,
          "rotation": -90.0,
          "scneNum": 12,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 60.0,
          "x": 1155.0,
          "y": 295.0
@@ -89,7 +89,7 @@
          "rotat": 90.0,
          "rotation": 90.0,
          "scneNum": 10,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 60.0,
          "x": 550.0,
          "y": 655.0
@@ -106,7 +106,7 @@
    "Texture": 101,
    "h": 720.0,
    "rotation": 0.0,
-   "soundEffect": 0,
+   "soundEffect": 1,
    "w": 1280.0,
    "x": 0.0,
    "y": 0.0

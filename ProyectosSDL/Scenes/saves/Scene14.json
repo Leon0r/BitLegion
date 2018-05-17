@@ -5,7 +5,7 @@
          "Texture": 116,
          "h": 130.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 70.0,
          "x": 140.0,
          "y": 265.0
@@ -14,7 +14,7 @@
          "Texture": 117,
          "h": 135.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 267.0,
          "x": 530.0,
          "y": 265.0
@@ -23,7 +23,7 @@
          "Texture": 115,
          "h": 289.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 87.0,
          "x": 1130.0,
          "y": 120.0
@@ -32,7 +32,7 @@
          "Texture": 118,
          "h": 110.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 110.0,
          "x": 610.0,
          "y": 450.0
@@ -60,7 +60,7 @@
          "numColsFrame": 2,
          "numFilsFrame": 2,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "vel": 200.0,
          "w": 15.0,
          "widthFrame": 15,
@@ -88,7 +88,7 @@
          "numColsFrame": 2,
          "numFilsFrame": 4,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "vel": 200.0,
          "w": 180.0,
          "widthFrame": 180,
@@ -103,7 +103,7 @@
          "rotat": 90.0,
          "rotation": 90.0,
          "scneNum": 15,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 60.0,
          "x": 878.0,
          "y": 650.0
@@ -114,14 +114,14 @@
          "rotat": 0.0,
          "rotation": 0.0,
          "scneNum": 13,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 60.0,
          "x": 1210.0,
          "y": 450.0
       }
    ],
    "PlayerPos": {
-      "x": 1200.0,
+      "x": 1196.0,
       "y": 450.0
    },
    "PlayerTam": {
@@ -131,7 +131,7 @@
    "Texture": 114,
    "h": 720.0,
    "rotation": 0.0,
-   "soundEffect": 0,
+   "soundEffect": 1,
    "w": 1280.0,
    "x": 0.0,
    "y": 0.0

@@ -2,7 +2,7 @@
 
 
 AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animations, int numColsFrames, int numFilsFrames,
-	int frWidth, int frHeigth) :
+	int frWidth, int frHeigth, Observer* obs) :
 	texture_(texture), numFrCols_(numFilsFrames), numFrFils_(numColsFrames), frWidth_(frWidth), frHeigth_(frHeigth)
 {
 	currentAnim_ = 0;
@@ -26,6 +26,10 @@ AnimationRenderer::AnimationRenderer(Texture* texture, vector<animData*> animati
 	}
 
 	playAnim(0);
+
+	if (obs != nullptr) {
+		this->addObserver(obs);
+	}
 }
 
 AnimationRenderer::~AnimationRenderer()
@@ -44,6 +48,10 @@ void AnimationRenderer::render(GameObject* o, Uint32 time)
 
 		calculateNextSourceRect();
 
+		if (currentFrame_ == animations_[currentAnim_]->framesAnim_.size() - 1 && !observers_.empty()) {
+			send(&Mensaje(ANIM_DONE));
+		}
+
 		if (animations_[currentAnim_]->framesAnim_.size() > 0)
 			currentFrame_ = nextFrame();
 
@@ -55,6 +63,7 @@ void AnimationRenderer::render(GameObject* o, Uint32 time)
 
 	texture_->render(o->getGame()->getRenderer(), rect, o->getAngle(), &sourceRect);
 	changeAnim();
+
 }
 void AnimationRenderer::playAnim(string label)
 {

@@ -18,7 +18,7 @@ class GameObject: public Observable, public Observer
 public:
 	enum Type { Collider, ItInventario, Doors, Default };
 	GameObject();
-	GameObject(SDLApp* game, int _id = -4) :app(game), _id(_id), active_(true), objectType(Default) {}
+	GameObject(SDLApp* game, int _id = -4) :app(game), _id(_id), active_(true), objectType(Default), soundEffect_(1) {}
 	virtual ~GameObject();
 
 	// abstract methods to be implemented in sub-classes
@@ -130,7 +130,7 @@ protected:
 
 	int currentAnim = 0;
 
-	int soundEffect_ = 1;
+	int soundEffect_;
 
 private:
 	Type objectType;

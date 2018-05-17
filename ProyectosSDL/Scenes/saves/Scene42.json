@@ -5,7 +5,7 @@
          "Texture": 239,
          "h": 156.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 300.0,
          "x": 800.0,
          "y": 270.0
@@ -14,7 +14,7 @@
          "Texture": 240,
          "h": 200.0,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 252.0,
          "x": 840.0,
          "y": 470.0
@@ -57,7 +57,7 @@
          "numColsFrame": 1,
          "numFilsFrame": 3,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "vel": 150.0,
          "w": 70.0,
          "widthFrame": 70,
@@ -89,7 +89,7 @@
          "open": false,
          "permanenteItem": false,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "tag": "",
          "tagItem": "carta",
          "vel": 20.0,
@@ -112,7 +112,7 @@
          "open": false,
          "permanenteItem": true,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "tag": "carta",
          "tagItem": "",
          "w": 80.0,
@@ -131,7 +131,7 @@
          "h": 30.0,
          "numCas": 3,
          "rotation": -45,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "type": 1,
          "w": 30.0,
          "x": 705.0,
@@ -144,7 +144,7 @@
          "numText": 244,
          "numberPuzzle": 0,
          "rotation": -45,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "type": 0,
          "w": 30.0,
          "x": 930.0,
@@ -158,7 +158,7 @@
          "rotat": -90.0,
          "rotation": -90.0,
          "scneNum": 41,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "w": 60.0,
          "x": 209.0,
          "y": 310.0
@@ -168,13 +168,13 @@
       {
          "Texture": 237,
          "UnlockId": 1,
-         "canWork": true,
+         "canWork": false,
          "h": 34.0,
          "maxAlpha": 240,
          "minAlpha": 0,
          "off": true,
          "rotation": 0.0,
-         "soundEffect": 0,
+         "soundEffect": 1,
          "tag": "interruptor0",
          "w": 37.0,
          "x": 100.0,
@@ -182,32 +182,6 @@
       }
    ],
    "ItemInventario": [
-      {
-         "Anims": [
-            [
-               0
-            ],
-            [
-               1
-            ]
-         ],
-         "Texture": 209,
-         "animation": true,
-         "descripcion": "Ese símbolo lo hemos visto ya en muchos sitios.",
-         "h": 30.0,
-         "heightFrame": 42,
-         "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "tag": "bolsaCocaLogo",
-         "vel": 200.0,
-         "w": 30.0,
-         "widthFrame": 42,
-         "x": 890.0,
-         "y": 470.0
-      },
       {
          "Anims": [
             [
@@ -233,6 +207,32 @@
          "widthFrame": 54,
          "x": 1015.0,
          "y": 471.0
+      },
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 209,
+         "animation": true,
+         "descripcion": "Ese símbolo lo hemos visto ya en muchos sitios.",
+         "h": 30.0,
+         "heightFrame": 42,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "tag": "bolsaCocaLogo",
+         "vel": 200.0,
+         "w": 30.0,
+         "widthFrame": 42,
+         "x": 890.0,
+         "y": 470.0
       }
    ],
    "PlayerPos": {
@@ -246,7 +246,7 @@
    "Texture": 235,
    "h": 720.0,
    "rotation": 0.0,
-   "soundEffect": 0,
+   "soundEffect": 1,
    "w": 1280.0,
    "x": 0.0,
    "y": 0.0

@@ -1,47 +1,102 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 0,
+        "actualScene": 17,
         "h": 201.6,
         "itemList": [
             {
-                "Texture": 56,
-                "descripcion": "Es un rotulador... rojo.... y ya.",
+                "Texture": 71,
+                "descripcion": "Huele a cafe recién hecho.",
                 "h": 36.92307692307692,
                 "rotation": 0.0,
-                "soundEffect": 0,
-                "tag": "rotulador",
+                "soundEffect": 1,
+                "tag": "bolsaCafe",
                 "w": 49.230769230769226,
                 "x": 938.1846153846153,
                 "y": 8.53846153846154
             },
             {
-                "Texture": 19,
-                "descripcion": "Esto si que nos puede ser util. Pero, ¿donde la podemos usar?",
+                "Texture": 21,
+                "descripcion": "Se dejo bastante dinero en vodka. Ojalá poder hacer lo mismo...",
                 "h": 36.92307692307692,
                 "rotation": 0.0,
-                "soundEffect": 0,
-                "tag": "key",
+                "soundEffect": 1,
+                "tag": "ticket",
                 "w": 49.230769230769226,
                 "x": 1007.7846153846152,
                 "y": 8.53846153846154
             },
             {
-                "Texture": 55,
-                "descripcion": "La moto salio demasiado cara como para perder esto.",
+                "Texture": 20,
+                "descripcion": "Nos puede proporcionar muchas pistas.",
                 "h": 36.92307692307692,
                 "rotation": 0.0,
-                "soundEffect": 0,
-                "tag": "keyMoto",
+                "soundEffect": 1,
+                "tag": "MovilMuerto",
                 "w": 49.230769230769226,
                 "x": 1077.3846153846155,
                 "y": 8.53846153846154
+            },
+            {
+                "Texture": 15,
+                "descripcion": "Si lo necesitamos siempre podemos echarnos un trago.",
+                "h": 36.92307692307692,
+                "rotation": 0.0,
+                "soundEffect": 1,
+                "tag": "botellaVodka",
+                "w": 49.230769230769226,
+                "x": 1146.9846153846154,
+                "y": 8.53846153846154
+            },
+            {
+                "Texture": 14,
+                "descripcion": "Tiene un poco de polvillo en el fondo",
+                "h": 36.92307692307692,
+                "rotation": 0.0,
+                "soundEffect": 1,
+                "tag": "bolsaVacia",
+                "w": 49.230769230769226,
+                "x": 1216.5846153846155,
+                "y": 8.53846153846154
+            },
+            {
+                "Texture": 13,
+                "descripcion": "Todavia queda algo de coca, no parece muy util.",
+                "h": 48.0,
+                "rotation": 0.0,
+                "soundEffect": 1,
+                "tag": "bolsaCoca",
+                "w": 64.0,
+                "x": 208.0,
+                "y": 230.39999999999998
+            },
+            {
+                "Texture": 17,
+                "descripcion": "Probablemente sea alguien importante para este hombre.",
+                "h": 48.0,
+                "rotation": 0.0,
+                "soundEffect": 1,
+                "tag": "fotoNoviaMuerto",
+                "w": 64.0,
+                "x": 347.20000000000005,
+                "y": 230.39999999999998
+            },
+            {
+                "Texture": 54,
+                "descripcion": "Es la llave del coche  de la empresa",
+                "h": 48.0,
+                "rotation": 0.0,
+                "soundEffect": 1,
+                "tag": "keyCoche",
+                "w": 64.0,
+                "x": 486.4,
+                "y": 230.39999999999998
             }
         ],
         "rotation": 0.0,
-        "soundEffect": 0,
+        "soundEffect": 1,
         "w": 84.0,
-        "x": 364.0,
-        "y": 344.0
+        "x": 866.0,
+        "y": 351.6
     }
 }
