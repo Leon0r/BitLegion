@@ -4,6 +4,7 @@
 
 Conversacion::Conversacion(SDLApp* game) : Entity(game)
 {
+	grupoOps = 0;
 	f = new Font("..//images/Dialogos/Moonace-Regular.ttf", tamanyoFuenteConv);
 	this->setWidth(w);
 	this->setHeight(h);

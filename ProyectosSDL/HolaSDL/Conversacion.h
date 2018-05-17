@@ -35,9 +35,9 @@ private:
 	const int GUIw = 1242;
 	const int GUIh = 355;
 
-	const int x = 200;
+	const int x = 150;
 	const int y = 520;			//MIRAR DONDE QUEDA BIEN
-	const int w = 1200;
+	const int w = 1092;
 	const int h = 168;			//MIRAR DONDE QUEDA BIEN, HACERLO EN FUNCION DE TAMAÑO DE PANTALLA EN VEZ DE A LO BRUTO
 
 	const int retratoX = 15;
@@ -48,7 +48,7 @@ private:
 	SDL_Rect clip = { 0,0,130,130 };
 
 
-	int grupoOps = 0;
+	int grupoOps;
 
 
 	Mensaje* msg = nullptr;
