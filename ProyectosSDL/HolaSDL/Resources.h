@@ -284,6 +284,11 @@ public:
 		MaksExpresiones,
 		ForenseExpresiones,
 		LogosAnim,
+		AmigoMaksExpresiones,
+		Mujer5Expresiones,
+		CamelloExpresiones,
+		SeñorBazarExpresiones,
+		AmigaGalinaExpresiones
 	};
 
 	// Music -- each file is loaded as an instance of Music
