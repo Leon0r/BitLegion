@@ -36,7 +36,7 @@
             "widthFrame": 50, "heightFrame": 55, "vel": 20, "loop": true,
             "Anims": [ [0], [1] ]},
 
-        { "x": 917, "y": 470, "w": 80, "h": 80, "Texture": 57, "tag": "carta", "UnlockId": 1, "generaState": true }
+        { "x": 917, "y": 470, "w": 80, "h": 80, "Texture": 57, "tag": "carta", "generaState": true }
     ],
     "ItemInventario": [
         { "x": 890, "y": 470, "w": 30, "h": 30, "descripcion": "Ese símbolo lo hemos visto ya en muchos sitios.", "tag": "bolsaCocaLogo", "Texture": 209, "soundEffect": 1,
