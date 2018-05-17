@@ -5,6 +5,7 @@
          "Texture": 104,
          "h": 105.0,
          "rotation": 0.0,
+         "soundEffect": 0,
          "w": 142.0,
          "x": 400.0,
          "y": 315.0
@@ -44,6 +45,7 @@
          "numColsFrame": 1,
          "numFilsFrame": 2,
          "rotation": 0.0,
+         "soundEffect": 0,
          "vel": 150.0,
          "w": 40.0,
          "widthFrame": 40,
@@ -58,6 +60,7 @@
          "rotat": 0.0,
          "rotation": 0.0,
          "scneNum": 30,
+         "soundEffect": 0,
          "w": 60.0,
          "x": 1205.0,
          "y": 500.0
@@ -74,6 +77,7 @@
    "Texture": 206,
    "h": 720.0,
    "rotation": 0.0,
+   "soundEffect": 0,
    "w": 1280.0,
    "x": 0.0,
    "y": 0.0

@@ -2,9 +2,19 @@
    "AlenaActiva": true,
    "CollisionableObject": [
       {
-         "Texture": 262,
+         "Texture": 266,
          "h": 207.0,
          "rotation": 0.0,
+         "soundEffect": 0,
+         "w": 55.0,
+         "x": 600.0,
+         "y": 250.0
+      },
+      {
+         "Texture": 266,
+         "h": 207.0,
+         "rotation": 0.0,
+         "soundEffect": 0,
          "w": 55.0,
          "x": 600.0,
          "y": 250.0
@@ -13,6 +23,7 @@
          "Texture": 85,
          "h": 220.0,
          "rotation": 0.0,
+         "soundEffect": 0,
          "w": 70.0,
          "x": 25.0,
          "y": 205.0
@@ -21,6 +32,7 @@
          "Texture": 86,
          "h": 230.0,
          "rotation": 0.0,
+         "soundEffect": 0,
          "w": 375.0,
          "x": 425.0,
          "y": 215.0
@@ -51,6 +63,7 @@
          "numColsFrame": 2,
          "numFilsFrame": 1,
          "rotation": 0.0,
+         "soundEffect": 0,
          "vel": 200.0,
          "w": 77.0,
          "widthFrame": 80,
@@ -65,6 +78,7 @@
          "rotat": -90.0,
          "rotation": -90.0,
          "scneNum": 7,
+         "soundEffect": 0,
          "w": 60.0,
          "x": 1160.0,
          "y": 365.0
@@ -114,6 +128,7 @@
          "numFilsFrame": 2,
          "repeat": true,
          "rotation": 0.0,
+         "soundEffect": 0,
          "vel": 200.0,
          "w": 55.0,
          "widthFrame": 35,
@@ -122,8 +137,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 670.0,
-      "y": 258.0
+      "x": 1150.0,
+      "y": 300.0
    },
    "PlayerTam": {
       "h": 201.6,
@@ -132,6 +147,7 @@
    "Texture": 84,
    "h": 720.0,
    "rotation": 0.0,
+   "soundEffect": 0,
    "w": 1280.0,
    "x": 0.0,
    "y": 0.0

@@ -1,23 +1,47 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 8,
+        "actualScene": 0,
         "h": 201.6,
         "itemList": [
             {
-                "Texture": 54,
-                "descripcion": "Es la llave del coche  de la empresa",
+                "Texture": 56,
+                "descripcion": "Es un rotulador... rojo.... y ya.",
                 "h": 36.92307692307692,
                 "rotation": 0.0,
-                "tag": "keyCoche",
+                "soundEffect": 0,
+                "tag": "rotulador",
                 "w": 49.230769230769226,
                 "x": 938.1846153846153,
+                "y": 8.53846153846154
+            },
+            {
+                "Texture": 19,
+                "descripcion": "Esto si que nos puede ser util. Pero, ¿donde la podemos usar?",
+                "h": 36.92307692307692,
+                "rotation": 0.0,
+                "soundEffect": 0,
+                "tag": "key",
+                "w": 49.230769230769226,
+                "x": 1007.7846153846152,
+                "y": 8.53846153846154
+            },
+            {
+                "Texture": 55,
+                "descripcion": "La moto salio demasiado cara como para perder esto.",
+                "h": 36.92307692307692,
+                "rotation": 0.0,
+                "soundEffect": 0,
+                "tag": "keyMoto",
+                "w": 49.230769230769226,
+                "x": 1077.3846153846155,
                 "y": 8.53846153846154
             }
         ],
         "rotation": 0.0,
+        "soundEffect": 0,
         "w": 84.0,
-        "x": 670.0,
-        "y": 258.0
+        "x": 364.0,
+        "y": 344.0
     }
 }

@@ -5,6 +5,7 @@
          "Texture": 141,
          "h": 128.0,
          "rotation": 0.0,
+         "soundEffect": 0,
          "w": 210.0,
          "x": 370.0,
          "y": 420.0
@@ -13,6 +14,7 @@
          "Texture": 113,
          "h": 249.0,
          "rotation": 0.0,
+         "soundEffect": 0,
          "w": 458.0,
          "x": 750.0,
          "y": 165.0
@@ -36,6 +38,7 @@
          "numColsFrame": 1,
          "numFilsFrame": 2,
          "rotation": 0.0,
+         "soundEffect": 0,
          "vel": 200.0,
          "w": 40.0,
          "widthFrame": 40,
@@ -59,6 +62,7 @@
          "numColsFrame": 1,
          "numFilsFrame": 2,
          "rotation": 45.0,
+         "soundEffect": 0,
          "vel": 200.0,
          "w": 45.0,
          "widthFrame": 40,
@@ -73,6 +77,7 @@
          "rotat": 180.0,
          "rotation": 180.0,
          "scneNum": 17,
+         "soundEffect": 0,
          "w": 60.0,
          "x": 10.0,
          "y": 450.0
@@ -88,21 +93,22 @@
                1
             ]
          ],
-         "Texture": 20,
+         "Texture": 21,
          "animation": true,
-         "descripcion": "Nos puede proporcionar muchas pistas.",
-         "h": 45.0,
+         "descripcion": "Se dejo bastante dinero en vodka. Ojalá poder hacer lo mismo...",
+         "h": 20.0,
          "heightFrame": 40,
          "loop": true,
          "numColsFrame": 1,
          "numFilsFrame": 2,
-         "rotation": 0.0,
-         "tag": "MovilMuerto",
+         "rotation": 45.0,
+         "soundEffect": 1,
+         "tag": "ticket",
          "vel": 200.0,
-         "w": 45.0,
+         "w": 20.0,
          "widthFrame": 40,
-         "x": 380.0,
-         "y": 435.0
+         "x": 1180.0,
+         "y": 300.0
       },
       {
          "Anims": [
@@ -122,6 +128,7 @@
          "numColsFrame": 1,
          "numFilsFrame": 2,
          "rotation": 0.0,
+         "soundEffect": 1,
          "tag": "bolsaCafe",
          "vel": 200.0,
          "w": 45.0,
@@ -138,21 +145,22 @@
                1
             ]
          ],
-         "Texture": 21,
+         "Texture": 20,
          "animation": true,
-         "descripcion": "Se dejo bastante dinero en vodka. Ojalá poder hacer lo mismo...",
-         "h": 20.0,
+         "descripcion": "Nos puede proporcionar muchas pistas.",
+         "h": 45.0,
          "heightFrame": 40,
          "loop": true,
          "numColsFrame": 1,
          "numFilsFrame": 2,
-         "rotation": 45.0,
-         "tag": "ticket",
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "tag": "MovilMuerto",
          "vel": 200.0,
-         "w": 20.0,
+         "w": 45.0,
          "widthFrame": 40,
-         "x": 1180.0,
-         "y": 300.0
+         "x": 380.0,
+         "y": 435.0
       }
    ],
    "PlayerPos": {
@@ -166,6 +174,7 @@
    "Texture": 112,
    "h": 720.0,
    "rotation": 0.0,
+   "soundEffect": 0,
    "w": 1280.0,
    "x": 0.0,
    "y": 0.0
