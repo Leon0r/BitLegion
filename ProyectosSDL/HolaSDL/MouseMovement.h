@@ -20,6 +20,7 @@ private:
 	int auxX = 1280/tamMatriz, auxY = 720/tamMatriz;//reescalado de la matriz
 	AStar* nek;
 	bool idleRight = true;//determina hacia que lado estamos mirando cuando estamos parados
+	bool walking = false;//para reproducir una sola vez los pasos de alena
 public:
 	queue<pair<int, int>> stackerino;//cola de destinos intermedios para llegar al final
 	MouseMovement() {}

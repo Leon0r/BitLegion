@@ -273,7 +273,8 @@ std::vector<std::string> Resources::imageFiles_{
 
 std::vector<std::string> Resources::musicFiles_{
 	"..//music/initTest.wav",
-	"..//music/MainThemeProGoW.mp3"
+	"..//music/MainThemeProGoW.mp3",
+	"..//music/Paso.mp3"
 };
 
 std::vector<std::string> Resources::soundEffectFiles_{ 
@@ -282,7 +283,6 @@ std::vector<std::string> Resources::soundEffectFiles_{
 	"..//SoundFX/inventarioON.mp3",
 	"..//SoundFX/botonSonido.mp3",
 	"..//SoundFX/Neon.mp3",
-	"..//SoundFX/Paso.mp3",
 	"..//SoundFX/TVnoSignal.mp3",
 	"..//SoundFX/Click.mp3",
 	"..//SoundFX/WrongPuzzle.mp3",
