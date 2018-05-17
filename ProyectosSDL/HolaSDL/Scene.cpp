@@ -99,8 +99,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 		obj = "SoundEffect";
 		//Cargado de soundEffects
 		for (int i = 0; i < j[obj].size(); i++) {
-			if (!j[obj][i]["soundEffect"].is_null()) { //si el sonido no es null, se añade a la lista de soundEffects
-				SceneSoundEffects.push(j[obj][i]["soundEffect"]);
+			if (!j[obj][i].is_null()) { //si el sonido no es null, se añade a la lista de soundEffects
+				SceneSoundEffects.push(j[obj][i]);
 			}
 		}
 
@@ -518,9 +518,11 @@ void Scene::saveSceneToJson() {
 
 	j["AlenaActiva"] = alenaActiva;
 
+	int k = 0;
 	while (!SceneSoundEffects.empty()) {
-		j["SoundEffect"]["soundEffect"] = SceneSoundEffects.front();
+		j["SoundEffect"].push_back(SceneSoundEffects.front());
 		SceneSoundEffects.pop();
+		k++;
 	}
 
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
