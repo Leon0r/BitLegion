@@ -96,6 +96,14 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			}
 		}
 
+		obj = "SoundEffect";
+		//Cargado de soundEffects
+		for (int i = 0; i < j[obj].size(); i++) {
+			if (!j[obj][i]["soundEffect"].is_null()) { //si el sonido no es null, se añade a la lista de soundEffects
+				SceneSoundEffects.push(j[obj][i]["soundEffect"]);
+			}
+		}
+
 		//Cargado objetos conversaciones
 		for (int i = 0; i < j["GOConversational"].size(); i++) {
 
@@ -437,7 +445,6 @@ void Scene::enterScene() {
 	it = CurrentState->getStage()->begin();
 	it++; it++;
 	app->getStateMachine()->currentState()->changeList();
-	
 
 	while (it != CurrentState->getStage()->end()) {//Mientras no se acaben los items
 		
@@ -451,6 +458,8 @@ void Scene::enterScene() {
 		if(it->getType() == GameObject::Collider) //casteo personalizado
 			pj->setNewCollision(it);
 	}
+
+	CurrentState->playSoundEffects(SceneSoundEffects);
 
 	//establecemos el tamaño de la nueva escena en el jugador (para las colisiones y el mouse)
 	pj->setSceneTam(width, height, x, y);
@@ -508,6 +517,11 @@ void Scene::saveSceneToJson() {
 	j["PlayerTam"]["h"] = playerTam.getY();
 
 	j["AlenaActiva"] = alenaActiva;
+
+	while (!SceneSoundEffects.empty()) {
+		j["SoundEffect"]["soundEffect"] = SceneSoundEffects.front();
+		SceneSoundEffects.pop();
+	}
 
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
 	i.close(); //cierra el flujo

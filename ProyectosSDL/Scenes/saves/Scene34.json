@@ -2,7 +2,7 @@
    "AlenaActiva": true,
    "CollisionableObject": [
       {
-         "Texture": 266,
+         "Texture": 271,
          "h": 200.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -11,7 +11,7 @@
          "y": 180.0
       },
       {
-         "Texture": 266,
+         "Texture": 271,
          "h": 96.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -96,8 +96,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 760.0,
-      "y": 386.0
+      "x": 10.0,
+      "y": 320.0
    },
    "PlayerTam": {
       "h": 201.6,

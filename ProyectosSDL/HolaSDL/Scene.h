@@ -7,6 +7,7 @@
 #include "ColisionableObject.h"
 #include <fstream>
 #include "Puzzle.h"
+#include <queue>
 
 using json = nlohmann::json;
 
@@ -29,6 +30,7 @@ private:
 	int SceneNum;
 	list<GameObject*> SceneItems;
 	list<GameState*> SceneStates;
+	queue<Resources::SoundEffectId> SceneSoundEffects;
 	bool alenaActiva = true;
 	enum PuzzleTypes {Match3, Lights, Password}; //para la lectura del json
 	list<GameObject*>::iterator it;

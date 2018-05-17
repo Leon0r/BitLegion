@@ -114,6 +114,7 @@ PlayState::~PlayState() {
 void PlayState::swapScene(int nextScene)
 {
 	if (nextScene < (int)scenes.size() && nextScene >= 0) { // basicamente se asegura de que la escena a la que quiere cambiar existe
+		stopAllSoundEffect();
 		scenes[currentScene]->exitScene();
 
 		currentScene = nextScene;

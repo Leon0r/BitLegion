@@ -7,23 +7,71 @@
     "y": 0.0,
 
     "ItemInventario": [
-        { "x": 710, "y": 490, "w": 40, "h": 40, "descripcion": "Esto si que nos puede ser util. Pero, ¿donde la podemos usar?", "tag": "key", "Texture": 19, "soundEffect": 1,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
-            "Anims": [ [0],[1] ]},
+        {
+            "x": 710,
+            "y": 490,
+            "w": 40,
+            "h": 40,
+            "descripcion": "Esto si que nos puede ser util. Pero, ¿donde la podemos usar?",
+            "tag": "key",
+            "Texture": 19,
+            "soundEffect": 1,
+            "animation": true,
+            "numFilsFrame": 2,
+            "numColsFrame": 1,
+            "widthFrame": 40,
+            "heightFrame": 40,
+            "vel": 200,
+            "loop": true,
+            "Anims": [ [ 0 ], [ 1 ] ]
+        },
 
-        { "x": 630, "y": 500, "w": 40, "h": 40, "descripcion": "La moto salio demasiado cara como para perder esto.", "tag": "keyMoto", "Texture": 55, "permanente": true, "soundEffect": 1, 
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
-            "Anims": [ [0],[1] ] },
-        { "x": 670, "y": 500, "w": 40, "h": 40, "descripcion": "Es un rotulador... rojo.... y ya.", "tag": "rotulador", "Texture": 56, "permanente": true, "soundEffect": 1, 
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
-            "Anims": [ [0],[1] ] }
+        {
+            "x": 630,
+            "y": 500,
+            "w": 40,
+            "h": 40,
+            "descripcion": "La moto salio demasiado cara como para perder esto.",
+            "tag": "keyMoto",
+            "Texture": 55,
+            "permanente": true,
+            "soundEffect": 1,
+            "animation": true,
+            "numFilsFrame": 2,
+            "numColsFrame": 1,
+            "widthFrame": 40,
+            "heightFrame": 40,
+            "vel": 200,
+            "loop": true,
+            "Anims": [ [ 0 ], [ 1 ] ]
+        },
+        {
+            "x": 670,
+            "y": 500,
+            "w": 40,
+            "h": 40,
+            "descripcion": "Es un rotulador... rojo.... y ya.",
+            "tag": "rotulador",
+            "Texture": 56,
+            "permanente": true,
+            "soundEffect": 1,
+            "animation": true,
+            "numFilsFrame": 2,
+            "numColsFrame": 1,
+            "widthFrame": 40,
+            "heightFrame": 40,
+            "vel": 200,
+            "loop": true,
+            "Anims": [ [ 0 ], [ 1 ] ]
+        }
     ],
 
     "GODoors": [
-        { "x": 612, "y": 116, "w": 119, "h": 242, "Texture": 28, "tag": "key", "scneNum": 2, "rotGOTr": -90}
+        { "x": 612, "y": 116, "w": 119, "h": 242, "Texture": 28, "tag": "key", "scneNum": 2, "rotGOTr": -90 }
+    ],
+
+    "SoundEffect": [
+        { "soundEffect": 4 }
     ],
 
     "GOTransiciones": [

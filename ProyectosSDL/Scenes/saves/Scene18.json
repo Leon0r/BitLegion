@@ -83,9 +83,89 @@
          "y": 450.0
       }
    ],
+   "ItemInventario": [
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 20,
+         "animation": true,
+         "descripcion": "Nos puede proporcionar muchas pistas.",
+         "h": 45.0,
+         "heightFrame": 40,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "tag": "MovilMuerto",
+         "vel": 200.0,
+         "w": 45.0,
+         "widthFrame": 40,
+         "x": 380.0,
+         "y": 435.0
+      },
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 71,
+         "animation": true,
+         "descripcion": "Huele a cafe recién hecho.",
+         "h": 45.0,
+         "heightFrame": 42,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "tag": "bolsaCafe",
+         "vel": 200.0,
+         "w": 45.0,
+         "widthFrame": 42,
+         "x": 975.0,
+         "y": 270.0
+      },
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 21,
+         "animation": true,
+         "descripcion": "Se dejo bastante dinero en vodka. Ojalá poder hacer lo mismo...",
+         "h": 20.0,
+         "heightFrame": 40,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": 45.0,
+         "soundEffect": 1,
+         "tag": "ticket",
+         "vel": 200.0,
+         "w": 20.0,
+         "widthFrame": 40,
+         "x": 1180.0,
+         "y": 300.0
+      }
+   ],
    "PlayerPos": {
-      "x": 402.0,
-      "y": 447.6
+      "x": 30.0,
+      "y": 450.0
    },
    "PlayerTam": {
       "h": 201.6,

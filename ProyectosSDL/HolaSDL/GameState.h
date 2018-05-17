@@ -6,6 +6,7 @@
 #include <list>
 #include "Observable.h"
 #include "Observer.h"
+#include <queue>
 
 const int FRAME_RATE = 25; // A menor tiempo de espera entre frames, mayor la velocidad del bucle
 
@@ -24,7 +25,6 @@ protected:
 	list <GameObject*> stage; //lista de objetos del estados
 	list<GameObject*>::iterator it;
 	SDLApp* app; //puntero a SDLApp
-	
 	void handleCursor(SDL_Event &e);
 	void renderCursor();
 
@@ -41,6 +41,12 @@ public:
 	void changeList() { listhasChanged = true; }
 	virtual void receive(Mensaje* msg) {};
 	virtual void SetZBuffer() {};
+	void playSoundEffects(queue<Resources::SoundEffectId>soundEffects) {
+		while (!soundEffects.empty()) {
+			playSoundEffect(soundEffects.front(), -1);
+			soundEffects.pop();
+		}
+	}
 
 	Entity* getCursor() const;
 

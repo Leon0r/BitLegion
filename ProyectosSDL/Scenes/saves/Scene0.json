@@ -277,12 +277,15 @@
       }
    ],
    "PlayerPos": {
-      "x": 100.0,
-      "y": 500.0
+      "x": 346.0,
+      "y": 386.0
    },
    "PlayerTam": {
       "h": 201.6,
       "w": 84.0
+   },
+   "SoundEffect": {
+      "soundEffect": 4
    },
    "Texture": 9,
    "h": 720.0,
