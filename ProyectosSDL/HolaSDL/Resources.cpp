@@ -268,6 +268,7 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Expresiones/VecinoMuertoExpresiones.png",
 "..//images/Expresiones/MaksExpresiones.png",
 "..//images/Expresiones/ForenseExpresiones.png",
+"..//images/Objetos/LogosAnim.png",
 };
 
 std::vector<std::string> Resources::musicFiles_{

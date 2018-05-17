@@ -283,6 +283,7 @@ public:
 		VecinoMuertoExpresiones,
 		MaksExpresiones,
 		ForenseExpresiones,
+		LogosAnim,
 	};
 
 	// Music -- each file is loaded as an instance of Music
