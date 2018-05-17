@@ -290,7 +290,8 @@ public:
 	//
 	enum MusicId {
 		MainTheme,
-		MainThemePro
+		MainThemePro,
+		PasoAlena//los pasos de alena estan en music para evitar bugs
 	};
 
 
@@ -302,7 +303,6 @@ public:
 		invStartUp,
 		BotonSonido,
 		Neon,
-		Paso,
 		TVnoSignal,
 		Click,
 		WrongPuzle,
