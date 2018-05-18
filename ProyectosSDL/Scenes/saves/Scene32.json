@@ -1,5 +1,6 @@
 {
    "AlenaActiva": true,
+   "CambioActo": false,
    "CollisionableObject": [
       {
          "Texture": 85,
@@ -44,6 +45,7 @@
          "y": 650.0
       }
    ],
+   "HeaderActo": "",
    "PlayerPos": {
       "x": 590.0,
       "y": 320.0

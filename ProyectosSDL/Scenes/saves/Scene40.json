@@ -1,5 +1,6 @@
 {
    "AlenaActiva": true,
+   "CambioActo": false,
    "GODoors": [
       {
          "Texture": 228,
@@ -39,6 +40,7 @@
          "y": 310.0
       }
    ],
+   "HeaderActo": "",
    "PlayerPos": {
       "x": 230.0,
       "y": 330.0

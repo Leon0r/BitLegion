@@ -10,6 +10,7 @@
 #include "Decorado.h"
 #include "NPC.h"
 #include "FeedbackCursorInputComponent.h"
+#include "ActEndingScreen.h"
 #include "Interruptor.h"
 #include "GOcofres.h"
 
@@ -38,12 +39,10 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 		if (!j["CambioActo"].is_null()) {
 			cambioActo = j["CambioActo"];
-		}
-
-
-		if (!j["HeaderActo"].is_null()) {
-			string paco = j["HeaderActo"];
-			headerActo = paco;
+			if (!j["HeaderActo"].is_null()) {
+				string h = j["HeaderActo"];
+				headerActo = h;
+			}
 		}
 
 
@@ -491,6 +490,8 @@ void Scene::enterScene() {
 	pj->collisionListWasModified();
 
 	app->getStateMachine()->currentState()->resetCursor();
+
+	if (cambioActo) { cambioActo = false; app->getStateMachine()->pushState(new ActEndingScreen(app, headerActo)); }
 }
 
 void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se vuelcan en la lista de la escena para que se queden guardados (menos el jugador)
@@ -524,6 +525,10 @@ void Scene::saveSceneToJson() {
 	j["PlayerTam"]["h"] = playerTam.getY();
 
 	j["AlenaActiva"] = alenaActiva;
+
+	j["CambioActo"] = cambioActo;
+
+	j["HeaderActo"] = headerActo;
 
 	while (!SceneSoundEffects.empty()) {
 		j["SoundEffect"].push_back(SceneSoundEffects.front());

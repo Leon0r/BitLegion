@@ -1,6 +1,16 @@
 {
    "AlenaActiva": true,
+   "CambioActo": false,
    "CollisionableObject": [
+      {
+         "Texture": 271,
+         "h": 200.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 50.0,
+         "x": 250.0,
+         "y": 435.0
+      },
       {
          "Texture": 271,
          "h": 200.0,
@@ -125,6 +135,7 @@
          "y": 450.0
       }
    ],
+   "HeaderActo": "",
    "NPC": [
       {
          "Anims": [

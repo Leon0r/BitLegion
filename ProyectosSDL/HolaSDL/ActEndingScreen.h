@@ -7,13 +7,7 @@
 class ActEndingScreen :
 	public GameState
 {
-public:
-	ActEndingScreen(SDLApp* app,string _header = "",float time = 5000);
-	~ActEndingScreen();
-
-	virtual void render();
-	virtual void update();
-
+private:
 	float initTime;
 	float MaxTime;
 
@@ -24,5 +18,15 @@ public:
 	std::string title;
 	Font* fnt;
 	Font* fnts;
+
+	void endState(SDLApp* app_);
+
+public:
+	ActEndingScreen(SDLApp* app,string _header = "",float time = 5000);
+	~ActEndingScreen();
+
+	virtual void render();
+	virtual void update();
+
 };
 

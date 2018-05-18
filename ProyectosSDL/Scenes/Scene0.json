@@ -6,6 +6,9 @@
     "x": 0.0,
     "y": 0.0,
 
+    "CambioActo": true,
+    "HeaderActo": "pruebassssss",
+    
     "ItemInventario": [
         {
             "x": 710,

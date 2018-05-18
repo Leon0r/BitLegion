@@ -42,5 +42,6 @@ private:
 	bool addAnimsFromJSON(Entity* obj, json& j, const int numText);
 	void readSoundEffect(Entity* obj, json& j);
 	bool cambioActo = false;
+	string headerActo;
 };
 
