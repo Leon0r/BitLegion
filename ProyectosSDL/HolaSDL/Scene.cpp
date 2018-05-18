@@ -31,7 +31,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 	std::ifstream i(name);
 	
-	if (!i.is_open() && load) { /*i.close();*/ name = "..\\Scenes\\Scene"; name = name + to_string(numEscena) + ".json"; i = std::ifstream(name); }
+	if (!i.is_open() && load) { name = "..\\Scenes\\Scene"; name = name + to_string(numEscena) + ".json"; i = std::ifstream(name); }
 	if (i.is_open()) { // Para que no intente abrir archivos que no existen
 
 		json j;
