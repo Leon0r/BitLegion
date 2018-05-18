@@ -34,7 +34,8 @@ SDLApp::SDLApp(int w, int h): winWidth(w), winHeight(h)
 
 	maquinaEstados->pushState(new MainMenuState(this));
 
-	maquinaEstados->pushState(new IntroState(this));
+	introState_ = new IntroState(this);
+	maquinaEstados->pushState(introState_);
 }
 
 void SDLApp::handleEvent() {
@@ -62,6 +63,7 @@ void SDLApp::render() {
 }
 
 void SDLApp::closeSDL() {
+	if (introState_ != nullptr) { delete introState_; introState_ = nullptr; }
 	delete maquinaEstados; maquinaEstados = nullptr;
 	delete resources; resources = nullptr;
 	delete carga; carga = nullptr;

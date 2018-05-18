@@ -1,8 +1,6 @@
 #include "inGameMenu.h"
 #include "sdl_includes.h"
-
-
-
+#include "TransitionScreen.h"
 
 inGameMenu::inGameMenu(SDLApp* game, GameState* previousState): GameState(game), prevState(previousState)
 {
@@ -106,6 +104,7 @@ void inGameMenu::exitToMenu(SDLApp * app_)
 	stopAllSoundEffect();
 	app_->getStateMachine()->popState();
 	app_->getStateMachine()->popState();
+	app_->getStateMachine()->pushState(new TransitionScreen(app_, app_->getStateMachine()->currentState(), 800));
 }
 
 

@@ -20,6 +20,7 @@ private:
 	SDL_Color color;
 	SDL_Event event; //maneja eventos
 	SDL_Renderer* renderer;
+	GameState* introState_;
 	int winWidth;
 	int winHeight;
 
