@@ -32,8 +32,6 @@ void ControlesState::readFromJson()
 		stage.push_back(botonSalir);
 		entities.push_back(botonSalir);
 
-		
-
 		string name;
 		name = "..\\Controles\\controles.json";
 

@@ -86,7 +86,7 @@
          "numColsFrame": 1,
          "numFilsFrame": 2,
          "numTextItem": 210,
-         "open": true,
+         "open": false,
          "permanenteItem": false,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -108,7 +108,7 @@
          "h": 80.0,
          "hItem": -842150451,
          "numTextItem": 271,
-         "open": true,
+         "open": false,
          "permanenteItem": true,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -120,6 +120,34 @@
          "xItem": -842150451,
          "y": 470.0,
          "yItem": -842150451
+      }
+   ],
+   "GOState": [
+      {
+         "Texture": 29,
+         "UnlockId": 1,
+         "dificultad": 1,
+         "h": 30.0,
+         "numCas": 3,
+         "rotation": -45,
+         "soundEffect": 1,
+         "type": 1,
+         "w": 30.0,
+         "x": 705.0,
+         "y": 325.0
+      },
+      {
+         "Texture": 29,
+         "UnlockId": 1,
+         "h": 30.0,
+         "numText": 244,
+         "numberPuzzle": 0,
+         "rotation": -45,
+         "soundEffect": 1,
+         "type": 0,
+         "w": 30.0,
+         "x": 930.0,
+         "y": 500.0
       }
    ],
    "GOTransiciones": [
@@ -139,11 +167,11 @@
       {
          "Texture": 237,
          "UnlockId": 1,
-         "canWork": true,
+         "canWork": false,
          "h": 34.0,
          "maxAlpha": 240,
          "minAlpha": 0,
-         "off": false,
+         "off": true,
          "rotation": 0.0,
          "soundEffect": 1,
          "tag": "interruptor0",
@@ -153,6 +181,32 @@
       }
    ],
    "ItemInventario": [
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 209,
+         "animation": true,
+         "descripcion": "Ese símbolo lo hemos visto ya en muchos sitios.",
+         "h": 30.0,
+         "heightFrame": 42,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "tag": "bolsaCocaLogo",
+         "vel": 200.0,
+         "w": 30.0,
+         "widthFrame": 42,
+         "x": 890.0,
+         "y": 470.0
+      },
       {
          "Anims": [
             [
@@ -181,8 +235,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 650.0,
-      "y": 392.4
+      "x": 230.0,
+      "y": 330.0
    },
    "PlayerTam": {
       "h": 201.6,

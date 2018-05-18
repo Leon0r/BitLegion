@@ -19,7 +19,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 		playState_->getScenes()[0]->enterScene();
 
-		//game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
+		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 1200));
 	};
 
 	lGame_ = [game, this]()mutable { //funcion LoadGame();
@@ -29,6 +29,8 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 		game->getStateMachine()->pushState(playState_);//pop antes??
 
 		playState_->getScenes()[playState_->getNumCurrentScene()]->enterScene(); //entra en la actual
+
+		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 1200));
 
 	};
 
@@ -42,7 +44,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 		game->getStateMachine()->pushState(contState);
 
-		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
+		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 500));
 	};
 
 	creditosFun_ = [game]()mutable {
@@ -50,7 +52,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 
 		game->getStateMachine()->pushState(credits);
 
-		//game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 3500));
+		game->getStateMachine()->pushState(new TransitionScreen(game, game->getStateMachine()->currentState(), 500));
 	};
 
 	cout << "mainMenu" << endl;

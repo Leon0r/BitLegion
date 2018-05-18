@@ -9,6 +9,7 @@ private:
 	Entity* logo;
 	bool done_ = false;
 	void checkAnimDone();
+	GameState* prevState = nullptr;
 public:
 	IntroState();
 	virtual ~IntroState();
