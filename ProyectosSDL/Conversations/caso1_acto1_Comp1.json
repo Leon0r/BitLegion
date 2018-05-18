@@ -4,8 +4,9 @@
 
 	"Nodo": [
 
-	{"numNodo":0, "nodoSig":-1, "numLineas": 1, "lineas":[ 
-		{"texto": "Zzzzz... Zzzz... Zzz..."}],
+	{"numNodo":0, "nodoSig":-1, "numLineas": 2, "lineas":[ 
+		{"texto": "Sin café por la mañana no soy persona."},
+		{"texto": "Mmmm... Que rico."}],
 	"numOpciones":0, "pj": 148, "emo": 0
 	}
 

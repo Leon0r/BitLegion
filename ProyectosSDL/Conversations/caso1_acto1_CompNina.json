@@ -4,8 +4,9 @@
 
 	"Nodo": [
 
-	{"numNodo":0, "nodoSig":-1, "numLineas": 1, "lineas":[ 
-		{"texto": "Zzzzz... Zzzz... Zzz..."}],
+	{"numNodo":0, "nodoSig":-1, "numLineas": 2, "lineas":[ 
+		{"texto": "Venga chicos, aun nos quedan muchas cosas por hacer."},
+		{"texto": "5 minutos y volvemos."}],
 	"numOpciones":0, "pj": 148, "emo": 3
 	}
 
