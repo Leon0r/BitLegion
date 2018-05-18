@@ -16,8 +16,8 @@ ActEndingScreen::ActEndingScreen(SDLApp * app, string _header, float time):GameS
 	title = "Acto: " + to_string(ACT);
 	cout << title << endl;
 	ACT++;
-	fnt = new Font("..//images/Dialogos/Moonace-Regular.ttf", 50);
-	fnts = new Font("..//images/Dialogos/Moonace-Regular.ttf", 30);
+	fnt = new Font("..//images/Dialogos/Moonace-Regular.ttf", TAMANYO_TITLE);
+	fnts = new Font("..//images/Dialogos/Moonace-Regular.ttf", TAMANYO_HEADER);
 	fuente = Texture(app->getRenderer(), title, *fnt, col);
 }
 

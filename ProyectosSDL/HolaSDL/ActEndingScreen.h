@@ -8,6 +8,9 @@ class ActEndingScreen :
 	public GameState
 {
 private:
+	const unsigned int TAMANYO_TITLE = 70;
+	const unsigned int TAMANYO_HEADER = 50;
+
 	float initTime;
 	float MaxTime;
 
