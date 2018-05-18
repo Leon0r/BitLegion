@@ -40,6 +40,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			cambioActo = j["CambioActo"];
 		}
 
+
+		if (!j["HeaderActo"].is_null()) {
+			string paco = j["HeaderActo"];
+			headerActo = paco;
+		}
+
+
 		GOstates* puzzleAux = nullptr; //para el objeto que requiere un puzzle en su constructora
 
 		// Cargado de items de inventario
