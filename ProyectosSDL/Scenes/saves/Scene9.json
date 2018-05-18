@@ -53,6 +53,7 @@
       "w": 84.0
    },
    "Texture": 131,
+   "actNumber": -1,
    "animation": true,
    "h": 720.0,
    "heightFrame": 720,

@@ -2,6 +2,7 @@
 #include "TransitionScreen.h"
 #include "ControlesState.h"
 #include "CreditosState.h"
+#include "ActEndingScreen.h"
 
 
 MainMenuState::MainMenuState()
@@ -11,6 +12,7 @@ MainMenuState::MainMenuState(SDLApp * game):GameState(game)
 {
 	playMusic(Resources::MainThemePro);//al principio comienza el mainTheme
 	nGame_ = [game, this]()mutable { // funcion newGame(); mutable hace que puedas modificar cosas dentro
+
 		stopMusic(Resources::MainThemePro);//si pulsamos algun boton se para la musica
 
 		PlayState* playState_ = new PlayState(game); //acceder al estado PlayState

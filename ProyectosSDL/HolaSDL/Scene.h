@@ -43,5 +43,6 @@ private:
 	void readSoundEffect(Entity* obj, json& j);
 	bool cambioActo = false;
 	string headerActo;
+	int actNumber_ = -1;
 };
 

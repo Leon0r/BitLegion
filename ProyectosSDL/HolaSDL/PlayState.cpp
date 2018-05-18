@@ -44,16 +44,20 @@ PlayState::PlayState(SDLApp* app, bool load) : GameState(app) {
 	else name = "..\\Scenes\\pj.json";
 	// Inicializa el personaje con los datos de archivo de la primera escena
 	std::ifstream i(name);
-	json j;
-	i >> j;
-	//SHORTCUT
-	shortcut = new ShortCut(app, list, resources);
-	stage.push_front(shortcut);
 
-	alena = new MainCharacter(app, j, list, &collision, shortcut, 6.0, this);
-	stage.push_front(alena);
+	if (!i.is_open() && load) { name = "..\\Scenes\\pj.json"; i = std::ifstream(name); } //controlar que le de a continuar sin haber guardado nada
+	if (i.is_open()) {
+		json j;
+		i >> j;
+		//SHORTCUT
+		shortcut = new ShortCut(app, list, resources);
+		stage.push_front(shortcut);
 
-	i.close();
+		alena = new MainCharacter(app, j, list, &collision, shortcut, 6.0, this);
+		stage.push_front(alena);
+
+		i.close();
+	}
 
 	name = "..\\Scenes\\numScenes.json"; //archivo que indica el numero de las escenas
 	int numScenes = 0;

@@ -2,7 +2,6 @@
 #include "SDLApp.h"
 #include "TransitionScreen.h"
 
-int ActEndingScreen::ACT = 1;
 
 void ActEndingScreen::endState(SDLApp * app_)
 {
@@ -10,12 +9,10 @@ void ActEndingScreen::endState(SDLApp * app_)
 	app_->getStateMachine()->pushState(new TransitionScreen(app_, app_->getStateMachine()->currentState(), 600));
 }
 
-ActEndingScreen::ActEndingScreen(SDLApp * app, string _header, float time):GameState(app),headers(_header), MaxTime(time)
+ActEndingScreen::ActEndingScreen(SDLApp * app, int acto, string _header, float time):GameState(app),act(acto),headers(_header), MaxTime(time)
 {
 	initTime = SDL_GetTicks();
-	title = "Acto: " + to_string(ACT);
-	cout << title << endl;
-	ACT++;
+	title = "Acto: " + to_string(act);
 	fnt = new Font("..//images/Dialogos/Moonace-Regular.ttf", TAMANYO_TITLE);
 	fnts = new Font("..//images/Dialogos/Moonace-Regular.ttf", TAMANYO_HEADER);
 	fuente = Texture(app->getRenderer(), title, *fnt, col);

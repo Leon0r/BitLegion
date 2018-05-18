@@ -31,6 +31,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 	std::ifstream i(name);
 	
+	if (!i.is_open() && load) { /*i.close();*/ name = "..\\Scenes\\Scene"; name = name + to_string(numEscena) + ".json"; i = std::ifstream(name); }
 	if (i.is_open()) { // Para que no intente abrir archivos que no existen
 
 		json j;
@@ -42,6 +43,10 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			if (!j["HeaderActo"].is_null()) {
 				string h = j["HeaderActo"];
 				headerActo = h;
+			}
+
+			if (!j["actNumber"].is_null()) {
+				actNumber_ = j["actNumber"];
 			}
 		}
 
@@ -491,7 +496,7 @@ void Scene::enterScene() {
 
 	app->getStateMachine()->currentState()->resetCursor();
 
-	if (cambioActo) { cambioActo = false; app->getStateMachine()->pushState(new ActEndingScreen(app, headerActo)); }
+	if (cambioActo) { cambioActo = false; app->getStateMachine()->pushState(new ActEndingScreen(app, actNumber_, headerActo)); } //CAMBIO ACTO
 }
 
 void Scene::exitScene() { //al salir de la escena, todos los objetos de stage se vuelcan en la lista de la escena para que se queden guardados (menos el jugador)
@@ -529,6 +534,8 @@ void Scene::saveSceneToJson() {
 	j["CambioActo"] = cambioActo;
 
 	j["HeaderActo"] = headerActo;
+
+	j["actNumber"] = actNumber_;
 
 	while (!SceneSoundEffects.empty()) {
 		j["SoundEffect"].push_back(SceneSoundEffects.front());

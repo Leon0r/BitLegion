@@ -15,7 +15,7 @@ private:
 	float MaxTime;
 
 	const SDL_Color col = { 0, 169, 0, 1 };
-	static int ACT;
+	int act;
 	std::string headers;
 	Texture fuente;
 	std::string title;
@@ -25,11 +25,10 @@ private:
 	void endState(SDLApp* app_);
 
 public:
-	ActEndingScreen(SDLApp* app,string _header = "",float time = 5000);
+	ActEndingScreen(SDLApp* app, int acto, string _header = "",float time = 5000);
 	~ActEndingScreen();
 
 	virtual void render();
 	virtual void update();
-
 };
 
