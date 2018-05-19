@@ -71,7 +71,7 @@
     ],
 
     "GODoors": [
-        { "x": 612, "y": 116, "w": 119, "h": 242, "Texture": 28, "tag": "key", "scneNum": 2, "rotGOTr": -90 }
+        { "x": 612, "y": 116, "w": 119, "h": 242, "Texture": 28, "tag": "key", "scneNum": 2, "rotGOTr": -90, "soundEffect":  23 }
     ],
 
     "SoundEffect": [

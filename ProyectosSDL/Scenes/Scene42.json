@@ -7,7 +7,7 @@
     "y": 0.0,
 
     "GOTransiciones": [
-        { "x": 209, "y": 310, "w": 60, "h": 60, "Texture": 29, "scneNum": 41, "rotation": -90 }
+        { "x": 209, "y": 310, "w": 60, "h": 60, "Texture": 29, "scneNum": 40, "rotation": -90, "soundEffect": 23 }
     ],
 
      "CollisionableObject": [

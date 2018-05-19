@@ -233,10 +233,12 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 		for (int i = 0; i < j[obj].size(); i++) {
 
 			n = j[obj][i]["Texture"];
-
+			int soundId = 8;
+			if (!j[obj][i]["soundEffect"].is_null())
+				soundId = j[obj][i]["soundEffect"];
 			GOTransiciones* goTrans = new GOTransiciones(app, j[obj][i]["x"], j[obj][i]["y"],
 				j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]);
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"], soundId);
 
 			goTrans->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 
@@ -378,7 +380,9 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			double rotGOTrans = 0;
 			if(!j[obj][i]["rotGOTr"].is_null())
 				rotGOTrans = j[obj][i]["rotGOTr"];
-
+			int soundId = 8;
+			if (!j[obj][i]["soundEffect"].is_null())
+				soundId = j[obj][i]["soundEffect"];
 			int id = -4;
 			if (!j[obj][i]["UnlockId"].is_null())
 				if (j[obj][i]["UnlockId"].is_number_integer()) {
@@ -386,7 +390,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				}
 
 			GODoors* door = new GODoors(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans, id);
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], soundId, rotGOTrans, id);
 
 			door->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 

@@ -3,7 +3,8 @@
 #include "MainCharacter.h"
 
 
-GOTransiciones::GOTransiciones(SDLApp* game, int x, int y, int w, int h, Texture* texture, int _SceneNumber):ClickeableGO(game, x, y, w, h,texture), SceneNumber(_SceneNumber)
+GOTransiciones::GOTransiciones(SDLApp* game, int x, int y, int w, int h, Texture* texture, int _SceneNumber, int soundId):
+	ClickeableGO(game, x, y, w, h,texture), SceneNumber(_SceneNumber), soundId_(soundId)
 {
 	this->delRenderComponent(render);
 	addAnim("Arrow", { 0,1,2,3}, true, -1, 200);
@@ -23,7 +24,8 @@ GOTransiciones::~GOTransiciones()
 }
 
 void GOTransiciones::act() {
-
+	PlaySoundE msg = { (Resources::SoundEffectId)soundId_, 0 };
+	send(&msg);
 	//Cambio de escena(ScneNumber)
 	PlayState* aux = static_cast<PlayState*>(app->getStateMachine()->currentState());
 
