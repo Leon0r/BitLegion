@@ -32,7 +32,8 @@ enum Messages {
 	STOP_ALL_SOUNDEFFECT,
 	MUSIC_VOLUME,
 	SOUNDEFFECT_VOLUME,
-	ANIM_DONE
+	ANIM_DONE,
+	STOP_SOUND_EFFECT
 };
 
 struct Mensaje{
@@ -114,5 +115,12 @@ struct PlaySoundE : Mensaje {
 	}
 	Resources::SoundEffectId idSoundE_;
 	int numReps_;
+};
+
+struct StopSoundEffect : Mensaje {
+	StopSoundEffect(Resources::SoundEffectId idSound) :
+		Mensaje(STOP_SOUND_EFFECT), idSound_(idSound) {
+	}
+	Resources::SoundEffectId idSound_;
 };
 

@@ -22,7 +22,7 @@ bool SoundEffect::load(std::string fileName) {
 
 void SoundEffect::play(int repetirions) {
 	if (chunck_ != nullptr) {
-		Mix_PlayChannel(-1, chunck_, repetirions);
+		channel = Mix_PlayChannel(-1, chunck_, repetirions);
 	}
 }
 

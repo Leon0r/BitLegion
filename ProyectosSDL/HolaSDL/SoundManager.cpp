@@ -67,8 +67,13 @@ void SoundManager::receive(Mensaje* msg) {
 		}
 								 //para todos los efectos de sonido
 		case STOP_ALL_SOUNDEFFECT: {
-			actualSoundEffect->stop();//stop del actual que ya esta sonando (ya no se encuentra en la cola de eventos)
+			actualSoundEffect->stopAll();//stop del actual que ya esta sonando (ya no se encuentra en la cola de eventos)
 			break;//ese stop manda parar todos los canales (soundEffects)
+		}
+		case STOP_SOUND_EFFECT: {
+			StopSoundEffect* m = static_cast<StopSoundEffect*>(msg);
+			app->getResources()->getSoundEffect(m->idSound_)->stop();
+			break;
 		}
 		}
 	}

@@ -40,8 +40,10 @@ void MouseMovement::stopMovement(GameObject* o, Vector2D destiny) {
 		if (idleRight)send(&Mensaje(StopRight));//paramos en la direccion que estemos mirando (animaciones)
 		else send(&Mensaje(StopLeft));
 		o->setVelocity(Vector2D(0, 0));//paramos
-		StopMusic msg = { Resources::PasoAlena };
-		send(&msg);//paran los pasos de alena
+		if (walking) {
+			StopSoundEffect m = { Resources::Paso };
+			send(&m);//paran los pasos de alena
+		}
 		walking = false;
 	}
 }
@@ -80,7 +82,7 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 			if (!stackerino.empty()) {
 				if (!walking) {
 					walking = true;
-					PlayMusic msg = { Resources::PasoAlena };
+					PlaySoundE msg = { Resources::Paso, -1 };
 					send(&msg);//suenan los pasos de alena
 				}
 				if (p.x + scenePosX >= o->getPosition().getX()) {
@@ -96,8 +98,10 @@ void MouseMovement::handleInput(GameObject* o, Uint32 time, const SDL_Event& eve
 				setDirection(o, destiny);//le mandamos hacia el
 			}
 			else {
-				StopMusic m = { Resources::PasoAlena };
-				send(&m);//paran los pasos de alena
+				if (walking) {
+					StopSoundEffect m = { Resources::Paso };
+					send(&m);//paran los pasos de alena
+				}
 				PlaySoundE msg = { Resources::WrongPuzle, 0 };
 				send(&msg);
 				SoundEffectVolume vol = { Resources::WrongPuzle, 50 };
