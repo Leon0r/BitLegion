@@ -328,7 +328,8 @@ public:
 		Robot1,
 		Robot2,
 		BotonSinClickar,
-		PuertaSonido
+		PuertaSonido,
+		luces,
 	};
 
 private:
