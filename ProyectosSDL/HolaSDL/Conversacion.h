@@ -30,6 +30,7 @@ public:
 private:
 	vector<NodoDialogo> dialogo;
 	int nodoActual = 0;
+	json aux;
 
 	const int GUIx = 0;
 	const int GUIy = 360;
@@ -52,11 +53,13 @@ private:
 	int grupoOps;
 
 
-	Mensaje msg;
+	int numMsg_;
 
 
 	Font* f;
 
 	FeedbackCursorInputComponent feed;
+
+	void sendMessage();
 };
 

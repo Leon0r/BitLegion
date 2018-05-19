@@ -111,7 +111,7 @@ void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 				}
 
 				if (nodoActual == -1) {
-					send(&msg);
+					sendMessage();
 					app->getStateMachine()->currentState()->resetCursor();
 					this->setActive(false);
 					nodoActual = 0;
@@ -217,24 +217,33 @@ bool Conversacion::loadConversation(string fileName) {
 		}
 
 		if (!j["msg"].is_null()) {
-			int mensaje = j["msg"];
+			numMsg_ = j["msg"];
+		}
 
-			switch (mensaje) { //pendiente de mas mensajes
-			case 0:
-				msg = MensajeCambioEscenaDialogos(CambioEscena, j["numScene"]);
-				break;
-			case 1:
-				msg = MensajeAddItem(AddItemDialog, j["textureItem"], j["tagItem"], j["descripcionItem"], j["permanenteItem"]);//añadir objeto al inventario de Alena
-				break;
-			default:
-				msg = Mensaje(DialogoAcabado);
-				break;
-			}
-		}
-		else {
-			msg = Mensaje(DialogoAcabado);
-		}
+		aux = j;
+
 		i.close();
 	}
 	return 0;
+}
+
+void Conversacion::sendMessage()
+{
+	switch (numMsg_) { //pendiente de mas mensajes
+	case 0: {
+		MensajeCambioEscenaDialogos msg = MensajeCambioEscenaDialogos(CambioEscena, aux["numScene"]);
+		send(&msg);
+		break;
+	}
+	case 1: {
+		MensajeAddItem msg = MensajeAddItem(AddItemDialog, aux["textureItem"], aux["tagItem"], aux["descripcionItem"], aux["permanenteItem"]);//añadir objeto al inventario de Alena
+		send(&msg);
+		break;
+	}
+	default: {
+		Mensaje msg = Mensaje(DialogoAcabado);
+		send(&msg);
+		break;
+	}
+	}
 }
