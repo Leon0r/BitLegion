@@ -304,7 +304,8 @@ std::vector<std::string> Resources::soundEffectFiles_{
 	"..//SoundFX/PeopleCrowd2.mp3",
 	"..//SoundFX/robot2.mp3",
 	"..//SoundFX/SteamPunkRobot.mp3",
-	"..//SoundFX/boton2.mp3"
+	"..//SoundFX/boton2.mp3",
+	"..//SoundFX/puertaSonido.mp3"
 };
 
 

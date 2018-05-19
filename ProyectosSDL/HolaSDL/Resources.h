@@ -324,7 +324,8 @@ public:
 		PeopleCrowd2,
 		Robot1,
 		Robot2,
-		BotonSinClickar
+		BotonSinClickar,
+		PuertaSonido
 	};
 
 private:
