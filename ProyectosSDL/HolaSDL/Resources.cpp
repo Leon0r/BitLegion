@@ -291,7 +291,19 @@ std::vector<std::string> Resources::soundEffectFiles_{
 	"..//SoundFX/Click.mp3",
 	"..//SoundFX/WrongPuzzle.mp3",
 	"..//SoundFX/CorrectPuzzle.mp3",
-	"..//SoundFX/Paso.mp3"
+	"..//music/Paso.mp3",
+	"..//SoundFX/Camera1.mp3",
+	"..//SoundFX/Camera2.mp3",
+	"..//SoundFX/Camera3.mp3",
+	"..//SoundFX/CarMoving1.mp3",
+	"..//SoundFX/CarMoving2.mp3",
+	"..//SoundFX/CarOff.mp3",
+	"..//SoundFX/CarOn.mp3",
+	"..//SoundFX/door2.mp3",
+	"..//SoundFX/PeopleCrowd.mp3",
+	"..//SoundFX/PeopleCrowd2.mp3",
+	"..//SoundFX/robot2.mp3",
+	"..//SoundFX/SteamPunkRobot.mp3",
 
 };
 

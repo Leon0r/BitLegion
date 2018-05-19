@@ -311,7 +311,19 @@ public:
 		Click,
 		WrongPuzle,
 		CorrectPuzle,
-		Paso
+		Paso,
+		Camera1,
+		Camera2,
+		Camera3,
+		CarMoving1,
+		CarMoving2,
+		CarOff,
+		CarOn,
+		door2,
+		PeopleCrowd,
+		PeopleCrowd2,
+		Robot1,
+		Robot2,
 	};
 
 private:
