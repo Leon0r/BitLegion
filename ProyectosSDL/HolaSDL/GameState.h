@@ -41,10 +41,16 @@ public:
 	void changeList() { listhasChanged = true; }
 	virtual void receive(Mensaje* msg) {};
 	virtual void SetZBuffer() {};
-	void playSoundEffects(queue<Resources::SoundEffectId>soundEffects) {
+	void playSoundEffects(queue<Resources::SoundEffectId>soundEffects, vector<int> volumenes = {}) {
+		int i = 0;
 		while (!soundEffects.empty()) {
-			playSoundEffect(soundEffects.front(), -1);
+			if(i < volumenes.size())
+				playSoundEffect(soundEffects.front(), -1, volumenes[i]); //se supone que volumenes.size() == soundEffects.size()
+			else
+				playSoundEffect(soundEffects.front(), -1); //por si acaso manejar el error
+
 			soundEffects.pop();
+			i++;
 		}
 	}
 

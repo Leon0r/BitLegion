@@ -97,32 +97,6 @@
                1
             ]
          ],
-         "Texture": 154,
-         "animation": true,
-         "convoName": "AlenaLlavesMoto",
-         "h": 40.0,
-         "heightFrame": 40,
-         "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
-         "repeat": false,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "vel": 200.0,
-         "w": 40.0,
-         "widthFrame": 40,
-         "x": 630.0,
-         "y": 500.0
-      },
-      {
-         "Anims": [
-            [
-               0
-            ],
-            [
-               1
-            ]
-         ],
          "Texture": 20,
          "animation": true,
          "convoName": "AlenaJeffaTelefono",
@@ -139,6 +113,32 @@
          "widthFrame": 40,
          "x": 915.0,
          "y": 280.0
+      },
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 154,
+         "animation": true,
+         "convoName": "AlenaLlavesMoto",
+         "h": 40.0,
+         "heightFrame": 40,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "repeat": false,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 40.0,
+         "widthFrame": 40,
+         "x": 630.0,
+         "y": 500.0
       }
    ],
    "GODoors": [
@@ -208,9 +208,9 @@
                1
             ]
          ],
-         "Texture": 56,
+         "Texture": 19,
          "animation": true,
-         "descripcion": "Es un rotulador... rojo.... y ya.",
+         "descripcion": "Esto si que nos puede ser util. Pero, ¿donde la podemos usar?",
          "h": 40.0,
          "heightFrame": 40,
          "loop": true,
@@ -218,12 +218,12 @@
          "numFilsFrame": 2,
          "rotation": 0.0,
          "soundEffect": 1,
-         "tag": "rotulador",
+         "tag": "key",
          "vel": 200.0,
          "w": 40.0,
          "widthFrame": 40,
-         "x": 670.0,
-         "y": 500.0
+         "x": 710.0,
+         "y": 490.0
       },
       {
          "Anims": [
@@ -260,9 +260,9 @@
                1
             ]
          ],
-         "Texture": 19,
+         "Texture": 56,
          "animation": true,
-         "descripcion": "Esto si que nos puede ser util. Pero, ¿donde la podemos usar?",
+         "descripcion": "Es un rotulador... rojo.... y ya.",
          "h": 40.0,
          "heightFrame": 40,
          "loop": true,
@@ -270,12 +270,12 @@
          "numFilsFrame": 2,
          "rotation": 0.0,
          "soundEffect": 1,
-         "tag": "key",
+         "tag": "rotulador",
          "vel": 200.0,
          "w": 40.0,
          "widthFrame": 40,
-         "x": 710.0,
-         "y": 490.0
+         "x": 670.0,
+         "y": 500.0
       }
    ],
    "PlayerPos": {
@@ -294,6 +294,9 @@
    "h": 720.0,
    "rotation": 0.0,
    "soundEffect": 1,
+   "volumenes": [
+      10
+   ],
    "w": 1280.0,
    "x": 0.0,
    "y": 0.0

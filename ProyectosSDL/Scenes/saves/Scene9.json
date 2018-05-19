@@ -52,6 +52,9 @@
       "h": 201.6,
       "w": 84.0
    },
+   "SoundEffect": [
+      14
+   ],
    "Texture": 131,
    "actNumber": -1,
    "animation": true,

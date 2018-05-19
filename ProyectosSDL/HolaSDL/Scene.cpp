@@ -115,6 +115,14 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			}
 		}
 
+		obj = "volumenes";
+		//Cargado de soundEffects
+		for (int i = 0; i < j[obj].size(); i++) {
+			if (!j[obj][i].is_null()) { //si el sonido no es null, se añade a la lista de soundEffects
+				volumenes.push_back(j[obj][i]);
+			}
+		}
+
 		//Cargado objetos conversaciones
 		for (int i = 0; i < j["GOConversational"].size(); i++) {
 
@@ -470,7 +478,7 @@ void Scene::enterScene() {
 			pj->setNewCollision(it);
 	}
 
-	CurrentState->playSoundEffects(SceneSoundEffects);
+	CurrentState->playSoundEffects(SceneSoundEffects, volumenes);
 
 	//establecemos el tamaño de la nueva escena en el jugador (para las colisiones y el mouse)
 	pj->setSceneTam(width, height, x, y);
@@ -540,6 +548,10 @@ void Scene::saveSceneToJson() {
 	while (!SceneSoundEffects.empty()) {
 		j["SoundEffect"].push_back(SceneSoundEffects.front());
 		SceneSoundEffects.pop();
+	}
+
+	for (int vol : volumenes) {
+		j["volumenes"].push_back(vol);
 	}
 
 	i << std::setw(3) << j; //pretty identación para leer mejor el archivo
