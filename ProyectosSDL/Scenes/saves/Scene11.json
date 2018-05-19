@@ -57,7 +57,7 @@
          "rotat": 0.0,
          "rotation": 0.0,
          "scneNum": 13,
-         "soundEffect": 8,
+         "soundEffect": 23,
          "tag": "key",
          "w": 205.0,
          "x": 478.0,
@@ -129,7 +129,7 @@
       }
    ],
    "PlayerPos": {
-      "x": 550.0,
+      "x": 532.0,
       "y": 225.6
    },
    "PlayerTam": {

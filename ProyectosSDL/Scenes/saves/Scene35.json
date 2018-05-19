@@ -37,7 +37,7 @@
          "rotat": -90.0,
          "rotation": -90.0,
          "scneNum": 36,
-         "soundEffect": 1,
+         "soundEffect": 23,
          "w": 40.0,
          "x": 907.0,
          "y": 330.0
@@ -84,8 +84,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 882.0,
-      "y": 300.0
+      "x": 30.0,
+      "y": 360.0
    },
    "PlayerTam": {
       "h": 120.0,

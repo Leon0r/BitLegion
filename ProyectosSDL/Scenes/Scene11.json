@@ -12,7 +12,7 @@
     ],
 
     "GODoors":[
-		{"x":478,"y":140,"w":205,"h":223,"Texture":102,"tag":"key","scneNum": 13, "UnlockId": 1,"rotGOTr": -90 }
+		{"x":478,"y":140,"w":205,"h":223,"Texture":102,"tag":"key","scneNum": 13, "UnlockId": 1,"rotGOTr": -90, "soundEffect": 23 }
 	],
 
      "GOState": [
