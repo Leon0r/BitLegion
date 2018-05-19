@@ -71,6 +71,9 @@
    "Texture": 190,
    "actNumber": -1,
    "h": 720.0,
+   "numRepeticionesSonidos": [
+      -1
+   ],
    "rotation": 0.0,
    "soundEffect": 1,
    "w": 1280.0,

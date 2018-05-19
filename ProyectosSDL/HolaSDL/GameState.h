@@ -41,13 +41,13 @@ public:
 	void changeList() { listhasChanged = true; }
 	virtual void receive(Mensaje* msg) {};
 	virtual void SetZBuffer() {};
-	void playSoundEffects(queue<Resources::SoundEffectId>soundEffects, vector<int> volumenes = {}) {
+	void playSoundEffects(queue<Resources::SoundEffectId>soundEffects, const vector<int>& repes, const vector<int>& volumenes = {}) {
 		int i = 0;
 		while (!soundEffects.empty()) {
 			if(i < volumenes.size())
-				playSoundEffect(soundEffects.front(), -1, volumenes[i]); //se supone que volumenes.size() == soundEffects.size()
+				playSoundEffect(soundEffects.front(), repes[i], volumenes[i]); //se supone que volumenes.size() == soundEffects.size()
 			else
-				playSoundEffect(soundEffects.front(), -1); //por si acaso manejar el error
+				playSoundEffect(soundEffects.front(), repes[i]); //por si acaso manejar el error
 
 			soundEffects.pop();
 			i++;

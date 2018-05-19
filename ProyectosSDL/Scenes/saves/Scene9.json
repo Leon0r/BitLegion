@@ -63,6 +63,9 @@
    "loop": true,
    "numColsFrame": 4,
    "numFilsFrame": 7,
+   "numRepeticionesSonidos": [
+      -1
+   ],
    "rotation": 0.0,
    "soundEffect": 1,
    "vel": 85.0,

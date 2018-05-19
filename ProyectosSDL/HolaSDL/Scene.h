@@ -32,6 +32,7 @@ private:
 	list<GameState*> SceneStates;
 	queue<Resources::SoundEffectId> SceneSoundEffects;
 	vector <int> volumenes;
+	vector <int> numReps_;
 	bool alenaActiva = true;
 	enum PuzzleTypes {Match3, Lights, Password}; //para la lectura del json
 	list<GameObject*>::iterator it;
