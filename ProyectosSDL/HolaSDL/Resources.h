@@ -290,6 +290,8 @@ public:
 		SeñorBazarExpresiones,
 		AmigaGalinaExpresiones,
 		IdAlena,
+		ExtrasActo2Expresiones,
+		ExtrasActo4Expresiones,
 	};
 
 	// Music -- each file is loaded as an instance of Music
@@ -326,7 +328,8 @@ public:
 		Robot1,
 		Robot2,
 		BotonSinClickar,
-		PuertaSonido
+		PuertaSonido,
+		luces,
 	};
 
 private:

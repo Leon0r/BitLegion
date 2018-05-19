@@ -275,6 +275,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Expresiones/SeñorBazarExpresiones.png",
 "..//images/Expresiones/AmigaGalinaExpresiones.png",
 "..//images/Objetos/Takeable/IdAlena.png",
+"..//images/Expresiones/ExtrasActo2Expresiones.png",
+"..//images/Expresiones/ExtrasActo4Expresiones.png",
 };
 
 std::vector<std::string> Resources::musicFiles_{
@@ -306,7 +308,8 @@ std::vector<std::string> Resources::soundEffectFiles_{
 	"..//SoundFX/robot2.mp3",
 	"..//SoundFX/SteamPunkRobot.mp3",
 	"..//SoundFX/boton2.mp3",
-	"..//SoundFX/puertaSonido.mp3"
+	"..//SoundFX/puertaSonido.mp3",
+	"..//SoundFX/luces.mp3",
 };
 
 
