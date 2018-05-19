@@ -21,6 +21,9 @@
         { "x": 880, "y": 410, "w": 380, "h": 157, "Texture": 221, "tag": "keyCoche", "scneNum": 24, "rotGOTr": 90 }
     ],
 
+     "SoundEffect": [
+        4
+    ],
     "PlayerPos": {
         "x": 10,
         "y": 320

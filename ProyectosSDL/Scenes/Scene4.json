@@ -41,11 +41,24 @@
             "loop": true,
             "Anims": [ [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 2, 2, 2, 2, 3, 3 ] ]
         },
-        { "x": 806, "y": 130, "w": 381, "h": 56, "Texture": 134,
-            "animation": true, "numFilsFrame": 4, "numColsFrame": 1,
-            "widthFrame": 381, "heightFrame": 56, "vel": 150, "loop": true,
-            "Anims": [ [0,0,0,0,3,3,0,3,0,0,0,0,0,0,0,0,0,1,0,1,1,2,2,2,2,3,3,0,3] ] 
+        {
+            "x": 806,
+            "y": 130,
+            "w": 381,
+            "h": 56,
+            "Texture": 134,
+            "animation": true,
+            "numFilsFrame": 4,
+            "numColsFrame": 1,
+            "widthFrame": 381,
+            "heightFrame": 56,
+            "vel": 150,
+            "loop": true,
+            "Anims": [ [ 0, 0, 0, 0, 3, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 2, 2, 2, 2, 3, 3, 0, 3 ] ]
         }
+    ],
+     "SoundEffect": [
+        4
     ],
     "GODoors": [
         { "x": 1000, "y": 450, "w": 260, "h": 79, "Texture": 38, "tag": "keyMoto", "scneNum": 5, "rotGOTr": 90 }

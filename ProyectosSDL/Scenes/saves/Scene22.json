@@ -159,6 +159,9 @@
       "h": 120.0,
       "w": 50.0
    },
+   "SoundEffect": [
+      4
+   ],
    "Texture": 165,
    "actNumber": -1,
    "h": 720.0,

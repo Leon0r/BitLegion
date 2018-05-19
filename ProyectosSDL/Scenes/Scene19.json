@@ -28,6 +28,9 @@
         "w": 50,
         "h": 120
     },
+     "SoundEffect": [
+        4
+    ],
 
      "Decorado": [
         { "x": 1008, "y": 125, "w": 272, "h": 40, "Texture": 230, "animation": true, "numFilsFrame": 4, "numColsFrame": 1,

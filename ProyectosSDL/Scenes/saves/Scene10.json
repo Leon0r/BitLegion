@@ -1,34 +1,7 @@
 {
    "AlenaActiva": true,
-   "CambioActo": true,
+   "CambioActo": false,
    "CollisionableObject": [
-      {
-         "Texture": 271,
-         "h": 125.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 38.0,
-         "x": 740.0,
-         "y": 355.0
-      },
-      {
-         "Texture": 271,
-         "h": 127.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 47.0,
-         "x": 706.0,
-         "y": 320.0
-      },
-      {
-         "Texture": 271,
-         "h": 115.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 33.0,
-         "x": 740.0,
-         "y": 280.0
-      },
       {
          "Texture": 271,
          "h": 125.0,
@@ -372,7 +345,7 @@
          ],
          "Texture": 110,
          "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
+         "dialogo": "caso1_acto2_Curioso4",
          "h": 125.0,
          "heightFrame": 147,
          "loop": true,
@@ -408,7 +381,7 @@
          ],
          "Texture": 100,
          "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
+         "dialogo": "caso1_acto2_Periodista4",
          "h": 127.0,
          "heightFrame": 127,
          "loop": true,
@@ -447,7 +420,7 @@
          ],
          "Texture": 109,
          "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
+         "dialogo": "caso1_acto2_Curioso3",
          "h": 115.0,
          "heightFrame": 133,
          "loop": true,

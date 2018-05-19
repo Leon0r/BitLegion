@@ -1,6 +1,6 @@
 {
    "AlenaActiva": true,
-   "CambioActo": true,
+   "CambioActo": false,
    "CollisionableObject": [
       {
          "Texture": 43,
@@ -85,6 +85,9 @@
       "h": 120.0,
       "w": 50.0
    },
+   "SoundEffect": [
+      4
+   ],
    "Texture": 169,
    "actNumber": 3,
    "h": 720.0,
