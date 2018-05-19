@@ -7,10 +7,12 @@ GOTransiciones::GOTransiciones(SDLApp* game, int x, int y, int w, int h, Texture
 {
 	this->delRenderComponent(render);
 	addAnim("Arrow", { 0,1,2,3}, true, -1, 200);
+
 	if (render != nullptr) {
 		delete render;
 		render = nullptr;
 	}
+
 	render = new AnimationRenderer(texture,animations,4,4,60,60);
 	this->addRenderComponent(render);
 }

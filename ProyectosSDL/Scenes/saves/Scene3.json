@@ -3,7 +3,7 @@
    "CambioActo": false,
    "CollisionableObject": [
       {
-         "Texture": 271,
+         "Texture": 272,
          "h": 210.0,
          "rotation": 0.0,
          "soundEffect": 1,

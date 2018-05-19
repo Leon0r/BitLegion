@@ -3,7 +3,7 @@
    "CambioActo": false,
    "CollisionableObject": [
       {
-         "Texture": 271,
+         "Texture": 272,
          "h": 207.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -12,11 +12,11 @@
          "y": 250.0
       },
       {
-         "Texture": 271,
-         "h": 200.0,
+         "Texture": 272,
+         "h": 206.0,
          "rotation": 0.0,
          "soundEffect": 1,
-         "w": 66.0,
+         "w": 60.0,
          "x": 200.0,
          "y": 450.0
       },
@@ -140,23 +140,26 @@
       {
          "Anims": [
             [
-               0
+               0,
+               1,
+               2,
+               3
             ]
          ],
          "Texture": 124,
          "animation": true,
          "dialogo": "AlenaJeffaTelefono",
-         "h": 200.0,
-         "heightFrame": 141,
+         "h": 206.0,
+         "heightFrame": 149,
          "loop": true,
-         "numColsFrame": 4,
+         "numColsFrame": 2,
          "numFilsFrame": 4,
          "repeat": true,
          "rotation": 0.0,
          "soundEffect": 1,
          "vel": 200.0,
-         "w": 66.0,
-         "widthFrame": 47,
+         "w": 60.0,
+         "widthFrame": 41,
          "x": 200.0,
          "y": 450.0
       }
