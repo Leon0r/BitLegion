@@ -1,6 +1,4 @@
 #include "SDLApp.h"
-#include <thread>
-#include <mutex>
 #include "PlayState.h"
 #include "Inventory.h"
 #include "LightsOut.h"
@@ -42,11 +40,11 @@ void SDLApp::handleEvent() {
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.type == SDL_QUIT)
 			exit = true;
-		else if (event.type == SDL_KEYDOWN) {
+		//else if (event.type == SDL_KEYDOWN) {
 			/*if (event.key.keysym.sym == SDLK_ESCAPE) {
 				exit = true;
 			}*/
-		}
+		//}
 		maquinaEstados->currentState()->handleEvent(event); //invoca el handleEvent del currentState
 	}
 }

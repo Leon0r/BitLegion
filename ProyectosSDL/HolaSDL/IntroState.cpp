@@ -9,6 +9,7 @@ IntroState::IntroState()
 
 IntroState::~IntroState()
 {
+	app->getStateMachine()->popState(false); //se borra desde otro lado
 }
 
 void IntroState::checkAnimDone()
