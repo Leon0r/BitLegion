@@ -61,11 +61,11 @@ void SDLApp::render() {
 }
 
 void SDLApp::closeSDL() {
-	if (introState_ != nullptr) { delete introState_; introState_ = nullptr; }
 	delete maquinaEstados; maquinaEstados = nullptr;
 	delete resources; resources = nullptr;
 	delete carga; carga = nullptr;
 	delete tx; tx = nullptr;
+	if (introState_ != nullptr) { delete introState_; introState_ = nullptr; }
 	SDL_DestroyRenderer(renderer); 
 	renderer = nullptr; 
 	SDL_DestroyWindow(window); 

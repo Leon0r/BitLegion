@@ -1,6 +1,17 @@
 {
    "AlenaActiva": true,
    "CambioActo": false,
+   "CollisionableObject": [
+      {
+         "Texture": 274,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 120.0,
+         "y": 500.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 29,
@@ -26,6 +37,34 @@
       }
    ],
    "HeaderActo": "",
+   "NPC": [
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               3
+            ]
+         ],
+         "Texture": 124,
+         "animation": true,
+         "dialogo": "AlenaJeffaTelefono",
+         "h": 206.0,
+         "heightFrame": 149,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 4,
+         "repeat": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 60.0,
+         "widthFrame": 41,
+         "x": 120.0,
+         "y": 500.0
+      }
+   ],
    "PlayerPos": {
       "x": 1065.0,
       "y": 330.0

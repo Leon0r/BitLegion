@@ -34,6 +34,15 @@
         "h": 120
     },
 
+    "NPC":[
+
+          { "x": 200, "y": 280, "w": 36, "h": 125, "Texture": 124,
+            "animation": true, "numFilsFrame": 4, "numColsFrame": 2,
+            "widthFrame": 41, "heightFrame": 149, "vel": 200, "loop": true,
+            "Anims": [ [0,1,2,3] ], "dialogo": "AlenaJeffaTelefono"
+        }
+    ],
+
     "Decorado": [
         {
             "x": 935,

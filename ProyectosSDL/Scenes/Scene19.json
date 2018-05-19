@@ -35,5 +35,14 @@
      "Decorado": [
         { "x": 1008, "y": 125, "w": 272, "h": 40, "Texture": 230, "animation": true, "numFilsFrame": 4, "numColsFrame": 1,
             "widthFrame": 272, "heightFrame": 40, "vel": 200, "loop": true, "Anims": [ [0, 0, 0, 0, 0, 0, 1, 0, 2, 1, 1, 0, 0, 0, 3, 0, 3, 0] ] }
+    ],
+
+     "NPC":[
+
+        { "x": 100, "y": 300, "w": 36, "h": 125, "Texture": 124,
+            "animation": true, "numFilsFrame": 4, "numColsFrame": 2,
+            "widthFrame": 41, "heightFrame": 149, "vel": 200, "loop": true,
+            "Anims": [ [0,1,2,3] ], "dialogo": "AlenaJeffaTelefono"
+        }
     ]
 }
