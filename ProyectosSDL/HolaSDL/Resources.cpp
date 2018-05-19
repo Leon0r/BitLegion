@@ -285,13 +285,13 @@ std::vector<std::string> Resources::soundEffectFiles_{
 	"..//SoundFX/door.mp3",
 	"..//SoundFX/CogerObjeto.mp3",
 	"..//SoundFX/inventarioON.mp3",
-	"..//SoundFX/botonSonido.mp3",
+	"..//SoundFX/boton1.mp3",
 	"..//SoundFX/Neon.mp3",
 	"..//SoundFX/TVnoSignal.mp3",
 	"..//SoundFX/Click.mp3",
 	"..//SoundFX/WrongPuzzle.mp3",
 	"..//SoundFX/CorrectPuzzle.mp3",
-	"..//music/Paso.mp3",
+	"..//SoundFX/Paso.mp3",
 	"..//SoundFX/Camera1.mp3",
 	"..//SoundFX/Camera2.mp3",
 	"..//SoundFX/Camera3.mp3",
@@ -304,7 +304,7 @@ std::vector<std::string> Resources::soundEffectFiles_{
 	"..//SoundFX/PeopleCrowd2.mp3",
 	"..//SoundFX/robot2.mp3",
 	"..//SoundFX/SteamPunkRobot.mp3",
-
+	"..//SoundFX/boton2.mp3"
 };
 
 

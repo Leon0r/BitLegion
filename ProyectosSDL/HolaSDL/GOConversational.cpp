@@ -13,7 +13,8 @@ GOConversational::~GOConversational()
 
 void GOConversational::act() {
 	if (!inconversation) {
-
+		PlaySoundE msg = { Resources::BotonSinClickar, 0 };
+		send(&msg);
 		PlayState* aux = dynamic_cast<PlayState*>(app->getStateMachine()->currentState()); 
 
 		if (aux != nullptr) {
