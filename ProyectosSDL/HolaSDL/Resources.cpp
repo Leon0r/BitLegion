@@ -291,7 +291,7 @@ std::vector<std::string> Resources::soundEffectFiles_{
 	"..//SoundFX/Click.mp3",
 	"..//SoundFX/WrongPuzzle.mp3",
 	"..//SoundFX/CorrectPuzzle.mp3",
-	"..//music/Paso.mp3"
+	"..//SoundFX/Paso.mp3"
 
 };
 
