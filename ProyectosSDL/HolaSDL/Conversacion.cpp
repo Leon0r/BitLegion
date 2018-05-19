@@ -19,7 +19,6 @@ Conversacion::Conversacion(SDLApp* game) : Entity(game)
 Conversacion::~Conversacion()
 {
 	delete f;
-	delete msg;
 	delInputComponent(&feed);
 }
 
@@ -112,7 +111,7 @@ void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 				}
 
 				if (nodoActual == -1) {
-					send(msg);
+					send(&msg);
 					app->getStateMachine()->currentState()->resetCursor();
 					this->setActive(false);
 					nodoActual = 0;
@@ -222,18 +221,18 @@ bool Conversacion::loadConversation(string fileName) {
 
 			switch (mensaje) { //pendiente de mas mensajes
 			case 0:
-				msg = new MensajeCambioEscenaDialogos(CambioEscena, j["numScene"]);
+				msg = MensajeCambioEscenaDialogos(CambioEscena, j["numScene"]);
 				break;
 			case 1:
-				msg = new MensajeAddItem(AddItemDialog, j["textureItem"], j["tagItem"], j["descripcionItem"], j["permanenteItem"]);//añadir objeto al inventario de Alena
+				msg = MensajeAddItem(AddItemDialog, j["textureItem"], j["tagItem"], j["descripcionItem"], j["permanenteItem"]);//añadir objeto al inventario de Alena
 				break;
 			default:
-				msg = new Mensaje(DialogoAcabado);
+				msg = Mensaje(DialogoAcabado);
 				break;
 			}
 		}
 		else {
-			msg = new Mensaje(DialogoAcabado);
+			msg = Mensaje(DialogoAcabado);
 		}
 		i.close();
 	}

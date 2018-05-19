@@ -52,7 +52,7 @@ private:
 	int grupoOps;
 
 
-	Mensaje* msg = nullptr;
+	Mensaje msg;
 
 
 	Font* f;
