@@ -288,7 +288,8 @@ public:
 		Mujer5Expresiones,
 		CamelloExpresiones,
 		SeñorBazarExpresiones,
-		AmigaGalinaExpresiones
+		AmigaGalinaExpresiones,
+		IdAlena,
 	};
 
 	// Music -- each file is loaded as an instance of Music

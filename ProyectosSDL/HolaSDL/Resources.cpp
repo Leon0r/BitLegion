@@ -273,7 +273,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Expresiones/Mujer5ºExpresiones.png",
 "..//images/Expresiones/CamelloExpresiones.png",
 "..//images/Expresiones/SeñorBazarExpresiones.png",
-"..//images/Expresiones/AmigaGalinaExpresiones.png"
+"..//images/Expresiones/AmigaGalinaExpresiones.png",
+"..//images/Objetos/Takeable/IdAlena.png",
 };
 
 std::vector<std::string> Resources::musicFiles_{
