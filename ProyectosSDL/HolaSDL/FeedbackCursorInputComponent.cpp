@@ -25,11 +25,17 @@ void FeedbackCursorInputComponent::handleInput(GameObject * o, Uint32 time, cons
 		rect.h = o->getHeight();
 
 		if (SDL_PointInRect(&p, &rect)) {
-			cursor->playAnim("Feedback");
+			if (!isMe) {
+				PlaySoundE msg = { soundId_, 0 };
+				send(&msg);
+				SoundEffectVolume vol = { soundId_, 10 };
+				send(&vol);
+			}
+			cursor_->playAnim("Feedback");
 			isMe = true;
 		}
 		else if (isMe) {
-			cursor->playAnim("Normal");
+			cursor_->playAnim("Normal");
 			isMe = false;
 		}
 	}

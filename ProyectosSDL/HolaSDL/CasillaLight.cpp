@@ -11,7 +11,7 @@ CasillaLight::CasillaLight(SDLApp * game, int x, int y, int w, int h, Texture * 
 	this->setHeight(h);
 	this->addRenderComponent(&render);
 	this->addObserver(obs); //observer es el estado del puzzle
-	this->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+	this->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 	invertir();
 }
 

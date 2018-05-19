@@ -11,7 +11,7 @@ Conversacion::Conversacion(SDLApp* game) : Entity(game)
 
 	this->setPosition(Vector2D(x, y));
 
-	feed = FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor());
+	feed = FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar);
 	addInputComponent(&feed);
 }
 

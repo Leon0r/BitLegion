@@ -11,14 +11,14 @@ Boton::Boton(SDLApp * app, CallBackOnClickStateFC * stateFC, GameState * actualS
 	Entity(app), stateFC(stateFC), actualState(actualState), nombre(nombre), f(fil), c(col), fun(nullptr), idSonido(id_), repeticiones_(repeticiones), volumen_(volumen)
 {
 	addObserver(app->getSoundManager());
-	feed = FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()); addInputComponent(&feed);
+	feed = FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar); addInputComponent(&feed);
 }
 
 Boton::Boton(SDLApp * app, string nombre, function<void()> f, Resources::SoundEffectId id_, int repeticiones, int volumen) : 
 	Entity(app), nombre(nombre), fun(f), stateFC(nullptr), idSonido(id_), repeticiones_(repeticiones), volumen_(volumen)
 {
 	addObserver(app->getSoundManager());
-	feed = FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()); addInputComponent(&feed);
+	feed = FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar); addInputComponent(&feed);
 }
 
 void Boton::handleInput(Uint32 time, const SDL_Event& event) {

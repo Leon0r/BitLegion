@@ -66,7 +66,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				j[obj][i]["descripcion"], j[obj][i]["tag"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), permanente);
 
-			item->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+			item->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 			item->addInputComponent(new MouseEventAnimComponent(SDL_MOUSEMOTION, "Anim1", "Anim0"));
 			SceneItems.push_front(item);
 
@@ -94,7 +94,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 			puzzleAux = goSt;
 
-			goSt->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+			goSt->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 
 			SceneItems.push_back(goSt);
 
@@ -128,7 +128,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			GOConversational* conver = new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"], j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOConversational"][i]["convoName"], repeat);
 
-			conver->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+			conver->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 			conver->addInputComponent(new MouseEventAnimComponent(SDL_MOUSEMOTION, "Anim1", "Anim0"));
 
 			SceneItems.push_front(conver);
@@ -188,7 +188,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			NPC* npc = new NPC(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"], 
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["dialogo"]);
 
-			npc->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+			npc->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 
 			SceneItems.push_back(npc);
 			SceneItems.push_back(npc->getColisionable()); //pusheamos el colisionable asociado
@@ -212,7 +212,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["scneNum"]);
 
-			goTrans->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+			goTrans->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 
 			SceneItems.push_back(goTrans);
 
@@ -266,7 +266,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 					app->getResources()->getImageTexture(Resources::ImageId(j[obj][i]["numTextItem"])), j[obj][i]["xItem"], j[obj][i]["yItem"], itPerm, id, open);
 			}
 
-			cofre->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+			cofre->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 
 			SceneItems.push_back(cofre);
 			addAnimsFromJSON(cofre, j[obj][i], n);
@@ -330,7 +330,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			Interruptor* interr = new Interruptor(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["maxAlpha"], j[obj][i]["minAlpha"], id, off, canWork);
 
-			interr->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+			interr->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 
 			SceneItems.push_back(interr);
 			SceneItems.push_back(interr->getLuz());
@@ -362,7 +362,7 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			GODoors* door = new GODoors(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"],
 				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["tag"], j[obj][i]["scneNum"], rotGOTrans, id);
 
-			door->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor()));
+			door->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 
 			SceneItems.push_back(door);
 			addAnimsFromJSON(door, j[obj][i], n);
