@@ -128,7 +128,7 @@
          "loop": true,
          "numColsFrame": 6,
          "numFilsFrame": 2,
-         "repeat": true,
+         "repeat": false,
          "rotation": 0.0,
          "soundEffect": 1,
          "vel": 200.0,
@@ -165,8 +165,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 658.0,
-      "y": 246.0
+      "x": 532.0,
+      "y": 354.0
    },
    "PlayerTam": {
       "h": 201.6,

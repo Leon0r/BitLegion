@@ -9,7 +9,7 @@ private:
 	string convoName_;
 public:
 	NPC();
-	NPC(SDLApp* game, int x, int y, int w, int h, Texture* texture, string convoName);
+	NPC(SDLApp* game, int x, int y, int w, int h, Texture* texture, string convoName, bool repeat = true);
 	virtual ~NPC();
 	ColisionableObject* getColisionable() { return obj; };
 	virtual void saveToJson(json& j) { json aux; Entity::saveToJson(aux); 

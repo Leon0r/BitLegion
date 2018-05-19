@@ -206,9 +206,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 			n = j[obj][i]["Texture"];
 
+			bool repeat_ = true;
+			if (!j[obj][i]["repeatDialog"].is_null()) {
+				repeat_ = j[obj][i]["repeatDialog"];
+			}
 
 			NPC* npc = new NPC(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"], 
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["dialogo"]);
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["dialogo"], repeat_);
 
 			npc->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 
