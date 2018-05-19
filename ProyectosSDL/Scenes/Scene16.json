@@ -20,7 +20,7 @@
             "Texture": 81,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
             "widthFrame": 39, "heightFrame": 150, "vel": 350, "loop": true,
-            "Anims": [ [0,3,0,2,0,2,0,2,0,2,1,0,2,0,2] ], "dialogo": "caso1_acto2_Policia2"
+            "Anims": [ [0,3,0,2,0,2,0,2,0,2,1,0,2,0,2] ], "dialogo": "AlenaJeffaTelefono"
         },
         {
             "x": 1180,
@@ -30,7 +30,7 @@
             "Texture": 82,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
             "widthFrame": 37, "heightFrame": 147, "vel": 300, "loop": true,
-            "Anims": [ [0,2,0,3,0,2,0,2,0,2,0,2,1] ], "dialogo": "caso1_acto2_Policia3"
+            "Anims": [ [0,2,0,3,0,2,0,2,0,2,0,2,1] ], "dialogo": "AlenaJeffaTelefono"
         }
     ],
     "PlayerPos": {

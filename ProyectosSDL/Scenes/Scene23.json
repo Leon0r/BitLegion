@@ -17,6 +17,18 @@
         { "x": 550, "y": 455, "w": 155, "h": 109, "Texture": 189 }
     ],
 
+    "SoundEffect": [
+        24
+    ],
+
+    "volumenes": [
+        10
+    ],
+
+    "numRepeticionesSonidos": [
+        -1
+    ],
+
     "Decorado":[
     	{ "x": 712, "y": 50, "w": 428, "h": 227, "Texture": 243,
             "animation": true, "numFilsFrame": 6, "numColsFrame": 6,
