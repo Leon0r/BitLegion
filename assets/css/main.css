@@ -1660,9 +1660,10 @@
 
 	p {
 		color:  rgb(165, 235, 182);
-		margin-left: auto;
-		margin-right: auto;
-		margin: 0 0 2rem 0;
+		margin-left:25%;
+		margin-right: 25%;
+		font-size: 15pt;
+		
 	}
 	p span{
 		padding-top: 0.5cm;
@@ -1670,6 +1671,9 @@
 		padding-left: 0.2cm;
 		padding-right: 0.2cm;
 		background-color:  rgba(0, 0, 0, 0.5);
+		display: block;
+    	text-align: center;
+    	word-wrap: break-word;
 	}
 
 		p.special {
