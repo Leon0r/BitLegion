@@ -13,7 +13,7 @@ IntroState::~IntroState()
 
 void IntroState::checkAnimDone()
 {
-	if (done_) { app->getStateMachine()->popState(false); app->getStateMachine()->pushState(new TransitionScreen(app, prevState, 1000)); }
+	if (done_) { app->getStateMachine()->popState(false); app->getStateMachine()->pushState(new TransitionScreen(app, prevState, 1000)); app->introDone(); }
 }
 
 IntroState::IntroState(SDLApp * app) : GameState(app), logo(new Entity(app))

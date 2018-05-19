@@ -35,6 +35,7 @@ private:
 
 	Texture* tx;
 
+	bool introDone_ = false;
 public:
 	SDLApp(int w, int h);
 	~SDLApp() { this->closeSDL(); };
@@ -56,5 +57,6 @@ public:
 	void exitGame() { exit = true; };
 	SoundManager* getSoundManager() { return &soundManager; }
 	void setSoundManager(SoundManager s) { soundManager = s; };
+	void introDone() { introDone_ = true; };
 };
 
