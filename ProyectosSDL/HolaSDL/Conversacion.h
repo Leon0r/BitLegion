@@ -42,7 +42,7 @@ private:
 	const int w = 1092;
 	const int h = 168;			//MIRAR DONDE QUEDA BIEN, HACERLO EN FUNCION DE TAMAÑO DE PANTALLA EN VEZ DE A LO BRUTO
 
-	const int retratoX = 15;
+	const int retratoX = 20;
 	const int retratoY = 376;
 	const int retratoW = 125;
 	const int retratoH = 125;
