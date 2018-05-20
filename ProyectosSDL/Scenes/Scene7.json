@@ -43,7 +43,7 @@
         ],
 
     "GOState": [
-        { "x": 500, "y": 317, "w": 30, "h": 30, "Texture": 29, "rotation": -45, "password": "kakaaaa","type": 2, "UnlockId": 1, "TexturaFondo": 177, "posFontX": 417, "posFontY": 436 }
+        { "x": 500, "y": 317, "w": 30, "h": 30, "Texture": 29, "rotation": -45, "password": "gackari","type": 2, "UnlockId": 1, "TexturaFondo": 177, "posFontX": 417, "posFontY": 436 }
     ],
 
     "PlayerPos": {
