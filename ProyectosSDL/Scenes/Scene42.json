@@ -16,7 +16,7 @@
     ],
 
     "GOState":[
-        {"x": 705, "y": 325, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 1, "UnlockId": 1},
+        {"x": 705, "y": 325, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 5, "UnlockId": 1},
         { "x": 930, "y": 500, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"numText": 244 ,"numberPuzzle": 0,"type": 0, "UnlockId": 1 }
     ],
 
@@ -56,10 +56,10 @@
 
     "NPC": [
 
-        { "x": 122, "y": 360, "w": 60, "h": 206, "Texture": 124,
+        { "x": 122, "y": 400, "w": 60, "h": 206, "Texture": 124,
             "animation": true, "numFilsFrame": 4, "numColsFrame": 2,
             "widthFrame": 41, "heightFrame": 149, "vel": 200, "loop": true,
-            "Anims": [ [0,1,2,3] ], "dialogo": "AlenaJeffaTelefono"
+            "Anims": [ [0,1,2,3] ], "dialogo": "Ander27"
         }
     ]
 }

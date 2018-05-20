@@ -9,7 +9,7 @@
          "soundEffect": 1,
          "w": 60.0,
          "x": 200.0,
-         "y": 280.0
+         "y": 320.0
       },
       {
          "Texture": 275,
@@ -27,7 +27,7 @@
          "soundEffect": 1,
          "w": 65.0,
          "x": 500.0,
-         "y": 350.0
+         "y": 380.0
       },
       {
          "Texture": 198,
@@ -119,7 +119,7 @@
          ],
          "Texture": 124,
          "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
+         "dialogo": "Ander13",
          "done": false,
          "h": 206.0,
          "heightFrame": 149,
@@ -133,7 +133,7 @@
          "w": 60.0,
          "widthFrame": 41,
          "x": 200.0,
-         "y": 280.0
+         "y": 320.0
       },
       {
          "Anims": [
@@ -223,12 +223,12 @@
          "w": 65.0,
          "widthFrame": 42,
          "x": 500.0,
-         "y": 350.0
+         "y": 380.0
       }
    ],
    "PlayerPos": {
-      "x": 200.0,
-      "y": 630.0
+      "x": 344.0,
+      "y": 452.0
    },
    "PlayerTam": {
       "h": 201.6,

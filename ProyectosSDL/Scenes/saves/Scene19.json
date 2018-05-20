@@ -1,6 +1,6 @@
 {
    "AlenaActiva": true,
-   "CambioActo": true,
+   "CambioActo": false,
    "CollisionableObject": [
       {
          "Texture": 275,
@@ -98,7 +98,7 @@
          ],
          "Texture": 124,
          "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
+         "dialogo": "Ander11",
          "done": false,
          "h": 125.0,
          "heightFrame": 149,

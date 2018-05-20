@@ -9,7 +9,7 @@
          "soundEffect": 1,
          "w": 60.0,
          "x": 122.0,
-         "y": 360.0
+         "y": 400.0
       },
       {
          "Texture": 239,
@@ -136,7 +136,7 @@
       {
          "Texture": 29,
          "UnlockId": 1,
-         "dificultad": 1,
+         "dificultad": 5,
          "h": 30.0,
          "numCas": 3,
          "rotation": -45,
@@ -257,7 +257,7 @@
          ],
          "Texture": 124,
          "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
+         "dialogo": "Ander27",
          "done": false,
          "h": 206.0,
          "heightFrame": 149,
@@ -271,7 +271,7 @@
          "w": 60.0,
          "widthFrame": 41,
          "x": 122.0,
-         "y": 360.0
+         "y": 400.0
       }
    ],
    "PlayerPos": {

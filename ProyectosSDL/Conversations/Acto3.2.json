@@ -1,6 +1,11 @@
 {
 	"NumNodos": 92,
-
+	"msg": 2,
+    "textureItem": 54,
+    "tagItem": "keyCoche",
+    "descripcionItem": "Es la llave del coche  de la empresa",
+   	"permanenteItem": false,
+   	
 	"Nodo": [
 
 	{"numNodo":0, "nodoSig":1, "numLineas": 2, 

@@ -50,7 +50,7 @@
         { "x": 100, "y": 300, "w": 36, "h": 125, "Texture": 124,
             "animation": true, "numFilsFrame": 4, "numColsFrame": 2,
             "widthFrame": 41, "heightFrame": 149, "vel": 200, "loop": true,
-            "Anims": [ [0,1,2,3] ], "dialogo": "AlenaJeffaTelefono"
+            "Anims": [ [0,1,2,3] ], "dialogo": "Ander11"
         }
     ]
 }
