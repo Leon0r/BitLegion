@@ -21,42 +21,6 @@
          "y": 450.0
       },
       {
-         "Texture": 275,
-         "h": 207.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 55.0,
-         "x": 600.0,
-         "y": 250.0
-      },
-      {
-         "Texture": 275,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 60.0,
-         "x": 200.0,
-         "y": 450.0
-      },
-      {
-         "Texture": 275,
-         "h": 207.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 55.0,
-         "x": 600.0,
-         "y": 250.0
-      },
-      {
-         "Texture": 275,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 60.0,
-         "x": 200.0,
-         "y": 450.0
-      },
-      {
          "Texture": 85,
          "h": 220.0,
          "rotation": 0.0,
@@ -159,7 +123,7 @@
          "Texture": 77,
          "animation": true,
          "dialogo": "Acto1",
-         "done": true,
+         "done": false,
          "h": 207.0,
          "heightFrame": 137,
          "loop": true,
@@ -185,7 +149,7 @@
          ],
          "Texture": 124,
          "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
+         "dialogo": "Ander0",
          "done": false,
          "h": 206.0,
          "heightFrame": 149,
@@ -203,8 +167,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 658.0,
-      "y": 246.0
+      "x": 334.0,
+      "y": 444.0
    },
    "PlayerTam": {
       "h": 201.6,
