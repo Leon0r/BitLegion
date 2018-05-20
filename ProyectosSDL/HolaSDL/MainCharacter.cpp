@@ -109,12 +109,15 @@ void MainCharacter::cleanKeys() { keyboard->cleanStacks(); }//llamado al entrar 
 void MainCharacter::receive(Mensaje* msg) {
 	switch (msg->id_)
 	{
-	case Stop:
+	case Stop: {
+		StopSoundEffect msg = { Resources::Paso };
+		send(&msg);
 		this->setVelocity(Vector2D(0.0, 0.0));
 		this->getMouseComponent()->send(&Mensaje(MouseStop));
 		this->getMouseComponent()->send(&Mensaje(CambioEscena));
 		this->cleanKeys();
 		break;
+	}
 	default:
 		break;
 	}
