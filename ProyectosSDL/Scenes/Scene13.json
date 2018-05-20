@@ -47,7 +47,7 @@
             "animation": true, "numFilsFrame": 3, "numColsFrame": 4,
             "widthFrame": 33, "heightFrame": 143, "vel": 200, "loop": true,
             "Anims": [ [0,2,0,2,0,2,0,3,0,2,0,2,4,5,6,7,8,9,8,8,9,7,6,5,4,3,0,2,1,0,2,0,2,0,2] ], 
-            "dialogo": "AlenaJeffaTelefono"            
+            "dialogo": "Acto2_Senora2"            
         },
 
          { "x": 1000, "y": 500, "w": 60, "h": 206, "Texture": 124,
@@ -56,8 +56,13 @@
             "Anims": [ [4,5,6,7] ], "dialogo": "Ander5"
         }
     ],
-    "PlayerPos": {
-        "x": 878,
-        "y": 500
-    }
+  "PlayerPos": {
+    "x": 878,
+    "y": 500
+  }
+
+       "AutoGOConversational": [
+         { "x": 581, "y": 400, "w": 0, "h": 0, "Texture": 19, "convoName": "Acto2_Senora1", "repeat":  false }
+    ]
+
 }
