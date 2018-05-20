@@ -21,6 +21,24 @@
          "y": 280.0
       },
       {
+         "Texture": 275,
+         "h": 110.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 47.0,
+         "x": 930.0,
+         "y": 580.0
+      },
+      {
+         "Texture": 275,
+         "h": 170.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 90.0,
+         "x": 0.0,
+         "y": 280.0
+      },
+      {
          "Texture": 26,
          "h": 196.0,
          "rotation": 0.0,
@@ -130,7 +148,7 @@
          "loop": true,
          "numColsFrame": 5,
          "numFilsFrame": 4,
-         "repeat": true,
+         "repeatDialog": true,
          "rotation": 0.0,
          "soundEffect": 1,
          "vel": 200.0,
@@ -159,7 +177,7 @@
          "loop": true,
          "numColsFrame": 3,
          "numFilsFrame": 2,
-         "repeat": true,
+         "repeatDialog": true,
          "rotation": 0.0,
          "soundEffect": 1,
          "vel": 500.0,

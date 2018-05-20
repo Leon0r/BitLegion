@@ -39,6 +39,42 @@
          "y": 495.0
       },
       {
+         "Texture": 275,
+         "h": 212.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 67.0,
+         "x": 415.0,
+         "y": 505.0
+      },
+      {
+         "Texture": 275,
+         "h": 212.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 67.0,
+         "x": 450.0,
+         "y": 470.0
+      },
+      {
+         "Texture": 275,
+         "h": 192.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 57.0,
+         "x": 560.0,
+         "y": 495.0
+      },
+      {
+         "Texture": 275,
+         "h": 194.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 62.0,
+         "x": 960.0,
+         "y": 495.0
+      },
+      {
          "Texture": 60,
          "h": 90.0,
          "rotation": 0.0,
@@ -259,7 +295,7 @@
          "loop": true,
          "numColsFrame": 2,
          "numFilsFrame": 5,
-         "repeat": true,
+         "repeatDialog": true,
          "rotation": 0.0,
          "soundEffect": 1,
          "vel": 250.0,
@@ -290,7 +326,7 @@
          "loop": true,
          "numColsFrame": 2,
          "numFilsFrame": 3,
-         "repeat": true,
+         "repeatDialog": true,
          "rotation": 0.0,
          "soundEffect": 1,
          "vel": 350.0,
@@ -348,7 +384,7 @@
          "loop": true,
          "numColsFrame": 4,
          "numFilsFrame": 3,
-         "repeat": true,
+         "repeatDialog": true,
          "rotation": 0.0,
          "soundEffect": 1,
          "vel": 300.0,
@@ -378,7 +414,7 @@
          "loop": true,
          "numColsFrame": 2,
          "numFilsFrame": 8,
-         "repeat": true,
+         "repeatDialog": true,
          "rotation": 0.0,
          "soundEffect": 1,
          "vel": 200.0,

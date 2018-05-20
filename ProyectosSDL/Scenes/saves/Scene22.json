@@ -12,6 +12,15 @@
          "y": 280.0
       },
       {
+         "Texture": 275,
+         "h": 125.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 36.0,
+         "x": 200.0,
+         "y": 280.0
+      },
+      {
          "Texture": 167,
          "h": 95.0,
          "rotation": 0.0,
@@ -178,7 +187,7 @@
          "loop": true,
          "numColsFrame": 2,
          "numFilsFrame": 4,
-         "repeat": true,
+         "repeatDialog": true,
          "rotation": 0.0,
          "soundEffect": 1,
          "vel": 200.0,

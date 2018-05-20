@@ -44,6 +44,7 @@ MainCharacter::MainCharacter(SDLApp* game, json& j, ObjectList* list, std::list<
 	this->setWidth(j["mainPj"]["w"]);//ancho, alto, posicion y textura
 	this->setHeight(j["mainPj"]["h"]);
 	this->setPosition(Vector2D(j["mainPj"]["x"], j["mainPj"]["y"]));
+	this->pass_ = j["mainPj"]["pass_"];
 
 	// items de inventario
 	for (int i = 0; i < (int)j["mainPj"]["itemList"].size(); i++) {
@@ -94,6 +95,8 @@ void MainCharacter::saveToJson(json& j) {
 	}
 
 	aux["actualScene"] = this->getCurrentScene();
+
+	aux["pass_"] = this->getPass();
 
 	j["mainPj"].update(aux);
 }

@@ -240,6 +240,19 @@ void Conversacion::sendMessage()
 		send(&msg);
 		break;
 	}
+	case 2: {
+		PlayState* currState = static_cast<PlayState*>(app->getStateMachine()->currentState());
+		if (currState->getMainPj()->getPass() == 1) {
+			MensajeAddItem msg = MensajeAddItem(AddItemDialog, aux["textureItem"], aux["tagItem"], aux["descripcionItem"], aux["permanenteItem"]);//añadir objeto al inventario de Alena
+			send(&msg);
+		}
+		else {
+			Mensaje msg = Mensaje(DialogoAcabado);
+			send(&msg);
+		}
+		currState->getMainPj()->activePass();
+		break;
+	}
 	default: {
 		Mensaje msg = Mensaje(DialogoAcabado);
 		send(&msg);

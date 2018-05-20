@@ -35,6 +35,8 @@ public:
 		mouseMovement->setSceneTam(w, h, x, y);
 		movement->setSceneTam(w, h, x, y);
 	}
+	int getPass() const { return pass_; };
+	void activePass() { pass_++; };
 	inline int getCurrentScene() const { return this->currentScene; };
 	inline void setCurrentScene(int nScene_) { this->currentScene = nScene_; };
 	void setPosIni();
@@ -56,7 +58,7 @@ private:
 	std::list<GameObject*>* colisionables;
 	ComponentSwitcher switcher = ComponentSwitcher(app, this);
 	int currentScene = 0; //para guardar la ultima escena
-
+	int pass_ = 0;
 	PlayState* mainState; //puntero para acceder al estado
 };
 
