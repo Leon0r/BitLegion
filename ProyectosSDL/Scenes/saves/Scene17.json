@@ -3,7 +3,7 @@
    "CambioActo": false,
    "CollisionableObject": [
       {
-         "Texture": 274,
+         "Texture": 275,
          "h": 206.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -209,7 +209,7 @@
          ],
          "Texture": 13,
          "animation": true,
-         "descripcion": "Todavia queda algo de coca, no parece muy util.",
+         "descripcion": "Todavía queda algo de coca, no parece muy útil.",
          "h": 30.0,
          "heightFrame": 42,
          "loop": true,

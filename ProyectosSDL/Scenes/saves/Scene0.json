@@ -156,34 +156,6 @@
          "y": 116.0
       }
    ],
-   "GOState": [
-      {
-         "Texture": 29,
-         "UnlockId": 1,
-         "h": 30.0,
-         "numText": 30,
-         "numberPuzzle": 0,
-         "rotation": -45,
-         "soundEffect": 1,
-         "type": 0,
-         "w": 30.0,
-         "x": 705.0,
-         "y": 265.0
-      },
-      {
-         "Texture": 29,
-         "UnlockId": 1,
-         "dificultad": 1,
-         "h": 30.0,
-         "numCas": 3,
-         "rotation": -45,
-         "soundEffect": 1,
-         "type": 1,
-         "w": 30.0,
-         "x": 705.0,
-         "y": 325.0
-      }
-   ],
    "GOTransiciones": [
       {
          "Texture": 29,
@@ -236,7 +208,7 @@
          ],
          "Texture": 55,
          "animation": true,
-         "descripcion": "La moto salio demasiado cara como para perder esto.",
+         "descripcion": "La moto salió demasiado cara como para perder esto.",
          "h": 40.0,
          "heightFrame": 40,
          "loop": true,
@@ -262,7 +234,7 @@
          ],
          "Texture": 19,
          "animation": true,
-         "descripcion": "Esto si que nos puede ser util. Pero, ¿donde la podemos usar?",
+         "descripcion": "Esto sí que nos puede ser útil. Pero, ¿dónde la podemos usar?",
          "h": 40.0,
          "heightFrame": 40,
          "loop": true,
@@ -298,7 +270,7 @@
    "rotation": 0.0,
    "soundEffect": 1,
    "volumenes": [
-      10
+      5
    ],
    "w": 1280.0,
    "x": 0.0,

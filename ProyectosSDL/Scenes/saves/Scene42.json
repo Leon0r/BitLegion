@@ -3,7 +3,7 @@
    "CambioActo": false,
    "CollisionableObject": [
       {
-         "Texture": 274,
+         "Texture": 275,
          "h": 206.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -117,7 +117,7 @@
          "generaState": true,
          "h": 80.0,
          "hItem": -842150451,
-         "numTextItem": 274,
+         "numTextItem": 275,
          "open": false,
          "permanenteItem": true,
          "rotation": 0.0,

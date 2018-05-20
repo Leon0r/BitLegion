@@ -3,7 +3,7 @@
    "CambioActo": false,
    "CollisionableObject": [
       {
-         "Texture": 274,
+         "Texture": 275,
          "h": 207.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -12,7 +12,7 @@
          "y": 250.0
       },
       {
-         "Texture": 274,
+         "Texture": 275,
          "h": 206.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -165,7 +165,7 @@
       }
    ],
    "PlayerPos": {
-      "x": 1150.0,
+      "x": 1132.0,
       "y": 300.0
    },
    "PlayerTam": {

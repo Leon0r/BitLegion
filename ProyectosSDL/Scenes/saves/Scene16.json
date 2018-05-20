@@ -3,7 +3,7 @@
    "CambioActo": false,
    "CollisionableObject": [
       {
-         "Texture": 274,
+         "Texture": 275,
          "h": 220.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -12,7 +12,7 @@
          "y": 190.0
       },
       {
-         "Texture": 274,
+         "Texture": 275,
          "h": 210.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -21,7 +21,7 @@
          "y": 200.0
       },
       {
-         "Texture": 274,
+         "Texture": 275,
          "h": 206.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -78,7 +78,7 @@
          ],
          "Texture": 81,
          "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
+         "dialogo": "caso1_acto2_Policia2",
          "h": 220.0,
          "heightFrame": 150,
          "loop": true,
@@ -113,7 +113,7 @@
          ],
          "Texture": 82,
          "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
+         "dialogo": "caso1_acto2_Policia3",
          "h": 210.0,
          "heightFrame": 147,
          "loop": true,

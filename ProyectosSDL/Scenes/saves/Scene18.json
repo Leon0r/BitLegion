@@ -3,7 +3,7 @@
    "CambioActo": false,
    "CollisionableObject": [
       {
-         "Texture": 274,
+         "Texture": 275,
          "h": 206.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -132,7 +132,7 @@
          ],
          "Texture": 71,
          "animation": true,
-         "descripcion": "Huele a cafe recién hecho.",
+         "descripcion": "Huele a café recién hecho.",
          "h": 45.0,
          "heightFrame": 42,
          "loop": true,
@@ -158,7 +158,7 @@
          ],
          "Texture": 21,
          "animation": true,
-         "descripcion": "Se dejo bastante dinero en vodka. Ojalá poder hacer lo mismo...",
+         "descripcion": "Se dejó bastante dinero en vodka. Ojalá poder hacer lo mismo...",
          "h": 20.0,
          "heightFrame": 40,
          "loop": true,
@@ -210,11 +210,20 @@
       "h": 201.6,
       "w": 84.0
    },
+   "SoundEffect": [
+      24
+   ],
    "Texture": 112,
    "actNumber": -1,
    "h": 720.0,
+   "numRepeticionesSonidos": [
+      -1
+   ],
    "rotation": 0.0,
    "soundEffect": 1,
+   "volumenes": [
+      30
+   ],
    "w": 1280.0,
    "x": 0.0,
    "y": 0.0

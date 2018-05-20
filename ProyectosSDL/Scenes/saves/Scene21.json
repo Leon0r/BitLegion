@@ -3,13 +3,31 @@
    "CambioActo": false,
    "CollisionableObject": [
       {
-         "Texture": 274,
+         "Texture": 275,
          "h": 206.0,
          "rotation": 0.0,
          "soundEffect": 1,
          "w": 60.0,
          "x": 200.0,
          "y": 280.0
+      },
+      {
+         "Texture": 275,
+         "h": 202.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 50.0,
+         "x": 950.0,
+         "y": 450.0
+      },
+      {
+         "Texture": 275,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 65.0,
+         "x": 500.0,
+         "y": 350.0
       },
       {
          "Texture": 198,
@@ -115,6 +133,94 @@
          "widthFrame": 41,
          "x": 200.0,
          "y": 280.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               0,
+               1,
+               0,
+               1,
+               0,
+               1,
+               0,
+               1,
+               2,
+               3,
+               4,
+               5,
+               6,
+               7,
+               4,
+               5,
+               6,
+               7,
+               4,
+               5,
+               6,
+               7,
+               3,
+               2,
+               1
+            ]
+         ],
+         "Texture": 158,
+         "animation": true,
+         "dialogo": "AlenaJeffaTelefono",
+         "h": 202.0,
+         "heightFrame": 142,
+         "loop": true,
+         "numColsFrame": 4,
+         "numFilsFrame": 2,
+         "repeat": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 50.0,
+         "widthFrame": 32,
+         "x": 950.0,
+         "y": 450.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               1,
+               4,
+               5,
+               6,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               3
+            ]
+         ],
+         "Texture": 159,
+         "animation": true,
+         "dialogo": "AlenaJeffaTelefono",
+         "h": 206.0,
+         "heightFrame": 127,
+         "loop": true,
+         "numColsFrame": 4,
+         "numFilsFrame": 2,
+         "repeat": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 65.0,
+         "widthFrame": 42,
+         "x": 500.0,
+         "y": 350.0
       }
    ],
    "PlayerPos": {
