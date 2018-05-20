@@ -39,6 +39,24 @@
          "y": 280.0
       },
       {
+         "Texture": 275,
+         "h": 110.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 47.0,
+         "x": 930.0,
+         "y": 580.0
+      },
+      {
+         "Texture": 275,
+         "h": 170.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 90.0,
+         "x": 0.0,
+         "y": 280.0
+      },
+      {
          "Texture": 26,
          "h": 196.0,
          "rotation": 0.0,
@@ -143,6 +161,7 @@
          "Texture": 64,
          "animation": true,
          "dialogo": "caso1_acto1_vecinaNinya",
+         "done": false,
          "h": 110.0,
          "heightFrame": 81,
          "loop": true,
@@ -172,6 +191,7 @@
          "Texture": 58,
          "animation": true,
          "dialogo": "caso1_acto1_vecinaVieja",
+         "done": false,
          "h": 170.0,
          "heightFrame": 91,
          "loop": true,

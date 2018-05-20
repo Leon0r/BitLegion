@@ -75,6 +75,42 @@
          "y": 495.0
       },
       {
+         "Texture": 275,
+         "h": 212.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 67.0,
+         "x": 415.0,
+         "y": 505.0
+      },
+      {
+         "Texture": 275,
+         "h": 212.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 67.0,
+         "x": 450.0,
+         "y": 470.0
+      },
+      {
+         "Texture": 275,
+         "h": 192.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 57.0,
+         "x": 560.0,
+         "y": 495.0
+      },
+      {
+         "Texture": 275,
+         "h": 194.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 62.0,
+         "x": 960.0,
+         "y": 495.0
+      },
+      {
          "Texture": 60,
          "h": 90.0,
          "rotation": 0.0,
@@ -290,6 +326,7 @@
          "Texture": 67,
          "animation": true,
          "dialogo": "caso1_acto1_Comp3",
+         "done": false,
          "h": 212.0,
          "heightFrame": 140,
          "loop": true,
@@ -321,6 +358,7 @@
          "Texture": 65,
          "animation": true,
          "dialogo": "caso1_acto1_Comp1",
+         "done": false,
          "h": 212.0,
          "heightFrame": 138,
          "loop": true,
@@ -379,6 +417,7 @@
          "Texture": 68,
          "animation": true,
          "dialogo": "caso1_acto1_CompNina",
+         "done": false,
          "h": 192.0,
          "heightFrame": 129,
          "loop": true,
@@ -409,6 +448,7 @@
          "Texture": 66,
          "animation": true,
          "dialogo": "caso1_acto1_Comp2",
+         "done": false,
          "h": 194.0,
          "heightFrame": 138,
          "loop": true,

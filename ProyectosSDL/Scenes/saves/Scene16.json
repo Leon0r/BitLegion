@@ -55,6 +55,33 @@
          "w": 60.0,
          "x": 100.0,
          "y": 400.0
+      },
+      {
+         "Texture": 275,
+         "h": 220.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 65.0,
+         "x": 960.0,
+         "y": 190.0
+      },
+      {
+         "Texture": 275,
+         "h": 210.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 55.0,
+         "x": 1180.0,
+         "y": 200.0
+      },
+      {
+         "Texture": 275,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 100.0,
+         "y": 400.0
       }
    ],
    "GOTransiciones": [
@@ -106,6 +133,7 @@
          "Texture": 81,
          "animation": true,
          "dialogo": "caso1_acto2_Policia2",
+         "done": false,
          "h": 220.0,
          "heightFrame": 150,
          "loop": true,
@@ -141,6 +169,7 @@
          "Texture": 82,
          "animation": true,
          "dialogo": "caso1_acto2_Policia3",
+         "done": false,
          "h": 210.0,
          "heightFrame": 147,
          "loop": true,
@@ -167,6 +196,7 @@
          "Texture": 124,
          "animation": true,
          "dialogo": "AlenaJeffaTelefono",
+         "done": false,
          "h": 206.0,
          "heightFrame": 149,
          "loop": true,

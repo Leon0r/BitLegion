@@ -21,6 +21,15 @@
          "y": 290.0
       },
       {
+         "Texture": 275,
+         "h": 125.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 36.0,
+         "x": 1100.0,
+         "y": 290.0
+      },
+      {
          "Texture": 43,
          "h": 230.0,
          "rotation": 0.0,
@@ -77,6 +86,7 @@
          "Texture": 124,
          "animation": true,
          "dialogo": "AlenaJeffaTelefono",
+         "done": false,
          "h": 125.0,
          "heightFrame": 149,
          "loop": true,

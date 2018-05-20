@@ -12,7 +12,7 @@ GOConversational::~GOConversational()
 }
 
 void GOConversational::act() {
-	if (!inconversation) {
+	if (!inconversation && !done_) {
 		PlaySoundE msg = { Resources::BotonSinClickar, 0 };
 		send(&msg);
 		PlayState* aux = dynamic_cast<PlayState*>(app->getStateMachine()->currentState()); 
@@ -32,6 +32,8 @@ void GOConversational::act() {
 			app->getStateMachine()->currentState()->getStage()->push_front(convo);
 			app->getStateMachine()->currentState()->changeList();
 		}
+
+		if (!repeat_) done_ = true;
 	}
 
 }

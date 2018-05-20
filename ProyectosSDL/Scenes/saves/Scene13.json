@@ -39,6 +39,24 @@
          "y": 500.0
       },
       {
+         "Texture": 275,
+         "h": 200.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 50.0,
+         "x": 250.0,
+         "y": 435.0
+      },
+      {
+         "Texture": 275,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 1000.0,
+         "y": 500.0
+      },
+      {
          "Texture": 140,
          "h": 122.0,
          "rotation": 0.0,
@@ -198,6 +216,7 @@
          "Texture": 79,
          "animation": true,
          "dialogo": "AlenaJeffaTelefono",
+         "done": false,
          "h": 200.0,
          "heightFrame": 143,
          "loop": true,
@@ -224,6 +243,7 @@
          "Texture": 124,
          "animation": true,
          "dialogo": "AlenaJeffaTelefono",
+         "done": false,
          "h": 206.0,
          "heightFrame": 149,
          "loop": true,

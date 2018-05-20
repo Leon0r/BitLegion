@@ -19,6 +19,15 @@
          "w": 60.0,
          "x": 400.0,
          "y": 300.0
+      },
+      {
+         "Texture": 275,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 400.0,
+         "y": 300.0
       }
    ],
    "GOTransiciones": [
@@ -59,6 +68,7 @@
          "Texture": 124,
          "animation": true,
          "dialogo": "AlenaJeffaTelefono",
+         "done": false,
          "h": 206.0,
          "heightFrame": 149,
          "loop": true,

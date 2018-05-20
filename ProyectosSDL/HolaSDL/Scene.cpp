@@ -147,8 +147,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				repeat = j["GOConversational"][i]["repeat"];
 			}
 
+			bool done = false;
+			if (!j["GOConversational"][i]["done"].is_null()) {
+				done = j["GOConversational"][i]["done"];
+			}
+
 			GOConversational* conver = new GOConversational(app, j["GOConversational"][i]["x"], j["GOConversational"][i]["y"], j["GOConversational"][i]["w"], j["GOConversational"][i]["h"],
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOConversational"][i]["convoName"], repeat);
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j["GOConversational"][i]["convoName"], repeat, done);
 
 			conver->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 			conver->addInputComponent(new MouseEventAnimComponent(SDL_MOUSEMOTION, "Anim1", "Anim0"));
@@ -211,8 +216,13 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 				repeat_ = j[obj][i]["repeatDialog"];
 			}
 
+			bool done = false;
+			if (!j["NPC"][i]["done"].is_null()) {
+				done = j["NPC"][i]["done"];
+			}
+
 			NPC* npc = new NPC(app, j[obj][i]["x"], j[obj][i]["y"], j[obj][i]["w"], j[obj][i]["h"], 
-				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["dialogo"], repeat_);
+				app->getResources()->getImageTexture(Resources::ImageId(n)), j[obj][i]["dialogo"], repeat_, done);
 
 			npc->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 
