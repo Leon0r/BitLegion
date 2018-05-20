@@ -12,7 +12,7 @@
     ],
     "GODoors": [
         { "x": 0, "y": 530, "w": 460, "h": 135, "Texture": 38, "tag": "keyMoto", "scneNum": 4, "rotGOTr": 90 },
-        { "x": 580, "y": 420, "w": 726, "h": 300, "Texture": 221, "tag": "keyCoche", "scneNum": 9, "rotGOTr": 90 }
+        { "x": 580, "y": 420, "w": 726, "h": 300, "Texture": 221, "tag": "keyCoche", "scneNum": 9, "rotGOTr": 90, "soundEffect":  16 }
     ],
     "GOTransiciones": [
         { "x": 620, "y": 290, "w": 40, "h": 40, "Texture": 29, "scneNum": 6, "rotation": -90, "soundEffect": 23 }

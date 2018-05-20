@@ -16,5 +16,6 @@ public:
 	IntroState(SDLApp* app);
 	virtual void receive(Mensaje* msg);
 	virtual void update();
+	virtual void handleEvent(SDL_Event &e);
 };
 

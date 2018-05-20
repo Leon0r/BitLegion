@@ -36,6 +36,15 @@ void IntroState::update()
 	checkAnimDone();
 }
 
+void IntroState::handleEvent(SDL_Event &e)
+{
+	if (e.type == SDL_KEYDOWN) {
+		if (e.key.keysym.sym == SDLK_SPACE || e.key.keysym.sym == SDLK_RETURN) {
+			done_ = true;
+		}
+	}
+}
+
 void IntroState::receive(Mensaje * msg)
 {
 	switch (msg->id_) {

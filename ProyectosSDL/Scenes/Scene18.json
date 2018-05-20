@@ -10,6 +10,18 @@
         { "x": 10, "y": 450, "w": 60, "h": 60, "Texture": 29, "scneNum": 17, "rotation": 180 }
     ],
 
+    "SoundEffect": [
+        24
+    ],
+
+    "volumenes": [
+        30
+    ],
+
+    "numRepeticionesSonidos": [
+        -1
+    ],
+
     "CollisionableObject": [
         { "x": 370, "y": 420, "w": 210, "h": 128, "Texture": 141 },
         { "x": 750, "y": 165, "w": 458, "h": 249, "Texture": 113 }
@@ -27,11 +39,11 @@
     ],
 
     "ItemInventario": [
-        { "x": 1180, "y": 300, "w": 20, "h": 20, "descripcion": "Se dejo bastante dinero en vodka. Ojalá poder hacer lo mismo...", "tag": "ticket", "Texture": 21, "rotation": 45, "soundEffect": 1,
+        { "x": 1180, "y": 300, "w": 20, "h": 20, "descripcion": "Se dejó bastante dinero en vodka. Ojalá poder hacer lo mismo...", "tag": "ticket", "Texture": 21, "rotation": 45, "soundEffect": 1,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
             "Anims": [ [0],[1] ]},
-        { "x": 975, "y": 270, "w": 45, "h": 45, "descripcion": "Huele a cafe recién hecho.", "tag": "bolsaCafe", "Texture": 71, "soundEffect": 1,
+        { "x": 975, "y": 270, "w": 45, "h": 45, "descripcion": "Huele a café recién hecho.", "tag": "bolsaCafe", "Texture": 71, "soundEffect": 1,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 42, "heightFrame": 42, "vel": 200, "loop": true,
             "Anims": [ [0],[1] ]},

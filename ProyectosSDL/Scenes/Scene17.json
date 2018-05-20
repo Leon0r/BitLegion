@@ -59,7 +59,7 @@
             "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 42, "heightFrame": 42, "vel": 200, "loop": true,
             "Anims": [ [0],[1] ] },
-        { "x": 680, "y": 470, "w": 30, "h": 30, "descripcion": "Todavia queda algo de coca, no parece muy util.", "tag": "bolsaCoca", "Texture": 13, "soundEffect": 1,
+        { "x": 680, "y": 470, "w": 30, "h": 30, "descripcion": "Todavía queda algo de coca, no parece muy útil.", "tag": "bolsaCoca", "Texture": 13, "soundEffect": 1,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 42, "heightFrame": 42, "vel": 200, "loop": true,
             "Anims": [ [0],[1] ] },

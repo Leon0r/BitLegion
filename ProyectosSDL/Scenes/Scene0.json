@@ -16,7 +16,7 @@
             "y": 490,
             "w": 40,
             "h": 40,
-            "descripcion": "Esto si que nos puede ser util. Pero, ¿donde la podemos usar?",
+            "descripcion": "Esto sí que nos puede ser útil. Pero, ¿dónde la podemos usar?",
             "tag": "key",
             "Texture": 19,
             "soundEffect": 1,
@@ -35,7 +35,7 @@
             "y": 500,
             "w": 40,
             "h": 40,
-            "descripcion": "La moto salio demasiado cara como para perder esto.",
+            "descripcion": "La moto salió demasiado cara como para perder esto.",
             "tag": "keyMoto",
             "Texture": 55,
             "permanente": true,
@@ -79,7 +79,7 @@
     ],
 
     "volumenes": [
-        10
+        5
     ],
 
     "numRepeticionesSonidos": [
@@ -117,10 +117,5 @@
     "PlayerPos": {
         "x": 100,
         "y": 500
-    },
-
-    "GOState": [
-		{ "x": 705, "y": 265, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"numText": 30 ,"numberPuzzle": 0,"type": 0, "UnlockId": 1 },
-        {"x": 705, "y": 325, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 1, "UnlockId": 1}	
-    ]
+    }
 }

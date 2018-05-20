@@ -17,6 +17,13 @@
     "SoundEffect": [
         18,19,10
     ],
+    "volumenes": [
+        3,3,3
+    ],
+
+    "numRepeticionesSonidos": [
+        -1,-1,-1
+    ],
 
     "Decorado": [
         {

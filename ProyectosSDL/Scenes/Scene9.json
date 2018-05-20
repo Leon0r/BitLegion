@@ -17,6 +17,13 @@
     "SoundEffect": [
         14
     ],
+    "volumenes": [
+        100
+    ],
+
+    "numRepeticionesSonidos": [
+        -1
+    ],
 
     "AlenaActiva": false,
 

@@ -28,8 +28,16 @@
         "w": 50,
         "h": 120
     },
-     "SoundEffect": [
+    "SoundEffect": [
         4
+    ],
+
+    "volumenes": [
+        5
+    ],
+
+    "numRepeticionesSonidos": [
+        -1
     ],
 
      "Decorado": [
