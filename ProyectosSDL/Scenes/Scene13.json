@@ -59,9 +59,9 @@
   "PlayerPos": {
     "x": 878,
     "y": 500
-  }
+  },
 
-       "AutoGOConversational": [
+    "AutoGOConversational": [
          { "x": 581, "y": 400, "w": 0, "h": 0, "Texture": 19, "convoName": "Acto2_Senora1", "repeat":  false }
     ]
 
