@@ -40,7 +40,7 @@
         { "x": 500, "y": 380, "w": 65, "h": 206, "Texture": 159,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 4,
             "widthFrame": 42, "heightFrame": 127, "vel": 200, "loop": true,
-            "Anims": [ [0,2,0,2,0,2,1,4,5,6,2,0,2,0,2,0,3] ], "dialogo": "AlenaJeffaTelefono"
+            "Anims": [ [0,2,0,2,0,2,1,4,5,6,2,0,2,0,2,0,3] ], "dialogo": "caso1_acto3_SenyorBazar"
         }
     ],
     
