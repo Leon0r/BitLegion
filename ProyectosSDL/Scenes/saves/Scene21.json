@@ -30,6 +30,60 @@
          "y": 380.0
       },
       {
+         "Texture": 275,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 200.0,
+         "y": 320.0
+      },
+      {
+         "Texture": 275,
+         "h": 202.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 50.0,
+         "x": 950.0,
+         "y": 450.0
+      },
+      {
+         "Texture": 275,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 65.0,
+         "x": 500.0,
+         "y": 380.0
+      },
+      {
+         "Texture": 275,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 200.0,
+         "y": 320.0
+      },
+      {
+         "Texture": 275,
+         "h": 202.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 50.0,
+         "x": 950.0,
+         "y": 450.0
+      },
+      {
+         "Texture": 275,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 65.0,
+         "x": 500.0,
+         "y": 380.0
+      },
+      {
          "Texture": 198,
          "h": 190.0,
          "rotation": 0.0,
@@ -170,7 +224,7 @@
          "Texture": 158,
          "animation": true,
          "dialogo": "Acto3.1",
-         "done": false,
+         "done": true,
          "h": 202.0,
          "heightFrame": 142,
          "loop": true,
@@ -227,8 +281,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 344.0,
-      "y": 452.0
+      "x": 830.0,
+      "y": 500.0
    },
    "PlayerTam": {
       "h": 201.6,

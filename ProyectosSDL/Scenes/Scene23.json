@@ -53,6 +53,11 @@
             "animation": true, "numFilsFrame": 4, "numColsFrame": 2,
             "widthFrame": 41, "heightFrame": 149, "vel": 200, "loop": true,
             "Anims": [ [0,1,2,3] ], "dialogo": "Ander15"
-        }
+         },
+          { "x": 1000, "y": 300, "w": 45, "h": 201, "Texture": 162,
+            "animation": true, "numFilsFrame": 2, "numColsFrame": 4,
+            "widthFrame": 30, "heightFrame": 141, "vel": 215, "loop": true,
+            "Anims": [ [0,1,2,3,4,5,6] ], "dialogo": "Acto3.2", "repeatDialog": false
+         }
     ]
 }
