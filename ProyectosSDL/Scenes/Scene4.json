@@ -10,6 +10,16 @@
         { "x": 1000, "y": 450, "w": 260, "h": 79, "Texture": 38 },
         { "x": 0, "y": 400, "w": 1280, "h": 230, "Texture": 43 }
     ],
+    "NPC":[
+        { "x": 300, "y": 260, "w": 50, "h": 150, "Texture": 52,
+            "animation": true, "numFilsFrame": 6, "numColsFrame": 4,
+            "widthFrame": 68, "heightFrame": 201, "vel": 200, "loop": true,
+            "Anims": [ [8,9] ], "dialogo": "hidroquenoAzul" },
+        { "x": 550, "y": 260, "w": 50, "h": 150, "Texture": 52,
+            "animation": true, "numFilsFrame": 6, "numColsFrame": 4,
+            "widthFrame": 68, "heightFrame": 201, "vel": 200, "loop": true,
+            "Anims": [ [4,5] ], "dialogo": "hidroquenoNaranja" }
+    ],
     "Decorado": [
         {
             "x": 323,

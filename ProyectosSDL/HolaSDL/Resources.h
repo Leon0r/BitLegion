@@ -292,7 +292,8 @@ public:
 		IdAlena,
 		ExtrasActo2Expresiones,
 		ExtrasActo4Expresiones,
-		PuertaDespachoJeffa
+		PuertaDespachoJeffa,
+		HidroquenoDcha
 	};
 
 	// Music -- each file is loaded as an instance of Music

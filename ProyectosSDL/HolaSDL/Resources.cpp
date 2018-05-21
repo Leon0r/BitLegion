@@ -277,7 +277,8 @@ std::vector<std::string> Resources::imageFiles_{
 "..//images/Objetos/Takeable/IdAlena.png",
 "..//images/Expresiones/ExtrasActo2Expresiones.png",
 "..//images/Expresiones/ExtrasActo4Expresiones.png",
-"..//images/Objetos/Doors/puertaDespachoJeffa.png"
+"..//images/Objetos/Doors/puertaDespachoJeffa.png",
+"..//images/Objetos/Doors/hidroqueno2.png"
 };
 
 std::vector<std::string> Resources::musicFiles_{
