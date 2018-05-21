@@ -3,7 +3,7 @@
    "CambioActo": false,
    "CollisionableObject": [
       {
-         "Texture": 275,
+         "Texture": 276,
          "h": 206.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -12,43 +12,7 @@
          "y": 400.0
       },
       {
-         "Texture": 275,
-         "h": 201.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 45.0,
-         "x": 1000.0,
-         "y": 300.0
-      },
-      {
-         "Texture": 275,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 60.0,
-         "x": 200.0,
-         "y": 400.0
-      },
-      {
-         "Texture": 275,
-         "h": 201.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 45.0,
-         "x": 1000.0,
-         "y": 300.0
-      },
-      {
-         "Texture": 275,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 60.0,
-         "x": 200.0,
-         "y": 400.0
-      },
-      {
-         "Texture": 275,
+         "Texture": 276,
          "h": 201.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -207,7 +171,7 @@
          "Texture": 162,
          "animation": true,
          "dialogo": "Acto3.2",
-         "done": true,
+         "done": false,
          "h": 201.0,
          "heightFrame": 141,
          "loop": true,
@@ -224,8 +188,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 910.0,
-      "y": 290.0
+      "x": 10.0,
+      "y": 500.0
    },
    "PlayerTam": {
       "h": 201.6,

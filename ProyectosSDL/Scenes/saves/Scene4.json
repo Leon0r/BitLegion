@@ -3,6 +3,24 @@
    "CambioActo": false,
    "CollisionableObject": [
       {
+         "Texture": 276,
+         "h": 150.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 50.0,
+         "x": 300.0,
+         "y": 260.0
+      },
+      {
+         "Texture": 276,
+         "h": 150.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 50.0,
+         "x": 550.0,
+         "y": 260.0
+      },
+      {
          "Texture": 38,
          "h": 79.0,
          "rotation": 0.0,
@@ -182,6 +200,58 @@
       }
    ],
    "HeaderActo": "",
+   "NPC": [
+      {
+         "Anims": [
+            [
+               8,
+               9
+            ]
+         ],
+         "Texture": 52,
+         "animation": true,
+         "dialogo": "hidroquenoAzul",
+         "done": false,
+         "h": 150.0,
+         "heightFrame": 201,
+         "loop": true,
+         "numColsFrame": 4,
+         "numFilsFrame": 6,
+         "repeatDialog": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 50.0,
+         "widthFrame": 68,
+         "x": 300.0,
+         "y": 260.0
+      },
+      {
+         "Anims": [
+            [
+               4,
+               5
+            ]
+         ],
+         "Texture": 52,
+         "animation": true,
+         "dialogo": "hidroquenoNaranja",
+         "done": false,
+         "h": 150.0,
+         "heightFrame": 201,
+         "loop": true,
+         "numColsFrame": 4,
+         "numFilsFrame": 6,
+         "repeatDialog": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 50.0,
+         "widthFrame": 68,
+         "x": 550.0,
+         "y": 260.0
+      }
+   ],
    "PlayerPos": {
       "x": 620.0,
       "y": 290.0

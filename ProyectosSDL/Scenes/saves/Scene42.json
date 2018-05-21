@@ -3,25 +3,7 @@
    "CambioActo": false,
    "CollisionableObject": [
       {
-         "Texture": 275,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 60.0,
-         "x": 122.0,
-         "y": 400.0
-      },
-      {
-         "Texture": 275,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 60.0,
-         "x": 122.0,
-         "y": 400.0
-      },
-      {
-         "Texture": 275,
+         "Texture": 276,
          "h": 206.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -135,7 +117,7 @@
          "generaState": true,
          "h": 80.0,
          "hItem": -842150451,
-         "numTextItem": 275,
+         "numTextItem": 276,
          "open": false,
          "permanenteItem": true,
          "rotation": 0.0,

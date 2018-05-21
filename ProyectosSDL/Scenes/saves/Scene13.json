@@ -1,9 +1,22 @@
 {
    "AlenaActiva": true,
+   "AutoGOConversational": [
+      {
+         "Texture": 19,
+         "convoName": "Acto2_Senora1",
+         "h": 0.0,
+         "repeat": false,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 0.0,
+         "x": 581.0,
+         "y": 400.0
+      }
+   ],
    "CambioActo": false,
    "CollisionableObject": [
       {
-         "Texture": 275,
+         "Texture": 276,
          "h": 200.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -12,43 +25,7 @@
          "y": 435.0
       },
       {
-         "Texture": 275,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 60.0,
-         "x": 1000.0,
-         "y": 500.0
-      },
-      {
-         "Texture": 275,
-         "h": 200.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 50.0,
-         "x": 250.0,
-         "y": 435.0
-      },
-      {
-         "Texture": 275,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 60.0,
-         "x": 1000.0,
-         "y": 500.0
-      },
-      {
-         "Texture": 275,
-         "h": 200.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 50.0,
-         "x": 250.0,
-         "y": 435.0
-      },
-      {
-         "Texture": 275,
+         "Texture": 276,
          "h": 206.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -215,7 +192,7 @@
          ],
          "Texture": 79,
          "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
+         "dialogo": "Acto2_Senora2",
          "done": false,
          "h": 200.0,
          "heightFrame": 143,

@@ -1,26 +1,26 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 23,
+        "actualScene": 21,
         "h": 201.6,
         "itemList": [
             {
-                "Texture": 54,
-                "descripcion": "Es la llave del coche  de la empresa",
+                "Texture": 21,
+                "descripcion": "Un ticket de compra medio borrado. Se puede   leer Sra.   -TEV-NS",
                 "h": 36.92307692307692,
                 "rotation": 0.0,
                 "soundEffect": 1,
-                "tag": "keyCoche",
+                "tag": "",
                 "w": 49.230769230769226,
                 "x": 938.1846153846153,
                 "y": 8.53846153846154
             }
         ],
-        "pass_": 2,
+        "pass_": 1,
         "rotation": 0.0,
         "soundEffect": 1,
         "w": 84.0,
-        "x": 910.0,
-        "y": 290.0
+        "x": 566.0,
+        "y": 398.0
     }
 }

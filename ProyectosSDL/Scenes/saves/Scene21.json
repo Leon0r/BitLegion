@@ -3,7 +3,7 @@
    "CambioActo": false,
    "CollisionableObject": [
       {
-         "Texture": 275,
+         "Texture": 276,
          "h": 206.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -12,7 +12,7 @@
          "y": 320.0
       },
       {
-         "Texture": 275,
+         "Texture": 276,
          "h": 202.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -21,61 +21,7 @@
          "y": 450.0
       },
       {
-         "Texture": 275,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 65.0,
-         "x": 500.0,
-         "y": 380.0
-      },
-      {
-         "Texture": 275,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 60.0,
-         "x": 200.0,
-         "y": 320.0
-      },
-      {
-         "Texture": 275,
-         "h": 202.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 50.0,
-         "x": 950.0,
-         "y": 450.0
-      },
-      {
-         "Texture": 275,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 65.0,
-         "x": 500.0,
-         "y": 380.0
-      },
-      {
-         "Texture": 275,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 60.0,
-         "x": 200.0,
-         "y": 320.0
-      },
-      {
-         "Texture": 275,
-         "h": 202.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 50.0,
-         "x": 950.0,
-         "y": 450.0
-      },
-      {
-         "Texture": 275,
+         "Texture": 276,
          "h": 206.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -263,7 +209,7 @@
          ],
          "Texture": 159,
          "animation": true,
-         "dialogo": "AlenaJeffaTelefono",
+         "dialogo": "caso1_acto3_SenyorBazar",
          "done": false,
          "h": 206.0,
          "heightFrame": 127,
@@ -281,8 +227,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 830.0,
-      "y": 500.0
+      "x": 566.0,
+      "y": 398.0
    },
    "PlayerTam": {
       "h": 201.6,
