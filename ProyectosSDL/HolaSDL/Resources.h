@@ -287,7 +287,7 @@ public:
 		AmigoMaksExpresiones,
 		Mujer5Expresiones,
 		CamelloExpresiones,
-		SeñorBazarExpresiones,
+		SenorBazarExpresiones,
 		AmigaGalinaExpresiones,
 		IdAlena,
 		ExtrasActo2Expresiones,
@@ -332,6 +332,8 @@ public:
 		BotonSinClickar,
 		PuertaSonido,
 		luces,
+		wind,
+		theme1,
 	};
 
 private:
