@@ -44,7 +44,15 @@
             "animation": true, "numFilsFrame": 4, "numColsFrame": 2,
             "widthFrame": 41, "heightFrame": 149, "vel": 200, "loop": true,
             "Anims": [ [0,1,2,3] ], "dialogo": "Ander14"
-        }
+        },
+        { "x": 300, "y": 260, "w": 50, "h": 150, "Texture": 275,
+            "animation": true, "numFilsFrame": 6, "numColsFrame": 4,
+            "widthFrame": 68, "heightFrame": 201, "vel": 200, "loop": true,
+            "Anims": [ [20,21] ], "dialogo": "hidroquenoVerde" },
+        { "x": 970, "y": 250, "w": 50, "h": 150, "Texture": 52,
+            "animation": true, "numFilsFrame": 6, "numColsFrame": 4,
+            "widthFrame": 68, "heightFrame": 201, "vel": 200, "loop": true,
+            "Anims": [ [2,3] ], "dialogo": "hidroquenoRojo" }
     ],
 
     "Decorado": [
