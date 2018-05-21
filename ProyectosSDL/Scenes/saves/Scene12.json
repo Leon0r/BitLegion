@@ -78,6 +78,34 @@
       }
    ],
    "HeaderActo": "",
+   "ItemInventario": [
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 21,
+         "animation": true,
+         "descripcion": "Un ticket de compra medio borrado. Se puede   leer Sra.   -TEV-NS",
+         "h": 40.0,
+         "heightFrame": 40,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": -45.0,
+         "soundEffect": 1,
+         "tag": "",
+         "vel": 200.0,
+         "w": 40.0,
+         "widthFrame": 40,
+         "x": 710.0,
+         "y": 490.0
+      }
+   ],
    "NPC": [
       {
          "Anims": [
@@ -108,8 +136,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 766.0,
-      "y": 416.0
+      "x": 850.0,
+      "y": 500.0
    },
    "PlayerTam": {
       "h": 201.6,

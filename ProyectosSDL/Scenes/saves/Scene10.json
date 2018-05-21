@@ -4,6 +4,24 @@
    "CollisionableObject": [
       {
          "Texture": 276,
+         "h": 150.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 50.0,
+         "x": 800.0,
+         "y": 260.0
+      },
+      {
+         "Texture": 276,
+         "h": 150.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 50.0,
+         "x": 100.0,
+         "y": 260.0
+      },
+      {
+         "Texture": 276,
          "h": 125.0,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -334,6 +352,56 @@
    ],
    "HeaderActo": "Plaza Drzewo nº 100",
    "NPC": [
+      {
+         "Anims": [
+            [
+               14,
+               15
+            ]
+         ],
+         "Texture": 52,
+         "animation": true,
+         "dialogo": "hidroquenoVerde",
+         "done": false,
+         "h": 150.0,
+         "heightFrame": 201,
+         "loop": true,
+         "numColsFrame": 4,
+         "numFilsFrame": 6,
+         "repeatDialog": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 50.0,
+         "widthFrame": 68,
+         "x": 800.0,
+         "y": 260.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               1
+            ]
+         ],
+         "Texture": 275,
+         "animation": true,
+         "dialogo": "hidroquenoRojo",
+         "done": false,
+         "h": 150.0,
+         "heightFrame": 201,
+         "loop": true,
+         "numColsFrame": 4,
+         "numFilsFrame": 6,
+         "repeatDialog": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 50.0,
+         "widthFrame": 68,
+         "x": 100.0,
+         "y": 260.0
+      },
       {
          "Anims": [
             [

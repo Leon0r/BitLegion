@@ -12,6 +12,15 @@
          "y": 500.0
       },
       {
+         "Texture": 276,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 750.0,
+         "y": 350.0
+      },
+      {
          "Texture": 195,
          "h": 134.0,
          "rotation": 0.0,
@@ -138,6 +147,51 @@
          "widthFrame": 41,
          "x": 100.0,
          "y": 500.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               3,
+               4,
+               5,
+               6,
+               7,
+               8,
+               9,
+               2,
+               0,
+               2,
+               0,
+               2,
+               1
+            ]
+         ],
+         "Texture": 179,
+         "animation": true,
+         "dialogo": "Forense",
+         "done": false,
+         "h": 206.0,
+         "heightFrame": 127,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 5,
+         "repeatDialog": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 60.0,
+         "widthFrame": 36,
+         "x": 750.0,
+         "y": 350.0
       }
    ],
    "PlayerPos": {

@@ -80,6 +80,35 @@
          "y": 260.0
       }
    ],
+   "GOConversational": [
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 20,
+         "animation": true,
+         "convoName": "Ander10",
+         "done": false,
+         "h": 45.0,
+         "heightFrame": 40,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "repeat": false,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 45.0,
+         "widthFrame": 40,
+         "x": 380.0,
+         "y": 435.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 29,
@@ -186,7 +215,7 @@
          ],
          "Texture": 124,
          "animation": true,
-         "dialogo": "Ander10",
+         "dialogo": "Ander2",
          "done": false,
          "h": 206.0,
          "heightFrame": 149,

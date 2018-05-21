@@ -136,7 +136,7 @@
       {
          "Texture": 29,
          "UnlockId": 1,
-         "dificultad": 5,
+         "dificultad": 10,
          "h": 30.0,
          "numCas": 3,
          "rotation": -45,
@@ -180,7 +180,7 @@
          "UnlockId": 1,
          "canWork": false,
          "h": 34.0,
-         "maxAlpha": 240,
+         "maxAlpha": 230,
          "minAlpha": 0,
          "off": true,
          "rotation": 0.0,

@@ -12,6 +12,15 @@
          "y": 240.0
       },
       {
+         "Texture": 276,
+         "h": 240.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 74.0,
+         "x": 1150.0,
+         "y": 200.0
+      },
+      {
          "Texture": 43,
          "h": 197.0,
          "rotation": 0.0,
@@ -107,6 +116,31 @@
          "widthFrame": 41,
          "x": 900.0,
          "y": 240.0
+      },
+      {
+         "Anims": [
+            [
+               18,
+               19
+            ]
+         ],
+         "Texture": 52,
+         "animation": true,
+         "dialogo": "hidroquenoRojo",
+         "done": false,
+         "h": 240.0,
+         "heightFrame": 201,
+         "loop": true,
+         "numColsFrame": 4,
+         "numFilsFrame": 6,
+         "repeatDialog": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 74.0,
+         "widthFrame": 68,
+         "x": 1150.0,
+         "y": 200.0
       }
    ],
    "PlayerPos": {

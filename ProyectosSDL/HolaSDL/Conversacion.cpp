@@ -253,6 +253,13 @@ void Conversacion::sendMessage()
 		currState->getMainPj()->activePass();
 		break;
 	}
+	case 3: {
+		MensajeCambioEscenaDialogos msg = MensajeCambioEscenaDialogos(CambioEscena, aux["numScene"]);
+		send(&msg);
+		MensajeAddItem msg2 = MensajeAddItem(AddItemDialog, aux["textureItem"], aux["tagItem"], aux["descripcionItem"], aux["permanenteItem"]);//añadir objeto al inventario de Alena
+		send(&msg2);
+		break;
+	}
 	default: {
 		Mensaje msg = Mensaje(DialogoAcabado);
 		send(&msg);

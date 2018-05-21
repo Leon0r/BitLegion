@@ -12,6 +12,15 @@
          "y": 322.0
       },
       {
+         "Texture": 276,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 50.0,
+         "x": 650.0,
+         "y": 450.0
+      },
+      {
          "Anims": [
             [
                0,
@@ -93,6 +102,53 @@
          "widthFrame": 41,
          "x": 233.0,
          "y": 322.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               3,
+               0,
+               1,
+               4,
+               1,
+               3,
+               0,
+               7,
+               4,
+               1,
+               0,
+               7,
+               0,
+               7,
+               0,
+               1,
+               0,
+               1,
+               6,
+               9,
+               0,
+               11,
+               0
+            ]
+         ],
+         "Texture": 160,
+         "animation": true,
+         "dialogo": "VecinodelMuerto",
+         "done": false,
+         "h": 206.0,
+         "heightFrame": 109,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 6,
+         "repeatDialog": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 50.0,
+         "widthFrame": 27,
+         "x": 650.0,
+         "y": 450.0
       }
    ],
    "PlayerPos": {

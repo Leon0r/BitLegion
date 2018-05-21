@@ -28,42 +28,139 @@
     ],
 
     "Decorado": [
-         { "x": 905, "y": 270, "w": 40, "h": 40, "Texture": 15,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
-            "Anims": [ [0],[1] ]},
-         { "x": 1075, "y": 260, "w": 45, "h": 45, "Texture": 71, "rotation": 45,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
-            "Anims": [ [0],[1] ]}
+        {
+            "x": 905,
+            "y": 270,
+            "w": 40,
+            "h": 40,
+            "Texture": 15,
+            "animation": true,
+            "numFilsFrame": 2,
+            "numColsFrame": 1,
+            "widthFrame": 40,
+            "heightFrame": 40,
+            "vel": 200,
+            "loop": true,
+            "Anims": [ [ 0 ], [ 1 ] ]
+        },
+        {
+            "x": 1075,
+            "y": 260,
+            "w": 45,
+            "h": 45,
+            "Texture": 71,
+            "rotation": 45,
+            "animation": true,
+            "numFilsFrame": 2,
+            "numColsFrame": 1,
+            "widthFrame": 40,
+            "heightFrame": 40,
+            "vel": 200,
+            "loop": true,
+            "Anims": [ [ 0 ], [ 1 ] ]
+        }
     ],
 
     "ItemInventario": [
-        { "x": 1180, "y": 300, "w": 20, "h": 20, "descripcion": "Se dejó bastante dinero en vodka. Ojalá poder hacer lo mismo...", "tag": "ticket", "Texture": 21, "rotation": 45, "soundEffect": 1,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
-            "Anims": [ [0],[1] ]},
-        { "x": 975, "y": 270, "w": 45, "h": 45, "descripcion": "Huele a café recién hecho.", "tag": "bolsaCafe", "Texture": 71, "soundEffect": 1,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 42, "heightFrame": 42, "vel": 200, "loop": true,
-            "Anims": [ [0],[1] ]},
-        { "x": 380, "y": 435, "w": 45, "h": 45, "descripcion": "Nos puede proporcionar muchas pistas.", "tag": "MovilMuerto", "Texture": 20, "soundEffect": 1,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
-            "Anims": [ [0],[1] ]}
+        {
+            "x": 1180,
+            "y": 300,
+            "w": 20,
+            "h": 20,
+            "descripcion": "Se dejó bastante dinero en vodka. Ojalá poder hacer lo mismo...",
+            "tag": "ticket",
+            "Texture": 21,
+            "rotation": 45,
+            "soundEffect": 1,
+            "animation": true,
+            "numFilsFrame": 2,
+            "numColsFrame": 1,
+            "widthFrame": 40,
+            "heightFrame": 40,
+            "vel": 200,
+            "loop": true,
+            "Anims": [ [ 0 ], [ 1 ] ]
+        },
+        {
+            "x": 975,
+            "y": 270,
+            "w": 45,
+            "h": 45,
+            "descripcion": "Huele a café recién hecho.",
+            "tag": "bolsaCafe",
+            "Texture": 71,
+            "soundEffect": 1,
+            "animation": true,
+            "numFilsFrame": 2,
+            "numColsFrame": 1,
+            "widthFrame": 42,
+            "heightFrame": 42,
+            "vel": 200,
+            "loop": true,
+            "Anims": [ [ 0 ], [ 1 ] ]
+        },
+        {
+            "x": 380,
+            "y": 435,
+            "w": 45,
+            "h": 45,
+            "descripcion": "Nos puede proporcionar muchas pistas.",
+            "tag": "MovilMuerto",
+            "Texture": 20,
+            "soundEffect": 1,
+            "animation": true,
+            "numFilsFrame": 2,
+            "numColsFrame": 1,
+            "widthFrame": 40,
+            "heightFrame": 40,
+            "vel": 200,
+            "loop": true,
+            "Anims": [ [ 0 ], [ 1 ] ]
+        }
     ],
 
-    "PlayerPos": {
-        "x": 30,
-        "y": 450
-    },
-
-    "NPC":[
-
-        { "x": 100, "y": 300, "w": 60, "h": 206, "Texture": 124,
-            "animation": true, "numFilsFrame": 4, "numColsFrame": 2,
-            "widthFrame": 41, "heightFrame": 149, "vel": 200, "loop": true,
-            "Anims": [ [0,1,2,3] ], "dialogo": "Ander10"
+    "GOConversational": [
+        {
+            "x": 380,
+            "y": 435,
+            "w": 45,
+            "h": 45,
+            "Texture": 20,
+            "convoName": "Ander10",
+            "repeat": false,
+            "animation": true,
+            "numFilsFrame": 2,
+            "numColsFrame": 1,
+            "widthFrame": 40,
+            "heightFrame": 40,
+            "vel": 200,
+            "loop": true,
+            "Anims": [ [ 0 ], [ 1 ] ]
         }
-    ]
-}
+    ],
+
+            "PlayerPos": {
+                "x": 30,
+                "y": 450
+            },
+
+            "NPC": [
+
+                {
+                    "x": 100,
+                    "y": 300,
+                    "w": 60,
+                    "h": 206,
+                    "Texture": 124,
+                    "animation": true,
+                    "numFilsFrame": 4,
+                    "numColsFrame": 2,
+                    "widthFrame": 41,
+                    "heightFrame": 149,
+                    "vel": 200,
+                    "loop": true,
+                    "Anims": [ [ 0, 1, 2, 3 ] ],
+                    "dialogo": "Ander2"
+                }
+            ]
+        }

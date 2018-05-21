@@ -12,6 +12,33 @@
          "y": 500.0
       },
       {
+         "Texture": 276,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 55.0,
+         "x": 1000.0,
+         "y": 350.0
+      },
+      {
+         "Texture": 276,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 250.0,
+         "y": 350.0
+      },
+      {
+         "Texture": 276,
+         "h": 210.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 57.0,
+         "x": 300.0,
+         "y": 400.0
+      },
+      {
          "Texture": 250,
          "h": 236.0,
          "rotation": 0.0,
@@ -269,6 +296,105 @@
          "widthFrame": 41,
          "x": 1100.0,
          "y": 500.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               3,
+               4,
+               5
+            ]
+         ],
+         "Texture": 183,
+         "animation": true,
+         "dialogo": "caso1_acto4_trabajadorPolbots1",
+         "done": false,
+         "h": 206.0,
+         "heightFrame": 125,
+         "loop": true,
+         "numColsFrame": 3,
+         "numFilsFrame": 2,
+         "repeatDialog": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 300.0,
+         "w": 55.0,
+         "widthFrame": 31,
+         "x": 1000.0,
+         "y": 350.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               5,
+               0,
+               5,
+               0,
+               4,
+               0,
+               5,
+               6,
+               7,
+               8,
+               9,
+               10,
+               11,
+               0,
+               5
+            ]
+         ],
+         "Texture": 181,
+         "animation": true,
+         "dialogo": "Maks",
+         "done": false,
+         "h": 206.0,
+         "heightFrame": 126,
+         "loop": true,
+         "numColsFrame": 6,
+         "numFilsFrame": 2,
+         "repeatDialog": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 270.0,
+         "w": 60.0,
+         "widthFrame": 31,
+         "x": 250.0,
+         "y": 350.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               7,
+               3,
+               9,
+               2,
+               8,
+               4,
+               6
+            ]
+         ],
+         "Texture": 182,
+         "animation": true,
+         "dialogo": "AmigoMaks",
+         "done": false,
+         "h": 210.0,
+         "heightFrame": 126,
+         "loop": true,
+         "numColsFrame": 5,
+         "numFilsFrame": 2,
+         "repeatDialog": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 250.0,
+         "w": 57.0,
+         "widthFrame": 31,
+         "x": 300.0,
+         "y": 400.0
       }
    ],
    "PlayerPos": {

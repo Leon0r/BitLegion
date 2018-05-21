@@ -1,15 +1,24 @@
 {
    "AlenaActiva": true,
-   "CambioActo": true,
+   "CambioActo": false,
    "CollisionableObject": [
       {
          "Texture": 276,
-         "h": 206.0,
+         "h": 210.0,
          "rotation": 0.0,
          "soundEffect": 1,
          "w": 60.0,
          "x": 1100.0,
          "y": 280.0
+      },
+      {
+         "Texture": 276,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 57.0,
+         "x": 300.0,
+         "y": 240.0
       },
       {
          "Texture": 104,
@@ -91,7 +100,7 @@
          "animation": true,
          "dialogo": "Ander19",
          "done": false,
-         "h": 206.0,
+         "h": 210.0,
          "heightFrame": 149,
          "loop": true,
          "numColsFrame": 2,
@@ -104,6 +113,41 @@
          "widthFrame": 41,
          "x": 1100.0,
          "y": 280.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               2,
+               0,
+               3,
+               0,
+               2
+            ]
+         ],
+         "Texture": 184,
+         "animation": true,
+         "dialogo": "caso1_acto4_trabajadorPolbots2",
+         "done": false,
+         "h": 206.0,
+         "heightFrame": 125,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 2,
+         "repeatDialog": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 57.0,
+         "widthFrame": 31,
+         "x": 300.0,
+         "y": 240.0
       }
    ],
    "PlayerPos": {

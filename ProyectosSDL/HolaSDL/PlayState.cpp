@@ -227,7 +227,7 @@ void PlayState::receive(Mensaje* msg) {
 	case CambioEscena: 
 	{
 		int numScene = static_cast<MensajeCambioEscenaDialogos*>(msg)->numScene_; //los static de los mensajes no se pueden quitar T_T
-		setEnConversacion(false);
+		if(enConversacion) setEnConversacion(false);
 		swapScene(numScene);
 		break;
 	}
@@ -235,7 +235,7 @@ void PlayState::receive(Mensaje* msg) {
 	{
 		MensajeAddItem* msgDialog = static_cast<MensajeAddItem*>(msg);
 		alena->addInventoryObject(&ItemInventario(app, 0, 0, 0, 0, msgDialog->desc_, msgDialog->tag_, app->getResources()->getImageTexture(Resources::ImageId(msgDialog->txt_)), msgDialog->perm_));
-		setEnConversacion(false);
+		if(enConversacion) setEnConversacion(false);
 		break;
 	}
 	case DialogoAcabado:
