@@ -51,6 +51,14 @@
             "animation": true, "numFilsFrame": 4, "numColsFrame": 2,
             "widthFrame": 41, "heightFrame": 149, "vel": 200, "loop": true,
             "Anims": [ [0,1,2,3] ], "dialogo": "Ander11"
-        }
+        },
+        { "x": 200, "y": 250, "w": 50, "h": 150, "Texture": 275,
+            "animation": true, "numFilsFrame": 6, "numColsFrame": 4,
+            "widthFrame": 68, "heightFrame": 201, "vel": 200, "loop": true,
+            "Anims": [ [10,11] ], "dialogo": "hidroquenoAzul" },
+        { "x": 970, "y": 260, "w": 50, "h": 150, "Texture": 52,
+            "animation": true, "numFilsFrame": 6, "numColsFrame": 4,
+            "widthFrame": 68, "heightFrame": 201, "vel": 200, "loop": true,
+            "Anims": [ [22,23] ], "dialogo": "hidroquenoVerde" }
     ]
 }
