@@ -15,7 +15,7 @@
             "animation": true, "numFilsFrame": 6, "numColsFrame": 4,
             "widthFrame": 68, "heightFrame": 201, "vel": 200, "loop": true,
             "Anims": [ [8,9] ], "dialogo": "hidroquenoAzul" },
-        { "x": 550, "y": 260, "w": 50, "h": 150, "Texture": 52,
+        { "x": 750, "y": 260, "w": 50, "h": 150, "Texture": 52,
             "animation": true, "numFilsFrame": 6, "numColsFrame": 4,
             "widthFrame": 68, "heightFrame": 201, "vel": 200, "loop": true,
             "Anims": [ [4,5] ], "dialogo": "hidroquenoNaranja" }
