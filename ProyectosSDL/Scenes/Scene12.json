@@ -8,6 +8,7 @@
             "descripcion": "Un ticket de compra medio borrado. Se puede   leer Sra.   -TEV-NS",
             "tag": "",
             "Texture": 21,
+            "rotation": -45,
             "soundEffect": 1,
             "animation": true,
             "numFilsFrame": 2,
