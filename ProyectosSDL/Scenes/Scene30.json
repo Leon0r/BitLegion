@@ -55,7 +55,7 @@
         { "x": 250, "y": 350, "w": 60, "h": 206, "Texture": 181,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 6,
             "widthFrame": 31, "heightFrame": 126, "vel": 270, "loop": true,
-            "Anims": [ [0,5,0,5,0,4,0,5,6,7,8,9,10,11,0,5] ], "dialogo": "Maks"
+            "Anims": [ [0,5,0,5,0,4,0,5,6,7,8,9,10,11,0,5] ], "dialogo": "Acto4.1"
         },
         { "x": 300, "y": 400, "w": 57, "h": 210, "Texture": 182,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 5,

@@ -349,7 +349,7 @@
          ],
          "Texture": 181,
          "animation": true,
-         "dialogo": "Maks",
+         "dialogo": "Acto4.1",
          "done": false,
          "h": 206.0,
          "heightFrame": 126,
@@ -398,8 +398,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 10.0,
-      "y": 500.0
+      "x": 182.9962803251874,
+      "y": 379.4649621452565
    },
    "PlayerTam": {
       "h": 201.6,
