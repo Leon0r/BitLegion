@@ -59,7 +59,7 @@ void Conversacion::escribir(){
 
 void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 
-	help = "kk";
+	texAux_ = "Default";
 		if (event.type == SDL_MOUSEBUTTONDOWN) {
 
 			SDL_Point p;
@@ -281,21 +281,20 @@ void Conversacion::resaltarOpcion(const SDL_Event& event)
 
 		if (respuestas.size() > 0)
 		{
-
 			r.y = y;
 			r.h = h / 4;
 			if (SDL_PointInRect(&p, &r)) {
-				help = respuestas[grupoOps * 3].texto;
+				texAux_ = respuestas[grupoOps * 3].texto;
 			}
 			else if (grupoOps * 3 + 1 < dialogo[nodoActual].getNumOpciones()) {
 				r.y = y + h / 4;
 				if (SDL_PointInRect(&p, &r)) {
-					help = respuestas[grupoOps * 3 + 1].texto;
+					texAux_ = respuestas[grupoOps * 3 + 1].texto;
 				}
 				else if (grupoOps * 3 + 2 < dialogo[nodoActual].getNumOpciones()) {
 					r.y = y + 2 * h / 4 + 2;
 					if (SDL_PointInRect(&p, &r)) {
-						help = respuestas[grupoOps * 3 + 2].texto;
+						texAux_ = respuestas[grupoOps * 3 + 2].texto;
 					}
 
 					//ULTIMA OPCION: Más opciones
@@ -307,7 +306,7 @@ void Conversacion::resaltarOpcion(const SDL_Event& event)
 				if (SDL_PointInRect(&p, &r)) {
 					//Si la ultima opcion es Más opciones, pasa al siguiente grupo o vuelve al primero
 					if (grupoOps < dialogo[nodoActual].getNumOpciones() / 3)
-						help = "Mas opciones";
+						texAux_ = "Mas opciones";
 				}
 			}
 		}
@@ -316,7 +315,7 @@ void Conversacion::resaltarOpcion(const SDL_Event& event)
 
 void Conversacion::checkText(string text_, int i)
 {
-	if (help != "kk" && help == text_) {
+	if (texAux_ != "Default" && texAux_ == text_) {
 		Texture fuente(app->getRenderer(), text_, *f, colorOpcionesDiag); //fuente dinámica
 		fuente.render(app->getRenderer(), x, y + i * h / 4 + 2);
 	}

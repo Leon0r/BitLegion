@@ -31,7 +31,7 @@ private:
 	vector<NodoDialogo> dialogo;
 	int nodoActual = 0;
 	json aux;
-	string help = "kk";
+	string texAux_ = "Default";
 
 	const int GUIx = 0;
 	const int GUIy = 360;

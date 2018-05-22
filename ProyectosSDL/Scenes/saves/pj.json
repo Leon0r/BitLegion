@@ -1,9 +1,20 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 13,
+        "actualScene": 8,
         "h": 201.6,
         "itemList": [
+            {
+                "Texture": 55,
+                "descripcion": "La moto salió demasiado cara como para perder esto.",
+                "h": 36.92307692307692,
+                "rotation": 0.0,
+                "soundEffect": 1,
+                "tag": "keyMoto",
+                "w": 49.230769230769226,
+                "x": 938.1846153846153,
+                "y": 8.53846153846154
+            },
             {
                 "Texture": 54,
                 "descripcion": "Es la llave del coche  de la empresa",
@@ -12,15 +23,15 @@
                 "soundEffect": 1,
                 "tag": "keyCoche",
                 "w": 49.230769230769226,
-                "x": 938.1846153846153,
+                "x": 1007.7846153846152,
                 "y": 8.53846153846154
             }
         ],
-        "pass_": 0,
+        "pass_": 1,
         "rotation": 0.0,
         "soundEffect": 1,
         "w": 84.0,
-        "x": 314.0,
-        "y": 446.0
+        "x": 280.0,
+        "y": 450.0
     }
 }
