@@ -1,13 +1,26 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 30,
+        "actualScene": 13,
         "h": 201.6,
+        "itemList": [
+            {
+                "Texture": 54,
+                "descripcion": "Es la llave del coche  de la empresa",
+                "h": 36.92307692307692,
+                "rotation": 0.0,
+                "soundEffect": 1,
+                "tag": "keyCoche",
+                "w": 49.230769230769226,
+                "x": 938.1846153846153,
+                "y": 8.53846153846154
+            }
+        ],
         "pass_": 0,
         "rotation": 0.0,
         "soundEffect": 1,
         "w": 84.0,
-        "x": 182.9962803251874,
-        "y": 379.4649621452565
+        "x": 314.0,
+        "y": 446.0
     }
 }

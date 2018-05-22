@@ -33,20 +33,17 @@ void Conversacion::escribir(){
 
 				for (int i = grupoOps * 3; i < grupoOps * 3 + 3; i++) {
 					if (i < dialogo[nodoActual].getNumOpciones()) {
-						Texture fuente(app->getRenderer(), escribir[i], *f, colorOpcionesDiag); //fuente dinámica
-						fuente.render(app->getRenderer(), x, y + i % 3 * h / 4 + 2);
+						checkText(escribir[i], i%3);
 					}
 				}
 
-				Texture fuente(app->getRenderer(), "Mas opciones", *f, colorFuenteConv); //fuente dinámica
-				fuente.render(app->getRenderer(), x, y + 3 * h / 4 + 2);
+				checkText("Mas opciones", 3);
 			}
 
 			else if (dialogo[nodoActual].getNumOpciones() > 0) {
 				grupoOps = 0;
 				for (int i = 0; i < numLineas; i++) {
-					Texture fuente(app->getRenderer(), escribir[i], *f, colorOpcionesDiag); //fuente dinámica
-					fuente.render(app->getRenderer(), x, y + i * h / 4 + 2);
+					checkText(escribir[i], i % 3);
 				}
 			}
 			else {
@@ -62,7 +59,7 @@ void Conversacion::escribir(){
 
 void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 
-
+	help = "kk";
 		if (event.type == SDL_MOUSEBUTTONDOWN) {
 
 			SDL_Point p;
@@ -126,10 +123,9 @@ void Conversacion::handleInput(Uint32 time, const SDL_Event& event){
 								grupoOps = 0;
 						}
 					}
-
-
 			}
 		}
+		else resaltarOpcion(event);
 
 		Entity::handleInput(time, event);
 }
@@ -265,5 +261,67 @@ void Conversacion::sendMessage()
 		send(&msg);
 		break;
 	}
+	}
+}
+
+void Conversacion::resaltarOpcion(const SDL_Event& event)
+{
+	if (event.type == SDL_MOUSEMOTION) {
+		SDL_Point p;
+		p.x = event.button.x;
+		p.y = event.button.y;
+
+		SDL_Rect r;
+		r.x = x;
+		r.y = y;
+		r.h = h;
+		r.w = w;
+
+		vector<opciones> respuestas = dialogo[nodoActual].getOpciones();
+
+		if (respuestas.size() > 0)
+		{
+
+			r.y = y;
+			r.h = h / 4;
+			if (SDL_PointInRect(&p, &r)) {
+				help = respuestas[grupoOps * 3].texto;
+			}
+			else if (grupoOps * 3 + 1 < dialogo[nodoActual].getNumOpciones()) {
+				r.y = y + h / 4;
+				if (SDL_PointInRect(&p, &r)) {
+					help = respuestas[grupoOps * 3 + 1].texto;
+				}
+				else if (grupoOps * 3 + 2 < dialogo[nodoActual].getNumOpciones()) {
+					r.y = y + 2 * h / 4 + 2;
+					if (SDL_PointInRect(&p, &r)) {
+						help = respuestas[grupoOps * 3 + 2].texto;
+					}
+
+					//ULTIMA OPCION: Más opciones
+				}
+			}
+
+			if (dialogo[nodoActual].getNumOpciones() > 3) {
+				r.y = y + 3 * h / 4 + 2;
+				if (SDL_PointInRect(&p, &r)) {
+					//Si la ultima opcion es Más opciones, pasa al siguiente grupo o vuelve al primero
+					if (grupoOps < dialogo[nodoActual].getNumOpciones() / 3)
+						help = "Mas opciones";
+				}
+			}
+		}
+	}
+}
+
+void Conversacion::checkText(string text_, int i)
+{
+	if (help != "kk" && help == text_) {
+		Texture fuente(app->getRenderer(), text_, *f, colorOpcionesDiag); //fuente dinámica
+		fuente.render(app->getRenderer(), x, y + i * h / 4 + 2);
+	}
+	else {
+		Texture fuente(app->getRenderer(), text_, *f, colorFuenteConv); //fuente dinámica
+		fuente.render(app->getRenderer(), x, y + i * h / 4 + 2);
 	}
 }
