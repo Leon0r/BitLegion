@@ -161,7 +161,7 @@
          ],
          "Texture": 71,
          "animation": true,
-         "descripcion": "Huele a café recién hecho.",
+         "descripcion": "Huele a       café recién hecho.",
          "h": 45.0,
          "heightFrame": 42,
          "loop": true,

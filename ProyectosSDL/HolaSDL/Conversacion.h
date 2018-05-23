@@ -31,6 +31,7 @@ private:
 	vector<NodoDialogo> dialogo;
 	int nodoActual = 0;
 	json aux;
+	string texAux_ = "Default";
 
 	const int GUIx = 0;
 	const int GUIy = 360;
@@ -61,5 +62,9 @@ private:
 	FeedbackCursorInputComponent feed;
 
 	void sendMessage();
+
+	void resaltarOpcion(const SDL_Event& event);
+
+	void checkText(string text_, int i);
 };
 

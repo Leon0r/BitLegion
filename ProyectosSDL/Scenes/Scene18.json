@@ -86,7 +86,7 @@
             "y": 270,
             "w": 45,
             "h": 45,
-            "descripcion": "Huele a café recién hecho.",
+            "descripcion": "Huele a       café recién hecho.",
             "tag": "bolsaCafe",
             "Texture": 71,
             "soundEffect": 1,
