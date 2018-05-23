@@ -1,37 +1,26 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 8,
+        "actualScene": 18,
         "h": 201.6,
         "itemList": [
             {
-                "Texture": 55,
-                "descripcion": "La moto salió demasiado cara como para perder esto.",
+                "Texture": 71,
+                "descripcion": "Huele a       café recién hecho.",
                 "h": 36.92307692307692,
                 "rotation": 0.0,
                 "soundEffect": 1,
-                "tag": "keyMoto",
+                "tag": "bolsaCafe",
                 "w": 49.230769230769226,
                 "x": 938.1846153846153,
                 "y": 8.53846153846154
-            },
-            {
-                "Texture": 54,
-                "descripcion": "Es la llave del coche  de la empresa",
-                "h": 36.92307692307692,
-                "rotation": 0.0,
-                "soundEffect": 1,
-                "tag": "keyCoche",
-                "w": 49.230769230769226,
-                "x": 1007.7846153846152,
-                "y": 8.53846153846154
             }
         ],
-        "pass_": 1,
+        "pass_": 0,
         "rotation": 0.0,
         "soundEffect": 1,
         "w": 84.0,
-        "x": 280.0,
-        "y": 450.0
+        "x": 918.0,
+        "y": 225.6
     }
 }

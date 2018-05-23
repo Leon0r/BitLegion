@@ -12,7 +12,7 @@
     ],
 
     "GODoors": [
-        { "x": 852, "y": 117, "w": 116, "h": 241, "Texture": 228, "tag": "keyPiso", "scneNum": 42, "rotGOTr": -90}
+        { "x": 852, "y": 117, "w": 116, "h": 241, "Texture": 228, "tag": "", "scneNum": 42, "rotGOTr": -90}
     ],
 
     "PlayerPos": {
