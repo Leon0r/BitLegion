@@ -159,6 +159,32 @@
                1
             ]
          ],
+         "Texture": 71,
+         "animation": true,
+         "descripcion": "Huele a       café recién hecho.",
+         "h": 45.0,
+         "heightFrame": 42,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "tag": "bolsaCafe",
+         "vel": 200.0,
+         "w": 45.0,
+         "widthFrame": 42,
+         "x": 975.0,
+         "y": 270.0
+      },
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
          "Texture": 21,
          "animation": true,
          "descripcion": "Se dejó bastante dinero en vodka. Ojalá poder hacer lo mismo...",
@@ -207,8 +233,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 918.0,
-      "y": 225.6
+      "x": 30.0,
+      "y": 450.0
    },
    "PlayerTam": {
       "h": 201.6,
