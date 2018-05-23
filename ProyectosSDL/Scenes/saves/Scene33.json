@@ -177,7 +177,7 @@
          ],
          "Texture": 179,
          "animation": true,
-         "dialogo": "Forense",
+         "dialogo": "Acto4.2",
          "done": false,
          "h": 206.0,
          "heightFrame": 127,
@@ -195,8 +195,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 10.0,
-      "y": 320.0
+      "x": 514.0,
+      "y": 350.0
    },
    "PlayerTam": {
       "h": 201.6,
