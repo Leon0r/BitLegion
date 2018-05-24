@@ -351,6 +351,9 @@
       }
    ],
    "HeaderActo": "Plaza Drzewo nº 100",
+   "MusicVolume": [
+      0
+   ],
    "NPC": [
       {
          "Anims": [

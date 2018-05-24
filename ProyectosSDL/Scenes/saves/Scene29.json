@@ -1,6 +1,6 @@
 {
    "AlenaActiva": true,
-   "CambioActo": false,
+   "CambioActo": true,
    "CollisionableObject": [
       {
          "Texture": 276,
@@ -86,6 +86,9 @@
       }
    ],
    "HeaderActo": "La fábrica Polbots",
+   "MusicVolume": [
+      0
+   ],
    "NPC": [
       {
          "Anims": [

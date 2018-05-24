@@ -110,6 +110,9 @@
    "Music": [
       3
    ],
+   "MusicVolume": [
+      40
+   ],
    "NPC": [
       {
          "Anims": [

@@ -113,6 +113,12 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			music = true;
 		}
 
+		obj = "MusicVolume";
+		if (!j[obj].is_null()) {
+			musicVolume = j[obj][0];
+			music = true;
+		}
+
 		obj = "StopActualMusic";
 		if (!j[obj].is_null()) {
 			stopMusic = j[obj][0];
@@ -521,7 +527,7 @@ void Scene::enterScene() {
 			pj->setNewCollision(it);
 	}
 
-	if(music) CurrentState->playMusicScene(SceneMusic);
+	if(music) CurrentState->playMusicScene(SceneMusic, musicVolume);
 	if (stopMusic)CurrentState->stopActualMusic();
 	CurrentState->playSoundEffects(SceneSoundEffects, numReps_, volumenes);
 
@@ -597,6 +603,8 @@ void Scene::saveSceneToJson() {
 
 	if (music)j["Music"][0] = SceneMusic;
 	j["StopActualMusic"][0] = stopMusic;
+
+	j["MusicVolume"][0] = musicVolume;
 
 	for (int vol : volumenes) {
 		j["volumenes"].push_back(vol);

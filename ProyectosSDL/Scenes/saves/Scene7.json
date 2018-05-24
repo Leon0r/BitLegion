@@ -181,6 +181,9 @@
       }
    ],
    "HeaderActo": "",
+   "MusicVolume": [
+      0
+   ],
    "PlayerPos": {
       "x": 900.0,
       "y": 335.0

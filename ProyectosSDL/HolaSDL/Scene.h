@@ -31,6 +31,7 @@ private:
 	list<GameObject*> SceneItems;
 	list<GameState*> SceneStates;
 	Resources::MusicId SceneMusic;
+	int musicVolume = 0;
 	bool music = false;
 	bool stopMusic = false;
 	queue<Resources::SoundEffectId> SceneSoundEffects;
