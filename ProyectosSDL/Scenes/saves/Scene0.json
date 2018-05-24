@@ -100,7 +100,7 @@
          "Texture": 154,
          "animation": true,
          "convoName": "AlenaLlavesMoto",
-         "done": false,
+         "done": true,
          "h": 40.0,
          "heightFrame": 40,
          "loop": true,
@@ -162,6 +162,17 @@
       {
          "Texture": 29,
          "h": 60.0,
+         "rotat": -90.0,
+         "rotation": -90.0,
+         "scneNum": 2,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 641.0,
+         "y": 247.0
+      },
+      {
+         "Texture": 29,
+         "h": 60.0,
          "rotat": 0.0,
          "rotation": 0.0,
          "scneNum": 1,
@@ -172,86 +183,6 @@
       }
    ],
    "HeaderActo": "El regreso de Alena",
-   "ItemInventario": [
-      {
-         "Anims": [
-            [
-               0
-            ],
-            [
-               1
-            ]
-         ],
-         "Texture": 56,
-         "animation": true,
-         "descripcion": "Es un rotulador... rojo.... y ya.",
-         "h": 40.0,
-         "heightFrame": 40,
-         "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "tag": "rotulador",
-         "vel": 200.0,
-         "w": 40.0,
-         "widthFrame": 40,
-         "x": 670.0,
-         "y": 500.0
-      },
-      {
-         "Anims": [
-            [
-               0
-            ],
-            [
-               1
-            ]
-         ],
-         "Texture": 55,
-         "animation": true,
-         "descripcion": "La moto salió demasiado cara como para perder esto.",
-         "h": 40.0,
-         "heightFrame": 40,
-         "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "tag": "keyMoto",
-         "vel": 200.0,
-         "w": 40.0,
-         "widthFrame": 40,
-         "x": 630.0,
-         "y": 500.0
-      },
-      {
-         "Anims": [
-            [
-               0
-            ],
-            [
-               1
-            ]
-         ],
-         "Texture": 19,
-         "animation": true,
-         "descripcion": "Esto sí que nos puede ser útil. Pero, ¿dónde la podemos usar?",
-         "h": 40.0,
-         "heightFrame": 40,
-         "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "tag": "key",
-         "vel": 200.0,
-         "w": 40.0,
-         "widthFrame": 40,
-         "x": 710.0,
-         "y": 490.0
-      }
-   ],
    "Music": [
       2
    ],
@@ -259,8 +190,8 @@
       0
    ],
    "PlayerPos": {
-      "x": 100.0,
-      "y": 500.0
+      "x": 613.1561230896195,
+      "y": 197.02065906014712
    },
    "PlayerTam": {
       "h": 201.6,
