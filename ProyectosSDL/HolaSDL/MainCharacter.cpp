@@ -113,12 +113,11 @@ void MainCharacter::receive(Mensaje* msg) {
 	switch (msg->id_)
 	{
 	case Stop: {
-		StopSoundEffect msg = { Resources::Paso };
-		send(&msg);
 		this->setVelocity(Vector2D(0.0, 0.0));
 		this->getMouseComponent()->send(&Mensaje(MouseStop));
 		this->getMouseComponent()->send(&Mensaje(CambioEscena));
 		this->cleanKeys();
+		this->getMouseComponent()->stopSound();
 		break;
 	}
 	default:

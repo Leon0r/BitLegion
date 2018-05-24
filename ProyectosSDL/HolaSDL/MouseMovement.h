@@ -51,5 +51,9 @@ public:
 	}
 	double getSceneWidth() { return sceneWidth; }
 	double getSceneHeight() { return sceneHeight; }
+	void stopSound(){
+		StopSoundEffect msg = { Resources::Paso };
+		send(&msg);
+	}
 };
 
