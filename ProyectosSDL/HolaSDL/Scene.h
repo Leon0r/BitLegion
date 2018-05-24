@@ -49,5 +49,6 @@ private:
 	bool cambioActo = false;
 	string headerActo;
 	int actNumber_ = -1;
+	int musicVolume;
 };
 
