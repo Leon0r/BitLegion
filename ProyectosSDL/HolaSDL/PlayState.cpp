@@ -3,6 +3,7 @@
 #include <list>
 #include "TransitionScreen.h"
 #include "NPC.h"
+#include "CreditosState.h"
 
 
 bool compareZ(GameObject* o1, GameObject* o2) { //pure luck require ahead
@@ -153,6 +154,8 @@ void PlayState::handleEvent(SDL_Event & e) {
 		handleCursor(e);
 	}
 
+	if (timeToClose) finishGame(app); //deberia der un callback peeeero no me acuerdo de como hacerlos
+
 }
 void PlayState::setEnConversacion(bool conv) {
 
@@ -238,6 +241,11 @@ void PlayState::receive(Mensaje* msg) {
 		if(enConversacion) setEnConversacion(false);
 		break;
 	}
+	case CHANGE_TO_CREDITS: 
+	{
+		timeToClose = true;
+		break;
+	}
 	case DialogoAcabado:
 		setEnConversacion(false);
 		break;
@@ -256,4 +264,16 @@ void PlayState::receive(Mensaje* msg) {
 	default:
 		break;
 	}
+}
+
+void PlayState::finishGame(SDLApp* app_)
+{
+	app_->getStateMachine()->currentState()->changeList();
+	app_->getStateMachine()->popState();
+
+	CreditosState* credits = new CreditosState(app_);
+
+	app_->getStateMachine()->pushState(credits);
+
+	app_->getStateMachine()->pushState(new TransitionScreen(app_, app_->getStateMachine()->currentState(), 1500));
 }
