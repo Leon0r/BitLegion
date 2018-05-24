@@ -1,13 +1,14 @@
 {
     "NumNodos": 43,
-    "msg": 0,
-    "numScene": 34,
 
     "Nodo": [
         {
 			"numNodo": 0,
       		"nodoSig": 1,
             "numLineas": 3,
+            "msg": 0,
+            "numScene": 34,
+
       		"lineas": [ 
       		{"texto": "Vaya, sí que llegáis pronto. Espero que estéis preparados"}, 
       		{"texto": "anímicamente, porque lo que vais a ver es duro, incluso"},
