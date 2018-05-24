@@ -30,6 +30,9 @@ private:
 	int SceneNum;
 	list<GameObject*> SceneItems;
 	list<GameState*> SceneStates;
+	Resources::MusicId SceneMusic;
+	bool music = false;
+	bool stopMusic = false;
 	queue<Resources::SoundEffectId> SceneSoundEffects;
 	vector <int> volumenes;
 	vector <int> numReps_;
@@ -46,5 +49,6 @@ private:
 	bool cambioActo = false;
 	string headerActo;
 	int actNumber_ = -1;
+	int musicVolume = 0;
 };
 

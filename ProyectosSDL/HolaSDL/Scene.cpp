@@ -107,6 +107,23 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			}
 		}
 
+		obj = "Music"; 
+		if (!j[obj].is_null()) {
+			SceneMusic = j[obj][0];
+			music = true;
+		}
+		else music = false;
+
+		obj = "MusicVolume";
+		if (!j[obj].is_null()) {
+			musicVolume = j[obj][0];
+		}
+		
+		obj = "StopActualMusic";
+		if (!j[obj].is_null()) {
+			stopMusic = j[obj][0];
+		}
+
 		obj = "SoundEffect";
 		//Cargado de soundEffects
 		for (int i = 0; i < j[obj].size(); i++) {
@@ -510,6 +527,8 @@ void Scene::enterScene() {
 			pj->setNewCollision(it);
 	}
 
+	if(music) CurrentState->playMusicScene(SceneMusic, musicVolume);
+	if (stopMusic)CurrentState->stopActualMusic();
 	CurrentState->playSoundEffects(SceneSoundEffects, numReps_, volumenes);
 
 	//establecemos el tamaño de la nueva escena en el jugador (para las colisiones y el mouse)
@@ -581,6 +600,10 @@ void Scene::saveSceneToJson() {
 		j["SoundEffect"].push_back(SceneSoundEffects.front());
 		SceneSoundEffects.pop();
 	}
+
+	if (music)j["Music"][0] = SceneMusic;
+	j["StopActualMusic"][0] = stopMusic;
+	j["MusicVolume"][0] = musicVolume;
 
 	for (int vol : volumenes) {
 		j["volumenes"].push_back(vol);

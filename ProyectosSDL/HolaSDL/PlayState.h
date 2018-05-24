@@ -33,6 +33,8 @@ private:
 	void sortZbuffer();
 	bool enConversacion = false;
 	vector<std::list<GameObject*>::iterator*> getOverlapping();
+	void finishGame(SDLApp* app_);
+	bool timeToClose = false;
 public:
 	PlayState() {}
 	virtual ~PlayState();

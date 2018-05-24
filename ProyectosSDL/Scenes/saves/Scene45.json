@@ -117,6 +117,9 @@
       }
    ],
    "HeaderActo": "",
+   "MusicVolume": [
+      0
+   ],
    "PlayerPos": {
       "x": 100.0,
       "y": 500.0
@@ -125,6 +128,9 @@
       "h": 201.6,
       "w": 84.0
    },
+   "StopActualMusic": [
+      false
+   ],
    "Texture": 9,
    "actNumber": -1,
    "h": 720.0,

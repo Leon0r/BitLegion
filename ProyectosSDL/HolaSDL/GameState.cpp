@@ -107,3 +107,10 @@ void GameState::resetCursor()
 {
 	cursor->playAnim("Normal");
 }
+
+void GameState::playMusicScene(Resources::MusicId music, int volume) {
+	if (!app->getSoundManager()->isAlreadySounding(music)) {
+		playMusic(music);
+		if (volume != 0)setMusicVolume(music, volume);
+	}
+}

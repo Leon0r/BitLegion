@@ -104,6 +104,9 @@
       }
    ],
    "HeaderActo": "Influencias",
+   "MusicVolume": [
+      0
+   ],
    "NPC": [
       {
          "Anims": [
@@ -193,6 +196,9 @@
    },
    "SoundEffect": [
       4
+   ],
+   "StopActualMusic": [
+      false
    ],
    "Texture": 169,
    "actNumber": 3,

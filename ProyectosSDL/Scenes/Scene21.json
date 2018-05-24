@@ -15,14 +15,32 @@
         { "x": 90, "y": 390, "w": 400, "h": 192, "Texture": 201 }
     ],
 
-    "Decorado":[
-    	{ "x": 915, "y": 99, "w": 171, "h": 180, "Texture": 199,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 2,
-            "widthFrame": 171, "heightFrame": 180, "vel": 150, "loop": true,
-            "Anims": [ [0,0,0,1,1,1,0,0,1,1,1,1,0,0] ] 
+    "Decorado": [
+        {
+            "x": 915,
+            "y": 99,
+            "w": 171,
+            "h": 180,
+            "Texture": 199,
+            "animation": true,
+            "numFilsFrame": 2,
+            "numColsFrame": 2,
+            "widthFrame": 171,
+            "heightFrame": 180,
+            "vel": 150,
+            "loop": true,
+            "Anims": [ [ 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0 ] ]
         },
 
-        { "x": 560, "y": 118, "w": 141, "h": 230, "Texture": 200}
+        { "x": 560, "y": 118, "w": 141, "h": 230, "Texture": 200 }
+    ],
+
+    "Music": [
+        3
+    ],
+
+    "MusicVolume": [ 
+        40
     ],
 
     "NPC":[

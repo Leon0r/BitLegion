@@ -17,6 +17,10 @@
         { "x": 0, "y": 335, "w": 1280, "h": 400, "Texture": 43 }
     ],
 
+    "StopActualMusic": [
+        true
+    ],
+
     "GODoors": [
         { "x": 880, "y": 410, "w": 380, "h": 157, "Texture": 221, "tag": "keyCoche", "scneNum": 24, "rotGOTr": 90 }
     ],

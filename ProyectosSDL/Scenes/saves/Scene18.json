@@ -203,6 +203,9 @@
          "y": 300.0
       }
    ],
+   "MusicVolume": [
+      0
+   ],
    "NPC": [
       {
          "Anims": [
@@ -242,6 +245,9 @@
    },
    "SoundEffect": [
       24
+   ],
+   "StopActualMusic": [
+      false
    ],
    "Texture": 112,
    "actNumber": -1,

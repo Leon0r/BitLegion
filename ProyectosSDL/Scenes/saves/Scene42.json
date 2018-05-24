@@ -245,6 +245,9 @@
          "y": 470.0
       }
    ],
+   "MusicVolume": [
+      0
+   ],
    "NPC": [
       {
          "Anims": [
@@ -282,6 +285,9 @@
       "h": 201.6,
       "w": 84.0
    },
+   "StopActualMusic": [
+      false
+   ],
    "Texture": 235,
    "actNumber": -1,
    "h": 720.0,

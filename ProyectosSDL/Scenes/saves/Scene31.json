@@ -79,6 +79,9 @@
       }
    ],
    "HeaderActo": "",
+   "MusicVolume": [
+      0
+   ],
    "NPC": [
       {
          "Anims": [
@@ -118,6 +121,9 @@
    },
    "SoundEffect": [
       4
+   ],
+   "StopActualMusic": [
+      false
    ],
    "Texture": 216,
    "actNumber": -1,

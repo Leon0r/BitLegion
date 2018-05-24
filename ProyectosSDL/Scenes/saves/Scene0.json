@@ -252,6 +252,12 @@
          "y": 490.0
       }
    ],
+   "Music": [
+      2
+   ],
+   "MusicVolume": [
+      0
+   ],
    "PlayerPos": {
       "x": 100.0,
       "y": 500.0
@@ -262,6 +268,9 @@
    },
    "SoundEffect": [
       4
+   ],
+   "StopActualMusic": [
+      false
    ],
    "Texture": 9,
    "actNumber": 1,

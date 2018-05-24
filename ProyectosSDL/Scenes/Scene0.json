@@ -9,7 +9,7 @@
     "CambioActo": true,
     "actNumber": 1,
     "HeaderActo": "El regreso de Alena",
-    
+
     "ItemInventario": [
         {
             "x": 710,
@@ -71,7 +71,11 @@
     ],
 
     "GODoors": [
-        { "x": 612, "y": 116, "w": 119, "h": 242, "Texture": 28, "tag": "key", "scneNum": 2, "rotGOTr": -90, "soundEffect":  23 }
+        { "x": 612, "y": 116, "w": 119, "h": 242, "Texture": 28, "tag": "key", "scneNum": 2, "rotGOTr": -90, "soundEffect": 23 }
+    ],
+
+    "Music": [ 
+        2
     ],
 
     "SoundEffect": [

@@ -15,11 +15,21 @@
         { "x": 710, "y": 308, "w": 50, "h": 110, "Texture": 187 },
         { "x": 300, "y": 230, "w": 80, "h": 180, "Texture": 188 },
         { "x": 550, "y": 455, "w": 155, "h": 109, "Texture": 189 },
-        { "x": 1050, "y": 350, "w": 63, "h": 205, "Texture": 78,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 4,
-            "widthFrame": 48, "heightFrame": 141, "vel": 215, "loop": true,
-            "Anims": [ [0,2,0,2,0,2,0,2,0,2,1,3,4,7,4,7,4,7,4,7,5,4,3,2] ]
-         }
+        {
+            "x": 1050,
+            "y": 350,
+            "w": 63,
+            "h": 205,
+            "Texture": 78,
+            "animation": true,
+            "numFilsFrame": 2,
+            "numColsFrame": 4,
+            "widthFrame": 48,
+            "heightFrame": 141,
+            "vel": 215,
+            "loop": true,
+            "Anims": [ [ 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 1, 3, 4, 7, 4, 7, 4, 7, 4, 7, 5, 4, 3, 2 ] ]
+        }
     ],
 
     "SoundEffect": [

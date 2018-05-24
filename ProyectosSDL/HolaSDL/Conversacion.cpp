@@ -256,6 +256,11 @@ void Conversacion::sendMessage()
 		send(&msg2);
 		break;
 	}
+	case 4: {
+		Mensaje msg = Mensaje(CHANGE_TO_CREDITS); //cambiar a créditos
+		send(&msg);
+		break;
+	}
 	default: {
 		Mensaje msg = Mensaje(DialogoAcabado);
 		send(&msg);

@@ -300,7 +300,9 @@ public:
 	//
 	enum MusicId {
 		MainTheme,
-		MainThemePro
+		MainThemePro,
+		CasaAlenaTheme,
+		BazarTheme
 	};
 
 

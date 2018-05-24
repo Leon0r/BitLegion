@@ -20,6 +20,7 @@ private:
 	void exitToMenu(SDLApp* app_);
 	void exitGame(SDLApp* app_);
 	void mute(SDLApp* app_) {
+		stopActualMusic();
 		stopAllSoundEffect();
 		app->getSoundManager()->changeMute();
 	}

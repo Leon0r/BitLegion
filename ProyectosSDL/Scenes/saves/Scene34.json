@@ -53,6 +53,9 @@
       }
    ],
    "HeaderActo": "Últimas pistas",
+   "MusicVolume": [
+      0
+   ],
    "NPC": [
       {
          "Anims": [
@@ -143,6 +146,9 @@
       "h": 201.6,
       "w": 84.0
    },
+   "StopActualMusic": [
+      false
+   ],
    "Texture": 204,
    "actNumber": 5,
    "h": 720.0,

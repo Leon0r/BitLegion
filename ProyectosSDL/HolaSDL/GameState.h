@@ -27,7 +27,6 @@ protected:
 	SDLApp* app; //puntero a SDLApp
 	void handleCursor(SDL_Event &e);
 	void renderCursor();
-
 public:
 	virtual void render(); //manda a los objetos del estado render, el 0 es por el tiempo que no sé porq lo tenemos
 	virtual void update(); //manda a los objetos del estado update
@@ -41,6 +40,10 @@ public:
 	void changeList() { listhasChanged = true; }
 	virtual void receive(Mensaje* msg) {};
 	virtual void SetZBuffer() {};
+	void playMusicScene(Resources::MusicId music, int volume);
+	void stopActualMusic() {
+		send(&Mensaje(STOP_ACTUAL_MUSIC));
+	}
 	void playSoundEffects(queue<Resources::SoundEffectId>soundEffects, const vector<int>& repes, const vector<int>& volumenes = {}) {
 		int i = 0;
 		while (!soundEffects.empty()) {
