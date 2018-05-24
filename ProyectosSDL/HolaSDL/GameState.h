@@ -40,7 +40,7 @@ public:
 	void changeList() { listhasChanged = true; }
 	virtual void receive(Mensaje* msg) {};
 	virtual void SetZBuffer() {};
-	void playMusicScene(Resources::MusicId music);
+	void playMusicScene(Resources::MusicId music, int volume);
 	void stopActualMusic() {
 		send(&Mensaje(STOP_ACTUAL_MUSIC));
 	}

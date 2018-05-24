@@ -23,11 +23,6 @@ public:
 		else send((&Mensaje(StopLeft)));
 		while (!Xaxis.empty())Xaxis.pop();
 		while (!Yaxis.empty())Yaxis.pop();
-		if (walking) {
-			StopSoundEffect msg = { Resources::Paso };
-			send(&msg);
-			walking = false;
-		}
 	}
 private:
 	double vel_;//velocidad y teclas de direccion

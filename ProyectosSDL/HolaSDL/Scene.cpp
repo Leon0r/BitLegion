@@ -527,7 +527,7 @@ void Scene::enterScene() {
 			pj->setNewCollision(it);
 	}
 
-	if(music) CurrentState->playMusicScene(SceneMusic);
+	if(music) CurrentState->playMusicScene(SceneMusic, musicVolume);
 	if (stopMusic)CurrentState->stopActualMusic();
 	CurrentState->playSoundEffects(SceneSoundEffects, numReps_, volumenes);
 
@@ -603,6 +603,7 @@ void Scene::saveSceneToJson() {
 
 	if (music)j["Music"][0] = SceneMusic;
 	j["StopActualMusic"][0] = stopMusic;
+	j["MusicVolume"][0] = musicVolume;
 
 	for (int vol : volumenes) {
 		j["volumenes"].push_back(vol);
