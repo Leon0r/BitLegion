@@ -112,11 +112,11 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 			SceneMusic = j[obj][0];
 			music = true;
 		}
+		else music = false;
 
 		obj = "MusicVolume";
 		if (!j[obj].is_null()) {
 			musicVolume = j[obj][0];
-			music = true;
 		}
 
 		obj = "StopActualMusic";
