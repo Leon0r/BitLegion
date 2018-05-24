@@ -1,6 +1,9 @@
 {
 	"NumNodos": 29,
 
+	"msg": 0,
+    "numScene": 45,
+
 	"Nodo": [
 
 	{"numNodo":0, "nodoSig":1, "numLineas": 1, 
