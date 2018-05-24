@@ -27,7 +27,10 @@
             "widthFrame": 51, "heightFrame": 91, "vel": 500, "loop": true,
             "Anims": [ [0,1,2,1,3,4,5] ], "dialogo": "caso1_acto1_vecinaVieja"}
     ],
-
+    
+    "Music": [ 
+        2
+    ],
     "PlayerPos": {
         "x": 910,
         "y": 290

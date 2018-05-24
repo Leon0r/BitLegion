@@ -26,7 +26,16 @@ void SoundManager::receive(Mensaje* msg) {
 			//reproduce musica dado un id
 		case PLAY_MUSIC: {
 			PlayMusic* m = static_cast<PlayMusic*>(msg);
-			app->getResources()->getMusic(m->idMusic_)->play();
+			actualMusicId = m->idMusic_;
+			stopMusic = true;
+			app->getResources()->getMusic(actualMusicId)->play();
+			break;
+		}
+		case STOP_ACTUAL_MUSIC: {
+			if (stopMusic) {
+				app->getResources()->getMusic(actualMusicId)->stop();
+				stopMusic = false;
+			}
 			break;
 		}
 						 //para la musica dado un id
@@ -78,3 +87,5 @@ void SoundManager::receive(Mensaje* msg) {
 		}
 	}
 }
+
+void SoundManager::changeMute() { mute = !mute; if (!mute)app->getResources()->getMusic(actualMusicId)->play(); };

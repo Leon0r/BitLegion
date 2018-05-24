@@ -16,8 +16,9 @@ public:
 	virtual ~SoundManager();
 	virtual void receive(Mensaje* msg);
 	virtual void update();
-	void changeMute() { mute = !mute; };
+	void changeMute();
 	inline bool const getMute() { return mute; };
+	bool isAlreadySounding(Resources::MusicId m) { return actualMusicId == m && stopMusic; }
 private:
 	struct PlayMessage {
 		PlayMessage(Resources::SoundEffectId id, int num) : id_(id), num_(num) {};
@@ -27,6 +28,8 @@ private:
 	queue<PlaySoundE> eventQueue;
 	SDLApp* app;
 	SoundEffect* actualSoundEffect = nullptr;
+	Resources::MusicId actualMusicId;
+	bool stopMusic = false;
 	bool mute = false;
 };
 

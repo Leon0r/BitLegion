@@ -55,6 +55,9 @@
    "SoundEffect": [
       14
    ],
+   "StopActualMusic": [
+      false
+   ],
    "Texture": 131,
    "actNumber": -1,
    "animation": true,

@@ -10,15 +10,39 @@
         { "x": 1000, "y": 450, "w": 260, "h": 79, "Texture": 38 },
         { "x": 0, "y": 400, "w": 1280, "h": 230, "Texture": 43 }
     ],
-    "NPC":[
-        { "x": 300, "y": 260, "w": 50, "h": 150, "Texture": 52,
-            "animation": true, "numFilsFrame": 6, "numColsFrame": 4,
-            "widthFrame": 68, "heightFrame": 201, "vel": 200, "loop": true,
-            "Anims": [ [8,9] ], "dialogo": "hidroquenoAzul" },
-        { "x": 750, "y": 260, "w": 50, "h": 150, "Texture": 52,
-            "animation": true, "numFilsFrame": 6, "numColsFrame": 4,
-            "widthFrame": 68, "heightFrame": 201, "vel": 200, "loop": true,
-            "Anims": [ [4,5] ], "dialogo": "hidroquenoNaranja" }
+    "NPC": [
+        {
+            "x": 300,
+            "y": 260,
+            "w": 50,
+            "h": 150,
+            "Texture": 52,
+            "animation": true,
+            "numFilsFrame": 6,
+            "numColsFrame": 4,
+            "widthFrame": 68,
+            "heightFrame": 201,
+            "vel": 200,
+            "loop": true,
+            "Anims": [ [ 8, 9 ] ],
+            "dialogo": "hidroquenoAzul"
+        },
+        {
+            "x": 750,
+            "y": 260,
+            "w": 50,
+            "h": 150,
+            "Texture": 52,
+            "animation": true,
+            "numFilsFrame": 6,
+            "numColsFrame": 4,
+            "widthFrame": 68,
+            "heightFrame": 201,
+            "vel": 200,
+            "loop": true,
+            "Anims": [ [ 4, 5 ] ],
+            "dialogo": "hidroquenoNaranja"
+        }
     ],
     "Decorado": [
         {
@@ -67,6 +91,11 @@
             "Anims": [ [ 0, 0, 0, 0, 3, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 2, 2, 2, 2, 3, 3, 0, 3 ] ]
         }
     ],
+
+    "StopActualMusic": [ 
+        true
+    ],
+
     "SoundEffect": [
         4
     ],

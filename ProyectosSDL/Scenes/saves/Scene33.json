@@ -195,13 +195,16 @@
       }
    ],
    "PlayerPos": {
-      "x": 514.0,
-      "y": 350.0
+      "x": 10.0,
+      "y": 320.0
    },
    "PlayerTam": {
       "h": 201.6,
       "w": 84.0
    },
+   "StopActualMusic": [
+      false
+   ],
    "Texture": 194,
    "actNumber": -1,
    "h": 720.0,

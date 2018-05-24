@@ -556,6 +556,9 @@
       19,
       10
    ],
+   "StopActualMusic": [
+      false
+   ],
    "Texture": 72,
    "actNumber": 2,
    "h": 720.0,

@@ -263,6 +263,9 @@
    "SoundEffect": [
       4
    ],
+   "StopActualMusic": [
+      true
+   ],
    "Texture": 37,
    "actNumber": -1,
    "h": 720.0,

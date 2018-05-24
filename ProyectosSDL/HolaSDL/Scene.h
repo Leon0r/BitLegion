@@ -30,6 +30,9 @@ private:
 	int SceneNum;
 	list<GameObject*> SceneItems;
 	list<GameState*> SceneStates;
+	Resources::MusicId SceneMusic;
+	bool music = false;
+	bool stopMusic = false;
 	queue<Resources::SoundEffectId> SceneSoundEffects;
 	vector <int> volumenes;
 	vector <int> numReps_;
