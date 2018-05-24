@@ -163,7 +163,7 @@
          ],
          "Texture": 180,
          "animation": true,
-         "dialogo": "caso1_acto1_vecinaNinya",
+         "dialogo": "Acto4.3CamelloCallejon",
          "done": false,
          "h": 200.0,
          "heightFrame": 129,
@@ -220,8 +220,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 10.0,
-      "y": 320.0
+      "x": 940.0177994993912,
+      "y": 199.94534179509853
    },
    "PlayerTam": {
       "h": 201.6,
