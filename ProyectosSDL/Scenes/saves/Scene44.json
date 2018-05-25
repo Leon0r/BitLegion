@@ -21,6 +21,24 @@
          "y": 350.0
       },
       {
+         "Texture": 276,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 100.0,
+         "y": 500.0
+      },
+      {
+         "Texture": 276,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 750.0,
+         "y": 350.0
+      },
+      {
          "Texture": 195,
          "h": 134.0,
          "rotation": 0.0,
@@ -153,7 +171,7 @@
          ],
          "Texture": 124,
          "animation": true,
-         "dialogo": "Ander2",
+         "dialogo": "Ander30",
          "done": false,
          "h": 206.0,
          "heightFrame": 149,
@@ -216,8 +234,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 10.0,
-      "y": 320.0
+      "x": 12.0,
+      "y": 500.0
    },
    "PlayerTam": {
       "h": 201.6,

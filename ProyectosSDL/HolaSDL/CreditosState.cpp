@@ -41,6 +41,7 @@ CreditosState::CreditosState(SDLApp * app) : GameState(app) {
 	exitFun_ = [this]() mutable { this->exit(this->app); };
 
 	createButtons();
+	playMusic(Resources::MainThemePro);
 }
 
 void CreditosState::update()

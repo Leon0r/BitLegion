@@ -100,13 +100,13 @@
          "Texture": 20,
          "animation": true,
          "convoName": "AlenaJeffaTelefono2",
-         "done": true,
+         "done": false,
          "h": 40.0,
          "heightFrame": 40,
          "loop": true,
          "numColsFrame": 1,
          "numFilsFrame": 2,
-         "repeat": false,
+         "repeat": true,
          "rotation": 0.0,
          "soundEffect": 1,
          "vel": 200.0,
@@ -124,8 +124,8 @@
       0
    ],
    "PlayerPos": {
-      "x": 832.0,
-      "y": 230.0
+      "x": 862.0,
+      "y": 225.6
    },
    "PlayerTam": {
       "h": 201.6,

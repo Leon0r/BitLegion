@@ -29,7 +29,7 @@
     ],
 
     "GOConversational": [
-         { "x": 915, "y": 280, "w": 40, "h": 40, "Texture": 20, "convoName": "AlenaJeffaTelefono2", "repeat": false,"animation": true, "numFilsFrame": 2, "numColsFrame": 1,
+         { "x": 915, "y": 280, "w": 40, "h": 40, "Texture": 20, "convoName": "AlenaJeffaTelefono2", "repeat": true,"animation": true, "numFilsFrame": 2, "numColsFrame": 1,
             "widthFrame": 40, "heightFrame": 40, "vel": 200, "loop": true,
             "Anims": [ [0],[1] ]}
     ],
