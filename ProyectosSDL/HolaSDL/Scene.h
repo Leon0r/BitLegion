@@ -7,6 +7,7 @@
 #include "ColisionableObject.h"
 #include <fstream>
 #include "Puzzle.h"
+#include "Interruptor.h"
 #include <queue>
 
 using json = nlohmann::json;
@@ -41,6 +42,7 @@ private:
 	list<GameObject*>::iterator it;
 	GameState* CurrentState;
 	MainCharacter* pj;
+	Interruptor* intAux_ = nullptr;
 	double width = 0, height = 0, x = 0, y = 0;
 	Vector2D posIni, playerTam;
 	GameState* PuzzleCreator(PuzzleTypes type, json& j); //dependiendo del tag, elige un puzzle u otro (podemos tener mas de dos)

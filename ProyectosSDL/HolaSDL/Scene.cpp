@@ -11,7 +11,6 @@
 #include "NPC.h"
 #include "FeedbackCursorInputComponent.h"
 #include "ActEndingScreen.h"
-#include "Interruptor.h"
 #include "GOcofres.h"
 
 Scene::Scene()
@@ -387,6 +386,8 @@ Scene::Scene(int numEscena, SDLApp* app, MainCharacter* pj, Observer* playState,
 
 			interr->addInputComponent(new FeedbackCursorInputComponent(app->getStateMachine()->currentState()->getCursor(), Resources::BotonSinClickar));
 
+			intAux_ = interr;
+
 			SceneItems.push_back(interr);
 			SceneItems.push_back(interr->getLuz());
 
@@ -554,6 +555,10 @@ void Scene::enterScene() {
 	pj->collisionListWasModified();
 
 	app->getStateMachine()->currentState()->resetCursor();
+
+	if (intAux_ != nullptr) {
+		intAux_->setLight();
+	}
 
 	if (cambioActo) { cambioActo = false; app->getStateMachine()->pushState(new ActEndingScreen(app, actNumber_, headerActo)); } //CAMBIO ACTO
 }

@@ -20,6 +20,7 @@ public:
 	virtual void act();
 	virtual void secondAct();
 	void changeLight();
+	void setLight();
 	Entity* getLuz() const { return luz_; };
 };
 

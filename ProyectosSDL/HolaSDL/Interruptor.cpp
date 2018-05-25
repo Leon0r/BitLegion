@@ -45,3 +45,15 @@ void Interruptor::changeLight()
 		off_ = true;
 	}
 }
+
+void Interruptor::setLight()
+{
+	if (!off_) {
+		if(luz_->getTexture() != nullptr)
+			luz_->getTexture()->changeAlpha(maxAlpha_);
+	}
+	else {
+		if (luz_->getTexture() != nullptr)
+			luz_->getTexture()->changeAlpha(minAlpha_);
+	}
+}
