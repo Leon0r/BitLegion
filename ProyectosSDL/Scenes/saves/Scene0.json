@@ -99,8 +99,13 @@
          ],
          "Texture": 20,
          "animation": true,
+<<<<<<< HEAD
          "convoName": "AlenaJeffaTelefono",
          "done": false,
+=======
+         "convoName": "AlenaLlavesMoto",
+         "done": true,
+>>>>>>> 58ab9c1054fd0404e1a0e1927f4eebaea66f4fd2
          "h": 40.0,
          "heightFrame": 40,
          "loop": true,
@@ -160,6 +165,17 @@
       }
    ],
    "GOTransiciones": [
+      {
+         "Texture": 29,
+         "h": 60.0,
+         "rotat": -90.0,
+         "rotation": -90.0,
+         "scneNum": 2,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 641.0,
+         "y": 247.0
+      },
       {
          "Texture": 29,
          "h": 60.0,
@@ -246,6 +262,7 @@
    ],
    "PlayerPos": {
       "x": 634.0,
+
       "y": 225.6
    },
    "PlayerTam": {
