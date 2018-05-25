@@ -48,7 +48,7 @@
                 { "x": 750, "y": 350, "w": 60, "h": 206, "Texture": 179,
                     "animation": true, "numFilsFrame": 5, "numColsFrame": 2,
                     "widthFrame": 36, "heightFrame": 127, "vel": 200, "loop": true,
-                    "Anims": [ [0,2,0,2,0,2,0,2,0,3,4,5,6,7,8,9,2,0,2,0,2,1] ], "dialogo": "Forense"
+                    "Anims": [ [0,2,0,2,0,2,0,2,0,3,4,5,6,7,8,9,2,0,2,0,2,1] ], "dialogo": "ForenseFinal"
                 }
             ]
 }
