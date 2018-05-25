@@ -23,7 +23,7 @@
 	{"numNodo":2, "nodoSig":3, "numLineas": 2, 
 
 	"lineas":[ {"texto": "Pues eso, que tengo los resultados y efectivamente, tiene "},
-		{"texto": "de esta sustancia… ¿cómo ha dicho que se llama? "}],
+		{"texto": "de esta sustancia... ¿cómo ha dicho que se llama? "}],
 	
 	"numOpciones":0, "pj": 264, "emo": 0
 	},
@@ -102,8 +102,8 @@
 
 	{"numNodo":11, "nodoSig":12, "numLineas": 3, 
 
-	"lineas":[ {"texto": " Hmm me parece buena idea. Después podemos ir a ver a Jeffa y darle "},
-	{"texto": " estos resultados. Aunque el caso ya está resuelto, ya sabemos qué mató"},
+	"lineas":[ {"texto": "Hmm me parece buena idea. Después podemos ir a ver a Jeffa y darle "},
+	{"texto": "estos resultados. Aunque el caso ya está resuelto, ya sabemos qué mató"},
 	{"texto":  "a Dimitriy por qué."}],
 	
 	"numOpciones":0, "pj": 89, "emo": 0
