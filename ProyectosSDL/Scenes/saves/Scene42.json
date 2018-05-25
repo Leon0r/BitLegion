@@ -25,15 +25,6 @@
          "y": 400.0
       },
       {
-         "Texture": 276,
-         "h": 206.0,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "w": 60.0,
-         "x": 122.0,
-         "y": 400.0
-      },
-      {
          "Texture": 239,
          "h": 156.0,
          "rotation": 0.0,
@@ -118,7 +109,7 @@
          "numColsFrame": 1,
          "numFilsFrame": 2,
          "numTextItem": 210,
-         "open": false,
+         "open": true,
          "permanenteItem": false,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -140,7 +131,7 @@
          "h": 80.0,
          "hItem": -842150451,
          "numTextItem": 276,
-         "open": false,
+         "open": true,
          "permanenteItem": true,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -167,19 +158,6 @@
          "w": 30.0,
          "x": 705.0,
          "y": 325.0
-      },
-      {
-         "Texture": 29,
-         "UnlockId": 1,
-         "h": 30.0,
-         "numText": 244,
-         "numberPuzzle": 0,
-         "rotation": -45,
-         "soundEffect": 1,
-         "type": 0,
-         "w": 30.0,
-         "x": 930.0,
-         "y": 500.0
       }
    ],
    "GOTransiciones": [
@@ -200,7 +178,7 @@
       {
          "Texture": 237,
          "UnlockId": 1,
-         "canWork": false,
+         "canWork": true,
          "h": 34.0,
          "maxAlpha": 220,
          "minAlpha": 0,
@@ -214,32 +192,6 @@
       }
    ],
    "ItemInventario": [
-      {
-         "Anims": [
-            [
-               0
-            ],
-            [
-               1
-            ]
-         ],
-         "Texture": 209,
-         "animation": true,
-         "descripcion": "Ese símbolo lo hemos visto ya en muchos sitios.",
-         "h": 30.0,
-         "heightFrame": 42,
-         "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "tag": "bolsaCocaLogo",
-         "vel": 200.0,
-         "w": 30.0,
-         "widthFrame": 42,
-         "x": 890.0,
-         "y": 470.0
-      },
       {
          "Anims": [
             [
@@ -265,6 +217,32 @@
          "widthFrame": 54,
          "x": 1015.0,
          "y": 471.0
+      },
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 209,
+         "animation": true,
+         "descripcion": "Ese símbolo lo hemos visto ya en muchos sitios.",
+         "h": 30.0,
+         "heightFrame": 42,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "tag": "bolsaCocaLogo",
+         "vel": 200.0,
+         "w": 30.0,
+         "widthFrame": 42,
+         "x": 890.0,
+         "y": 470.0
       }
    ],
    "MusicVolume": [
@@ -300,8 +278,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 284.0,
-      "y": 312.0
+      "x": 902.0,
+      "y": 471.6
    },
    "PlayerTam": {
       "h": 201.6,
