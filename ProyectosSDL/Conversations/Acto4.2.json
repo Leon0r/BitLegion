@@ -565,7 +565,7 @@
 			"numOpciones": 2,
 			"opciones": [
 		  {
-				"nodoApuntado": 34,
+				"nodoApuntado": 35,
 			   "textoOpcion": "¿Ni siquiera un cáncer o algo por el estilo?"
 		  },
 		  {
@@ -661,7 +661,7 @@
       		"numLineas": 1,
 
       		"lineas": [ 
-			  {"texto": "Pues…. lo único que nos queda es su teléfono móvil."}
+			  {"texto": "Pues... lo único que nos queda es su teléfono móvil."}
       		],
 
       		"numOpciones": 0,

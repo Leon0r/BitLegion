@@ -86,13 +86,13 @@
 	"numOpciones":0, "pj": 89, "emo": 2
 	},
 
-	{"numNodo":11, "nodoSig":12, "numLineas": 1, 
+	{"numNodo":11, "nodoSig":12, "numLineas": 3, 
 
 	"lineas":[ {"texto": "Ahhh vale, ya entiendo. Van buscando ese piso en concreto."},
 	{"texto": "Haber empezado por ahí. La puerta que buscáis es la tercera marcada "},
 	{"texto": "como primera."}],
 	
-	"numOpciones":0, "pj": 267, "emo": 5
+	"numOpciones":0, "pj": 267, "emo": 0
 	},
 
 	{"numNodo":12, "nodoSig":13, "numLineas": 1,
