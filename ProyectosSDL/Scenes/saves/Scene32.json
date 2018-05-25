@@ -96,7 +96,7 @@
       "w": 84.0
    },
    "StopActualMusic": [
-      false
+      true
    ],
    "Texture": 202,
    "actNumber": -1,

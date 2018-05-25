@@ -111,7 +111,7 @@
       "w": 84.0
    },
    "StopActualMusic": [
-      false
+      true
    ],
    "Texture": 53,
    "actNumber": -1,
