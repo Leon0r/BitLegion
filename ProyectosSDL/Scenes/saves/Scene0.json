@@ -146,6 +146,7 @@
    "GODoors": [
       {
          "Texture": 28,
+         "UnlockId": 1,
          "h": 242.0,
          "rotGOTr": -90.0,
          "rotat": 0.0,
@@ -156,6 +157,21 @@
          "w": 119.0,
          "x": 612.0,
          "y": 116.0
+      }
+   ],
+   "GOState": [
+      {
+         "Texture": 29,
+         "UnlockId": 1,
+         "h": 30.0,
+         "numText": 244,
+         "numberPuzzle": 2,
+         "rotation": -45,
+         "soundEffect": 1,
+         "type": 0,
+         "w": 30.0,
+         "x": 600.0,
+         "y": 500.0
       }
    ],
    "GOTransiciones": [
@@ -224,32 +240,6 @@
          "widthFrame": 40,
          "x": 630.0,
          "y": 500.0
-      },
-      {
-         "Anims": [
-            [
-               0
-            ],
-            [
-               1
-            ]
-         ],
-         "Texture": 19,
-         "animation": true,
-         "descripcion": "Esto sí que nos puede ser útil. Pero, ¿dónde la podemos usar?",
-         "h": 40.0,
-         "heightFrame": 40,
-         "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "tag": "key",
-         "vel": 200.0,
-         "w": 40.0,
-         "widthFrame": 40,
-         "x": 710.0,
-         "y": 490.0
       }
    ],
    "Music": [

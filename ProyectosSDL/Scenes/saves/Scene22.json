@@ -157,17 +157,6 @@
       {
          "Texture": 29,
          "h": 60.0,
-         "rotat": 90.0,
-         "rotation": 90.0,
-         "scneNum": 24,
-         "soundEffect": 1,
-         "w": 60.0,
-         "x": 1040.0,
-         "y": 498.0
-      },
-      {
-         "Texture": 29,
-         "h": 60.0,
          "rotat": -90.0,
          "rotation": -90.0,
          "scneNum": 23,
@@ -272,8 +261,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 1048.0,
-      "y": 368.0
+      "x": 10.0,
+      "y": 320.0
    },
    "PlayerTam": {
       "h": 120.0,

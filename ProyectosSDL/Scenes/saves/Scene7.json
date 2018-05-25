@@ -119,7 +119,7 @@
          "numColsFrame": 2,
          "numFilsFrame": 3,
          "numTextItem": 271,
-         "open": true,
+         "open": false,
          "permanenteItem": false,
          "rotation": 0.0,
          "soundEffect": 1,
@@ -150,6 +150,23 @@
          "y": 155.0
       }
    ],
+   "GOState": [
+      {
+         "TexturaFondo": 177,
+         "Texture": 29,
+         "UnlockId": 1,
+         "h": 30.0,
+         "password": "gackari",
+         "posFontX": 417,
+         "posFontY": 436,
+         "rotation": -45,
+         "soundEffect": 1,
+         "type": 2,
+         "w": 30.0,
+         "x": 500.0,
+         "y": 317.0
+      }
+   ],
    "GOTransiciones": [
       {
          "Texture": 29,
@@ -164,40 +181,12 @@
       }
    ],
    "HeaderActo": "",
-   "ItemInventario": [
-      {
-         "Anims": [
-            [
-               0
-            ],
-            [
-               1
-            ]
-         ],
-         "Texture": 271,
-         "animation": true,
-         "descripcion": "Necesario para entrar en el despacho de Jeffa",
-         "h": 18.0,
-         "heightFrame": 40,
-         "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "tag": "id",
-         "vel": 100.0,
-         "w": 18.0,
-         "widthFrame": 71,
-         "x": 514.0,
-         "y": 324.0
-      }
-   ],
    "MusicVolume": [
       0
    ],
    "PlayerPos": {
-      "x": 492.0,
-      "y": 293.0
+      "x": 900.0,
+      "y": 335.0
    },
    "PlayerTam": {
       "h": 201.6,
