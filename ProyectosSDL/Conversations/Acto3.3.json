@@ -252,17 +252,17 @@
 
     {
       "numNodo": 14,
-      "nodoSig": 13,
+      "nodoSig": 0,
       "numLineas": 0,
 
       "numOpciones": 2,
       "opciones": [
         {
-          "nodoApuntado": 14,
+          "nodoApuntado": 15,
           "textoOpcion": "¿Qué sabe sobre las drogas que tomaba Dimitri?"
         },
         {
-          "nodoApuntado": 15,
+          "nodoApuntado": 18,
           "textoOpcion": "¿Cómo se llama?"
         }
       ],
