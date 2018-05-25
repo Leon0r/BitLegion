@@ -93,7 +93,7 @@
          "Texture": 20,
          "animation": true,
          "convoName": "Ander10",
-         "done": false,
+         "done": true,
          "h": 45.0,
          "heightFrame": 40,
          "loop": true,
@@ -236,8 +236,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 30.0,
-      "y": 450.0
+      "x": 270.0,
+      "y": 378.0
    },
    "PlayerTam": {
       "h": 201.6,
