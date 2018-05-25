@@ -14,36 +14,41 @@
     "Decorado": [
         { "x": 700, "y": 305, "w": 70, "h": 81, "Texture": 238, "animation": true, "numFilsFrame": 3, "numColsFrame": 1,
             "widthFrame": 70, "heightFrame": 81, "vel": 150, "loop": true,
-            "Anims": [ [0,1,1,0,0,0,0,1,0,1,0,0,1,1,0,0,1,0,0,1], [2] ]}
+            "Anims": [ [0,1,1,0,0,0,0,1,0,1,0,0,1,1,0,0,1,0,0,1], [2] ]},
+
+        { "x": 890, "y": 470, "w": 30, "h": 30, "Texture": 209, "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
+            "widthFrame": 42, "heightFrame": 42, "vel": 200, "loop": true,
+            "Anims": [ [0],[1] ] },
+
+        { "x": 1015, "y": 471, "w": 64, "h": 54, "Texture": 211, "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
+            "widthFrame": 54, "heightFrame": 44, "vel": 200, "loop": true,
+            "Anims": [ [0],[1] ] },
+
+        { "x": 213, "y": 275, "w": 50, "h": 55, "Texture": 236, "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
+                "widthFrame": 50, "heightFrame": 55, "vel": 20, "loop": true,
+                "Anims": [ [0], [1] ]},
+
+    
+        { "x": 917, "y": 470, "w": 80, "h": 80, "Texture": 57, "tag": "carta", "generaState": true }
     ],
 
     "Interruptores": [
-        { "x": 100, "y": 235, "w": 37, "h": 34, "Texture": 237, "tag": "interruptor0", "maxAlpha": 220, "minAlpha": 0, "UnlockId": 1, "off": false, "canWork": false  }
-    ],
-
-    "GOCofres": [
-        { "x": 213, "y": 275, "w": 50, "h": 55, "Texture": 236, "tag": "", "wItem": 18, "hItem": 18, "descripcionItem": "Con esto ya tenemos pruebas más sólidas contra Moonprice.", 
-            "tagItem": "carta","numTextItem": 210, "xItem": 218, "yItem": 280, "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 50, "heightFrame": 55, "vel": 20, "loop": true,
-            "Anims": [ [0], [1] ]},
-
-        { "x": 917, "y": 470, "w": 80, "h": 80, "Texture": 57, "tag": "carta", "generaState": true }
-    ],
-    "ItemInventario": [
-        { "x": 890, "y": 470, "w": 30, "h": 30, "descripcion": "Ese símbolo lo hemos visto ya en muchos sitios.", "tag": "bolsaCocaLogo", "Texture": 209, "soundEffect": 1,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 42, "heightFrame": 42, "vel": 200, "loop": true,
-            "Anims": [ [0],[1] ] },
-        { "x": 1015, "y": 471, "w": 64, "h": 54, "descripcion": "No hay muchisima informacion, pero con esto sabemos como se organizan.", "tag": "cuadernoDroga", "Texture": 211, "soundEffect": 1,
-            "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
-            "widthFrame": 54, "heightFrame": 44, "vel": 200, "loop": true,
-            "Anims": [ [0],[1] ] }
+        { "x": 100, "y": 235, "w": 37, "h": 34, "Texture": 237, "tag": "interruptor0", "maxAlpha": 220, "minAlpha": 0, "UnlockId": 1, "off": false, "canWork": true  }
     ],
 
     "PlayerPos": {
         "x": 230,
         "y": 330
     },
+
+    "Music": [ 
+        5
+    ],
+
+    "volumenes": [
+        3
+    ],
+
 
     "NPC": [
 

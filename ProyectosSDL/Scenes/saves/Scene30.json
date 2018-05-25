@@ -269,8 +269,11 @@
       }
    ],
    "HeaderActo": "",
+   "Music": [
+      3
+   ],
    "MusicVolume": [
-      0
+      40
    ],
    "NPC": [
       {

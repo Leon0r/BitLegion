@@ -123,7 +123,7 @@
       4
    ],
    "StopActualMusic": [
-      false
+      true
    ],
    "Texture": 216,
    "actNumber": -1,

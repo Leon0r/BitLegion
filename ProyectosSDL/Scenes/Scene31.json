@@ -29,6 +29,10 @@
     "volumenes": [
         5
     ],
+    
+    "StopActualMusic": [ 
+        true
+    ],
 
     "numRepeticionesSonidos": [
         -1

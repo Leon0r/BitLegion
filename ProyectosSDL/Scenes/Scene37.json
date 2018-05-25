@@ -16,9 +16,14 @@
         "y": 330
     },
 
-     "StopActualMusic": [ 
-        true
+    "Music": [ 
+        5
     ],
+
+    "volumenes": [
+        3
+    ],
+
 
     "NPC": [
 

@@ -23,8 +23,12 @@
         "w": 84.0
     },
 
-     "StopActualMusic": [ 
-        true
+    "Music": [ 
+        4
+    ],
+
+    "volumenes": [
+        4
     ],
 
     "ItemInventario": [
