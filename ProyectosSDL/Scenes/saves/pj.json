@@ -1,13 +1,13 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 42,
-        "h": 201.6,
+        "actualScene": 22,
+        "h": 120.0,
         "pass_": 0,
         "rotation": 0.0,
         "soundEffect": 1,
-        "w": 84.0,
-        "x": 638.0,
-        "y": 225.6
+        "w": 50.0,
+        "x": 10.0,
+        "y": 320.0
     }
 }

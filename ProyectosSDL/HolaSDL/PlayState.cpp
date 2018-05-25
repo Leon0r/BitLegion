@@ -134,7 +134,7 @@ void PlayState::swapScene(int nextScene)
 
 void PlayState::handleEvent(SDL_Event & e) {
 
-	if (!enConversacion) { //para que no de error con textos automaticos
+	if (!enConversacion) {  //para que no de error con textos automaticos
 		if (e.type == SDL_KEYDOWN) { //jaaaaaaaaaaaaaaaacksss
 			if (e.key.keysym.sym == SDLK_F1) {
 				swapScene(currentScene + 1);

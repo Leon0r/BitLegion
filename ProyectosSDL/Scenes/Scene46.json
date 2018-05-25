@@ -37,5 +37,9 @@
     "PlayerPos": {
         "x": 100,
         "y": 500
-    }
+    },
+
+    "AutoGOConversational": [
+         { "x": 581, "y": 400, "w": 0, "h": 0, "Texture": 19, "convoName": "Ring", "repeat":  false }
+    ]
 }

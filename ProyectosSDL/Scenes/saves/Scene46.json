@@ -1,5 +1,18 @@
 {
    "AlenaActiva": true,
+   "AutoGOConversational": [
+      {
+         "Texture": 19,
+         "convoName": "Ring",
+         "h": 0.0,
+         "repeat": false,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 0.0,
+         "x": 581.0,
+         "y": 400.0
+      }
+   ],
    "CambioActo": false,
    "CollisionableObject": [
       {

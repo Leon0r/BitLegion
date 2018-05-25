@@ -149,6 +149,19 @@
       {
          "Texture": 29,
          "UnlockId": 1,
+         "dificultad": 4,
+         "h": 30.0,
+         "numCas": 3,
+         "rotation": -45,
+         "soundEffect": 1,
+         "type": 1,
+         "w": 30.0,
+         "x": 705.0,
+         "y": 325.0
+      },
+      {
+         "Texture": 29,
+         "UnlockId": 1,
          "h": 30.0,
          "numText": 244,
          "numberPuzzle": 0,
@@ -179,7 +192,7 @@
       {
          "Texture": 237,
          "UnlockId": 1,
-         "canWork": true,
+         "canWork": false,
          "h": 34.0,
          "maxAlpha": 220,
          "minAlpha": 0,
@@ -282,8 +295,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 638.0,
-      "y": 225.6
+      "x": 230.0,
+      "y": 330.0
    },
    "PlayerTam": {
       "h": 201.6,
