@@ -6,6 +6,14 @@
     "x": 0.0,
     "y": 0.0,
 
+    "Music": [ 
+        2
+    ],
+
+    "volumenes": [
+        3
+    ],
+
     "CollisionableObject": [
         { "x": 0, "y": 140, "w": 330, "h": 318, "Texture": 127,"animation": true, "numFilsFrame": 1, "numColsFrame": 2,
             "widthFrame": 330, "heightFrame": 318, "vel": 150, "loop": true,

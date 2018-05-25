@@ -285,7 +285,10 @@ std::vector<std::string> Resources::musicFiles_{
 	"..//music/initTest.wav",
 	"..//music/MainTheme.mp3",
 	"..//music/Moonace Alena Casa y edificio.mp3",
-	"..//music/TemaBarYBazar.mp3"
+	"..//music/TemaBarYBazar.mp3",
+	"..//music/ForenseMusic.mp3",
+	"..//music/CalleViktoriya100.mp3",
+	"..//music/DespachoMusic.mp3"
 };
 
 std::vector<std::string> Resources::soundEffectFiles_{ 

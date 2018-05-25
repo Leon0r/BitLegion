@@ -13,6 +13,10 @@
         "x": 1150,
         "y": 300
     },
+    
+    "StopActualMusic": [ 
+        true
+    ],
 
     "SoundEffect": [
         14

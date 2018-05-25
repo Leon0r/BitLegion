@@ -302,7 +302,10 @@ public:
 		MainTheme,
 		MainThemePro,
 		CasaAlenaTheme,
-		BazarTheme
+		BazarTheme,
+		ForenseTheme,
+		VictoriyaTheme,
+		LODTheme
 	};
 
 

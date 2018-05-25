@@ -6,6 +6,14 @@
     "x": 0.0,
     "y": 0.0,
 
+    "Music": [ 
+        6
+    ],
+
+    "volumenes": [
+        3
+    ],
+
     "Decorado": [
     	{ "x": 725, "y": 220, "w": 77, "h": 130, "Texture": 136,
             "animation": true, "numFilsFrame": 1, "numColsFrame": 2,

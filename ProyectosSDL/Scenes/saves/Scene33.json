@@ -120,6 +120,9 @@
       }
    ],
    "HeaderActo": "",
+   "Music": [
+      4
+   ],
    "MusicVolume": [
       0
    ],
@@ -198,8 +201,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 604.0,
-      "y": 356.0
+      "x": 10.0,
+      "y": 320.0
    },
    "PlayerTam": {
       "h": 201.6,
@@ -213,6 +216,9 @@
    "h": 720.0,
    "rotation": 0.0,
    "soundEffect": 1,
+   "volumenes": [
+      4
+   ],
    "w": 1280.0,
    "x": 0.0,
    "y": 0.0
