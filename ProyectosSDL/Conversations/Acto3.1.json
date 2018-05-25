@@ -45,7 +45,7 @@
 
 	"opciones":[
 	{"nodoApuntado": 5, "textoOpcion": "¿De verdad que no va colaborar? (dejar un par de billetes sobre la mesa)"},
-	{"nodoApuntado": 9, "textoOpcion": "Bueno, pues pongame una botella del mejor vozka que tenga."},
+	{"nodoApuntado": 9, "textoOpcion": "Bueno, pues pongame una botella del mejor vodka que tenga."},
 	{"nodoApuntado": 10, "textoOpcion": "Puedo ser bastante persuasiva, la policía siempre me suele hacer caso."}
 	],
 	
@@ -64,7 +64,7 @@
 	"numOpciones":2, 
 	"opciones":[
 	{"nodoApuntado": 7, "textoOpcion": "Vaya, pensaba que funcionaría, siempre lo suele hacer."},
-	{"nodoApuntado": 9, "textoOpcion": "Bueno, pues pongame una botella del mejor vozka que tenga."}
+	{"nodoApuntado": 9, "textoOpcion": "Bueno, pues pongame una botella del mejor vodka que tenga."}
 	],
 
 	"pj": 89,	"emo": 0
@@ -80,7 +80,7 @@
 	{"numNodo":8, "nodoSig":9, "numLineas": 2,
 
 	"lineas":[ {"texto": "En el fondo tiene razón."},
-	{"texto": "Bueno, pues pongame una botella del mejor vozka que tenga."}],
+	{"texto": "Bueno, pues pongame una botella del mejor vodka que tenga."}],
 	
 	"numOpciones":0, "pj": 89, "emo": 0
 	},
@@ -105,7 +105,7 @@
 	"numOpciones":2, 
 	"opciones":[
 	{"nodoApuntado": 5, "textoOpcion": "¿De verdad que no va colaborar? (dejar un par de billetes sobre la mesa)"},
-	{"nodoApuntado": 9, "textoOpcion": "Bueno, pues pongame una botella del mejor vozka que tenga."}],
+	{"nodoApuntado": 9, "textoOpcion": "Bueno, pues pongame una botella del mejor vodka que tenga."}],
 
 	"pj": 89,	"emo": 0
 	},
