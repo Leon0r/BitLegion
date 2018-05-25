@@ -26,6 +26,10 @@
         "h": 120
     },
 
+     "StopActualMusic": [ 
+        true
+    ],
+
     "NPC": [
 
         { "x": 1100, "y": 290, "w": 36, "h": 125, "Texture": 124,

@@ -23,6 +23,10 @@
         "w": 84.0
     },
 
+     "StopActualMusic": [ 
+        true
+    ],
+
     "ItemInventario": [
         { "x": 710, "y": 495, "w": 42, "h": 42, "descripcion": "Tiene el logo de Beyond. Parece una medicina bastante potente.", "tag": "antidoto", "Texture": 208, "soundEffect": 1,
             "animation": true, "numFilsFrame": 2, "numColsFrame": 1,
