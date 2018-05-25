@@ -88,4 +88,4 @@ void SoundManager::receive(Mensaje* msg) {
 	}
 }
 
-void SoundManager::changeMute() { mute = !mute; if (!mute)app->getResources()->getMusic(actualMusicId)->play(); };
+void SoundManager::changeMute() { mute = !mute; if (!mute) { app->getResources()->getMusic(actualMusicId)->play(); stopMusic = true; } };

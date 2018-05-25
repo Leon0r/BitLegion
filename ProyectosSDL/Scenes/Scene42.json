@@ -16,7 +16,7 @@
     ],
 
     "GOState":[
-        {"x": 705, "y": 325, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 5, "UnlockId": 1},
+        {"x": 705, "y": 325, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 4, "UnlockId": 1},
         { "x": 930, "y": 500, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"numText": 244 ,"numberPuzzle": 0,"type": 0, "UnlockId": 1, "swapScene": true }
     ],
 

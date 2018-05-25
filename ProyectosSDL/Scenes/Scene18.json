@@ -66,7 +66,7 @@
     ],
 
     "GOState":[
-        {"x": 610, "y": 305, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 1, "UnlockId": 1}
+        {"x": 610, "y": 305, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 2, "UnlockId": 1}
     ],
 
     "Interruptores": [

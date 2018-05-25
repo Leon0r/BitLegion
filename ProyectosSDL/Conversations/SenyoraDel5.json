@@ -80,8 +80,8 @@
 	{"numNodo":10, "nodoSig":11, "numLineas": 3, 
 
 	"lineas":[ {"texto": "Bueno, tampoco hace falta ponerse así.  "}, 
-	{"texto": "Necesitamos encontrar el piso, porque esta es la llave que lo abre"},
-	{"texto": "y queremos ver qué hay dentro. "}],
+	{"texto": "Necesitamos encontrar el piso, es de vital importancia."},
+	{"texto": "Queremos ver qué hay dentro. "}],
 	
 	"numOpciones":0, "pj": 89, "emo": 2
 	},
