@@ -41,7 +41,7 @@
         { "x": 650, "y": 450, "w": 50, "h": 206, "Texture": 160,
             "animation": true, "numFilsFrame": 6, "numColsFrame": 2,
             "widthFrame": 27, "heightFrame": 109, "vel": 200, "loop": true,
-            "Anims": [ [0,3,0,1,4,1,3,0,7,4,1,0,7,0,7,0,1,0,1,6,9,0,11,0] ], "dialogo": "VecinodelMuerto"
+            "Anims": [ [0,3,0,1,4,1,3,0,7,4,1,0,7,0,7,0,1,0,1,6,9,0,11,0] ], "dialogo": "Acto3.3"
         }
     ]
 }
