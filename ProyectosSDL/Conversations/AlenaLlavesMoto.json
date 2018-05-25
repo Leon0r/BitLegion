@@ -1,11 +1,6 @@
 {
 
 	"NumNodos": 1,
-	"msg": 2,
-    "textureItem": 54,
-    "tagItem": "keyCoche",
-    "descripcionItem": "Es la llave del coche  de la empresa",
-    "permanenteItem": false,
 	"Nodo": [
 
 	{"numNodo":0, "nodoSig":-1, "numLineas": 1, "lineas":[ {"texto": "Espero que la moto tenga hidrogeno suficiente."}],
