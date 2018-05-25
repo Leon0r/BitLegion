@@ -12,6 +12,15 @@
          "y": 250.0
       },
       {
+         "Texture": 276,
+         "h": 206.0,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 60.0,
+         "x": 200.0,
+         "y": 450.0
+      },
+      {
          "Texture": 85,
          "h": 220.0,
          "rotation": 0.0,
@@ -106,7 +115,7 @@
          ],
          "Texture": 77,
          "animation": true,
-         "dialogo": "Acto1",
+         "dialogo": "DespachoJeffaFinal",
          "done": false,
          "h": 207.0,
          "heightFrame": 137,
@@ -121,6 +130,33 @@
          "widthFrame": 35,
          "x": 600.0,
          "y": 250.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               2,
+               3
+            ]
+         ],
+         "Texture": 124,
+         "animation": true,
+         "dialogo": "Ander28",
+         "done": false,
+         "h": 206.0,
+         "heightFrame": 149,
+         "loop": true,
+         "numColsFrame": 2,
+         "numFilsFrame": 4,
+         "repeatDialog": true,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 60.0,
+         "widthFrame": 41,
+         "x": 200.0,
+         "y": 450.0
       }
    ],
    "PlayerPos": {

@@ -16,7 +16,7 @@
     ],
 
     "GOState":[
-        {"x": 705, "y": 325, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 10, "UnlockId": 1},
+        {"x": 705, "y": 325, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 5, "UnlockId": 1},
         { "x": 930, "y": 500, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"numText": 244 ,"numberPuzzle": 0,"type": 0, "UnlockId": 1 }
     ],
 
@@ -27,7 +27,7 @@
     ],
 
     "Interruptores": [
-        { "x": 100, "y": 235, "w": 37, "h": 34, "Texture": 237, "tag": "interruptor0", "maxAlpha": 230, "minAlpha": 0, "UnlockId": 1, "off": true, "canWork": false  }
+        { "x": 100, "y": 235, "w": 37, "h": 34, "Texture": 237, "tag": "interruptor0", "maxAlpha": 220, "minAlpha": 0, "UnlockId": 1, "off": true, "canWork": false  }
     ],
 
     "GOCofres": [
@@ -53,6 +53,10 @@
         "x": 230,
         "y": 330
     },
+
+    "AutoGOConversational": [
+         { "x": 581, "y": 400, "w": 0, "h": 0, "Texture": 19, "convoName": "DentroDelPiso", "repeat":  false }
+    ],
 
     "NPC": [
 

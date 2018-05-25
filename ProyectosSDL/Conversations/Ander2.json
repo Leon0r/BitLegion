@@ -5,8 +5,8 @@
 	"Nodo": [
 
 	{"numNodo":0, "nodoSig":-1, "numLineas": 1, "lineas":[ 
-		{"texto": "..."}],
-	"numOpciones":0, "pj": 90, "emo": 1
+		{"texto": "Intenta arreglar la caja de luces para que podamos ver algo."}],
+	"numOpciones":0, "pj": 90, "emo": 4
 	}
 
 	]

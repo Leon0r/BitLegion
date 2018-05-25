@@ -42,18 +42,21 @@
       {
          "Anims": [
             [
-               0
+               0,
+               1,
+               2,
+               3
             ]
          ],
          "Texture": 227,
          "animation": true,
-         "dialogo": "caso1_acto1_vecinaNinya",
+         "dialogo": "SenyoraDel5",
          "done": false,
          "h": 210.0,
          "heightFrame": 140,
          "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 1,
+         "numColsFrame": 2,
+         "numFilsFrame": 2,
          "repeatDialog": true,
          "rotation": 0.0,
          "soundEffect": 1,

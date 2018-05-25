@@ -58,7 +58,19 @@
             "vel": 200,
             "loop": true,
             "Anims": [ [ 0 ], [ 1 ] ]
-        }
+        },
+
+         { "x": 600, "y": 285, "w": 70, "h": 81, "Texture": 238, "animation": true, "numFilsFrame": 3, "numColsFrame": 1,
+            "widthFrame": 70, "heightFrame": 81, "vel": 150, "loop": true,
+            "Anims": [ [0,1,1,0,0,0,0,1,0,1,0,0,1,1,0,0,1,0,0,1], [2] ]}
+    ],
+
+    "GOState":[
+        {"x": 610, "y": 305, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"type": 1, "numCas": 3, "dificultad": 1, "UnlockId": 1}
+    ],
+
+    "Interruptores": [
+        { "x": 400, "y": 235, "w": 37, "h": 34, "Texture": 237, "tag": "interruptor0", "maxAlpha": 220, "minAlpha": 0, "UnlockId": 1, "off": true, "canWork": false  }
     ],
 
     "ItemInventario": [

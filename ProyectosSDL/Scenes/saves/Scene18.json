@@ -78,6 +78,49 @@
          "widthFrame": 40,
          "x": 1075.0,
          "y": 260.0
+      },
+      {
+         "Anims": [
+            [
+               0,
+               1,
+               1,
+               0,
+               0,
+               0,
+               0,
+               1,
+               0,
+               1,
+               0,
+               0,
+               1,
+               1,
+               0,
+               0,
+               1,
+               0,
+               0,
+               1
+            ],
+            [
+               2
+            ]
+         ],
+         "Texture": 238,
+         "animation": true,
+         "h": 81.0,
+         "heightFrame": 81,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 3,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 150.0,
+         "w": 70.0,
+         "widthFrame": 70,
+         "x": 600.0,
+         "y": 285.0
       }
    ],
    "GOConversational": [
@@ -93,7 +136,7 @@
          "Texture": 20,
          "animation": true,
          "convoName": "Ander10",
-         "done": false,
+         "done": true,
          "h": 45.0,
          "heightFrame": 40,
          "loop": true,
@@ -123,6 +166,23 @@
       }
    ],
    "HeaderActo": "",
+   "Interruptores": [
+      {
+         "Texture": 237,
+         "UnlockId": 1,
+         "canWork": true,
+         "h": 34.0,
+         "maxAlpha": 220,
+         "minAlpha": 0,
+         "off": false,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "tag": "interruptor0",
+         "w": 37.0,
+         "x": 400.0,
+         "y": 235.0
+      }
+   ],
    "ItemInventario": [
       {
          "Anims": [
@@ -236,8 +296,8 @@
       }
    ],
    "PlayerPos": {
-      "x": 30.0,
-      "y": 450.0
+      "x": 282.0,
+      "y": 339.6
    },
    "PlayerTam": {
       "h": 201.6,

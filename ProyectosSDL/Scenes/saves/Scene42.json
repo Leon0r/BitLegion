@@ -1,5 +1,18 @@
 {
    "AlenaActiva": true,
+   "AutoGOConversational": [
+      {
+         "Texture": 19,
+         "convoName": "DentroDelPiso",
+         "h": 0.0,
+         "repeat": false,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "w": 0.0,
+         "x": 581.0,
+         "y": 400.0
+      }
+   ],
    "CambioActo": false,
    "CollisionableObject": [
       {
@@ -136,7 +149,7 @@
       {
          "Texture": 29,
          "UnlockId": 1,
-         "dificultad": 10,
+         "dificultad": 5,
          "h": 30.0,
          "numCas": 3,
          "rotation": -45,
@@ -180,7 +193,7 @@
          "UnlockId": 1,
          "canWork": false,
          "h": 34.0,
-         "maxAlpha": 230,
+         "maxAlpha": 220,
          "minAlpha": 0,
          "off": true,
          "rotation": 0.0,
