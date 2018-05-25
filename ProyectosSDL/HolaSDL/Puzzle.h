@@ -10,6 +10,7 @@ protected:
 	vector<GOUnlockeable*> unlockeables;
 	GOTimer* timingSalida;
 	bool hasWon = false;
+	bool swapScene;
 	virtual void win() {
 		hasWon = true;
 		timingSalida->startTimer();
@@ -18,7 +19,7 @@ protected:
 
 public:
 	Puzzle() {};
-	Puzzle(SDLApp* app, int id = -4) : GameState(app), id(id) { function<void()> fun = [this]()mutable {this->winner(); }; timingSalida = new GOTimer(800, fun); this->stage.push_back(timingSalida); };
+	Puzzle(SDLApp* app, int id = -4, bool swapScene = false) : GameState(app), id(id), swapScene(swapScene) { function<void()> fun = [this]()mutable {this->winner(); }; timingSalida = new GOTimer(800, fun); this->stage.push_back(timingSalida); };
 	~Puzzle();
 
 	int id;
@@ -51,7 +52,7 @@ public:
 		app->getStateMachine()->popState(false);
 		unlockObjects();
 		app->getStateMachine()->currentState()->SetZBuffer();
-		send(&Mensaje(WinPuzzle));
+		send(&SwapScenePuzzle(swapScene));
 		app->getStateMachine()->pushState(new TransitionScreen(app, app->getStateMachine()->currentState(), 1000));
 	}
 };

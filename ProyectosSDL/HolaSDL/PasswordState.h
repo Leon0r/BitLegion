@@ -29,7 +29,7 @@ private:
 
 public:
 	PasswordState();
-	PasswordState(SDLApp* app, int PosFontX, int PosFontY,string password = "hanzomain", int id = -4, int txt = -1);
+	PasswordState(SDLApp* app, int PosFontX, int PosFontY,string password = "hanzomain", int id = -4, int txt = -1, bool swap = false);
 	virtual ~PasswordState();
 	virtual void handleEvent(SDL_Event &e);
 	virtual void render();

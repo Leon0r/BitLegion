@@ -97,33 +97,6 @@
                1
             ]
          ],
-         "Texture": 154,
-         "animation": true,
-         "convoName": "AlenaLlavesMoto",
-         "done": false,
-         "h": 40.0,
-         "heightFrame": 40,
-         "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
-         "repeat": false,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "vel": 200.0,
-         "w": 40.0,
-         "widthFrame": 40,
-         "x": 630.0,
-         "y": 500.0
-      },
-      {
-         "Anims": [
-            [
-               0
-            ],
-            [
-               1
-            ]
-         ],
          "Texture": 20,
          "animation": true,
          "convoName": "AlenaJeffaTelefono",
@@ -141,6 +114,33 @@
          "widthFrame": 40,
          "x": 915.0,
          "y": 280.0
+      },
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 154,
+         "animation": true,
+         "convoName": "AlenaLlavesMoto",
+         "done": false,
+         "h": 40.0,
+         "heightFrame": 40,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "repeat": false,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "vel": 200.0,
+         "w": 40.0,
+         "widthFrame": 40,
+         "x": 630.0,
+         "y": 500.0
       }
    ],
    "GODoors": [
@@ -159,22 +159,18 @@
          "y": 116.0
       }
    ],
-   "GOState": [
+   "GOTransiciones": [
       {
          "Texture": 29,
-         "UnlockId": 1,
-         "h": 30.0,
-         "numText": 244,
-         "numberPuzzle": 2,
-         "rotation": -45,
+         "h": 60.0,
+         "rotat": -90.0,
+         "rotation": -90.0,
+         "scneNum": 2,
          "soundEffect": 1,
-         "type": 0,
-         "w": 30.0,
-         "x": 670.0,
-         "y": 270.0
-      }
-   ],
-   "GOTransiciones": [
+         "w": 60.0,
+         "x": 641.0,
+         "y": 247.0
+      },
       {
          "Texture": 29,
          "h": 60.0,
@@ -189,32 +185,6 @@
    ],
    "HeaderActo": "El regreso de Alena",
    "ItemInventario": [
-      {
-         "Anims": [
-            [
-               0
-            ],
-            [
-               1
-            ]
-         ],
-         "Texture": 56,
-         "animation": true,
-         "descripcion": "Es un rotulador... rojo.... y ya.",
-         "h": 40.0,
-         "heightFrame": 40,
-         "loop": true,
-         "numColsFrame": 1,
-         "numFilsFrame": 2,
-         "rotation": 0.0,
-         "soundEffect": 1,
-         "tag": "rotulador",
-         "vel": 200.0,
-         "w": 40.0,
-         "widthFrame": 40,
-         "x": 670.0,
-         "y": 500.0
-      },
       {
          "Anims": [
             [
@@ -240,6 +210,32 @@
          "widthFrame": 40,
          "x": 630.0,
          "y": 500.0
+      },
+      {
+         "Anims": [
+            [
+               0
+            ],
+            [
+               1
+            ]
+         ],
+         "Texture": 56,
+         "animation": true,
+         "descripcion": "Es un rotulador... rojo.... y ya.",
+         "h": 40.0,
+         "heightFrame": 40,
+         "loop": true,
+         "numColsFrame": 1,
+         "numFilsFrame": 2,
+         "rotation": 0.0,
+         "soundEffect": 1,
+         "tag": "rotulador",
+         "vel": 200.0,
+         "w": 40.0,
+         "widthFrame": 40,
+         "x": 670.0,
+         "y": 500.0
       }
    ],
    "Music": [
@@ -249,8 +245,8 @@
       0
    ],
    "PlayerPos": {
-      "x": 100.0,
-      "y": 500.0
+      "x": 634.0,
+      "y": 225.6
    },
    "PlayerTam": {
       "h": 201.6,

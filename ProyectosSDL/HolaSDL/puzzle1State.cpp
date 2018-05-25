@@ -3,7 +3,7 @@
 #include "json.hpp"
 #include "Puzzle.h"
 
-Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numberPuzzle, int numText, int id) :Puzzle(game, id), previousState(previousState), numText_(numText), _id(id)
+Puzzle1State::Puzzle1State(SDLApp * game, GameState * previousState, Uint8 numberPuzzle, int numText, int id, bool swap) :Puzzle(game, id, swap), previousState(previousState), numText_(numText), _id(id)
 {
 	pb = MouseEventAnimComponent(SDL_MOUSEBUTTONDOWN, "Pressed", "Stop", SDL_BUTTON_LEFT);
 

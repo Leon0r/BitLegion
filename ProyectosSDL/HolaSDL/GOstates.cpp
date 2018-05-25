@@ -30,7 +30,7 @@ void GOstates::act() {
 	this->send(&Mensaje(CambioEstado));
 	app->getStateMachine()->currentState()->changeList();
 	state_->searchId(); 
-	if (!added) { state_->addObserver(this); added = true; } //si no se ha añadido mas veces, lo anyade (evitar fallos raros al clickar varias veces)
+	if (!added) { state_->addObserver(this); state_->addObserver(app->getStateMachine()->currentState()); added = true; } //si no se ha añadido mas veces, lo anyade (evitar fallos raros al clickar varias veces)
 	this->getGame()->getStateMachine()->pushState(state_);
 	state_->enter();
 }
@@ -54,6 +54,7 @@ void GOstates::saveToJson(json & j){
 		if (!jAux_["TexturaFondo"].is_null()) { aux["TexturaFondo"] = jAux_["TexturaFondo"]; }
 		if (!jAux_["posFontX"].is_null()) { aux["posFontX"] = jAux_["posFontX"]; }
 		if (!jAux_["posFontY"].is_null()) { aux["posFontY"] = jAux_["posFontY"]; }
+		if (!jAux_["swapScene"].is_null()) { aux["swapScene"] = jAux_["swapScene"]; }
 
 		j["GOState"].push_back(aux);
 	}

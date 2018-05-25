@@ -620,6 +620,10 @@ void Scene::saveSceneToJson() {
 GameState * Scene::PuzzleCreator(PuzzleTypes type, json& j){
 	GameState* nPuzzle = nullptr;
 
+	bool swapScene = false;
+	if (!j["swapScene"].is_null())
+		swapScene = j["swapScene"];
+
 	switch (type)
 	{
 	case (Match3):
@@ -628,7 +632,7 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, json& j){
 		if(!j["UnlockId"].is_null())
 			aux = j["UnlockId"];
 
-		nPuzzle = new Puzzle1State(app, app->getStateMachine()->currentState(), j["numberPuzzle"], j["numText"], aux);
+		nPuzzle = new Puzzle1State(app, app->getStateMachine()->currentState(), j["numberPuzzle"], j["numText"], aux, swapScene);
 		break;
 	}
 	case (Lights):
@@ -637,7 +641,7 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, json& j){
 		if (!j["UnlockId"].is_null())
 			aux = j["UnlockId"];
 		
-		nPuzzle = new LightsOut(app, j["numCas"], j["dificultad"], aux);
+		nPuzzle = new LightsOut(app, j["numCas"], j["dificultad"], aux, swapScene);
 		break;
 	}
 
@@ -651,7 +655,7 @@ GameState * Scene::PuzzleCreator(PuzzleTypes type, json& j){
 		if (!j["TexturaFondo"].is_null())
 			fondo = j["TexturaFondo"];
 
-		nPuzzle = new PasswordState(app, j["posFontX"], j["posFontY"],j["password"], aux, fondo);
+		nPuzzle = new PasswordState(app, j["posFontX"], j["posFontY"],j["password"], aux, fondo, swapScene);
 		break;
 	}
 	default:

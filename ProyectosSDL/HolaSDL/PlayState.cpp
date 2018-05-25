@@ -246,6 +246,12 @@ void PlayState::receive(Mensaje* msg) {
 		timeToClose = true;
 		break;
 	}
+	case WinPuzzle:
+	{
+		SwapScenePuzzle* msgPuzzle = static_cast<SwapScenePuzzle*>(msg);
+		if(msgPuzzle->swapScene) swapScene(currentScene + 1);
+		break;
+	}
 	case DialogoAcabado:
 		setEnConversacion(false);
 		break;

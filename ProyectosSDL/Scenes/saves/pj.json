@@ -1,26 +1,13 @@
 {
     "mainPj": {
         "Texture": 0,
-        "actualScene": 19,
-        "h": 120.0,
-        "itemList": [
-            {
-                "Texture": 20,
-                "descripcion": "Nos puede proporcionar muchas pistas.",
-                "h": 36.92307692307692,
-                "rotation": 0.0,
-                "soundEffect": 1,
-                "tag": "movilMuerto",
-                "w": 49.230769230769226,
-                "x": 938.1846153846153,
-                "y": 8.53846153846154
-            }
-        ],
+        "actualScene": 1,
+        "h": 201.6,
         "pass_": 0,
         "rotation": 0.0,
         "soundEffect": 1,
-        "w": 50.0,
-        "x": 10.0,
-        "y": 320.0
+        "w": 84.0,
+        "x": 400.0,
+        "y": 380.0
     }
 }

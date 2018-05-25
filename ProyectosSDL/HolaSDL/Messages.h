@@ -127,3 +127,11 @@ struct StopSoundEffect : Mensaje {
 	Resources::SoundEffectId idSound_;
 };
 
+struct SwapScenePuzzle : Mensaje {
+	SwapScenePuzzle(bool swap) :
+		Mensaje(WinPuzzle), swapScene(swap) {
+	}
+	bool swapScene;
+};
+
+

@@ -90,7 +90,7 @@
     ],
 
     "GOState":[
-        { "x": 670, "y": 270, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"numText": 244 ,"numberPuzzle": 2,"type": 0, "UnlockId": 1 }
+        { "x": 670, "y": 270, "w": 30, "h": 30, "Texture": 29, "rotation": -45,"numText": 244 ,"numberPuzzle": 2,"type": 0, "UnlockId": 1, "swapScene": true }
     ],
 
     "GOConversational": [

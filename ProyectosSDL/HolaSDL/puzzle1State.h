@@ -79,7 +79,7 @@ private:
 	void destCasilla(CasillaPuzzle1* aux);
 public:
 	Puzzle1State() {};
-	Puzzle1State(SDLApp* game,  GameState* previousState, Uint8 numberPuzzle, int numText, int id = -4);
+	Puzzle1State(SDLApp* game,  GameState* previousState, Uint8 numberPuzzle, int numText, int id = -4, bool swap = false);
 	virtual ~Puzzle1State() { destroy(); stage.clear(); };
 
 	int _id;
